@@ -1,0 +1,53 @@
+/* Zeffy Donation Form Styling */
+.zeffy-donation-form {
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 100, 148, 0.1);
+    overflow: hidden;
+    background: white;
+}
+
+.zeffy-donation-form iframe {
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+    min-height: 600px;
+}
+
+/* Responsive adjustments for Zeffy form */
+@media (max-width: 768px) {
+    .zeffy-donation-form {
+        margin: 0 1rem;
+    }
+    
+    .zeffy-donation-form iframe {
+        min-height: 500px;
+    }
+}
+
+/* Appended modern global styles (keeps original Zeffy block above for compatibility) */
+:root {
+  --primary: #006494;
+  --accent: #06b6d4;
+  --text-color: #0f172a;
+  --surface: #ffffff;
+  --card-shadow: 0 8px 30px rgba(2,6,23,0.06);
+  --radius: 12px;
+}
+
+html, body, #__next { height: 100%; }
+body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial; margin: 0; color: var(--text-color); }
+
+/* Buttons */
+.btn, button { border-radius: 10px; transition: transform 150ms ease, box-shadow 150ms ease; }
+.btn-primary { background: linear-gradient(90deg, var(--primary), var(--accent)); color: #fff; }
+
+/* Image helper */
+img { max-width: 100%; height: auto; }
+
+/* Utility */
+.card-surface { background: var(--surface); border-radius: var(--radius); box-shadow: var(--card-shadow); }
+
+/* Focus-visible */
+:focus-visible { box-shadow: 0 0 0 4px rgba(0,100,148,0.12); outline: none; }
+
+/* End appended globals */

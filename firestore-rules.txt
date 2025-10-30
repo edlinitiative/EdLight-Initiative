@@ -1,0 +1,46 @@
+// Firestore Security Rules for ESLP Applications
+// Copy and paste these rules in Firebase Console > Firestore Database > Rules
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read/write access to ESLP applications
+    match /eslp_applications/{document} {
+      allow read, write: if true; // For development - allows all access
+    }
+    
+    // Allow newsletter subscriptions
+    match /newsletter_subscribers/{document} {
+      allow read, write: if true; // For development - allows all access
+    }
+    
+    // For production, use these more restrictive rules:
+    // match /eslp_applications/{document} {
+    //   allow write: if true; // Allow form submissions
+    //   allow read: if false; // Restrict reading (admin only)
+    // }
+    // match /newsletter_subscribers/{document} {
+    //   allow write: if true; // Allow newsletter subscriptions
+    //   allow read: if false; // Restrict reading (admin only)
+    // }
+  }
+}
+
+// Storage Security Rules for ESLP Applications
+// Copy and paste these rules in Firebase Console > Storage > Rules
+
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Allow read/write access to ESLP application files
+    match /eslp_applications/{allPaths=**} {
+      allow read, write: if true; // For development - allows all access
+    }
+    
+    // For production, use these more restrictive rules:
+    // match /eslp_applications/{allPaths=**} {
+    //   allow write: if true; // Allow file uploads
+    //   allow read: if false; // Restrict file access (admin only)
+    // }
+  }
+}

@@ -1,0 +1,435 @@
+/* Welcome Section Styles */
+.welcomeSection {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    text-align: center;
+}
+
+.welcomeContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.welcomeContent {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.welcomeContent p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #2d3748;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -0.025em;
+}
+
+/* Here is EDLIGHT Section */
+.hereIsEdlight {
+    padding: 6rem 2rem;
+    background: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sectionTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #006494;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.programsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.programCard {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 100, 148, 0.1);
+    border: 1px solid rgba(0, 100, 148, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.programCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 100, 148, 0.2);
+}
+
+.programCard.blue {
+    border-left: 4px solid #006494;
+}
+
+.programCard.green {
+    border-left: 4px solid #10b981;
+}
+
+.programCard.purple {
+    border-left: 4px solid #8b5cf6;
+}
+
+.programIcon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+}
+
+.programCard.blue .programIcon {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    color: #006494;
+}
+
+.programCard.green .programIcon {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #10b981;
+}
+
+.programCard.purple .programIcon {
+    background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+    color: #8b5cf6;
+}
+
+.programTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 1rem;
+}
+
+.programDescription {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #6b7280;
+    margin: 0 0 2rem;
+}
+
+.programCta {
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.programCta.blue {
+    background: linear-gradient(135deg, #006494, #0284c7);
+    color: white;
+}
+
+.programCta.green {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.programCta.purple {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+}
+
+.programCta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 100, 148, 0.3);
+}
+
+/* Video Section */
+.videoSection {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.videoContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.videoText {
+    max-width: 600px;
+}
+
+.videoTitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #1f2937;
+    line-height: 1.4;
+    margin: 0 0 2rem;
+}
+
+.videoCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #006494, #0284c7);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.videoCta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 100, 148, 0.4);
+}
+
+.videoContainer {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 100, 148, 0.2);
+}
+
+
+.videoPlayer {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.videoPlaceholder {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #006494, #0284c7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.videoPlaceholder p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Opportunity Section */
+.opportunitySection {
+    padding: 6rem 2rem;
+    background: #ffffff;
+}
+
+.opportunityContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.opportunityImage {
+    order: 2;
+    width: 100%;
+    height: 400px;
+    background-image: url('/images/internships.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(0, 100, 148, 0.1);
+}
+
+.imageOverlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 100, 148, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.imageOverlay p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.opportunityText {
+    order: 1;
+    max-width: 500px;
+}
+
+.opportunityTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #006494;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+}
+
+.opportunitySubtitle {
+    font-size: 1.25rem;
+    color: #6b7280;
+    margin: 0 0 2rem;
+    line-height: 1.6;
+}
+
+.opportunityDetails {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.detailItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #006494;
+    font-weight: 600;
+}
+
+.opportunityCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #006494, #0284c7);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.opportunityCta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 100, 148, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .welcomeSection {
+        padding: 3rem 1.5rem;
+    }
+    
+    .welcomeContent p {
+        font-size: 1.25rem;
+    }
+
+    .hereIsEdlight,
+    .videoSection,
+    .opportunitySection {
+        padding: 4rem 1.5rem;
+    }
+
+    .videoPlayer {
+        width: 100%;
+        height: 100%;
+    }
+
+    .videoContent {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      
+    }
+
+    .opportunityContent {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .opportunityImage {
+        order: 1;
+    }
+
+    .opportunityText {
+        order: 2;
+    }
+
+    .sectionTitle {
+        font-size: 2.5rem;
+    }
+
+    .programsGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .programCard {
+        padding: 2rem 1.5rem;
+    }
+
+    .partnersGrid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+    }
+
+    .projectsGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcomeSection {
+        padding: 2rem 1rem;
+    }
+    
+    .welcomeContent p {
+        font-size: 1.125rem;
+    }
+
+    .hereIsEdlight,
+    .videoSection,
+    .opportunitySection {
+        padding: 3rem 1rem;
+    }
+
+    .videoPlayer {
+        width: 100%;
+        height: 100%;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .programCard {
+        padding: 1.5rem 1rem;
+    }
+
+    .partnerCard {
+        padding: 1.5rem;
+    }
+
+    .projectCard {
+        padding: 1.5rem;
+    }
+}
