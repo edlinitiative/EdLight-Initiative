@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BookOpen, Clock, Users, Star, Play, Download, ExternalLink, Youtube, ChevronDown, ChevronUp } from 'lucide-react';
 import styles from '../../styles/Courses.module.css';
 
@@ -185,13 +185,38 @@ const coursesByClass = {
 
 export default function CoursesList() {
     const [expandedClass, setExpandedClass] = useState<string | null>(null);
+    const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('scaleIn');
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        cardsRef.current.forEach(card => {
+            if (card) observer.observe(card);
+        });
+
+        return () => observer.disconnect();
+    }, [expandedClass]);
 
     const toggleClass = (classLevel: string) => {
         setExpandedClass(expandedClass === classLevel ? null : classLevel);
     };
 
-    const renderCourseCard = (course: any) => (
-        <div key={course.id} className={styles.courseCard}>
+    const renderCourseCard = (course: any, index: number) => (
+        <div 
+            key={course.id} 
+            ref={el => { cardsRef.current[index] = el; }}
+            className={styles.courseCard}
+            style={{ opacity: 0 }}
+        >
             {/* YouTube Playlist Iframe */}
             <div className={styles.courseVideo}>
                 <div className={styles.youtubeContainer}>
@@ -269,7 +294,7 @@ export default function CoursesList() {
                             {expandedClass === classLevel && (
                                 <div className={styles.classCourses}>
                                     <div className={styles.coursesGrid}>
-                                        {courses.map(renderCourseCard)}
+                                        {courses.map((course, index) => renderCourseCard(course, index))}
                                     </div>
                                 </div>
                             )}

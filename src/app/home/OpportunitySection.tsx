@@ -1,14 +1,39 @@
 "use client"
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Briefcase, Calendar, MapPin, ArrowRight } from 'lucide-react';
 import styles from '../../styles/Home.module.css';
 import Image from "next/image";
 
 export default function OpportunitySection() {
+    const sectionRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fadeIn');
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <section className={styles.opportunitySection}>
             <div className={styles.container}>
-                <div className={styles.opportunityContent}>
+                <div 
+                    ref={sectionRef}
+                    className={styles.opportunityContent}
+                    style={{ opacity: 0 }}
+                >
                     <div className={styles.opportunityImage}>
                         <div className={styles.imageOverlay}>
                             <Briefcase size={64} />

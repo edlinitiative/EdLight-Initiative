@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { BookOpen, Users, Award, Globe, ArrowRight } from 'lucide-react';
 import styles from '../../styles/Home.module.css';
 
@@ -34,6 +34,27 @@ const programs = [
 ];
 
 export default function HereIsEdlight() {
+    const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fadeInUp');
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        cardsRef.current.forEach(card => {
+            if (card) observer.observe(card);
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <section className={styles.hereIsEdlight}>
             <div className={styles.container}>
@@ -42,10 +63,15 @@ export default function HereIsEdlight() {
                 </div>
                 
                 <div className={styles.programsGrid}>
-                    {programs.map((program) => {
+                    {programs.map((program, index) => {
                         const IconComponent = program.icon;
                         return (
-                            <div key={program.id} className={`${styles.programCard} ${styles[program.color]}`}>
+                            <div 
+                                key={program.id} 
+                                ref={el => { cardsRef.current[index] = el; }}
+                                className={`${styles.programCard} ${styles[program.color]}`}
+                                style={{ opacity: 0, animationDelay: `${index * 0.1}s` }}
+                            >
                                 <div className={styles.programIcon}>
                                     <IconComponent size={48} />
                                 </div>
