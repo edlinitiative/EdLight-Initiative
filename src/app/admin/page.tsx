@@ -390,7 +390,7 @@ export default function AdminPage() {
                     <td>{app.sexe === 'feminin' ? 'Female' : 'Male'}</td>
                     <td>{app.classe.toUpperCase()}</td>
                     <td>{app.etablissement}</td>
-                    <td>{app.submittedAt?.toDate().toLocaleDateString()}</td>
+                    <td>{app.submittedAt instanceof Date ? app.submittedAt.toLocaleDateString() : typeof app.submittedAt === 'object' && app.submittedAt && 'toDate' in app.submittedAt ? (app.submittedAt as any).toDate().toLocaleDateString() : new Date(app.submittedAt as string).toLocaleDateString()}</td>
                     <td>
                       <span className={`${styles.status} ${styles[app.status]}`}>
                         {app.status}
@@ -470,7 +470,7 @@ export default function AdminPage() {
                     <p><strong>School:</strong> {selectedApplication.etablissement}</p>
                     <p><strong>Class:</strong> {selectedApplication.classe.toUpperCase()}</p>
                     <p><strong>How they heard about us:</strong> {selectedApplication.commentEntendu}</p>
-                    <p><strong>Submitted:</strong> {selectedApplication.submittedAt?.toDate().toLocaleString()}</p>
+                    <p><strong>Submitted:</strong> {selectedApplication.submittedAt instanceof Date ? selectedApplication.submittedAt.toLocaleString() : typeof selectedApplication.submittedAt === 'object' && selectedApplication.submittedAt && 'toDate' in selectedApplication.submittedAt ? (selectedApplication.submittedAt as any).toDate().toLocaleString() : new Date(selectedApplication.submittedAt as string).toLocaleString()}</p>
                   </div>
                   
                   <div className="col-12">
