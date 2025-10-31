@@ -56,7 +56,7 @@ export default function Navbar({ navItems, cta }: NavbarProps) {
     );
 
     const desktopLinkClasses =
-        "relative inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 transition duration-200 hover:text-slate-950 dark:hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500";
+        "relative inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 transition duration-200 hover:text-slate-950 dark:hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500";
 
         const donateLabel = cta?.key ? t(cta.key) : cta?.label ?? t("nav.donate");
 
@@ -98,7 +98,7 @@ export default function Navbar({ navItems, cta }: NavbarProps) {
                                 {item.label}
                             </Link>
                         ))}
-                        <DonateButton label={donateLabel} className="ml-2" />
+                        <DonateButton label={donateLabel} className="ml-2" variant="outline" />
                         <ThemeToggle />
                         <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-3 py-1 text-sm font-medium text-slate-600 shadow-sm dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-300">
                             <Globe className="h-4 w-4 text-sky-600" aria-hidden />
@@ -140,15 +140,15 @@ export default function Navbar({ navItems, cta }: NavbarProps) {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className={`rounded-2xl px-4 py-3 text-base font-semibold transition hover:bg-slate-100 dark:hover:bg-slate-800 ${
-                                    item.isActive ? "bg-slate-100 text-sky-700 dark:bg-slate-800 dark:text-sky-400" : "text-slate-700 dark:text-slate-300"
+                                className={`relative rounded-2xl px-4 py-3 text-base font-semibold transition hover:bg-slate-100 dark:hover:bg-slate-800 ${
+                                    item.isActive ? "text-edlight-primary dark:text-edlight-darkAccent after:absolute after:inset-x-4 after:bottom-1 after:h-1 after:rounded-full after:bg-gradient-to-r after:from-edlight-primary after:to-edlight-darkAccent" : "text-slate-700 dark:text-slate-300"
                                 }`}
                                 onClick={() => setIsOpen(false)}
                             >
                                 {item.label}
                             </Link>
                         ))}
-                        <DonateButton label={donateLabel} className="w-full justify-center" />
+                        <DonateButton label={donateLabel} className="w-full justify-center" variant="outline" />
                         <div className="flex items-center justify-between">
                             <span className="text-sm font-semibold text-slate-600">Theme</span>
                             <ThemeToggle />
