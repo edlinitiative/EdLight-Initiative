@@ -102,6 +102,11 @@ export default function Navbar() {
                                 </Link>
                             </li>
                             <li onClick={handleLinkClick} className="nav-item">
+                                <Link href="/global-exchange" className={`nav-link ${styles.navLink} ${pathname?.startsWith('/global-exchange') ? styles.navLinkActive : ''}`}>
+                                    {t('nav.global_exchange')}
+                                </Link>
+                            </li>
+                            <li onClick={handleLinkClick} className="nav-item">
                                 <Link href="/ESLP" className={`nav-link ${styles.navLink} ${pathname?.startsWith('/ESLP') ? styles.navLinkActive : ''}`}>
                                     {t('nav.eslp')}
                                 </Link>
@@ -111,6 +116,16 @@ export default function Navbar() {
                             {t('nav.about_us')}
                         </Link>
                     </li>
+                            <li onClick={handleLinkClick} className="nav-item">
+                                <Link href="/contact" className={`nav-link ${styles.navLink} ${pathname === '/contact' ? styles.navLinkActive : ''}`}>
+                                    {t('nav.contact')}
+                                </Link>
+                            </li>
+                            <li onClick={handleLinkClick} className="nav-item">
+                                <Link href="/faq" className={`nav-link ${styles.navLink} ${pathname === '/faq' ? styles.navLinkActive : ''}`}>
+                                    {t('nav.faq')}
+                                </Link>
+                            </li>
 
                             {/* Donate Button (Zeffy modal trigger) */}
                             <li onClick={handleLinkClick} className="nav-item">

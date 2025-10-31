@@ -13,10 +13,13 @@ const translations = {
   en: {
     // Navigation
     'nav.home': 'Home',
-    'nav.mission_projects': 'Mission & Projects',
-    'nav.courses': 'Courses',
-    'nav.eslp': 'ESLP',
-    'nav.about_us': 'About Us',
+  'nav.mission_projects': 'Mission & Projects',
+  'nav.courses': 'Courses',
+  'nav.global_exchange': 'Global Exchange',
+  'nav.eslp': 'ESLP',
+  'nav.about_us': 'About Us',
+  'nav.contact': 'Contact',
+  'nav.faq': 'FAQ',
     'nav.admin': 'Admin',
     'nav.donate': 'Donate',
     
@@ -46,7 +49,8 @@ const translations = {
     // Footer
     'footer.brand_tagline': 'Empowering Communities',
     'footer.mission_text': 'At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide high school students with digital access to quality education through our online courses in STEM subjects. Additionally, our Summer Leadership Program offers a unique opportunity for students to explore innovation, entrepreneurship, and leadership beyond the classroom. Join us in our quest for educational equity and help us empower the next generation of leaders. Together, we can create a brighter future for all...',
-    'footer.learn_more': 'Learn More',
+  'footer.learn_more': 'Learn More',
+  'footer.contact': 'Contact Us',
     'footer.quick_links': 'Quick Links',
     'footer.programs': 'Programs',
     'footer.educational_courses': 'Educational Courses',
@@ -55,7 +59,10 @@ const translations = {
     'footer.newsletter_text': 'Subscribe to our newsletter for updates on our latest initiatives and impact stories.',
     'footer.email_placeholder': 'Enter your email',
     'footer.subscribe': 'Subscribe',
-    'footer.follow_us': 'Follow Us',
+  'footer.follow_us': 'Follow Us',
+  'footer.privacy': 'Privacy Policy',
+  'footer.terms': 'Terms of Use',
+  'footer.faq': 'FAQ',
     'footer.our_partners': 'Our Partners',
     'footer.partnership_subtitle': 'Working together to create lasting impact in communities worldwide',
     'footer.copyright': 'EdLight Initiative. All rights reserved.',
@@ -132,10 +139,13 @@ const translations = {
   fr: {
     // Navigation
     'nav.home': 'Accueil',
-    'nav.mission_projects': 'Mission et Projets',
-    'nav.courses': 'Cours',
-    'nav.eslp': 'ESLP',
-    'nav.about_us': 'À Propos',
+  'nav.mission_projects': 'Mission et Projets',
+  'nav.courses': 'Cours',
+  'nav.global_exchange': "Programme d'échange",
+  'nav.eslp': 'ESLP',
+  'nav.about_us': 'À Propos',
+  'nav.contact': 'Contact',
+  'nav.faq': 'FAQ',
     'nav.admin': 'Administration',
     'nav.donate': 'Faire un Don',
     
@@ -165,7 +175,8 @@ const translations = {
     // Footer
     'footer.brand_tagline': 'Autonomiser les Communautés',
     'footer.mission_text': 'Chez EdLight, notre mission est de rendre l\'éducation gratuite et accessible à tous les Haïtiens. Nous offrons aux lycéens un accès numérique à une éducation de qualité grâce à nos cours en ligne dans les matières STEM. De plus, notre Programme de Leadership d\'Été offre une opportunité unique aux étudiants d\'explorer l\'innovation, l\'entrepreneuriat et le leadership au-delà de la salle de classe. Rejoignez-nous dans notre quête d\'équité éducative et aidez-nous à autonomiser la prochaine génération de leaders. Ensemble, nous pouvons créer un avenir plus brillant pour tous...',
-    'footer.learn_more': 'En Savoir Plus',
+  'footer.learn_more': 'En Savoir Plus',
+  'footer.contact': 'Contactez-nous',
     'footer.quick_links': 'Liens Rapides',
     'footer.programs': 'Programmes',
     'footer.educational_courses': 'Cours Éducatifs',
@@ -174,7 +185,10 @@ const translations = {
     'footer.newsletter_text': 'Abonnez-vous à notre newsletter pour des mises à jour sur nos dernières initiatives et histoires d\'impact.',
     'footer.email_placeholder': 'Entrez votre email',
     'footer.subscribe': 'S\'abonner',
-    'footer.follow_us': 'Suivez-nous',
+  'footer.follow_us': 'Suivez-nous',
+  'footer.privacy': 'Politique de Confidentialité',
+  'footer.terms': "Conditions d'utilisation",
+  'footer.faq': 'FAQ',
     'footer.our_partners': 'Nos Partenaires',
     'footer.partnership_subtitle': 'Travaillant ensemble pour créer un impact durable dans les communautés du monde entier',
     'footer.copyright': 'Initiative EdLight. Tous droits réservés.',
@@ -265,7 +279,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const t = (key: string): string => {
-    return translations[language as keyof typeof translations]?.[key as keyof typeof translations[typeof language]] || key;
+    const dictionary = translations[language as keyof typeof translations] as Record<string, string> | undefined;
+    return dictionary?.[key] ?? key;
   };
 
   return (

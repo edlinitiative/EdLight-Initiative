@@ -77,10 +77,14 @@ export default function Footer() {
                                         {t('nav.mission_projects')}
                                     </Link>
                                 </li>
-
                                 <li className="mb-2">
-                                    <Link target="_blank" href="https://drive.google.com/file/d/107de2zcR1kgFLDuH3ApfbQ0owwvZazVQ/view" className={styles.footerLink}>
-                                        Stage
+                                    <Link href="/courses" className={styles.footerLink}>
+                                        {t('nav.courses')}
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
+                                    <Link href="/global-exchange" className={styles.footerLink}>
+                                        {t('nav.global_exchange')}
                                     </Link>
                                 </li>
                     <li className="mb-2">
@@ -89,8 +93,33 @@ export default function Footer() {
                         </Link>
                     </li>
                                 <li className="mb-2">
+                                    <Link href="/contact" className={styles.footerLink}>
+                                        {t('footer.contact')}
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
+                                    <Link href="/faq" className={styles.footerLink}>
+                                        {t('footer.faq')}
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
                                     <Link href="/donate" className={styles.footerLink}>
                                         {t('nav.donate')}
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
+                                    <Link href="/privacy" className={styles.footerLink}>
+                                        {t('footer.privacy')}
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
+                                    <Link href="/terms-of-use" className={styles.footerLink}>
+                                        {t('footer.terms')}
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
+                                    <Link target="_blank" href="https://drive.google.com/file/d/107de2zcR1kgFLDuH3ApfbQ0owwvZazVQ/view" className={styles.footerLink}>
+                                        Stage
                                     </Link>
                                 </li>
                             </ul>

@@ -1,0 +1,229 @@
+.page {
+    padding-top: 7rem;
+    padding-bottom: 6rem;
+    background: linear-gradient(180deg, rgba(0, 100, 148, 0.06), rgba(6, 182, 212, 0.05));
+}
+
+.container {
+    width: min(1080px, 92vw);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.hero {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 28px;
+    padding: clamp(2.5rem, 2rem + 1.6vw, 3.8rem);
+    box-shadow: 0 30px 70px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    display: grid;
+    gap: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.18), transparent 55%);
+    pointer-events: none;
+}
+
+.heroTitle {
+    font-size: clamp(2.4rem, 2rem + 1.5vw, 3.2rem);
+    color: var(--text-color);
+    margin: 0;
+}
+
+.heroSubtitle {
+    font-size: 1.1rem;
+    color: rgba(15, 23, 42, 0.75);
+    max-width: 65ch;
+}
+
+.contactHighlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.highlightCard {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 22px;
+    padding: 1.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+    display: grid;
+    gap: 0.8rem;
+}
+
+.highlightIcon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: rgba(0, 100, 148, 0.12);
+    color: var(--primary);
+}
+
+.highlightTitle {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.highlightValue {
+    margin: 0;
+    color: rgba(15, 23, 42, 0.75);
+    line-height: 1.5;
+}
+
+.bodyGrid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.leftColumn {
+    grid-column: span 5;
+    display: grid;
+    gap: 1.4rem;
+}
+
+.infoCard {
+    background: rgba(255, 255, 255, 0.82);
+    border-radius: 24px;
+    padding: 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+    display: grid;
+    gap: 1rem;
+}
+
+.infoTitle {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.infoItem {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+    padding: 1rem 1.2rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 100, 148, 0.12);
+}
+
+.infoItem span {
+    display: block;
+    color: rgba(15, 23, 42, 0.75);
+}
+
+.rightColumn {
+    grid-column: span 7;
+}
+
+.formCard {
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.14);
+    padding: clamp(2rem, 1.8rem + 1vw, 3rem);
+    display: grid;
+    gap: 1.5rem;
+}
+
+.formHeader h2 {
+    margin-bottom: 0.4rem;
+}
+
+.formHeader p {
+    margin: 0;
+    color: rgba(15, 23, 42, 0.7);
+}
+
+.formGrid {
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.formGrid textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+.inputGroup {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.inputLabel {
+    font-weight: 600;
+    color: rgba(15, 23, 42, 0.78);
+}
+
+.inputField {
+    border-radius: 16px;
+    border: 1px solid rgba(0, 100, 148, 0.2);
+    padding: 0.85rem 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inputField:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(0, 100, 148, 0.15);
+    outline: none;
+}
+
+.submitRow {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.statusMessage {
+    padding: 1rem 1.2rem;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.statusSuccess {
+    background: rgba(34, 197, 94, 0.12);
+    color: #047857;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.statusError {
+    background: rgba(239, 68, 68, 0.12);
+    color: #b91c1c;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+@media (max-width: 992px) {
+    .bodyGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .leftColumn,
+    .rightColumn {
+        grid-column: span 12;
+    }
+}
+
+@media (max-width: 640px) {
+    .contactHighlights {
+        grid-template-columns: 1fr;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+}
