@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Christopher Michel",
+    "role": "Co-Founder & Executive Director",
+    "image": "/team/christopher.jpg",
+    "bio": "Christopher founded EdLight Initiative to create educational opportunities for Haitian youth. He holds a degree from UWC and is passionate about educational equity."
+  },
+  {
+    "id": 2,
+    "name": "Steevenson Michel",
+    "role": "Co-Founder & Director of Programs",
+    "image": "/team/steevenson.jpg",
+    "bio": "Steevenson leads program development and partnerships. He brings extensive experience in education and community development."
+  },
+  {
+    "id": 3,
+    "name": "Williamson Michel",
+    "role": "Technology Director",
+    "image": "/team/williamson.jpg",
+    "bio": "Williamson oversees EdLight's technology infrastructure and online learning platforms."
+  },
+  {
+    "id": 4,
+    "name": "Rony Francillon",
+    "role": "Advisor",
+    "image": "/team/rony.jpg",
+    "bio": "Rony provides strategic guidance on program development and partnerships."
+  }
+]

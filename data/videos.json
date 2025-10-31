@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to Physics",
+    "videoId": "dQw4w9WgXcQ",
+    "description": "Fundamental concepts in physics for high school students"
+  },
+  {
+    "id": 2,
+    "title": "Advanced Calculus",
+    "videoId": "dQw4w9WgXcQ",
+    "description": "Calculus concepts for advanced learners"
+  },
+  {
+    "id": 3,
+    "title": "Leadership Essentials",
+    "videoId": "dQw4w9WgXcQ",
+    "description": "Building leadership skills for community impact"
+  }
+]

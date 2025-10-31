@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "outlet": "Haiti Times",
+    "title": "EdLight Initiative Transforms Education Access for Haitian Youth",
+    "date": "2024-06-15",
+    "url": "https://example.com/article-1"
+  },
+  {
+    "id": 2,
+    "outlet": "Caribbean Education Journal",
+    "title": "How One Organization Is Bridging the Education Gap in Haiti",
+    "date": "2024-03-20",
+    "url": "https://example.com/article-2"
+  },
+  {
+    "id": 3,
+    "outlet": "Tech for Good Magazine",
+    "title": "CISJ Labs: Empowering Haiti's Next Generation of Tech Innovators",
+    "date": "2023-11-10",
+    "url": "https://example.com/article-3"
+  }
+]

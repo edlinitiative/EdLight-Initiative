@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "UWC (United World Colleges)",
+    "logo": "/partners/uwc-logo.png",
+    "website": "https://www.uwc.org"
+  },
+  {
+    "id": 2,
+    "name": "Lekòl Kominotè Matènwa",
+    "logo": "/partners/lekol-logo.png",
+    "website": "https://www.matenwacommunitylearningcenter.org"
+  },
+  {
+    "id": 3,
+    "name": "Fellows Project",
+    "logo": "/partners/fellows-logo.png",
+    "website": "https://www.thefellowsproject.org"
+  },
+  {
+    "id": 4,
+    "name": "MIT",
+    "logo": "/partners/mit-logo.png",
+    "website": "https://www.mit.edu"
+  },
+  {
+    "id": 5,
+    "name": "Stanford University",
+    "logo": "/partners/stanford-logo.png",
+    "website": "https://www.stanford.edu"
+  },
+  {
+    "id": 6,
+    "name": "Harvard University",
+    "logo": "/partners/harvard-logo.png",
+    "website": "https://www.harvard.edu"
+  }
+]

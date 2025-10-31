@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "EdLight T-Shirt",
+    "price": 25,
+    "image": "/store/tshirt.jpg",
+    "description": "Premium cotton t-shirt with EdLight logo"
+  },
+  {
+    "id": 2,
+    "name": "Leadership Notebook",
+    "price": 15,
+    "image": "/store/notebook.jpg",
+    "description": "Hardcover notebook with inspirational quotes"
+  },
+  {
+    "id": 3,
+    "name": "EdLight Tote Bag",
+    "price": 20,
+    "image": "/store/tote.jpg",
+    "description": "Eco-friendly canvas tote bag"
+  },
+  {
+    "id": 4,
+    "name": "Sponsor a Student Kit",
+    "price": 100,
+    "image": "/store/sponsor.jpg",
+    "description": "Support a student's education for one month"
+  }
+]

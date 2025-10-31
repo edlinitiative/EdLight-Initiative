@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "UWC Scholarship Opportunity",
+    "type": "Scholarship",
+    "deadline": "2025-12-15",
+    "description": "Full scholarship for two-year pre-university program at United World Colleges",
+    "eligibility": "Haitian students aged 16-18 with strong academic record and community involvement"
+  },
+  {
+    "id": 2,
+    "title": "MIT Summer Research Program",
+    "type": "Research",
+    "deadline": "2025-11-30",
+    "description": "Six-week summer research opportunity at MIT with housing and stipend",
+    "eligibility": "High school seniors with demonstrated interest in STEM"
+  },
+  {
+    "id": 3,
+    "title": "Stanford Global Exchange",
+    "type": "Exchange",
+    "deadline": "2026-01-20",
+    "description": "Semester-long exchange program for Haitian undergraduate students",
+    "eligibility": "Currently enrolled university students with 3.5+ GPA"
+  }
+]
