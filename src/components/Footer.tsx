@@ -8,6 +8,7 @@ import styles from "../styles/Footer.module.css";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState } from "react";
 import logger from '@/lib/logger';
+import buildInfo from '@/lib/buildInfo';
 
 export default function Footer() {
     const { t } = useLanguage();
@@ -316,6 +317,12 @@ export default function Footer() {
                         <div className="col-md-6">
                             <p className={`mb-0 small text-md-end ${styles.loveText}`}>
                                 Made with <Heart size={14} className={styles.heartIcon} /> for communities worldwide
+                            </p>
+                        </div>
+                        {/* Hidden build info for troubleshooting deployments */}
+                        <div className="col-12 mt-1">
+                            <p className="mb-0 small text-center" style={{ opacity: 0.4 }}>
+                                build {buildInfo.BUILD_COMMIT} · {buildInfo.BUILD_BRANCH}
                             </p>
                         </div>
                     </div>
