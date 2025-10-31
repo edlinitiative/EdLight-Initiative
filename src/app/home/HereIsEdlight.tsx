@@ -1,88 +1,102 @@
-"use client"
-import React, { useEffect, useRef } from 'react';
-import { BookOpen, Users, Award, Globe, ArrowRight } from 'lucide-react';
-import styles from '../../styles/Home.module.css';
+"use client";
 
-const programs = [
-    {
-        id: 1,
-        title: "Online Courses",
-        description: "EdLight provides free educational content that covers the content learned from STEM subjects from NSI through NIV. It is a great way for students to catch up on what they missed in class.",
-        icon: BookOpen,
-        cta: "Start Learning",
-        ctaUrl: "/courses",
-        color: "blue"
-    },
-    {
-        id: 2,
-        title: "ESLP",
-        description: "The EdLight Summer Leadership Program occurs every year throughout the summer. It is a great opportunity for our participants to enhance their leadership skills and grow their knowledge about the world out there.",
-        icon: Users,
-        cta: "Learn more",
-        ctaUrl: "/ESLP",
-        color: "green"
-    },
-    {
-        id: 3,
-        title: "EIFP",
-        description: "The EdLight Summer Leadership Program occurs every year throughout the summer. It is a great opportunity for our participants to enhance their leadership skills and grow their knowledge about the world out there.",
-        icon: Award,
-        cta: "Coming Soon",
-        ctaUrl: "#",
-        color: "gray"
-    }
-];
+import React, { useEffect, useMemo, useRef } from "react";
+import {
+    ArrowRight,
+    BookOpen,
+    Globe,
+    Lightbulb,
+    Users,
+    type LucideIcon,
+} from "lucide-react";
+import styles from "../../styles/Home.module.css";
+import { useLanguage } from "@/contexts/LanguageContext";
+import type { Initiative } from "@/lib/content";
 
-export default function HereIsEdlight() {
+type HereIsEdlightProps = {
+    initiatives: Initiative[];
+};
+
+const iconMap: Record<string, LucideIcon> = {
+    academy: BookOpen,
+    eslp: Users,
+    exchange: Globe,
+    labs: Lightbulb,
+};
+
+const colorPalette = ["blue", "green", "purple"] as const;
+
+export default function HereIsEdlight({ initiatives }: HereIsEdlightProps) {
+    const { t } = useLanguage();
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                entries.forEach(entry => {
+                entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('fadeInUp');
+                        entry.target.classList.add("fadeInUp");
                     }
                 });
             },
             { threshold: 0.1 }
         );
 
-        cardsRef.current.forEach(card => {
+        cardsRef.current.forEach((card) => {
             if (card) observer.observe(card);
         });
 
         return () => observer.disconnect();
     }, []);
 
+    const featuredInitiatives = useMemo(
+        () => initiatives.slice(0, 3),
+        [initiatives]
+    );
+
     return (
         <section className={styles.hereIsEdlight}>
             <div className={styles.container}>
-                <div className={styles.sectionHeader}>
-                    <h2 className={styles.sectionTitle}>Here is EDLIGHT</h2>
-                </div>
-                
+                        <div className={styles.sectionHeader}>
+                            <h2 className={styles.sectionTitle}>{t("home.here_is_edlight_title")}</h2>
+                            <p className={styles.sectionSubtitle}>{t("home.here_is_edlight_description")}</p>
+                        </div>
+
                 <div className={styles.programsGrid}>
-                    {programs.map((program, index) => {
-                        const IconComponent = program.icon;
+                    {featuredInitiatives.map((initiative, index) => {
+                        const color = colorPalette[index % colorPalette.length];
+                        const IconComponent = iconMap[initiative.slug] ?? ArrowRight;
+                        const action = initiative.actions[0];
+
                         return (
-                            <div 
-                                key={program.id} 
-                                ref={el => { cardsRef.current[index] = el; }}
-                                className={`${styles.programCard} ${styles[program.color]}`}
+                            <div
+                                key={initiative.slug}
+                                ref={(el) => {
+                                    cardsRef.current[index] = el;
+                                }}
+                                className={`${styles.programCard} ${styles[color]}`}
                                 style={{ opacity: 0, animationDelay: `${index * 0.1}s` }}
                             >
                                 <div className={styles.programIcon}>
                                     <IconComponent size={48} />
                                 </div>
-                                <h3 className={styles.programTitle}>{program.title}</h3>
-                                <p className={styles.programDescription}>{program.description}</p>
-                                <button
-                                onClick={() => window.location.href = program.ctaUrl}
-                                 className={`${styles.programCta} ${styles[program.color]}`}>
-                                    {program.cta}
-                                    <ArrowRight size={20} />
-                                </button>
+                                <h3 className={styles.programTitle}>{initiative.title}</h3>
+                                <p className={styles.programDescription}>{initiative.summary}</p>
+                                {action ? (
+                                    <button
+                                        onClick={() => {
+                                            if (/^https?:/i.test(action.href)) {
+                                                window.open(action.href, "_blank", "noopener,noreferrer");
+                                            } else {
+                                                window.location.href = action.href;
+                                            }
+                                        }}
+                                        className={`${styles.programCta} ${styles[color]}`}
+                                    >
+                                        {action.key ? t(action.key) : action.label}
+                                        <ArrowRight size={20} />
+                                    </button>
+                                ) : null}
                             </div>
                         );
                     })}

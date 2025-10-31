@@ -1,11 +1,11 @@
 import "../styles/globals.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ZeffyInit from "@/components/ZeffyInit";
 import Script from "next/script";
 import { Inter } from "next/font/google";
+import { getRoutes } from "@/lib/content";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
@@ -36,11 +36,13 @@ export const viewport = {
     themeColor: "#006494",
 };
 
-export default function RootLayout({
-                                       children,
-                                   }: {
+export default async function RootLayout({
+    children,
+}: {
     children: React.ReactNode;
-}): React.ReactNode {
+}): Promise<React.ReactNode> {
+    const routes = await getRoutes();
+
     return (
         <html lang="en">
             <head>
@@ -53,41 +55,28 @@ export default function RootLayout({
                 {/* Theme color for mobile browsers */}
                 <meta name="msapplication-TileColor" content="#006494" />
             </head>
-            <body className={`d-flex flex-column min-vh-100 ${inter.className}`}>
-            <LanguageProvider>
-                <ZeffyInit />
-                {/* Skip to main content for accessibility */}
-                <a href="#main-content" className="visually-hidden-focusable btn btn-primary position-absolute top-0 start-0 m-3" style={{ zIndex: 9999 }}>
-                    Skip to main content
-                </a>
-
-                {/* Fixed Navbar */}
-                <Navbar />
-
-                {/* Main Content Area */}
-                <main
-                    id="main-content"
-                    className="flex-grow-1"
-                    style={{
-                        paddingTop: '80px' // Account for fixed navbar
-                    }}
-                >
-                    {children}
-                </main>
-
-                {/* Footer */}
-                <Footer />
-            </LanguageProvider>
-
-            {/* Zeffy and Bootstrap scripts loaded after hydration */}
-            <Script src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js" strategy="afterInteractive" />
-            <Script
-                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-                crossOrigin="anonymous"
-                strategy="afterInteractive"
-            />
-            </body>
+                        <body
+                            className={`flex min-h-screen flex-col bg-slate-50 text-slate-900 antialiased ${inter.className}`}
+                        >
+                            <LanguageProvider>
+                                <ZeffyInit />
+                                <a
+                                    href="#main-content"
+                                    className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-full focus:bg-sky-600 focus:px-5 focus:py-2 focus:text-white focus:outline-none"
+                                >
+                                    Skip to main content
+                                </a>
+                                                <Navbar navItems={routes.main} cta={routes.cta} />
+                                <main id="main-content" className="flex-1 pt-24 md:pt-28">
+                                    {children}
+                                </main>
+                                                <Footer footerSections={routes.footer} cta={routes.cta} />
+                            </LanguageProvider>
+                            <Script
+                                src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"
+                                strategy="afterInteractive"
+                            />
+                        </body>
         </html>
     );
 }

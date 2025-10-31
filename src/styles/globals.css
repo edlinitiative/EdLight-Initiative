@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Zeffy Donation Form Styling */
 .zeffy-donation-form {
     border-radius: 15px;

@@ -1,277 +1,247 @@
 "use client";
-import {Facebook, Twitter, Instagram, 
-    Linkedin, Mail, Heart, MapPin,
-     Phone, Sparkles, Youtube, X} from "lucide-react";
+
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../styles/Footer.module.css";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { useEffect, useState } from "react";
-import logger from '@/lib/logger';
-import buildInfo from '@/lib/buildInfo';
+import {
+    Facebook,
+    Instagram,
+    Linkedin,
+    Mail,
+    Heart,
+    MapPin,
+    Phone,
+    Sparkles,
+    Youtube,
+    X,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-export default function Footer() {
+import { useLanguage } from "@/contexts/LanguageContext";
+import styles from "../styles/Footer.module.css";
+import logger from "@/lib/logger";
+import buildInfo from "@/lib/buildInfo";
+import type { NavLink, RoutesContent } from "@/lib/content";
+
+type FooterProps = {
+    footerSections: RoutesContent["footer"];
+    cta?: NavLink;
+};
+
+type SocialLink = {
+    href: string;
+    label: string;
+    Icon: LucideIcon;
+};
+
+const SOCIAL_LINKS: SocialLink[] = [
+    { href: "https://www.youtube.com/@edlight-initiative", label: "YouTube", Icon: Youtube },
+    { href: "https://www.facebook.com/edlinitiative", label: "Facebook", Icon: Facebook },
+    { href: "https://x.com/edlinitiative", label: "X", Icon: X },
+    {
+        href: "https://www.instagram.com/edlinitiative?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        label: "Instagram",
+        Icon: Instagram,
+    },
+    { href: "https://www.linkedin.com/company/edlight-initiative/", label: "LinkedIn", Icon: Linkedin },
+];
+
+export default function Footer({ footerSections, cta }: FooterProps) {
     const { t } = useLanguage();
-    const [subscriptionStatus, setSubscriptionStatus] = useState<'idle' | 'success' | 'error'>('idle');
-    const [subscriptionMessage, setSubscriptionMessage] = useState('');
-    const [email, setEmail] = useState('');
+    const [subscriptionStatus, setSubscriptionStatus] = useState<"idle" | "success" | "error">("idle");
+    const [subscriptionMessage, setSubscriptionMessage] = useState("");
+    const [email, setEmail] = useState("");
     const [submitting, setSubmitting] = useState(false);
 
     useEffect(() => {
-        // Simple hydration-safe debug notice
-        logger.debug('Footer mounted, newsletter ready');
+        logger.debug("Footer mounted, newsletter ready");
     }, []);
-    
+
+        const donateLabel = cta?.key ? t(cta.key) : cta?.label ?? t("nav.donate");
+    const resolvedSections = useMemo(() => footerSections ?? [], [footerSections]);
+
+    const handleSubscribe = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const trimmed = email.trim();
+        if (!trimmed) {
+            setSubscriptionStatus("error");
+            setSubscriptionMessage("Please enter an email address");
+            return;
+        }
+        setSubmitting(true);
+        setSubscriptionStatus("idle");
+        try {
+            const { subscribeNewsletter } = await import("@/lib/firebaseService");
+            const id = await subscribeNewsletter(trimmed, "footer");
+            logger.info("Subscribed newsletter id:", id);
+            setEmail("");
+            setSubscriptionStatus("success");
+            setSubscriptionMessage("Thanks for subscribing!");
+        } catch (error: unknown) {
+            logger.error("Newsletter subscription failed", error);
+            setSubscriptionStatus("error");
+            setSubscriptionMessage(
+                error instanceof Error ? error.message : "Failed to subscribe. Please try again."
+            );
+        } finally {
+            setSubmitting(false);
+        }
+    };
+
+    const renderFooterLink = (link: NavLink) => {
+        const label = link.key ? t(link.key) : link.label;
+        const isExternal = /^https?:/i.test(link.href);
+            if (isExternal) {
+                return (
+                    <a href={link.href} target="_blank" rel="noreferrer" className={`${styles.footerLink} text-sm`}>
+                        {label}
+                    </a>
+                );
+            }
+            if (link.href.startsWith("#")) {
+                return (
+                    <a href={link.href} className={`${styles.footerLink} text-sm`}>
+                        {label}
+                    </a>
+                );
+            }
+            return (
+                <Link href={link.href} className={`${styles.footerLink} text-sm`}>
+                    {label}
+                </Link>
+            );
+    };
+
     return (
-        <footer className={styles.footer}>
-            {/* Main Footer Content */}
-            <div className="container py-5">
-                <div className="row g-4">
-                    {/* Logo & Mission */}
-                    <div className="col-lg-4 col-md-6">
-                        <div className={styles.footerSection}>
-                            <div className={styles.brandContainer}>
-                                <div className={styles.logoIcon}>
-                                    <Sparkles size={24} />
-                                </div>
-                                <div>
-                                    <h2 className={`h4 mb-2 ${styles.brandTitle}`}>EdLight Initiative</h2>
-                                    <p className={`small ${styles.brandTagline}`}>{t('footer.brand_tagline')}</p>
-                                </div>
+        <footer className={`${styles.footer} relative`}> 
+            <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-12 px-4 py-12 sm:px-6 lg:px-8">
+                <div className="grid gap-12 lg:grid-cols-[minmax(0,1.85fr)_repeat(2,minmax(0,1fr))_minmax(0,1.4fr)]">
+                    <div className={`${styles.footerSection} flex flex-col gap-4`}>
+                        <div className={`${styles.brandContainer}`}>
+                            <div className={styles.logoIcon}>
+                                <Sparkles size={24} />
                             </div>
-                            <p className={`mt-3 ${styles.missionText}`}>
-                                {t('footer.mission_text')}
-                                <a className={styles.footerLink} href="/about-us"> {t('footer.learn_more')}</a>
-                            </p>
-
-                            {/* Contact Info */}
-                            <div className={styles.contactInfo}>
-                                <div className={`d-flex align-items-center mb-2 ${styles.contactItem}`}>
-                                    <MapPin size={16} className="me-2" />
-                                    <a target="_blank" style={{ textDecoration: 'none', color: 'white' }} href="https://www.google.com/maps/place/EdLight+Initiative/@45.501721,-73.567158,15z/data=!4m6!3m5!1s0x4cc91a571e9513b3:0x1135921e02313662!8m2!3d45.501721!4d-73.567158!16s%2Fg%2F1td5v8h9?entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoASAFQAw%3D%3D"><small>Montréal, QC, Canada</small></a>
-                                </div>
-                                <div className={`d-flex align-items-center mb-2 ${styles.contactItem}`}>
-                                    <Phone size={16} className="me-2" />
-                                    <a target="_blank" style={{ textDecoration: 'none', color: 'white' }} href="tel:16316295402"><small>1 (631) 629-5402</small></a>
-                                </div>
-                                <div className={`d-flex align-items-center ${styles.contactItem}`}>
-                                    <Mail size={16} className="me-2" />
-                                    <a target="_blank" style={{ textDecoration: 'none', color: 'white' }} href="mailto:info@edlinitiative.org"><small>info@edlinitiative.org</small></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Quick Links */}
-                    <div className="col-lg-2 col-md-3 col-sm-6">
-                        <div className={styles.footerSection}>
-                                <h3 className={`h6 mb-3 ${styles.sectionTitle}`}>{t('footer.quick_links')}</h3>
-                            <ul className={`list-unstyled ${styles.linkList}`}>
-                                <li className="mb-2">
-                                    <Link href="/" className={styles.footerLink}>
-                                        {t('nav.home')}
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link href="/mission_projects" className={styles.footerLink}>
-                                        {t('nav.mission_projects')}
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link href="/courses" className={styles.footerLink}>
-                                        {t('nav.courses')}
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link href="/global-exchange" className={styles.footerLink}>
-                                        {t('nav.global_exchange')}
-                                    </Link>
-                                </li>
-                    <li className="mb-2">
-                        <Link href="/about-us" className={styles.footerLink}>
-                            {t('nav.about_us')}
-                        </Link>
-                    </li>
-                                <li className="mb-2">
-                                    <Link href="/contact" className={styles.footerLink}>
-                                        {t('footer.contact')}
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link href="/faq" className={styles.footerLink}>
-                                        {t('footer.faq')}
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link href="/donate" className={styles.footerLink}>
-                                        {t('nav.donate')}
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link href="/privacy" className={styles.footerLink}>
-                                        {t('footer.privacy')}
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link href="/terms-of-use" className={styles.footerLink}>
-                                        {t('footer.terms')}
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link target="_blank" href="https://drive.google.com/file/d/107de2zcR1kgFLDuH3ApfbQ0owwvZazVQ/view" className={styles.footerLink}>
-                                        Stage
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    {/* Programs */}
-                    <div className="col-lg-2 col-md-3 col-sm-6">
-                        <div className={styles.footerSection}>
-                            <h3 className={`h6 mb-3 ${styles.sectionTitle}`}>Programs</h3>
-                            <ul className={`list-unstyled ${styles.linkList}`}>
-                                <li className="mb-2">
-                                    <Link href="/ESLP" className={styles.footerLink}>
-                                        ESLP
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link href="/courses" className={styles.footerLink}>
-                                        Educational Courses
-                                    </Link>
-                                </li>
-                                {/*<li className="mb-2">*/}
-                                {/*    <Link href="/community" className={styles.footerLink}>*/}
-                                {/*        Community Outreach*/}
-                                {/*    </Link>*/}
-                                {/*</li>*/}
-                                <li className="mb-2">
-                                    <Link href="#partnerships" className={styles.footerLink}>
-                                        Partnerships
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    {/* Newsletter & Social */}
-                    <div className="col-lg-4 col-md-6">
-                        <div className={styles.footerSection}>
-                            <h3 className={`h6 mb-3 ${styles.sectionTitle}`}>Stay Connected</h3>
-                            <p className={`small mb-3 ${styles.newsletterText}`}>
-                                Subscribe to our newsletter for updates on our latest initiatives and impact stories.
-                            </p>
-
-                            {/* Newsletter Signup */}
-                            <div className={`mb-4 ${styles.newsletterForm}`}>
-                                <div className="input-group">
-                                    <input
-                                        id="newsletter-email"
-                                        type="email"
-                                        aria-label="Email address"
-                                        className={`form-control ${styles.emailInput}`}
-                                        placeholder="Enter your email"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        onInput={() => {
-                                            // keep UI responsive; validation done on submit
-                                            logger.debug('Newsletter email input updated');
-                                        }}
-                                    />
-                                    <button
-                                        id="newsletter-submit"
-                                        className={`btn ${styles.subscribeBtn}`}
-                                        type="button"
-                                        disabled={submitting || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())}
-                                        onClick={async () => {
-                                            const trimmed = email.trim();
-                                            if (!trimmed) {
-                                                setSubscriptionStatus('error');
-                                                setSubscriptionMessage('Please enter an email address');
-                                                return;
-                                            }
-                                            setSubmitting(true);
-                                            setSubscriptionStatus('idle');
-                                            try {
-                                                const { subscribeNewsletter } = await import('@/lib/firebaseService');
-                                                const id = await subscribeNewsletter(trimmed, 'footer');
-                                                logger.info('Subscribed newsletter id:', id);
-                                                setEmail('');
-                                                setSubscriptionStatus('success');
-                                                setSubscriptionMessage('Thanks for subscribing!');
-                                            } catch (err: any) {
-                                                logger.error('Newsletter subscription failed', err);
-                                                setSubscriptionStatus('error');
-                                                setSubscriptionMessage(err?.message || 'Failed to subscribe. Please try again.');
-                                            } finally {
-                                                setSubmitting(false);
-                                            }
-                                        }}
-                                    >
-                                        {submitting ? 'Subscribing...' : 'Subscribe'}
-                                    </button>
-                                </div>
-                                
-                                {/* Subscription Status Message */}
-                                {subscriptionStatus !== 'idle' && (
-                                    <div className={`mt-3 p-3 rounded ${subscriptionStatus === 'success' ? 'bg-success bg-opacity-20' : 'bg-danger bg-opacity-20'}`}>
-                                        <div className="d-flex align-items-center">
-                                            {subscriptionStatus === 'success' ? (
-                                                <Heart size={16} className="me-2 text-white" />
-                                            ) : (
-                                                <X size={16} className="me-2 text-white" />
-                                            )}
-                                            <small className="mb-0 text-white">{subscriptionMessage}</small>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Social Media */}
                             <div>
-                                <h4 className={`small mb-2 ${styles.socialTitle}`}>Follow Us</h4>
-                                <div className={`d-flex gap-3 ${styles.socialIcons}`}>
-                                    <Link href="https://www.youtube.com/@edlight-initiative" target="_blank" className={styles.socialIcon}>
-                                        <Youtube size={20} />
-                                        <span className="visually-hidden">YouTube</span>
-                                    </Link>
-                                    <Link href="https://www.facebook.com/edlinitiative" target="_blank" className={styles.socialIcon}>
-                                        <Facebook size={20} />
-                                        <span className="visually-hidden">Facebook</span>
-                                    </Link>
-                                    <Link href="https://x.com/edlinitiative" target="_blank" className={styles.socialIcon}>
-                                        <X size={20} />
-                                        <span className="visually-hidden">X (Twitter)</span>
-                                    </Link>
-                                    <Link href="https://www.instagram.com/edlinitiative?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" className={styles.socialIcon}>
-                                        <Instagram size={20} />
-                                        <span className="visually-hidden">Instagram</span>
-                                    </Link>
-                                    <Link href="https://www.linkedin.com/company/edlight-initiative/" target="_blank" className={styles.socialIcon}>
-                                        <Linkedin size={20} />
-                                        <span className="visually-hidden">LinkedIn</span>
-                                    </Link>
+                                <h2 className={`text-xl font-semibold ${styles.brandTitle}`}>EdLight Initiative</h2>
+                                <p className={`text-sm ${styles.brandTagline}`}>{t("footer.brand_tagline")}</p>
+                            </div>
+                        </div>
+                        <p className={`${styles.missionText} text-sm leading-relaxed`}>
+                            {t("footer.mission_text")}
+                            <Link href="/about-us" className={`${styles.footerLink} ml-1 text-sm`}>
+                                {t("footer.learn_more")}
+                            </Link>
+                        </p>
+                        <div className={`${styles.contactInfo} flex flex-col gap-2 text-sm`}>
+                            <a
+                                className={`${styles.contactItem} inline-flex items-center gap-2`}
+                                href="https://www.google.com/maps/place/EdLight+Initiative/@45.501721,-73.567158,15z/data=!4m6!3m5!1s0x4cc91a571e9513b3:0x1135921e02313662!8m2!3d45.501721!4d-73.567158!16s%2Fg%2F1td5v8h9?entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoASAFQAw%3D%3D"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <MapPin size={16} />
+                                Montréal, QC, Canada
+                            </a>
+                            <a
+                                className={`${styles.contactItem} inline-flex items-center gap-2`}
+                                href="tel:16316295402"
+                            >
+                                <Phone size={16} />
+                                1 (631) 629-5402
+                            </a>
+                            <a
+                                className={`${styles.contactItem} inline-flex items-center gap-2`}
+                                href="mailto:info@edlinitiative.org"
+                            >
+                                <Mail size={16} />
+                                info@edlinitiative.org
+                            </a>
+                        </div>
+                    </div>
+
+                    {resolvedSections.map((section) => {
+                        const title = section.titleKey ? t(section.titleKey) : section.title;
+                        return (
+                            <div key={section.title} className={`${styles.footerSection} flex flex-col gap-4`}>
+                                <h3 className={`${styles.sectionTitle} text-sm uppercase`}>{title}</h3>
+                                <div className={`${styles.linkList} flex flex-col gap-2`}>
+                                                        {section.links.map((link) => (
+                                                            <div key={`${section.title}-${link.href}`}>{renderFooterLink(link)}</div>
+                                    ))}
                                 </div>
+                            </div>
+                        );
+                    })}
+
+                    <div className={`${styles.footerSection} flex flex-col gap-4`}>
+                        <h3 className={`${styles.sectionTitle} text-sm uppercase`}>{t("footer.stay_connected")}</h3>
+                        <p className={`${styles.newsletterText} text-sm`}>{t("footer.newsletter_text")}</p>
+                        <form className={`${styles.newsletterForm} flex flex-col gap-3`} onSubmit={handleSubscribe}>
+                            <div className="flex flex-wrap gap-2 rounded-2xl bg-white/10 p-2 backdrop-blur">
+                                <input
+                                    id="newsletter-email"
+                                    type="email"
+                                    autoComplete="email"
+                                    className={`${styles.emailInput} w-full flex-1 rounded-xl border-none bg-transparent px-3 py-2 text-sm text-white placeholder:text-slate-200/70 focus:outline-none`}
+                                    placeholder={t("footer.email_placeholder")}
+                                    value={email}
+                                    onChange={(event) => setEmail(event.target.value)}
+                                />
+                                <button
+                                    id="newsletter-submit"
+                                    type="submit"
+                                    className={`${styles.subscribeBtn} rounded-xl px-4 py-2 text-sm font-semibold`}
+                                    disabled={
+                                        submitting || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+                                    }
+                                >
+                                    {submitting ? "Subscribing..." : t("footer.subscribe")}
+                                </button>
+                            </div>
+                            {subscriptionStatus !== "idle" ? (
+                                <div
+                                    className={`rounded-xl px-4 py-3 text-sm ${
+                                        subscriptionStatus === "success"
+                                            ? "bg-emerald-500/20 text-white"
+                                            : "bg-rose-500/20 text-white"
+                                    }`}
+                                >
+                                    <div className="flex items-center gap-2">
+                                        {subscriptionStatus === "success" ? <Heart size={16} /> : <X size={16} />}
+                                        <span>{subscriptionMessage}</span>
+                                    </div>
+                                </div>
+                            ) : null}
+                        </form>
+                                    {cta ? (
+                                        <Link
+                                            href={cta.href}
+                                            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-sky-600 via-sky-500 to-cyan-400 px-5 py-2 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-sky-900/30 transition duration-200 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+                                        >
+                                            {donateLabel}
+                                        </Link>
+                                    ) : null}
+                        <div className="flex flex-col gap-3">
+                            <h4 className={`${styles.socialTitle} text-sm font-semibold`}>{t("footer.follow_us")}</h4>
+                            <div className={`${styles.socialIcons}`}>
+                                {SOCIAL_LINKS.map(({ href, label, Icon }) => (
+                                    <Link key={href} href={href} target="_blank" className={styles.socialIcon} aria-label={label}>
+                                        <Icon size={20} />
+                                    </Link>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-
-            {/* Partnership Section */}
             <div id="partnerships" className={styles.partnershipSection}>
-                <div className="container py-4">
-                    <div className="text-center mb-4">
-                        <h3 className={`h5 mb-3 ${styles.partnershipTitle}`}>Our Partners</h3>
-                        <p className={`small ${styles.partnershipSubtitle}`}>
-                            Working together to create lasting impact in communities worldwide
-                        </p>
+                <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+                    <div className="text-center">
+                        <h3 className={`${styles.partnershipTitle} text-lg`}>{t("footer.our_partners")}</h3>
+                        <p className={`${styles.partnershipSubtitle} mt-4 text-sm`}>{t("footer.partnership_subtitle")}</p>
                     </div>
-
-                    <div className={styles.partnersGrid}>
-                        {/* Partner Logo 1 */}
+                    <div className={`${styles.partnersGrid} mt-10`}>
                         <div className={styles.partnerItem}>
                             <Image
                                 src="/images/partners/fellowsfp.avif"
@@ -279,10 +249,9 @@ export default function Footer() {
                                 className={styles.partnerLogo}
                                 width={180}
                                 height={64}
+                                loading="lazy"
                             />
                         </div>
-
-                        {/* Partner Logo 2 */}
                         <div className={styles.partnerItem}>
                             <Image
                                 src="/images/partners/uwc.avif"
@@ -290,10 +259,9 @@ export default function Footer() {
                                 className={styles.partnerLogo}
                                 width={180}
                                 height={64}
+                                loading="lazy"
                             />
                         </div>
-
-                        {/* Partner Logo 3 */}
                         <div className={styles.partnerItem}>
                             <Image
                                 src="/images/partners/lekol.avif"
@@ -301,60 +269,24 @@ export default function Footer() {
                                 className={styles.partnerLogo}
                                 width={180}
                                 height={64}
+                                loading="lazy"
                             />
                         </div>
-
-                        {/*/!* Partner Logo 4 *!/*/}
-                        {/*<div className={styles.partnerItem}>*/}
-                        {/*    <img*/}
-                        {/*        src="/images/partners/partner4.png"*/}
-                        {/*        alt="Partner 4 Logo"*/}
-                        {/*        className={styles.partnerLogo}*/}
-                        {/*    />*/}
-                        {/*</div>*/}
-
-                        {/*/!* Partner Logo 5 *!/*/}
-                        {/*<div className={styles.partnerItem}>*/}
-                        {/*    <img*/}
-                        {/*        src="/images/partners/partner5.png"*/}
-                        {/*        alt="Partner 5 Logo"*/}
-                        {/*        className={styles.partnerLogo}*/}
-                        {/*    />*/}
-                        {/*</div>*/}
-
-                        {/*/!* Partner Logo 6 *!/*/}
-                        {/*<div className={styles.partnerItem}>*/}
-                        {/*    <img*/}
-                        {/*        src="/images/partners/partner6.png"*/}
-                        {/*        alt="Partner 6 Logo"*/}
-                        {/*        className={styles.partnerLogo}*/}
-                        {/*    />*/}
-                        {/*</div>*/}
                     </div>
                 </div>
             </div>
 
-            {/* Footer Bottom */}
             <div className={styles.footerBottom}>
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-md-6">
-                            <p className={`mb-0 small ${styles.copyrightText}`}>
-                                © {new Date().getFullYear()} EdLight Initiative. All rights reserved.
-                            </p>
-                        </div>
-                        <div className="col-md-6">
-                            <p className={`mb-0 small text-md-end ${styles.loveText}`}>
-                                Made with <Heart size={14} className={styles.heartIcon} /> for communities worldwide
-                            </p>
-                        </div>
-                        {/* Hidden build info for troubleshooting deployments */}
-                        <div className="col-12 mt-1">
-                            <p className="mb-0 small text-center" style={{ opacity: 0.4 }}>
-                                build {buildInfo.BUILD_COMMIT} · {buildInfo.BUILD_BRANCH}
-                            </p>
-                        </div>
-                    </div>
+                <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-sm text-white sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+                    <p className={`${styles.copyrightText}`}>
+                        © {new Date().getFullYear()} EdLight Initiative. {t("footer.copyright")}
+                    </p>
+                    <p className={`${styles.loveText} text-sm`}> 
+                        {t("footer.made_with_love")} <Heart size={14} className={styles.heartIcon} /> {t("footer.for_communities")}
+                    </p>
+                    <p className="text-xs opacity-60">
+                        build {buildInfo.BUILD_COMMIT} · {buildInfo.BUILD_BRANCH}
+                    </p>
                 </div>
             </div>
         </footer>

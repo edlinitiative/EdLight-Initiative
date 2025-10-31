@@ -22,6 +22,7 @@ const translations = {
   'nav.faq': 'FAQ',
     'nav.admin': 'Admin',
     'nav.donate': 'Donate',
+  'nav.language': 'Language',
     
     // About Us Page
     'about.who_are_we': 'Who are we?',
@@ -53,6 +54,7 @@ const translations = {
   'footer.contact': 'Contact Us',
     'footer.quick_links': 'Quick Links',
     'footer.programs': 'Programs',
+  'footer.resources': 'Resources',
     'footer.educational_courses': 'Educational Courses',
     'footer.partnerships': 'Partnerships',
     'footer.stay_connected': 'Stay Connected',
@@ -65,7 +67,7 @@ const translations = {
   'footer.faq': 'FAQ',
     'footer.our_partners': 'Our Partners',
     'footer.partnership_subtitle': 'Working together to create lasting impact in communities worldwide',
-    'footer.copyright': 'EdLight Initiative. All rights reserved.',
+  'footer.copyright': 'All rights reserved.',
     'footer.made_with_love': 'Made with',
     'footer.for_communities': 'for communities worldwide',
     
@@ -148,6 +150,7 @@ const translations = {
   'nav.faq': 'FAQ',
     'nav.admin': 'Administration',
     'nav.donate': 'Faire un Don',
+  'nav.language': 'Langue',
     
     // About Us Page
     'about.who_are_we': 'Qui sommes-nous ?',
@@ -179,6 +182,7 @@ const translations = {
   'footer.contact': 'Contactez-nous',
     'footer.quick_links': 'Liens Rapides',
     'footer.programs': 'Programmes',
+  'footer.resources': 'Ressources',
     'footer.educational_courses': 'Cours Éducatifs',
     'footer.partnerships': 'Partenariats',
     'footer.stay_connected': 'Restez Connectés',
@@ -191,7 +195,7 @@ const translations = {
   'footer.faq': 'FAQ',
     'footer.our_partners': 'Nos Partenaires',
     'footer.partnership_subtitle': 'Travaillant ensemble pour créer un impact durable dans les communautés du monde entier',
-    'footer.copyright': 'Initiative EdLight. Tous droits réservés.',
+  'footer.copyright': 'Tous droits réservés.',
     'footer.made_with_love': 'Fait avec',
     'footer.for_communities': 'pour les communautés du monde entier',
     

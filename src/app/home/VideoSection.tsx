@@ -1,10 +1,16 @@
-"use client"
-import React, { useRef, useEffect } from 'react';
-import logger from '@/lib/logger';
-import { Play, BookOpen, Users, Award } from 'lucide-react';
-import styles from '../../styles/Home.module.css';
+"use client";
 
-export default function VideoSection() {
+import React, { useEffect, useRef } from "react";
+import { Play } from "lucide-react";
+import logger from "@/lib/logger";
+import styles from "../../styles/Home.module.css";
+import type { Testimonial } from "@/lib/content";
+
+type VideoSectionProps = {
+    testimonial?: Testimonial;
+};
+
+export default function VideoSection({ testimonial }: VideoSectionProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
@@ -15,17 +21,19 @@ export default function VideoSection() {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        video.play().catch((error) => {
-                            logger.debug('Autoplay prevented:', error);
-                        });
+                        video
+                            .play()
+                            .catch((error) => {
+                                logger.debug("Autoplay prevented:", error);
+                            });
                     } else {
                         video.pause();
                     }
                 });
             },
             {
-                threshold: 0.5, // Play when 50% of video is visible
-                rootMargin: '0px 0px -10% 0px' // Start playing slightly before fully in view
+                threshold: 0.5,
+                rootMargin: "0px 0px -10% 0px",
             }
         );
 
@@ -36,27 +44,30 @@ export default function VideoSection() {
         };
     }, []);
 
+        const applicationUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfUvjVy3OsjMm6IWx3I50aei4pk6RSgrGCfrz_6y0zPJxx5vQ/closedform";
+
     return (
         <section className={styles.videoSection}>
             <div className={styles.container}>
                 <div className={styles.videoContent}>
                     <div className={styles.videoText}>
-                    <h2
-  className={styles.videoTitle}
-  style={{
-    fontWeight: 400,
-    color: 'rgba(0, 0, 0, 0.65)',
-    lineHeight: '1.6',
-    letterSpacing: '0.3px',
-  }}
->
-  Experience a captivating narrative of our organization's remarkable achievements and growth during the last two years. 
-  Delve into the pages of our journey to uncover the richness of experiences filled with laughter, joy, and a wealth of knowledge
-</h2>
-
-                        <button
-                        onClick={() => window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSfUvjVy3OsjMm6IWx3I50aei4pk6RSgrGCfrz_6y0zPJxx5vQ/closedform"}
-                        className={styles.videoCta}>
+                        <h2 className={styles.videoTitle}>
+                            Experience a captivating narrative of our organization's remarkable achievements and growth during the last two
+                            years. Delve into the pages of our journey to uncover the richness of experiences filled with laughter, joy, and a
+                            wealth of knowledge.
+                        </h2>
+                        {testimonial ? (
+                            <blockquote className={styles.testimonialQuote}>
+                                “{testimonial.quote}”
+                                <cite>
+                                    {testimonial.name}, {testimonial.role}
+                                </cite>
+                            </blockquote>
+                        ) : null}
+                                    <button
+                                        onClick={() => window.open(applicationUrl, "_blank", "noopener,noreferrer")}
+                                        className={styles.videoCta}
+                                    >
                             Apply to ESLP 2025
                             <Play size={20} />
                         </button>

@@ -1,77 +1,79 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ArrowRight, Play, Eye, Send, Download, Star, Zap, Globe, Shield } from 'lucide-react';
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { ArrowRight, ChevronLeft, ChevronRight, Eye } from "lucide-react";
 import styles from "../../styles/HomeHero.module.css";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // Hero data with different subjects - will be updated with translations
 
 export default function HeroHome() {
-    const { t } = useLanguage();
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
-    const [mounted, setMounted] = useState(false);
-    const [animationDuration, setAnimationDuration] = useState('15s');
-    const [pauseAnimation, setPauseAnimation] = useState('paused');
-    // Hero data with translations
-    const heroData = [
-        {
-            id: 1,
-            title: t('nav.eslp'),
-            description: t('eslp.hero_description'),
-            backgroundImage: "https://static.wixstatic.com/media/fb71c2_8e62ff414cfb4936b80e9be8a9f88532~mv2.jpg/v1/fill/w_1470,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fb71c2_8e62ff414cfb4936b80e9be8a9f88532~mv2.jpg",
-            primaryCTA: "Learn More",
-            primaryCTAUrl: "/ESLP",
-            secondaryCTA: "See What the Application looks like",
-            secondaryCTAUrl: "ESLP/application",
-        },
-        {
-            id: 2,
-            title: t('mission.online_courses_title'),
-            description: t('mission.online_courses_description'),
-            backgroundImage: "https://static.wixstatic.com/media/fb71c2_254f5acc27404c8abedc12a761fd1b2d~mv2.jpg/v1/fill/w_1470,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fb71c2_254f5acc27404c8abedc12a761fd1b2d~mv2.jpg",
-            primaryCTA: t('courses.enroll_now'),
-            primaryCTAUrl: "https://www.youtube.com/@edlight-initiative",
-            secondaryCTA: null,
-        },
-    ];
+        const { t } = useLanguage();
+        const [currentIndex, setCurrentIndex] = useState(0);
+        const [isAnimating, setIsAnimating] = useState(false);
+        const [mounted, setMounted] = useState(false);
+
+        const heroData = useMemo(() => (
+            [
+                {
+                    id: 1,
+                    title: t("nav.eslp"),
+                    description: t("eslp.hero_description"),
+                    backgroundImage:
+                        "https://static.wixstatic.com/media/fb71c2_8e62ff414cfb4936b80e9be8a9f88532~mv2.jpg/v1/fill/w_1470,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fb71c2_8e62ff414cfb4936b80e9be8a9f88532~mv2.jpg",
+                    primaryCTA: t("home.learn_more"),
+                    primaryCTAUrl: "/ESLP",
+                    secondaryCTA: "See what the application looks like",
+                    secondaryCTAUrl: "/ESLP/application",
+                },
+                {
+                    id: 2,
+                    title: t("mission.online_courses_title"),
+                    description: t("mission.online_courses_description"),
+                    backgroundImage:
+                        "https://static.wixstatic.com/media/fb71c2_254f5acc27404c8abedc12a761fd1b2d~mv2.jpg/v1/fill/w_1470,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fb71c2_254f5acc27404c8abedc12a761fd1b2d~mv2.jpg",
+                    primaryCTA: t("courses.enroll_now"),
+                    primaryCTAUrl: "https://www.youtube.com/@edlight-initiative",
+                    secondaryCTA: null,
+                    secondaryCTAUrl: undefined,
+                },
+            ]
+        ), [t]);
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (!isAnimating) {
+        const nextSlide = useCallback(() => {
+            if (isAnimating) return;
+            setIsAnimating(true);
+            setCurrentIndex((prev) => (prev + 1) % heroData.length);
+            setTimeout(() => setIsAnimating(false), 800);
+        }, [heroData.length, isAnimating]);
+
+        const prevSlide = useCallback(() => {
+            if (isAnimating) return;
+            setIsAnimating(true);
+            setCurrentIndex((prev) => (prev - 1 + heroData.length) % heroData.length);
+            setTimeout(() => setIsAnimating(false), 800);
+        }, [heroData.length, isAnimating]);
+
+        const goToSlide = useCallback(
+            (index: number) => {
+                if (isAnimating || index === currentIndex) return;
+                setIsAnimating(true);
+                setCurrentIndex(index);
+                setTimeout(() => setIsAnimating(false), 800);
+            },
+            [currentIndex, isAnimating]
+        );
+
+        useEffect(() => {
+            const interval = window.setInterval(() => {
                 nextSlide();
-            }
-        }, 15000);
+            }, 15000);
 
-        return () => clearInterval(interval);
-    }, [currentIndex, isAnimating]);
-
-    const nextSlide = () => {
-        if (isAnimating) return;
-        setIsAnimating(true);
-        setCurrentIndex((prev) => (prev + 1) % heroData.length);
-        setTimeout(() => setIsAnimating(false), 800);
-    };
-
-    const prevSlide = () => {
-        if (isAnimating) return;
-        setIsAnimating(true);
-        setCurrentIndex((prev) => (prev - 1 + heroData.length) % heroData.length);
-        
-        setTimeout(() => setIsAnimating(false), 800);
-    };
-
-    const goToSlide = (index: number) => {
-        if (isAnimating || index === currentIndex) return;
-        setIsAnimating(true);
-        setCurrentIndex(index);
-       
-        setTimeout(() => setIsAnimating(false), 800);
-    };
+            return () => window.clearInterval(interval);
+        }, [nextSlide]);
 
     const currentHero = heroData[currentIndex];
     // const IconComponent = currentHero.icon;

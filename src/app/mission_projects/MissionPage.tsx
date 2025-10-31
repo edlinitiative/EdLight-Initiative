@@ -1,13 +1,76 @@
 "use client";
+
+import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Users, BookOpen, Lightbulb } from "lucide-react";
+import { ArrowRight, BookOpen, Globe, Lightbulb, Users } from "lucide-react";
 import styles from "./MissionPage.module.css";
-import DonateButton from "@/components/DonateButton";
 import { useLanguage } from "@/contexts/LanguageContext";
+import type { Initiative, Partner } from "@/lib/content";
 
-export default function MissionPage() {
+type MissionPageProps = {
+    initiatives: Initiative[];
+    partners: Partner[];
+};
+
+const cardConfig: Record<
+    string,
+    {
+        modifier?: string;
+        accent?: string;
+        gradient?: string;
+        Icon: typeof BookOpen;
+    }
+> = {
+    default: {
+        accent: styles.blueCard,
+        gradient: "linear-gradient(135deg, rgba(0, 100, 148, 0.82), rgba(2, 132, 199, 0.7))",
+        Icon: BookOpen,
+    },
+    academy: {
+        modifier: styles.onlineCoursesCard,
+        accent: styles.blueCard,
+        gradient: "linear-gradient(135deg, rgba(0, 100, 148, 0.8), rgba(2, 132, 199, 0.72))",
+        Icon: BookOpen,
+    },
+    eslp: {
+        modifier: styles.eslpCard,
+        accent: styles.greenCard,
+        gradient: "linear-gradient(135deg, rgba(16, 185, 129, 0.85), rgba(5, 150, 105, 0.72))",
+        Icon: Users,
+    },
+    exchange: {
+        accent: styles.purpleCard,
+        gradient: "linear-gradient(135deg, rgba(59, 130, 246, 0.85), rgba(124, 58, 237, 0.7))",
+        Icon: Globe,
+    },
+    labs: {
+        accent: styles.blueCard,
+        gradient: "linear-gradient(135deg, rgba(6, 182, 212, 0.8), rgba(14, 165, 233, 0.65))",
+        Icon: Lightbulb,
+    },
+};
+
+export default function MissionPage({ initiatives, partners }: MissionPageProps) {
     const { t } = useLanguage();
+
+    const spotlightInitiatives = useMemo(() => {
+        const preferredOrder = ["academy", "eslp", "exchange"];
+        const prioritized = preferredOrder
+            .map((slug) => initiatives.find((initiative) => initiative.slug === slug))
+            .filter((initiative): initiative is Initiative => Boolean(initiative));
+
+        if (prioritized.length < 3) {
+            const remaining = initiatives.filter(
+                (initiative) => !preferredOrder.includes(initiative.slug)
+            );
+            prioritized.push(...remaining.slice(0, 3 - prioritized.length));
+        }
+
+        return prioritized.slice(0, 3);
+    }, [initiatives]);
+
+    const featuredPartners = useMemo(() => partners.slice(0, 6), [partners]);
     
     // Trigger the navbar donate button when MissionPage donate buttons are clicked
     const handleDonateClick = () => {
@@ -66,86 +129,62 @@ export default function MissionPage() {
                     </div>
 
                     <div className="row g-4">
-                        {/* Online Courses Project */}
-                        <div className="col-lg-4 col-md-6">
-                            <div className={`${styles.projectCard} ${styles.blueCard} ${styles.onlineCoursesCard}`}>
-                                <div className={styles.projectBackground}>
-                                    <Image
-                                        src="/images/berlensky.jpg"
-                                        alt="Online Courses Background"
-                                        fill
-                                        className={styles.backgroundImage}
-                                    />
-                                    <div className={styles.backgroundOverlay}></div>
-                                </div>
-                                <div className={styles.projectContent}>
-                                    <div className={styles.projectIcon}>
-                                        <BookOpen size={40} />
-                                    </div>
-                                    <h3 className={styles.projectTitle}>{t('mission.online_courses_title')}</h3>
-                                    <p className={styles.projectDescription}>
-                                        {t('mission.online_courses_description')}
-                                    </p>
-                                    <Link href="/courses" className={styles.projectLink}>
-                                        {t('home.learn_more')} <ArrowRight size={16} />
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
+                        {spotlightInitiatives.map((initiative) => {
+                            const config = cardConfig[initiative.slug] ?? cardConfig.default;
+                            const { Icon, gradient, accent } = config;
+                            const cardClasses = [styles.projectCard, config.modifier, accent]
+                                .filter(Boolean)
+                                .join(' ');
+                            const heroImage = initiative.heroImage ?? '/images/hero_images/eslp_bg.jpg';
+                            const primaryAction = initiative.actions?.[0];
+                            const ctaLabel = primaryAction?.label ?? t('home.learn_more');
 
-                        {/* ESLP Project */}
-                        <div className="col-lg-4 col-md-6">
-                            <div className={`${styles.projectCard} ${styles.greenCard} ${styles.eslpCard}`}>
-                                <div className={styles.projectBackground}>
-                                    <Image
-                                        src="/images/hero_images/eslp_bg.jpg"
-                                        alt="ESLP Background"
-                                        fill
-                                        className={styles.backgroundImage}
-                                    />
-                                    <div className={styles.backgroundOverlay}></div>
-                                </div>
-                                <div className={styles.projectContent}>
-                                    <div className={styles.projectIcon}>
-                                        <Users size={40} />
-                                    </div>
-                                    <h3 className={styles.projectTitle}>{t('mission.eslp_title')}</h3>
-                                    <p className={styles.projectDescription}>
-                                        {t('mission.eslp_description')}
-                                    </p>
-                                    <Link href="/ESLP" className={styles.projectLink}>
-                                        {t('home.learn_more')} <ArrowRight size={16} />
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
+                            const isExternal = primaryAction?.href?.startsWith('http');
 
-                        {/* EIFP Project */}
-                        <div className="col-lg-4 col-md-6">
-                            <div className={`${styles.projectCard} ${styles.purpleCard} ${styles.eifpCard}`}>
-                                <div className={styles.projectBackground}>
-                                    <Image
-                                        src="/images/internships.avif"
-                                        alt="EIFP Background"
-                                        fill
-                                        className={styles.backgroundImage}
-                                    />
-                                    <div className={styles.backgroundOverlay}></div>
-                                </div>
-                                <div className={styles.projectContent}>
-                                    <div className={styles.projectIcon}>
-                                        <Lightbulb size={40} />
+                            return (
+                                <div key={initiative.slug} className="col-lg-4 col-md-6">
+                                    <div className={cardClasses}>
+                                        <div className={styles.projectBackground}>
+                                            <Image
+                                                src={heroImage}
+                                                alt={initiative.title}
+                                                fill
+                                                className={styles.backgroundImage}
+                                            />
+                                            <div
+                                                className={styles.backgroundOverlay}
+                                                style={gradient ? { background: gradient } : undefined}
+                                            ></div>
+                                        </div>
+                                        <div className={styles.projectContent}>
+                                            <div className={styles.projectIcon}>
+                                                <Icon size={40} />
+                                            </div>
+                                            <h3 className={styles.projectTitle}>{initiative.title}</h3>
+                                            <p className={styles.projectDescription}>
+                                                {initiative.summary}
+                                            </p>
+                                            {primaryAction ? (
+                                                isExternal ? (
+                                                    <a
+                                                        href={primaryAction.href ?? '#'}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        className={styles.projectLink}
+                                                    >
+                                                        {ctaLabel} <ArrowRight size={16} />
+                                                    </a>
+                                                ) : (
+                                                    <Link href={primaryAction.href ?? '#'} className={styles.projectLink}>
+                                                        {ctaLabel} <ArrowRight size={16} />
+                                                    </Link>
+                                                )
+                                            ) : null}
+                                        </div>
                                     </div>
-                                    <h3 className={styles.projectTitle}>{t('mission.eifp_title')}</h3>
-                                    <p className={styles.projectDescription}>
-                                        {t('mission.eifp_description')}
-                                    </p>
-                                    <span className={styles.projectLink}>
-                                        Coming soon
-                                    </span>
                                 </div>
-                            </div>
-                        </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -188,33 +227,30 @@ export default function MissionPage() {
                     </div>
 
                     <div className={styles.partnersGrid}>
-                        <div className={styles.partnerItem}>
-                            <Image
-                                src="/images/partners/fellowsfp.avif"
-                                alt="Fellows FP Partner"
-                                width={200}
-                                height={100}
-                                className={styles.partnerLogo}
-                            />
-                        </div>
-                        <div className={styles.partnerItem}>
-                            <Image
-                                src="/images/partners/uwc.avif"
-                                alt="UWC Partner"
-                                width={200}
-                                height={100}
-                                className={styles.partnerLogo}
-                            />
-                        </div>
-                        <div className={styles.partnerItem}>
-                            <Image
-                                src="/images/partners/lekol.avif"
-                                alt="Lekol Partner"
-                                width={200}
-                                height={100}
-                                className={styles.partnerLogo}
-                            />
-                        </div>
+                        {featuredPartners.map((partner) => {
+                            const logo = partner.logo ?? '/images/partners/fellowsfp.avif';
+                            const partnerLogo = (
+                                <Image
+                                    src={logo}
+                                    alt={partner.name}
+                                    width={200}
+                                    height={100}
+                                    className={styles.partnerLogo}
+                                />
+                            );
+
+                            return (
+                                <div key={partner.name} className={styles.partnerItem}>
+                                    {partner.href ? (
+                                        <a href={partner.href} target="_blank" rel="noreferrer">
+                                            {partnerLogo}
+                                        </a>
+                                    ) : (
+                                        partnerLogo
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
