@@ -67,15 +67,12 @@ export default function RootLayout({
                 {/* Main Content Area */}
                 <main
                     id="main-content"
-                    className="flex-grow-1 d-flex flex-column"
+                    className="flex-grow-1"
                     style={{
-                        paddingTop: '80px', // Account for fixed navbar
-                        minHeight: 'calc(100vh - 80px)' // Ensure full height minus navbar
+                        paddingTop: '80px' // Account for fixed navbar
                     }}
                 >
-                    <div className="flex-grow-1">
-                        {children}
-                    </div>
+                    {children}
                 </main>
 
                 {/* Footer */}
