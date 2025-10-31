@@ -68,10 +68,10 @@ export default function Navbar({ navItems, cta }: NavbarProps) {
                     : "border-b border-transparent bg-white/80 backdrop-blur dark:border-transparent dark:bg-slate-900/80"
             }`}
         >
-            <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 md:px-6">
+            <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 md:px-6">
                 <Link href="/" className="flex items-center gap-3" aria-label="EdLight Initiative home">
-                    <span className="relative inline-flex overflow-hidden rounded-2xl bg-gradient-to-tr from-sky-700 via-sky-600 to-cyan-400 p-[1px] shadow-lg shadow-sky-900/20">
-                                <span className="flex h-14 w-40 items-center justify-center rounded-[26px] bg-white/95 px-3">
+                    <span className="relative inline-flex overflow-hidden rounded-2xl bg-gradient-to-tr from-edlight-primary via-edlight-primary to-edlight-darkAccent p-[1px] shadow-lg shadow-sky-900/20 dark:shadow-slate-900/40">
+                                <span className="flex h-14 w-40 items-center justify-center rounded-[26px] bg-white/95 px-3 dark:bg-slate-900/90">
                             <Image
                                 src="/images/edl_logo.png"
                                 alt="EdLight Initiative logo"
@@ -91,7 +91,7 @@ export default function Navbar({ navItems, cta }: NavbarProps) {
                                 href={item.href}
                                 className={`${desktopLinkClasses} ${
                                     item.isActive
-                                        ? "text-sky-700 dark:text-sky-400 after:absolute after:inset-x-3 after:bottom-1 after:h-1 after:rounded-full after:bg-gradient-to-r after:from-sky-600 after:to-cyan-400"
+                                        ? "text-edlight-primary dark:text-edlight-darkAccent after:absolute after:inset-x-3 after:bottom-1 after:h-1 after:rounded-full after:bg-gradient-to-r after:from-edlight-primary after:to-edlight-darkAccent"
                                         : ""
                                 }`}
                             >
