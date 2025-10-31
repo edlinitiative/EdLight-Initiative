@@ -6,7 +6,8 @@
     color: white;
     position: relative;
     overflow: hidden;
-    margin-top: auto; /* Push footer to bottom */
+    width: 100%;
+    flex-shrink: 0; /* Prevent footer from shrinking */
 }
 
 .footer::before {
