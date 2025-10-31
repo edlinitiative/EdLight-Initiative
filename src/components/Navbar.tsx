@@ -1,183 +1,190 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import Image from "next/image";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Globe, Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon, Globe } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import type { NavLink } from "@/lib/content";
 
-import { useLanguage } from "@/contexts/LanguageContext";
-import DonateButton from "./DonateButton";
-import ThemeToggle from "./ThemeToggle";
-
 type NavbarProps = {
-    navItems: NavLink[];
-    cta?: NavLink;
-};
-
-type TranslatedNavItem = NavLink & {
-    label: string;
-    isActive: boolean;
+  navItems: NavLink[];
+  cta?: NavLink;
 };
 
 export default function Navbar({ navItems, cta }: NavbarProps) {
-    const { language, setLanguage, t } = useLanguage();
-    const pathname = usePathname();
-    const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const { language, setLanguage, t } = useLanguage();
+  const pathname = usePathname();
 
-    useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 8);
-        window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    useEffect(() => {
-        document.body.classList.toggle("overflow-hidden", isOpen);
-        return () => document.body.classList.remove("overflow-hidden");
-    }, [isOpen]);
+  useEffect(() => {
+    const stored = localStorage.getItem("theme") as "light" | "dark" | null;
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initial = stored || (prefersDark ? "dark" : "light");
+    setTheme(initial);
+    document.documentElement.classList.toggle("dark", initial === "dark");
+  }, []);
 
-    useEffect(() => {
-        setIsOpen(false);
-    }, [pathname]);
+  const toggleTheme = () => {
+    const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    localStorage.setItem("theme", next);
+    document.documentElement.classList.toggle("dark", next === "dark");
+  };
 
-            const translatedNavItems = useMemo<TranslatedNavItem[]>(
-                () =>
-                    navItems.map((item) => ({
-                        ...item,
-                        label: item.key ? t(item.key) : item.label,
-                        isActive:
-                            item.href === "/"
-                                ? pathname === "/"
-                                : pathname?.startsWith(item.href) ?? false,
-                    })),
-            [navItems, pathname, t]
-    );
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "fr" : "en");
+  };
 
-    const desktopLinkClasses =
-        "relative inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 transition duration-200 hover:text-slate-950 dark:hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500";
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
-        const donateLabel = cta?.key ? t(cta.key) : cta?.label ?? t("nav.donate");
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <nav className="container-custom">
+        <div className="flex h-20 items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <span className="text-2xl font-bold text-white">E</span>
+            </div>
+            <div className="hidden sm:block">
+              <div className="text-lg font-bold text-slate-900 dark:text-white">
+                EdLight
+              </div>
+              <div className="text-xs text-slate-600 dark:text-slate-400 -mt-1">
+                Initiative
+              </div>
+            </div>
+          </Link>
 
-    return (
-        <nav
-            className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-                scrolled
-                    ? "border-b border-slate-900/5 bg-white/95 shadow-lg shadow-slate-900/5 backdrop-blur dark:border-white/10 dark:bg-slate-900/90 dark:shadow-slate-900/20"
-                    : "border-b border-transparent bg-white/80 backdrop-blur dark:border-transparent dark:bg-slate-900/80"
-            }`}
-        >
-            <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 md:px-6">
-                <Link href="/" className="flex items-center gap-3" aria-label="EdLight Initiative home">
-                    <span className="relative inline-flex overflow-hidden rounded-2xl bg-gradient-to-tr from-edlight-primary via-edlight-primary to-edlight-darkAccent p-[1px] shadow-lg shadow-sky-900/20 dark:shadow-slate-900/40">
-                                <span className="flex h-14 w-40 items-center justify-center rounded-[26px] bg-white/95 px-3 dark:bg-slate-900/90">
-                            <Image
-                                src="/images/edl_logo.png"
-                                alt="EdLight Initiative logo"
-                                width={190}
-                                height={60}
-                                priority
-                            />
-                        </span>
-                    </span>
+          <div className="hidden lg:flex items-center gap-8">
+            {navItems.map((item) => {
+              const label = item.key ? t(item.key) : item.label;
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-sm font-medium transition-colors relative group ${
+                    active
+                      ? "text-brand-600 dark:text-brand-400"
+                      : "text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400"
+                  }`}
+                >
+                  {label}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-brand-500 to-brand-600 transition-all ${
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
                 </Link>
+              );
+            })}
+          </div>
 
-                <div className="flex items-center gap-3 md:gap-6">
-                    <div className="hidden items-center gap-1 md:flex">
-                        {translatedNavItems.map((item) => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className={`${desktopLinkClasses} ${
-                                    item.isActive
-                                        ? "text-edlight-primary dark:text-edlight-darkAccent after:absolute after:inset-x-3 after:bottom-1 after:h-1 after:rounded-full after:bg-gradient-to-r after:from-edlight-primary after:to-edlight-darkAccent"
-                                        : ""
-                                }`}
-                            >
-                                {item.label}
-                            </Link>
-                        ))}
-                        <DonateButton label={donateLabel} className="ml-2" variant="outline" />
-                        <ThemeToggle />
-                        <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-3 py-1 text-sm font-medium text-slate-600 shadow-sm dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-300">
-                            <Globe className="h-4 w-4 text-sky-600" aria-hidden />
-                            <select
-                                value={language}
-                                onChange={(event) => setLanguage(event.target.value)}
-                                className="bg-transparent text-sm font-semibold uppercase outline-none dark:text-slate-200"
-                            >
-                                <option value="en">EN</option>
-                                <option value="fr">FR</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button
-                        type="button"
-                        onClick={() => setIsOpen((prev) => !prev)}
-                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-600 shadow-sm transition hover:border-sky-200 hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 md:hidden dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-300"
-                        aria-expanded={isOpen}
-                        aria-controls="mobile-navigation"
-                        aria-label="Toggle navigation menu"
-                    >
-                        {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                    </button>
-                </div>
-            </div>
-
-            <div
-                id="mobile-navigation"
-                className={`md:hidden ${
-                    isOpen
-                        ? "pointer-events-auto opacity-100"
-                        : "pointer-events-none opacity-0"
-                }`}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              className="p-2.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              aria-label="Toggle theme"
             >
-            <div className="absolute inset-x-4 top-full z-50 mt-3 origin-top rounded-3xl border border-slate-100 bg-white/95 p-4 shadow-xl shadow-slate-900/10 backdrop-blur transition-all duration-200 dark:border-slate-800 dark:bg-slate-900/95">
-                    <div className="flex flex-col gap-2">
-                        {translatedNavItems.map((item) => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className={`relative rounded-2xl px-4 py-3 text-base font-semibold transition hover:bg-slate-100 dark:hover:bg-slate-800 ${
-                                    item.isActive ? "text-edlight-primary dark:text-edlight-darkAccent after:absolute after:inset-x-4 after:bottom-1 after:h-1 after:rounded-full after:bg-gradient-to-r after:from-edlight-primary after:to-edlight-darkAccent" : "text-slate-700 dark:text-slate-300"
-                                }`}
-                                onClick={() => setIsOpen(false)}
-                            >
-                                {item.label}
-                            </Link>
-                        ))}
-                        <DonateButton label={donateLabel} className="w-full justify-center" variant="outline" />
-                        <div className="flex items-center justify-between">
-                            <span className="text-sm font-semibold text-slate-600">Theme</span>
-                            <ThemeToggle />
-                        </div>
-                        <div className="flex items-center justify-between rounded-2xl bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-                            <span className="inline-flex items-center gap-2">
-                                <Globe className="h-4 w-4 text-sky-600" aria-hidden />
-                                {t("nav.language") ?? "Language"}
-                            </span>
-                            <select
-                                value={language}
-                                onChange={(event) => setLanguage(event.target.value)}
-                                className="rounded-full border border-slate-200 bg-white px-3 py-2 text-sm uppercase text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
-                            >
-                                <option value="en">EN</option>
-                                <option value="fr">FR</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                        {isOpen ? (
-                            <button
-                                type="button"
-                                aria-label="Close menu"
-                                onClick={() => setIsOpen(false)}
-                                className="fixed inset-0 z-40 bg-slate-900/30 backdrop-blur-sm"
-                            />
-                        ) : null}
+              {theme === "light" ? (
+                <Moon className="w-5 h-5 text-slate-700" />
+              ) : (
+                <Sun className="w-5 h-5 text-slate-300" />
+              )}
+            </button>
+
+            <button
+              onClick={toggleLanguage}
+              className="p-2.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-1.5"
+              aria-label="Toggle language"
+            >
+              <Globe className="w-5 h-5 text-slate-700 dark:text-slate-300" />
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                {language.toUpperCase()}
+              </span>
+            </button>
+
+            {cta && (
+              <button
+                type="button"
+                className="hidden lg:inline-flex btn btn-primary"
+                zeffy-form-link="https://www.zeffy.com/embed/donation-form/help-us-make-education-more-accessible-to-the-youth-of-haiti?modal=true"
+                aria-label={cta.key ? t(cta.key) : cta.label}
+              >
+                {cta.key ? t(cta.key) : cta.label}
+              </button>
+            )}
+
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden p-2.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? (
+                <X className="w-6 h-6 text-slate-700 dark:text-slate-300" />
+              ) : (
+                <Menu className="w-6 h-6 text-slate-700 dark:text-slate-300" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {mobileOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 shadow-xl animate-slide-down">
+            <div className="container-custom py-6">
+              <div className="flex flex-col gap-4">
+                {navItems.map((item) => {
+                  const label = item.key ? t(item.key) : item.label;
+                  const active = isActive(item.href);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`text-base font-medium py-2 px-4 rounded-xl transition-colors ${
+                        active
+                          ? "bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400"
+                          : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900"
+                      }`}
+                    >
+                      {label}
+                    </Link>
+                  );
+                })}
+                {cta && (
+                  <button
+                    type="button"
+                    className="btn btn-primary mt-4"
+                    zeffy-form-link="https://www.zeffy.com/embed/donation-form/help-us-make-education-more-accessible-to-the-youth-of-haiti?modal=true"
+                    aria-label={cta.key ? t(cta.key) : cta.label}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {cta.key ? t(cta.key) : cta.label}
+                  </button>
+                )}
+              </div>
             </div>
-        </nav>
-    );
+          </div>
+        )}
+      </nav>
+    </header>
+  );
 }
