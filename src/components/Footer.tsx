@@ -40,7 +40,7 @@ export default function Footer() {
                             </div>
                             <p className={`mt-3 ${styles.missionText}`}>
                                 {t('footer.mission_text')}
-                                <a className={styles.footer} href="/about-us"> {t('footer.learn_more')}</a>
+                                <a className={styles.footerLink} href="/about-us"> {t('footer.learn_more')}</a>
                             </p>
 
                             {/* Contact Info */}
