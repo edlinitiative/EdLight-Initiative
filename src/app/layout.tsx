@@ -4,10 +4,11 @@ import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ZeffyInit from "@/components/ZeffyInit";
 import Script from "next/script";
-import { Inter } from "next/font/google";
+import { Inter, Source_Serif_4 } from "next/font/google";
 import { getRoutes } from "@/lib/content";
 
-const inter = Inter({ subsets: ["latin"], display: 'swap' });
+const inter = Inter({ subsets: ["latin"], display: 'swap', variable: '--font-inter' });
+const serif = Source_Serif_4({ subsets: ["latin"], display: 'swap', variable: '--font-serif' });
 
 export const metadata = {
     title: "EdLight Initiative",
@@ -44,7 +45,7 @@ export default async function RootLayout({
     const routes = await getRoutes();
 
     return (
-        <html lang="en">
+    <html lang="en" className="scroll-smooth">
             <head>
                 {/* Favicon */}
                 <link rel="icon" href="/favicon.ico" />
@@ -56,7 +57,7 @@ export default async function RootLayout({
                 <meta name="msapplication-TileColor" content="#006494" />
             </head>
                         <body
-                            className={`flex min-h-screen flex-col bg-slate-50 text-slate-900 antialiased ${inter.className}`}
+                            className={`flex min-h-screen flex-col bg-slate-50 text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-100 ${inter.variable} ${serif.variable}`}
                         >
                             <LanguageProvider>
                                 <ZeffyInit />

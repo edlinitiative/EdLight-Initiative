@@ -9,6 +9,7 @@ import type { NavLink } from "@/lib/content";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import DonateButton from "./DonateButton";
+import ThemeToggle from "./ThemeToggle";
 
 type NavbarProps = {
     navItems: NavLink[];
@@ -98,6 +99,7 @@ export default function Navbar({ navItems, cta }: NavbarProps) {
                             </Link>
                         ))}
                         <DonateButton label={donateLabel} className="ml-2" />
+                        <ThemeToggle />
                         <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-3 py-1 text-sm font-medium text-slate-600 shadow-sm">
                             <Globe className="h-4 w-4 text-sky-600" aria-hidden />
                             <select
@@ -147,6 +149,10 @@ export default function Navbar({ navItems, cta }: NavbarProps) {
                             </Link>
                         ))}
                         <DonateButton label={donateLabel} className="w-full justify-center" />
+                        <div className="flex items-center justify-between">
+                            <span className="text-sm font-semibold text-slate-600">Theme</span>
+                            <ThemeToggle />
+                        </div>
                         <div className="flex items-center justify-between rounded-2xl bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-600">
                             <span className="inline-flex items-center gap-2">
                                 <Globe className="h-4 w-4 text-sky-600" aria-hidden />
