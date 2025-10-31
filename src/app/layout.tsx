@@ -5,7 +5,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import ZeffyInit from "@/components/ZeffyInit";
 import Script from "next/script";
 import { Inter, Source_Serif_4 } from "next/font/google";
-import { getRoutes } from "@/lib/content";
+import { getPartners, getRoutes } from "@/lib/content";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap', variable: '--font-inter' });
 const serif = Source_Serif_4({ subsets: ["latin"], display: 'swap', variable: '--font-serif' });
@@ -42,7 +42,10 @@ export default async function RootLayout({
 }: {
     children: React.ReactNode;
 }): Promise<React.ReactNode> {
-    const routes = await getRoutes();
+    const [routes, partners] = await Promise.all([
+        getRoutes(),
+        getPartners(),
+    ]);
 
     return (
     <html lang="en" className="scroll-smooth">
@@ -71,7 +74,7 @@ export default async function RootLayout({
                                 <main id="main-content" className="flex-1 pt-24 md:pt-28">
                                     {children}
                                 </main>
-                                                <Footer footerSections={routes.footer} cta={routes.cta} />
+                                                                    <Footer footerSections={routes.footer} cta={routes.cta} partners={partners} />
                             </LanguageProvider>
                             <Script
                                 src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"

@@ -21,11 +21,12 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import styles from "../styles/Footer.module.css";
 import logger from "@/lib/logger";
 import buildInfo from "@/lib/buildInfo";
-import type { NavLink, RoutesContent } from "@/lib/content";
+import type { NavLink, RoutesContent, Partner } from "@/lib/content";
 
 type FooterProps = {
     footerSections: RoutesContent["footer"];
     cta?: NavLink;
+    partners?: Partner[];
 };
 
 type SocialLink = {
@@ -46,7 +47,7 @@ const SOCIAL_LINKS: SocialLink[] = [
     { href: "https://www.linkedin.com/company/edlight-initiative/", label: "LinkedIn", Icon: Linkedin },
 ];
 
-export default function Footer({ footerSections, cta }: FooterProps) {
+export default function Footer({ footerSections, cta, partners = [] }: FooterProps) {
     const { t } = useLanguage();
     const [subscriptionStatus, setSubscriptionStatus] = useState<"idle" | "success" | "error">("idle");
     const [subscriptionMessage, setSubscriptionMessage] = useState("");
@@ -111,6 +112,8 @@ export default function Footer({ footerSections, cta }: FooterProps) {
                 </Link>
             );
     };
+
+    const featuredPartners = useMemo(() => partners.slice(0, 6), [partners]);
 
     return (
         <footer className={`${styles.footer} relative`}> 
@@ -216,7 +219,7 @@ export default function Footer({ footerSections, cta }: FooterProps) {
                                     {cta ? (
                                         <Link
                                             href={cta.href}
-                                            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-sky-600 via-sky-500 to-cyan-400 px-5 py-2 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-sky-900/30 transition duration-200 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+                                            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-edlight-primary via-edlight-primary to-edlight-darkAccent px-5 py-2 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-sky-900/20 transition duration-200 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edlight-darkAccent"
                                         >
                                             {donateLabel}
                                         </Link>
@@ -242,36 +245,18 @@ export default function Footer({ footerSections, cta }: FooterProps) {
                         <p className={`${styles.partnershipSubtitle} mt-4 text-sm`}>{t("footer.partnership_subtitle")}</p>
                     </div>
                     <div className={`${styles.partnersGrid} mt-10`}>
-                        <div className={styles.partnerItem}>
-                            <Image
-                                src="/images/partners/fellowsfp.avif"
-                                alt="Fellows FP"
-                                className={styles.partnerLogo}
-                                width={180}
-                                height={64}
-                                loading="lazy"
-                            />
-                        </div>
-                        <div className={styles.partnerItem}>
-                            <Image
-                                src="/images/partners/uwc.avif"
-                                alt="UWC"
-                                className={styles.partnerLogo}
-                                width={180}
-                                height={64}
-                                loading="lazy"
-                            />
-                        </div>
-                        <div className={styles.partnerItem}>
-                            <Image
-                                src="/images/partners/lekol.avif"
-                                alt="Lekol"
-                                className={styles.partnerLogo}
-                                width={180}
-                                height={64}
-                                loading="lazy"
-                            />
-                        </div>
+                        {featuredPartners.map((partner) => (
+                            <a key={partner.name} href={partner.href} target="_blank" rel="noreferrer" className={styles.partnerItem} aria-label={partner.name}>
+                                <Image
+                                    src={partner.logo}
+                                    alt={partner.name}
+                                    className={styles.partnerLogo}
+                                    width={180}
+                                    height={64}
+                                    loading="lazy"
+                                />
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>
