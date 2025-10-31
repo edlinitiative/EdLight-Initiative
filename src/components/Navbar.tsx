@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Globe, Menu, X } from "lucide-react";
 import styles from "../styles/Navbar.module.css";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -12,6 +13,7 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -85,27 +87,27 @@ export default function Navbar() {
                     <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''} ${isClosing ? 'closing' : ''}`}>
                         <ul className={`navbar-nav ms-auto ${styles.navLinks}`}>
                             <li onClick={handleLinkClick} className="nav-item">
-                                <Link href="/" className={`nav-link ${styles.navLink}`}>
+                                <Link href="/" className={`nav-link ${styles.navLink} ${pathname === '/' ? styles.navLinkActive : ''}`}>
                                     {t('nav.home')}
                                 </Link>
                             </li>
                             <li onClick={handleLinkClick} className="nav-item">
-                                <Link href="/mission_projects" className={`nav-link ${styles.navLink}`}>
+                                <Link href="/mission_projects" className={`nav-link ${styles.navLink} ${pathname?.startsWith('/mission_projects') ? styles.navLinkActive : ''}`}>
                                     {t('nav.mission_projects')}
                                 </Link>
                             </li>
                             <li onClick={handleLinkClick} className="nav-item">
-                                <Link href="/courses" className={`nav-link ${styles.navLink}`}>
+                                <Link href="/courses" className={`nav-link ${styles.navLink} ${pathname?.startsWith('/courses') ? styles.navLinkActive : ''}`}>
                                     {t('nav.courses')}
                                 </Link>
                             </li>
                             <li onClick={handleLinkClick} className="nav-item">
-                                <Link href="/ESLP" className={`nav-link ${styles.navLink}`}>
+                                <Link href="/ESLP" className={`nav-link ${styles.navLink} ${pathname?.startsWith('/ESLP') ? styles.navLinkActive : ''}`}>
                                     {t('nav.eslp')}
                                 </Link>
                             </li>
                     <li onClick={handleLinkClick} className="nav-item">
-                        <Link href="/about-us" className={`nav-link ${styles.navLink}`}>
+                        <Link href="/about-us" className={`nav-link ${styles.navLink} ${pathname?.startsWith('/about') ? styles.navLinkActive : ''}`}>
                             {t('nav.about_us')}
                         </Link>
                     </li>

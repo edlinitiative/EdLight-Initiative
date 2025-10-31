@@ -283,6 +283,19 @@
     box-shadow: 0 4px 15px rgba(0, 100, 148, 0.15);
 }
 
+/* Active link state */
+.navLinkActive,
+.navLink.navLinkActive {
+    color: #006494 !important;
+    background: rgba(0, 100, 148, 0.08);
+    box-shadow: inset 0 -2px 0 #00649422;
+}
+
+.navLinkActive::before {
+    width: 100%;
+    height: 3px;
+}
+
 /* Donate Button */
 .donateButton {
     background: linear-gradient(135deg, #006494, color-mix(in srgb, #006494 85%, blue), color-mix(in srgb, #006494 70%, cyan)) !important;
