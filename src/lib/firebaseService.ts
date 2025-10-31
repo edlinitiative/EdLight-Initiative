@@ -1,5 +1,6 @@
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, FieldValue } from 'firebase/firestore';
 import { db } from './firebase';
+import logger from '@/lib/logger';
 
 export interface ESLPApplicationData {
   // Personal Information
@@ -41,7 +42,7 @@ export interface ESLPApplicationData {
   relationReference?: string;
   
   // Metadata
-  submittedAt: Date | string; // Firestore timestamp
+  submittedAt: FieldValue | Date | string; // Firestore serverTimestamp() is a FieldValue
   status: 'pending' | 'reviewed' | 'accepted' | 'rejected';
   applicationId?: string;
 }
@@ -58,10 +59,10 @@ export const submitESLPApplication = async (formData: Omit<ESLPApplicationData, 
     // Add document to Firestore
     const docRef = await addDoc(collection(db, 'eslp_applications'), applicationData);
     
-    console.log('Application submitted successfully with ID:', docRef.id);
+    logger.info('Application submitted successfully with ID:', docRef.id);
     return docRef.id;
   } catch (error) {
-    console.error('Error submitting application:', error);
+    logger.error('Error submitting application:', error);
     throw new Error('Failed to submit application. Please try again.');
   }
 };
@@ -76,7 +77,7 @@ export const uploadFile = async (file: File, applicationId: string, fieldName: s
 // Newsletter subscription
 export interface NewsletterSubscriber {
   email: string;
-  subscribedAt: Date | string;
+  subscribedAt: FieldValue | Date | string;
   source?: string;
 }
 

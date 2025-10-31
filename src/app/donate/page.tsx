@@ -1,23 +1,32 @@
 "use client";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useEffect } from 'react';
+import logger from '@/lib/logger';
+
+type ZeffyAPI = { init?: () => void };
+type ZeffyWindow = Window & { Zeffy?: ZeffyAPI };
 
 export default function DonatePage() {
     const { t } = useLanguage();
-    // Diagnostics: report Zeffy/script readiness on page load
-    if (typeof window !== 'undefined') {
-        const zeffyAvailable = typeof (window as any).Zeffy !== 'undefined';
+
+    // Run client-side diagnostics and attempt late init only after mount
+    useEffect(() => {
+        const w = window as ZeffyWindow;
+        const zeffyAvailable = typeof w.Zeffy !== 'undefined';
         const scriptPresent = !!document.querySelector('script[src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"]');
-        console.log('[Zeffy] Donate page render:', { zeffyAvailable, scriptPresent });
+        logger.debug('[Zeffy] Donate page render:', { zeffyAvailable, scriptPresent });
         if (!zeffyAvailable && scriptPresent) {
             // Sometimes the script loads after hydration; attempt a late init
-            setTimeout(() => {
-                if ((window as any).Zeffy?.init) {
-                    (window as any).Zeffy.init();
-                    console.log('[Zeffy] late init() invoked');
+            const timer = setTimeout(() => {
+                if (w.Zeffy?.init) {
+                    w.Zeffy.init();
+                    logger.debug('[Zeffy] late init() invoked');
                 }
             }, 500);
+            return () => clearTimeout(timer);
         }
-    }
+    }, []);
+
     return (
         <div className="container py-5">
             <div className="row justify-content-center">

@@ -3,71 +3,22 @@ import {Facebook, Twitter, Instagram,
     Linkedin, Mail, Heart, MapPin,
      Phone, Sparkles, Youtube, X} from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "../styles/Footer.module.css";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState } from "react";
+import logger from '@/lib/logger';
 
 export default function Footer() {
     const { t } = useLanguage();
     const [subscriptionStatus, setSubscriptionStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [subscriptionMessage, setSubscriptionMessage] = useState('');
-    
+    const [email, setEmail] = useState('');
+    const [submitting, setSubmitting] = useState(false);
+
     useEffect(() => {
-        // Add direct event listener to handle the actual subscription
-        const button = document.getElementById('newsletter-submit');
-        if (button) {
-            const handleNativeClick = async (e: Event) => {
-                console.log('🟢 NATIVE CLICK EVENT FIRED!', e);
-                console.log('🟢 Processing subscription...');
-                
-                const input = document.getElementById('newsletter-email') as HTMLInputElement | null;
-                const email = input?.value.trim() || '';
-                console.log('🟢 Email to subscribe:', email);
-                
-                if (!email) {
-                    console.log('🟢 No email provided');
-                    alert('Please enter an email address');
-                    return;
-                }
-                
-                try {
-                    const btn = e.target as HTMLButtonElement;
-                    btn.disabled = true;
-                    btn.textContent = 'Subscribing...';
-                    console.log('🟢 Button disabled and text changed');
-                    
-                    console.log('🟢 Attempting to import firebaseService...');
-                    const { subscribeNewsletter } = await import('@/lib/firebaseService');
-                    console.log('🟢 subscribeNewsletter function imported successfully');
-                    
-                    console.log('🟢 Calling subscribeNewsletter with:', { email, source: 'footer' });
-                    const id = await subscribeNewsletter(email, 'footer');
-                    console.log('🟢 ✅ Subscribed newsletter id:', id);
-                    
-                    if (input) input.value = '';
-                    setSubscriptionStatus('success');
-                    setSubscriptionMessage('Thanks for subscribing!');
-                    console.log('🟢 ✅ Success message shown');
-                } catch (error: any) {
-                    console.error('🟢 ❌ Subscribe error details:', error);
-                    setSubscriptionStatus('error');
-                    setSubscriptionMessage(error?.message || 'Failed to subscribe. Please try again.');
-                } finally {
-                    const btn = document.getElementById('newsletter-submit') as HTMLButtonElement | null;
-                    if (btn) {
-                        btn.textContent = 'Subscribe';
-                        const valid = input ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()) : false;
-                        btn.disabled = !valid;
-                        console.log('🟢 Button reset - disabled:', !valid);
-                    }
-                }
-            };
-            button.addEventListener('click', handleNativeClick);
-            
-            return () => {
-                button.removeEventListener('click', handleNativeClick);
-            };
-        }
+        // Simple hydration-safe debug notice
+        logger.debug('Footer mounted, newsletter ready');
     }, []);
     
     return (
@@ -188,96 +139,47 @@ export default function Footer() {
                                     <input
                                         id="newsletter-email"
                                         type="email"
+                                        aria-label="Email address"
                                         className={`form-control ${styles.emailInput}`}
                                         placeholder="Enter your email"
-                                        aria-label="Email address"
-                                        onInput={(e) => {
-                                            console.log('🔵 Email input changed');
-                                            const btn = document.getElementById('newsletter-submit') as HTMLButtonElement | null;
-                                            const value = (e.target as HTMLInputElement).value.trim();
-                                            const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-                                            console.log('🔵 Email value:', value);
-                                            console.log('🔵 Email valid:', valid);
-                                            console.log('🔵 Button found:', btn);
-                                            if (btn) {
-                                                btn.disabled = !valid;
-                                                console.log('🔵 Button disabled:', btn.disabled);
-                                            }
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        onInput={() => {
+                                            // keep UI responsive; validation done on submit
+                                            logger.debug('Newsletter email input updated');
                                         }}
                                     />
                                     <button
                                         id="newsletter-submit"
                                         className={`btn ${styles.subscribeBtn}`}
                                         type="button"
-                                        disabled
-                                        onMouseEnter={() => console.log('🔵 Button mouse enter')}
-                                        onMouseLeave={() => console.log('🔵 Button mouse leave')}
-                                        onMouseDown={() => console.log('🔵 Button mouse down - click attempt')}
-                                        onMouseUp={() => console.log('🔵 Button mouse up')}
-                                        onPointerDown={() => console.log('🔵 Button pointer down')}
-                                        onPointerUp={() => console.log('🔵 Button pointer up')}
-                                        onClick={async (e) => {
-                                            console.log('🔴 Subscribe button clicked');
-                                            console.log('🔴 Event object:', e);
-                                            console.log('🔴 Current target:', e.currentTarget);
-                                            
-                                            const input = document.getElementById('newsletter-email') as HTMLInputElement | null;
-                                            console.log('🔴 Input element found:', input);
-                                            console.log('🔴 Input value:', input?.value);
-                                            
-                                            const email = input?.value.trim() || '';
-                                            console.log('🔴 Email to subscribe:', email);
-                                            
-                                            if (!email) {
-                                                console.log('🔴 No email provided');
-                                                alert('Please enter an email address');
+                                        disabled={submitting || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())}
+                                        onClick={async () => {
+                                            const trimmed = email.trim();
+                                            if (!trimmed) {
+                                                setSubscriptionStatus('error');
+                                                setSubscriptionMessage('Please enter an email address');
                                                 return;
                                             }
-                                            
-                                            console.log('🔴 Email validation passed, proceeding...');
-                                            
+                                            setSubmitting(true);
+                                            setSubscriptionStatus('idle');
                                             try {
-                                                const btn = e.currentTarget as HTMLButtonElement;
-                                                console.log('🔴 Button element:', btn);
-                                                btn.disabled = true;
-                                                btn.textContent = 'Subscribing...';
-                                                console.log('🔴 Button disabled and text changed');
-                                                
-                                                console.log('🔴 Attempting to import firebaseService...');
-                                                const firebaseService = await import('@/lib/firebaseService');
-                                                console.log('🔴 Firebase service imported:', firebaseService);
-                                                console.log('🔴 subscribeNewsletter function:', firebaseService.subscribeNewsletter);
-                                                
-                                                const { subscribeNewsletter } = firebaseService;
-                                                console.log('🔴 subscribeNewsletter function extracted:', subscribeNewsletter);
-                                                
-                                                console.log('🔴 Calling subscribeNewsletter with:', { email, source: 'footer' });
-                                                const id = await subscribeNewsletter(email, 'footer');
-                                                console.log('🔴 ✅ Subscribed newsletter id:', id);
-                                                
-                                                if (input) input.value = '';
-                                                alert('Thanks for subscribing!');
-                                                console.log('🔴 ✅ Success message shown');
-                                            } catch (error: any) {
-                                                console.error('🔴 ❌ Subscribe error details:', error);
-                                                console.error('🔴 ❌ Error name:', error.name);
-                                                console.error('🔴 ❌ Error message:', error.message);
-                                                console.error('🔴 ❌ Error stack:', error.stack);
-                                                alert(error?.message || 'Failed to subscribe. Please try again.');
+                                                const { subscribeNewsletter } = await import('@/lib/firebaseService');
+                                                const id = await subscribeNewsletter(trimmed, 'footer');
+                                                logger.info('Subscribed newsletter id:', id);
+                                                setEmail('');
+                                                setSubscriptionStatus('success');
+                                                setSubscriptionMessage('Thanks for subscribing!');
+                                            } catch (err: any) {
+                                                logger.error('Newsletter subscription failed', err);
+                                                setSubscriptionStatus('error');
+                                                setSubscriptionMessage(err?.message || 'Failed to subscribe. Please try again.');
                                             } finally {
-                                                console.log('🔴 Finally block executing...');
-                                                const btn = document.getElementById('newsletter-submit') as HTMLButtonElement | null;
-                                                console.log('🔴 Button in finally:', btn);
-                                                if (btn) {
-                                                    btn.textContent = 'Subscribe';
-                                                    const valid = input ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()) : false;
-                                                    btn.disabled = !valid;
-                                                    console.log('🔴 Button reset - disabled:', !valid);
-                                                }
+                                                setSubmitting(false);
                                             }
                                         }}
                                     >
-                                        Subscribe
+                                        {submitting ? 'Subscribing...' : 'Subscribe'}
                                     </button>
                                 </div>
                                 
@@ -341,28 +243,34 @@ export default function Footer() {
                     <div className={styles.partnersGrid}>
                         {/* Partner Logo 1 */}
                         <div className={styles.partnerItem}>
-                            <img
+                            <Image
                                 src="/images/partners/fellowsfp.avif"
-                                alt="Partner 1 Logo"
+                                alt="Fellows FP"
                                 className={styles.partnerLogo}
+                                width={180}
+                                height={64}
                             />
                         </div>
 
                         {/* Partner Logo 2 */}
                         <div className={styles.partnerItem}>
-                            <img
+                            <Image
                                 src="/images/partners/uwc.avif"
-                                alt="Partner 2 Logo"
+                                alt="UWC"
                                 className={styles.partnerLogo}
+                                width={180}
+                                height={64}
                             />
                         </div>
 
                         {/* Partner Logo 3 */}
                         <div className={styles.partnerItem}>
-                            <img
+                            <Image
                                 src="/images/partners/lekol.avif"
-                                alt="Partner 3 Logo"
+                                alt="Lekol"
                                 className={styles.partnerLogo}
+                                width={180}
+                                height={64}
                             />
                         </div>
 

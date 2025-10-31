@@ -1,12 +1,53 @@
 "use client";
 import { useState } from "react";
+import logger from '@/lib/logger';
 import Link from "next/link";
 import { ArrowLeft, Calendar, User, Phone, FileText, Upload, CheckCircle, Users, Clock } from "lucide-react";
 import styles from "./Application.module.css";
 import { submitESLPApplication, uploadFile } from "@/lib/firebaseService";
 
+type ApplicationFormData = {
+    // Personal Information
+    email: string;
+    prenom: string;
+    nom: string;
+    dateNaissance: string;
+    sexe: string;
+    telephone: string;
+    etablissement: string;
+    adresse: string;
+    classe: string;
+    classeOther: string;
+    // How did you hear about us
+    commentEntendu: string;
+    commentEntenduOther: string;
+    // Documents (UI-only)
+    releveNotes: File | null;
+    photoIdentite: File | null;
+    // Essay Questions
+    motivation: string;
+    activitesParascolaires: string;
+    defiRealise: string;
+    futurHaiti: string;
+    // Technical Requirements
+    ordinateur: string;
+    ordinateurOther: string;
+    connexionInternet: string;
+    connexionInternetOther: string;
+    espaceCalme: string;
+    espaceCalmeOther: string;
+    // Reference (Optional)
+    personneReference: string;
+    relationReference: string;
+};
+
+type SubmissionData = Omit<ApplicationFormData, 'releveNotes' | 'photoIdentite'> & {
+    releveNotes?: string;
+    photoIdentite?: string;
+};
+
 export default function ESLPApplicationPage() {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<ApplicationFormData>({
         // Personal Information
         email: '',
         prenom: '',
@@ -52,11 +93,15 @@ export default function ESLPApplicationPage() {
     const [, setApplicationId] = useState<string | null>(null);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const { name, value, type, files } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: type === 'file' ? files[0] : value
-        }));
+        const target = e.target;
+        const name = (target as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement).name as keyof ApplicationFormData;
+        if (target instanceof HTMLInputElement && target.type === 'file') {
+            const file = target.files && target.files[0] ? target.files[0] : null;
+            setFormData(prev => ({ ...prev, [name]: file } as ApplicationFormData));
+        } else {
+            const value = (target as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement).value;
+            setFormData(prev => ({ ...prev, [name]: value } as ApplicationFormData));
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -66,7 +111,7 @@ export default function ESLPApplicationPage() {
         
         try {
             // Prepare form data for submission
-            const submissionData = {
+            const submissionData: SubmissionData = {
                 email: formData.email,
                 prenom: formData.prenom,
                 nom: formData.nom,
@@ -106,7 +151,7 @@ export default function ESLPApplicationPage() {
             setApplicationId(id);
             setIsSubmitted(true);
         } catch (error) {
-            console.error('Submission error:', error);
+            logger.error('Submission error:', error);
             setSubmitError(error instanceof Error ? error.message : 'Une erreur est survenue lors de la soumission');
         } finally {
             setIsSubmitting(false);
@@ -527,10 +572,10 @@ export default function ESLPApplicationPage() {
                                             value={formData.motivation}
                                             onChange={handleInputChange}
                                             className={styles.textarea}
-                                            rows="4"
+                                            rows={4}
                                             required
                                             placeholder="Décrivez votre motivation, votre parcours et vos réalisations..."
-                                            maxLength="500"
+                                            maxLength={500}
                                         />
                                         <div className={styles.wordCount}>
                                             {formData.motivation.length}/500 caractères
@@ -545,10 +590,10 @@ export default function ESLPApplicationPage() {
                                             value={formData.activitesParascolaires}
                                             onChange={handleInputChange}
                                             className={styles.textarea}
-                                            rows="6"
+                                            rows={6}
                                             required
                                             placeholder="Décrivez vos activités et votre rôle..."
-                                            maxLength="1000"
+                                            maxLength={1000}
                                         />
                                         <div className={styles.wordCount}>
                                             {formData.activitesParascolaires.length}/1000 caractères
@@ -563,10 +608,10 @@ export default function ESLPApplicationPage() {
                                             value={formData.defiRealise}
                                             onChange={handleInputChange}
                                             className={styles.textarea}
-                                            rows="4"
+                                            rows={4}
                                             required
                                             placeholder="Décrivez votre accomplissement ou défi surmonté..."
-                                            maxLength="500"
+                                            maxLength={500}
                                         />
                                         <div className={styles.wordCount}>
                                             {formData.defiRealise.length}/500 caractères
@@ -581,10 +626,10 @@ export default function ESLPApplicationPage() {
                                             value={formData.futurHaiti}
                                             onChange={handleInputChange}
                                             className={styles.textarea}
-                                            rows="6"
+                                            rows={6}
                                             required
                                             placeholder="Décrivez votre vision pour l'avenir d'Haïti..."
-                                            maxLength="1000"
+                                            maxLength={1000}
                                         />
                                         <div className={styles.wordCount}>
                                             {formData.futurHaiti.length}/1000 caractères

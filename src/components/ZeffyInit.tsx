@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 
 export default function ZeffyInit() {
     const pathname = usePathname();
+    type ZeffyAPI = { init?: () => void };
 
     useEffect(() => {
         // Ensure script exists
@@ -12,12 +13,12 @@ export default function ZeffyInit() {
         if (!existing) {
             const s = document.createElement('script');
             s.src = scriptSrc;
-            s.onload = () => (window as any).Zeffy?.init?.();
+            s.onload = () => (window as Window & { Zeffy?: ZeffyAPI }).Zeffy?.init?.();
             document.head.appendChild(s);
         }
 
         // Try immediate init and a short, fast retry window
-        const tryInit = () => (window as any).Zeffy?.init?.();
+        const tryInit = () => (window as Window & { Zeffy?: ZeffyAPI }).Zeffy?.init?.();
         tryInit();
         const t1 = setTimeout(tryInit, 100);
         const t2 = setTimeout(tryInit, 250);
@@ -29,7 +30,7 @@ export default function ZeffyInit() {
             if (!target) return;
             const el = target.closest('[zeffy-form-link]') as HTMLElement | null;
             if (el) {
-                (window as any).Zeffy?.init?.();
+                (window as Window & { Zeffy?: ZeffyAPI }).Zeffy?.init?.();
             }
         };
         document.addEventListener('click', handleClick, true);

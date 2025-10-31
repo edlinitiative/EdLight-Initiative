@@ -4,18 +4,30 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ZeffyInit from "@/components/ZeffyInit";
+import Script from "next/script";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
 export const metadata = {
     title: "EdLight Initiative",
     description: "Empowering communities through education, technology, and light. Official website for EdLight Initiative.",
     keywords: "EdLight, Initiative, Education, Community, Technology, Light, Empowerment",
     author: "EdLight Initiative",
+    metadataBase: new URL('https://www.edlinitiative.org'),
     openGraph: {
         title: "EdLight Initiative",
         description: "Empowering communities through education, technology, and light.",
         type: "website",
         locale: "en_US",
+        siteName: 'EdLight Initiative',
+        url: 'https://www.edlinitiative.org',
     },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'EdLight Initiative',
+        description: 'Empowering communities through education, technology, and light.',
+    }
 };
 
 export const viewport = {
@@ -32,14 +44,6 @@ export default function RootLayout({
     return (
         <html lang="en">
             <head>
-                {/* Preload critical fonts */}
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-                    rel="stylesheet"
-                />
-
                 {/* Favicon */}
                 <link rel="icon" href="/favicon.ico" />
                 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -48,11 +52,8 @@ export default function RootLayout({
 
                 {/* Theme color for mobile browsers */}
                 <meta name="msapplication-TileColor" content="#006494" />
-                
-                {/* Zeffy Donation Form Script (load without async to be ready earlier) */}
-                <script src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"></script>
             </head>
-            <body className="d-flex flex-column min-vh-100">
+            <body className={`d-flex flex-column min-vh-100 ${inter.className}`}>
             <LanguageProvider>
                 <ZeffyInit />
                 {/* Skip to main content for accessibility */}
@@ -81,12 +82,13 @@ export default function RootLayout({
                 <Footer />
             </LanguageProvider>
 
-            {/* Bootstrap JS Bundle (Optional - only if you need interactive components) */}
-            <script
+            {/* Zeffy and Bootstrap scripts loaded after hydration */}
+            <Script src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js" strategy="afterInteractive" />
+            <Script
                 src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
                 crossOrigin="anonymous"
-                async
+                strategy="afterInteractive"
             />
             </body>
         </html>

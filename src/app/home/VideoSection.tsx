@@ -1,5 +1,6 @@
 "use client"
 import React, { useRef, useEffect } from 'react';
+import logger from '@/lib/logger';
 import { Play, BookOpen, Users, Award } from 'lucide-react';
 import styles from '../../styles/Home.module.css';
 
@@ -15,7 +16,7 @@ export default function VideoSection() {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         video.play().catch((error) => {
-                            console.log('Autoplay prevented:', error);
+                            logger.debug('Autoplay prevented:', error);
                         });
                     } else {
                         video.pause();

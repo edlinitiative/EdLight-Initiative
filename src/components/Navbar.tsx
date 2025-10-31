@@ -48,47 +48,7 @@ export default function Navbar() {
         }
     };
 
-    const handleDonateClick = () => {
-        try {
-            const zeffyAvailable = typeof (window as any).Zeffy !== 'undefined';
-            const scriptPresent = !!document.querySelector('script[src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"]');
-            const triggerCount = document.querySelectorAll('[zeffy-form-link]').length;
-            // Diagnostic logs for intermittent Zeffy modal behavior
-            console.log('[Zeffy] Clicked Donate:', { zeffyAvailable, scriptPresent, triggerCount });
-            if (!scriptPresent) {
-                const s = document.createElement('script');
-                s.src = 'https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js';
-                s.onload = () => {
-                    (window as any).Zeffy?.init?.();
-                    console.log('[Zeffy] script loaded via click; init() invoked');
-                };
-                document.head.appendChild(s);
-            } else if (zeffyAvailable && typeof (window as any).Zeffy.init === 'function') {
-                (window as any).Zeffy.init();
-                console.log('[Zeffy] init() invoked on click');
-            } else {
-                // Retry a couple times if script present but Zeffy not ready yet
-                let attempts = 0;
-                const maxAttempts = 5;
-                const interval = setInterval(() => {
-                    attempts += 1;
-                    const ready = typeof (window as any).Zeffy?.init === 'function';
-                    console.log('[Zeffy] retry', { attempts, ready });
-                    if (ready) {
-                        (window as any).Zeffy.init();
-                        console.log('[Zeffy] init() invoked after retry');
-                        clearInterval(interval);
-                    }
-                    if (attempts >= maxAttempts) {
-                        clearInterval(interval);
-                        // No tab fallback; let Zeffy handle modal once ready
-                    }
-                }, 200);
-            }
-        } catch (err) {
-            console.error('[Zeffy] Error on donate click', err);
-        }
-    };
+    // Donate handling handled by DonateButton + ZeffyInit
 
     return (
             <nav 

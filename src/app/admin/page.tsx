@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import logger from '@/lib/logger';
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { Users, FileText, Calendar, TrendingUp, Download, Eye, Filter } from "lucide-react";
@@ -106,7 +107,7 @@ export default function AdminPage() {
       
       setApplications(applicationsData);
     } catch (error) {
-      console.error("Error fetching applications:", error);
+      logger.error("Error fetching applications:", error);
       setError("Failed to fetch applications");
     } finally {
       setLoading(false);
@@ -122,7 +123,7 @@ export default function AdminPage() {
       snap.forEach(doc => data.push({ id: doc.id, ...(doc.data() as any) }));
       setSubscribers(data);
     } catch (e) {
-      console.error('Error fetching subscribers', e);
+      logger.error('Error fetching subscribers', e);
     }
   };
 
