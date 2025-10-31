@@ -23,7 +23,7 @@ export default function Footer() {
     }, []);
     
     return (
-        <footer className={`mt-auto ${styles.footer}`}>
+        <footer className={styles.footer}>
             {/* Main Footer Content */}
             <div className="container py-5">
                 <div className="row g-4">
