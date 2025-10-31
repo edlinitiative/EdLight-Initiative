@@ -227,15 +227,11 @@
 }
 
 
-/* Add this to your Footer.module.css file */
-
 /* Partnership Section */
 .partnershipSection {
-    background: linear-gradient(135deg,
-    color-mix(in srgb, #006494 5%, white),
-    color-mix(in srgb, #006494 8%, white)
-    );
-    border-bottom: 1px solid color-mix(in srgb, #006494 15%, transparent);
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 1px solid rgba(0, 100, 148, 0.1);
+    border-bottom: 1px solid rgba(0, 100, 148, 0.1);
     position: relative;
     overflow: hidden;
 }
