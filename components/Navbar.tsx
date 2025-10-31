@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -39,8 +40,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">E</span>
+            <div className="relative w-10 h-10">
+              <Image
+                src="/logo.png"
+                alt="EdLight Initiative Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
             <span className="font-heading font-bold text-xl text-text">EdLight</span>
           </Link>
