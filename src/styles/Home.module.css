@@ -1,7 +1,7 @@
 /* Welcome Section Styles */
 .welcomeSection {
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 5rem 2rem 2rem;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
     text-align: center;
 }
 
@@ -11,8 +11,15 @@
 }
 
 .welcomeContent {
-    max-width: 800px;
+    max-width: 860px;
     margin: 0 auto;
+    padding: 1.5rem 2rem;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(0, 100, 148, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(2,6,23,0.06);
 }
 
 .welcomeContent p {
@@ -27,7 +34,7 @@
 /* Here is EDLIGHT Section */
 .hereIsEdlight {
     padding: 6rem 2rem;
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #f6f9fc 100%);
 }
 
 .container {
@@ -56,20 +63,22 @@
 }
 
 .programCard {
-    background: #ffffff;
+    background: rgba(255,255,255,0.7);
     border-radius: 20px;
     padding: 3rem 2rem;
     text-align: center;
     box-shadow: 0 10px 40px rgba(0, 100, 148, 0.1);
-    border: 1px solid rgba(0, 100, 148, 0.1);
+    border: 1px solid rgba(0, 100, 148, 0.12);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .programCard:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 100, 148, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 100, 148, 0.18);
 }
 
 .programCard.blue {
@@ -158,7 +167,7 @@
 /* Video Section */
 .videoSection {
     padding: 6rem 2rem;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
 }
 
 .videoContent {
@@ -204,7 +213,12 @@
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 100, 148, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 100, 148, 0.18);
+    background: rgba(255,255,255,0.65);
+    border: 1px solid rgba(0,100,148,0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    aspect-ratio: 16 / 9;
 }
 
 
@@ -236,7 +250,7 @@
 /* Opportunity Section */
 .opportunitySection {
     padding: 6rem 2rem;
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #f6f9fc 100%);
 }
 
 .opportunityContent {
@@ -257,13 +271,13 @@
     border-radius: 20px;
     position: relative;
     overflow: hidden;
-    border: 2px solid rgba(0, 100, 148, 0.1);
+    border: 1px solid rgba(0, 100, 148, 0.12);
 }
 
 .imageOverlay {
     width: 100%;
     height: 100%;
-    background: rgba(0, 100, 148, 0.8);
+    background: linear-gradient(135deg, rgba(0,100,148,0.65), rgba(6,182,212,0.55));
     display: flex;
     flex-direction: column;
     align-items: center;

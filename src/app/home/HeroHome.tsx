@@ -129,6 +129,8 @@ export default function HeroHome() {
 
                 {/* Main Content */}
                 <div className={styles.heroContent}>
+                    {/* Glass Panel */}
+                    <div className={styles.heroGlass}>
                     {/* Icon */}
                     {/*<div className={`${styles.heroIcon} ${isAnimating ? styles.animating : ''}`}>*/}
                     {/*    <IconComponent size={48} />*/}
@@ -172,6 +174,7 @@ export default function HeroHome() {
                                 {currentHero.secondaryCTA}
                             </button>
                         )}
+                    </div>
                     </div>
 
                     {/*/!* Stats *!/*/}

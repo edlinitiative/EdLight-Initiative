@@ -72,6 +72,7 @@ export default function VideoSection() {
                             poster="/images/hero_images/eslp_bg.jpg"
                             muted
                             loop
+                            playsInline
                         >
                             Your browser does not support the video tag.
                         </video>
