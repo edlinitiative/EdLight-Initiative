@@ -42,7 +42,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2">
             <div className="relative w-10 h-10">
               <Image
-                src="/logo.png"
+                src="/EdLight Logo.png"
                 alt="EdLight Initiative Logo"
                 fill
                 className="object-contain"
