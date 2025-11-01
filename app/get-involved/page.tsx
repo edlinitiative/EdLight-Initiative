@@ -1,11 +1,17 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { Users, Handshake, DollarSign, Mic } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import Card from '@/components/Card'
+
+declare global {
+  interface Window {
+    PayPal?: any
+  }
+}
 
 const waysToGetInvolved = [
   {
@@ -44,6 +50,37 @@ export default function GetInvolvedPage() {
     formState: { errors },
     reset,
   } = useForm<FormData>()
+
+  useEffect(() => {
+    // Load PayPal Donation SDK
+    const script = document.createElement('script')
+    script.src = 'https://www.paypalobjects.com/donate/sdk/donate-sdk.js'
+    script.charset = 'UTF-8'
+    script.async = true
+    
+    script.onload = () => {
+      if (window.PayPal) {
+        window.PayPal.Donation.Button({
+          env: 'production',
+          hosted_button_id: '6AKKBQXK47EZU',
+          image: {
+            src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
+            alt: 'Donate with PayPal button',
+            title: 'PayPal - The safer, easier way to pay online!',
+          }
+        }).render('#donate-button')
+      }
+    }
+    
+    document.body.appendChild(script)
+    
+    return () => {
+      // Cleanup script on unmount
+      if (document.body.contains(script)) {
+        document.body.removeChild(script)
+      }
+    }
+  }, [])
 
   const onSubmit = (data: FormData) => {
     // TODO: Integrate with backend API or Firebase to handle form submissions
@@ -89,13 +126,9 @@ export default function GetInvolvedPage() {
               students. Every contribution makes a difference.
             </p>
             <div className="bg-white rounded-xl p-8 mb-8">
-              <p className="text-gray-600 mb-4">
-                {/* TODO: Integrate Zeffy or Stripe payment processing */}
-                Donations temporarily processed via Zeffy/Stripe
-              </p>
-              <button className="px-8 py-3 bg-accent text-text font-semibold rounded-lg hover:bg-accent/90 transition-colors">
-                Donate Now (Coming Soon)
-              </button>
+              <div id="donate-button-container">
+                <div id="donate-button"></div>
+              </div>
             </div>
             <p className="text-sm text-gray-600">
               EdLight Initiative is committed to transparency. 100% of donations go directly to
