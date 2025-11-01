@@ -35,7 +35,7 @@ export default function AcademyPage() {
       <Hero
         title="EdLight Academy"
         subtitle="Free, world-class education accessible to all Haitian students"
-        backgroundImage="/hero.jpg"
+        backgroundImage="/EdLight_Academy.jpg"
       />
 
       <section className="py-20 bg-white">

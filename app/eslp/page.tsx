@@ -37,12 +37,9 @@ const pastSpeakers = [
 ]
 
 const galleryImages = [
-  { src: '/gallery/eslp-1.jpg', alt: 'ESLP Workshop' },
-  { src: '/gallery/eslp-2.jpg', alt: 'Group Activity' },
-  { src: '/gallery/eslp-3.jpg', alt: 'Guest Speaker' },
-  { src: '/gallery/eslp-4.jpg', alt: 'Team Building' },
-  { src: '/gallery/eslp-5.jpg', alt: 'Graduation Ceremony' },
-  { src: '/gallery/eslp-6.jpg', alt: 'Community Project' },
+  { src: '/Graduation_Pics.jpg', alt: 'ESLP Graduation Ceremony' },
+  { src: '/ESLP_Cultural_Performances.jpg', alt: 'Cultural Performances' },
+  { src: '/Best_Participant_Award.jpg', alt: 'Best Participant Award' },
 ]
 
 export default function ESLPPage() {
@@ -51,7 +48,7 @@ export default function ESLPPage() {
       <Hero
         title="EdLight Summer Leadership Program"
         subtitle="Developing the next generation of Haitian leaders"
-        backgroundImage="/hero.jpg"
+        backgroundImage="/Graduation_Pics.jpg"
       />
 
       <section className="py-20 bg-white">
