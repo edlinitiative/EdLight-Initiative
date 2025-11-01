@@ -81,7 +81,7 @@ export default function ESLPPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 mb-16">
-            <div className="bg-background rounded-xl p-8">
+            <div className="glass rounded-2xl p-8">
               <h3 className="font-heading text-2xl font-bold mb-4">Past Speakers</h3>
               <ul className="space-y-3 text-gray-700">
                 {pastSpeakers.map((speaker, index) => (
@@ -93,7 +93,7 @@ export default function ESLPPage() {
               </ul>
             </div>
 
-            <div className="bg-background rounded-xl p-8">
+            <div className="glass rounded-2xl p-8">
               <h3 className="font-heading text-2xl font-bold mb-4">ESLP 2024: &quot;Synergos&quot;</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Our 2024 cohort focused on the theme of &quot;Synergos&quot; (Greek for &quot;working together&quot;),

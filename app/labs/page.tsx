@@ -60,7 +60,7 @@ export default function LabsPage() {
             ))}
           </div>
 
-          <div className="bg-background rounded-xl p-8 mb-16">
+          <div className="glass rounded-2xl p-8 mb-16">
             <h3 className="font-heading text-2xl font-bold mb-4 flex items-center gap-2">
               <Award className="text-primary" />
               Cohort Highlights
