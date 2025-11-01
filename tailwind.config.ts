@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Updated to align with EdLight branding (modern blue, clean neutrals)
-        primary: '#2563EB', // blue-600
-        accent: '#E5E7EB', // gray-200 (subtle accents/dividers)
-        text: '#0F172A', // slate-900
-        background: '#F8FAFC', // slate-50
+        // EdLight palette (Option 3 - Deep Glass)
+        primary: '#1C5CA8',
+        accent: '#EEF2FF',
+        text: '#0F172A',
+        background: '#F9FAFB',
       },
       fontFamily: {
         heading: ['var(--font-poppins)', 'sans-serif'],
