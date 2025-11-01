@@ -39,17 +39,16 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="relative w-10 h-10">
+          <Link href="/" className="flex items-center">
+            <div className="relative w-48 h-12">
               <Image
-                src="/EdLight_Logo.png"
+                src="/EdLight_Website_Logo.png"
                 alt="EdLight Initiative Logo"
                 fill
                 className="object-contain"
                 priority
               />
             </div>
-            <span className="font-heading font-bold text-xl text-text">EdLight</span>
           </Link>
 
           {/* Desktop Navigation */}
