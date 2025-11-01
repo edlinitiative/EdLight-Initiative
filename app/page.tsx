@@ -7,11 +7,9 @@ import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import Card from '@/components/Card'
 import TestimonialCard from '@/components/TestimonialCard'
-import PartnerLogoGrid from '@/components/PartnerLogoGrid'
 import ImpactCounters from '@/components/ImpactCounters'
 import impactData from '@/data/impact.json'
 import testimonialsData from '@/data/testimonials.json'
-import partnersData from '@/data/partners.json'
 
 const ecosystemPrograms = [
   {
@@ -160,18 +158,6 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Partners */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Our Partners"
-            subtitle="Collaborating with leading institutions worldwide"
-            centered
-          />
-          <PartnerLogoGrid partners={partnersData} />
         </div>
       </section>
     </>
