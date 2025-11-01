@@ -68,7 +68,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/get-involved#donate"
-              className="px-6 py-2 bg-accent text-text font-semibold rounded-lg hover:bg-accent/90 transition-colors"
+              className="px-6 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
             >
               Donate
             </Link>
@@ -100,7 +100,7 @@ export default function Navbar() {
             <Link
               href="/get-involved#donate"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block mt-4 mx-4 px-6 py-2 bg-accent text-text font-semibold rounded-lg hover:bg-accent/90 transition-colors text-center"
+              className="block mt-4 mx-4 px-6 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors text-center"
             >
               Donate
             </Link>

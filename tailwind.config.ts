@@ -9,10 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#38BDF8',
-        accent: '#FACC15',
-        text: '#1E293B',
-        background: '#F9FAFB',
+        // Updated to align with EdLight branding (modern blue, clean neutrals)
+        primary: '#2563EB', // blue-600
+        accent: '#E5E7EB', // gray-200 (subtle accents/dividers)
+        text: '#0F172A', // slate-900
+        background: '#F8FAFC', // slate-50
       },
       fontFamily: {
         heading: ['var(--font-poppins)', 'sans-serif'],

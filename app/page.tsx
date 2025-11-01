@@ -71,7 +71,7 @@ export default function HomePage() {
           </Link>
           <Link
             href="/get-involved"
-            className="px-8 py-3 bg-accent text-text font-semibold rounded-lg hover:bg-accent/90 transition-colors inline-flex items-center justify-center"
+            className="px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors inline-flex items-center justify-center"
           >
             Support Us
           </Link>
