@@ -27,7 +27,7 @@ export default function LabsPage() {
   return (
     <>
       <Hero
-        title="CISJ Labs"
+        title="EdLight Labs"
         subtitle="Tech Incubator: Training → Mentorship → Demo Day"
         backgroundImage="/hero.jpg"
       />
@@ -35,9 +35,9 @@ export default function LabsPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-16">
-            <SectionHeader title="About CISJ Labs" />
+            <SectionHeader title="About EdLight Labs" />
             <p className="text-gray-700 leading-relaxed mb-4">
-              CISJ (Centre d&apos;Innovation Scientifique de Jacmel) Labs is our tech incubator program
+              EdLight Labs is our tech incubator program
               that transforms motivated students into skilled developers and entrepreneurs. Through a
               comprehensive curriculum combining technical training with business fundamentals, we
               empower participants to build real-world solutions.
@@ -85,7 +85,7 @@ export default function LabsPage() {
               href="/get-involved"
               className="inline-flex items-center px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
             >
-              Apply to CISJ Labs
+              Apply to EdLight Labs
             </Link>
           </div>
         </div>
