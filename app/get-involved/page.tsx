@@ -9,7 +9,21 @@ import Card from '@/components/Card'
 
 declare global {
   interface Window {
-    PayPal?: any
+    PayPal?: {
+      Donation: {
+        Button: (config: {
+          env: string
+          hosted_button_id: string
+          image: {
+            src: string
+            alt: string
+            title: string
+          }
+        }) => {
+          render: (selector: string) => void
+        }
+      }
+    }
   }
 }
 
