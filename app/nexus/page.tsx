@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 
@@ -19,35 +18,21 @@ export default function NexusPage() {
             <div className="space-y-6 text-gray-700">
               <SectionHeader title="EdLight Nexus" subtitle="Global mobility and exchange for Haitian students" />
               <div className="rounded-2xl border border-white/40 bg-white/60 backdrop-blur-xl p-8 shadow-xl">
-                <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
-                  <div>
-                    <p className="mb-4">
-                      EdLight Nexus is a global mobility and exchange initiative that gives Haitian students the chance to
-                      explore new cultures, experience international learning environments, and build lifelong networks.
-                    </p>
-                    <p className="mb-4">
-                      Through short-term programs, internships, and immersive opportunities, Nexus empowers young people to
-                      see beyond borders and bring fresh ideas home.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                      <Link href="/get-involved" className="btn btn-primary">
-                        Partner with Us
-                      </Link>
-                      <Link href="/get-involved#contact" className="btn btn-light">
-                        Student Interest Form
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="relative h-72 w-full overflow-hidden rounded-3xl shadow-xl">
-                    <Image
-                      src="/nexus_pic.png"
-                      alt="EdLight Nexus cohort engaging in a cultural exchange activity"
-                      fill
-                      className="object-cover"
-                      sizes="(min-width: 1024px) 40vw, 100vw"
-                      priority
-                    />
-                  </div>
+                <p className="mb-4">
+                  EdLight Nexus is a global mobility and exchange initiative that gives Haitian students the chance to
+                  explore new cultures, experience international learning environments, and build lifelong networks.
+                </p>
+                <p className="mb-4">
+                  Through short-term programs, internships, and immersive opportunities, Nexus empowers young people to
+                  see beyond borders and bring fresh ideas home.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                  <Link href="/get-involved" className="btn btn-primary">
+                    Partner with Us
+                  </Link>
+                  <Link href="/get-involved#contact" className="btn btn-light">
+                    Student Interest Form
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Code, Rocket, Users2, Award } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
@@ -35,31 +34,17 @@ export default function LabsPage() {
 
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="mb-16">
+          <div className="max-w-4xl mx-auto mb-16">
             <SectionHeader title="About EdLight Labs" />
-            <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <p>
-                  EdLight Labs is our tech incubator program that transforms motivated students into skilled developers
-                  and entrepreneurs. Through a comprehensive curriculum combining technical training with business fundamentals,
-                  we empower participants to build real-world solutions.
-                </p>
-                <p>
-                  Past cohorts have built mobile apps, web platforms, and social enterprises addressing local challenges in
-                  education, agriculture, healthcare, and more.
-                </p>
-              </div>
-              <div className="relative h-80 w-full overflow-hidden rounded-3xl shadow-2xl">
-                <Image
-                  src="/labs_pics.png"
-                  alt="EdLight Labs participants collaborating on a project"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                  priority
-                />
-              </div>
-            </div>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              EdLight Labs is our tech incubator program that transforms motivated students into skilled developers and
+              entrepreneurs. Through a comprehensive curriculum combining technical training with business fundamentals,
+              we empower participants to build real-world solutions.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Past cohorts have built mobile apps, web platforms, and social enterprises addressing local challenges in
+              education, agriculture, healthcare, and more.
+            </p>
           </div>
 
           <SectionHeader title="Program Structure" centered />
