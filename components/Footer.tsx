@@ -1,12 +1,15 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import Link from 'next/link'
-import { Facebook, Twitter, Instagram, Youtube, Mail } from 'lucide-react'
+import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail } from 'lucide-react'
 
 const socialLinks = [
-  { href: 'https://facebook.com', label: 'Facebook', icon: Facebook },
-  { href: 'https://twitter.com', label: 'Twitter', icon: Twitter },
-  { href: 'https://instagram.com', label: 'Instagram', icon: Instagram },
-  { href: 'https://youtube.com', label: 'YouTube', icon: Youtube },
+  { href: 'https://www.facebook.com/edlinitiative', label: 'Facebook', icon: Facebook },
+  { href: 'https://x.com/edlinitiative', label: 'Twitter', icon: Twitter },
+  { href: 'https://www.instagram.com/edlinitiative/', label: 'Instagram', icon: Instagram },
+  { href: 'https://www.youtube.com/@edlight-initiative', label: 'YouTube', icon: Youtube },
+  { href: 'https://www.linkedin.com/company/edlight-initiative/', label: 'LinkedIn', icon: Linkedin },
 ]
 
 const programLinks = [
@@ -24,6 +27,51 @@ const orgLinks = [
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [feedback, setFeedback] = useState<string | null>(null)
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+  const handleNewsletterSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    if (!emailPattern.test(email)) {
+      setStatus('error')
+      setFeedback('Please enter a valid email address.')
+      return
+    }
+
+    setStatus('loading')
+    setFeedback(null)
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      const result = await response.json().catch(() => ({}))
+
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.message || 'Subscription failed. Please try again.')
+      }
+
+      setStatus('success')
+      setFeedback("Thanks for subscribing! We'll be in touch soon.")
+      setEmail('')
+    } catch (error) {
+      setStatus('error')
+      setFeedback(
+        error instanceof Error
+          ? error.message
+          : 'Something went wrong. Please try again in a moment.'
+      )
+    }
+  }
 
   return (
     <footer className="relative mt-16 overflow-hidden">
@@ -34,7 +82,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-16 text-white">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5 space-y-5">
-            <div className="glass-strong rounded-3xl p-7 md:p-8">
+            <div className="rounded-3xl border border-white/25 bg-white/10 p-7 md:p-8 shadow-lg">
               <h3 className="font-heading text-2xl font-bold mb-3">EdLight Initiative</h3>
               <p className="font-body text-white/80 leading-relaxed">
                 At EdLight, our mission is to make education free and accessible to all people in Haiti. We
@@ -100,26 +148,49 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="glass rounded-3xl p-5 md:p-6">
+            <div className="rounded-3xl border border-white/20 bg-white/10 p-5 md:p-6 shadow-lg">
               <h4 className="font-heading text-lg font-semibold mb-3">Stay in the loop</h4>
               <p className="text-sm text-white/80 mb-4">
                 Monthly highlights, student success stories, and program openings delivered to your inbox.
               </p>
-              <label className="sr-only" htmlFor="newsletter-email">
-                Email address
-              </label>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  id="newsletter-email"
-                  type="email"
-                  placeholder="Email address"
-                  className="flex-1 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm text-white placeholder-white/60 focus:border-white focus:outline-none"
-                />
-                <button className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/80">
-                  Subscribe
-                </button>
-              </div>
-              <p className="mt-3 text-xs text-white/60">Newsletter integration coming soon.</p>
+              <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+                <label className="sr-only" htmlFor="newsletter-email">
+                  Email address
+                </label>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    id="newsletter-email"
+                    type="email"
+                    name="email"
+                    autoComplete="email"
+                    inputMode="email"
+                    placeholder="Email address"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    className="flex-1 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm text-white placeholder-white/60 focus:border-white focus:outline-none"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/80 disabled:cursor-not-allowed disabled:opacity-70"
+                    disabled={status === 'loading'}
+                  >
+                    {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
+                  </button>
+                </div>
+                <p
+                  className={`min-h-[1.25rem] text-xs ${
+                    status === 'error'
+                      ? 'text-red-200'
+                      : status === 'success'
+                      ? 'text-emerald-200'
+                      : 'text-white/60'
+                  }`}
+                  aria-live="polite"
+                >
+                  {feedback ?? 'We respect your inbox. Unsubscribe any time.'}
+                </p>
+              </form>
               <div className="mt-4 flex items-center gap-2 text-sm text-white/80">
                 <Mail size={16} />
                 <span>info@edlight-initiative.org</span>

@@ -295,9 +295,12 @@ Throughout the codebase, you'll find TODO comments marking where future integrat
 - **Action**: Connect to Firebase, SendGrid, or your preferred email service
 
 ### Newsletter Subscription
-- **File**: `components/Footer.tsx`
-- **Location**: Newsletter input field
-- **Action**: Connect to Mailchimp, ConvertKit, or email service API
+- **File**: `components/Footer.tsx`, `app/api/newsletter/route.ts`
+- **Location**: Newsletter input field & API route
+- **Action**: Provide Resend credentials via `.env.local`
+  - `RESEND_API_KEY`
+  - `NEWSLETTER_INBOX`
+  - Optional: `NEWSLETTER_FROM_EMAIL` (defaults to `EdLight Initiative <onboarding@resend.dev>`)
 
 ### E-commerce Platform
 - **File**: `app/store/page.tsx`
