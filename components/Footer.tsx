@@ -2,129 +2,128 @@ import React from 'react'
 import Link from 'next/link'
 import { Facebook, Twitter, Instagram, Youtube, Mail } from 'lucide-react'
 
+const socialLinks = [
+  { href: 'https://facebook.com', label: 'Facebook', icon: Facebook },
+  { href: 'https://twitter.com', label: 'Twitter', icon: Twitter },
+  { href: 'https://instagram.com', label: 'Instagram', icon: Instagram },
+  { href: 'https://youtube.com', label: 'YouTube', icon: Youtube },
+]
+
+const programLinks = [
+  { href: '/academy', label: 'EdLight Academy' },
+  { href: '/labs', label: 'CISJ Labs' },
+  { href: '/nexus', label: 'EdLight Nexus' },
+  { href: '/eslp', label: 'ESLP' },
+]
+
+const orgLinks = [
+  { href: '/about', label: 'About' },
+  { href: '/get-involved', label: 'Get Involved' },
+  { href: '/store', label: 'Store' },
+]
+
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="bg-text text-white pt-16 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {/* About Column */}
-          <div>
-            <h3 className="font-heading text-xl font-bold mb-4">About EdLight</h3>
-            <p className="font-body text-gray-300 text-sm leading-relaxed mb-4">
-              Empowering the next generation of Haitian innovators through quality education,
-              mentorship, and opportunities.
-            </p>
-            <div className="flex gap-4">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-primary transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-primary transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-primary transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-primary transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube size={20} />
-              </a>
+    <footer className="relative mt-24 overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary via-secondary to-[#0B4B9C]" />
+      <div className="absolute -right-32 top-0 -z-10 h-96 w-96 rounded-full bg-white/20 blur-3xl" />
+      <div className="absolute left-[-15%] bottom-[-20%] -z-10 h-[28rem] w-[28rem] rounded-full bg-primary/30 blur-3xl" />
+
+      <div className="container mx-auto px-4 py-20 text-white">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-5 space-y-6">
+            <div className="glass-strong rounded-3xl p-8">
+              <h3 className="font-heading text-2xl font-bold mb-3">EdLight Initiative</h3>
+              <p className="font-body text-white/80 leading-relaxed">
+                Empowering the next generation of Haitian innovators through modern education,
+                mentorship, and global pathways.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                {socialLinks.map(({ href, label, icon: Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
+                  >
+                    <Icon size={18} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Programs Column */}
-          <div>
-            <h3 className="font-heading text-xl font-bold mb-4">Programs</h3>
-            <ul className="space-y-2 font-body text-sm">
-              <li>
-                <Link href="/academy" className="text-gray-300 hover:text-primary transition-colors">
-                  EdLight Academy
-                </Link>
-              </li>
-              <li>
-                <Link href="/labs" className="text-gray-300 hover:text-primary transition-colors">
-                  CISJ Labs
-                </Link>
-              </li>
-              <li>
-                <Link href="/nexus" className="text-gray-300 hover:text-primary transition-colors">
-                  EdLight Nexus
-                </Link>
-              </li>
-              <li>
-                <Link href="/eslp" className="text-gray-300 hover:text-primary transition-colors">
-                  ESLP
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <div className="lg:col-span-7 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            <div>
+              <h4 className="font-heading text-lg font-semibold mb-4">Programs</h4>
+              <ul className="space-y-3 text-white/80">
+                {programLinks.map(({ href, label }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      className="inline-flex items-center gap-2 text-sm transition hover:text-white"
+                    >
+                      <span>→</span>
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Connect Column */}
-          <div>
-            <h3 className="font-heading text-xl font-bold mb-4">Connect</h3>
-            <div className="space-y-3 font-body text-sm">
-              <div className="flex items-center gap-2 text-gray-300">
+            <div>
+              <h4 className="font-heading text-lg font-semibold mb-4">Explore</h4>
+              <ul className="space-y-3 text-white/80">
+                {orgLinks.map(({ href, label }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      className="inline-flex items-center gap-2 text-sm transition hover:text-white"
+                    >
+                      <span>→</span>
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="glass rounded-3xl p-6">
+              <h4 className="font-heading text-lg font-semibold mb-3">Stay in the loop</h4>
+              <p className="text-sm text-white/80 mb-4">
+                Monthly highlights, student success stories, and program openings delivered to your inbox.
+              </p>
+              <label className="sr-only" htmlFor="newsletter-email">
+                Email address
+              </label>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  id="newsletter-email"
+                  type="email"
+                  placeholder="Email address"
+                  className="flex-1 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm text-white placeholder-white/60 focus:border-white focus:outline-none"
+                />
+                <button className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/80">
+                  Subscribe
+                </button>
+              </div>
+              <p className="mt-3 text-xs text-white/60">Newsletter integration coming soon.</p>
+              <div className="mt-4 flex items-center gap-2 text-sm text-white/80">
                 <Mail size={16} />
                 <span>info@edlight-initiative.org</span>
-              </div>
-              <div className="mt-6">
-                <p className="text-gray-300 mb-2">Subscribe to our newsletter:</p>
-                <div className="flex gap-2">
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    className="flex-1 px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-primary"
-                  />
-                  <button className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
-                    Subscribe
-                  </button>
-                </div>
-                <p className="text-xs text-gray-400 mt-2">
-                  {/* TODO: Hook up newsletter subscription */}
-                  Newsletter coming soon!
-                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-            <p>&copy; {new Date().getFullYear()} EdLight Initiative. All rights reserved.</p>
-            <div className="flex gap-6">
-              <Link href="/about" className="hover:text-primary transition-colors">
-                About
-              </Link>
-              <Link href="/get-involved" className="hover:text-primary transition-colors">
-                Contact
-              </Link>
-              <Link href="/store" className="hover:text-primary transition-colors">
-                Store
-              </Link>
-            </div>
+        <div className="mt-16 border-t border-white/20 pt-6">
+          <div className="flex flex-col gap-4 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
+            <p>&copy; {currentYear} EdLight Initiative. All rights reserved.</p>
+            <p className="text-white/60">Crafting opportunities for Haiti&apos;s next generation.</p>
           </div>
         </div>
       </div>
