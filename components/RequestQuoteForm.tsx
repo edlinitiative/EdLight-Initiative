@@ -85,14 +85,19 @@ export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
       onSuccess?.()
     } catch (err: unknown) {
       console.error(err)
-      const message =
+      let derivedMessage = 'Submission failed. Please try again later.'
+      if (
         typeof err === 'object' &&
         err !== null &&
         'message' in err &&
         typeof (err as { message?: unknown }).message === 'string'
-          ? (err as { message?: string }).message
-          : 'Submission failed. Please try again later.'
-      setErrorMessage(message)
+      ) {
+        const possibleMessage = (err as { message?: string }).message
+        if (possibleMessage && possibleMessage.trim().length > 0) {
+          derivedMessage = possibleMessage
+        }
+      }
+      setErrorMessage(derivedMessage)
     }
   }
 
