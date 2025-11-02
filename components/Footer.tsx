@@ -11,7 +11,7 @@ const socialLinks = [
 
 const programLinks = [
   { href: '/academy', label: 'EdLight Academy' },
-  { href: '/labs', label: 'CISJ Labs' },
+  { href: '/labs', label: 'EdLight Labs' },
   { href: '/nexus', label: 'EdLight Nexus' },
   { href: '/eslp', label: 'ESLP' },
 ]
@@ -26,19 +26,27 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative mt-24 overflow-hidden">
+    <footer className="relative mt-16 overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary via-secondary to-[#0B4B9C]" />
       <div className="absolute -right-32 top-0 -z-10 h-96 w-96 rounded-full bg-white/20 blur-3xl" />
       <div className="absolute left-[-15%] bottom-[-20%] -z-10 h-[28rem] w-[28rem] rounded-full bg-primary/30 blur-3xl" />
 
-      <div className="container mx-auto px-4 py-20 text-white">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5 space-y-6">
-            <div className="glass-strong rounded-3xl p-8">
+      <div className="container mx-auto px-4 py-16 text-white">
+        <div className="grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-5 space-y-5">
+            <div className="glass-strong rounded-3xl p-7 md:p-8">
               <h3 className="font-heading text-2xl font-bold mb-3">EdLight Initiative</h3>
               <p className="font-body text-white/80 leading-relaxed">
-                Empowering the next generation of Haitian innovators through modern education,
-                mentorship, and global pathways.
+                At EdLight, our mission is to make education free and accessible to all people in Haiti. We
+                provide high school students with digital access to quality education through our online courses in
+                STEM subjects. Additionally, our Summer Leadership Program offers a unique opportunity for students to
+                explore innovation, entrepreneurship, and leadership beyond the classroom. Join us in our quest for
+                educational equity and help us empower the next generation of leaders. Together, we can create a
+                brighter future for all...{' '}
+                <Link href="/about" className="underline decoration-white/60 underline-offset-4 hover:text-white">
+                  Learn More
+                </Link>
+                .
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {socialLinks.map(({ href, label, icon: Icon }) => (
@@ -57,7 +65,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="lg:col-span-7 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <div>
               <h4 className="font-heading text-lg font-semibold mb-4">Programs</h4>
               <ul className="space-y-3 text-white/80">
@@ -92,7 +100,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="glass rounded-3xl p-6">
+            <div className="glass rounded-3xl p-5 md:p-6">
               <h4 className="font-heading text-lg font-semibold mb-3">Stay in the loop</h4>
               <p className="text-sm text-white/80 mb-4">
                 Monthly highlights, student success stories, and program openings delivered to your inbox.
@@ -120,7 +128,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-white/20 pt-6">
+        <div className="mt-12 border-t border-white/20 pt-6">
           <div className="flex flex-col gap-4 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
             <p>&copy; {currentYear} EdLight Initiative. All rights reserved.</p>
             <p className="text-white/60">Crafting opportunities for Haiti&apos;s next generation.</p>
