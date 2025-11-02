@@ -265,7 +265,7 @@ export default function LabsPage() {
                 </span>
               </p>
               <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-                <Link href="mailto:labs@edlight.org?subject=Project%20Inquiry" className="btn btn-primary">
+                <Link href="/request-quote" className="btn btn-primary">
                   Request a Quote
                 </Link>
                 <Link href="#portfolio" className="btn btn-light">
