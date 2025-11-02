@@ -193,7 +193,7 @@ export default function Footer() {
               </form>
               <div className="mt-2 flex items-center gap-2 text-sm text-white/75">
                 <Mail size={16} />
-                <span>info@edlight-initiative.org</span>
+                <span>info@edlight.org</span>
               </div>
             </div>
           </div>

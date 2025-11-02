@@ -365,7 +365,7 @@ Copyright © 2024 EdLight Initiative. All rights reserved.
 
 ## 🤝 Contributing
 
-For contributions or questions, please contact the EdLight Initiative team at info@edlight-initiative.org
+For contributions or questions, please contact the EdLight Initiative team at info@edlight.org
 
 ---
 
