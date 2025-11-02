@@ -83,7 +83,7 @@ export default function LabsPage() {
             </p>
             <Link
               href="/get-involved"
-              className="inline-flex items-center px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+              className="btn btn-primary"
             >
               Apply to EdLight Labs
             </Link>

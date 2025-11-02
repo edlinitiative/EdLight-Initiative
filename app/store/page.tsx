@@ -32,7 +32,7 @@ export default function StorePage() {
                   <p className="text-gray-600 text-sm mb-4">{product.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-primary">${product.price}</span>
-                    <button className="px-4 py-2 bg-white/30 text-gray-600 rounded-lg font-medium cursor-not-allowed">
+                    <button className="px-4 py-2 bg-white/30 text-gray-600 rounded-full font-medium cursor-not-allowed">
                       Coming Soon
                     </button>
                   </div>
@@ -49,7 +49,7 @@ export default function StorePage() {
             </p>
             <a
               href="/get-involved#donate"
-              className="inline-flex items-center px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+              className="btn btn-primary"
             >
               Make a Donation
             </a>

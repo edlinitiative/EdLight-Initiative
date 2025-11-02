@@ -65,13 +65,13 @@ export default function HomePage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/academy"
-            className="px-8 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center justify-center gap-2"
+            className="btn btn-light"
           >
             Explore Programs <ArrowRight size={20} />
           </Link>
           <Link
             href="/get-involved"
-            className="px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors inline-flex items-center justify-center"
+            className="btn btn-primary"
           >
             Support Us
           </Link>

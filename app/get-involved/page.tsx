@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { Users, Handshake, DollarSign, Mic } from 'lucide-react'
+import { Users, Handshake, DollarSign, Mic, ShieldCheck } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import Card from '@/components/Card'
@@ -111,7 +111,7 @@ export default function GetInvolvedPage() {
         backgroundImage="/hero.jpg"
       />
 
-  <section className="py-20">
+    <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Ways to Get Involved"
@@ -131,7 +131,7 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-  <section id="donate" className="py-20">
+      <section id="donate" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <SectionHeader title="Support Our Work" centered />
@@ -140,8 +140,17 @@ export default function GetInvolvedPage() {
               students. Every contribution makes a difference.
             </p>
             <div className="glass rounded-2xl p-8 mb-8">
-              <div id="donate-button-container">
-                <div id="donate-button"></div>
+              <div className="flex flex-col items-center gap-5">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-xs font-semibold tracking-wide uppercase text-white/90">
+                  <ShieldCheck size={16} />
+                  Secure PayPal Checkout
+                </span>
+                <div id="donate-button-container" className="inline-flex justify-center">
+                  <div id="donate-button"></div>
+                </div>
+                <p className="text-xs text-white/70">
+                  Powered by PayPal. Choose a one-time gift or set up monthly support.
+                </p>
               </div>
             </div>
             <p className="text-sm text-gray-600">
@@ -158,7 +167,7 @@ export default function GetInvolvedPage() {
             <SectionHeader title="Contact Us" centered />
             <div className="glass rounded-2xl p-8">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <div>
+                <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                   Name *
                 </label>
@@ -173,7 +182,7 @@ export default function GetInvolvedPage() {
                 )}
               </div>
 
-              <div>
+                <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email *
                 </label>
@@ -194,7 +203,7 @@ export default function GetInvolvedPage() {
                 )}
               </div>
 
-              <div>
+                <div>
                 <label htmlFor="interest" className="block text-sm font-medium text-gray-700 mb-2">
                   I&apos;m interested in *
                 </label>
@@ -215,7 +224,7 @@ export default function GetInvolvedPage() {
                 )}
               </div>
 
-              <div>
+                <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                   Message *
                 </label>
@@ -230,12 +239,9 @@ export default function GetInvolvedPage() {
                 )}
               </div>
 
-              <button
-                type="submit"
-                className="w-full px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
-              >
-                Send Message
-              </button>
+                <button type="submit" className="btn btn-primary w-full justify-center">
+                  Send Message
+                </button>
               </form>
             </div>
           </div>
