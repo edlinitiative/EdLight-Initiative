@@ -1,0 +1,47 @@
+{
+  "main": [
+    { "label": "Home", "href": "/", "key": "nav.home" },
+    { "label": "Mission & Projects", "href": "/mission_projects", "key": "nav.mission_projects" },
+    { "label": "Courses", "href": "/courses", "key": "nav.courses" },
+    { "label": "Global Exchange", "href": "/global-exchange", "key": "nav.global_exchange" },
+    { "label": "ESLP", "href": "/ESLP", "key": "nav.eslp" },
+    { "label": "About Us", "href": "/about-us", "key": "nav.about_us" },
+    { "label": "Contact", "href": "/contact", "key": "nav.contact" },
+    { "label": "FAQ", "href": "/faq", "key": "nav.faq" }
+  ],
+  "cta": { "label": "Donate", "href": "/donate", "key": "nav.donate" },
+  "footer": [
+    {
+      "title": "Quick Links",
+      "titleKey": "footer.quick_links",
+      "links": [
+        { "label": "Home", "href": "/", "key": "nav.home" },
+        { "label": "Mission & Projects", "href": "/mission_projects", "key": "nav.mission_projects" },
+        { "label": "Courses", "href": "/courses", "key": "nav.courses" },
+        { "label": "Global Exchange", "href": "/global-exchange", "key": "nav.global_exchange" },
+        { "label": "About Us", "href": "/about-us", "key": "nav.about_us" },
+        { "label": "Contact", "href": "/contact", "key": "footer.contact" },
+        { "label": "FAQ", "href": "/faq", "key": "footer.faq" }
+      ]
+    },
+    {
+      "title": "Programs",
+      "titleKey": "footer.programs",
+      "links": [
+        { "label": "ESLP", "href": "/ESLP" },
+        { "label": "Educational Courses", "href": "/courses", "key": "footer.educational_courses" },
+        { "label": "Partnerships", "href": "#partnerships", "key": "footer.partnerships" },
+        { "label": "Donate", "href": "/donate", "key": "nav.donate" }
+      ]
+    },
+    {
+      "title": "Resources",
+      "titleKey": "footer.resources",
+      "links": [
+        { "label": "Privacy", "href": "/privacy", "key": "footer.privacy" },
+        { "label": "Terms of Use", "href": "/terms-of-use", "key": "footer.terms" },
+        { "label": "Stage", "href": "https://drive.google.com/file/d/107de2zcR1kgFLDuH3ApfbQ0owwvZazVQ/view" }
+      ]
+    }
+  ]
+}

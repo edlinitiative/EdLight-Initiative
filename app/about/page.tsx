@@ -42,7 +42,7 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="glass rounded-2xl p-8 text-center">
+            <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-8 text-center">
               <Target className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="font-heading text-xl font-bold mb-3">Mission</h3>
               <p className="text-gray-700">
@@ -50,7 +50,7 @@ export default function AboutPage() {
                 Haitian youth.
               </p>
             </div>
-            <div className="glass rounded-2xl p-8 text-center">
+            <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-8 text-center">
               <Eye className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="font-heading text-xl font-bold mb-3">Vision</h3>
               <p className="text-gray-700">
@@ -58,7 +58,7 @@ export default function AboutPage() {
                 positive change.
               </p>
             </div>
-            <div className="glass rounded-2xl p-8 text-center">
+            <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-8 text-center">
               <Heart className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="font-heading text-xl font-bold mb-3">Values</h3>
               <p className="text-gray-700">

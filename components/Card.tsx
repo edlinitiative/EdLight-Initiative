@@ -30,7 +30,7 @@ export default function Card({ title, description, icon, href, image, className,
   )
 
   const baseClasses = cn(
-    'glass rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1',
+    'bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1',
     className
   )
 

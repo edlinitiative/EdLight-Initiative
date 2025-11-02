@@ -139,7 +139,7 @@ export default function GetInvolvedPage() {
               Your donation directly supports scholarships, program costs, and resources for
               students. Every contribution makes a difference.
             </p>
-            <div className="glass rounded-2xl p-8 mb-8">
+            <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-8 mb-8">
               <div id="donate-button-container">
                 <div id="donate-button"></div>
               </div>

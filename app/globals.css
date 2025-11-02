@@ -14,10 +14,10 @@
   
   body {
     @apply bg-background text-text font-body;
-    /* Subtle dynamic background for depth */
+    /* Vibrant gradient background matching Academy webapp */
     background-image:
-      radial-gradient(1200px 600px at -10% -10%, rgba(37, 99, 235, 0.06), transparent 60%),
-      radial-gradient(1000px 500px at 110% 10%, rgba(15, 23, 42, 0.06), transparent 60%);
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.12) 0px, transparent 50%);
     background-attachment: fixed;
   }
   
@@ -29,10 +29,10 @@
 @layer utilities {
   /* Glass morphism helpers */
   .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-lg;
+    @apply bg-white/80 backdrop-blur-md border border-gray-200 shadow-lg;
   }
   .glass-strong {
-    @apply bg-white/20 backdrop-blur-xl border border-white/30 shadow-xl;
+    @apply bg-white/90 backdrop-blur-xl border border-gray-200 shadow-xl;
   }
 
   .animate-fade-in {

@@ -27,8 +27,8 @@ export default function Hero({ title, subtitle, backgroundImage, children, class
       }
     >
       {!backgroundImage && (
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-blue-600">
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-blue-600 to-secondary">
+          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent_50%)]" />
         </div>
       )}
       <div className="container relative z-10 px-4">
