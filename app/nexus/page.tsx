@@ -3,97 +3,197 @@ import Link from 'next/link'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 
+const highlights = [
+  {
+    title: 'Academic & Cultural Exchange',
+    description: 'A 7-day immersion featuring campus visits, workshops, and guided cultural experiences.',
+  },
+  {
+    title: 'Global Networking',
+    description: 'Connect with peers, faculty, and professionals from across Europe and beyond.',
+  },
+  {
+    title: 'Skill Development',
+    description: 'Strengthen communication, teamwork, problem-solving, and cultural intelligence.',
+  },
+  {
+    title: 'Community Impact',
+    description: 'Return home ready to translate global insights into local projects and leadership.',
+  },
+]
+
+const eligibilityItems = [
+  'Age 18-21 at the time of travel',
+  'Haitian students living in Haiti or the diaspora',
+  'Currently enrolled in university or recent graduates (within 12 months)',
+  'Valid passport or proof of application in progress',
+  'Available to travel for a 7-day program',
+  'Functional English or French proficiency',
+  'Commitment to EdLight&apos;s code of conduct',
+  'Willingness to fully participate in all activities',
+]
+
+const selectionCriteria = [
+  'Motivation, character, and growth mindset',
+  'Community involvement and potential for impact',
+  'Leadership and teamwork experience',
+  'Academic or professional alignment with program goals',
+  'Representation across schools, regions, and backgrounds',
+]
+
+const costBreakdown = [
+  { category: 'Program Fee (tuition, workshops, visits)', cost: '$650' },
+  { category: 'Shared Accommodation (6 nights)', cost: '$250' },
+  { category: 'Meals (partial coverage)', cost: '$150' },
+  { category: 'Local Transport & Activities', cost: '$100' },
+]
+
+const applicationSteps = [
+  'Submit the interest form on our website.',
+  'Shortlisted applicants complete a detailed profile and essay.',
+  'Interview with the Nexus selection committee.',
+  'Attend virtual pre-departure orientation sessions.',
+  'Participate in the 7-day mobility experience abroad.',
+  'Share lessons learned through a reflection or community project.',
+]
+
+const impactGoals = [
+  'Increase global access for Haitian university students.',
+  'Build collaborative partnerships with international institutions.',
+  'Foster leadership and cultural awareness among participants.',
+  'Amplify Haiti&apos;s voice in global education networks.',
+]
+
+const testimonials = [
+  {
+    quote:
+      'Traveling with EdLight Nexus completely changed my perspective. I realized how much Haitian youth can contribute when given global exposure.',
+    attribution: 'Participant, Pilot Cohort',
+  },
+  {
+    quote:
+      'The program helped me gain confidence and a clearer vision of how I can use what I learned abroad to create opportunities back home.',
+    attribution: 'Participant, Erasmus Mobility Program',
+  },
+]
+
+const partnerActions = [
+  'Host a Nexus cohort or offer campus visits and workshops.',
+  'Provide travel or scholarship support for student participation.',
+  'Co-design exchange programs that promote leadership and innovation.',
+  'Offer mentorship, internships, or project collaborations for alumni.',
+]
+
 export default function NexusPage() {
+  const eligibilityColumns = [
+    eligibilityItems.slice(0, 4),
+    eligibilityItems.slice(4),
+  ]
+
   return (
     <>
       <Hero
         title="EdLight Nexus"
-        subtitle="Connecting Haitian Students to the World"
+        subtitle="Connecting Haitian students to the world through international mobility and exchange."
         backgroundImage="/nexus_pic.png"
-      />
+      >
+        <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <Link href="/get-involved#contact" className="btn btn-primary">
+            Apply Now
+          </Link>
+          <a href="mailto:nexus@edlight.org" className="btn btn-light">
+            Partner With Us
+          </a>
+        </div>
+      </Hero>
 
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto space-y-16">
+          <div className="mx-auto max-w-5xl space-y-16">
             <div className="space-y-6 text-gray-700">
-              <SectionHeader title="EdLight Nexus" subtitle="Global mobility and exchange for Haitian students" />
-              <div className="rounded-2xl border border-white/40 bg-white/60 backdrop-blur-xl p-8 shadow-xl">
+              <SectionHeader
+                title="About the Program"
+                subtitle="Short-term international exchanges that expand worldviews and unlock opportunity."
+              />
+              <div className="rounded-2xl border border-white/40 bg-white/60 p-8 shadow-xl backdrop-blur-xl">
                 <p className="mb-4">
-                  EdLight Nexus is a global mobility and exchange initiative that gives Haitian students the chance to
-                  explore new cultures, experience international learning environments, and build lifelong networks.
+                  EdLight Nexus is a global mobility and exchange initiative that opens the door for Haitian students to
+                  experience international education, culture, and collaboration.
                 </p>
+                <p>
+                  Through short-term academic and cultural programs abroad, Nexus helps participants develop leadership
+                  skills, build global connections, and bring fresh perspectives back to their communities.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-6 text-gray-700">
+              <SectionHeader
+                title="Our Mission"
+                subtitle="Making global learning accessible for Haiti's next generation of leaders."
+                centered
+              />
+              <div className="rounded-2xl border border-white/40 bg-white/60 p-8 shadow-xl backdrop-blur-xl">
                 <p className="mb-4">
-                  Through short-term programs, internships, and immersive opportunities, Nexus empowers young people to
-                  see beyond borders and bring fresh ideas home.
+                  We empower Haitian students to become active, informed, and connected world citizens by fostering
+                  cultural exchange and collaboration.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                  <Link href="/get-involved" className="btn btn-primary">
-                    Partner with Us
-                  </Link>
-                  <Link href="/get-involved#contact" className="btn btn-light">
-                    Student Interest Form
-                  </Link>
+                <p>
+                  EdLight Nexus equips youth with the confidence, skills, and networks they need to thrive in an
+                  increasingly interconnected world and to uplift their communities in the process.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-6 text-gray-700">
+              <SectionHeader title="Program Highlights" centered />
+              <div className="grid gap-6 sm:grid-cols-2">
+                {highlights.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-primary/10 bg-white/70 p-6 shadow-lg"
+                  >
+                    <h3 className="font-heading text-xl font-semibold text-primary mb-2">{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-6 text-gray-700">
+              <SectionHeader
+                title="Eligibility"
+                subtitle="Qualifications for the 2025 pilot cohort"
+                centered
+              />
+              <div className="rounded-2xl border border-white/40 bg-white/60 p-8 shadow-xl backdrop-blur-xl">
+                <div className="grid gap-6 md:grid-cols-2">
+                  {eligibilityColumns.map((column, index) => (
+                    <ul key={index} className="space-y-3 list-disc list-inside">
+                      {column.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  ))}
                 </div>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <SectionHeader title="Our Current Focus" subtitle="Erasmus Mobility Program" centered />
-              <div className="rounded-2xl border border-white/40 bg-white/60 backdrop-blur-xl p-8 shadow-xl">
-                <p className="text-gray-700 mb-4">
-                  In collaboration with the Erasmus+ network, EdLight Nexus offers Haitian university students a one-week
-                  academic and cultural immersion experience in Europe. Participants visit partner universities, attend
-                  workshops, and engage in group projects centered on leadership, innovation, and cross-cultural
-                  collaboration.
-                </p>
-                <p className="text-gray-700">
-                  This partnership marks the beginning of EdLight&apos;s broader mission to make international learning
-                  experiences accessible to Haitian youth, both in Haiti and abroad.
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <SectionHeader title="Future Opportunities" centered />
-              <div className="rounded-2xl border border-white/40 bg-white/60 backdrop-blur-xl p-8 shadow-xl">
-                <ul className="space-y-3 text-gray-700">
-                  <li>• Internships abroad – Gain professional experience with global organizations.</li>
-                  <li>• Job shadowing – Observe professionals in your field and learn in real-world settings.</li>
-                  <li>• Research &amp; innovation exchanges – Collaborate on short-term research or innovation projects.</li>
-                  <li>• Cultural fellowships – Participate in thematic programs on peacebuilding, entrepreneurship, or sustainability.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <SectionHeader title="Eligibility" subtitle="Qualifications for the 2025 pilot cohort" centered />
-              <div className="rounded-2xl border border-white/40 bg-white/60 backdrop-blur-xl p-8 shadow-xl">
-                <div className="grid gap-6 md:grid-cols-2 text-gray-700">
-                  <ul className="space-y-3">
-                    <li>• Ages 18–21 at the time of travel</li>
-                    <li>• Haitian students in Haiti or the diaspora</li>
-                    <li>• Currently enrolled or recent graduates (within 12 months)</li>
-                    <li>• Valid passport or proof of application in progress</li>
-                  </ul>
-                  <ul className="space-y-3">
-                    <li>• Available for a 7-day international program</li>
-                    <li>• Functional English or French proficiency</li>
-                    <li>• Agreement with EdLight&apos;s code of conduct</li>
-                    <li>• Full participation in all scheduled activities</li>
-                  </ul>
-                </div>
-                <div className="mt-6 rounded-2xl bg-white/70 p-6">
-                  <h4 className="font-heading text-lg font-semibold mb-3 text-primary">Selection Criteria</h4>
-                  <p className="text-gray-700">
-                    Motivation and fit • Community impact potential • Leadership and teamwork • Academic or professional alignment • Equity and representation
+                <div className="mt-6 rounded-2xl bg-white/80 p-6">
+                  <h4 className="font-heading text-lg font-semibold text-primary mb-3">Selection Process</h4>
+                  <p className="mb-3">
+                    EdLight Nexus is highly competitive. Applicants are evaluated on their readiness to represent Haiti
+                    abroad and their potential to create lasting impact at home.
                   </p>
+                  <ul className="space-y-2 list-disc list-inside">
+                    {selectionCriteria.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 text-gray-700">
               <SectionHeader title="Program Cost & Scholarships" centered />
-              <div className="rounded-2xl border border-white/40 bg-white/60 backdrop-blur-xl p-8 shadow-xl">
+              <div className="rounded-2xl border border-white/40 bg-white/60 p-8 shadow-xl backdrop-blur-xl space-y-6">
                 <div className="overflow-hidden rounded-2xl border border-primary/10">
                   <table className="w-full text-left text-sm text-gray-700">
                     <thead className="bg-primary/10 text-primary uppercase tracking-wide">
@@ -102,23 +202,13 @@ export default function NexusPage() {
                         <th className="px-4 py-3">Estimated Cost (USD)</th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white/90">
-                      <tr className="border-t border-gray-200/70">
-                        <td className="px-4 py-3">Program Fee (tuition, workshops, visits)</td>
-                        <td className="px-4 py-3 font-semibold">$650</td>
-                      </tr>
-                      <tr className="border-t border-gray-200/70">
-                        <td className="px-4 py-3">Shared Accommodation (6 nights)</td>
-                        <td className="px-4 py-3 font-semibold">$250</td>
-                      </tr>
-                      <tr className="border-t border-gray-200/70">
-                        <td className="px-4 py-3">Meals (partial coverage)</td>
-                        <td className="px-4 py-3 font-semibold">$150</td>
-                      </tr>
-                      <tr className="border-t border-gray-200/70">
-                        <td className="px-4 py-3">Local Transport &amp; Activities</td>
-                        <td className="px-4 py-3 font-semibold">$100</td>
-                      </tr>
+                    <tbody className="bg-white/95">
+                      {costBreakdown.map((item) => (
+                        <tr key={item.category} className="border-t border-gray-200/70">
+                          <td className="px-4 py-3">{item.category}</td>
+                          <td className="px-4 py-3 font-semibold">{item.cost}</td>
+                        </tr>
+                      ))}
                       <tr className="border-t border-gray-200/70 bg-primary/5">
                         <td className="px-4 py-3 font-semibold text-primary">Total Estimated Cost</td>
                         <td className="px-4 py-3 font-semibold text-primary">$1,150</td>
@@ -126,50 +216,101 @@ export default function NexusPage() {
                     </tbody>
                   </table>
                 </div>
-                <div className="space-y-3 text-gray-700">
+                <div className="space-y-3">
                   <p>
-                    <strong>Travel costs:</strong> Participants are responsible for round-trip airfare and visa fees, averaging $700–$1,200 depending on destination and travel dates.
+                    <strong>Travel costs:</strong> Participants cover round-trip airfare and visa fees, typically ranging
+                    from $700 to $1,200 depending on the destination and travel dates.
                   </p>
                   <p>
-                    <strong>Scholarships:</strong> EdLight Nexus offers partial or full scholarships based on financial need, academic merit, and community involvement. Priority goes to first-time travelers and students from underrepresented backgrounds. All selected students receive guidance on fundraising and sponsorship through EdLight&apos;s partners.
+                    <strong>Scholarships:</strong> Partial and full scholarships are available based on financial need,
+                    merit, and community engagement. Priority is given to first-time travelers and students from
+                    underrepresented backgrounds.
+                  </p>
+                  <p>
+                    Every selected student receives guidance on fundraising, sponsorship, and financial planning through
+                    EdLight&apos;s partner network.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="space-y-6 text-gray-700">
+              <SectionHeader title="Application Process" centered />
+              <div className="rounded-2xl border border-white/40 bg-white/60 p-8 shadow-xl backdrop-blur-xl">
+                <ol className="space-y-3 list-decimal list-inside">
+                  {applicationSteps.map((step) => (
+                    <li key={step}>{step}</li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+
+            <div className="space-y-6 text-gray-700">
+              <SectionHeader title="Impact" centered />
+              <div className="rounded-2xl border border-white/40 bg-white/60 p-8 shadow-xl backdrop-blur-xl space-y-4">
+                <p>
+                  EdLight Nexus represents a new chapter in Haiti&apos;s educational story, connecting local talent to
+                  global opportunity and equipping students to bring meaningful change back home.
+                </p>
+                <ul className="space-y-2 list-disc list-inside">
+                  {impactGoals.map((goal) => (
+                    <li key={goal}>{goal}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="space-y-6 text-gray-700">
+              <SectionHeader title="Testimonials" centered />
+              <div className="grid gap-6 md:grid-cols-2">
+                {testimonials.map((testimonial) => (
+                  <div key={testimonial.attribution} className="rounded-2xl border border-white/40 bg-white/70 p-6 shadow-lg">
+                    <p className="italic mb-4">&quot;{testimonial.quote}&quot;</p>
+                    <p className="text-sm font-semibold text-primary">{testimonial.attribution}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-6 text-gray-700">
               <SectionHeader title="Our Vision" centered />
-              <div className="rounded-2xl border border-white/40 bg-white/60 backdrop-blur-xl p-8 shadow-xl">
+              <div className="rounded-2xl border border-white/40 bg-white/60 p-8 shadow-xl backdrop-blur-xl">
                 <p className="mb-4">
-                  We believe every Haitian student deserves the opportunity to learn from the world and give back to it.
+                  EdLight Nexus is more than an exchange program; it is a bridge linking Haiti&apos;s youth to new ideas,
+                  communities of learning, and purpose-driven careers.
                 </p>
                 <p>
-                  By creating bridges between Haiti and international partners, EdLight Nexus equips young leaders with the knowledge, exposure, and confidence to transform their communities and careers.
+                  We envision a world where Haitian students learn from the global community and contribute boldly in
+                  return.
                 </p>
               </div>
             </div>
 
-            <div className="space-y-6">
-              <SectionHeader title="Get Involved" centered />
-              <div className="rounded-2xl border border-white/40 bg-white/60 backdrop-blur-xl p-8 shadow-xl text-gray-700">
-                <p className="mb-4">
-                  We&apos;re building partnerships with universities, foundations, and companies that share our belief in equitable access to global education.
+            <div className="space-y-6 text-gray-700">
+              <SectionHeader title="Partner With Us" centered />
+              <div className="rounded-2xl border border-white/40 bg-white/60 p-8 shadow-xl backdrop-blur-xl space-y-4">
+                <p>
+                  We collaborate with universities, foundations, and organizations that share our vision of equitable
+                  global learning access.
                 </p>
-                <p className="mb-4">
-                  <strong>Students:</strong> Submit your interest form to be considered for upcoming cohorts.
+                <ul className="space-y-2 list-disc list-inside">
+                  {partnerActions.map((action) => (
+                    <li key={action}>{action}</li>
+                  ))}
+                </ul>
+                <p>
+                  Partnering with EdLight Nexus means investing in a generation of young leaders ready to connect,
+                  collaborate, and create change.
                 </p>
-                <p className="mb-6">
-                  <strong>Partners:</strong> Host a student, sponsor an exchange, or co-design a new program.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                   <Link href="/get-involved#contact" className="btn btn-primary">
-                    Student Interest Form
+                    Apply Now
                   </Link>
-                  <Link href="mailto:nexus@edlight.org" className="btn btn-light">
-                    Partner with Us
-                  </Link>
+                  <a href="mailto:nexus@edlight.org" className="btn btn-light">
+                    Partner With Us
+                  </a>
                 </div>
-                <p className="mt-6 text-sm text-gray-600">
+                <p className="text-sm text-gray-600">
                   📩 Contact: <a href="mailto:nexus@edlight.org" className="underline decoration-primary/60 underline-offset-4">nexus@edlight.org</a>
                 </p>
               </div>
