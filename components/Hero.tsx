@@ -21,7 +21,7 @@ export default function Hero({ title, subtitle, backgroundImage, children, class
           ? {
               backgroundImage: `linear-gradient(rgba(2, 6, 23, 0.35), rgba(2, 6, 23, 0.55)), url(${backgroundImage})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundPosition: 'center 30%',
             }
           : undefined
       }

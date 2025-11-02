@@ -12,9 +12,9 @@ const config: Config = {
         // EdLight logo-aligned palette (rich blues, soft light-blue accents)
         primary: '#044BAB',
         secondary: '#0C54A6',
-        accent: '#E6F1FF',
-        text: '#0F172A',
-        background: '#E8F2FF',
+  accent: '#E6F1FF',
+  text: '#0F172A',
+  background: '#E8F2FF',
       },
       fontFamily: {
         heading: ['var(--font-sans)', 'sans-serif'],
