@@ -11,6 +11,13 @@ import ImpactCounters from '@/components/ImpactCounters'
 import impactData from '@/data/impact.json'
 import testimonialsData from '@/data/testimonials.json'
 
+const heroImages = [
+  '/edlight_academy_group.jpg',
+  '/labs_pics.png',
+  '/nexus_pic.png',
+  '/ESLP_Cultural_Performances.jpg',
+]
+
 const ecosystemPrograms = [
   {
     title: 'EdLight Academy',
@@ -46,11 +53,19 @@ const impactCounters = [
 ]
 
 export default function HomePage() {
+  const [currentHeroImage, setCurrentHeroImage] = useState(0)
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonialsData.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentHeroImage((prev) => (prev + 1) % heroImages.length)
     }, 5000)
     return () => clearInterval(timer)
   }, [])
@@ -61,6 +76,7 @@ export default function HomePage() {
       <Hero
         title="Empowering the Next Generation of Haitian Innovators"
         subtitle="Building a brighter future through quality education, mentorship, and global opportunities"
+        backgroundImage={heroImages[currentHeroImage]}
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link

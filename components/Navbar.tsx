@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -20,6 +21,7 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname() || '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +30,13 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const isActivePath = (href: string) => {
+    if (href === '/') {
+      return pathname === '/'
+    }
+    return pathname.startsWith(href)
+  }
 
   return (
     <nav
@@ -59,7 +68,13 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-body text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+                className={cn(
+                  'font-body text-sm font-medium transition-colors',
+                  isActivePath(link.href)
+                    ? 'text-primary underline decoration-primary/40 underline-offset-8'
+                    : 'text-gray-700 hover:text-primary'
+                )}
+                aria-current={isActivePath(link.href) ? 'page' : undefined}
               >
                 {link.label}
               </Link>
@@ -94,7 +109,13 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-3 font-body text-gray-700 hover:text-primary hover:bg-gray-50 px-4 rounded transition-colors"
+                className={cn(
+                  'block py-3 font-body px-4 rounded transition-colors',
+                  isActivePath(link.href)
+                    ? 'bg-primary/10 text-primary'
+                    : 'text-gray-700 hover:text-primary hover:bg-gray-50'
+                )}
+                aria-current={isActivePath(link.href) ? 'page' : undefined}
               >
                 {link.label}
               </Link>
