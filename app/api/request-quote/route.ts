@@ -4,13 +4,16 @@ import path from 'path'
 
 type RequestPayload = {
   name: string
-  organization?: string
   email: string
-  phone?: string
-  program: string
-  participants?: number
-  startDate?: string
-  message: string
+  organization?: string
+  currentWebsite?: string
+  projectType: string
+  budget: string
+  timeline: string
+  contentStatus: string
+  keyFeatures: string
+  additionalNotes?: string
+  requestType?: string
 }
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -20,7 +23,15 @@ export async function POST(request: Request) {
     const body = await request.json()
     const payload = body as RequestPayload
 
-    if (!payload?.name || !payload?.email || !payload?.program || !payload?.message) {
+    if (
+      !payload?.name ||
+      !payload?.email ||
+      !payload?.projectType ||
+      !payload?.budget ||
+      !payload?.timeline ||
+      !payload?.contentStatus ||
+      !payload?.keyFeatures
+    ) {
       return NextResponse.json({ success: false, message: 'Missing required fields' }, { status: 400 })
     }
 

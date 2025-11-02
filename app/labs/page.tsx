@@ -1,4 +1,6 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -10,9 +12,11 @@ import {
   CheckCircle2,
   ExternalLink,
   Mail,
+  X,
 } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
+import RequestQuoteForm from '@/components/RequestQuoteForm'
 
 const serviceHighlights = [
   {
@@ -96,6 +100,11 @@ const involvementOptions = [
 ]
 
 export default function LabsPage() {
+  const [showQuoteModal, setShowQuoteModal] = useState(false)
+
+  const openQuoteModal = () => setShowQuoteModal(true)
+  const closeQuoteModal = () => setShowQuoteModal(false)
+
   return (
     <>
       <Hero
@@ -104,9 +113,9 @@ export default function LabsPage() {
         backgroundImage="/labs_pics.png"
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="#contact" className="btn btn-primary">
+          <button type="button" className="btn btn-primary" onClick={openQuoteModal}>
             Work With Us <ArrowRight size={18} />
-          </Link>
+          </button>
           <Link href="#services" className="btn btn-light">
             Explore Services
           </Link>
@@ -265,9 +274,9 @@ export default function LabsPage() {
                 </span>
               </p>
               <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-                <Link href="/request-quote" className="btn btn-primary">
+                <button type="button" className="btn btn-primary" onClick={openQuoteModal}>
                   Request a Quote
-                </Link>
+                </button>
                 <Link href="#portfolio" className="btn btn-light">
                   See More Projects
                 </Link>
@@ -276,6 +285,36 @@ export default function LabsPage() {
           </div>
         </div>
       </section>
+
+      {showQuoteModal && (
+        <div className="fixed inset-0 z-[90] flex items-center justify-center px-4 py-10">
+          <div
+            className="absolute inset-0 bg-black/60"
+            aria-hidden="true"
+            onClick={closeQuoteModal}
+          />
+          <div className="relative z-[95] w-full max-w-3xl rounded-3xl bg-white p-6 shadow-2xl sm:p-8">
+            <div className="mb-6 flex items-start justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider text-primary">Website Development Brief</p>
+                <h2 className="mt-2 font-heading text-2xl font-semibold text-gray-900">Tell us about your project</h2>
+                <p className="mt-1 text-sm text-gray-600">
+                  Share your vision and requirements. We’ll schedule a discovery call within 2-3 business days.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={closeQuoteModal}
+                className="rounded-full border border-gray-200 p-2 text-gray-500 transition hover:border-gray-300 hover:text-gray-700"
+                aria-label="Close request quote form"
+              >
+                <X size={18} />
+              </button>
+            </div>
+            <RequestQuoteForm onSuccess={closeQuoteModal} />
+          </div>
+        </div>
+      )}
     </>
   )
 }
