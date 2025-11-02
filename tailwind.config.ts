@@ -14,7 +14,7 @@ const config: Config = {
         secondary: '#0C54A6',
         accent: '#E6F1FF',
         text: '#0F172A',
-        background: '#F5FAFF',
+        background: '#E8F2FF',
       },
       fontFamily: {
         heading: ['var(--font-sans)', 'sans-serif'],

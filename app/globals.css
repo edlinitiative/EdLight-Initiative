@@ -13,11 +13,13 @@
   
   body {
     @apply bg-background text-text font-body;
-    /* Soft light-blue gradients for subtle depth */
+    background-color: #e8f2ff;
+    /* Amplified brand gradients for a softly colored canvas */
     background-image:
-      radial-gradient(at 0% 0%, rgba(4, 75, 171, 0.12) 0px, transparent 55%),
-      radial-gradient(at 100% 10%, rgba(12, 84, 166, 0.1) 0px, transparent 60%),
-      radial-gradient(at 50% 100%, rgba(30, 64, 175, 0.08) 0px, transparent 65%);
+      radial-gradient(at 2% 8%, rgba(36, 99, 235, 0.2) 0px, transparent 58%),
+      radial-gradient(at 98% 12%, rgba(56, 189, 248, 0.17) 0px, transparent 60%),
+      radial-gradient(at 50% 85%, rgba(4, 75, 171, 0.18) 0px, transparent 68%),
+      linear-gradient(180deg, rgba(232, 242, 255, 0.92) 0%, rgba(245, 250, 255, 0.98) 100%);
     background-attachment: fixed;
   }
   
