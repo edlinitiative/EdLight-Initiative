@@ -72,7 +72,7 @@ edlight-initiative/
 ├── app/                    # Next.js App Router pages
 │   ├── page.tsx           # Homepage
 │   ├── academy/           # EdLight Academy page
-│   ├── labs/              # CISJ Labs page
+│   ├── labs/              # EdLight Labs page
 │   ├── nexus/             # EdLight Nexus page
 │   ├── eslp/              # ESLP page
 │   ├── store/             # Store page

@@ -26,7 +26,7 @@ const ecosystemPrograms = [
     href: '/academy',
   },
   {
-    title: 'CISJ Labs',
+    title: 'EdLight Labs',
     description: 'STEM incubator providing training, mentorship, and demo day opportunities for tech innovators.',
     icon: <Lightbulb size={32} />,
     href: '/labs',

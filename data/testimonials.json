@@ -9,9 +9,9 @@
   {
     "id": 2,
     "name": "Jean-Baptiste Pierre",
-    "role": "CISJ Labs Participant",
+  "role": "EdLight Labs Participant",
     "image": "/gallery/student-2.jpg",
-    "quote": "Through CISJ Labs, I built my first mobile app and learned to code. The mentorship and resources helped me launch my own startup."
+  "quote": "Through EdLight Labs, I built my first mobile app and learned to code. The mentorship and resources helped me launch my own startup."
   },
   {
     "id": 3,
