@@ -287,13 +287,17 @@ export default function LabsPage() {
       </section>
 
       {showQuoteModal && (
-        <div className="fixed inset-0 z-[90] flex items-center justify-center px-4 py-10">
+        <div
+          className="fixed inset-0 z-[90] flex items-center justify-center px-3 py-8 sm:px-4 sm:py-10"
+          role="dialog"
+          aria-modal="true"
+        >
           <div
             className="absolute inset-0 bg-black/60"
             aria-hidden="true"
             onClick={closeQuoteModal}
           />
-          <div className="relative z-[95] w-full max-w-3xl rounded-3xl bg-white p-6 shadow-2xl sm:p-8">
+          <div className="relative z-[95] w-full max-w-lg rounded-3xl bg-white p-5 shadow-2xl sm:max-w-2xl sm:p-6 lg:max-w-3xl lg:p-8">
             <div className="mb-6 flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wider text-primary">Website Development Brief</p>
@@ -311,7 +315,9 @@ export default function LabsPage() {
                 <X size={18} />
               </button>
             </div>
-            <RequestQuoteForm onSuccess={closeQuoteModal} />
+            <div className="max-h-[70vh] overflow-y-auto pr-1 sm:max-h-[75vh] lg:max-h-[80vh]">
+              <RequestQuoteForm onSuccess={closeQuoteModal} />
+            </div>
           </div>
         </div>
       )}
