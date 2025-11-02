@@ -108,7 +108,7 @@ export default function GetInvolvedPage() {
       <Hero
         title="Get Involved"
         subtitle="Join us in empowering the next generation of Haitian innovators"
-        backgroundImage="/hero.jpg"
+        backgroundImage="/about_us.png"
       />
 
     <section className="py-20">
