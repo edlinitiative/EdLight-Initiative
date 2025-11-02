@@ -74,42 +74,42 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative mt-16 overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary via-secondary to-[#0B4B9C]" />
-      <div className="absolute -right-32 top-0 -z-10 h-96 w-96 rounded-full bg-white/20 blur-3xl" />
-      <div className="absolute left-[-15%] bottom-[-20%] -z-10 h-[28rem] w-[28rem] rounded-full bg-primary/30 blur-3xl" />
+    <footer className="relative mt-10 overflow-hidden">
+  <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#124594] via-[#3d7ed9] to-[#0f2f73]" />
+  <div className="absolute -right-28 top-14 -z-10 h-64 w-64 rounded-full bg-[#5a9bff]/25 blur-3xl" />
+  <div className="absolute left-[-22%] bottom-[-28%] -z-10 h-[18rem] w-[18rem] rounded-full bg-[#3a71d1]/25 blur-3xl" />
 
-      <div className="container mx-auto px-4 py-16 text-white">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-5 space-y-5">
-            <div className="rounded-3xl border border-white/25 bg-white/10 p-7 md:p-8 shadow-lg">
+      <div className="container mx-auto px-4 py-10 text-white">
+        <div className="grid gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-5 space-y-6">
+            <div>
               <h3 className="font-heading text-2xl font-bold mb-3">EdLight Initiative</h3>
               <p className="font-body text-white/80 leading-relaxed">
-                At EdLight, our mission is to make education free and accessible to all people in Haiti. We
-                provide high school students with digital access to quality education through our online courses in
-                STEM subjects. Additionally, our Summer Leadership Program offers a unique opportunity for students to
-                explore innovation, entrepreneurship, and leadership beyond the classroom. Join us in our quest for
-                educational equity and help us empower the next generation of leaders. Together, we can create a
-                brighter future for all...{' '}
+                At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide high
+                school students with digital access to quality education through our online courses in STEM subjects.
+                Additionally, our Summer Leadership Program offers a unique opportunity for students to explore
+                innovation, entrepreneurship, and leadership beyond the classroom. Join us in our quest for educational
+                equity and help us empower the next generation of leaders. Together, we can create a brighter future for
+                all...{' '}
                 <Link href="/about" className="underline decoration-white/60 underline-offset-4 hover:text-white">
                   Learn More
                 </Link>
                 .
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {socialLinks.map(({ href, label, icon: Icon }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
-                  >
-                    <Icon size={18} />
-                  </a>
-                ))}
-              </div>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {socialLinks.map(({ href, label, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white transition hover:bg-white/25"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -148,7 +148,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="rounded-3xl border border-white/20 bg-white/10 p-5 md:p-6 shadow-lg">
+            <div className="space-y-4">
               <h4 className="font-heading text-lg font-semibold mb-3">Stay in the loop</h4>
               <p className="text-sm text-white/80 mb-4">
                 Monthly highlights, student success stories, and program openings delivered to your inbox.
@@ -167,7 +167,7 @@ export default function Footer() {
                     placeholder="Email address"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    className="flex-1 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm text-white placeholder-white/60 focus:border-white focus:outline-none"
+                    className="flex-1 rounded-xl border border-white/30 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/60 focus:border-white focus:outline-none"
                     required
                   />
                   <button
@@ -191,7 +191,7 @@ export default function Footer() {
                   {feedback ?? 'We respect your inbox. Unsubscribe any time.'}
                 </p>
               </form>
-              <div className="mt-4 flex items-center gap-2 text-sm text-white/80">
+              <div className="mt-2 flex items-center gap-2 text-sm text-white/75">
                 <Mail size={16} />
                 <span>info@edlight-initiative.org</span>
               </div>
@@ -199,7 +199,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/20 pt-6">
+        <div className="mt-10 border-t border-white/15 pt-5">
           <div className="flex flex-col gap-4 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
             <p>&copy; {currentYear} EdLight Initiative. All rights reserved.</p>
             <p className="text-white/60">Crafting opportunities for Haiti&apos;s next generation.</p>
