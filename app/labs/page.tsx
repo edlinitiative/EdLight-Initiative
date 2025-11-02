@@ -32,7 +32,7 @@ export default function LabsPage() {
         backgroundImage="/hero.jpg"
       />
 
-      <section className="py-20 bg-white">
+  <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-16">
             <SectionHeader title="About EdLight Labs" />
@@ -60,7 +60,7 @@ export default function LabsPage() {
             ))}
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-8 mb-16">
+      <div className="glass rounded-2xl p-8 mb-16">
             <h3 className="font-heading text-2xl font-bold mb-4 flex items-center gap-2">
               <Award className="text-primary" />
               Cohort Highlights

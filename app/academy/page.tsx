@@ -38,7 +38,7 @@ export default function AcademyPage() {
         backgroundImage="/EdLight_Academy.jpg"
       />
 
-      <section className="py-20 bg-white">
+  <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-16">
             <SectionHeader title="About EdLight Academy" />
@@ -69,11 +69,11 @@ export default function AcademyPage() {
           <SectionHeader title="Featured Lessons" centered />
           <div className="grid md:grid-cols-3 gap-8">
             {videosData.map((video) => (
-              <div key={video.id} className="bg-gray-100 rounded-lg overflow-hidden">
-                <div className="aspect-video bg-gray-300 flex items-center justify-center">
-                  <p className="text-gray-600">Video: {video.title}</p>
+              <div key={video.id} className="glass rounded-2xl overflow-hidden">
+                <div className="aspect-video bg-white/30 flex items-center justify-center">
+                  <p className="text-gray-700">Video: {video.title}</p>
                 </div>
-                <div className="p-4">
+                <div className="p-6">
                   <h3 className="font-heading font-semibold text-lg mb-2">{video.title}</h3>
                   <p className="text-gray-600 text-sm">{video.description}</p>
                 </div>

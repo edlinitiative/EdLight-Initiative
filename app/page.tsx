@@ -79,7 +79,7 @@ export default function HomePage() {
       </Hero>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -87,7 +87,7 @@ export default function HomePage() {
               subtitle="Creating pathways to excellence for Haitian youth"
               centered
             />
-            <div className="space-y-6 text-gray-700 leading-relaxed">
+            <div className="glass rounded-2xl p-8 space-y-6 text-gray-700 leading-relaxed">
               <p>
                 EdLight Initiative was founded on the belief that every young person in Haiti deserves
                 access to world-class education and opportunities. We work to bridge the educational gap
@@ -110,7 +110,7 @@ export default function HomePage() {
       </section>
 
       {/* Ecosystem Programs */}
-      <section className="py-20 bg-background">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Our Ecosystem"
@@ -132,15 +132,17 @@ export default function HomePage() {
       </section>
 
       {/* Impact Counters */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeader title="Our Impact" subtitle="Making a difference in communities across Haiti" centered />
-          <ImpactCounters counters={impactCounters} />
+          <div className="glass rounded-2xl p-8">
+            <ImpactCounters counters={impactCounters} />
+          </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-background">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeader title="Student Stories" subtitle="Hear from our alumni" centered />
           <div className="max-w-3xl mx-auto">

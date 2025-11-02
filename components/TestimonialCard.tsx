@@ -11,10 +11,10 @@ interface TestimonialCardProps {
 
 export default function TestimonialCard({ name, role, quote, image }: TestimonialCardProps) {
   return (
-    <div className="bg-white rounded-xl shadow-md p-8 relative">
-      <Quote className="absolute top-4 right-4 w-8 h-8 text-primary opacity-20" />
+    <div className="glass rounded-2xl p-8 relative">
+      <Quote className="absolute top-4 right-4 w-8 h-8 text-primary opacity-30" />
       <div className="flex items-center gap-4 mb-6">
-        <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gray-200">
+        <div className="relative w-16 h-16 rounded-full overflow-hidden bg-white/30">
           <Image src={image} alt={name} fill className="object-cover" />
         </div>
         <div>

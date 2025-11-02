@@ -111,7 +111,7 @@ export default function GetInvolvedPage() {
         backgroundImage="/hero.jpg"
       />
 
-      <section className="py-20 bg-white">
+  <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Ways to Get Involved"
@@ -131,7 +131,7 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      <section id="donate" className="py-20 bg-background">
+  <section id="donate" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <SectionHeader title="Support Our Work" centered />
@@ -139,7 +139,7 @@ export default function GetInvolvedPage() {
               Your donation directly supports scholarships, program costs, and resources for
               students. Every contribution makes a difference.
             </p>
-            <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-8 mb-8">
+            <div className="glass rounded-2xl p-8 mb-8">
               <div id="donate-button-container">
                 <div id="donate-button"></div>
               </div>
@@ -152,11 +152,12 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <SectionHeader title="Contact Us" centered />
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <div className="glass rounded-2xl p-8">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                   Name *
@@ -235,7 +236,8 @@ export default function GetInvolvedPage() {
               >
                 Send Message
               </button>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </section>

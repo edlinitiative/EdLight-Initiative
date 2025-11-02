@@ -14,7 +14,7 @@ export default function NexusPage() {
         backgroundImage="/hero.jpg"
       />
 
-      <section className="py-20 bg-white">
+  <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-16">
             <SectionHeader title="About EdLight Nexus" />
@@ -33,7 +33,7 @@ export default function NexusPage() {
           <SectionHeader title="Current Opportunities" centered />
           <div className="space-y-6 mb-16">
             {nexusData.map((opportunity) => (
-              <div key={opportunity.id} className="bg-white border rounded-xl p-6 hover:shadow-lg transition-shadow">
+              <div key={opportunity.id} className="glass rounded-2xl p-6 hover:shadow-xl transition-shadow">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="font-heading text-xl font-bold text-text mb-2">
@@ -59,7 +59,7 @@ export default function NexusPage() {
           <SectionHeader title="Partner Institutions" centered />
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {partnersData.slice(0, 6).map((partner) => (
-              <div key={partner.id} className="bg-background rounded-lg p-6 text-center">
+              <div key={partner.id} className="glass rounded-2xl p-6 text-center">
                 <div className="h-20 flex items-center justify-center mb-4">
                   <p className="font-heading font-semibold text-gray-700">{partner.name}</p>
                 </div>

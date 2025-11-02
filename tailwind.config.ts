@@ -9,12 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // EdLight Academy-aligned palette (vibrant blue/purple gradient system)
-        primary: '#3B82F6', // blue-500 (matches Academy CTA blue)
-        secondary: '#8B5CF6', // violet-500 (gradient partner)
-        accent: '#F3F4F6', // gray-100 (soft card backgrounds)
-        text: '#1F2937', // gray-800 (strong readability)
-        background: '#FFFFFF', // pure white (clean Academy style)
+        // EdLight logo-aligned palette (rich blues, soft light-blue accents)
+        primary: '#044BAB',
+        secondary: '#0C54A6',
+        accent: '#E6F1FF',
+        text: '#0F172A',
+        background: '#F5FAFF',
       },
       fontFamily: {
         heading: ['var(--font-poppins)', 'sans-serif'],

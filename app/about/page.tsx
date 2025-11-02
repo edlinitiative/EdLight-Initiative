@@ -1,5 +1,5 @@
 import React from 'react'
-import { Target, Eye, Heart } from 'lucide-react'
+import { Target, Eye, Heart, Users } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import teamData from '@/data/team.json'
@@ -15,7 +15,7 @@ export default function AboutPage() {
         backgroundImage="/hero.jpg"
       />
 
-      <section className="py-20 bg-white">
+  <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-16">
             <SectionHeader title="Our Story" />
@@ -42,7 +42,7 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-8 text-center">
+            <div className="glass rounded-2xl p-8 text-center">
               <Target className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="font-heading text-xl font-bold mb-3">Mission</h3>
               <p className="text-gray-700">
@@ -50,7 +50,7 @@ export default function AboutPage() {
                 Haitian youth.
               </p>
             </div>
-            <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-8 text-center">
+            <div className="glass rounded-2xl p-8 text-center">
               <Eye className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="font-heading text-xl font-bold mb-3">Vision</h3>
               <p className="text-gray-700">
@@ -58,7 +58,7 @@ export default function AboutPage() {
                 positive change.
               </p>
             </div>
-            <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-8 text-center">
+            <div className="glass rounded-2xl p-8 text-center">
               <Heart className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="font-heading text-xl font-bold mb-3">Values</h3>
               <p className="text-gray-700">
@@ -69,7 +69,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-background">
+  <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeader title="Our Journey" centered />
           <div className="max-w-4xl mx-auto">
@@ -91,13 +91,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+  <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeader title="Meet Our Team" centered />
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamData.map((member) => (
               <div key={member.id} className="text-center">
-                <div className="w-32 h-32 rounded-full bg-gray-200 mx-auto mb-4 overflow-hidden">
+                <div className="w-32 h-32 rounded-full glass mx-auto mb-4 overflow-hidden">
                   <div className="w-full h-full flex items-center justify-center text-gray-400">
                     <Users size={48} />
                   </div>
@@ -111,7 +111,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-background">
+  <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeader title="In the Media" centered />
           <div className="max-w-3xl mx-auto space-y-4">
@@ -121,7 +121,7 @@ export default function AboutPage() {
                 href={article.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block bg-white rounded-lg p-6 hover:shadow-lg transition-shadow"
+                className="block glass rounded-2xl p-6 hover:shadow-lg transition-shadow"
               >
                 <div className="flex justify-between items-start gap-4">
                   <div>
@@ -143,5 +143,3 @@ export default function AboutPage() {
   )
 }
 
-// Import Users for team placeholder
-import { Users } from 'lucide-react'

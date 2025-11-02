@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 interface CardProps {
@@ -16,8 +17,8 @@ export default function Card({ title, description, icon, href, image, className,
   const content = (
     <>
       {image && (
-        <div className="h-48 overflow-hidden rounded-t-xl">
-          <img src={image} alt={title} className="w-full h-full object-cover" />
+        <div className="relative h-48 overflow-hidden rounded-t-2xl">
+          <Image src={image} alt={title} fill className="object-cover" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" />
         </div>
       )}
       <div className="p-6">
@@ -30,7 +31,7 @@ export default function Card({ title, description, icon, href, image, className,
   )
 
   const baseClasses = cn(
-    'bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1',
+    'glass rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1',
     className
   )
 
