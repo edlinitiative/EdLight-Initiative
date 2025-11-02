@@ -17,8 +17,8 @@ const config: Config = {
         background: '#F5FAFF',
       },
       fontFamily: {
-        heading: ['var(--font-poppins)', 'sans-serif'],
-        body: ['var(--font-inter)', 'sans-serif'],
+        heading: ['var(--font-sans)', 'sans-serif'],
+        body: ['var(--font-sans)', 'sans-serif'],
       },
       container: {
         center: true,

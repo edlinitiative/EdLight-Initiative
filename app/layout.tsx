@@ -1,19 +1,13 @@
 import type { Metadata } from 'next'
-import { Poppins, Inter } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-const poppins = Poppins({
-  weight: ['400', '600', '700'],
-  subsets: ['latin'],
-  variable: '--font-poppins',
-  display: 'swap',
-})
-
 const inter = Inter({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-sans',
   display: 'swap',
 })
 
@@ -34,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
+    <html lang="en" className={inter.variable}>
       <body>
         <a href="#main-content" className="skip-link">
           Skip to main content
