@@ -1,10 +1,53 @@
 import React from 'react'
-import { Target, Eye, Heart, Users } from 'lucide-react'
+import { Target, Eye, Heart } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
-import teamData from '@/data/team.json'
-import timelineData from '@/data/timeline.json'
 import mediaData from '@/data/media.json'
+
+const leadershipTeam = [
+  {
+    name: 'Ted Jacquet',
+    title: 'Co-Founder & CFO',
+    description:
+      'Analyst at Deutsche Bank and social entrepreneur, Ted oversees EdLight\'s strategic growth, finances, and global partnerships.',
+  },
+  {
+    name: 'Stevenson Michel',
+    title: 'Co-Founder & CEO',
+    description:
+      'A visionary educator and program leader, Stevenson brings technical expertise from his role at Red Hat (IBM), guiding EdLight\'s initiatives on the ground in Haiti and ensuring impact through innovation.',
+  },
+  {
+    name: 'Rony Francillon',
+    title: 'Director of ESLP & EdLight Nexus',
+    description:
+      'Currently pursuing his master\'s in France, Rony leads both the EdLight Summer Leadership Program and EdLight Nexus, fostering collaboration, cultural exchange, and youth leadership development.',
+  },
+  {
+    name: 'Herode Metellus',
+    title: 'Fundraising Coordinator',
+    description:
+      'Project Manager at Compassion International and Rotaract District Representative, Herode leads our fundraising and donor engagement efforts.',
+  },
+  {
+    name: 'Williamson Michel',
+    title: 'Operations Manager',
+    description:
+      'Oversees logistics, communications, and internal coordination for EdLight\'s programs and events.',
+  },
+  {
+    name: 'Stéphane Lainé',
+    title: 'Lead Developer, EdLight Labs',
+    description:
+      'Heads the creation of EdLight\'s digital platforms and innovation initiatives, including website development and technical training.',
+  },
+  {
+    name: 'Fredner Pierre',
+    title: 'Logistics & Cybersecurity Officer',
+    description:
+      'Manages technical infrastructure and logistical operations across EdLight\'s programs, ensuring secure, efficient, and reliable systems to support the organization\'s mission.',
+  },
+]
 
 export default function AboutPage() {
   return (
@@ -71,42 +114,33 @@ export default function AboutPage() {
 
   <section className="py-20">
         <div className="container mx-auto px-4">
-          <SectionHeader title="Our Journey" centered />
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-8">
-              {timelineData.map((item) => (
-                <div key={item.year} className="flex gap-6">
-                  <div className="flex-shrink-0 w-20 text-right">
-                    <span className="text-2xl font-bold text-primary">{item.year}</span>
-                  </div>
-                  <div className="flex-grow pb-8 border-l-2 border-primary pl-6 relative">
-                    <div className="absolute left-0 top-0 w-4 h-4 rounded-full bg-primary -translate-x-[9px]" />
-                    <h3 className="font-heading text-lg font-bold mb-2">{item.title}</h3>
-                    <p className="text-gray-700">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <SectionHeader
+            title="Meet the EdLight Team"
+            subtitle="A young and diverse team of educators, innovators, and changemakers reimagining education for Haiti."
+            centered
+          />
+          <div className="max-w-4xl mx-auto space-y-6 text-gray-700 leading-relaxed">
+            <p>
+              At EdLight, our strength lies in the passion and dedication of a young, diverse, and visionary team committed to reimagining education for the next generation of Haitian leaders. We are educators, innovators, and changemakers united by a single mission to make quality education accessible, engaging, and transformative for all.
+            </p>
+            <p>
+              Founded by Ted Jacquet, Stevenson Michel, and Christopher Michel, EdLight is powered by a network of volunteers, mentors, and professionals across Haiti, Canada, the United States, and Europe. Together, we lead initiatives such as the EdLight Summer Leadership Program (ESLP), EdLight Academy, EdLight Labs, and EdLight Nexus, each designed to empower students with skills, knowledge, and opportunities that extend beyond the classroom.
+            </p>
+            <p>Our leadership team includes:</p>
           </div>
-        </div>
-      </section>
-
-  <section className="py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeader title="Meet Our Team" centered />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamData.map((member) => (
-              <div key={member.id} className="text-center">
-                <div className="w-32 h-32 rounded-full glass mx-auto mb-4 overflow-hidden">
-                  <div className="w-full h-full flex items-center justify-center text-gray-400">
-                    <Users size={48} />
-                  </div>
-                </div>
-                <h3 className="font-heading font-bold text-lg mb-1">{member.name}</h3>
-                <p className="text-primary text-sm font-medium mb-3">{member.role}</p>
-                <p className="text-gray-600 text-sm">{member.bio}</p>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {leadershipTeam.map((leader) => (
+              <div key={leader.name} className="rounded-2xl border border-primary/10 bg-white px-6 py-5 shadow-sm">
+                <h3 className="font-heading text-lg font-semibold text-text">{leader.name}</h3>
+                <p className="text-primary text-sm font-semibold">{leader.title}</p>
+                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{leader.description}</p>
               </div>
             ))}
+          </div>
+          <div className="max-w-4xl mx-auto mt-10 text-gray-700 leading-relaxed">
+            <p>
+              Together, we are building an ecosystem that bridges education, technology, and leadership, nurturing a generation of problem-solvers who will drive change in their communities and beyond.
+            </p>
           </div>
         </div>
       </section>
