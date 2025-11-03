@@ -4,99 +4,239 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import {
   ArrowRight,
-  Code2,
-  MonitorSmartphone,
-  Wrench,
-  Cpu,
-  Printer,
   CheckCircle2,
+  Compass,
   ExternalLink,
-  Mail,
+  Lightbulb,
+  MonitorSmartphone,
+  Palette,
+  Rocket,
+  Workflow,
+  Wrench,
   X,
 } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import RequestQuoteForm from '@/components/RequestQuoteForm'
 
-const serviceHighlights = [
+type Stat = {
+  value: string
+  label: string
+  description: string
+}
+
+type Capability = {
+  title: string
+  description: string
+  bullets: string[]
+  icon: React.ElementType
+}
+
+type Phase = {
+  title: string
+  description: string
+  bullets: string[]
+  icon: React.ElementType
+}
+
+type CaseStudy = {
+  name: string
+  description: string
+  url?: string
+  tag: string
+}
+
+type Differentiator = {
+  title: string
+  description: string
+}
+
+type Testimonial = {
+  quote: string
+  name: string
+  role: string
+}
+
+type InvolvementPath = {
+  title: string
+  description: string
+}
+
+const stats: Stat[] = [
   {
-    title: 'Website Design & Development',
-    description:
-      'Custom, responsive websites crafted for schools, nonprofits, and small businesses. We combine storytelling, modern design, and technical excellence.',
-    details: [
-      'Custom design and development tailored to your brand',
-      'Domain setup, hosting support, and content organization',
-      'SEO and performance optimization for fast, accessible sites',
-      'Training sessions so your team can manage updates confidently',
-    ],
-    icon: <MonitorSmartphone size={26} className="text-primary" />,
-    pricing: '1/3 upfront • 2/3 on delivery. Maintenance starts at $150/year or 20% of the project cost.',
+    value: '25+',
+    label: 'Digital builds launched',
+    description: 'Websites, portals, and microsites crafted for schools, nonprofits, and startups across Haiti & the diaspora.',
   },
   {
-    title: 'Website Maintenance & Optimization',
-    description:
-      'Already have a website? We keep it secure, updated, and polished so your audience always enjoys a seamless experience.',
-    details: [
-      'Regular updates, backups, and performance checks',
-      'Content refreshes and design enhancements',
-      'Security monitoring with quick troubleshooting support',
-      'Flexible maintenance tiers to match your budget',
-    ],
-    icon: <Wrench size={26} className="text-primary" />,
+    value: '8 weeks',
+    label: 'Average go-live timeline',
+    description: 'From discovery workshop to launch for a typical full website engagement with content support.',
+  },
+  {
+    value: '92%',
+    label: 'Client retention',
+    description: 'Organizations that continue with Labs for maintenance, feature growth, or new product experiments.',
   },
 ]
 
-const innovationFocus = [
-  'Launching one of Haiti’s first educational 3D printing hubs.',
-  'Building prototypes that support healthcare, education, and engineering.',
-  'Creating hands-on learning experiences that inspire entrepreneurship.',
+const capabilities: Capability[] = [
+  {
+    title: 'Website & product design',
+    description: 'Responsive interfaces rooted in brand storytelling, accessibility, and conversion best practices.',
+    bullets: [
+      'Strategy workshops & user journey mapping',
+      'High-fidelity UI systems & pattern libraries',
+      'CMS setup with custom content models',
+    ],
+    icon: Palette,
+  },
+  {
+    title: 'Full-stack development',
+    description: 'Modern engineering that keeps your platform fast, secure, and future-proof.',
+    bullets: [
+      'Next.js, React, and TypeScript builds',
+      'API integrations, automation, and analytics',
+      'Performance, SEO, and accessibility audits',
+    ],
+    icon: MonitorSmartphone,
+  },
+  {
+    title: 'Care & optimization',
+    description: 'Proactive support plans to keep your experiences polished and evolving with your audience.',
+    bullets: [
+      'Monthly maintenance & uptime monitoring',
+      'Content refreshes and new feature rollouts',
+      'Training for internal teams & documentation',
+    ],
+    icon: Wrench,
+  },
+  {
+    title: 'Innovation lab sprints',
+    description: 'Rapid prototyping to explore new digital ideas, from 3D printing labs to emerging tech pilots.',
+    bullets: [
+      'Product framing & feasibility validation',
+      'Prototype builds with user testing',
+      'Launch plans with impact measurement',
+    ],
+    icon: Lightbulb,
+  },
 ]
 
-const portfolioItems = [
+const processPhases: Phase[] = [
+  {
+    title: 'Discover',
+    description: 'We facilitate workshops to align on vision, audience, features, and success metrics.',
+    bullets: ['Stakeholder interviews & audits', 'Experience blueprint & technical plan', 'Transparent budget & timeline'],
+    icon: Compass,
+  },
+  {
+    title: 'Design',
+    description: 'We translate insights into brand-aligned visuals, scalable components, and content flows.',
+    bullets: ['Moodboards & design system tokens', 'UX/UI prototypes for key journeys', 'Messaging and copy collaboration'],
+    icon: Palette,
+  },
+  {
+    title: 'Build',
+    description: 'Engineers implement agile sprints with weekly demos, QA, and performance checkpoints.',
+    bullets: ['Headless architecture & integrations', 'Responsive templates & CMS handoff', 'Accessibility + performance testing'],
+    icon: Workflow,
+  },
+  {
+    title: 'Launch & Grow',
+    description: 'We deploy, train your team, and stay on to expand features as your needs evolve.',
+    bullets: ['Launch playbook & training sessions', 'Maintenance roadmap & analytics dashboards', 'Ongoing experimentation & support'],
+    icon: Rocket,
+  },
+]
+
+const caseStudies: CaseStudy[] = [
   {
     name: 'EdLight Initiative',
     url: 'https://edlight.org',
-    description:
-      'EdLight’s main platform unites mission, programs, and impact stories with a fast, mobile-friendly experience.',
+    description: 'Unified the mission, programs, and fundraising efforts into a storytelling hub with multilingual support.',
+    tag: 'Nonprofit platform',
   },
   {
     name: 'EdLight Academy',
     url: 'https://academy.edlight.org',
-    description:
-      'A multi-language learning portal with structured course navigation, YouTube lessons, and interactive quizzes.',
+    description: 'Learning portal with course categorization, embedded video experiences, and student analytics workflows.',
+    tag: 'EdTech experience',
   },
   {
     name: 'EdLight Nexus',
     url: 'https://edlight.org/nexus',
-    description:
-      'Showcases global mobility opportunities for Haitian students with clear storytelling and partner-focused CTAs.',
+    description: 'Mobility and exchange site that highlights cohorts, application journeys, and partnership opportunities.',
+    tag: 'Program microsite',
   },
   {
-    name: 'Client Project – École Dominique Savio (Demo)',
-    url: undefined,
-    description:
-      'A school website concept highlighting academic programs, galleries, and easy-to-manage updates for administrators.',
+    name: 'École Dominique Savio (Demo)',
+    description: 'Concept website for a Haitian school with program navigation, faculty features, and parent resources.',
+    tag: 'Education demo',
   },
   {
-    name: 'Client Project – Local Nonprofit (Demo)',
-    url: undefined,
-    description:
-      'A lightweight nonprofit site with donation tools, storytelling layouts, and a blog to feature ongoing initiatives.',
+    name: 'Local Nonprofit (Demo)',
+    description: 'Story-first nonprofit layout optimized for donations, volunteer sign-ups, and impact storytelling.',
+    tag: 'NGO demo',
   },
 ]
 
-const reasons = [
-  'Professional, mission-aligned web solutions at accessible pricing.',
-  'Transparent process with flexible payment and maintenance plans.',
-  'Fast turnaround times, responsive support, and clear communication.',
-  'Trusted by schools, nonprofits, and startups across Haiti.',
-  'Backed by the EdLight Initiative’s commitment to education and impact.',
+const differentiators: Differentiator[] = [
+  {
+    title: 'Mission-aligned partnership',
+    description: 'We build with organizations that prioritize education, entrepreneurship, and community impact—because that is our mission too.',
+  },
+  {
+    title: 'Transparent pricing & delivery',
+    description: 'Clear scopes, flexible payment plans, and honest timelines keep every team aligned from kickoff to launch.',
+  },
+  {
+    title: 'Maintenance that scales',
+    description: 'Our care plans blend technical upkeep with growth experiments so your platform stays fresh after launch.',
+  },
+  {
+    title: 'Local talent, global standards',
+    description: 'Haitian designers and engineers collaborate with international mentors to deliver world-class quality.',
+  },
 ]
 
-const involvementOptions = [
-  'Organizations: Partner with us to design or upgrade your website or digital platform.',
-  'Students & Developers: Join our talent network and work on real client projects.',
-  'Supporters: Help us bring 3D printing labs and innovation tools to Haiti.',
+const innovationFocus = [
+  'Maker labs introducing 3D printing and fabrication to Haitian classrooms.',
+  'Prototype sprint teams tackling challenges in healthcare, education, and climate resilience.',
+  'Mentorship pipelines that pair student developers with real-world client projects.',
+]
+
+const testimonials: Testimonial[] = [
+  {
+    quote: 'EdLight Labs translated our ideas into a platform that feels modern, fast, and aligned with our community.',
+    name: 'Program Lead',
+    role: 'Haitian nonprofit partner',
+  },
+  {
+    quote: 'From design to launch, the Labs team was collaborative, transparent, and focused on impact.',
+    name: 'Communications Director',
+    role: 'Education network',
+  },
+  {
+    quote: 'Our site went live in under two months and came with training so our team can keep it updated.',
+    name: 'Co-founder',
+    role: 'Startup client',
+  },
+]
+
+const involvementPaths: InvolvementPath[] = [
+  {
+    title: 'Organizations',
+    description: 'Launch or refresh your digital presence with a tailored web experience and long-term maintenance partner.',
+  },
+  {
+    title: 'Students & technologists',
+    description: 'Join Labs projects, gain mentorship, and build a portfolio through real client engagements.',
+  },
+  {
+    title: 'Supporters & donors',
+    description: 'Fuel technology labs, scholarships, and innovation pilots that expand opportunity in Haiti.',
+  },
 ]
 
 export default function LabsPage() {
@@ -109,177 +249,284 @@ export default function LabsPage() {
     <>
       <Hero
         title="EdLight Labs"
-        subtitle="Building digital solutions that power education, entrepreneurship, and social impact"
+        subtitle="Digital products, websites, and innovation pilots built for mission-led organizations."
         backgroundImage="/labs_pics.png"
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button type="button" className="btn btn-primary" onClick={openQuoteModal}>
-            Work With Us <ArrowRight size={18} />
+            Build with Labs <ArrowRight size={18} />
           </button>
-          <Link href="#services" className="btn btn-light">
-            Explore Services
+          <Link href="#capabilities" className="btn btn-light">
+            Explore capabilities
           </Link>
         </div>
       </Hero>
 
-      <section className="py-20">
-        <div className="container mx-auto px-4 space-y-20">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
-            <div className="space-y-6 text-gray-700 leading-relaxed">
+      <section className="bg-gradient-to-b from-slate-50 via-white to-white py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="Technology for social impact"
+            subtitle="Labs combines design, engineering, and mentorship to help mission-driven teams launch digital experiences that scale their work."
+            centered
+          />
+          <div className="grid gap-6 md:grid-cols-3">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-md transition hover:shadow-xl"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 transition group-hover:opacity-100" />
+                <div className="relative z-10 space-y-3">
+                  <span className="text-4xl font-bold text-primary">{stat.value}</span>
+                  <h3 className="text-lg font-semibold text-text">{stat.label}</h3>
+                  <p className="text-sm text-gray-600">{stat.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="capabilities" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div className="space-y-8">
               <SectionHeader
-                title="Innovation for Education and Impact"
-                subtitle="Technology as a catalyst for learning, entrepreneurship, and community change"
+                title="What we build"
+                subtitle="From strategy to launch, Labs crafts human-centered platforms that move your mission forward."
               />
-              <p>
-                EdLight Labs is the creative and technological branch of the EdLight Initiative. We build digital solutions that empower
-                students, educators, and mission-driven organizations across Haiti—and increasingly beyond. From modern websites to applied
-                technology projects, we use tech as a tool for opportunity and social impact.
-              </p>
-              <p>
-                The Lab manages EdLight’s educational platforms, including EdLight Academy and Nexus, while collaborating with schools,
-                nonprofits, and small businesses to create digital experiences that amplify their reach. Every project blends purposeful
-                design with reliable engineering.
-              </p>
+              <div className="grid gap-6 sm:grid-cols-2">
+                {capabilities.map((capability) => {
+                  const Icon = capability.icon
+                  return (
+                    <div key={capability.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
+                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                        <Icon size={20} />
+                      </div>
+                      <h3 className="font-heading text-lg font-semibold text-text">{capability.title}</h3>
+                      <p className="mt-2 text-sm text-gray-600 leading-relaxed">{capability.description}</p>
+                      <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                        {capability.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-start gap-2">
+                            <ArrowRight size={14} className="mt-1 text-primary" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
-                <Code2 className="text-primary mb-3" size={26} />
-                <h3 className="font-heading text-lg font-semibold text-text mb-2">Built for Impact</h3>
-                <p className="text-sm text-gray-600">
-                  We prototype, design, and maintain tools that make learning more accessible and engaging for the next generation.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
-                <Cpu className="text-primary mb-3" size={26} />
-                <h3 className="font-heading text-lg font-semibold text-text mb-2">Innovation in Motion</h3>
-                <p className="text-sm text-gray-600">
-                  Our roadmap includes 3D printing hubs, applied tech experiments, and maker initiatives for Haitian students.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm sm:col-span-2">
-                <Printer className="text-primary mb-3" size={26} />
-                <h3 className="font-heading text-lg font-semibold text-text mb-2">Community Collaboration</h3>
-                <p className="text-sm text-gray-600">
-                  We partner with local organizations to deliver digital platforms that grow their visibility, fundraising, and community reach.
-                </p>
+
+            <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-primary/95 via-primary/85 to-primary p-8 text-white shadow-xl">
+              <p className="text-sm uppercase tracking-[0.2em] text-white/60">Signature engagement</p>
+              <h3 className="mt-4 font-heading text-2xl font-semibold">Impact website accelerator</h3>
+              <p className="mt-4 text-sm text-white/80 leading-relaxed">
+                A focused 6–8 week sprint that combines brand discovery, user-centered design, no-surprise development,
+                and a guided launch playbook. Ideal for organizations ready to level up their digital presence quickly.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide">
+                <span className="rounded-full bg-white/15 px-3 py-1">Strategy workshop</span>
+                <span className="rounded-full bg-white/15 px-3 py-1">Design system</span>
+                <span className="rounded-full bg-white/15 px-3 py-1">Training & care</span>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div id="services" className="space-y-12">
-            <SectionHeader title="What We Do" centered />
-            <div className="grid gap-8 lg:grid-cols-2">
-              {serviceHighlights.map((service) => (
-                <div key={service.title} className="rounded-3xl border border-primary/10 bg-white p-8 shadow-lg">
-                  <div className="flex items-start justify-between gap-6">
-                    <div>
-                      <div className="mb-4">{service.icon}</div>
-                      <h3 className="font-heading text-xl font-semibold text-text mb-3">{service.title}</h3>
-                      <p className="text-gray-600 mb-5 leading-relaxed">{service.description}</p>
-                    </div>
+      <section className="relative overflow-hidden bg-slate-950 py-20 text-slate-100">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_rgba(15,23,42,0.9))]" />
+        <div className="container relative mx-auto px-4">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">Process</p>
+            <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">A collaborative build from strategy to growth</h2>
+            <p className="mt-4 text-base text-slate-300">
+              Our team becomes an extension of yours—bringing structure, clarity, and technical rigor so you can focus on your mission.
+            </p>
+          </div>
+          <div className="mt-14 grid gap-6 lg:grid-cols-4">
+            {processPhases.map((phase) => {
+              const Icon = phase.icon
+              return (
+                <div key={phase.title} className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_10px_40px_rgba(15,23,42,0.5)]">
+                  <div className="flex items-center gap-3">
+                    <span className="rounded-full bg-white/10 p-2 text-primary">
+                      <Icon size={20} />
+                    </span>
+                    <h3 className="font-heading text-lg font-semibold text-white">{phase.title}</h3>
                   </div>
-                  <ul className="space-y-3 text-sm text-gray-700">
-                    {service.details.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <CheckCircle2 className="text-primary mt-0.5" size={16} />
-                        <span>{item}</span>
+                  <p className="mt-4 text-sm text-slate-300">{phase.description}</p>
+                  <ul className="mt-4 space-y-2 text-sm text-slate-200/80">
+                    {phase.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2">
+                        <ArrowRight size={14} className="mt-1 text-primary" />
+                        <span>{bullet}</span>
                       </li>
                     ))}
                   </ul>
-                  {service.pricing && (
-                    <p className="mt-6 text-sm font-medium text-primary/90">{service.pricing}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="Innovation inside and outside the classroom"
+            subtitle="We experiment with emerging technology to unlock new opportunities for youth, educators, and entrepreneurs."
+            centered
+          />
+          <div className="rounded-3xl border border-primary/10 bg-white p-10 shadow-lg text-gray-700 space-y-5">
+            <ul className="space-y-3 text-sm md:text-base">
+              {innovationFocus.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-1 text-primary" size={18} />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-gray-600">
+              Labs projects double as learning environments. Students and young professionals gain hands-on experience
+              building with real stakeholders while receiving mentorship from design and engineering leads.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" className="bg-slate-50 py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="Case studies & demos"
+            subtitle="A snapshot of platforms we’ve launched and concepts currently in exploration."
+            centered
+          />
+          <div className="grid gap-6 md:grid-cols-2">
+            {caseStudies.map((project) => (
+              <div key={project.name} className="group relative overflow-hidden rounded-3xl border border-primary/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 transition group-hover:opacity-100" />
+                <div className="relative z-10 flex items-center justify-between gap-3">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-primary/80">{project.tag}</p>
+                    <h3 className="mt-2 font-heading text-lg font-semibold text-text">{project.name}</h3>
+                  </div>
+                  {project.url && (
+                    <Link
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-primary text-sm font-semibold"
+                    >
+                      Visit <ExternalLink size={14} />
+                    </Link>
                   )}
                 </div>
-              ))}
-            </div>
+                <p className="relative z-10 mt-3 text-sm text-gray-600 leading-relaxed">{project.description}</p>
+                {!project.url && (
+                  <p className="relative z-10 mt-4 text-xs font-semibold uppercase tracking-wide text-primary/70">In development</p>
+                )}
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="space-y-10">
-            <SectionHeader title="Innovation & Technology Projects" centered />
-            <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-white via-white to-blue-50 p-10 shadow-lg text-gray-700">
-              <p className="text-lg font-medium mb-5">
-                EdLight Labs is expanding into 3D printing and applied technology to create tangible change across education, healthcare, and engineering.
-              </p>
-              <ul className="space-y-3">
-                {innovationFocus.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="text-primary mt-0.5" size={16} />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-6 text-sm text-gray-600">
-                By nurturing local talent and creativity, we envision EdLight Labs as a launchpad where students, innovators, and entrepreneurs turn ideas into reality.
-              </p>
-            </div>
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="Why teams choose EdLight Labs"
+            subtitle="We’re technologists, storytellers, and community builders who partner for the long haul."
+            centered
+          />
+          <div className="grid gap-6 md:grid-cols-2">
+            {differentiators.map((point) => (
+              <div key={point.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
+                <h3 className="font-heading text-lg font-semibold text-text">{point.title}</h3>
+                <p className="mt-2 text-sm text-gray-600 leading-relaxed">{point.description}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div id="portfolio" className="space-y-12">
-            <SectionHeader title="Portfolio" subtitle="Recent websites and digital platforms we’ve designed and launched" centered />
-            <div className="grid gap-6 md:grid-cols-2">
-              {portfolioItems.map((project) => (
-                <div key={project.name} className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg">
-                  <div className="flex items-center justify-between gap-3">
-                    <h3 className="font-heading text-lg font-semibold text-text">{project.name}</h3>
-                    {project.url && (
-                      <Link
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-primary text-sm font-semibold"
-                      >
-                        Visit <ExternalLink size={14} />
-                      </Link>
-                    )}
-                  </div>
-                  <p className="mt-3 text-sm text-gray-600 leading-relaxed">{project.description}</p>
-                  {!project.url && (
-                    <p className="mt-3 text-xs uppercase tracking-wide text-gray-400">Coming soon</p>
-                  )}
-                </div>
-              ))}
-            </div>
-            <p className="text-center text-sm text-gray-500">💡 We regularly update our portfolio as new projects launch. Want to be featured here? Reach out and let’s build together.</p>
+      <section className="bg-slate-950 py-20 text-slate-100">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="Client & collaborator feedback"
+            subtitle="Our partners value clarity, speed, and the way Labs centers impact."
+            centered
+          />
+          <div className="grid gap-6 md:grid-cols-3">
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.name} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                <p className="text-sm italic text-slate-200">“{testimonial.quote}”</p>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-primary/80">{testimonial.name}</p>
+                <p className="text-[11px] uppercase tracking-wide text-slate-400">{testimonial.role}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="space-y-10">
-            <SectionHeader title="Why Choose EdLight Labs?" centered />
-            <div className="grid gap-6 md:grid-cols-2">
-              {reasons.map((reason) => (
-                <div key={reason} className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="text-primary mt-0.5" size={18} />
-                    <p className="text-gray-700">{reason}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+      <section id="contact" className="py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="Ways to collaborate"
+            subtitle="Whether you need a new platform, ongoing optimization, or an innovation partner—we’re ready."
+            centered
+          />
+          <div className="grid gap-6 md:grid-cols-3">
+            {involvementPaths.map((path) => (
+              <div key={path.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
+                <h3 className="font-heading text-lg font-semibold text-text">{path.title}</h3>
+                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{path.description}</p>
+              </div>
+            ))}
           </div>
-
-          <div id="contact" className="space-y-10">
-            <SectionHeader title="Get Involved" centered />
-            <div className="rounded-3xl border border-primary/10 bg-white p-10 shadow-lg text-gray-700">
-              <ul className="space-y-3 text-sm">
-                {involvementOptions.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="text-primary mt-0.5" size={16} />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-6 text-sm text-gray-600 flex items-center gap-2">
-                <Mail size={16} className="text-primary" />
-                <span>
-                  Contact us: <a href="mailto:labs@edlight.org" className="text-primary underline underline-offset-4">labs@edlight.org</a>
-                </span>
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+          <div className="mt-10 rounded-3xl border border-primary/10 bg-white p-8 shadow-lg text-gray-700">
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary/80">Let’s talk</p>
+                <h3 className="mt-2 text-lg font-semibold text-text">labs@edlight.org</h3>
+                <p className="mt-1 text-sm text-gray-600">
+                  Share a brief about your project or request a discovery call. We respond within two business days.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <button type="button" className="btn btn-primary" onClick={openQuoteModal}>
-                  Request a Quote
+                  Request a quote
                 </button>
                 <Link href="#portfolio" className="btn btn-light">
-                  See More Projects
+                  View recent work
                 </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-24">
+        <div className="container mx-auto px-4">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/90 via-primary to-primary/90 p-10 text-white shadow-xl">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
+            <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Build with purpose</p>
+                <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">Let’s launch your next digital leap</h2>
+                <p className="mt-3 text-sm md:text-base text-white/80">
+                  Tell us what you’re working on and we’ll map the roadmap together—from first sprint to ongoing growth.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <button type="button" className="btn btn-light" onClick={openQuoteModal}>
+                  Start a project brief
+                </button>
+                <a href="mailto:labs@edlight.org" className="btn btn-primary">
+                  Email the Labs team
+                </a>
               </div>
             </div>
           </div>
