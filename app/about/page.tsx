@@ -1,52 +1,17 @@
 import React from 'react'
-import { Target, Eye, Heart } from 'lucide-react'
+import { Target, Eye, Heart, Users } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import mediaData from '@/data/media.json'
 
 const leadershipTeam = [
-  {
-    name: 'Ted Jacquet',
-    title: 'Co-Founder & CFO',
-    description:
-      'Analyst at Deutsche Bank and social entrepreneur, Ted oversees EdLight\'s strategic growth, finances, and global partnerships.',
-  },
-  {
-    name: 'Stevenson Michel',
-    title: 'Co-Founder & CEO',
-    description:
-      'A visionary educator and program leader, Stevenson brings technical expertise from his role at Red Hat (IBM), guiding EdLight\'s initiatives on the ground in Haiti and ensuring impact through innovation.',
-  },
-  {
-    name: 'Rony Francillon',
-    title: 'Director of ESLP & EdLight Nexus',
-    description:
-      'Currently pursuing his master\'s in France, Rony leads both the EdLight Summer Leadership Program and EdLight Nexus, fostering collaboration, cultural exchange, and youth leadership development.',
-  },
-  {
-    name: 'Herode Metellus',
-    title: 'Fundraising Coordinator',
-    description:
-      'Project Manager at Compassion International and Rotaract District Representative, Herode leads our fundraising and donor engagement efforts.',
-  },
-  {
-    name: 'Williamson Michel',
-    title: 'Operations Manager',
-    description:
-      'Oversees logistics, communications, and internal coordination for EdLight\'s programs and events.',
-  },
-  {
-    name: 'Stéphane Lainé',
-    title: 'Lead Developer, EdLight Labs',
-    description:
-      'Heads the creation of EdLight\'s digital platforms and innovation initiatives, including website development and technical training.',
-  },
-  {
-    name: 'Fredner Pierre',
-    title: 'Logistics & Cybersecurity Officer',
-    description:
-      'Manages technical infrastructure and logistical operations across EdLight\'s programs, ensuring secure, efficient, and reliable systems to support the organization\'s mission.',
-  },
+  { name: 'Ted Jacquet', title: 'Co-Founder & CFO' },
+  { name: 'Stevenson Michel', title: 'Co-Founder & CEO' },
+  { name: 'Rony Francillon', title: 'Director of ESLP & EdLight Nexus' },
+  { name: 'Herode Metellus', title: 'Fundraising Coordinator' },
+  { name: 'Williamson Michel', title: 'Operations Manager' },
+  { name: 'Stéphane Lainé', title: 'Lead Developer, EdLight Labs' },
+  { name: 'Fredner Pierre', title: 'Logistics & Cybersecurity Officer' },
 ]
 
 export default function AboutPage() {
@@ -128,12 +93,16 @@ export default function AboutPage() {
             </p>
             <p>Our leadership team includes:</p>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {leadershipTeam.map((leader) => (
-              <div key={leader.name} className="rounded-2xl border border-primary/10 bg-white px-6 py-5 shadow-sm">
-                <h3 className="font-heading text-lg font-semibold text-text">{leader.name}</h3>
-                <p className="text-primary text-sm font-semibold">{leader.title}</p>
-                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{leader.description}</p>
+              <div key={leader.name} className="text-center">
+                <div className="w-32 h-32 rounded-full glass mx-auto mb-4 overflow-hidden">
+                  <div className="flex h-full w-full items-center justify-center text-gray-400">
+                    <Users size={48} />
+                  </div>
+                </div>
+                <h3 className="font-heading font-bold text-lg text-text">{leader.name}</h3>
+                <p className="mt-1 text-primary text-sm font-medium">{leader.title}</p>
               </div>
             ))}
           </div>
