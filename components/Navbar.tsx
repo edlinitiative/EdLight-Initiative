@@ -6,7 +6,6 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import DonateModal from '@/components/DonateModal'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -22,7 +21,6 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isDonateModalOpen, setIsDonateModalOpen] = useState(false)
   const pathname = usePathname() || '/'
 
   useEffect(() => {
@@ -40,12 +38,8 @@ export default function Navbar() {
     return pathname.startsWith(href)
   }
 
-  const openDonateModal = () => setIsDonateModalOpen(true)
-  const closeDonateModal = () => setIsDonateModalOpen(false)
-
   return (
-    <>
-      <nav
+    <nav
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
         isScrolled
@@ -89,13 +83,9 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
-            <button
-              type="button"
-              onClick={openDonateModal}
-              className="btn btn-primary btn-sm"
-            >
+            <a href="https://www.paypal.com/donate/?hosted_button_id=6AKKBQXK47EZU" className="btn btn-primary btn-sm">
               Donate
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -127,21 +117,16 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <button
-              type="button"
-              onClick={() => {
-                setIsMobileMenuOpen(false)
-                openDonateModal()
-              }}
+            <a
+              href="https://www.paypal.com/donate/?hosted_button_id=6AKKBQXK47EZU"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="btn btn-primary w-full justify-center mt-4 mx-4"
             >
               Donate
-            </button>
+            </a>
           </div>
         )}
       </div>
-      </nav>
-      <DonateModal open={isDonateModalOpen} onClose={closeDonateModal} />
-    </>
+    </nav>
   )
 }

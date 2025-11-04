@@ -190,7 +190,7 @@ export default function ESLPPage() {
       <Hero
         title="EdLight Summer Leadership Program"
         subtitle="A fully funded summer residency that equips Haitian high school students to lead, innovate, and serve."
-        backgroundImage="/Graduation_Pics.jpg"
+  backgroundImage="/Graduation_Pics.webp"
       >
         <div className="flex justify-center gap-4">
           <Link href="/get-involved#contact" className="btn btn-primary">

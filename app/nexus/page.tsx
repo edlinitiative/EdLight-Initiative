@@ -207,7 +207,7 @@ export default function NexusPage() {
       <Hero
         title="EdLight Nexus"
         subtitle="Modern exchange journeys that connect Haitian students to global innovation, culture, and opportunity."
-        backgroundImage="/nexus_pic.png"
+  backgroundImage="/nexus_pic.webp"
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
           <Link href="/get-involved#contact" className="btn btn-primary">

@@ -9,7 +9,7 @@ export default function RequestQuotePage() {
       <Hero
         title="Request a Quote"
         subtitle="Tell us about your needs and we'll prepare a customized quote for your organization."
-        backgroundImage="/about_us.png"
+  backgroundImage="/about_us.webp"
       />
 
       <section className="py-20">

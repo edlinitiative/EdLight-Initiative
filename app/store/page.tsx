@@ -10,7 +10,7 @@ export default function StorePage() {
       <Hero
         title="EdLight Store"
         subtitle="Support our mission while getting great products"
-        backgroundImage="/hero.jpg"
+  backgroundImage="/about_us.webp"
       />
 
   <section className="py-20">

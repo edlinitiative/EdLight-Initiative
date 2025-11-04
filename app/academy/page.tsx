@@ -192,7 +192,7 @@ export default function AcademyPage() {
       <Hero
         title="EdLight Academy"
         subtitle="Modern, free, and bilingual digital learning designed for Haitian students everywhere."
-        backgroundImage="/edlight_academy_group.jpg"
+  backgroundImage="/edlight_academy_group.webp"
       >
         <div className="flex justify-center gap-4">
           <Link href="#start" className="btn btn-primary">

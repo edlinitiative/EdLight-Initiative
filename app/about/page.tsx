@@ -20,7 +20,7 @@ export default function AboutPage() {
       <Hero
         title="About EdLight Initiative"
         subtitle="Building a brighter future for Haiti through education"
-        backgroundImage="/edlight_academy_group.jpg"
+  backgroundImage="/edlight_academy_group.webp"
       />
 
   <section className="py-20">

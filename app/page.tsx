@@ -12,10 +12,10 @@ import impactData from '@/data/impact.json'
 import testimonialsData from '@/data/testimonials.json'
 
 const heroImages = [
-  '/edlight_academy_group.jpg',
-  '/labs_pics.png',
-  '/nexus_pic.png',
-  '/ESLP_Cultural_Performances.jpg',
+  '/edlight_academy_group.webp',
+  '/labs_pics.webp',
+  '/nexus_pic.webp',
+  '/ESLP_Cultural_Performances.webp',
 ]
 
 const ecosystemPrograms = [

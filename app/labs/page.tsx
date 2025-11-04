@@ -250,7 +250,7 @@ export default function LabsPage() {
       <Hero
         title="EdLight Labs"
         subtitle="Digital products, websites, and innovation pilots built for mission-led organizations."
-        backgroundImage="/labs_pics.png"
+  backgroundImage="/labs_pics.webp"
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button type="button" className="btn btn-primary" onClick={openQuoteModal}>
