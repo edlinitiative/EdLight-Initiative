@@ -83,12 +83,14 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
-            <Link
-              href="/get-involved#donate"
+            <a
+              href="https://www.paypal.com/donate/?hosted_button_id=6AKKBQXK47EZU"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-primary btn-sm"
             >
               Donate
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -120,13 +122,15 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/get-involved#donate"
+            <a
+              href="https://www.paypal.com/donate/?hosted_button_id=6AKKBQXK47EZU"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
               className="btn btn-primary w-full justify-center mt-4 mx-4"
             >
               Donate
-            </Link>
+            </a>
           </div>
         )}
       </div>
