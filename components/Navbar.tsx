@@ -22,6 +22,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname() || '/'
+  const paypalDonateUrl = 'https://www.paypal.com/donate/?hosted_button_id=6AKKBQXK47EZU'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +37,20 @@ export default function Navbar() {
       return pathname === '/'
     }
     return pathname.startsWith(href)
+  }
+
+  const openDonatePopup = () => {
+    if (typeof window === 'undefined') return
+
+    const popup = window.open(
+      paypalDonateUrl,
+      'paypalDonateWindow',
+      'width=640,height=720,menubar=no,toolbar=no,location=yes,status=no,resizable=yes,scrollbars=yes'
+    )
+
+    if (!popup) {
+      window.location.href = paypalDonateUrl
+    }
   }
 
   return (
@@ -83,14 +98,13 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="https://www.paypal.com/donate/?hosted_button_id=6AKKBQXK47EZU"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={openDonatePopup}
               className="btn btn-primary btn-sm"
             >
               Donate
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -122,15 +136,16 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href="https://www.paypal.com/donate/?hosted_button_id=6AKKBQXK47EZU"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMobileMenuOpen(false)}
+            <button
+              type="button"
+              onClick={() => {
+                setIsMobileMenuOpen(false)
+                openDonatePopup()
+              }}
               className="btn btn-primary w-full justify-center mt-4 mx-4"
             >
               Donate
-            </a>
+            </button>
           </div>
         )}
       </div>
