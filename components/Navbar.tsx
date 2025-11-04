@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import DonateModal from '@/components/DonateModal'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -21,8 +22,8 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isDonateModalOpen, setIsDonateModalOpen] = useState(false)
   const pathname = usePathname() || '/'
-  const paypalDonateUrl = 'https://www.paypal.com/donate/?hosted_button_id=6AKKBQXK47EZU'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,22 +40,12 @@ export default function Navbar() {
     return pathname.startsWith(href)
   }
 
-  const openDonatePopup = () => {
-    if (typeof window === 'undefined') return
-
-    const popup = window.open(
-      paypalDonateUrl,
-      'paypalDonateWindow',
-      'width=640,height=720,menubar=no,toolbar=no,location=yes,status=no,resizable=yes,scrollbars=yes'
-    )
-
-    if (!popup) {
-      window.location.href = paypalDonateUrl
-    }
-  }
+  const openDonateModal = () => setIsDonateModalOpen(true)
+  const closeDonateModal = () => setIsDonateModalOpen(false)
 
   return (
-    <nav
+    <>
+      <nav
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
         isScrolled
@@ -100,7 +91,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <button
               type="button"
-              onClick={openDonatePopup}
+              onClick={openDonateModal}
               className="btn btn-primary btn-sm"
             >
               Donate
@@ -140,7 +131,7 @@ export default function Navbar() {
               type="button"
               onClick={() => {
                 setIsMobileMenuOpen(false)
-                openDonatePopup()
+                openDonateModal()
               }}
               className="btn btn-primary w-full justify-center mt-4 mx-4"
             >
@@ -149,6 +140,8 @@ export default function Navbar() {
           </div>
         )}
       </div>
-    </nav>
+      </nav>
+      <DonateModal open={isDonateModalOpen} onClose={closeDonateModal} />
+    </>
   )
 }
