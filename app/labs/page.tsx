@@ -172,8 +172,8 @@ const caseStudies: CaseStudy[] = [
   {
     name: 'Nazeefa Ahmed',
     url: 'https://www.nazeefaahmed.com/',
-    description: 'Personal portfolio crafted for an educator, showcasing projects and impact stories with an elevated visual identity.',
-    tag: 'Creative portfolio',
+    description: 'Digital home for a reporter highlighting multimedia storytelling, investigative features, and community coverage.',
+    tag: 'Journalism portfolio',
   },
   {
     name: 'École Dominique Savio (Demo)',
