@@ -170,6 +170,12 @@ const caseStudies: CaseStudy[] = [
     tag: 'Program microsite',
   },
   {
+    name: 'Nazeefa Ahmed',
+    url: 'https://www.nazeefaahmed.com/',
+    description: 'Personal portfolio crafted for an educator, showcasing projects and impact stories with an elevated visual identity.',
+    tag: 'Creative portfolio',
+  },
+  {
     name: 'École Dominique Savio (Demo)',
     description: 'Concept website for a Haitian school with program navigation, faculty features, and parent resources.',
     tag: 'Education demo',
