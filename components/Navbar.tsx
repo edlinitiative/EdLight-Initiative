@@ -78,9 +78,9 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between lg:justify-center h-20 lg:h-24">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+          <Link href="/" className="flex items-center lg:flex-none flex-1 lg:flex-initial justify-center lg:justify-start">
             <div className="relative w-64 h-16 sm:w-80 sm:h-20 lg:w-96 lg:h-24">
               <Image
                 src="/EdLight_Website_Logo.png"
