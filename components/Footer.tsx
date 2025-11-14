@@ -97,7 +97,7 @@ export default function Footer() {
                 .
               </p>
             </div>
-            <div className="flex flex-wrap gap-2 sm:gap-3">m:gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               {socialLinks.map(({ href, label, icon: Icon }) => (
                 <a
                   key={label}

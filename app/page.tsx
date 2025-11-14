@@ -163,7 +163,7 @@ export default function HomePage() {
           <SectionHeader title="Student Stories" subtitle="Hear from our alumni" centered />
           <div className="max-w-3xl mx-auto">
             <TestimonialCard {...testimonialsData[currentTestimonial]} />
-            <div className="flex justify-center gap-2 mt-5 sm:mt-6">m:mt-6">
+            <div className="flex justify-center gap-2 mt-5 sm:mt-6">
               {testimonialsData.map((_, index) => (
                 <button
                   key={index}
