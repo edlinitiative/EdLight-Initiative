@@ -23,11 +23,11 @@ export default function AboutPage() {
   backgroundImage="/edlight_academy_group.webp"
       />
 
-  <section className="py-20">
+  <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto mb-16">
+          <div className="max-w-4xl mx-auto mb-12 sm:mb-14 md:mb-16">
             <SectionHeader title="Our Story" />
-            <div className="space-y-6 text-gray-700 leading-relaxed">
+            <div className="space-y-5 sm:space-y-6 text-gray-700 leading-relaxed text-sm sm:text-base">
               <p>
                 EdLight Initiative was born from a simple yet powerful idea: every young Haitian
                 deserves access to world-class education, regardless of their circumstances. Founded
@@ -49,27 +49,27 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="glass rounded-2xl p-8 text-center">
-              <Target className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="font-heading text-xl font-bold mb-3">Mission</h3>
-              <p className="text-gray-700">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-14 md:mb-16">
+            <div className="glass rounded-2xl p-6 sm:p-8 text-center">
+              <Target className="w-10 h-10 sm:w-12 sm:h-12 text-primary mx-auto mb-3 sm:mb-4" />
+              <h3 className="font-heading text-lg sm:text-xl font-bold mb-2 sm:mb-3">Mission</h3>
+              <p className="text-gray-700 text-sm sm:text-base">
                 To provide access to quality education, mentorship, and global opportunities for
                 Haitian youth.
               </p>
             </div>
-            <div className="glass rounded-2xl p-8 text-center">
-              <Eye className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="font-heading text-xl font-bold mb-3">Vision</h3>
-              <p className="text-gray-700">
+            <div className="glass rounded-2xl p-6 sm:p-8 text-center">
+              <Eye className="w-10 h-10 sm:w-12 sm:h-12 text-primary mx-auto mb-3 sm:mb-4" />
+              <h3 className="font-heading text-lg sm:text-xl font-bold mb-2 sm:mb-3">Vision</h3>
+              <p className="text-gray-700 text-sm sm:text-base">
                 A Haiti where every motivated student can reach their full potential and drive
                 positive change.
               </p>
             </div>
-            <div className="glass rounded-2xl p-8 text-center">
-              <Heart className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="font-heading text-xl font-bold mb-3">Values</h3>
-              <p className="text-gray-700">
+            <div className="glass rounded-2xl p-6 sm:p-8 text-center">
+              <Heart className="w-10 h-10 sm:w-12 sm:h-12 text-primary mx-auto mb-3 sm:mb-4" />
+              <h3 className="font-heading text-lg sm:text-xl font-bold mb-2 sm:mb-3">Values</h3>
+              <p className="text-gray-700 text-sm sm:text-base">
                 Excellence, equity, community, innovation, and sustainable impact.
               </p>
             </div>
@@ -77,14 +77,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-  <section className="py-20">
+  <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Meet the EdLight Team"
             subtitle="A young and diverse team of educators, innovators, and changemakers reimagining education for Haiti."
             centered
           />
-          <div className="max-w-4xl mx-auto space-y-6 text-gray-700 leading-relaxed">
+          <div className="max-w-4xl mx-auto space-y-5 sm:space-y-6 text-gray-700 leading-relaxed text-sm sm:text-base">
             <p>
               At EdLight, our strength lies in the passion and dedication of a young, diverse, and visionary team committed to reimagining education for the next generation of Haitian leaders. We are educators, innovators, and changemakers united by a single mission to make quality education accessible, engaging, and transformative for all.
             </p>
@@ -93,10 +93,10 @@ export default function AboutPage() {
             </p>
             <p>Our leadership team includes:</p>
           </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 sm:mt-12 grid gap-6 sm:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {leadershipTeam.map((leader) => (
               <div key={leader.name} className="text-center">
-                <div className="w-32 h-32 rounded-full glass mx-auto mb-4 overflow-hidden">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full glass mx-auto mb-3 sm:mb-4 overflow-hidden">
                   <div className="flex h-full w-full items-center justify-center text-gray-400">
                     <Users size={48} />
                   </div>

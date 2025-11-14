@@ -102,20 +102,20 @@ export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 sm:space-y-6">
       {errorMessage && (
         <div className="rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-700">
           {errorMessage}
         </div>
       )}
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
         <div>
           <label className="mb-2 block text-sm font-medium text-gray-700">Full name *</label>
           <input
             type="text"
             {...register('name', { required: 'Name is required' })}
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-transparent focus:ring-2 focus:ring-primary"
             placeholder="Your name"
           />
           {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
@@ -126,19 +126,19 @@ export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
           <input
             type="text"
             {...register('organization')}
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-transparent focus:ring-2 focus:ring-primary"
             placeholder="Organization name (optional)"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
         <div>
           <label className="mb-2 block text-sm font-medium text-gray-700">Email address *</label>
           <input
             type="email"
             {...register('email', { required: 'Email is required' })}
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-transparent focus:ring-2 focus:ring-primary"
             placeholder="name@example.com"
           />
           {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
@@ -149,18 +149,18 @@ export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
           <input
             type="url"
             {...register('currentWebsite')}
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-transparent focus:ring-2 focus:ring-primary"
             placeholder="https://"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
         <div>
           <label className="mb-2 block text-sm font-medium text-gray-700">Project type *</label>
           <select
             {...register('projectType', { required: 'Please select a project type' })}
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-transparent focus:ring-2 focus:ring-primary"
             defaultValue=""
           >
             <option value="" disabled>
@@ -179,7 +179,7 @@ export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
           <label className="mb-2 block text-sm font-medium text-gray-700">Estimated budget *</label>
           <select
             {...register('budget', { required: 'Please select a budget range' })}
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-transparent focus:ring-2 focus:ring-primary"
             defaultValue=""
           >
             <option value="" disabled>
@@ -195,12 +195,12 @@ export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
         <div>
           <label className="mb-2 block text-sm font-medium text-gray-700">Target launch timeline *</label>
           <select
             {...register('timeline', { required: 'Please share your target timeline' })}
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-transparent focus:ring-2 focus:ring-primary"
             defaultValue=""
           >
             <option value="" disabled>
@@ -219,7 +219,7 @@ export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
           <label className="mb-2 block text-sm font-medium text-gray-700">Content assets *</label>
           <select
             {...register('contentStatus', { required: 'Please share your content status' })}
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-transparent focus:ring-2 focus:ring-primary"
             defaultValue=""
           >
             <option value="" disabled>
@@ -242,7 +242,7 @@ export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
           {...register('keyFeatures', {
             required: 'Please outline the goals or features for this project',
           })}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-transparent focus:ring-2 focus:ring-primary"
           placeholder="Tell us about your goals, must-have features, integrations, or design inspiration."
         />
         {errors.keyFeatures && <p className="mt-1 text-sm text-red-600">{errors.keyFeatures.message}</p>}
@@ -253,7 +253,7 @@ export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
         <textarea
           rows={3}
           {...register('additionalNotes')}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-transparent focus:ring-2 focus:ring-primary"
           placeholder="Share context about stakeholders, decision timeline, or support needs."
         />
       </div>

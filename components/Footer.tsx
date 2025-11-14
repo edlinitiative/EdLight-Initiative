@@ -79,12 +79,12 @@ export default function Footer() {
   <div className="absolute -right-28 top-14 -z-10 h-64 w-64 rounded-full bg-[#5a9bff]/25 blur-3xl" />
   <div className="absolute left-[-22%] bottom-[-28%] -z-10 h-[18rem] w-[18rem] rounded-full bg-[#3a71d1]/25 blur-3xl" />
 
-      <div className="container mx-auto px-4 py-10 text-white">
-        <div className="grid gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-5 space-y-6">
+      <div className="container mx-auto px-4 py-8 sm:py-10 text-white">
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-5 space-y-5 sm:space-y-6">
             <div>
-              <h3 className="font-heading text-2xl font-bold mb-3">EdLight Initiative</h3>
-              <p className="font-body text-white/80 leading-relaxed">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold mb-2 sm:mb-3">EdLight Initiative</h3>
+              <p className="font-body text-white/80 leading-relaxed text-sm sm:text-base">
                 At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide high
                 school students with digital access to quality education through our online courses in STEM subjects.
                 Additionally, our Summer Leadership Program offers a unique opportunity for students to explore
@@ -97,7 +97,7 @@ export default function Footer() {
                 .
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3">m:gap-3">
               {socialLinks.map(({ href, label, icon: Icon }) => (
                 <a
                   key={label}
@@ -105,7 +105,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white transition hover:bg-white/25"
+                  className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white/12 text-white transition hover:bg-white/25 active:scale-95"
                 >
                   <Icon size={18} />
                 </a>
@@ -113,10 +113,10 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="lg:col-span-7 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             <div>
-              <h4 className="font-heading text-lg font-semibold mb-4">Programs</h4>
-              <ul className="space-y-3 text-white/80">
+              <h4 className="font-heading text-base sm:text-lg font-semibold mb-3 sm:mb-4">Programs</h4>
+              <ul className="space-y-2 sm:space-y-3 text-white/80">
                 {programLinks.map(({ href, label }) => (
                   <li key={href}>
                     <Link
@@ -148,16 +148,16 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="space-y-4">
-              <h4 className="font-heading text-lg font-semibold mb-3">Stay in the loop</h4>
-              <p className="text-sm text-white/80 mb-4">
+            <div className="space-y-3 sm:space-y-4">
+              <h4 className="font-heading text-base sm:text-lg font-semibold mb-2 sm:mb-3">Stay in the loop</h4>
+              <p className="text-xs sm:text-sm text-white/80 mb-3 sm:mb-4">
                 Monthly highlights, student success stories, and program openings delivered to your inbox.
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-3">
                 <label className="sr-only" htmlFor="newsletter-email">
                   Email address
                 </label>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col gap-2 sm:gap-3">
                   <input
                     id="newsletter-email"
                     type="email"
@@ -167,12 +167,12 @@ export default function Footer() {
                     placeholder="Email address"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    className="flex-1 rounded-xl border border-white/30 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/60 focus:border-white focus:outline-none"
+                    className="w-full rounded-xl border border-white/30 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/60 focus:border-white focus:outline-none"
                     required
                   />
                   <button
                     type="submit"
-                    className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/80 disabled:cursor-not-allowed disabled:opacity-70"
+                    className="w-full sm:w-auto rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/80 disabled:cursor-not-allowed disabled:opacity-70 active:scale-95"
                     disabled={status === 'loading'}
                   >
                     {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
@@ -191,16 +191,16 @@ export default function Footer() {
                   {feedback ?? 'We respect your inbox. Unsubscribe any time.'}
                 </p>
               </form>
-              <div className="mt-2 flex items-center gap-2 text-sm text-white/75">
+              <div className="mt-2 flex items-center gap-2 text-xs sm:text-sm text-white/75">
                 <Mail size={16} />
-                <span>info@edlight.org</span>
+                <a href="mailto:info@edlight.org" className="hover:text-white transition-colors">info@edlight.org</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/15 pt-5">
-          <div className="flex flex-col gap-4 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 sm:mt-10 border-t border-white/15 pt-4 sm:pt-5">
+          <div className="flex flex-col gap-3 sm:gap-4 text-xs sm:text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
             <p>&copy; {currentYear} EdLight Initiative. All rights reserved.</p>
             <p className="text-white/60">Crafting opportunities for Haiti&apos;s next generation.</p>
           </div>

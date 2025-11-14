@@ -95,7 +95,7 @@ export default function HomePage() {
       </Hero>
 
       {/* Mission & Vision */}
-      <section className="py-20">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -103,7 +103,7 @@ export default function HomePage() {
               subtitle="Creating pathways to excellence for Haitian youth"
               centered
             />
-            <div className="glass rounded-2xl p-8 space-y-6 text-gray-700 leading-relaxed">
+            <div className="glass rounded-2xl p-6 sm:p-8 space-y-5 sm:space-y-6 text-gray-700 leading-relaxed text-sm sm:text-base">
               <p>
                 EdLight Initiative was founded on the belief that every young person in Haiti deserves
                 access to world-class education and opportunities. We work to bridge the educational gap
@@ -126,14 +126,14 @@ export default function HomePage() {
       </section>
 
       {/* Ecosystem Programs */}
-      <section className="py-20">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Our Ecosystem"
             subtitle="Comprehensive programs supporting students at every stage"
             centered
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {ecosystemPrograms.map((program) => (
               <Card
                 key={program.title}
@@ -148,27 +148,27 @@ export default function HomePage() {
       </section>
 
       {/* Impact Counters */}
-      <section className="py-20">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader title="Our Impact" subtitle="Making a difference in communities across Haiti" centered />
-          <div className="glass rounded-2xl p-8">
+          <div className="glass rounded-2xl p-6 sm:p-8">
             <ImpactCounters counters={impactCounters} />
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader title="Student Stories" subtitle="Hear from our alumni" centered />
           <div className="max-w-3xl mx-auto">
             <TestimonialCard {...testimonialsData[currentTestimonial]} />
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-2 mt-5 sm:mt-6">m:mt-6">
               {testimonialsData.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
+                  className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors ${
                     index === currentTestimonial ? 'bg-primary' : 'bg-gray-300'
                   }`}
                   aria-label={`View testimonial ${index + 1}`}

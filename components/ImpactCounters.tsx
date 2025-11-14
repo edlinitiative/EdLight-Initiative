@@ -45,14 +45,14 @@ export default function ImpactCounters({ counters }: ImpactCountersProps) {
   }, [counters, isVisible])
 
   return (
-    <div ref={sectionRef} className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div ref={sectionRef} className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
       {counters.map((counter, index) => (
         <div key={index} className="text-center">
-          <div className="font-heading text-4xl md:text-5xl font-bold text-primary mb-2">
+          <div className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-2">
             {formatNumber(displayValues[index])}
             {counter.suffix || '+'}
           </div>
-          <div className="font-body text-gray-600">{counter.label}</div>
+          <div className="font-body text-gray-600 text-sm sm:text-base">{counter.label}</div>
         </div>
       ))}
     </div>
