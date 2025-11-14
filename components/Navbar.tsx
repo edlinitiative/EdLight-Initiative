@@ -78,7 +78,7 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center h-20 lg:justify-between">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
             <div className="relative w-72 h-18 sm:w-80 sm:h-20 lg:w-96 lg:h-24">
@@ -121,7 +121,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-3 text-text hover:bg-gray-100 rounded-lg transition-colors relative z-10"
+            className="lg:hidden p-3 text-text hover:bg-gray-100 rounded-lg transition-colors ml-auto relative z-10"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
