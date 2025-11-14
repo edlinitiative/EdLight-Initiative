@@ -113,7 +113,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="lg:col-span-7 grid gap-6 sm:gap-8 grid-cols-2 lg:grid-cols-3">
             <div>
               <h4 className="font-heading text-base sm:text-lg font-semibold mb-3 sm:mb-4">Programs</h4>
               <ul className="space-y-2 sm:space-y-3 text-white/80">
