@@ -148,7 +148,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-3 sm:space-y-4 col-span-2 lg:col-span-1">
               <h4 className="font-heading text-base sm:text-lg font-semibold mb-2 sm:mb-3">Stay in the loop</h4>
               <p className="text-xs sm:text-sm text-white/80 mb-3 sm:mb-4">
                 Monthly highlights, student success stories, and program openings delivered to your inbox.

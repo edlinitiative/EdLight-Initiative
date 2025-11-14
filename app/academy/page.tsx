@@ -194,13 +194,10 @@ export default function AcademyPage() {
         subtitle="Modern, free, and bilingual digital learning designed for Haitian students everywhere."
   backgroundImage="/edlight_academy_group.webp"
       >
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center">
           <Link href="#start" className="btn btn-primary">
             Start learning <ArrowRight size={18} />
           </Link>
-          <a href="mailto:academy@edlight.org" className="btn btn-light">
-            Bring Academy to my school
-          </a>
         </div>
       </Hero>
 
