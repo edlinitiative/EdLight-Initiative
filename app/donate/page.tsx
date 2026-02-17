@@ -1,6 +1,5 @@
 'use client'
 
-import { Metadata } from 'next'
 import { useEffect } from 'react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'

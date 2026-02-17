@@ -3,6 +3,7 @@ import { Target, Eye, Heart, Users } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import mediaData from '@/data/media.json'
+import timelineData from '@/data/timeline.json'
 
 const leadershipTeam = [
   { name: 'Ted Jacquet', title: 'Co-Founder & CFO' },
@@ -110,6 +111,35 @@ export default function AboutPage() {
             <p>
               Together, we are building an ecosystem that bridges education, technology, and leadership, nurturing a generation of problem-solvers who will drive change in their communities and beyond.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <SectionHeader title="Our Journey" subtitle="Key milestones in EdLight Initiative's history" centered />
+          <div className="max-w-4xl mx-auto mt-12">
+            <div className="space-y-8">
+              {timelineData.map((item, index) => (
+                <div key={index} className="flex gap-6">
+                  <div className="flex-shrink-0 w-24 text-right">
+                    <span className="inline-block bg-blue-600 text-white px-4 py-2 rounded-full font-bold text-lg">
+                      {item.year}
+                    </span>
+                  </div>
+                  <div className="relative flex-1 pb-8">
+                    {index !== timelineData.length - 1 && (
+                      <div className="absolute left-0 top-12 bottom-0 w-0.5 bg-blue-200"></div>
+                    )}
+                    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                      <p className="text-gray-700">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -1,6 +1,5 @@
 'use client'
 
-import { Metadata } from 'next'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
