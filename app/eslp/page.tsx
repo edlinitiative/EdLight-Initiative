@@ -23,7 +23,7 @@ import SectionHeader from '@/components/SectionHeader'
 import Card from '@/components/Card'
 import TestimonialCard from '@/components/TestimonialCard'
 import ImpactCounters from '@/components/ImpactCounters'
-import GalleryGrid from '@/components/GalleryGrid'
+import ImageCarousel from '@/components/ImageCarousel'
 import NotifyModal from '@/components/NotifyModal'
 import testimonialsData from '@/data/testimonials.json'
 
@@ -103,6 +103,31 @@ const curriculumPillars = [
     title: 'Entrepreneurship',
     description: 'Business model canvas, market research, prototyping, and the final capstone pitch.',
     icon: <Lightbulb size={28} />,
+  },
+]
+
+/* ── Curriculum experience tabs ──────────────────────────── */
+const curriculumTabs = [
+  {
+    label: 'Seminary',
+    image: '/gallery/eslp-3.jpg',
+    alt: 'Virtual seminary session with expert speakers on Zoom',
+    description:
+      'From 9 AM to 12 PM, fellows meet virtually with expert speakers from institutions like Harvard, MIT, Cornell, Deutsche Bank, and Microsoft. Interactive sessions cover leadership, personal development, college admissions, finance, and entrepreneurship — offering students a platform to engage directly with industry leaders.',
+  },
+  {
+    label: 'Excursion',
+    image: '/gallery/eslp-4.jpg',
+    alt: 'ESLP fellows visiting a prominent company in Port-au-Prince',
+    description:
+      'The program includes an enriching excursion to a prominent company in Port-au-Prince, allowing fellows to gain real-world insights into workplace dynamics, innovation, and leadership in action. Transportation and entries are fully covered for every fellow.',
+  },
+  {
+    label: 'Graduation',
+    image: '/gallery/eslp-6.jpg',
+    alt: 'ESLP graduation ceremony and celebration',
+    description:
+      'The program culminates in a capstone pitch showcase where cohort teams present their community initiatives to a panel of mentors, partners, and families. Fellows receive certificates of distinction recognizing their leadership, collaboration, and successful completion of projects.',
   },
 ]
 
@@ -196,7 +221,7 @@ const eslpTestimonials = [
     id: 10,
     name: 'Nathalie',
     role: 'ESLP 2023 Fellow',
-    image: '/gallery/eslp-2.jpg',
+    image: '/gallery/student-1.jpg',
     quote:
       'ESLP helped me discover my voice. I launched a literacy club at my school with the support of alumni mentors.',
   },
@@ -204,7 +229,7 @@ const eslpTestimonials = [
     id: 11,
     name: 'James',
     role: 'ESLP 2024 Fellow',
-    image: '/gallery/eslp-4.jpg',
+    image: '/gallery/student-2.jpg',
     quote:
       'From day one, I felt seen and challenged. The workshops sharpened my confidence to lead community change.',
   },
@@ -243,20 +268,11 @@ const faqs = [
   },
 ]
 
-/* ── Gallery images ─────────────────────────────────────── */
-const galleryImages = [
+/* ── "What is ESLP" section carousel images ─────────────── */
+const whatIsEslpImages = [
   { src: '/gallery/eslp-1.jpg', alt: 'ESLP fellows during a leadership workshop' },
   { src: '/gallery/eslp-2.jpg', alt: 'Students collaborating on their capstone project' },
-  { src: '/gallery/eslp-3.jpg', alt: 'Group discussion during ESLP seminar' },
-  { src: '/gallery/eslp-4.jpg', alt: 'ESLP excursion to a local company' },
   { src: '/gallery/eslp-5.jpg', alt: 'Fellows presenting their entrepreneurial ideas' },
-  { src: '/gallery/eslp-6.jpg', alt: 'Cultural performance at ESLP closing ceremony' },
-]
-
-const alumniImages = [
-  { src: '/gallery/student-1.jpg', alt: 'ESLP alumni portrait' },
-  { src: '/gallery/student-2.jpg', alt: 'ESLP alumni portrait' },
-  { src: '/gallery/student-3.jpg', alt: 'ESLP alumni portrait' },
 ]
 
 /* ═══════════════════════════════════════════════════════════
@@ -274,6 +290,9 @@ export default function ESLPPage() {
     }, 5000)
     return () => clearInterval(timer)
   }, [])
+
+  /* ── Curriculum tab ── */
+  const [activeTab, setActiveTab] = useState(0)
 
   /* ── Testimonial carousel ── */
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
@@ -361,15 +380,11 @@ export default function ESLPPage() {
                 </button>
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-2xl shadow-xl">
-              <Image
-                src="/ESLP_Cultural_Performances.webp"
-                alt="ESLP cultural performances and student activities"
-                width={720}
-                height={480}
-                className="h-auto w-full object-cover"
-              />
-            </div>
+            <ImageCarousel
+              images={whatIsEslpImages}
+              interval={4500}
+              aspectRatio="aspect-[3/2]"
+            />
           </div>
         </div>
       </section>
@@ -454,23 +469,66 @@ export default function ESLPPage() {
         </div>
       </section>
 
-      {/* ═══ Full-width Photo Break ═══ */}
-      <section className="relative h-[340px] md:h-[420px] overflow-hidden">
-        <Image
-          src="/Best_Participant_Award.webp"
-          alt="ESLP best participant award ceremony"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-8">
-          <div className="container mx-auto px-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">
-              Program highlights
-            </p>
-            <p className="mt-2 text-xl md:text-2xl font-bold text-white max-w-xl animate-fade-in">
-              Celebrating excellence, growth, and the leaders of tomorrow
-            </p>
+      {/* ═══ Curriculum Experience — Tabbed ═══ */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="Experience the curriculum"
+            subtitle="From virtual seminars with world-class speakers to hands-on excursions and a celebration of achievement."
+            centered
+          />
+
+          {/* Tab buttons */}
+          <div className="flex justify-center gap-2 sm:gap-3 mb-10">
+            {curriculumTabs.map((tab, idx) => (
+              <button
+                key={tab.label}
+                onClick={() => setActiveTab(idx)}
+                className={`px-5 sm:px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                  activeTab === idx
+                    ? 'bg-primary text-white shadow-lg shadow-primary/30'
+                    : 'glass text-gray-600 hover:text-primary'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab content */}
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-[3/2]">
+              {curriculumTabs.map((tab, idx) => (
+                <div
+                  key={tab.label}
+                  className={`absolute inset-0 transition-opacity duration-500 ${
+                    activeTab === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                  }`}
+                >
+                  <Image
+                    src={tab.image}
+                    alt={tab.alt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="glass rounded-2xl p-6 sm:p-8 space-y-4">
+              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary">
+                {curriculumTabs[activeTab].label}
+              </div>
+              <h3 className="font-heading text-xl sm:text-2xl font-semibold text-text">
+                {curriculumTabs[activeTab].label === 'Seminary'
+                  ? 'Interactive virtual seminars'
+                  : curriculumTabs[activeTab].label === 'Excursion'
+                    ? 'Real-world company visits'
+                    : 'Capstone showcase & ceremony'}
+              </h3>
+              <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                {curriculumTabs[activeTab].description}
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -522,18 +580,6 @@ export default function ESLPPage() {
               )
             })}
           </div>
-        </div>
-      </section>
-
-      {/* ═══ ESLP Memories Gallery ═══ */}
-      <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="ESLP Memories"
-            subtitle="A glimpse into the transformative moments, workshops, excursions, and friendships forged during the program."
-            centered
-          />
-          <GalleryGrid images={galleryImages} columns={3} />
         </div>
       </section>
 
@@ -715,33 +761,12 @@ export default function ESLPPage() {
         </div>
       </section>
 
-      {/* ═══ Alumni ═══ */}
+      {/* ═══ Alumni & Testimonials — TestimonialCard + carousel ═══ */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
-            title="Our Alumni"
-            subtitle="Meet the inspiring faces of our past participants, each embodying the spirit of curiosity, determination, and growth."
-            centered
-          />
-          <div className="glass rounded-2xl p-6 sm:p-8 mb-10">
-            <p className="mx-auto max-w-3xl text-center text-sm sm:text-base text-gray-700 leading-relaxed">
-              Through our programs, they have honed their skills, gained invaluable
-              insights, and forged lifelong connections. Their journeys reflect the
-              transformative power of education and mentorship, and they serve as
-              shining examples of the potential within each of us to create
-              meaningful change.
-            </p>
-          </div>
-          <GalleryGrid images={alumniImages} columns={3} />
-        </div>
-      </section>
-
-      {/* ═══ Testimonials — TestimonialCard + carousel ═══ */}
-      <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Voices from the community"
-            subtitle="Fellows and partners share how ESLP sparks growth, confidence, and collaboration."
+            title="Voices from our alumni"
+            subtitle="Meet the inspiring faces of our past participants. Through ESLP, they have honed their skills, gained invaluable insights, and forged lifelong connections."
             centered
           />
           <div className="max-w-3xl mx-auto">
