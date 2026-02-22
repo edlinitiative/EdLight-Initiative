@@ -14,6 +14,7 @@ const socialLinks = [
 
 const programLinks = [
   { href: '/academy', label: 'EdLight Academy' },
+  { href: '/code', label: 'EdLight Code' },
   { href: '/labs', label: 'EdLight Labs' },
   { href: '/nexus', label: 'EdLight Nexus' },
   { href: '/eslp', label: 'ESLP' },

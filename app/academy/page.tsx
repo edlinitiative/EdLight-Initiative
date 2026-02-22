@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 import {
   ArrowRight,
   Award,
@@ -194,10 +193,13 @@ export default function AcademyPage() {
         subtitle="Modern, free, and bilingual digital learning designed for Haitian students everywhere."
   backgroundImage="/edlight_academy_group.webp"
       >
-        <div className="flex justify-center">
-          <Link href="#start" className="btn btn-primary">
+        <div className="flex justify-center gap-4">
+          <a href="https://academy.edlight.org" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
             Start learning <ArrowRight size={18} />
-          </Link>
+          </a>
+          <a href="https://academy.edlight.org/courses" target="_blank" rel="noopener noreferrer" className="btn btn-light">
+            Explore courses
+          </a>
         </div>
       </Hero>
 
@@ -373,11 +375,11 @@ export default function AcademyPage() {
             />
             <div className="rounded-3xl border border-primary/10 bg-white p-10 text-gray-700 space-y-4 shadow-lg">
               {[
-                'Create a free account or sign in with your Google credentials.',
-                'Choose a learning path based on your goals, grade level, or upcoming exams.',
-                'Watch lessons and download study materials to revisit offline.',
-                'Complete quizzes, earn digital badges, and unlock mentor feedback.',
-                'Share progress with parents, teachers, or employers using personalized reports.',
+                'Visit academy.edlight.org and create a free account or sign in.',
+                'Browse courses in Physics, Chemistry, Maths, Economics, and more.',
+                'Study structured lessons aligned with the Haitian curriculum in French and Kreyòl.',
+                'Take quizzes and practice exams to track your mastery in real time.',
+                'Prepare confidently for national exams and beyond.',
               ].map((step, index) => (
                 <div key={step} className="flex items-start gap-4">
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white font-semibold">
@@ -423,14 +425,14 @@ export default function AcademyPage() {
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Join the community</p>
                 <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">Ready to unlock EdLight Academy?</h2>
                 <p className="mt-3 text-sm md:text-base text-white/80">
-                  Sign up for free, bring the platform to your classroom, or sponsor new course collections for Haitian
+                  Start learning for free, bring the platform to your classroom, or sponsor new course collections for Haitian
                   learners.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Link href="#start" className="btn btn-light">
+                <a href="https://academy.edlight.org" target="_blank" rel="noopener noreferrer" className="btn btn-light">
                   Start learning today
-                </Link>
+                </a>
                 <a href="mailto:academy@edlight.org" className="btn btn-primary">
                   Partner with EdLight
                 </a>

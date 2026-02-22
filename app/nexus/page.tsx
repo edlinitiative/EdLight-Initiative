@@ -210,12 +210,12 @@ export default function NexusPage() {
   backgroundImage="/nexus_pic.webp"
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-          <Link href="/get-involved#contact" className="btn btn-primary">
-            Apply for the next cohort
-          </Link>
-          <a href="mailto:nexus@edlight.org" className="btn btn-light">
+          <a href="mailto:nexus@edlight.org" className="btn btn-primary">
             Explore partnerships
           </a>
+          <Link href="/get-involved#contact" className="btn btn-light">
+            Stay informed
+          </Link>
         </div>
       </Hero>
 
@@ -463,16 +463,16 @@ export default function NexusPage() {
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Join the movement</p>
                 <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">Bring Nexus to your campus or organization</h2>
                 <p className="mt-3 text-sm md:text-base text-white/80">
-                  Cohort applications re-open soon. Let’s design a global experience that elevates Haitian talent and creates lasting partnerships.
+                  Applications for the next cohort are not yet open. Follow us for updates or reach out to explore partnership opportunities.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Link href="/get-involved#contact" className="btn btn-light">
-                  Start your application
-                </Link>
-                <a href="mailto:nexus@edlight.org" className="btn btn-primary">
+                <a href="mailto:nexus@edlight.org" className="btn btn-light">
                   Partner with Nexus
                 </a>
+                <Link href="/get-involved#contact" className="btn btn-primary">
+                  Stay connected
+                </Link>
               </div>
             </div>
           </div>

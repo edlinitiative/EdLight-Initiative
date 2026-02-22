@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ArrowRight, BookOpen, Lightbulb, Globe, GraduationCap } from 'lucide-react'
+import { ArrowRight, BookOpen, Code2, Lightbulb, Globe, GraduationCap } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import Card from '@/components/Card'
@@ -24,6 +24,12 @@ const ecosystemPrograms = [
     description: 'Free online courses in Math, Physics, Economics, and Leadership for Haitian students.',
     icon: <BookOpen size={32} />,
     href: '/academy',
+  },
+  {
+    title: 'EdLight Code',
+    description: 'Hands-on coding tracks in Python, SQL, Web Development, and more — learn and earn certificates in your browser.',
+    icon: <Code2 size={32} />,
+    href: '/code',
   },
   {
     title: 'EdLight Labs',
