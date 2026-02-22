@@ -317,6 +317,34 @@ The website is fully responsive with breakpoints:
 
 All components are mobile-first and tested across devices.
 
+## 🔍 Website Gap Analysis (2026-02-17)
+
+The current site is functional, but these are the key missing/improvement items identified from a full repo audit:
+
+### Current page coverage (implemented routes)
+
+`/`, `/academy`, `/labs`, `/nexus`, `/eslp`, `/about`, `/get-involved`, `/store`, `/request-quote`, `/admin`
+
+### Route gaps currently referenced by content config but not implemented
+
+- `/mission_projects`
+- `/courses`
+- `/global-exchange`
+- `/about-us`
+- `/contact`
+- `/faq`
+- `/donate`
+- `/privacy`
+- `/terms-of-use`
+
+1. **Publish essential legal pages**: add `/privacy` and `/terms-of-use` pages.
+2. **Add a dedicated contact page**: create `/contact` (the content data already references this route).
+3. **Align route configs with real pages**: `content/routes.json` still references non-existent pages (`/mission_projects`, `/courses`, `/global-exchange`, `/about-us`, `/faq`, `/donate`).
+4. **Expand conversion paths on program pages**: add clearer "Apply / Join / Partner" CTA blocks for Academy, Labs, Nexus, and ESLP.
+5. **Add SEO completeness items**: include per-page metadata coverage where missing, plus `sitemap.xml` and `robots.txt` if not yet generated.
+6. **Increase trust and support content**: add FAQ content and transparent donation/impact details (how funds are used, governance/nonprofit status).
+7. **Harden deployment reliability**: avoid build-time dependency on external Google Fonts fetch in restricted environments (self-host/local font fallback).
+
 ## ♿ Accessibility Features
 
 - Semantic HTML elements
