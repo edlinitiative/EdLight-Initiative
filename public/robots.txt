@@ -1,0 +1,13 @@
+# Robots.txt for EdLight Initiative
+# https://www.edlight.org/robots.txt
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /api/admin/
+
+# Sitemap location
+Sitemap: https://www.edlight.org/sitemap.xml
