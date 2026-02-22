@@ -32,7 +32,7 @@ const APP_PREVIEW_URL =
   'https://drive.google.com/file/d/1Yj2Esxmw2khDxFmOXiupMOtZwKr1wERv/view?usp=sharing'
 const PROGRAM_DESC_URL =
   'https://drive.google.com/file/d/1lhB-m426vXymiwZW24HNC8EsAgh2aaZ_/view?usp=sharing'
-const EMAIL = 'info@edlight.org'
+const EMAIL = 'eslp@edlight.org'
 
 /* ── Hero images (auto-carousel) ────────────────────────── */
 const heroImages = [
@@ -127,14 +127,14 @@ const curriculumPillars = [
 const curriculumTabs = [
   {
     label: 'Seminary',
-    image: '/gallery/eslp-3.jpg',
-    alt: 'Virtual seminary session with expert speakers on Zoom',
+    image: '/gallery/eslp-seminary-zoom.png',
+    alt: 'ESLP virtual seminary session — fellows and speakers on a Zoom call',
     description:
       'From 9 AM to 12 PM, fellows meet virtually with expert speakers from institutions like Harvard, MIT, Cornell, Deutsche Bank, and Microsoft. Interactive sessions cover leadership, personal development, college admissions, finance, and entrepreneurship — offering students a platform to engage directly with industry leaders.',
   },
   {
     label: 'Excursion',
-    image: '/gallery/eslp-4.jpg',
+    image: '/gallery/eslp-3.jpg',
     alt: 'ESLP fellows visiting a prominent company in Port-au-Prince',
     description:
       'The program includes an enriching excursion to a prominent company in Port-au-Prince, allowing fellows to gain real-world insights into workplace dynamics, innovation, and leadership in action. Transportation and entries are fully covered for every fellow.',
