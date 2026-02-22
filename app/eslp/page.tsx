@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import {
   ArrowRight,
@@ -25,10 +24,10 @@ import Card from '@/components/Card'
 import TestimonialCard from '@/components/TestimonialCard'
 import ImpactCounters from '@/components/ImpactCounters'
 import GalleryGrid from '@/components/GalleryGrid'
+import NotifyModal from '@/components/NotifyModal'
 import testimonialsData from '@/data/testimonials.json'
 
 /* ── Links ──────────────────────────────────────────────── */
-const INTEREST_FORM_URL = '/get-involved#contact'
 const APP_PREVIEW_URL =
   'https://drive.google.com/file/d/1Yj2Esxmw2khDxFmOXiupMOtZwKr1wERv/view?usp=sharing'
 const PROGRAM_DESC_URL =
@@ -264,6 +263,9 @@ const alumniImages = [
    Page Component
    ═══════════════════════════════════════════════════════════ */
 export default function ESLPPage() {
+  /* ── Notify modal ── */
+  const [notifyOpen, setNotifyOpen] = useState(false)
+
   /* ── Hero carousel ── */
   const [currentHeroImage, setCurrentHeroImage] = useState(0)
   useEffect(() => {
@@ -291,9 +293,9 @@ export default function ESLPPage() {
         backgroundImage={heroImages[currentHeroImage]}
       >
         <div className="flex flex-wrap justify-center gap-4">
-          <Link href={INTEREST_FORM_URL} className="btn btn-primary">
+          <button onClick={() => setNotifyOpen(true)} className="btn btn-primary">
             <Bell size={18} /> Get notified for ESLP 2026
-          </Link>
+          </button>
           <a
             href={APP_PREVIEW_URL}
             target="_blank"
@@ -354,9 +356,9 @@ export default function ESLPPage() {
                 >
                   Program description
                 </a>
-                <Link href={INTEREST_FORM_URL} className="btn btn-light">
+                <button onClick={() => setNotifyOpen(true)} className="btn btn-light">
                   Get notified <Bell size={16} />
-                </Link>
+                </button>
               </div>
             </div>
             <div className="relative overflow-hidden rounded-2xl shadow-xl">
@@ -668,9 +670,9 @@ export default function ESLPPage() {
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center md:flex-col lg:flex-row shrink-0">
-                <Link href={INTEREST_FORM_URL} className="btn btn-light">
+                <button onClick={() => setNotifyOpen(true)} className="btn btn-light">
                   <Bell size={16} /> Get notified
-                </Link>
+                </button>
                 <a
                   href={`mailto:${EMAIL}`}
                   className="btn btn-ghost"
@@ -809,9 +811,9 @@ export default function ESLPPage() {
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center shrink-0">
-                <Link href={INTEREST_FORM_URL} className="btn btn-light">
+                <button onClick={() => setNotifyOpen(true)} className="btn btn-light">
                   <Bell size={16} /> Get notified
-                </Link>
+                </button>
                 <a href={`mailto:${EMAIL}`} className="btn btn-ghost">
                   <Mail size={16} /> Partner with ESLP
                 </a>
@@ -820,6 +822,9 @@ export default function ESLPPage() {
           </div>
         </div>
       </section>
+
+      {/* ═══ Notify Modal ═══ */}
+      <NotifyModal open={notifyOpen} onClose={() => setNotifyOpen(false)} />
     </>
   )
 }
