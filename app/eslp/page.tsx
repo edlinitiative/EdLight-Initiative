@@ -41,11 +41,28 @@ const heroImages = [
   '/Best_Participant_Award.webp',
 ]
 
-/* ── Impact counters ────────────────────────────────────── */
+/* ── Impact counters (auto-update each August) ─────────── */
+// ESLP launched August 2022 with ~30 participants.
+// Each August edition adds ~35 new participants and 1 year.
+const ESLP_BASE_PARTICIPANTS = 65 // total through August 2024
+const ESLP_BASE_YEARS = 3         // as of August 2024
+const ESLP_BASE_EDITION = 2024    // last counted edition
+const PARTICIPANTS_PER_YEAR = 35
+
+function getEditionsCompleted(): number {
+  const now = new Date()
+  const year = now.getFullYear()
+  const month = now.getMonth() // 0-indexed, August = 7
+  // Count how many August editions have passed since the base
+  const editionYear = month >= 8 ? year : year - 1 // after Sept 1 → this year counts
+  return Math.max(0, editionYear - ESLP_BASE_EDITION)
+}
+
+const extraEditions = getEditionsCompleted()
 const impactCounters = [
-  { label: 'Participants', value: 65, suffix: '+' },
+  { label: 'Alumni', value: ESLP_BASE_PARTICIPANTS + extraEditions * PARTICIPANTS_PER_YEAR, suffix: '+' },
   { label: 'Women', value: 73, suffix: '%' },
-  { label: 'Years of Experience', value: 3, suffix: '+' },
+  { label: 'Years of Experience', value: ESLP_BASE_YEARS + extraEditions, suffix: '+' },
   { label: 'Scholarships', value: 100, suffix: '%' },
 ]
 
