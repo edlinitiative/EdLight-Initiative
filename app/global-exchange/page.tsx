@@ -81,8 +81,7 @@ export default function GlobalExchangePage() {
       <Hero
         title="Global Exchange Program"
         subtitle="Your gateway to international opportunities and global experiences"
-        imageSrc="/nexus_pic.webp"
-        imageAlt="Global Exchange Opportunities"
+        backgroundImage="/nexus_pic.webp"
       />
 
       <main className="py-16 px-4">
@@ -111,14 +110,7 @@ export default function GlobalExchangePage() {
             />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {opportunities.map((opportunity, index) => (
-                <Card key={index} className="hover:shadow-xl transition-shadow">
-                  <div className="mb-4">{opportunity.icon}</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {opportunity.title}
-                  </h3>
-                  <p className="text-gray-700 mb-4">
-                    {opportunity.description}
-                  </p>
+                <Card key={index} title={opportunity.title} description={opportunity.description} icon={opportunity.icon} className="hover:shadow-xl transition-shadow">
                   <div className="border-t pt-4">
                     <p className="text-sm font-semibold text-gray-600 mb-2">Examples:</p>
                     <ul className="text-sm text-gray-600 space-y-1">

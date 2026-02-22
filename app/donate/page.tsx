@@ -120,8 +120,7 @@ export default function DonatePage() {
       <Hero
         title="Support Our Mission"
         subtitle="Your donation empowers students and transforms communities through education"
-        imageSrc="/about_us.webp"
-        imageAlt="Support EdLight Initiative"
+        backgroundImage="/about_us.webp"
       />
 
       <main className="py-16 px-4">

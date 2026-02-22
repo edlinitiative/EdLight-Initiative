@@ -14,6 +14,7 @@ type FormData = {
 export default function ContactPage() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>()
   const [isSubmitting, setIsSubmitting] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const onSubmit = async (data: FormData) => {

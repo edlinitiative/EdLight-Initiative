@@ -492,7 +492,6 @@ export default function ESLPPage() {
 
           <div className="mt-14 grid gap-6 lg:grid-cols-4">
             {phases.map((phase, idx) => {
-              const Icon = phase.icon
               return (
                 <div
                   key={phase.title}

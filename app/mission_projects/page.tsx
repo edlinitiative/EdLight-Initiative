@@ -46,8 +46,7 @@ export default function MissionProjectsPage() {
       <Hero
         title="Our Mission & Projects"
         subtitle="Empowering underserved communities through education, technology, and leadership development"
-        imageSrc="/about_us.webp"
-        imageAlt="EdLight Initiative mission"
+        backgroundImage="/about_us.webp"
       />
 
       <main className="py-16 px-4">
@@ -122,14 +121,7 @@ export default function MissionProjectsPage() {
             />
             <div className="grid md:grid-cols-2 gap-8">
               {projects.map((project, index) => (
-                <Card key={index} className="hover:shadow-xl transition-shadow">
-                  <div className="mb-4">{project.icon}</div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-700 mb-4">
-                    {project.description}
-                  </p>
+                <Card key={index} title={project.title} description={project.description} icon={project.icon} className="hover:shadow-xl transition-shadow">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold text-blue-600">
                       {project.impact}

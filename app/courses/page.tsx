@@ -156,8 +156,7 @@ export default function CoursesPage() {
       <Hero
         title="Our Courses"
         subtitle="Free online courses to help you build valuable skills and transform your future"
-        imageSrc="/EdLight_Academy.webp"
-        imageAlt="EdLight Initiative Courses"
+        backgroundImage="/EdLight_Academy.webp"
       />
 
       <main className="py-16 px-4">
@@ -196,14 +195,12 @@ export default function CoursesPage() {
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {category.courses.map((course, courseIndex) => (
-                  <Card key={courseIndex} className="hover:shadow-lg transition-shadow">
+                  <Card key={courseIndex} title={course.name} description={course.description} className="hover:shadow-lg transition-shadow">
                     <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-bold text-gray-900">{course.name}</h3>
                       <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">
                         {course.level}
                       </span>
                     </div>
-                    <p className="text-gray-700 mb-4">{course.description}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-600">
                         <BookOpen size={16} className="inline mr-1" />
