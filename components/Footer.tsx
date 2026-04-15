@@ -75,26 +75,25 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative mt-14 overflow-hidden border-t border-primary/20">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#124594] via-[#3d7ed9] to-[#0f2f73]" />
-      <div className="absolute -right-28 top-14 -z-10 h-64 w-64 rounded-full bg-[#5a9bff]/25 blur-3xl" />
-      <div className="absolute left-[-22%] bottom-[-28%] -z-10 h-[18rem] w-[18rem] rounded-full bg-[#3a71d1]/25 blur-3xl" />
+    <footer className="relative mt-10 overflow-hidden">
+  <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#124594] via-[#3d7ed9] to-[#0f2f73]" />
+  <div className="absolute -right-28 top-14 -z-10 h-64 w-64 rounded-full bg-[#5a9bff]/25 blur-3xl" />
+  <div className="absolute left-[-22%] bottom-[-28%] -z-10 h-[18rem] w-[18rem] rounded-full bg-[#3a71d1]/25 blur-3xl" />
 
-      <div className="container mx-auto px-4 py-10 sm:py-12 text-white">
+      <div className="container mx-auto px-4 py-8 sm:py-10 text-white">
         <div className="grid gap-8 sm:gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5 space-y-5 sm:space-y-6">
             <div>
-              <p className="inline-flex rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/90">
-                EdLight Initiative
-              </p>
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold mt-3 mb-2 sm:mb-3 leading-tight">Education that builds national capacity</h3>
+              <h3 className="font-heading text-xl sm:text-2xl font-bold mb-2 sm:mb-3">EdLight Initiative</h3>
               <p className="font-body text-white/80 leading-relaxed text-sm sm:text-base">
-                EdLight equips Haitian students with the skills, mentorship, and opportunities needed to excel in school,
-                careers, and civic leadership. Our ecosystem combines online education, hands-on STEM development,
-                global exchange, and youth leadership programming.
-                {' '}
+                At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide high
+                school students with digital access to quality education through our online courses in STEM subjects.
+                Additionally, our Summer Leadership Program offers a unique opportunity for students to explore
+                innovation, entrepreneurship, and leadership beyond the classroom. Join us in our quest for educational
+                equity and help us empower the next generation of leaders. Together, we can create a brighter future for
+                all...{' '}
                 <Link href="/about" className="underline decoration-white/60 underline-offset-4 hover:text-white">
-                  Learn more
+                  Learn More
                 </Link>
                 .
               </p>
@@ -134,7 +133,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-heading text-base sm:text-lg font-semibold mb-3 sm:mb-4">Organization</h4>
+              <h4 className="font-heading text-lg font-semibold mb-4">Explore</h4>
               <ul className="space-y-3 text-white/80">
                 {orgLinks.map(({ href, label }) => (
                   <li key={href}>
@@ -147,19 +146,13 @@ export default function Footer() {
                     </Link>
                   </li>
                 ))}
-                <li>
-                  <Link href="/contact" className="inline-flex items-center gap-2 text-sm transition hover:text-white">
-                    <span>→</span>
-                    Contact
-                  </Link>
-                </li>
               </ul>
             </div>
 
             <div className="space-y-3 sm:space-y-4 col-span-2 lg:col-span-1">
-              <h4 className="font-heading text-base sm:text-lg font-semibold mb-2 sm:mb-3">Executive updates</h4>
+              <h4 className="font-heading text-base sm:text-lg font-semibold mb-2 sm:mb-3">Stay in the loop</h4>
               <p className="text-xs sm:text-sm text-white/80 mb-3 sm:mb-4">
-                Monthly highlights, student outcomes, and strategic milestones delivered to your inbox.
+                Monthly highlights, student success stories, and program openings delivered to your inbox.
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-3">
                 <label className="sr-only" htmlFor="newsletter-email">
@@ -210,7 +203,7 @@ export default function Footer() {
         <div className="mt-8 sm:mt-10 border-t border-white/15 pt-4 sm:pt-5">
           <div className="flex flex-col gap-3 sm:gap-4 text-xs sm:text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
             <p>&copy; {currentYear} EdLight Initiative. All rights reserved.</p>
-            <p className="text-white/60">Strategic education for Haiti&apos;s next generation.</p>
+            <p className="text-white/60">Crafting opportunities for Haiti&apos;s next generation.</p>
           </div>
         </div>
       </div>

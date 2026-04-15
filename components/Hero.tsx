@@ -32,7 +32,7 @@ export default function Hero({ title, subtitle, backgroundImage, children, class
         </div>
       )}
       <div className="container relative z-10 px-4 sm:px-6">
-        <div className="mx-auto max-w-4xl text-center text-white rounded-2xl p-5 sm:p-6 md:p-8 border border-white/30 bg-slate-900/25 backdrop-blur-md shadow-[0_20px_50px_-28px_rgba(2,6,23,0.75)]">
+        <div className="mx-auto max-w-3xl text-center text-white glass-strong rounded-2xl p-5 sm:p-6 md:p-8">
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 animate-fade-in leading-tight">
             {title}
           </h1>

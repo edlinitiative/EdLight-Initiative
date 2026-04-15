@@ -133,17 +133,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="min-h-screen">
+      <body>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <div className="relative flex min-h-screen flex-col">
-          <Navbar />
-          <main id="main-content" className="flex-1 pt-[7.75rem] lg:pt-[8.75rem]">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <Navbar />
+        <main id="main-content" className="pt-16">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )
