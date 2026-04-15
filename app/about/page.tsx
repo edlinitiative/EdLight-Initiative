@@ -12,7 +12,8 @@ const leadershipTeam = [
   { name: 'Herode Metellus', title: 'Fundraising Coordinator' },
   { name: 'Williamson Michel', title: 'Operations Manager' },
   { name: 'Stéphane Lainé', title: 'Lead Developer, EdLight Labs' },
-  { name: 'Fredner Pierre', title: 'Logistics & Cybersecurity Officer' },
+  { name: 'Fredler Pierre', title: 'Technology and Cybersecurity Lead' },
+  { name: 'Tchedly Alexis', title: 'Marketing & Outreach Coordinator' },
 ]
 
 export default function AboutPage() {
