@@ -12,7 +12,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.edlight.org'),
+  metadataBase: new URL('https://edlight.org'),
   title: {
     default: 'EdLight Initiative | Empowering Haitian Youth Through Education',
     template: '%s | EdLight Initiative'
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.edlight.org',
+    url: 'https://edlight.org',
     siteName: 'EdLight Initiative',
     title: 'EdLight Initiative | Empowering Haitian Youth Through Education',
     description: 'Empowering the next generation of Haitian innovators through quality education, mentorship, and global opportunities.',
@@ -88,8 +88,8 @@ export default function RootLayout({
     '@type': 'Organization',
     name: 'EdLight Initiative',
     description: 'Empowering underserved communities through education, technology, and leadership development',
-    url: 'https://www.edlight.org',
-    logo: 'https://www.edlight.org/EdLight_Website_Logo.png',
+    url: 'https://edlight.org',
+    logo: 'https://edlight.org/EdLight_Website_Logo.png',
     email: 'info@edlight.org',
     address: {
       '@type': 'PostalAddress',

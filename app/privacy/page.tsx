@@ -158,7 +158,7 @@ export default function PrivacyPage() {
           <div className="bg-gray-50 p-4 rounded-lg">
             <p className="text-gray-700"><strong>EdLight Initiative</strong></p>
             <p className="text-gray-700">Email: info@edlight.org</p>
-            <p className="text-gray-700">Website: www.edlight.org</p>
+            <p className="text-gray-700">Website: edlight.org</p>
           </div>
         </section>
       </div>

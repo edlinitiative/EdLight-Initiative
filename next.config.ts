@@ -13,6 +13,21 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.edlight.org',
+          },
+        ],
+        destination: 'https://edlight.org/:path*',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {
