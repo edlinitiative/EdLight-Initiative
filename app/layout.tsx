@@ -13,6 +13,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://edlight.org'),
+  applicationName: 'EdLight Initiative',
   title: {
     default: 'EdLight Initiative | Empowering Haitian Youth Through Education',
     template: '%s | EdLight Initiative'
@@ -23,6 +24,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'EdLight Initiative' }],
   creator: 'EdLight Initiative',
   publisher: 'EdLight Initiative',
+  alternates: {
+    canonical: 'https://edlight.org',
+  },
   robots: {
     index: true,
     follow: true,
@@ -109,12 +113,24 @@ export default function RootLayout({
     },
   }
 
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'EdLight Initiative',
+    alternateName: 'EdLight',
+    url: 'https://edlight.org',
+  }
+
   return (
     <html lang="en" className={inter.variable}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
       <body>
