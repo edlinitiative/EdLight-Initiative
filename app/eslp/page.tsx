@@ -344,21 +344,21 @@ export default function ESLPPage() {
       </Hero>
 
       {/* ═══ Impact Stats — Animated Counters ═══ */}
-      <section className="bg-surface py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="The flagship leadership experience for Haitian teens"
             subtitle="Since 2022, ESLP has combined world-class facilitation, real-world exposure, and a vibrant alumni network so young leaders can transform their ideas into action."
             centered
           />
-          <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 sm:p-10 shadow-sm">
+          <div className="glass rounded-2xl p-6 sm:p-10">
             <ImpactCounters counters={impactCounters} />
           </div>
         </div>
       </section>
 
       {/* ═══ What is ESLP — text + image ═══ */}
-      <section className="bg-surface-container-low py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="space-y-6">
@@ -366,14 +366,14 @@ export default function ESLPPage() {
                 title="What is the EdLight Summer Leadership Program?"
                 subtitle="Launched in August 2022, ESLP is a two-week summer program for students between 15 and 18 years old designed to empower their leadership skills."
               />
-              <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 space-y-4 shadow-sm">
-                <p className="text-on-surface-variant leading-relaxed text-sm sm:text-base">
+              <div className="glass rounded-2xl p-6 space-y-4">
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
                   The idea came from the fact that no proper programs in Haiti
                   bring students together to reflect on global and local issues.
                   ESLP creates a viable space where students are introduced to
                   concepts and practices that help make them better future citizens.
                 </p>
-                <p className="text-on-surface-variant leading-relaxed text-sm sm:text-base">
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
                   We have had several prominent speakers from leading organizations
                   and institutions — including{' '}
                   <strong className="text-primary">
@@ -407,7 +407,7 @@ export default function ESLPPage() {
       </section>
 
       {/* ═══ Inside the Residency — Card component ═══ */}
-      <section className="bg-surface py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="space-y-8">
@@ -457,7 +457,7 @@ export default function ESLPPage() {
       </section>
 
       {/* ═══ Curriculum Pillars — Card component ═══ */}
-      <section className="bg-surface-container-low py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Curriculum"
@@ -474,8 +474,8 @@ export default function ESLPPage() {
               />
             ))}
           </div>
-          <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest mt-10 p-6 shadow-sm">
-            <p className="mx-auto max-w-3xl text-center text-sm text-on-surface-variant leading-relaxed">
+          <div className="glass rounded-2xl mt-10 p-6">
+            <p className="mx-auto max-w-3xl text-center text-sm text-gray-600 leading-relaxed">
               In parallel, students are grouped into teams and challenged to
               develop a project that addresses a specific need in their community.
               The program also includes an excursion to a major company in
@@ -487,7 +487,7 @@ export default function ESLPPage() {
       </section>
 
       {/* ═══ Curriculum Experience — Tabbed ═══ */}
-      <section className="bg-surface py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Experience the curriculum"
@@ -504,7 +504,7 @@ export default function ESLPPage() {
                 className={`px-5 sm:px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
                   activeTab === idx
                     ? 'bg-primary text-white shadow-lg shadow-primary/30'
-                    : 'border border-outline/20 bg-surface-container-lowest text-on-surface-variant hover:text-primary'
+                    : 'glass text-gray-600 hover:text-primary'
                 }`}
               >
                 {tab.label}
@@ -531,18 +531,18 @@ export default function ESLPPage() {
                 </div>
               ))}
             </div>
-            <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 sm:p-8 space-y-4 shadow-sm">
+            <div className="glass rounded-2xl p-6 sm:p-8 space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary">
                 {curriculumTabs[activeTab].label}
               </div>
-              <h3 className="font-heading text-xl sm:text-2xl font-semibold text-primary">
+              <h3 className="font-heading text-xl sm:text-2xl font-semibold text-text">
                 {curriculumTabs[activeTab].label === 'Seminary'
                   ? 'Interactive virtual seminars'
                   : curriculumTabs[activeTab].label === 'Excursion'
                     ? 'Real-world company visits'
                     : 'Capstone showcase & ceremony'}
               </h3>
-              <p className="text-on-surface-variant leading-relaxed text-sm sm:text-base">
+              <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
                 {curriculumTabs[activeTab].description}
               </p>
             </div>
@@ -601,7 +601,7 @@ export default function ESLPPage() {
       </section>
 
       {/* ═══ Eligibility & Selection ═══ */}
-      <section className="bg-surface-container-low py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Eligibility & selection"
@@ -609,11 +609,11 @@ export default function ESLPPage() {
             centered
           />
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
-            <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 sm:p-8 shadow-sm">
-              <h3 className="flex items-center gap-2 font-heading text-lg font-semibold text-primary mb-4">
+            <div className="glass rounded-2xl p-6 sm:p-8">
+              <h3 className="flex items-center gap-2 font-heading text-lg font-semibold text-text mb-4">
                 <Users size={22} className="text-primary" /> Who should apply?
               </h3>
-              <ul className="space-y-3 text-sm sm:text-base text-on-surface-variant">
+              <ul className="space-y-3 text-sm sm:text-base text-gray-700">
                 {eligibility.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="mt-2 h-2 w-2 rounded-full bg-primary shrink-0" />
@@ -622,16 +622,16 @@ export default function ESLPPage() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 sm:p-8 shadow-sm">
-              <h3 className="flex items-center gap-2 font-heading text-lg font-semibold text-primary mb-4">
+            <div className="glass rounded-2xl p-6 sm:p-8">
+              <h3 className="flex items-center gap-2 font-heading text-lg font-semibold text-text mb-4">
                 <Star size={22} className="text-primary" /> How we select fellows
               </h3>
-              <p className="text-sm sm:text-base text-on-surface-variant mb-4">
+              <p className="text-sm sm:text-base text-gray-700 mb-4">
                 ESLP is highly competitive. We evaluate each application
                 holistically to build a diverse, mission-aligned cohort of ~30
                 students.
               </p>
-              <ul className="space-y-2 text-sm sm:text-base text-on-surface-variant">
+              <ul className="space-y-2 text-sm sm:text-base text-gray-700">
                 {selectionCriteria.map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <ArrowRight size={14} className="mt-1.5 text-primary shrink-0" />
@@ -645,7 +645,7 @@ export default function ESLPPage() {
       </section>
 
       {/* ═══ Application Process — with image ═══ */}
-      <section className="bg-surface py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="relative overflow-hidden rounded-2xl shadow-xl">
@@ -662,7 +662,7 @@ export default function ESLPPage() {
                 title="How to apply"
                 subtitle="When applications open, submit your documents through our online form. Here's what you'll need:"
               />
-              <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 space-y-5 shadow-sm">
+              <div className="glass rounded-2xl p-6 space-y-5">
                 {[
                   {
                     step: '1',
@@ -690,10 +690,10 @@ export default function ESLPPage() {
                       {item.step}
                     </span>
                     <div>
-                      <h4 className="font-heading font-semibold text-primary">
+                      <h4 className="font-heading font-semibold text-text">
                         {item.title}
                       </h4>
-                      <p className="text-sm text-on-surface-variant">{item.desc}</p>
+                      <p className="text-sm text-gray-600">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -714,7 +714,7 @@ export default function ESLPPage() {
       </section>
 
       {/* ═══ ESLP 2026 — Coming Soon Announcement ═══ */}
-      <section className="bg-surface-container-low py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/90 via-primary to-primary/90 p-8 sm:p-12 text-white shadow-xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.15),_transparent)]" />
@@ -749,7 +749,7 @@ export default function ESLPPage() {
       </section>
 
       {/* ═══ Fully Funded — Card component ═══ */}
-      <section className="bg-surface py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Fully funded for every fellow"
@@ -766,11 +766,11 @@ export default function ESLPPage() {
               />
             ))}
           </div>
-          <div className="rounded-3xl border border-outline/20 mt-10 p-6 sm:p-8 bg-surface-container-lowest shadow-sm">
+          <div className="glass-strong rounded-2xl mt-10 p-6 sm:p-8 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary/70 mb-2">
               Scholarship guarantee
             </p>
-            <p className="text-on-surface-variant text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
               Every fellow attends ESLP tuition-free. Sponsors help cover travel
               stipends, technology, and launch grants for alumni-led initiatives.
             </p>
@@ -779,7 +779,7 @@ export default function ESLPPage() {
       </section>
 
       {/* ═══ Alumni & Testimonials — TestimonialCard + carousel ═══ */}
-      <section className="bg-surface-container-low py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Voices from our alumni"
@@ -794,7 +794,7 @@ export default function ESLPPage() {
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors ${
-                    index === currentTestimonial ? 'bg-primary' : 'bg-outline-variant'
+                    index === currentTestimonial ? 'bg-primary' : 'bg-gray-300'
                   }`}
                   aria-label={`View testimonial ${index + 1}`}
                 />
@@ -805,7 +805,7 @@ export default function ESLPPage() {
       </section>
 
       {/* ═══ FAQ ═══ */}
-      <section className="bg-surface py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Frequently asked questions"
@@ -816,15 +816,15 @@ export default function ESLPPage() {
             {faqs.map((faq) => (
               <details
                 key={faq.question}
-                className="group rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm transition"
+                className="group glass rounded-2xl p-6 transition"
               >
-                <summary className="flex cursor-pointer items-center justify-between gap-3 text-left text-base font-semibold text-primary">
+                <summary className="flex cursor-pointer items-center justify-between gap-3 text-left text-base font-semibold text-text">
                   {faq.question}
                   <span className="text-primary transition group-open:rotate-180">
                     ▾
                   </span>
                 </summary>
-                <p className="mt-3 text-sm sm:text-base text-on-surface-variant leading-relaxed">
+                <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
                   {faq.answer}
                 </p>
               </details>
@@ -834,7 +834,7 @@ export default function ESLPPage() {
       </section>
 
       {/* ═══ Final CTA ═══ */}
-      <section className="bg-surface-container-low pb-20 md:pb-24">
+      <section className="pb-20 md:pb-24">
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/90 via-primary to-primary/90 p-8 sm:p-10 text-white shadow-xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />

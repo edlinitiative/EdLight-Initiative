@@ -293,7 +293,7 @@ export default function LabsPage() {
       </Hero>
 
       {/* Value propositions */}
-      <section className="bg-surface py-20 md:py-24">
+      <section className="bg-gradient-to-b from-slate-50 via-white to-white py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Technology for social impact"
@@ -306,15 +306,15 @@ export default function LabsPage() {
               return (
                 <div
                   key={vp.title}
-                  className="group relative overflow-hidden rounded-3xl border border-outline/20 bg-surface-container-lowest p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+                  className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-md transition hover:shadow-xl"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 transition group-hover:opacity-100" />
                   <div className="relative z-10 space-y-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                       <Icon size={20} />
                     </div>
-                    <h3 className="text-lg font-semibold text-primary">{vp.title}</h3>
-                    <p className="text-sm text-on-surface-variant leading-relaxed">{vp.description}</p>
+                    <h3 className="text-lg font-semibold text-text">{vp.title}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">{vp.description}</p>
                   </div>
                 </div>
               )
@@ -324,7 +324,7 @@ export default function LabsPage() {
       </section>
 
       {/* Capabilities */}
-      <section id="capabilities" className="bg-surface-container-low py-20 md:py-24">
+      <section id="capabilities" className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="space-y-8">
@@ -336,13 +336,13 @@ export default function LabsPage() {
                 {capabilities.map((capability) => {
                   const Icon = capability.icon
                   return (
-                    <div key={capability.title} className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
+                    <div key={capability.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
                       <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                         <Icon size={20} />
                       </div>
-                      <h3 className="font-heading text-lg font-semibold text-primary">{capability.title}</h3>
-                      <p className="mt-2 text-sm text-on-surface-variant leading-relaxed">{capability.description}</p>
-                      <ul className="mt-4 space-y-2 text-sm text-on-surface-variant">
+                      <h3 className="font-heading text-lg font-semibold text-text">{capability.title}</h3>
+                      <p className="mt-2 text-sm text-gray-600 leading-relaxed">{capability.description}</p>
+                      <ul className="mt-4 space-y-2 text-sm text-gray-600">
                         {capability.bullets.map((bullet) => (
                           <li key={bullet} className="flex items-start gap-2">
                             <ArrowRight size={14} className="mt-1 text-primary" />
@@ -418,7 +418,7 @@ export default function LabsPage() {
       </section>
 
       {/* Portfolio */}
-      <section id="portfolio" className="bg-surface py-20 md:py-24">
+      <section id="portfolio" className="bg-slate-50 py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Selected work"
@@ -434,7 +434,7 @@ export default function LabsPage() {
               className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
                 activeCategory === 'all'
                   ? 'bg-primary text-white shadow-md'
-                  : 'border border-primary/20 bg-surface-container-lowest text-on-surface-variant hover:border-primary/40'
+                  : 'border border-primary/20 bg-white text-gray-600 hover:border-primary/40'
               }`}
             >
               All work
@@ -447,7 +447,7 @@ export default function LabsPage() {
                 className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
                   activeCategory === cat.key
                     ? 'bg-primary text-white shadow-md'
-                    : 'border border-primary/20 bg-surface-container-lowest text-on-surface-variant hover:border-primary/40'
+                    : 'border border-primary/20 bg-white text-gray-600 hover:border-primary/40'
                 }`}
               >
                 {cat.label}
@@ -457,7 +457,7 @@ export default function LabsPage() {
 
           {/* Active category description */}
           {activeCategory !== 'all' && (
-            <p className="mb-8 text-center text-sm text-outline">
+            <p className="mb-8 text-center text-sm text-gray-500">
               {portfolioCategories.find((c) => c.key === activeCategory)?.description}
             </p>
           )}
@@ -466,13 +466,13 @@ export default function LabsPage() {
             {filteredStudies.map((project) => (
               <div
                 key={project.name}
-                className="group relative overflow-hidden rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="group relative overflow-hidden rounded-3xl border border-primary/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 transition group-hover:opacity-100" />
                 <div className="relative z-10 flex items-center justify-between gap-3">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-primary/80">{project.tag}</p>
-                    <h3 className="mt-2 font-heading text-lg font-semibold text-primary">{project.name}</h3>
+                    <h3 className="mt-2 font-heading text-lg font-semibold text-text">{project.name}</h3>
                   </div>
                   {project.url && (
                     <Link
@@ -485,7 +485,7 @@ export default function LabsPage() {
                     </Link>
                   )}
                 </div>
-                <p className="relative z-10 mt-3 text-sm text-on-surface-variant leading-relaxed">{project.description}</p>
+                <p className="relative z-10 mt-3 text-sm text-gray-600 leading-relaxed">{project.description}</p>
                 {project.category === 'concept' && (
                   <p className="relative z-10 mt-4 text-xs font-semibold uppercase tracking-wide text-amber-600/80">
                     Demo · Not a live client project
@@ -498,7 +498,7 @@ export default function LabsPage() {
       </section>
 
       {/* Why Labs */}
-      <section className="bg-surface-container-low py-20 md:py-24">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Why teams work with EdLight Labs"
@@ -507,9 +507,9 @@ export default function LabsPage() {
           />
           <div className="grid gap-6 md:grid-cols-2">
             {differentiators.map((point) => (
-              <div key={point.title} className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
-                <h3 className="font-heading text-lg font-semibold text-primary">{point.title}</h3>
-                <p className="mt-2 text-sm text-on-surface-variant leading-relaxed">{point.description}</p>
+              <div key={point.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
+                <h3 className="font-heading text-lg font-semibold text-text">{point.title}</h3>
+                <p className="mt-2 text-sm text-gray-600 leading-relaxed">{point.description}</p>
               </div>
             ))}
           </div>
@@ -517,7 +517,7 @@ export default function LabsPage() {
       </section>
 
       {/* Contact / Collaborate */}
-      <section id="contact" className="bg-surface py-20 md:py-24">
+      <section id="contact" className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Ways to get involved"
@@ -526,18 +526,18 @@ export default function LabsPage() {
           />
           <div className="grid gap-6 md:grid-cols-3">
             {involvementPaths.map((path) => (
-              <div key={path.title} className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
-                <h3 className="font-heading text-lg font-semibold text-primary">{path.title}</h3>
-                <p className="mt-3 text-sm text-on-surface-variant leading-relaxed">{path.description}</p>
+              <div key={path.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
+                <h3 className="font-heading text-lg font-semibold text-text">{path.title}</h3>
+                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{path.description}</p>
               </div>
             ))}
           </div>
-          <div className="mt-10 rounded-3xl border border-outline/20 bg-surface-container-lowest p-8 shadow-lg text-on-surface-variant">
+          <div className="mt-10 rounded-3xl border border-primary/10 bg-white p-8 shadow-lg text-gray-700">
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary/80">Get in touch</p>
-                <h3 className="mt-2 text-lg font-semibold text-primary">labs@edlight.org</h3>
-                <p className="mt-1 text-sm text-on-surface-variant">
+                <h3 className="mt-2 text-lg font-semibold text-text">labs@edlight.org</h3>
+                <p className="mt-1 text-sm text-gray-600">
                   Share a brief about your project or request a discovery call. We respond within two business days.
                 </p>
               </div>
@@ -555,7 +555,7 @@ export default function LabsPage() {
       </section>
 
       {/* Closing CTA */}
-      <section className="bg-surface-container-low pb-24">
+      <section className="pb-24">
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/90 via-primary to-primary/90 p-10 text-white shadow-xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
@@ -593,12 +593,12 @@ export default function LabsPage() {
             aria-hidden="true"
             onClick={closeQuoteModal}
           />
-          <div className="relative z-[95] w-full max-w-lg rounded-3xl bg-surface-container-lowest p-5 shadow-2xl sm:max-w-2xl sm:p-6 lg:max-w-3xl lg:p-8">
+          <div className="relative z-[95] w-full max-w-lg rounded-3xl bg-white p-5 shadow-2xl sm:max-w-2xl sm:p-6 lg:max-w-3xl lg:p-8">
             <div className="mb-6 flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wider text-primary">Website Development Brief</p>
-                <h2 className="mt-2 font-heading text-2xl font-semibold text-primary">Tell us about your project</h2>
-                <p className="mt-1 text-sm text-on-surface-variant">
+                <h2 className="mt-2 font-heading text-2xl font-semibold text-gray-900">Tell us about your project</h2>
+                <p className="mt-1 text-sm text-gray-600">
                   Share your vision and requirements. We will schedule a discovery call within 2–3 business days.
                 </p>
               </div>

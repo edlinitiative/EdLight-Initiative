@@ -42,13 +42,13 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen bg-surface py-16 px-4 md:py-24">
+    <main className="min-h-screen bg-gray-50 py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="mb-4 text-4xl font-semibold tracking-tight text-on-surface md:text-5xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Contact Us
           </h1>
-          <p className="text-lg text-on-surface-variant">
+          <p className="text-lg text-gray-600">
             Get in touch with us. We&apos;d love to hear from you!
           </p>
         </div>
@@ -56,20 +56,20 @@ export default function ContactPage() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Information */}
           <div className="space-y-6">
-            <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
-              <h2 className="mb-6 text-2xl font-semibold text-on-surface">
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Get In Touch
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
-                  <div className="rounded-xl bg-primary/10 p-3 text-primary">
-                    <Mail size={24} />
+                  <div className="bg-blue-100 p-3 rounded-lg">
+                    <Mail className="text-blue-600" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-on-surface">Email</h3>
+                    <h3 className="font-semibold text-gray-900">Email</h3>
                     <a 
                       href="mailto:info@edlight.org" 
-                      className="text-primary transition hover:underline"
+                      className="text-blue-600 hover:underline"
                     >
                       info@edlight.org
                     </a>
@@ -77,33 +77,33 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="rounded-xl bg-primary/10 p-3 text-primary">
-                    <Phone size={24} />
+                  <div className="bg-blue-100 p-3 rounded-lg">
+                    <Phone className="text-blue-600" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-on-surface">Phone</h3>
-                    <p className="text-on-surface-variant">+509 XXXX-XXXX</p>
-                    <p className="text-sm text-on-surface-variant">Monday - Friday, 9AM - 5PM EST</p>
+                    <h3 className="font-semibold text-gray-900">Phone</h3>
+                    <p className="text-gray-700">+509 XXXX-XXXX</p>
+                    <p className="text-sm text-gray-500">Monday - Friday, 9AM - 5PM EST</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="rounded-xl bg-primary/10 p-3 text-primary">
-                    <MapPin size={24} />
+                  <div className="bg-blue-100 p-3 rounded-lg">
+                    <MapPin className="text-blue-600" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-on-surface">Location</h3>
-                    <p className="text-on-surface-variant">Haiti</p>
+                    <h3 className="font-semibold text-gray-900">Location</h3>
+                    <p className="text-gray-700">Haiti</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-3xl border border-outline/20 bg-surface-container p-6">
-              <h3 className="mb-4 text-xl font-semibold text-on-surface">
+            <div className="bg-blue-50 rounded-lg p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
                 Office Hours
               </h3>
-              <div className="space-y-2 text-on-surface-variant">
+              <div className="space-y-2 text-gray-700">
                 <div className="flex justify-between">
                   <span className="font-medium">Monday - Friday</span>
                   <span>9:00 AM - 5:00 PM</span>
@@ -119,8 +119,8 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
-              <h3 className="mb-4 text-xl font-semibold text-on-surface">
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
                 Follow Us
               </h3>
               <div className="flex space-x-4">
@@ -128,7 +128,7 @@ export default function ContactPage() {
                   href="https://facebook.com/edlightinitiative" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="rounded-xl bg-primary p-3 text-white transition hover:brightness-110"
+                  className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors"
                   aria-label="Facebook"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -139,7 +139,7 @@ export default function ContactPage() {
                   href="https://twitter.com/edlightinit" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="rounded-xl bg-secondary p-3 text-on-secondary transition hover:brightness-110"
+                  className="bg-sky-500 text-white p-3 rounded-lg hover:bg-sky-600 transition-colors"
                   aria-label="Twitter"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -150,7 +150,7 @@ export default function ContactPage() {
                   href="https://instagram.com/edlightinitiative" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="rounded-xl bg-tertiary p-3 text-on-tertiary transition hover:brightness-110"
+                  className="bg-pink-600 text-white p-3 rounded-lg hover:bg-pink-700 transition-colors"
                   aria-label="Instagram"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -161,7 +161,7 @@ export default function ContactPage() {
                   href="https://linkedin.com/company/edlight-initiative" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="rounded-xl bg-primary-fixed p-3 text-on-primary-fixed transition hover:brightness-110"
+                  className="bg-blue-700 text-white p-3 rounded-lg hover:bg-blue-800 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -173,20 +173,20 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
-            <h2 className="mb-6 text-2xl font-semibold text-on-surface">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Send Us a Message
             </h2>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div>
-                <label htmlFor="name" className="mb-1 block text-sm font-medium text-on-surface">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Full Name *
                 </label>
                 <input
                   type="text"
                   id="name"
                   {...register('name', { required: 'Name is required' })}
-                  className="w-full rounded-xl border border-outline/30 bg-surface px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="John Doe"
                 />
                 {errors.name && (
@@ -195,7 +195,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="email" className="mb-1 block text-sm font-medium text-on-surface">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email Address *
                 </label>
                 <input
@@ -208,7 +208,7 @@ export default function ContactPage() {
                       message: 'Invalid email address'
                     }
                   })}
-                  className="w-full rounded-xl border border-outline/30 bg-surface px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="john@example.com"
                 />
                 {errors.email && (
@@ -217,14 +217,14 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="subject" className="mb-1 block text-sm font-medium text-on-surface">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
                   Subject *
                 </label>
                 <input
                   type="text"
                   id="subject"
                   {...register('subject', { required: 'Subject is required' })}
-                  className="w-full rounded-xl border border-outline/30 bg-surface px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="How can we help you?"
                 />
                 {errors.subject && (
@@ -233,7 +233,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="message" className="mb-1 block text-sm font-medium text-on-surface">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                   Message *
                 </label>
                 <textarea
@@ -246,7 +246,7 @@ export default function ContactPage() {
                       message: 'Message must be at least 10 characters'
                     }
                   })}
-                  className="w-full resize-none rounded-xl border border-outline/30 bg-surface px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                   placeholder="Tell us more about your inquiry..."
                 />
                 {errors.message && (
@@ -257,7 +257,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn-primary flex w-full items-center justify-center space-x-2 rounded-xl px-6 py-3 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
               >
                 {isSubmitting ? (
                   <span>Sending...</span>
@@ -269,7 +269,7 @@ export default function ContactPage() {
                 )}
               </button>
 
-              <p className="text-center text-sm text-on-surface-variant">
+              <p className="text-sm text-gray-500 text-center">
                 We typically respond within 2-3 business days
               </p>
             </form>

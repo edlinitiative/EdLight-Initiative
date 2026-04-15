@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -71,98 +72,99 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
         isScrolled
-          ? 'bg-white/85 backdrop-blur-md border-slate-200/70 shadow-sm'
-          : 'bg-white/70 backdrop-blur-md border-white/0'
+          ? 'bg-white/70 backdrop-blur-xl border-white/30 shadow-md'
+          : 'bg-white/40 backdrop-blur-xl border-transparent'
       )}
     >
-      <div className="mx-auto flex h-20 w-full max-w-screen-2xl items-center justify-between px-4 md:px-8">
-        <Link
-          href="/"
-          className="font-heading text-2xl font-black tracking-tight text-primary transition-colors hover:text-primary-container"
-        >
-          EdLight
-        </Link>
-
-        <div className="hidden lg:flex items-center gap-7">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                'font-heading text-sm font-bold tracking-tight transition-colors',
-                isActivePath(link.href)
-                  ? 'text-primary border-b-2 border-primary pb-1'
-                  : 'text-slate-600 hover:text-primary'
-              )}
-              aria-current={isActivePath(link.href) ? 'page' : undefined}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        <div className="hidden lg:flex items-center gap-3">
-          <Link href="/get-involved" className="btn btn-ghost btn-sm">
-            Get Involved
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20 relative">
+          {/* Logo */}
+          <Link href="/" className="flex items-center absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 z-10">
+            <div className="relative w-[21.6rem] h-[5.4rem] sm:w-80 sm:h-20 lg:w-96 lg:h-24">
+              <Image
+                src="/EdLight_Website_Logo.png"
+                alt="EdLight Initiative Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </Link>
-          <button type="button" onClick={openDonatePopup} className="btn btn-primary btn-sm">
-            Donate
-          </button>
-        </div>
 
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="lg:hidden rounded-xl p-2 text-on-surface transition-colors hover:bg-surface-container-low"
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-        </button>
-      </div>
-
-      {isMobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200/80 bg-white/95 backdrop-blur-md">
-          <div className="mx-auto max-h-[calc(100vh-5rem)] w-full max-w-screen-2xl overflow-y-auto px-4 py-3">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
                 className={cn(
-                  'mx-1 my-1 block rounded-xl px-4 py-3 text-base font-medium transition-colors',
+                  'font-body text-sm font-medium transition-colors',
                   isActivePath(link.href)
-                    ? 'bg-primary/10 text-primary'
-                    : 'text-slate-700 hover:bg-surface-container-low hover:text-primary'
+                    ? 'text-primary underline decoration-primary/40 underline-offset-8'
+                    : 'text-gray-700 hover:text-primary'
                 )}
                 aria-current={isActivePath(link.href) ? 'page' : undefined}
               >
                 {link.label}
               </Link>
             ))}
+          </div>
 
-            <div className="mt-3 grid grid-cols-2 gap-3 px-1 pb-3">
-              <Link
-                href="/get-involved"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="btn btn-ghost w-full justify-center"
-              >
-                Get Involved
-              </Link>
-              <button
-                type="button"
-                onClick={() => {
-                  setIsMobileMenuOpen(false)
-                  openDonatePopup()
-                }}
-                className="btn btn-primary w-full justify-center"
-              >
-                Donate
-              </button>
+          {/* CTA Button */}
+          <div className="hidden lg:flex items-center gap-4">
+            <button type="button" onClick={openDonatePopup} className="btn btn-primary btn-sm">
+              Donate
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden p-3 text-text hover:bg-gray-100 rounded-lg transition-colors ml-auto relative z-10"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden py-2 border-t">
+            <div className="max-h-[calc(100vh-5rem)] overflow-y-auto">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={cn(
+                    'block py-4 font-body px-4 rounded-lg mx-2 my-1 transition-colors text-base',
+                    isActivePath(link.href)
+                      ? 'bg-primary/10 text-primary font-semibold'
+                      : 'text-gray-700 hover:text-primary hover:bg-gray-50'
+                  )}
+                  aria-current={isActivePath(link.href) ? 'page' : undefined}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="px-2 pb-4 pt-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    openDonatePopup()
+                  }}
+                  className="btn btn-primary w-full justify-center"
+                >
+                  Donate
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </nav>
   )
 }

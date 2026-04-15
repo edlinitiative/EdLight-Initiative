@@ -128,27 +128,27 @@ export default function DonatePage() {
           {/* Why Donate */}
           <section className="mb-16 text-center">
             <div className="max-w-3xl mx-auto">
-              <h2 className="mb-6 text-3xl font-bold text-primary md:text-4xl">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Why Your Support Matters
               </h2>
-              <p className="mb-8 text-lg leading-relaxed text-on-surface-variant">
+              <p className="text-lg text-gray-700 leading-relaxed mb-8">
                 EdLight Initiative relies on the generosity of donors like you to provide free education 
                 and opportunities to underserved youth in Haiti and beyond. Every contribution, no matter 
                 the size, directly impacts students&apos; lives and helps break the cycle of poverty through education.
               </p>
-              <div className="rounded-3xl border border-outline/20 bg-surface-container-low p-8">
+              <div className="bg-blue-50 p-8 rounded-lg">
                 <div className="grid md:grid-cols-3 gap-6">
                   <div>
                     <div className="text-4xl font-bold text-blue-600 mb-2">2,500+</div>
-                    <div className="text-on-surface-variant">Students Served Annually</div>
+                    <div className="text-gray-700">Students Served Annually</div>
                   </div>
                   <div>
                     <div className="text-4xl font-bold text-green-600 mb-2">100%</div>
-                    <div className="text-on-surface-variant">Free Programs</div>
+                    <div className="text-gray-700">Free Programs</div>
                   </div>
                   <div>
                     <div className="text-4xl font-bold text-purple-600 mb-2">45+</div>
-                    <div className="text-on-surface-variant">Courses Offered</div>
+                    <div className="text-gray-700">Courses Offered</div>
                   </div>
                 </div>
               </div>
@@ -163,20 +163,20 @@ export default function DonatePage() {
             />
             <div className="grid md:grid-cols-2 gap-8">
               {impactAreas.map((area, index) => (
-                <div key={index} className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">{area.icon}</div>
                     <div>
-                      <h3 className="mb-2 text-xl font-bold text-primary">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
                         {area.title}
                       </h3>
-                      <p className="mb-4 text-on-surface-variant">
+                      <p className="text-gray-700 mb-4">
                         {area.description}
                       </p>
-                      <div className="rounded-xl border border-outline/20 bg-surface-container-low p-3">
+                      <div className="bg-gray-50 p-3 rounded-lg">
                         <div className="flex justify-between items-center">
                           <span className="text-2xl font-bold text-blue-600">{area.amount}</span>
-                          <span className="text-sm text-on-surface-variant">{area.impact}</span>
+                          <span className="text-sm text-gray-600">{area.impact}</span>
                         </div>
                       </div>
                     </div>
@@ -194,47 +194,47 @@ export default function DonatePage() {
             />
             <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
               {donationLevels.map((level, index) => (
-                <div key={index} className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
                   <div className={`inline-block px-4 py-1 rounded-full text-sm font-semibold mb-3 ${level.color}`}>
                     {level.title}
                   </div>
-                  <div className="mb-2 text-3xl font-bold text-primary">
+                  <div className="text-3xl font-bold text-gray-900 mb-2">
                     ${level.amount}
                   </div>
-                  <p className="text-sm text-on-surface-variant">
+                  <p className="text-sm text-gray-600">
                     {level.description}
                   </p>
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-center text-on-surface-variant">
+            <p className="text-center text-gray-600 mt-6">
               Or choose a custom amount below
             </p>
           </section>
 
           {/* Donation Button */}
           <section className="mb-16">
-            <div className="rounded-3xl bg-gradient-to-r from-primary to-primary-container p-8 text-white md:p-12">
+            <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg p-8 md:p-12">
               <div className="text-center mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   Make Your Donation Today
                 </h2>
-                <p className="mb-6 text-lg text-primary-fixed">
+                <p className="text-lg text-blue-100 mb-6">
                   Secure donation processing through PayPal
                 </p>
               </div>
               <div className="flex justify-center">
-                <div id="donate-button" className="rounded-2xl bg-surface-container-lowest p-6">
+                <div id="donate-button" className="bg-white p-6 rounded-lg">
                   {/* PayPal button will render here */}
                   <div className="text-center">
-                    <p className="mb-4 text-on-surface-variant">
+                    <p className="text-gray-700 mb-4">
                       Donate securely with PayPal or credit card
                     </p>
-                    <button className="btn btn-primary text-lg">
+                    <button className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors">
                       <Heart className="inline mr-2" size={24} />
                       Donate Now
                     </button>
-                    <p className="mt-4 text-sm text-outline">
+                    <p className="text-sm text-gray-500 mt-4">
                       All donations are secure and tax-deductible
                     </p>
                   </div>
@@ -250,33 +250,33 @@ export default function DonatePage() {
               subtitle="Additional options to support our mission"
             />
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 text-center shadow-sm">
-                <h3 className="mb-3 text-xl font-bold text-primary">
+              <div className="bg-white p-6 rounded-lg shadow-md text-center">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Monthly Giving
                 </h3>
-                <p className="mb-4 text-on-surface-variant">
+                <p className="text-gray-700 mb-4">
                   Become a sustaining donor with recurring monthly contributions
                 </p>
                 <a href="/contact" className="text-blue-600 hover:underline font-semibold">
                   Learn More →
                 </a>
               </div>
-              <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 text-center shadow-sm">
-                <h3 className="mb-3 text-xl font-bold text-primary">
+              <div className="bg-white p-6 rounded-lg shadow-md text-center">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Corporate Partnership
                 </h3>
-                <p className="mb-4 text-on-surface-variant">
+                <p className="text-gray-700 mb-4">
                   Partner with us to make a larger impact through corporate giving
                 </p>
                 <a href="/contact" className="text-blue-600 hover:underline font-semibold">
                   Contact Us →
                 </a>
               </div>
-              <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 text-center shadow-sm">
-                <h3 className="mb-3 text-xl font-bold text-primary">
+              <div className="bg-white p-6 rounded-lg shadow-md text-center">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
                   In-Kind Donations
                 </h3>
-                <p className="mb-4 text-on-surface-variant">
+                <p className="text-gray-700 mb-4">
                   Donate equipment, books, or other materials to support our programs
                 </p>
                 <a href="/contact" className="text-blue-600 hover:underline font-semibold">
@@ -292,39 +292,39 @@ export default function DonatePage() {
               title="Donation FAQ"
               subtitle="Common questions about giving"
             />
-            <div className="space-y-6 rounded-3xl border border-outline/20 bg-surface-container-lowest p-8 shadow-sm">
+            <div className="bg-white rounded-lg shadow-md p-8 space-y-6">
               <div>
-                <h3 className="mb-2 text-lg font-bold text-primary">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Is my donation tax-deductible?
                 </h3>
-                <p className="text-on-surface-variant">
+                <p className="text-gray-700">
                   We are working on obtaining tax-exempt status. Please contact us at info@edlight.org 
                   for information about donation receipts and tax deductibility.
                 </p>
               </div>
               <div>
-                <h3 className="mb-2 text-lg font-bold text-primary">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   How is my donation used?
                 </h3>
-                <p className="text-on-surface-variant">
+                <p className="text-gray-700">
                   100% of your donation goes directly to supporting our programs, students, and operations. 
                   We maintain transparency and provide regular updates on how funds are utilized.
                 </p>
               </div>
               <div>
-                <h3 className="mb-2 text-lg font-bold text-primary">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Can I donate in memory or honor of someone?
                 </h3>
-                <p className="text-on-surface-variant">
+                <p className="text-gray-700">
                   Yes! Please include a note with your donation or contact us to arrange a memorial or 
                   honorary gift. We can notify the honoree or their family of your generous contribution.
                 </p>
               </div>
               <div>
-                <h3 className="mb-2 text-lg font-bold text-primary">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Will I receive updates on the impact of my donation?
                 </h3>
-                <p className="text-on-surface-variant">
+                <p className="text-gray-700">
                   Absolutely! Donors receive our quarterly newsletter with stories, updates, and reports 
                   on how contributions are making a difference in students&apos; lives.
                 </p>
@@ -334,12 +334,12 @@ export default function DonatePage() {
 
           {/* Thank You */}
           <section className="text-center">
-            <div className="rounded-3xl border border-outline/20 bg-surface-container-low p-8 md:p-12">
+            <div className="bg-gradient-to-r from-yellow-50 to-blue-50 rounded-lg p-8 md:p-12">
               <Heart size={64} className="text-red-500 mx-auto mb-6" />
-              <h2 className="mb-4 text-3xl font-bold text-primary">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 Thank You for Your Support
               </h2>
-              <p className="mx-auto max-w-2xl text-lg text-on-surface-variant">
+              <p className="text-lg text-gray-700 max-w-2xl mx-auto">
                 Every donation, no matter the size, brings us closer to our mission of empowering 
                 underserved communities through education. Together, we are changing lives and 
                 building a brighter future.

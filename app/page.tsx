@@ -101,7 +101,7 @@ export default function HomePage() {
       </Hero>
 
       {/* Mission & Vision */}
-      <section className="bg-surface py-14 sm:py-20 md:py-24">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -109,8 +109,7 @@ export default function HomePage() {
               subtitle="Creating pathways to excellence for Haitian youth"
               centered
             />
-            <div className="rounded-3xl border border-outline/20 bg-surface-container-low p-6 shadow-sm sm:p-10">
-              <div className="space-y-5 text-sm leading-relaxed text-on-surface-variant sm:space-y-6 sm:text-base">
+            <div className="glass rounded-2xl p-6 sm:p-8 space-y-5 sm:space-y-6 text-gray-700 leading-relaxed text-sm sm:text-base">
               <p>
                 EdLight Initiative was founded on the belief that every young person in Haiti deserves
                 access to world-class education and opportunities. We work to bridge the educational gap
@@ -127,21 +126,20 @@ export default function HomePage() {
                 opportunities to reach their full potential and contribute to building a more prosperous
                 nation.
               </p>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Ecosystem Programs */}
-      <section className="bg-surface-container-low py-14 sm:py-20 md:py-24">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Our Ecosystem"
             subtitle="Comprehensive programs supporting students at every stage"
             centered
           />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {ecosystemPrograms.map((program) => (
               <Card
                 key={program.title}
@@ -156,17 +154,17 @@ export default function HomePage() {
       </section>
 
       {/* Impact Counters */}
-      <section className="bg-surface py-14 sm:py-20 md:py-24">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader title="Our Impact" subtitle="Making a difference in communities across Haiti" centered />
-          <div className="rounded-3xl border border-outline/20 bg-white p-6 shadow-sm sm:p-8">
+          <div className="glass rounded-2xl p-6 sm:p-8">
             <ImpactCounters counters={impactCounters} />
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="bg-surface-container-low py-14 sm:py-20 md:py-24">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHeader title="Student Stories" subtitle="Hear from our alumni" centered />
           <div className="max-w-3xl mx-auto">
@@ -177,7 +175,7 @@ export default function HomePage() {
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors ${
-                    index === currentTestimonial ? 'bg-primary' : 'bg-outline-variant'
+                    index === currentTestimonial ? 'bg-primary' : 'bg-gray-300'
                   }`}
                   aria-label={`View testimonial ${index + 1}`}
                 />

@@ -89,12 +89,12 @@ export default function GlobalExchangePage() {
           {/* Introduction */}
           <section className="mb-16 text-center">
             <div className="max-w-3xl mx-auto">
-              <p className="mb-6 text-lg leading-relaxed text-on-surface-variant">
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
                 EdLight Nexus is EdLight&apos;s international exposure and exchange initiative. This page highlights the
                 kinds of pathways that can help Haitian students engage global learning, cultural exchange, and new
                 ideas through thoughtful exploration and preparation.
               </p>
-              <div className="rounded-2xl border border-outline/20 bg-surface-container-low p-6">
+              <div className="bg-blue-50 p-6 rounded-lg">
                 <p className="text-blue-900 font-semibold">
                   Designed to encourage exploration, perspective, and meaningful opportunity.
                 </p>
@@ -111,9 +111,9 @@ export default function GlobalExchangePage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {opportunities.map((opportunity, index) => (
                 <Card key={index} title={opportunity.title} description={opportunity.description} icon={opportunity.icon} className="hover:shadow-xl transition-shadow">
-                  <div className="border-t border-outline/20 pt-4">
-                    <p className="mb-2 text-sm font-semibold text-on-surface-variant">Illustrative examples:</p>
-                    <ul className="space-y-1 text-sm text-on-surface-variant">
+                  <div className="border-t pt-4">
+                    <p className="text-sm font-semibold text-gray-600 mb-2">Illustrative examples:</p>
+                    <ul className="text-sm text-gray-600 space-y-1">
                       {opportunity.examples.map((example, i) => (
                         <li key={i}>• {example}</li>
                       ))}
@@ -132,11 +132,11 @@ export default function GlobalExchangePage() {
             />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {benefits.map((benefit, index) => (
-                <div key={index} className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
-                  <h3 className="mb-2 text-lg font-bold text-primary">
+                <div key={index} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
                     {benefit.title}
                   </h3>
-                  <p className="text-on-surface-variant">
+                  <p className="text-gray-700">
                     {benefit.description}
                   </p>
                 </div>
@@ -152,38 +152,38 @@ export default function GlobalExchangePage() {
             />
             <div className="grid md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-blue-600">1</span>
                 </div>
-                <h3 className="mb-2 font-bold text-primary">Exploration</h3>
-                <p className="text-sm text-on-surface-variant">
+                <h3 className="font-bold text-gray-900 mb-2">Exploration</h3>
+                <p className="text-sm text-gray-700">
                   We help frame the kinds of global pathways that may align with student goals and readiness
                 </p>
               </div>
               <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-secondary/10">
+                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-green-600">2</span>
                 </div>
-                <h3 className="mb-2 font-bold text-primary">Preparation</h3>
-                <p className="text-sm text-on-surface-variant">
+                <h3 className="font-bold text-gray-900 mb-2">Preparation</h3>
+                <p className="text-sm text-gray-700">
                   Participants may receive guidance that helps them prepare thoughtfully for the experience
                 </p>
               </div>
               <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-tertiary-fixed-dim/20">
+                <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-yellow-600">3</span>
                 </div>
-                <h3 className="mb-2 font-bold text-primary">Immersion</h3>
-                <p className="text-sm text-on-surface-variant">
+                <h3 className="font-bold text-gray-900 mb-2">Immersion</h3>
+                <p className="text-sm text-gray-700">
                   The experience centers on learning through exposure, exchange, and engagement with new contexts
                 </p>
               </div>
               <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary-fixed/40">
+                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-purple-600">4</span>
                 </div>
-                <h3 className="mb-2 font-bold text-primary">Reflection</h3>
-                <p className="text-sm text-on-surface-variant">
+                <h3 className="font-bold text-gray-900 mb-2">Reflection</h3>
+                <p className="text-sm text-gray-700">
                   Fellows are encouraged to reflect on what they learn and how it can create value back home
                 </p>
               </div>
@@ -192,24 +192,24 @@ export default function GlobalExchangePage() {
 
           {/* Why this matters */}
           <section className="mb-16">
-            <div className="rounded-3xl border border-outline/20 bg-surface-container-low p-8 md:p-12">
-              <h2 className="mb-6 text-center text-3xl font-bold text-primary">
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 md:p-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Why this matters
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
-                <div className="rounded-2xl border border-outline/20 bg-surface-container-lowest p-6">
-                  <p className="mb-4 leading-relaxed text-on-surface-variant">
+                <div className="bg-white p-6 rounded-lg">
+                  <p className="text-gray-700 mb-4 leading-relaxed">
                     Global exposure can expand what students believe is possible. It can strengthen confidence,
                     ambition, and a deeper understanding of how learning connects across borders.
                   </p>
-                  <p className="font-semibold text-primary">Broader perspective</p>
+                  <p className="font-semibold text-gray-900">Broader perspective</p>
                 </div>
-                <div className="rounded-2xl border border-outline/20 bg-surface-container-lowest p-6">
-                  <p className="mb-4 leading-relaxed text-on-surface-variant">
+                <div className="bg-white p-6 rounded-lg">
+                  <p className="text-gray-700 mb-4 leading-relaxed">
                     When designed carefully, exchange experiences can help young Haitians return with new insight,
                     stronger leadership instincts, and a renewed sense of contribution.
                   </p>
-                  <p className="font-semibold text-primary">Meaningful return value</p>
+                  <p className="font-semibold text-gray-900">Meaningful return value</p>
                 </div>
               </div>
             </div>
@@ -217,23 +217,23 @@ export default function GlobalExchangePage() {
 
           {/* Call to Action */}
           <section className="text-center">
-            <div className="rounded-3xl bg-gradient-to-r from-primary to-primary-container p-8 text-white md:p-12">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Interested in Nexus?
               </h2>
-              <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-fixed">
+              <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
                 Learn more about EdLight&apos;s approach to global exposure and exchange, or reach out to continue the conversation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="mailto:nexus@edlight.org"
-                  className="btn btn-light"
+                  className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
                 >
                   Contact nexus@edlight.org
                 </a>
                 <a
                   href="/nexus"
-                  className="btn btn-ghost"
+                  className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
                 >
                   Visit the Nexus page
                 </a>

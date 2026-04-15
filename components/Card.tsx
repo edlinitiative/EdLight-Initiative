@@ -17,21 +17,21 @@ export default function Card({ title, description, icon, href, image, className,
   const content = (
     <>
       {image && (
-        <div className="relative h-44 overflow-hidden rounded-t-3xl sm:h-48">
+        <div className="relative h-44 sm:h-48 overflow-hidden rounded-t-2xl">
           <Image src={image} alt={title} fill className="object-cover" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" />
         </div>
       )}
-      <div className="p-6 sm:p-7">
-        {icon && <div className="mb-4 text-secondary">{icon}</div>}
-        <h3 className="mb-3 font-heading text-xl font-bold leading-tight text-primary sm:text-2xl">{title}</h3>
-        <p className="mb-4 font-body text-sm leading-relaxed text-on-surface-variant sm:text-base">{description}</p>
+      <div className="p-5 sm:p-6">
+        {icon && <div className="mb-3 sm:mb-4 text-primary">{icon}</div>}
+        <h3 className="font-heading text-lg sm:text-xl font-semibold text-text mb-2 sm:mb-3 leading-tight">{title}</h3>
+        <p className="font-body text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">{description}</p>
         {children}
       </div>
     </>
   )
 
   const baseClasses = cn(
-    'group rounded-3xl border border-outline/20 bg-surface-container-lowest shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl',
+    'glass rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1',
     className
   )
 
