@@ -57,14 +57,14 @@ export default function MissionProjectsPage() {
               title="Our Mission"
               subtitle="What drives us every day"
             />
-            <div className="bg-gradient-to-r from-blue-50 to-yellow-50 rounded-lg p-8 md:p-12">
+            <div className="rounded-3xl border border-outline/20 bg-surface-container-low p-8 md:p-12">
               <div className="flex items-start space-x-4 mb-6">
                 <Target size={48} className="text-blue-600 flex-shrink-0" />
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h3 className="mb-4 text-2xl font-bold text-primary">
                     Empowering Through Education
                   </h3>
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                  <p className="text-lg leading-relaxed text-on-surface-variant">
                     EdLight Initiative is dedicated to empowering underserved communities, particularly youth in Haiti, 
                     through accessible education, technology training, and leadership development. We believe that education 
                     is the key to breaking cycles of poverty and creating sustainable change.
@@ -81,32 +81,32 @@ export default function MissionProjectsPage() {
               subtitle="The principles that guide our work"
             />
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
+              <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
                 <div className="mb-4">
                   <Lightbulb size={40} className="text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Innovation</h3>
-                <p className="text-gray-700">
+                <h3 className="mb-3 text-xl font-bold text-primary">Innovation</h3>
+                <p className="text-on-surface-variant">
                   We embrace creative solutions and emerging technologies to address educational challenges in new ways.
                 </p>
               </div>
               
-              <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-yellow-400">
+              <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
                 <div className="mb-4">
                   <Users size={40} className="text-yellow-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Community</h3>
-                <p className="text-gray-700">
+                <h3 className="mb-3 text-xl font-bold text-primary">Community</h3>
+                <p className="text-on-surface-variant">
                   We build strong communities of learners, mentors, and partners working together for collective growth.
                 </p>
               </div>
               
-              <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-600">
+              <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
                 <div className="mb-4">
                   <Globe size={40} className="text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Accessibility</h3>
-                <p className="text-gray-700">
+                <h3 className="mb-3 text-xl font-bold text-primary">Accessibility</h3>
+                <p className="text-on-surface-variant">
                   We ensure our programs are free or low-cost, making quality education accessible to all.
                 </p>
               </div>
@@ -140,24 +140,24 @@ export default function MissionProjectsPage() {
 
           {/* Impact */}
           <section className="mb-16">
-            <div className="bg-blue-600 text-white rounded-lg p-8 md:p-12 text-center">
+            <div className="rounded-3xl bg-gradient-to-r from-primary to-primary-container p-8 text-center text-white md:p-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Impact</h2>
               <div className="grid md:grid-cols-4 gap-8">
                 <div>
                   <div className="text-4xl md:text-5xl font-bold mb-2">2,500+</div>
-                  <div className="text-blue-100">Students Served</div>
+                  <div className="text-primary-fixed">Students Served</div>
                 </div>
                 <div>
                   <div className="text-4xl md:text-5xl font-bold mb-2">45+</div>
-                  <div className="text-blue-100">Courses Offered</div>
+                  <div className="text-primary-fixed">Courses Offered</div>
                 </div>
                 <div>
                   <div className="text-4xl md:text-5xl font-bold mb-2">18+</div>
-                  <div className="text-blue-100">Partner Organizations</div>
+                  <div className="text-primary-fixed">Partner Organizations</div>
                 </div>
                 <div>
                   <div className="text-4xl md:text-5xl font-bold mb-2">5,000+</div>
-                  <div className="text-blue-100">Community Members</div>
+                  <div className="text-primary-fixed">Community Members</div>
                 </div>
               </div>
             </div>
@@ -165,24 +165,24 @@ export default function MissionProjectsPage() {
 
           {/* Call to Action */}
           <section className="text-center">
-            <div className="bg-gradient-to-r from-yellow-50 to-blue-50 rounded-lg p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <div className="rounded-3xl border border-outline/20 bg-surface-container-low p-8 md:p-12">
+              <h2 className="mb-4 text-3xl font-bold text-primary">
                 Join Us in Making a Difference
               </h2>
-              <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+              <p className="mx-auto mb-8 max-w-2xl text-lg text-on-surface-variant">
                 Whether you want to volunteer, partner, or support our mission financially, 
                 there are many ways to get involved with EdLight Initiative.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/get-involved"
-                  className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  className="btn btn-primary"
                 >
                   Get Involved
                 </a>
                 <a
                   href="/contact"
-                  className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                  className="btn btn-light"
                 >
                   Contact Us
                 </a>

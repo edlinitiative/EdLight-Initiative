@@ -164,23 +164,23 @@ export default function CoursesPage() {
           {/* Introduction */}
           <section className="mb-16 text-center">
             <div className="max-w-3xl mx-auto">
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              <p className="mb-6 text-lg leading-relaxed text-on-surface-variant">
                 EdLight Initiative offers free, high-quality online courses designed to help you develop 
                 practical skills for the modern workforce. All courses are self-paced and accessible from 
                 anywhere with an internet connection.
               </p>
               <div className="grid md:grid-cols-3 gap-6 mt-8">
-                <div className="bg-blue-50 p-6 rounded-lg">
+                <div className="rounded-2xl border border-outline/20 bg-surface-container-low p-6">
                   <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-                  <div className="text-gray-700">Free Access</div>
+                  <div className="text-on-surface-variant">Free Access</div>
                 </div>
-                <div className="bg-green-50 p-6 rounded-lg">
+                <div className="rounded-2xl border border-outline/20 bg-surface-container-low p-6">
                   <div className="text-3xl font-bold text-green-600 mb-2">45+</div>
-                  <div className="text-gray-700">Courses Available</div>
+                  <div className="text-on-surface-variant">Courses Available</div>
                 </div>
-                <div className="bg-yellow-50 p-6 rounded-lg">
+                <div className="rounded-2xl border border-outline/20 bg-surface-container-low p-6">
                   <div className="text-3xl font-bold text-yellow-600 mb-2">24/7</div>
-                  <div className="text-gray-700">Learn Anytime</div>
+                  <div className="text-on-surface-variant">Learn Anytime</div>
                 </div>
               </div>
             </div>
@@ -191,18 +191,18 @@ export default function CoursesPage() {
             <section key={categoryIndex} className="mb-16">
               <div className="flex items-center mb-8">
                 <div className="mr-4">{category.icon}</div>
-                <h2 className="text-3xl font-bold text-gray-900">{category.title}</h2>
+                <h2 className="text-3xl font-bold text-primary">{category.title}</h2>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {category.courses.map((course, courseIndex) => (
-                  <Card key={courseIndex} title={course.name} description={course.description} className="hover:shadow-lg transition-shadow">
+                  <Card key={courseIndex} title={course.name} description={course.description} className="transition hover:shadow-lg">
                     <div className="flex items-start justify-between mb-3">
-                      <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">
+                      <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
                         {course.level}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-gray-600">
+                      <span className="text-sm text-on-surface-variant">
                         <BookOpen size={16} className="inline mr-1" />
                         {course.duration}
                       </span>
@@ -224,29 +224,29 @@ export default function CoursesPage() {
             />
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
                   <span className="text-2xl font-bold text-blue-600">1</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Choose a Course</h3>
-                <p className="text-gray-700">
+                <h3 className="mb-2 text-xl font-bold text-primary">Choose a Course</h3>
+                <p className="text-on-surface-variant">
                   Browse our catalog and select a course that matches your interests and goals
                 </p>
               </div>
               <div className="text-center">
-                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-secondary/10">
                   <span className="text-2xl font-bold text-green-600">2</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Learn at Your Pace</h3>
-                <p className="text-gray-700">
+                <h3 className="mb-2 text-xl font-bold text-primary">Learn at Your Pace</h3>
+                <p className="text-on-surface-variant">
                   Access video lessons, practice exercises, and course materials anytime, anywhere
                 </p>
               </div>
               <div className="text-center">
-                <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-tertiary-fixed-dim/20">
                   <span className="text-2xl font-bold text-yellow-600">3</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Earn Certificate</h3>
-                <p className="text-gray-700">
+                <h3 className="mb-2 text-xl font-bold text-primary">Earn Certificate</h3>
+                <p className="text-on-surface-variant">
                   Complete the course and receive a digital certificate to showcase your new skills
                 </p>
               </div>
@@ -255,23 +255,23 @@ export default function CoursesPage() {
 
           {/* Call to Action */}
           <section className="text-center">
-            <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg p-8 md:p-12">
+            <div className="rounded-3xl bg-gradient-to-r from-primary to-primary-container p-8 text-white md:p-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Ready to Start Learning?
               </h2>
-              <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+              <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-fixed">
                 Join thousands of students who are already learning and building their future with EdLight Academy
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/academy"
-                  className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                  className="btn btn-light"
                 >
                   Browse All Courses
                 </a>
                 <a
                   href="/contact"
-                  className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+                  className="btn btn-ghost"
                 >
                   Contact Us
                 </a>

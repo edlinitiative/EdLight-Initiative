@@ -108,10 +108,10 @@ export default function GetInvolvedPage() {
       <Hero
         title="Get Involved"
         subtitle="Join us in empowering the next generation of Haitian innovators"
-  backgroundImage="/about_us.webp"
+        backgroundImage="/about_us.webp"
       />
 
-    <section className="py-20">
+      <section className="bg-surface py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Ways to Get Involved"
@@ -131,29 +131,29 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      <section id="donate" className="py-20">
+      <section id="donate" className="bg-surface-container-low py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <SectionHeader title="Support Our Work" centered />
-            <p className="text-gray-700 mb-8">
+            <p className="mb-8 text-on-surface-variant">
               Your donation directly supports scholarships, program costs, and resources for
               students. Every contribution makes a difference.
             </p>
-            <div className="glass rounded-2xl p-8 mb-8">
+            <div className="mb-8 rounded-3xl border border-outline/20 bg-surface-container-lowest p-8 shadow-sm">
               <div className="flex flex-col items-center gap-5">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-xs font-semibold tracking-wide uppercase text-white/90">
+                <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-xs font-semibold tracking-wide uppercase text-primary">
                   <ShieldCheck size={16} />
                   Secure PayPal Checkout
                 </span>
                 <div id="donate-button-container" className="inline-flex justify-center">
                   <div id="donate-button"></div>
                 </div>
-                <p className="text-xs text-white/70">
+                <p className="text-xs text-on-surface-variant">
                   Powered by PayPal. Choose a one-time gift or set up monthly support.
                 </p>
               </div>
             </div>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-on-surface-variant">
               EdLight Initiative is committed to transparency. 100% of donations go directly to
               programs and student support.
             </p>
@@ -161,21 +161,21 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-surface py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <SectionHeader title="Contact Us" centered />
-            <div className="glass rounded-2xl p-8">
+            <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-8 shadow-sm">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="mb-2 block text-sm font-medium text-on-surface">
                   Name *
                 </label>
                 <input
                   id="name"
                   type="text"
                   {...register('name', { required: 'Name is required' })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full rounded-xl border border-outline/30 bg-surface px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
                 />
                 {errors.name && (
                   <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
@@ -183,7 +183,7 @@ export default function GetInvolvedPage() {
               </div>
 
                 <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="mb-2 block text-sm font-medium text-on-surface">
                   Email *
                 </label>
                 <input
@@ -196,7 +196,7 @@ export default function GetInvolvedPage() {
                       message: 'Invalid email address',
                     },
                   })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full rounded-xl border border-outline/30 bg-surface px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
                 />
                 {errors.email && (
                   <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -204,13 +204,13 @@ export default function GetInvolvedPage() {
               </div>
 
                 <div>
-                <label htmlFor="interest" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="interest" className="mb-2 block text-sm font-medium text-on-surface">
                   I&apos;m interested in *
                 </label>
                 <select
                   id="interest"
                   {...register('interest', { required: 'Please select an option' })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full rounded-xl border border-outline/30 bg-surface px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
                 >
                   <option value="">Select an option</option>
                   <option value="volunteer">Volunteering</option>
@@ -225,14 +225,14 @@ export default function GetInvolvedPage() {
               </div>
 
                 <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="mb-2 block text-sm font-medium text-on-surface">
                   Message *
                 </label>
                 <textarea
                   id="message"
                   rows={5}
                   {...register('message', { required: 'Message is required' })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full rounded-xl border border-outline/30 bg-surface px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary"
                 />
                 {errors.message && (
                   <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>

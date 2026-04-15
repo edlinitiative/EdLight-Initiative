@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#f7f9fc",
+                    "primary": "#00113a",
+                    "surface": "#f7f9fc",
+                    "inverse-surface": "#2d3133",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-background": "#191c1e",
+                    "surface-dim": "#d8dadd",
+                    "on-secondary-fixed": "#002020",
+                    "on-secondary-container": "#007070",
+                    "secondary-fixed-dim": "#6fd7d6",
+                    "background": "#f7f9fc",
+                    "outline-variant": "#c5c6d2",
+                    "on-surface-variant": "#444650",
+                    "surface-container-low": "#f2f4f7",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#eff1f4",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "tertiary-container": "#362600",
+                    "on-tertiary-fixed": "#261a00",
+                    "tertiary": "#1c1300",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "on-tertiary-container": "#b68900",
+                    "primary-fixed": "#dbe1ff",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e6e8eb",
+                    "on-secondary-fixed-variant": "#004f4f",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#8cf3f3",
+                    "surface-tint": "#435b9f",
+                    "on-primary-container": "#758dd5",
+                    "tertiary-fixed": "#ffdf9e",
+                    "secondary-container": "#8cf3f3",
+                    "inverse-primary": "#b3c5ff",
+                    "surface-container": "#eceef1",
+                    "secondary": "#006a6a",
+                    "surface-variant": "#e0e3e6",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#fabd00",
+                    "outline": "#757682",
+                    "primary-container": "#002366",
+                    "on-primary-fixed-variant": "#2a4386",
+                    "on-primary-fixed": "#00174a",
+                    "surface-container-highest": "#e0e3e6",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#191c1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .tonal-shift { transition: background-color 0.3s ease; }
+      .glass-nav { backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,35,102,0.06)]">
+<div class="flex justify-between items-center px-12 py-5 w-full max-w-screen-2xl mx-auto">
+<div class="font-['Space_Grotesk'] text-2xl font-bold tracking-tighter text-blue-900 dark:text-white">EdLight</div>
+<div class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans'] text-sm tracking-wide">
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-100 transition-all" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-100 transition-all" href="#">Academy</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-100 transition-all" href="#">Labs</a>
+<a class="text-blue-700 dark:text-cyan-400 border-b-2 border-cyan-500 dark:border-cyan-400 pb-1 font-bold" href="#">Nexus</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-100 transition-all" href="#">ESLP</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-100 transition-all" href="#">About</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-md font-label text-sm font-semibold hover:bg-primary-container transition-all active:scale-95 duration-300">
+                    Partner With Us
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center px-12 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-15 grayscale brightness-50" data-alt="Modern high-tech office interior with floor-to-ceiling windows, professional diverse team collaborating in soft daylight, clean minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6UhspsGyt4LroBB2aBliQ4FdFV0gGmpCIjvQBQgGkyQ_c4gk0NHYYHrkRVQhTaazi9iZhQYKEBvevlB51Qs-FhUJ3-dh2ylDVZ3ztj8mRRvhIO1yeO9aiWuH1kFUmQgW1eVdmA7iZ-0_RZjQO9pfim1AiHruhCVNyFvhpm3goDkGotL2oCAFePcSwKKMHBHh4CI0yjavlC4laDsMWWrObqu5jRVsRnqEMJX4ikFUTBqvh65wPzhXmSvkbxT93yV5j3dCeE7sAhY-n"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-primary via-primary/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-4xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/20 text-secondary-fixed-dim font-label text-xs font-bold uppercase tracking-widest mb-6">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                    Professional Pipeline
+                </div>
+<h1 class="font-headline text-6xl md:text-8xl font-bold text-white tracking-tighter leading-[0.9] mb-8">
+                    Bridging Haitian Talent with <span class="text-tertiary-fixed-dim">Global Opportunity</span>
+</h1>
+<p class="font-body text-xl text-surface-variant/80 max-w-2xl leading-relaxed mb-10">
+                    Nexus is the professional bridge connecting the next generation of Haitian digital leaders with the world's most innovative organizations. We turn potential into partnership.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary-fixed text-on-secondary-fixed px-8 py-4 rounded-xl font-label font-bold text-lg hover:scale-105 transition-transform">
+                        Explore Talent Pool
+                    </button>
+<button class="bg-surface-container-highest/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-xl font-label font-bold text-lg hover:bg-white/10 transition-colors">
+                        Corporate Partnership
+                    </button>
+</div>
+</div>
+<!-- Asymmetric Floating Data Point -->
+<div class="hidden lg:block absolute right-24 bottom-24 bg-surface-container-lowest p-8 rounded-2xl shadow-2xl max-w-xs">
+<div class="font-headline text-5xl font-black text-primary mb-2">92%</div>
+<div class="font-label text-sm text-outline font-bold uppercase tracking-wider">Placement Rate</div>
+<p class="mt-4 text-on-surface-variant text-sm">Our graduates are currently scaling operations at Fortune 500 tech firms and innovative startups globally.</p>
+</div>
+</section>
+<!-- The Nexus Network (Sectors/Partners) -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+<div class="max-w-2xl">
+<h2 class="font-headline text-4xl font-bold text-primary mb-4">The Nexus Network</h2>
+<p class="text-on-surface-variant text-lg">A strategic ecosystem of industry giants and disruptive startups committed to sourcing top-tier Haitian digital talent.</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary p-3 bg-surface-container-high rounded-full">corporate_fare</span>
+<span class="material-symbols-outlined text-primary p-3 bg-surface-container-high rounded-full">groups</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<!-- Partner Logo Stand-ins with Tonal Depth -->
+<div class="h-32 bg-surface-container-low rounded-2xl flex items-center justify-center p-8 group hover:bg-surface-container-lowest transition-all">
+<div class="font-headline font-bold text-outline opacity-40 group-hover:opacity-100 group-hover:text-primary transition-opacity">FINTECH_GLOBAL</div>
+</div>
+<div class="h-32 bg-surface-container-low rounded-2xl flex items-center justify-center p-8 group hover:bg-surface-container-lowest transition-all">
+<div class="font-headline font-bold text-outline opacity-40 group-hover:opacity-100 group-hover:text-primary transition-opacity">TECH_SOLUTIONS</div>
+</div>
+<div class="h-32 bg-surface-container-low rounded-2xl flex items-center justify-center p-8 group hover:bg-surface-container-lowest transition-all">
+<div class="font-headline font-bold text-outline opacity-40 group-hover:opacity-100 group-hover:text-primary transition-opacity">CREATIVE_MODERN</div>
+</div>
+<div class="h-32 bg-surface-container-low rounded-2xl flex items-center justify-center p-8 group hover:bg-surface-container-lowest transition-all">
+<div class="font-headline font-bold text-outline opacity-40 group-hover:opacity-100 group-hover:text-primary transition-opacity">DATA_METRICS</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Talent Showcase (Bento Grid) -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-12">
+<div class="mb-16 text-center">
+<h2 class="font-headline text-5xl font-bold text-primary mb-4">Global Ready. Industry Certified.</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Our talent pool consists of rigorously vetted professionals specialized in full-stack development, AI implementation, and digital leadership.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+<!-- Talent Feature 1 -->
+<div class="md:col-span-7 bg-surface-container-lowest rounded-3xl p-10 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary-container/10 rounded-full -mr-20 -mt-20"></div>
+<div>
+<div class="flex items-center gap-4 mb-8">
+<img class="w-20 h-20 rounded-2xl object-cover shadow-lg" data-alt="Professional portrait of a young Haitian woman with confident expression, neutral studio background, soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi3PZu9Lc9WkcT1McDhPGqRpXR64fJsEyDgo95MLE6cdnrtjdRnGXKyIDS8LvKbhr_Go2eKa7TN36byW10e6_PA5loreeuU2H2FlwPRPiSqskXna6Z138Tnk32_RFE6f9R8SuWr0bygFRCTBOSj153_sbz4ldm0sWVQ15VEsTydFu_XW8RCEqu9TdYr2mBJxPAnb8k_nZ9kmm9MgcKVyRdV19ImehGPeuE5tNcAqDxtIfOpJXpdWN9reCkDrtAxTJUPZ5BkF98_8y1"/>
+<div>
+<h4 class="font-bold text-xl text-primary">Fabienne Desir</h4>
+<p class="text-on-surface-variant text-sm font-label uppercase tracking-widest">Full-Stack Engineer @ Stripe Partner</p>
+</div>
+</div>
+<blockquote class="text-2xl font-medium text-primary leading-snug italic">
+                                "EdLight Nexus didn't just give me skills; they connected me to a global network that values my expertise. I'm now leading engineering sprints for international clients."
+                            </blockquote>
+</div>
+<div class="flex flex-wrap gap-2 mt-8">
+<span class="px-4 py-1.5 bg-surface-container-high rounded-full text-xs font-bold text-primary">React &amp; Next.js</span>
+<span class="px-4 py-1.5 bg-surface-container-high rounded-full text-xs font-bold text-primary">Python Architecture</span>
+<span class="px-4 py-1.5 bg-surface-container-high rounded-full text-xs font-bold text-primary">Agile Leadership</span>
+</div>
+</div>
+<!-- Talent Feature 2 -->
+<div class="md:col-span-5 bg-primary rounded-3xl p-10 text-white flex flex-col justify-end relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay" data-alt="Professional young man in smart business attire working on a laptop in a bright modern co-working space, focused expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7FWPz8NJ-RgxWXW3kLgSwfwnLhPdCORLN5WUI5RDcyTIu_pV8zZ9G1AhX5voWSJ4At4deVAc_xiFYfutwjWtA5r_-TAe93wR_Yuk1yOk865oBme1HcGl0KG5Po2mQQvj-j5OJEDNCgT-MxFGPnhk9VXoFQ2F61bYy-VQgD1gf6QNHkABXEc0u3Tv4jRWMC9-Q_2aFaSMDkrmg9JYyUMMGHyNSvA7jX9_oroCrclU-nR35TugCMfie-jy3SaGZ2IrcMx4xzfK9geUg"/>
+<div class="relative z-10">
+<h4 class="font-headline text-3xl font-bold mb-2">Jean-Luc Pierre</h4>
+<p class="font-label text-sm text-secondary-fixed mb-6 uppercase tracking-widest font-bold">Data Scientist @ CloudScale</p>
+<p class="text-surface-variant/80 text-sm leading-relaxed mb-6">Expert in scalable data pipelines and machine learning deployment in financial services.</p>
+<button class="text-white flex items-center gap-2 font-bold group">
+                                View Portfolio <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Skills Matrix -->
+<div class="md:col-span-4 bg-tertiary-fixed p-8 rounded-3xl flex flex-col justify-between">
+<h4 class="font-headline text-2xl font-black text-tertiary">Skills Distribution</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="font-label text-xs font-bold uppercase text-tertiary-container">Software Engineering</span>
+<span class="font-headline font-bold text-tertiary">45%</span>
+</div>
+<div class="h-1.5 w-full bg-tertiary-container/10 rounded-full">
+<div class="h-full bg-tertiary-container w-[45%] rounded-full"></div>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-label text-xs font-bold uppercase text-tertiary-container">Data &amp; AI</span>
+<span class="font-headline font-bold text-tertiary">30%</span>
+</div>
+<div class="h-1.5 w-full bg-tertiary-container/10 rounded-full">
+<div class="h-full bg-tertiary-container w-[30%] rounded-full"></div>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-label text-xs font-bold uppercase text-tertiary-container">Digital Strategy</span>
+<span class="font-headline font-bold text-tertiary">25%</span>
+</div>
+<div class="h-1.5 w-full bg-tertiary-container/10 rounded-full">
+<div class="h-full bg-tertiary-container w-[25%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Metrics -->
+<div class="md:col-span-8 bg-surface-container-high rounded-3xl p-10 flex items-center">
+<div class="grid grid-cols-3 w-full gap-8 divide-x divide-outline-variant">
+<div class="px-4">
+<div class="font-headline text-5xl font-bold text-primary">500+</div>
+<div class="text-on-surface-variant font-label text-xs uppercase font-bold tracking-widest mt-2">Active Roles</div>
+</div>
+<div class="px-8">
+<div class="font-headline text-5xl font-bold text-primary">$12M</div>
+<div class="text-on-surface-variant font-label text-xs uppercase font-bold tracking-widest mt-2">Annual Impact</div>
+</div>
+<div class="px-8">
+<div class="font-headline text-5xl font-bold text-primary">15+</div>
+<div class="text-on-surface-variant font-label text-xs uppercase font-bold tracking-widest mt-2">Global Hubs</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Corporate Partnership Benefits -->
+<section class="py-24 bg-white relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-12 relative z-10">
+<div class="max-w-3xl mb-16">
+<h2 class="font-headline text-4xl font-bold text-primary mb-6">Sustainable Advantage Through Diversified Talent</h2>
+<p class="text-on-surface-variant text-lg">Partnering with Nexus isn't just about corporate responsibility—it's about gaining a competitive edge by accessing untapped, high-performing talent pools.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="space-y-4">
+<div class="w-16 h-16 bg-secondary-container/20 rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="verified">verified</span>
+</div>
+<h4 class="font-headline text-2xl font-bold text-primary">Vetted Excellence</h4>
+<p class="text-on-surface-variant leading-relaxed">Every candidate undergoes 200+ hours of technical and leadership assessment before entering the Nexus pool.</p>
+</div>
+<div class="space-y-4">
+<div class="w-16 h-16 bg-primary-container/10 rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="speed">speed</span>
+</div>
+<h4 class="font-headline text-2xl font-bold text-primary">Frictionless Onboarding</h4>
+<p class="text-on-surface-variant leading-relaxed">Our legal and operational frameworks handle the complexities of cross-border engagement, so you can focus on scale.</p>
+</div>
+<div class="space-y-4">
+<div class="w-16 h-16 bg-tertiary-container/10 rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-container text-3xl" data-icon="diversity_3">diversity_3</span>
+</div>
+<h4 class="font-headline text-2xl font-bold text-primary">Impact Alignment</h4>
+<p class="text-on-surface-variant leading-relaxed">Demonstrate measurable ESG impact by integrating high-potential Haitian leaders into your core business units.</p>
+</div>
+</div>
+</div>
+<!-- Background Shape -->
+<div class="absolute -right-64 top-1/2 -translate-y-1/2 w-[800px] h-[800px] border-[60px] border-surface-container-low rounded-full opacity-50"></div>
+</section>
+<!-- CTA Section -->
+<section class="py-32 px-12">
+<div class="max-w-7xl mx-auto bg-primary rounded-[40px] p-16 md:p-24 text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+<div class="relative z-10 max-w-3xl mx-auto">
+<h2 class="font-headline text-5xl md:text-6xl font-bold text-white mb-8">Ready to Build the <span class="text-secondary-fixed">Future</span> of Your Workforce?</h2>
+<p class="text-primary-fixed-dim text-xl mb-12">Join the ranks of leading global firms sourcing talent from the Caribbean's premier digital hub.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-secondary-fixed text-on-secondary-fixed px-10 py-5 rounded-xl font-label font-bold text-lg hover:scale-105 transition-transform">
+                            Partner with Nexus
+                        </button>
+<button class="bg-transparent text-white border border-white/30 px-10 py-5 rounded-xl font-label font-bold text-lg hover:bg-white/10 transition-colors">
+                            Request Talent Brief
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full border-t border-slate-200/20 tonal-shift">
+<div class="max-w-7xl mx-auto px-12 py-16 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="font-['Space_Grotesk'] text-xl font-black text-blue-800 dark:text-blue-200">EdLight</div>
+<div class="flex flex-wrap justify-center gap-8 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest font-semibold text-slate-500 dark:text-slate-400">
+<a class="hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Privacy</a>
+<a class="hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Press Kit</a>
+<a class="hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Contact</a>
+</div>
+<div class="text-center md:text-right font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest text-slate-400">
+                © 2024 EdLight Institutional Philanthropy. Cultivating Haiti's Digital Future.
+            </div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pt-2 pb-8 md:hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg rounded-t-3xl border-t border-slate-200/10 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:scale-110 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:scale-110 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase mt-1">Labs</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-cyan-300 rounded-2xl px-5 py-2 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="hub" style="font-variation-settings: 'FILL' 1;">hub</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase mt-1">Nexus</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:scale-110 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase mt-1">ESLP</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:scale-110 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="foundation">foundation</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase mt-1">Academy</span>
+</div>
+</nav>
+</body></html>

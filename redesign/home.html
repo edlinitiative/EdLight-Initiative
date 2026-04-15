@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EdLight | Empowering Haiti's Next Generation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift-no-border {
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), transparent);
+        }
+        .tonal-depth-shift {
+            background-color: var(--tw-bg-slate-50);
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#eceef1",
+                      "secondary": "#006a6a",
+                      "surface-bright": "#f7f9fc",
+                      "on-error-container": "#93000a",
+                      "on-surface-variant": "#444650",
+                      "on-tertiary-container": "#b68900",
+                      "surface-tint": "#435b9f",
+                      "secondary-container": "#8cf3f3",
+                      "on-secondary-container": "#007070",
+                      "secondary-fixed-dim": "#6fd7d6",
+                      "on-background": "#191c1e",
+                      "tertiary-fixed": "#ffdf9e",
+                      "surface-container-high": "#e6e8eb",
+                      "outline-variant": "#c5c6d2",
+                      "outline": "#757682",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#e0e3e6",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#002366",
+                      "secondary-fixed": "#8cf3f3",
+                      "primary-fixed": "#dbe1ff",
+                      "on-error": "#ffffff",
+                      "inverse-primary": "#b3c5ff",
+                      "on-tertiary-fixed": "#261a00",
+                      "background": "#f7f9fc",
+                      "surface-container-low": "#f2f4f7",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-container": "#362600",
+                      "on-surface": "#191c1e",
+                      "inverse-surface": "#2d3133",
+                      "on-primary-container": "#758dd5",
+                      "on-primary-fixed-variant": "#2a4386",
+                      "on-primary-fixed": "#00174a",
+                      "error-container": "#ffdad6",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed-variant": "#5b4300",
+                      "tertiary": "#1c1300",
+                      "inverse-on-surface": "#eff1f4",
+                      "on-secondary-fixed": "#002020",
+                      "surface": "#f7f9fc",
+                      "tertiary-fixed-dim": "#fabd00",
+                      "surface-variant": "#e0e3e6",
+                      "on-primary": "#ffffff",
+                      "primary": "#00113a",
+                      "primary-fixed-dim": "#b3c5ff",
+                      "on-secondary-fixed-variant": "#004f4f",
+                      "surface-dim": "#d8dadd"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "body": ["Plus Jakarta Sans"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black text-blue-950 dark:text-white tracking-tighter font-headline">
+                EdLight
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-headline font-bold text-sm tracking-tight text-blue-700 dark:text-blue-300 border-b-2 border-blue-700 dark:border-blue-300 pb-1" href="#">Home</a>
+<a class="font-headline font-bold text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">Academy</a>
+<a class="font-headline font-bold text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">Labs</a>
+<a class="font-headline font-bold text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">Nexus</a>
+<a class="font-headline font-bold text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">ESLP</a>
+<a class="font-headline font-bold text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">About</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="px-5 py-2 bg-surface-container-highest text-primary font-label font-semibold text-sm rounded-xl hover:bg-surface-container-high transition-all">
+                    Get Involved
+                </button>
+<button class="px-5 py-2 bg-primary text-on-primary font-label font-semibold text-sm rounded-xl hover:opacity-90 transition-all">
+                    Donate
+                </button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-primary">
+<div class="absolute inset-0 opacity-40 mix-blend-overlay">
+<img alt="" class="w-full h-full object-cover" data-alt="Young Haitian students in a modern tech-equipped classroom focusing on laptop screens with soft warm lighting and a focused studious atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqYE9MP8MBTXPwfC3hgcCLSZFfPIYwzmT1ogBuP7xjQoRbEpziVYEF0O87FvPBda4Cqcd_PHNMtAjK95etDiIz8T6o1xP1So7VnT8CKwD7grhDaAj6Adl7Suj9e8gonyv1Mx37kQN4g0gqN_K59oKkhh62EQGWG8HkZOZTtJRJ1XnIpCP6J7pq6vUIGDpJQkdWJgp2xSmzmHCgomh1EDlEUCgWtLfiuUVpHv5AHroGiHSqf7hjsFpuIrt8M8DIqXkNNUM-pPuAPFgx"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/60 to-transparent"></div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="flex flex-col justify-center space-y-8">
+<div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-label font-bold tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm">stars</span>
+<span>Empowering Potential</span>
+</div>
+<h1 class="font-headline text-6xl md:text-8xl font-black text-white leading-tight tracking-tighter">
+                    Empowering Haiti's <span class="text-secondary-fixed-dim">Next Generation</span> of Innovators.
+                </h1>
+<p class="text-xl text-primary-fixed leading-relaxed max-w-lg font-body font-light">
+                    Bridging the gap between potential and opportunity through world-class technology education and leadership development.
+                </p>
+<div class="flex items-center space-x-6">
+<button class="px-8 py-4 bg-secondary text-white rounded-xl font-headline font-bold text-lg hover:scale-95 transition-all shadow-xl shadow-secondary/20">
+                        Explore Our Academy
+                    </button>
+<button class="flex items-center space-x-2 text-white font-headline font-bold hover:translate-x-2 transition-transform">
+<span>Our Impact</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Mission Overview -->
+<section class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+<div class="md:col-span-5">
+<h2 class="font-headline text-5xl font-black text-primary leading-none mb-8">
+                        The "Why" Behind Our Mission.
+                    </h2>
+<div class="w-24 h-2 bg-tertiary-fixed-dim rounded-full mb-8"></div>
+</div>
+<div class="md:col-span-7 space-y-8">
+<p class="text-2xl text-on-surface-variant font-body leading-relaxed">
+                        Haiti is home to a brilliant generation of digital natives who lack only one thing: <span class="text-primary font-bold">access</span>. We believe that by providing high-end technical training and elite leadership mentorship, we can catalyze a new era of self-sustaining economic growth.
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8">
+<div class="p-8 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">school</span>
+<h4 class="font-headline font-bold text-xl text-primary mb-2">Sustainable Education</h4>
+<p class="text-on-surface-variant text-sm">Curriculums designed for long-term career resilience in the global tech market.</p>
+</div>
+<div class="p-8 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-4xl mb-4">diversity_3</span>
+<h4 class="font-headline font-bold text-xl text-primary mb-2">Local Leadership</h4>
+<p class="text-on-surface-variant text-sm">Training the leaders who will build the next generation of Haitian institutions.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Ecosystem: Bento Grid -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl font-black text-primary mb-4">The EdLight Ecosystem</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Five specialized pillars working in harmony to transform the landscape of opportunity.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Academy (Primary Focus) -->
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl bg-primary min-h-[500px]">
+<img alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Group of diverse young professionals collaborating around a large table with laptops and sketches in a high-tech studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNKq851MczGuQJX-oe-Ah9Yt-kHc-yT8Wlomt3pyxYrfD-Hws6F6WYyxulCu6cIplqS6Qd5PLUdbX507n_emoGuQWO4Nv2COEIyb1if1yGyqqsNMcRzgMnEMRVywNnjc7l9u_dE9CsEHA1enlUPMsaaHHYOIJtp5Ji2UOqjWed2ViRmJL9XBv25Rx6PZ8bmIJY_YsbLvbpaFBBpWxjXqTcFp1Jb0_To4CX2UVjFga9LI1cYOSRUv4yZBRjOfpnVcBmA1T-aQt1JdWE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-12">
+<div class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full text-xs font-bold mb-4 inline-block tracking-widest uppercase">Academy</div>
+<h3 class="font-headline text-4xl font-bold text-white mb-4">Elite Professional Training</h3>
+<p class="text-primary-fixed text-lg max-w-md">Our flagship program turning raw potential into market-ready technical mastery.</p>
+</div>
+</div>
+<!-- Code -->
+<div class="bg-white p-8 rounded-2xl shadow-sm flex flex-col justify-between border-t-4 border-secondary">
+<div>
+<span class="material-symbols-outlined text-secondary text-3xl mb-4" data-weight="fill">terminal</span>
+<h3 class="font-headline text-2xl font-bold text-primary mb-2">Code</h3>
+<p class="text-on-surface-variant text-sm">Intensive software engineering tracks focused on modern stacks and cloud architecture.</p>
+</div>
+<a class="mt-6 text-secondary font-bold inline-flex items-center group" href="#">
+                        View Curriculum <span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Labs -->
+<div class="bg-white p-8 rounded-2xl shadow-sm flex flex-col justify-between border-t-4 border-primary-container">
+<div>
+<span class="material-symbols-outlined text-primary-container text-3xl mb-4" data-weight="fill">science</span>
+<h3 class="font-headline text-2xl font-bold text-primary mb-2">Labs</h3>
+<p class="text-on-surface-variant text-sm">Where innovation meets implementation. R&amp;D for local Haitian technological challenges.</p>
+</div>
+<a class="mt-6 text-primary font-bold inline-flex items-center group" href="#">
+                        Explore Projects <span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Nexus -->
+<div class="bg-white p-8 rounded-2xl shadow-sm flex flex-col justify-between border-t-4 border-tertiary-fixed-dim">
+<div>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl mb-4" data-weight="fill">hub</span>
+<h3 class="font-headline text-2xl font-bold text-primary mb-2">Nexus</h3>
+<p class="text-on-surface-variant text-sm">The bridge between graduates and global industry partners for career placement.</p>
+</div>
+<a class="mt-6 text-tertiary-fixed-variant font-bold inline-flex items-center group" href="#">
+                        Partner Network <span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- ESLP -->
+<div class="md:col-span-2 bg-gradient-to-r from-primary-container to-primary p-12 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="max-w-md">
+<h3 class="font-headline text-3xl font-bold text-white mb-4">ESLP Leadership</h3>
+<p class="text-on-primary-container text-lg">The Elite Student Leadership Program grooms the future executives and founders of Haiti's digital economy.</p>
+</div>
+<button class="px-8 py-3 bg-white text-primary font-bold rounded-xl whitespace-nowrap">Join the Cohort</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Real Stories / Impact -->
+<section class="py-32 bg-white">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16">
+<div class="max-w-xl">
+<h2 class="font-headline text-5xl font-black text-primary mb-6">Profiles of Change.</h2>
+<p class="text-xl text-on-surface-variant">Beyond the code, we build careers that ripple across communities.</p>
+</div>
+<button class="mt-8 md:mt-0 font-headline font-bold text-primary border-b-2 border-primary pb-1">View All Stories</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="relative rounded-3xl overflow-hidden aspect-[4/3] group">
+<img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="Empowered young Haitian woman smiling confidently in a professional office environment with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX_-Xondb6rp3RmkFK1DCT0jTO14HoJGIMSoSGqgN5QpdC5U1zrERiBAXnhLfXwONyfdqZiE0TlYRkAIbEvdlXTiafjOtohImtivhaVvsTNPb6XhpKsN1P49mw41_vAcz8PQYJVBDiKlVhC5162LI5LCJVRJtHq5hdm-you5FeTZ3kXHftkM1ackDtQSqAwtNsQE2gRY6Nghxqk2werxPYgri00wFya4PfN3qnxZs4V10v-z_g_GU7BdM4WZPA025vUWyfghNrd6rv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-10 text-white">
+<blockquote class="text-2xl font-light italic mb-6">"EdLight didn't just teach me how to build apps; they taught me how to architect a future I never thought possible for myself in Port-au-Prince."</blockquote>
+<div>
+<p class="font-headline font-bold text-xl">Daphnée L.</p>
+<p class="text-primary-fixed opacity-80 uppercase tracking-widest text-xs">Full-Stack Engineer &amp; Mentor</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col space-y-8 justify-center">
+<div class="p-10 bg-surface-container rounded-3xl">
+<div class="flex items-center space-x-4 mb-6">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white text-2xl font-black">JS</div>
+<div>
+<h4 class="font-headline font-bold text-primary">Jean-Sebastien</h4>
+<p class="text-on-surface-variant text-sm">Class of 2022 • Labs Lead</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">"Joining the ESLP program changed my perspective on what leadership means in a tech context. Today, I'm leading a team of 12 developing local logistics solutions."</p>
+</div>
+<div class="p-10 bg-secondary-container/20 rounded-3xl">
+<div class="flex items-center space-x-4 mb-6">
+<div class="w-16 h-16 rounded-full bg-secondary flex items-center justify-center text-white text-2xl font-black">MT</div>
+<div>
+<h4 class="font-headline font-bold text-primary">Marie Toussaint</h4>
+<p class="text-on-surface-variant text-sm">Class of 2023 • Nexus Fellow</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">"The Nexus program connected me with a Canadian startup. I'm now working remotely, bringing international revenue back to my home city."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Partners / Trust -->
+<section class="py-20 bg-surface-container-low overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 text-center">
+<p class="font-label text-xs font-bold text-outline uppercase tracking-[0.3em] mb-12">Institutional Partners &amp; Believers</p>
+<div class="flex flex-wrap justify-center items-center gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+<!-- Minimalist placeholders for logos -->
+<div class="font-headline text-2xl font-bold text-primary">GlobalGiving</div>
+<div class="font-headline text-2xl font-bold text-primary">Digicel Foundation</div>
+<div class="font-headline text-2xl font-bold text-primary">Google for Nonprofits</div>
+<div class="font-headline text-2xl font-bold text-primary">IDB Lab</div>
+<div class="font-headline text-2xl font-bold text-primary">UNESCO</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="relative py-40 bg-primary overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-0 left-0 w-96 h-96 bg-secondary-fixed blur-[120px] rounded-full"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-tertiary-fixed blur-[120px] rounded-full"></div>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+<h2 class="font-headline text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">Ready to light the path?</h2>
+<p class="text-xl text-primary-fixed-dim mb-12 font-light leading-relaxed">Whether as a donor, a technical partner, or a student, your journey toward Haiti's future starts here.</p>
+<div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+<button class="w-full sm:w-auto px-12 py-5 bg-secondary text-white font-headline font-bold text-xl rounded-xl shadow-2xl shadow-secondary/30 hover:-translate-y-1 transition-all">
+                    Partner with Us
+                </button>
+<button class="w-full sm:w-auto px-12 py-5 bg-white text-primary font-headline font-bold text-xl rounded-xl hover:-translate-y-1 transition-all">
+                    Join the Movement
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-900 border-t border-outline-variant/20">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 px-12 py-20 max-w-7xl mx-auto">
+<div class="col-span-2 md:col-span-1">
+<div class="text-xl font-bold text-blue-950 dark:text-white mb-6">EdLight</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                    Designing the future of Haiti through radical access to elite technical education and leadership development.
+                </p>
+<div class="flex space-x-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="font-headline font-bold text-primary dark:text-blue-400 mb-6">Programs</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Academy</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Labs</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Nexus</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">ESLP</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline font-bold text-primary dark:text-blue-400 mb-6">Impact</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Newsletter</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Impact Report</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Case Studies</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Alumni</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline font-bold text-primary dark:text-blue-400 mb-6">Contact</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Get Involved</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Privacy</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Support</a></li>
+<li class="pt-4">
+<span class="text-xs font-label font-bold text-primary uppercase">© 2024 EdLight. All rights reserved. Built for Haiti's Future.</span>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

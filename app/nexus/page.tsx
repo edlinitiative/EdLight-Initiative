@@ -188,9 +188,9 @@ export default function NexusPage() {
         </div>
       </Hero>
 
-      <section className="bg-gradient-to-b from-slate-50 via-white to-white py-20">
+      <section className="bg-surface py-20 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl rounded-3xl border border-primary/10 bg-white p-8 shadow-sm md:p-10">
+          <div className="mx-auto max-w-4xl rounded-3xl border border-outline/20 bg-surface-container-lowest p-8 shadow-sm md:p-10">
             <SectionHeader
               title="A gateway to global exposure"
               subtitle="Nexus helps Haitian students expand their horizons through cross-cultural learning, leadership development, and international exposure. The program is built to create meaningful experiences that strengthen confidence, perspective, and long-term ambition."
@@ -201,7 +201,7 @@ export default function NexusPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-surface-container-low py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-8">
@@ -211,9 +211,9 @@ export default function NexusPage() {
               />
               <div className="grid gap-6 sm:grid-cols-2">
                 {programHighlights.map((item) => (
-                  <div key={item.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
-                    <h3 className="font-heading text-lg font-semibold text-text mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                  <div key={item.title} className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
+                    <h3 className="font-heading text-lg font-semibold text-primary mb-2">{item.title}</h3>
+                    <p className="text-sm text-on-surface-variant leading-relaxed">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -278,7 +278,7 @@ export default function NexusPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="bg-surface py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Curated pathways"
@@ -289,15 +289,15 @@ export default function NexusPage() {
             {tracks.map((track) => {
               const Icon = track.icon
               return (
-                <div key={track.title} className="rounded-3xl border border-primary/10 bg-white p-7 shadow-sm">
+                <div key={track.title} className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-7 shadow-sm">
                   <div className="flex items-center gap-3">
                     <span className="rounded-full bg-primary/10 p-2 text-primary">
                       <Icon size={20} />
                     </span>
-                    <h3 className="font-heading text-lg font-semibold text-text">{track.title}</h3>
+                    <h3 className="font-heading text-lg font-semibold text-primary">{track.title}</h3>
                   </div>
-                  <p className="mt-3 text-sm text-gray-600 leading-relaxed">{track.description}</p>
-                  <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                  <p className="mt-3 text-sm text-on-surface-variant leading-relaxed">{track.description}</p>
+                  <ul className="mt-4 space-y-2 text-sm text-on-surface-variant">
                     {track.highlights.map((highlight) => (
                       <li key={highlight} className="flex items-start gap-2">
                         <ArrowRight size={14} className="mt-1 text-primary" />
@@ -312,16 +312,16 @@ export default function NexusPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-surface-container-low py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div className="rounded-3xl border border-primary/20 bg-white p-8 shadow-xl">
+            <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-8 shadow-xl">
               <SectionHeader
                 title="Access and support"
                 subtitle="EdLight aims to make Nexus as accessible as possible through fundraising guidance, partnership development, and financial support where available. Final funding structures may vary by cohort, destination, and partner availability."
               />
-              <div className="rounded-2xl border border-primary/10 bg-slate-50 p-6">
-                <p className="text-sm text-gray-600 leading-relaxed">
+              <div className="rounded-2xl border border-outline/20 bg-surface-container-low p-6">
+                <p className="text-sm text-on-surface-variant leading-relaxed">
                   Nexus is being developed with access in mind. Depending on the format of a given cohort, support may
                   involve fundraising guidance, external relationship-building, or direct assistance when resources are
                   available. Because each experience is shaped by real conditions, financial arrangements are reviewed on
@@ -332,9 +332,9 @@ export default function NexusPage() {
 
             <div className="space-y-6">
               {supportHighlights.map((item) => (
-                <div key={item.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
-                  <h3 className="font-heading text-lg font-semibold text-text">{item.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                <div key={item.title} className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
+                  <h3 className="font-heading text-lg font-semibold text-primary">{item.title}</h3>
+                  <p className="mt-2 text-sm text-on-surface-variant leading-relaxed">{item.description}</p>
                 </div>
               ))}
               <div className="rounded-3xl bg-gradient-to-r from-primary to-primary/80 p-6 text-white shadow-lg">
@@ -349,7 +349,7 @@ export default function NexusPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-surface py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Frequently asked questions"
@@ -360,20 +360,20 @@ export default function NexusPage() {
             {faqs.map((faq) => (
               <details
                 key={faq.question}
-                className="group rounded-3xl border border-primary/10 bg-white p-6 shadow-sm transition"
+                className="group rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm transition"
               >
-                <summary className="flex cursor-pointer items-center justify-between gap-3 text-left text-base font-semibold text-text">
+                <summary className="flex cursor-pointer items-center justify-between gap-3 text-left text-base font-semibold text-primary">
                   {faq.question}
                   <span className="text-primary transition group-open:rotate-180">▾</span>
                 </summary>
-                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
+                <p className="mt-3 text-sm text-on-surface-variant leading-relaxed">{faq.answer}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="pb-24">
+      <section className="bg-surface-container-low pb-24">
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/90 via-primary to-primary/90 p-10 text-white shadow-xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />

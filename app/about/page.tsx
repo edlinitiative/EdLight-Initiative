@@ -39,11 +39,11 @@ export default function AboutPage() {
       />
 
       {/* Our Story + Mission / Vision */}
-      <section className="py-12 sm:py-16 md:py-20">
+      <section className="bg-surface py-14 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-12 sm:mb-14 md:mb-16">
             <SectionHeader title="Our Story" />
-            <div className="space-y-5 sm:space-y-6 text-gray-700 leading-relaxed text-sm sm:text-base">
+            <div className="space-y-5 text-sm leading-relaxed text-on-surface-variant sm:space-y-6 sm:text-base">
               <p>
                 EdLight Initiative is a mission-driven organization committed to expanding access to
                 quality education, leadership development, and global opportunities for Haitian
@@ -61,18 +61,18 @@ export default function AboutPage() {
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-14 md:mb-16 max-w-2xl mx-auto">
-            <div className="glass rounded-2xl p-6 sm:p-8 text-center">
+            <div className="rounded-3xl border border-outline/20 bg-surface-container-low p-6 text-center shadow-sm sm:p-8">
               <Target className="w-10 h-10 sm:w-12 sm:h-12 text-primary mx-auto mb-3 sm:mb-4" />
               <h3 className="font-heading text-lg sm:text-xl font-bold mb-2 sm:mb-3">Mission</h3>
-              <p className="text-gray-700 text-sm sm:text-base">
+              <p className="text-on-surface-variant text-sm sm:text-base">
                 To expand access to quality education, mentorship, innovation, and global
                 opportunities for Haitian youth.
               </p>
             </div>
-            <div className="glass rounded-2xl p-6 sm:p-8 text-center">
+            <div className="rounded-3xl border border-outline/20 bg-surface-container-low p-6 text-center shadow-sm sm:p-8">
               <Eye className="w-10 h-10 sm:w-12 sm:h-12 text-primary mx-auto mb-3 sm:mb-4" />
               <h3 className="font-heading text-lg sm:text-xl font-bold mb-2 sm:mb-3">Vision</h3>
-              <p className="text-gray-700 text-sm sm:text-base">
+              <p className="text-on-surface-variant text-sm sm:text-base">
                 A future in which Haitian students have the tools, support, and opportunities to
                 reach their full potential and drive positive change in their communities and beyond.
               </p>
@@ -82,14 +82,14 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-12 sm:py-16 md:py-20">
+      <section className="bg-surface-container-low py-14 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Meet the EdLight Team"
             subtitle="EdLight is powered by a multidisciplinary team of educators, builders, mentors, and operators working across education, technology, and leadership development."
             centered
           />
-          <div className="max-w-4xl mx-auto mt-6 mb-10 sm:mb-12 space-y-3 text-gray-700 leading-relaxed text-sm sm:text-base">
+          <div className="mx-auto mb-10 mt-6 max-w-4xl space-y-3 text-sm leading-relaxed text-on-surface-variant sm:mb-12 sm:text-base">
             <p>
               EdLight was founded by Ted Jacquet, Stevenson Michel, and Christopher Michel.
             </p>
@@ -103,7 +103,7 @@ export default function AboutPage() {
                     <Users size={48} />
                   </div>
                 </div>
-                <h3 className="font-heading font-bold text-lg text-text">{leader.name}</h3>
+                <h3 className="font-heading text-lg font-bold text-primary">{leader.name}</h3>
                 <p className="mt-1 text-primary text-sm font-medium">{leader.title}</p>
               </div>
             ))}
@@ -112,7 +112,7 @@ export default function AboutPage() {
       </section>
 
       {/* Journey / Timeline Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-surface py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Our Journey"
@@ -124,17 +124,17 @@ export default function AboutPage() {
               {timeline.map((item, index) => (
                 <div key={index} className="flex gap-6">
                   <div className="flex-shrink-0 w-24 text-right">
-                    <span className="inline-block bg-blue-600 text-white px-4 py-2 rounded-full font-bold text-lg">
+                    <span className="inline-block rounded-full bg-primary px-4 py-2 text-lg font-bold text-white">
                       {item.year}
                     </span>
                   </div>
                   <div className="relative flex-1 pb-8">
                     {index !== timeline.length - 1 && (
-                      <div className="absolute left-0 top-12 bottom-0 w-0.5 bg-blue-200"></div>
+                      <div className="absolute bottom-0 left-0 top-12 w-0.5 bg-outline-variant"></div>
                     )}
-                    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                      <p className="text-gray-700">{item.description}</p>
+                    <div className="rounded-2xl border border-outline/20 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg">
+                      <h3 className="mb-2 text-xl font-bold text-primary">{item.title}</h3>
+                      <p className="text-on-surface-variant">{item.description}</p>
                     </div>
                   </div>
                 </div>
@@ -145,10 +145,10 @@ export default function AboutPage() {
       </section>
 
       {/* Closing */}
-      <section className="py-16 sm:py-20">
+      <section className="bg-surface-container-low py-16 sm:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg sm:text-xl font-medium text-gray-800 leading-relaxed">
+            <p className="text-lg font-medium leading-relaxed text-on-surface sm:text-xl">
               EdLight continues to build practical, mission-driven pathways for students through
               education, leadership, technology, and community.
             </p>

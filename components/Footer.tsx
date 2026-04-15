@@ -76,15 +76,15 @@ export default function Footer() {
 
   return (
     <footer className="relative mt-10 overflow-hidden">
-  <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#124594] via-[#3d7ed9] to-[#0f2f73]" />
-  <div className="absolute -right-28 top-14 -z-10 h-64 w-64 rounded-full bg-[#5a9bff]/25 blur-3xl" />
-  <div className="absolute left-[-22%] bottom-[-28%] -z-10 h-[18rem] w-[18rem] rounded-full bg-[#3a71d1]/25 blur-3xl" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary to-primary-container" />
+      <div className="absolute -right-28 top-14 -z-10 h-64 w-64 rounded-full bg-secondary-fixed-dim/20 blur-3xl" />
+      <div className="absolute bottom-[-28%] left-[-22%] -z-10 h-[18rem] w-[18rem] rounded-full bg-tertiary-fixed-dim/20 blur-3xl" />
 
       <div className="container mx-auto px-4 py-8 sm:py-10 text-white">
         <div className="grid gap-8 sm:gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5 space-y-5 sm:space-y-6">
             <div>
-              <h3 className="font-heading text-xl sm:text-2xl font-bold mb-2 sm:mb-3">EdLight Initiative</h3>
+              <h3 className="mb-2 sm:mb-3 font-heading text-2xl font-black tracking-tight sm:text-3xl">EdLight Initiative</h3>
               <p className="font-body text-white/80 leading-relaxed text-sm sm:text-base">
                 At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide high
                 school students with digital access to quality education through our online courses in STEM subjects.
@@ -106,7 +106,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white/12 text-white transition hover:bg-white/25 active:scale-95"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/10 text-white transition hover:bg-white/20 active:scale-95 sm:h-11 sm:w-11"
                 >
                   <Icon size={18} />
                 </a>
@@ -116,7 +116,7 @@ export default function Footer() {
 
           <div className="lg:col-span-7 grid gap-6 sm:gap-8 grid-cols-2 lg:grid-cols-3">
             <div>
-              <h4 className="font-heading text-base sm:text-lg font-semibold mb-3 sm:mb-4">Programs</h4>
+              <h4 className="mb-3 sm:mb-4 font-heading text-base font-bold uppercase tracking-wider text-primary-fixed sm:text-lg">Programs</h4>
               <ul className="space-y-2 sm:space-y-3 text-white/80">
                 {programLinks.map(({ href, label }) => (
                   <li key={href}>
@@ -124,7 +124,7 @@ export default function Footer() {
                       href={href}
                       className="inline-flex items-center gap-2 text-sm transition hover:text-white"
                     >
-                      <span>→</span>
+                      <span>↗</span>
                       {label}
                     </Link>
                   </li>
@@ -133,7 +133,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-heading text-lg font-semibold mb-4">Explore</h4>
+              <h4 className="mb-4 font-heading text-base font-bold uppercase tracking-wider text-primary-fixed sm:text-lg">Explore</h4>
               <ul className="space-y-3 text-white/80">
                 {orgLinks.map(({ href, label }) => (
                   <li key={href}>
@@ -141,7 +141,7 @@ export default function Footer() {
                       href={href}
                       className="inline-flex items-center gap-2 text-sm transition hover:text-white"
                     >
-                      <span>→</span>
+                      <span>↗</span>
                       {label}
                     </Link>
                   </li>
@@ -150,7 +150,7 @@ export default function Footer() {
             </div>
 
             <div className="space-y-3 sm:space-y-4 col-span-2 lg:col-span-1">
-              <h4 className="font-heading text-base sm:text-lg font-semibold mb-2 sm:mb-3">Stay in the loop</h4>
+              <h4 className="mb-2 sm:mb-3 font-heading text-base font-bold uppercase tracking-wider text-primary-fixed sm:text-lg">Stay in the loop</h4>
               <p className="text-xs sm:text-sm text-white/80 mb-3 sm:mb-4">
                 Monthly highlights, student success stories, and program openings delivered to your inbox.
               </p>
@@ -168,12 +168,12 @@ export default function Footer() {
                     placeholder="Email address"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    className="w-full rounded-xl border border-white/30 bg-white/5 px-4 py-3 text-base text-white placeholder-white/60 focus:border-white focus:outline-none"
+                    className="w-full rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-base text-white placeholder-white/60 focus:border-white focus:outline-none"
                     required
                   />
                   <button
                     type="submit"
-                    className="w-full sm:w-auto rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/80 disabled:cursor-not-allowed disabled:opacity-70 active:scale-95"
+                    className="w-full rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/80 disabled:cursor-not-allowed disabled:opacity-70 active:scale-95 sm:w-auto"
                     disabled={status === 'loading'}
                   >
                     {status === 'loading' ? 'Subscribing...' : 'Subscribe'}

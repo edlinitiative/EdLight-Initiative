@@ -1,13 +1,27 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Plus_Jakarta_Sans, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
+const spaceGrotesk = Space_Grotesk({
+  weight: ['500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-heading',
+  display: 'swap',
+})
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+})
+
 const inter = Inter({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-label',
   display: 'swap',
 })
 
@@ -122,7 +136,7 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${plusJakartaSans.variable} ${inter.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -133,12 +147,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body>
+      <body className="font-body text-on-surface">
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
         <Navbar />
-        <main id="main-content" className="pt-16">
+        <main id="main-content" className="pt-20 md:pt-24">
           {children}
         </main>
         <Footer />

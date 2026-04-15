@@ -210,7 +210,7 @@ export default function CodePage() {
       </Hero>
 
       {/* Stats */}
-      <section className="bg-gradient-to-b from-slate-50 via-white to-white py-20">
+      <section className="bg-surface py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Learn by doing, not watching"
@@ -221,13 +221,13 @@ export default function CodePage() {
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-md transition hover:shadow-xl"
+                className="group relative overflow-hidden rounded-3xl border border-outline/20 bg-surface-container-lowest p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 transition group-hover:opacity-100" />
                 <div className="relative z-10 space-y-3">
                   <span className="text-4xl font-bold text-primary">{stat.value}</span>
-                  <h3 className="text-lg font-semibold text-text">{stat.label}</h3>
-                  <p className="text-sm text-gray-600">{stat.description}</p>
+                  <h3 className="text-lg font-semibold text-primary">{stat.label}</h3>
+                  <p className="text-sm text-on-surface-variant">{stat.description}</p>
                 </div>
               </div>
             ))}
@@ -236,7 +236,7 @@ export default function CodePage() {
       </section>
 
       {/* How it works */}
-      <section className="py-20">
+      <section className="bg-surface-container-low py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="From zero to certified in three steps"
@@ -247,11 +247,11 @@ export default function CodePage() {
             {howItWorks.map((step) => (
               <div
                 key={step.number}
-                className="rounded-3xl border border-primary/10 bg-white p-8 shadow-sm"
+                className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-8 shadow-sm"
               >
                 <span className="text-5xl font-bold text-primary/20">{step.number}</span>
-                <h3 className="mt-4 font-heading text-xl font-semibold text-text">{step.title}</h3>
-                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{step.description}</p>
+                <h3 className="mt-4 font-heading text-xl font-semibold text-primary">{step.title}</h3>
+                <p className="mt-3 text-sm text-on-surface-variant leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
@@ -310,7 +310,7 @@ export default function CodePage() {
       </section>
 
       {/* Learn by building */}
-      <section className="py-20">
+      <section className="bg-surface py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Learn by building"
@@ -321,25 +321,25 @@ export default function CodePage() {
             {projects.map((project) => (
               <div
                 key={project.title}
-                className="rounded-3xl border border-primary/10 bg-white p-7 shadow-sm"
+                className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-7 shadow-sm"
               >
                 <div className="flex items-center justify-between gap-3">
-                  <h3 className="font-heading text-lg font-semibold text-text">{project.title}</h3>
+                  <h3 className="font-heading text-lg font-semibold text-primary">{project.title}</h3>
                   <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
                     {project.level}
                   </span>
                 </div>
-                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{project.description}</p>
+                <p className="mt-3 text-sm text-on-surface-variant leading-relaxed">{project.description}</p>
                 <div className="mt-4 flex flex-wrap items-center gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-gray-200 px-3 py-1 text-xs font-medium text-gray-600"
+                      className="rounded-full border border-outline/30 px-3 py-1 text-xs font-medium text-on-surface-variant"
                     >
                       {tag}
                     </span>
                   ))}
-                  <span className="ml-auto text-xs text-gray-400">{project.hours}</span>
+                  <span className="ml-auto text-xs text-outline">{project.hours}</span>
                 </div>
               </div>
             ))}
@@ -358,7 +358,7 @@ export default function CodePage() {
       </section>
 
       {/* Lesson format */}
-      <section className="bg-slate-50 py-20">
+      <section className="bg-surface-container-low py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-8">
@@ -367,39 +367,39 @@ export default function CodePage() {
                 subtitle="Every lesson is a focused reading followed by a hands-on coding exercise. No video lectures — just learn at your own pace and write real code."
               />
               <div className="grid gap-6 sm:grid-cols-2">
-                <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
+                <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <BookOpenCheck size={20} />
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-text">Bite-sized lessons</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+                  <h3 className="font-heading text-lg font-semibold text-primary">Bite-sized lessons</h3>
+                  <p className="mt-2 text-sm text-on-surface-variant leading-relaxed">
                     Focused readings you can finish in 5-10 minutes. No fluff, just the concepts you need.
                   </p>
                 </div>
-                <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
+                <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Code2 size={20} />
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-text">Hands-on exercises</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+                  <h3 className="font-heading text-lg font-semibold text-primary">Hands-on exercises</h3>
+                  <p className="mt-2 text-sm text-on-surface-variant leading-relaxed">
                     Practice coding directly in your browser after every lesson. No setup, no downloads.
                   </p>
                 </div>
-                <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
+                <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Laptop size={20} />
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-text">Works on any device</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+                  <h3 className="font-heading text-lg font-semibold text-primary">Works on any device</h3>
+                  <p className="mt-2 text-sm text-on-surface-variant leading-relaxed">
                     Mobile-friendly and browser-based. Learn on a phone, tablet, or laptop — wherever you are.
                   </p>
                 </div>
-                <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
+                <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <GraduationCap size={20} />
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-text">Multilingual support</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+                  <h3 className="font-heading text-lg font-semibold text-primary">Multilingual support</h3>
+                  <p className="mt-2 text-sm text-on-surface-variant leading-relaxed">
                     Available in English, French, and Haitian Creole so you can learn in the language you think in.
                   </p>
                 </div>
@@ -425,7 +425,7 @@ export default function CodePage() {
       </section>
 
       {/* Certificates */}
-      <section className="py-20">
+      <section className="bg-surface py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Certificates that employers trust"
@@ -436,12 +436,12 @@ export default function CodePage() {
             {certFeatures.map((feature) => {
               const Icon = feature.icon
               return (
-                <div key={feature.title} className="rounded-3xl border border-primary/10 bg-white p-7 shadow-sm">
+                <div key={feature.title} className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-7 shadow-sm">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Icon size={20} />
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-text">{feature.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+                  <h3 className="font-heading text-lg font-semibold text-primary">{feature.title}</h3>
+                  <p className="mt-2 text-sm text-on-surface-variant leading-relaxed">{feature.description}</p>
                 </div>
               )
             })}
@@ -460,7 +460,7 @@ export default function CodePage() {
       </section>
 
       {/* CTA */}
-      <section className="pb-24">
+      <section className="bg-surface-container-low pb-24">
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/90 via-primary to-primary/90 p-10 text-white shadow-xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />

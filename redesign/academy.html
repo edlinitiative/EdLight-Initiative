@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academy | EdLight</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eceef1",
+                        "secondary": "#006a6a",
+                        "surface-bright": "#f7f9fc",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#444650",
+                        "on-tertiary-container": "#b68900",
+                        "surface-tint": "#435b9f",
+                        "secondary-container": "#8cf3f3",
+                        "on-secondary-container": "#007070",
+                        "secondary-fixed-dim": "#6fd7d6",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed": "#ffdf9e",
+                        "surface-container-high": "#e6e8eb",
+                        "outline-variant": "#c5c6d2",
+                        "outline": "#757682",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e6",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#002366",
+                        "secondary-fixed": "#8cf3f3",
+                        "primary-fixed": "#dbe1ff",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b3c5ff",
+                        "on-tertiary-fixed": "#261a00",
+                        "background": "#f7f9fc",
+                        "surface-container-low": "#f2f4f7",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#362600",
+                        "on-surface": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-container": "#758dd5",
+                        "on-primary-fixed-variant": "#2a4386",
+                        "on-primary-fixed": "#00174a",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "tertiary": "#1c1300",
+                        "inverse-on-surface": "#eff1f4",
+                        "on-secondary-fixed": "#002020",
+                        "surface": "#f7f9fc",
+                        "tertiary-fixed-dim": "#fabd00",
+                        "surface-variant": "#e0e3e6",
+                        "on-primary": "#ffffff",
+                        "primary": "#00113a",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-secondary-fixed-variant": "#004f4f",
+                        "surface-dim": "#d8dadd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift-no-border {
+            border: none !important;
+        }
+        .tonal-depth-shift {
+            border: none !important;
+        }
+        /* Custom scrollbar for refined UI */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f7f9fc; }
+        ::-webkit-scrollbar-thumb { background: #c5c6d2; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md shadow-sm dark:shadow-none transition-all duration-150 ease-in-out">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black text-blue-950 dark:text-white tracking-tighter font-headline">EdLight</div>
+<div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] font-bold text-sm tracking-tight">
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">Home</a>
+<a class="text-blue-700 dark:text-blue-300 border-b-2 border-blue-700 dark:border-blue-300 pb-1" href="#">Academy</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">Labs</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">Nexus</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">ESLP</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">About</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-5 py-2 font-headline font-bold text-sm text-blue-900 dark:text-blue-400 hover:opacity-80 transition-opacity">Get Involved</button>
+<button class="px-6 py-2.5 bg-primary text-on-primary rounded-xl font-headline font-bold text-sm shadow-sm hover:scale-95 duration-150 ease-in-out">Donate</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 overflow-hidden bg-surface">
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="grid lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container text-xs font-bold font-headline mb-6 uppercase tracking-widest">Global Educational Excellence</span>
+<h1 class="text-6xl md:text-8xl font-black font-headline text-primary tracking-tighter leading-[0.9] mb-8">
+                        EdLight Academy - <span class="text-on-primary-container">Education Built for Access and Impact</span>
+</h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-xl font-body leading-relaxed mb-10">
+                        Bridging the gap between potential and opportunity through high-quality, digital-first learning pathways designed for the leaders of tomorrow.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-primary text-on-primary rounded-xl font-headline font-bold text-lg hover:scale-95 transition-transform">Explore Courses</button>
+<button class="px-8 py-4 bg-surface-container-high text-primary rounded-xl font-headline font-bold text-lg hover:bg-surface-container-highest transition-colors">View Learning Path</button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-square rounded-[3rem] overflow-hidden shadow-2xl relative">
+<img class="w-full h-full object-cover" data-alt="Modern high-end classroom aesthetic with bright natural lighting, minimalist furniture, and a diverse group of focused young scholars studying on laptops" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi7tWHu6438KI2dg0aEcq_tR5wWUeVKqSGDwp86SmIjwSoroKNL7ez2ivS5HlowA6_uhoo4dZAIjp_ydTfXmCD1Qj4sHWP2p6P4KWAT4vj08kM_3XrDyV_cugXN3JvIIv7DNk2u69Vvk3lsKrLRhMWOxKXmpMc4VTXXmdX0kd1hyMspDccS7rLMuiddYaGlpHtJGUH0ShvDT5M89w_ATSSYbarn8Af0UzhzU_InmZR0yarzs8JyMf940KEYWDg9F5dPcM3sCBxppxZ"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+</div>
+<!-- Floating Stat -->
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border-outline-variant/20 border flex items-center gap-4">
+<div class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div>
+<div class="text-2xl font-black font-headline text-primary leading-none">4.9/5</div>
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Student Rating</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary-fixed/30 to-transparent pointer-events-none -z-10"></div>
+</section>
+<!-- Core Pillars: Bento Grid -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<h2 class="text-4xl font-black font-headline text-primary tracking-tight mb-4">The Pillars of EdLight</h2>
+<p class="text-on-surface-variant">Our curriculum is built upon three foundational cornerstones that prepare students for a globalized, tech-driven economy.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- STEM -->
+<div class="group p-10 bg-surface-container-lowest rounded-[2.5rem] transition-all hover:scale-[1.02] hover:shadow-xl border-outline-variant/10 border">
+<div class="w-16 h-16 bg-secondary-container text-on-secondary-container rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-4xl">science</span>
+</div>
+<h3 class="text-2xl font-bold font-headline text-primary mb-4">STEM Excellence</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">Mastering physics, advanced mathematics, and computer science through hands-on laboratory experiences.</p>
+<a class="inline-flex items-center text-secondary font-bold font-headline gap-2 group-hover:gap-4 transition-all" href="#">
+                        Explore STEM <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<!-- Business -->
+<div class="group p-10 bg-primary-container text-on-primary-container rounded-[2.5rem] transition-all hover:scale-[1.02] hover:shadow-xl">
+<div class="w-16 h-16 bg-white/10 text-white rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-4xl">trending_up</span>
+</div>
+<h3 class="text-2xl font-bold font-headline mb-4">Strategic Business</h3>
+<p class="text-on-primary-container/80 leading-relaxed mb-6">Developing the leadership, financial literacy, and entrepreneurial mindset required for institutional impact.</p>
+<a class="inline-flex items-center text-inverse-primary font-bold font-headline gap-2 group-hover:gap-4 transition-all" href="#">
+                        Learn Leadership <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<!-- Languages -->
+<div class="group p-10 bg-surface-container-lowest rounded-[2.5rem] transition-all hover:scale-[1.02] hover:shadow-xl border-outline-variant/10 border">
+<div class="w-16 h-16 bg-tertiary-fixed text-on-tertiary-fixed rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-4xl">translate</span>
+</div>
+<h3 class="text-2xl font-bold font-headline text-primary mb-4">Modern Languages</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">Fluency in English, French, and Spanish to facilitate cross-border collaboration and diplomatic leadership.</p>
+<a class="inline-flex items-center text-on-tertiary-fixed-variant font-bold font-headline gap-2 group-hover:gap-4 transition-all" href="#">
+                        View Languages <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Learning Journey: Asymmetric Visual Path -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<h2 class="text-4xl font-black font-headline text-primary tracking-tight mb-20 text-center">Your Learning Journey</h2>
+<div class="relative">
+<!-- Connecting Line (Desktop) -->
+<div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant/20 -translate-y-1/2"></div>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-12 relative z-10">
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center text-primary font-black font-headline text-2xl mb-6 border-4 border-surface ring-8 ring-surface-container">01</div>
+<h4 class="text-xl font-bold font-headline text-primary mb-2">Discovery</h4>
+<p class="text-sm text-on-surface-variant px-4">Initial assessment and orientation to define your goals.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center text-primary font-black font-headline text-2xl mb-6 border-4 border-surface ring-8 ring-surface-container">02</div>
+<h4 class="text-xl font-bold font-headline text-primary mb-2">Immersion</h4>
+<p class="text-sm text-on-surface-variant px-4">Core coursework led by elite faculty and industry mentors.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center text-primary font-black font-headline text-2xl mb-6 border-4 border-surface ring-8 ring-surface-container">03</div>
+<h4 class="text-xl font-bold font-headline text-primary mb-2">Application</h4>
+<p class="text-sm text-on-surface-variant px-4">Real-world projects through EdLight Labs and Nexus partnerships.</p>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-primary text-on-primary shadow-lg flex items-center justify-center font-black font-headline text-2xl mb-6 border-4 border-surface ring-8 ring-surface-container">04</div>
+<h4 class="text-xl font-bold font-headline text-primary mb-2">Mastery</h4>
+<p class="text-sm text-on-surface-variant px-4">Certification and transition into leadership roles.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Course Collections: Searchable Grid -->
+<section class="py-24 bg-surface-container-high/50">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
+<div>
+<h2 class="text-4xl font-black font-headline text-primary tracking-tight">Course Collections</h2>
+<p class="text-on-surface-variant">Explore our curated selection of advanced academic subjects.</p>
+</div>
+<div class="relative w-full md:w-96">
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest rounded-xl border-none ring-1 ring-outline-variant/30 focus:ring-2 focus:ring-primary transition-all font-label" placeholder="Search subjects..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Course 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl hover:shadow-lg transition-all cursor-pointer group">
+<div class="aspect-video rounded-xl overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Abstract 3D render of mathematical geometry and formulas floating in a clean architectural space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxysHuKh1WHbOVSE3XbTptdc9vNb5v09Vz4f-9E0P76iOgwzFltaZiS5oyZpTrMUSYJyKWLQoFwr4QeI6MMx7lruldvZMS4LGsYdwyUhcrryqW14KSeZ13xx4o9H65qZVqVyqPSRVxbFlPEPW1G55Ku2Y0xPsdJaK19VW1525AB2PjUSbiUhYuWzwVKiVC8JBstRSQewsii2Euc3GPXfnRaaSDsPPQl9fXowTQjPF5c2eUiavnbdmw-upQIao8LYCXBQeGTp5c7GOw"/>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary mb-2 block">STEM Foundations</span>
+<h5 class="text-xl font-bold font-headline text-primary mb-2 leading-tight">Advanced Linear Algebra</h5>
+<div class="flex items-center gap-4 text-xs text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 12 Weeks</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span> 45 Enrolled</span>
+</div>
+</div>
+<!-- Course 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl hover:shadow-lg transition-all cursor-pointer group">
+<div class="aspect-video rounded-xl overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="High-tech physics laboratory with glowing lasers and precision instruments in a dark room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsOvIV8uybHcpkdwnglI2Uhnwqw1ZuiMjJQhV-LCYffO0L4JiR97mn7UB6j1mPjhhJOJneJh3vPuIfjlY7RoaBylkxoO3WlUG0AXywh5pjqCj994dK98WJNgUecOVNQKV26jPM3ZeMOGWXy6IUfOTaw2Z-Yh0y7TKJzh4eaO_ALYWyyX7fC1VejATn2Kmr3mfmFYoZI-YJEoShrRSjaK7jCDIIjtSPTRwLhmeaNCDeWlKgZMXQFJu9Idj9ehlF0QLzoyUUbVAX5XT6"/>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary mb-2 block">Physics Lab</span>
+<h5 class="text-xl font-bold font-headline text-primary mb-2 leading-tight">Quantum Mechanics I</h5>
+<div class="flex items-center gap-4 text-xs text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 14 Weeks</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span> 28 Enrolled</span>
+</div>
+</div>
+<!-- Course 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl hover:shadow-lg transition-all cursor-pointer group">
+<div class="aspect-video rounded-xl overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A clean business office table with a leather notebook, glasses, and a focused pen, morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiuqhxjJLGmvsmUqyz-1MdfJRgSzJV6dAH-CDQmEd60ydbJmvWm8dGz1AjyoYq0QfxsU2WneIbGgk90EOZptFoLEpUTR0ZhuJ-TklVbUBdEwrF_9TtRM5tN2w1FOqbxhkdb82X1-4Ckx52ZNy3WYn5XP5ePsDj4_ubilDiNr5h16pnwsUgpV1dUCD3_zNd_DXrU8jG_PdbdxR04JglgOyPtzFxPd6B6cn3s72A5Eq3o-gm6t3ytusK1Yd4gB98gR6SwAWEzlj0pydi"/>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-tertiary-fixed-variant mb-2 block">Business Strategy</span>
+<h5 class="text-xl font-bold font-headline text-primary mb-2 leading-tight">Ethical Leadership</h5>
+<div class="flex items-center gap-4 text-xs text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 8 Weeks</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span> 62 Enrolled</span>
+</div>
+</div>
+<!-- Course 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl hover:shadow-lg transition-all cursor-pointer group">
+<div class="aspect-video rounded-xl overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A stack of classic literature books next to a coffee cup in a bright library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE9k2rcKv4E6O5d8nzvePMXhpn-KWSEf8uBG_344wfpa9ScMZfQDf1rDxexjTPUQPFr_h2OS7sUXNbfyuoJXNBzxsKGSHCwS-vsGi_VVH9rnXB5X6gHhGi5uNQw6f5osNb6cZq4iv0ve1_DOQQcoyMDjnzOXj61ovkv9xzaN9eDApGG5HG7oVYqC6sDUvebj_A158ALnfdVGL_4BFDHguG8Lxx35KJbqIG_QTA8aOhEh-Rc_hz1Wjhab7aLGGc2YBLugwKt6yoPMTk"/>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-tertiary-fixed-variant mb-2 block">ESLP Program</span>
+<h5 class="text-xl font-bold font-headline text-primary mb-2 leading-tight">Professional English</h5>
+<div class="flex items-center gap-4 text-xs text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 10 Weeks</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span> 120 Enrolled</span>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<button class="px-10 py-4 bg-primary text-on-primary rounded-xl font-headline font-bold hover:bg-primary-container transition-colors">View All Subjects</button>
+</div>
+</div>
+</section>
+<!-- How it Works: Timeline -->
+<section class="py-24 bg-surface">
+<div class="max-w-4xl mx-auto px-8">
+<h2 class="text-4xl font-black font-headline text-primary tracking-tight mb-16 text-center">How to Enroll</h2>
+<div class="space-y-4">
+<!-- Step 1 -->
+<div class="flex gap-6 group">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">1</div>
+<div class="w-px h-full bg-outline-variant/30 group-last:hidden"></div>
+</div>
+<div class="pb-12">
+<h4 class="text-xl font-bold font-headline text-primary">Application Submission</h4>
+<p class="text-on-surface-variant">Tell us about your background, aspirations, and academic interests through our online portal.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex gap-6 group">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">2</div>
+<div class="w-px h-full bg-outline-variant/30 group-last:hidden"></div>
+</div>
+<div class="pb-12">
+<h4 class="text-xl font-bold font-headline text-primary">Aptitude Assessment</h4>
+<p class="text-on-surface-variant">A comprehensive evaluation of logical reasoning and linguistic potential to tailor your path.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex gap-6 group">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">3</div>
+<div class="w-px h-full bg-outline-variant/30 group-last:hidden"></div>
+</div>
+<div class="pb-12">
+<h4 class="text-xl font-bold font-headline text-primary">Academic Interview</h4>
+<p class="text-on-surface-variant">Meet with the faculty board to discuss how EdLight aligns with your vision for the future.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex gap-6 group">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">4</div>
+<div class="w-px h-full bg-outline-variant/30 group-last:hidden"></div>
+</div>
+<div class="pb-12">
+<h4 class="text-xl font-bold font-headline text-primary">Pathway Selection</h4>
+<p class="text-on-surface-variant">Finalize your curriculum and choose your specialized mentors.</p>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="flex gap-6 group">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">5</div>
+<div class="w-px h-full bg-outline-variant/30 group-last:hidden"></div>
+</div>
+<div class="pb-8">
+<h4 class="text-xl font-bold font-headline text-primary">Matriculation</h4>
+<p class="text-on-surface-variant">Access your dashboard, join your cohort, and begin your educational journey.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Lessons: Glassmorphism Cards -->
+<section class="py-24 bg-primary-container relative overflow-hidden">
+<!-- Background Accents -->
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-secondary/20 blur-[100px] rounded-full"></div>
+<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-tertiary-fixed-dim/10 blur-[100px] rounded-full"></div>
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<span class="inline-block px-3 py-1 bg-error rounded text-[10px] font-black text-white mb-4 animate-pulse uppercase tracking-widest">Live Now</span>
+<h2 class="text-4xl font-black font-headline text-white tracking-tight mb-4">Featured Academy Content</h2>
+<p class="text-on-primary-container leading-relaxed">Experience a glimpse of our lecture methodology with these popular active lessons.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Video Preview 1 -->
+<div class="group relative rounded-3xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all p-4">
+<div class="aspect-video rounded-2xl overflow-hidden relative mb-4">
+<img class="w-full h-full object-cover" data-alt="Cinematic shot of a diverse young professional giving a lecture with a digital screen in the background, soft bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_oAvpHKGZ5sr_W7HnoGLppFDoz7LULTBtJL3tAW0BZWNSVJogRSZmakE6RwhSiB1AfbV5yafUMXFrB9eIRMf8eqBQ3l7BqEPjutUmdkLh_RnJ3AMY0QVu6rIau7DIAMp1cda_DiUfoS0iRBivKiXpnprZ41yH1KkDQqjUPOSu6AriJw2r30bpYaik2jAN4EeubHo9nnD5FhHBRKMNrFpTxCrfJ8sAFL_TRYTTwfOBJVzGFfU074SGmqJX0HCAQ1-SiRqcUJ0brQAR"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-white">play_circle</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-white text-[10px] font-bold uppercase tracking-wider">12:45</div>
+</div>
+<h4 class="text-xl font-bold font-headline text-white mb-2">Introduction to Macroeconomics</h4>
+<p class="text-on-primary-container text-sm line-clamp-2">Professor Jean-Pierre discusses the impacts of global fiscal policy on emerging markets.</p>
+</div>
+<!-- Video Preview 2 -->
+<div class="group relative rounded-3xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all p-4">
+<div class="aspect-video rounded-2xl overflow-hidden relative mb-4">
+<img class="w-full h-full object-cover" data-alt="Close up of high-tech robotics hardware with intricate circuits and blue glowing lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv5LOSxGR7AYc7xeTmIUaGxA5cdzoCyFQbtELjjV2KVv4_4-Tyj6kUCmcw3aTFcUUb7T30Uu50ZtKW888I__A9Lw3wiVSXM23B504a1vR1zLUwc2QHDBsTbnM1vwlZJs4DAsKUjJiFzzQzTOu0MoSK0TBckd9b09UIXqrGLGLre_00MvZsTQoAOqUGRo2wipTbckaRXek3-U65yrjcGA6nU_HvlakqHI72U6BnE3IEzD0Pyp3qkNChf-yy6cq1rcVwjTC6o638GGVf"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-white">play_circle</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-white text-[10px] font-bold uppercase tracking-wider">08:20</div>
+</div>
+<h4 class="text-xl font-bold font-headline text-white mb-2">Robotics &amp; Automation</h4>
+<p class="text-on-primary-container text-sm line-clamp-2">Explore the foundations of neural networks and their application in local infrastructure.</p>
+</div>
+<!-- Video Preview 3 -->
+<div class="group relative rounded-3xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all p-4">
+<div class="aspect-video rounded-2xl overflow-hidden relative mb-4">
+<img class="w-full h-full object-cover" data-alt="Aerial view of a collaborative workshop session with diverse students working around a large wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd_mgijYFHtripmVp3oHrfCaYacT7tGjM3ha3bUSC8WBaSIpSXgAPx_8fTsffdhO06SyT1JsAoTSanUf3e8GEeXnjJgfUPOJjTpbxapTA8ToG_5SpWWnAKJCF96HpxFgjTqYLWdSwgar8ssbPQChp3GLnCwNZl1vzDKGi6EZOztHXMC1kjgPTOZoUlmU9WE6r9Y9cFbNoms7V5bI494b_Fl6tAQ5N6ueNe09WRNTiOupGNdADx5eQJUwM06aJL-KU4osJhxabwyzaZ"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-white">play_circle</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-white text-[10px] font-bold uppercase tracking-wider">22:15</div>
+</div>
+<h4 class="text-xl font-bold font-headline text-white mb-2">Sustainable Urban Planning</h4>
+<p class="text-on-primary-container text-sm line-clamp-2">Designing cities for resilience: A case study on Port-au-Prince revitalization.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Shell -->
+<footer class="bg-slate-50 dark:bg-slate-900 w-full rounded-t-none pt-20 pb-12">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 px-12 pb-16 max-w-7xl mx-auto font-['Plus_Jakarta_Sans'] text-base">
+<!-- Brand Column -->
+<div class="col-span-2 md:col-span-1">
+<div class="text-xl font-bold text-blue-950 dark:text-white mb-6">EdLight</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">Empowering the next generation of leaders in Haiti through world-class educational opportunities.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<!-- Quick Links -->
+<div class="flex flex-col gap-4">
+<h6 class="font-bold text-primary dark:text-blue-400 mb-2">Programs</h6>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Academy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Labs</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Nexus</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">ESLP</a>
+</div>
+<div class="flex flex-col gap-4">
+<h6 class="font-bold text-primary dark:text-blue-400 mb-2">Organization</h6>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Newsletter</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Impact</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Contact</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 transition-colors" href="#">Privacy</a>
+</div>
+<!-- Join Our Mission -->
+<div class="flex flex-col gap-4">
+<h6 class="font-bold text-primary dark:text-blue-400 mb-2">Newsletter</h6>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Stay updated on our latest courses and impact stories.</p>
+<div class="flex mt-2">
+<input class="w-full bg-surface-container-high border-none rounded-l-xl text-xs focus:ring-1 focus:ring-primary" placeholder="Email" type="text"/>
+<button class="bg-primary text-on-primary px-4 rounded-r-xl"><span class="material-symbols-outlined">send</span></button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-12 pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+<div>© 2024 EdLight. All rights reserved. Built for Haiti's Future.</div>
+<div class="flex gap-8">
+<a href="#">Terms of Service</a>
+<a href="#">Security</a>
+<a href="#">Ethics Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

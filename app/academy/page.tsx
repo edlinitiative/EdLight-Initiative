@@ -203,7 +203,7 @@ export default function AcademyPage() {
         </div>
       </Hero>
 
-      <section id="start" className="bg-gradient-to-b from-slate-50 via-white to-white py-20">
+      <section id="start" className="bg-surface py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Education built for access and impact"
@@ -214,13 +214,13 @@ export default function AcademyPage() {
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-md transition hover:shadow-xl"
+                className="group relative overflow-hidden rounded-3xl border border-outline/20 bg-surface-container-lowest p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 transition group-hover:opacity-100" />
                 <div className="relative z-10 space-y-3">
                   <span className="text-4xl font-bold text-primary">{stat.value}</span>
-                  <h3 className="text-lg font-semibold text-text">{stat.label}</h3>
-                  <p className="text-sm text-gray-600">{stat.description}</p>
+                  <h3 className="text-lg font-semibold text-primary">{stat.label}</h3>
+                  <p className="text-sm text-on-surface-variant">{stat.description}</p>
                 </div>
               </div>
             ))}
@@ -228,7 +228,7 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-surface-container-low py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="space-y-8">
@@ -240,12 +240,12 @@ export default function AcademyPage() {
                 {features.map((feature) => {
                   const Icon = feature.icon
                   return (
-                    <div key={feature.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
+                    <div key={feature.title} className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm">
                       <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                         <Icon size={20} />
                       </div>
-                      <h3 className="font-heading text-lg font-semibold text-text">{feature.title}</h3>
-                      <p className="mt-2 text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+                      <h3 className="font-heading text-lg font-semibold text-primary">{feature.title}</h3>
+                      <p className="mt-2 text-sm text-on-surface-variant leading-relaxed">{feature.description}</p>
                     </div>
                   )
                 })}
@@ -308,7 +308,7 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-surface py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Learning pillars"
@@ -319,15 +319,15 @@ export default function AcademyPage() {
             {pillars.map((pillar) => {
               const Icon = pillar.icon
               return (
-                <div key={pillar.title} className="rounded-3xl border border-primary/10 bg-white p-7 shadow-sm">
+                <div key={pillar.title} className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-7 shadow-sm">
                   <div className="flex items-center gap-3">
                     <span className="rounded-full bg-primary/10 p-2 text-primary">
                       <Icon size={20} />
                     </span>
-                    <h3 className="font-heading text-lg font-semibold text-text">{pillar.title}</h3>
+                    <h3 className="font-heading text-lg font-semibold text-primary">{pillar.title}</h3>
                   </div>
-                  <p className="mt-3 text-sm text-gray-600 leading-relaxed">{pillar.description}</p>
-                  <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                  <p className="mt-3 text-sm text-on-surface-variant leading-relaxed">{pillar.description}</p>
+                  <ul className="mt-4 space-y-2 text-sm text-on-surface-variant">
                     {pillar.highlights.map((highlight) => (
                       <li key={highlight} className="flex items-start gap-2">
                         <ArrowRight size={14} className="mt-1 text-primary" />
@@ -342,7 +342,7 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="bg-surface-container-low py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader title="Course collections" subtitle="New playlists are added monthly to support exam prep, career exploration, and creative skills." centered />
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -351,13 +351,13 @@ export default function AcademyPage() {
               return (
                 <div
                   key={category.title}
-                  className="group rounded-3xl border border-primary/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                  className="group rounded-3xl border border-outline/20 bg-surface-container-lowest p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
                 >
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Icon size={20} />
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-text">{category.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">{category.description}</p>
+                  <h3 className="font-heading text-lg font-semibold text-primary">{category.title}</h3>
+                  <p className="mt-2 text-sm text-on-surface-variant leading-relaxed">{category.description}</p>
                 </div>
               )
             })}
@@ -365,7 +365,7 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-surface py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-8">
             <SectionHeader
@@ -373,7 +373,7 @@ export default function AcademyPage() {
               subtitle="Five simple steps to start learning with EdLight Academy"
               centered
             />
-            <div className="rounded-3xl border border-primary/10 bg-white p-10 text-gray-700 space-y-4 shadow-lg">
+            <div className="rounded-3xl border border-outline/20 bg-surface-container-lowest p-10 text-on-surface-variant space-y-4 shadow-lg">
               {[
                 'Visit academy.edlight.org and create a free account or sign in.',
                 'Browse courses in Physics, Chemistry, Maths, Economics, and more.',
@@ -393,7 +393,7 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      <section className="bg-slate-950 py-20 text-slate-100">
+      <section className="bg-slate-950 py-20 md:py-24 text-slate-100">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Featured lessons"
@@ -416,7 +416,7 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      <section className="pb-24">
+      <section className="bg-surface pb-24">
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/90 via-primary to-primary/90 p-10 text-white shadow-xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
