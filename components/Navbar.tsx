@@ -70,19 +70,29 @@ export default function Navbar() {
   }
 
   return (
-    <nav
+    <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-white/70 backdrop-blur-xl border-white/30 shadow-md'
-          : 'bg-white/40 backdrop-blur-xl border-transparent'
+          ? 'bg-white/85 backdrop-blur-xl shadow-lg border-b border-primary/10'
+          : 'bg-white/70 backdrop-blur-xl border-b border-transparent'
       )}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20 relative">
+      <div className="hidden lg:block border-b border-primary/10 bg-primary/[0.04]">
+        <div className="container mx-auto px-4 h-10 flex items-center justify-between text-xs text-slate-700">
+          <p className="font-medium tracking-wide text-slate-700/90">Empowering Haitian youth through education, innovation, and leadership since 2015</p>
+          <div className="flex items-center gap-5">
+            <Link href="/about" className="hover:text-primary transition-colors">About the Initiative</Link>
+            <a href="mailto:info@edlight.org" className="hover:text-primary transition-colors">info@edlight.org</a>
+          </div>
+        </div>
+      </div>
+
+      <nav className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-[4.75rem] lg:h-[5.25rem] relative">
           {/* Logo */}
-          <Link href="/" className="flex items-center absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 z-10">
-            <div className="relative w-[21.6rem] h-[5.4rem] sm:w-80 sm:h-20 lg:w-96 lg:h-24">
+          <Link href="/" className="flex items-center z-10">
+            <div className="relative w-[13.5rem] h-[3.4rem] sm:w-60 sm:h-16 lg:w-72 lg:h-[4.5rem]">
               <Image
                 src="/EdLight_Website_Logo.png"
                 alt="EdLight Initiative Logo"
@@ -94,20 +104,23 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'font-body text-sm font-medium transition-colors',
+                  'font-body text-[0.84rem] font-semibold tracking-[0.01em] transition-colors',
                   isActivePath(link.href)
-                    ? 'text-primary underline decoration-primary/40 underline-offset-8'
+                    ? 'text-primary'
                     : 'text-gray-700 hover:text-primary'
                 )}
                 aria-current={isActivePath(link.href) ? 'page' : undefined}
               >
                 {link.label}
+                {isActivePath(link.href) && (
+                  <span className="block h-0.5 w-full rounded-full bg-primary mt-1" />
+                )}
               </Link>
             ))}
           </div>
@@ -122,7 +135,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-3 text-text hover:bg-gray-100 rounded-lg transition-colors ml-auto relative z-10"
+            className="lg:hidden p-2.5 text-text hover:bg-gray-100 rounded-lg transition-colors ml-auto relative z-10"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -131,15 +144,15 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-2 border-t">
-            <div className="max-h-[calc(100vh-5rem)] overflow-y-auto">
+          <div className="lg:hidden py-2 border-t border-primary/10 bg-white/95 backdrop-blur-md rounded-b-2xl mb-2">
+            <div className="max-h-[calc(100vh-5.5rem)] overflow-y-auto">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
-                    'block py-4 font-body px-4 rounded-lg mx-2 my-1 transition-colors text-base',
+                    'block py-3.5 font-body px-4 rounded-lg mx-2 my-1 transition-colors text-base',
                     isActivePath(link.href)
                       ? 'bg-primary/10 text-primary font-semibold'
                       : 'text-gray-700 hover:text-primary hover:bg-gray-50'
@@ -164,7 +177,7 @@ export default function Navbar() {
             </div>
           </div>
         )}
-      </div>
-    </nav>
+      </nav>
+    </header>
   )
 }
