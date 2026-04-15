@@ -88,15 +88,15 @@ export default function FAQPage() {
       questions: [
         {
           question: 'What is EdLight Nexus?',
-          answer: 'EdLight Nexus is our global opportunities platform where we share scholarships, internships, conferences, competitions, and other opportunities for students worldwide. It\'s your gateway to global experiences.'
+          answer: 'EdLight Nexus is EdLight\'s global exposure and exchange initiative. It is designed to connect Haitian students to international learning, cultural exchange, and new opportunities through thoughtfully developed experiences.'
         },
         {
-          question: 'How often are new opportunities posted?',
-          answer: 'We update the Nexus platform regularly, typically adding new opportunities weekly. Subscribe to our newsletter to receive notifications about opportunities that match your interests.'
+          question: 'What kinds of experiences can Nexus include?',
+          answer: 'Depending on the format, Nexus may include preparation sessions, immersive learning activities, institutional exposure, cultural exchange, and reflection on how lessons can be brought back home.'
         },
         {
-          question: 'Can EdLight Initiative help me apply to opportunities?',
-          answer: 'Yes! We provide application support including essay review, interview preparation, and guidance on building your profile. Contact us to learn more about our application support services.'
+          question: 'How can I learn more about Nexus?',
+          answer: 'You can visit the Nexus page or contact nexus@edlight.org for updates and additional information as the initiative continues to develop.'
         }
       ]
     },

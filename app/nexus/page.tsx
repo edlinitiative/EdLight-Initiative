@@ -1,8 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
+import { Metadata } from 'next'
 import { ArrowRight, CalendarCheck, Compass, Globe2, GraduationCap, Plane, Sparkles, Users } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
+
+export const metadata: Metadata = {
+  title: 'EdLight Nexus | EdLight Initiative',
+  description:
+    'EdLight Nexus is EdLight’s global exposure and exchange initiative, designed to broaden opportunity for Haitian students through thoughtful international learning experiences.',
+}
 
 type Phase = {
   title: string
@@ -18,85 +25,67 @@ type Track = {
   icon: React.ElementType
 }
 
-const stats = [
-  {
-    value: '6',
-    label: 'Global destinations',
-    description: 'France, Spain, Canada, the United States, Panama, and the Dominican Republic.',
-  },
-  {
-    value: '48',
-    label: 'Student fellows',
-    description: 'University leaders representing 10+ Haitian cities and the diaspora since launch.',
-  },
-  {
-    value: '70%',
-    label: 'Average scholarship',
-    description: 'Typical tuition coverage secured through Nexus partners and sponsors.',
-  },
-]
-
 const programHighlights = [
   {
-    title: 'Immersive learning labs',
+    title: 'Immersive learning experiences',
     description:
-      'Seven-day residencies that combine campus visits, innovation workshops, and curated cultural encounters.',
+      'Experiences may include visits, workshops, and guided exchanges designed to help students learn through direct exposure.',
   },
   {
-    title: 'Global leadership network',
+    title: 'Institutional and cultural exposure',
     description:
-      'Meet faculty, founders, and fellow student leaders to design collaborative solutions with real-world impact.',
+      'Nexus is designed to introduce fellows to universities, innovation ecosystems, and cultural institutions in ways that broaden perspective.',
   },
   {
-    title: 'Career readiness',
+    title: 'Leadership and cross-cultural development',
     description:
-      'Build communication, strategy, and cross-cultural fluency that translate into internships and fellowships.',
+      'Participants are encouraged to strengthen confidence, communication, and intercultural awareness through thoughtful preparation and reflection.',
   },
   {
-    title: 'Community return plan',
+    title: 'A commitment to bring learning home',
     description:
-      'Every fellow brings insights home through service projects, peer workshops, or campus changemaker labs.',
+      'Each experience is intended to help fellows return with ideas, relationships, and insight that can create value in Haiti.',
   },
 ]
 
 const phases: Phase[] = [
   {
     title: 'Discover',
-    description: 'We identify emerging Haitian student leaders ready to learn, collaborate, and represent.',
+    description: 'Students begin by exploring whether the experience matches their goals, interests, and sense of purpose.',
     details: [
-      'Interest form and profile review',
-      'Virtual info session with alumni mentors',
-      'Values alignment and leadership potential assessment',
+      'Interest and readiness review',
+      'Orientation to the goals and expectations of the experience',
+      'Initial reflection on academic, personal, and leadership priorities',
     ],
     icon: Compass,
   },
   {
     title: 'Prepare',
-    description: 'Selected fellows complete pre-departure sprints that cover culture, funding, and storytelling.',
+    description: 'Preparation may include practical planning, context-building, and intentional goal setting before travel.',
     details: [
-      'Visa and travel coaching',
-      'Group learning circles and language refreshers',
-      'Customized fundraising and sponsorship toolkit',
+      'Pre-departure guidance and planning support',
+      'Cultural orientation and group learning sessions',
+      'Goal setting around learning, conduct, and contribution',
     ],
     icon: CalendarCheck,
   },
   {
     title: 'Immerse',
-    description: 'A curated on-the-ground experience that blends academics, innovation, and cultural exchange.',
+    description: 'The immersion phase centers on learning through place, people, and exposure to new institutions and ideas.',
     details: [
-      'University labs and entrepreneurship hubs',
-      'Hands-on design challenges with local teams',
-      'Host family dinners and city expeditions',
+      'Visits to educational, civic, or cultural spaces as available',
+      'Structured conversations, workshops, or guided activities',
+      'Time for observation, exchange, and reflection',
     ],
     icon: Plane,
   },
   {
     title: 'Amplify',
-    description: 'Fellows return home to implement impact plans with Nexus mentors and partners.',
+    description: 'After the experience, fellows are encouraged to translate what they learned into action, leadership, and service.',
     details: [
-      'Peer-to-peer workshops across Haitian campuses',
-      'Micro-grants for community pilots',
-      'Long-term mentorship and alumni network',
+      'Reflection on lessons, perspective, and next steps',
+      'Sharing insight with peers and communities where appropriate',
+      'Continued connection to EdLight as the initiative develops',
     ],
     icon: Sparkles,
   },
@@ -105,99 +94,74 @@ const phases: Phase[] = [
 const tracks: Track[] = [
   {
     title: 'Academic Immersion',
-    description: 'Explore global higher-ed ecosystems and collaborate with faculty on future-focused research.',
+    description: 'Explore learning environments, academic culture, and ideas that broaden what higher education can look like.',
     highlights: [
-      'STEM and social innovation lectures',
-      'Joint classes with local students',
-      'Capstone pitch with feedback from professors',
+      'Exposure to universities and academic environments',
+      'Conversations around study pathways and intellectual curiosity',
+      'Space to connect learning to future ambition',
     ],
     icon: GraduationCap,
   },
   {
     title: 'Leadership & Policy',
-    description: 'Understand civic innovation, public policy, and diplomacy through institutional visits.',
+    description: 'Engage ideas related to public leadership, civic responsibility, and the systems that shape opportunity.',
     highlights: [
-      'Meetings with consulates and embassies',
-      'Roundtables with changemakers and non-profits',
-      'Scenario labs on governance and resilience',
+      'Exposure to civic and leadership conversations',
+      'Reflection on service, responsibility, and public problem-solving',
+      'Learning that connects local action to global perspective',
     ],
     icon: Users,
   },
   {
     title: 'Culture & Creative Industries',
-    description: 'Experience art, design, and storytelling labs that celebrate identity and creative economies.',
+    description: 'Discover how culture, storytelling, and creativity can expand identity, imagination, and economic possibility.',
     highlights: [
-      'Museums and cultural heritage tours',
-      'Creative entrepreneurship workshops',
-      'Cross-cultural showcases with local artists',
+      'Exposure to cultural institutions and creative spaces',
+      'Exploration of narrative, identity, and artistic expression',
+      'Encounters that deepen intercultural understanding',
     ],
     icon: Globe2,
   },
 ]
 
-const costBreakdown = [
-  { category: 'Program fee (learning labs, mentors, site visits)', cost: '$650' },
-  { category: 'Shared accommodation (6 nights)', cost: '$250' },
-  { category: 'Meals & local transportation', cost: '$250' },
-  { category: 'Immersion materials & insurance', cost: '$100' },
-]
-
 const supportHighlights = [
   {
-    title: 'Scholarships & sponsorships',
+    title: 'Fundraising guidance',
     description:
-      'Need-based and merit scholarships cover up to 80% of program costs thanks to Nexus partners and donors.',
+      'EdLight works to help participants think through fundraising pathways and practical strategies for making an experience more reachable.',
   },
   {
-    title: 'Fundraising playbook',
+    title: 'Partnership development',
     description:
-      'Fellows receive coaching, templates, and mentorship to rally support from networks and local businesses.',
+      'Where possible, EdLight explores relationships and support structures that can strengthen the accessibility and quality of each cohort.',
   },
   {
-    title: 'Travel concierge',
+    title: 'Financial support where available',
     description:
-      'We assist with visa appointments, flights, and travel safety so fellows can stay focused on learning.',
-  },
-]
-
-const testimonials = [
-  {
-    quote:
-      'Nexus unlocked rooms I never imagined I would enter. I came back with a community of mentors and the courage to launch my own campus initiative.',
-    attribution: 'Gaëlle, Business Student – 2024 Fellow',
-  },
-  {
-    quote:
-      'The exchange expanded my worldview and sharpened my leadership. I now mentor the next cohort so more Haitian students can experience this.',
-    attribution: 'Marc, Engineering Student – 2023 Fellow',
-  },
-  {
-    quote:
-      'Our partnership with EdLight Nexus is seamless. Haitian fellows arrive prepared, thoughtful, and ready to collaborate on global challenges.',
-    attribution: 'Program Partner, Paris School of Business',
+      'Available support may vary depending on the destination, cohort model, timing, and partner availability.',
   },
 ]
 
 const faqs = [
   {
-    question: 'Who can apply?',
+    question: 'Who is Nexus designed for?',
     answer:
-      'Undergraduate students and recent graduates (within 12 months) of Haitian origin who demonstrate leadership, community involvement, and a commitment to returning impact to Haiti.',
+      'Nexus is designed for Haitian students and emerging young leaders who are ready to grow through exposure, reflection, and cross-cultural learning.',
   },
   {
-    question: 'Do I need a passport before applying?',
+    question: 'What kinds of experiences might Nexus include?',
     answer:
-      'You can submit interest while your passport is in progress. Our team provides guidance on accelerating documentation and visa requirements once you are shortlisted.',
+      'Depending on the format, a Nexus experience may include preparation sessions, guided visits, workshops, cultural exchange, and structured reflection.',
   },
   {
-    question: 'How competitive is the program?',
+    question: 'How does funding work?',
     answer:
-      'Nexus cohorts average a 20% acceptance rate. We evaluate mission alignment, leadership readiness, and representation across disciplines and regions.',
+      'Funding structures may vary. EdLight aims to expand access through fundraising guidance, partnership development, and support where available.',
   },
   {
     question: 'What happens after the trip?',
     answer:
-      'Fellows join the Nexus alumni guild, receive mentorship for community projects, and gain access to internships, grants, and ongoing professional development.',
+      'Nexus is designed to encourage fellows to reflect on what they learned and consider how that insight can be shared or applied back home.',
   },
 ]
 
@@ -206,12 +170,17 @@ export default function NexusPage() {
     <>
       <Hero
         title="EdLight Nexus"
-        subtitle="Modern exchange journeys that connect Haitian students to global innovation, culture, and opportunity."
-  backgroundImage="/nexus_pic.webp"
+        subtitle="Global learning and exchange experiences designed to broaden opportunity for Haitian students."
+        backgroundImage="/nexus_pic.webp"
       >
+        <p className="mx-auto mb-6 max-w-2xl text-sm sm:text-base text-white/85 leading-relaxed">
+          EdLight Nexus is EdLight&apos;s international exposure and exchange initiative. It is designed to connect
+          Haitian students to new ideas, institutions, and communities through thoughtfully curated global learning
+          experiences.
+        </p>
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
           <a href="mailto:nexus@edlight.org" className="btn btn-primary">
-            Explore partnerships
+            Contact nexus@edlight.org
           </a>
           <Link href="/get-involved#contact" className="btn btn-light">
             Stay informed
@@ -221,25 +190,13 @@ export default function NexusPage() {
 
       <section className="bg-gradient-to-b from-slate-50 via-white to-white py-20">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="A gateway to global immersion"
-            subtitle="Nexus equips Haitian students with the networks, exposure, and confidence to thrive on the world stage—then reinvest what they learn back home."
-            centered
-          />
-          <div className="grid gap-6 md:grid-cols-3">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-md transition hover:shadow-xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 transition group-hover:opacity-100" />
-                <div className="relative z-10 space-y-3">
-                  <span className="text-4xl font-bold text-primary">{stat.value}</span>
-                  <h3 className="text-lg font-semibold text-text">{stat.label}</h3>
-                  <p className="text-sm text-gray-600">{stat.description}</p>
-                </div>
-              </div>
-            ))}
+          <div className="mx-auto max-w-4xl rounded-3xl border border-primary/10 bg-white p-8 shadow-sm md:p-10">
+            <SectionHeader
+              title="A gateway to global exposure"
+              subtitle="Nexus helps Haitian students expand their horizons through cross-cultural learning, leadership development, and international exposure. The program is built to create meaningful experiences that strengthen confidence, perspective, and long-term ambition."
+              centered
+              className="mb-0"
+            />
           </div>
         </div>
       </section>
@@ -249,8 +206,8 @@ export default function NexusPage() {
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-8">
               <SectionHeader
-                title="What makes Nexus different"
-                subtitle="A modern exchange experience built for Haitian students who want to co-create solutions, not just observe them."
+                title="What Nexus is designed to offer"
+                subtitle="A thoughtful framework for global learning, cross-cultural growth, and meaningful return value for Haiti."
               />
               <div className="grid gap-6 sm:grid-cols-2">
                 {programHighlights.map((item) => (
@@ -263,17 +220,19 @@ export default function NexusPage() {
             </div>
 
             <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-primary/95 via-primary/85 to-primary p-8 text-white shadow-xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/60">Featured Host Location</p>
-              <h3 className="mt-4 font-heading text-2xl font-semibold">Barcelona Mobility Residency</h3>
+              <p className="text-sm uppercase tracking-[0.2em] text-white/60">Illustrative residency format</p>
+              <h3 className="mt-4 font-heading text-2xl font-semibold">How a Nexus experience may come together</h3>
               <p className="mt-4 text-sm text-white/80 leading-relaxed">
-                Fellows explore sustainability and creative entrepreneurship through workshops with ESADE Business School,
-                visits to Barcelona Activa, and cultural labs across the Gothic Quarter. The residency ends with a
-                community pitch night hosted at a partner innovation hub.
+                A Nexus residency may combine preparation, institutional exposure, cultural learning, and guided
+                reflection. The format can vary depending on the destination, timing, and organizational readiness, but
+                the goal remains consistent: meaningful international experience rooted in learning, perspective, and
+                contribution.
               </p>
               <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide">
-                <span className="rounded-full bg-white/15 px-3 py-1">Urban innovation</span>
-                <span className="rounded-full bg-white/15 px-3 py-1">Creative economy</span>
-                <span className="rounded-full bg-white/15 px-3 py-1">Cross-cultural leadership</span>
+                <span className="rounded-full bg-white/15 px-3 py-1">Preparation</span>
+                <span className="rounded-full bg-white/15 px-3 py-1">Immersion</span>
+                <span className="rounded-full bg-white/15 px-3 py-1">Reflection</span>
+                <span className="rounded-full bg-white/15 px-3 py-1">Community impact</span>
               </div>
             </div>
           </div>
@@ -285,9 +244,10 @@ export default function NexusPage() {
         <div className="container relative mx-auto px-4">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">Journey</p>
-            <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">From selection to lasting impact</h2>
+            <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">From preparation to impact</h2>
             <p className="mt-4 text-base text-slate-300">
-              Each Nexus cohort moves through four curated phases. Fellows receive tailored mentorship, resources, and community support every step of the way.
+              Each Nexus experience is designed around a thoughtful progression that may include preparation,
+              immersion, reflection, and community impact.
             </p>
           </div>
 
@@ -321,8 +281,8 @@ export default function NexusPage() {
       <section className="bg-slate-50 py-20">
         <div className="container mx-auto px-4">
           <SectionHeader
-            title="Curated pathways for every fellow"
-            subtitle="Choose a focus area that matches your academic interests and leadership goals."
+            title="Curated pathways"
+            subtitle="Nexus can be shaped around areas that align with student interests, learning goals, and the nature of each experience."
             centered
           />
           <div className="grid gap-6 md:grid-cols-3">
@@ -357,35 +317,17 @@ export default function NexusPage() {
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div className="rounded-3xl border border-primary/20 bg-white p-8 shadow-xl">
               <SectionHeader
-                title="Investment & support"
-                subtitle="We design every cohort so finances are transparent and support is accessible."
+                title="Access and support"
+                subtitle="EdLight aims to make Nexus as accessible as possible through fundraising guidance, partnership development, and financial support where available. Final funding structures may vary by cohort, destination, and partner availability."
               />
-              <div className="overflow-hidden rounded-2xl border border-gray-200">
-                <table className="w-full text-left text-sm text-gray-700">
-                  <thead className="bg-primary/10 text-primary uppercase tracking-wide">
-                    <tr>
-                      <th className="px-4 py-3">Category</th>
-                      <th className="px-4 py-3">Estimated Cost (USD)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white/95">
-                    {costBreakdown.map((item) => (
-                      <tr key={item.category} className="border-t border-gray-200">
-                        <td className="px-4 py-3">{item.category}</td>
-                        <td className="px-4 py-3 font-semibold">{item.cost}</td>
-                      </tr>
-                    ))}
-                    <tr className="border-t border-gray-200 bg-primary/5">
-                      <td className="px-4 py-3 font-semibold text-primary">Estimated total (excluding flights & visa)</td>
-                      <td className="px-4 py-3 font-semibold text-primary">$1,250</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div className="rounded-2xl border border-primary/10 bg-slate-50 p-6">
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Nexus is being developed with access in mind. Depending on the format of a given cohort, support may
+                  involve fundraising guidance, external relationship-building, or direct assistance when resources are
+                  available. Because each experience is shaped by real conditions, financial arrangements are reviewed on
+                  a case-by-case basis.
+                </p>
               </div>
-              <p className="mt-4 text-sm text-gray-600">
-                Airfare ranges from $700 – $1,200 depending on the destination and travel dates. We help fellows explore
-                partnerships and fundraising pathways to close the gap.
-              </p>
             </div>
 
             <div className="space-y-6">
@@ -396,36 +338,13 @@ export default function NexusPage() {
                 </div>
               ))}
               <div className="rounded-3xl bg-gradient-to-r from-primary to-primary/80 p-6 text-white shadow-lg">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Average support impact</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Access principle</p>
                 <p className="mt-3 text-lg leading-relaxed text-white/90">
-                  3 out of 4 fellows receive partial or full scholarships. Our partners include universities, private
-                  donors, and the Haitian diaspora committed to equitable global access.
+                  The long-term aim is to ensure that financial barriers do not prevent promising Haitian students from
+                  benefiting from global exposure when meaningful opportunities arise.
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-slate-950 py-20 text-slate-100">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">Alumni perspectives</p>
-            <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">Stories from Nexus fellows & partners</h2>
-            <p className="mt-4 text-base text-slate-300">
-              Nexus is a community. Fellows remain engaged after their residency to mentor the next cohort and co-design
-              new opportunities for Haitian youth.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.attribution} className="rounded-3xl border border-white/10 bg-white/5 p-6">
-                <p className="text-sm italic text-slate-200">“{testimonial.quote}”</p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-primary/80">
-                  {testimonial.attribution}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -434,7 +353,7 @@ export default function NexusPage() {
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Frequently asked questions"
-            subtitle="If you still need clarity, send us a note at nexus@edlight.org and the team will respond within 48 hours."
+            subtitle="If you still need clarity, send us a note at nexus@edlight.org. We will share more as Nexus continues to develop."
             centered
           />
           <div className="mx-auto max-w-4xl space-y-4">
@@ -460,18 +379,20 @@ export default function NexusPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Join the movement</p>
-                <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">Bring Nexus to your campus or organization</h2>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">EdLight Nexus</p>
+                <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">A broader horizon for Haitian student leaders</h2>
                 <p className="mt-3 text-sm md:text-base text-white/80">
-                  Applications for the next cohort are not yet open. Follow us for updates or reach out to explore partnership opportunities.
+                  Nexus is part of EdLight&apos;s broader mission to expand opportunity through education, leadership, and
+                  exposure. As the initiative grows, it aims to create meaningful international experiences that help
+                  young Haitians learn, connect, and lead.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a href="mailto:nexus@edlight.org" className="btn btn-light">
-                  Partner with Nexus
+                  Contact nexus@edlight.org
                 </a>
                 <Link href="/get-involved#contact" className="btn btn-primary">
-                  Stay connected
+                  Learn more about EdLight
                 </Link>
               </div>
             </div>

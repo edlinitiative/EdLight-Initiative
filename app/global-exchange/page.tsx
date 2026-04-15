@@ -5,45 +5,45 @@ import Card from '@/components/Card'
 import { Globe, Plane, Award, Users, BookOpen, Building } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Global Exchange Program | EdLight Initiative',
-  description: 'Connect with global opportunities including scholarships, conferences, internships, and study abroad programs.',
+  title: 'Global Exchange | EdLight Initiative',
+  description: 'Learn how EdLight approaches global exposure and exchange experiences for Haitian students through Nexus.',
 }
 
 export default function GlobalExchangePage() {
   const opportunities = [
     {
       title: 'International Scholarships',
-      description: 'Full and partial scholarships for undergraduate and graduate studies at universities worldwide',
+      description: 'Scholarship pathways that may help students access learning opportunities beyond Haiti',
       icon: <Award size={40} className="text-blue-600" />,
       examples: ['Fulbright Program', 'Commonwealth Scholarships', 'DAAD Scholarships', 'Chevening Scholarships']
     },
     {
       title: 'Study Abroad Programs',
-      description: 'Short-term and semester-long exchange programs to experience education in different countries',
+      description: 'Short-term and longer-form exchange models that can deepen academic and cultural exposure',
       icon: <Globe size={40} className="text-green-600" />,
       examples: ['Semester Exchange', 'Summer Programs', 'Language Immersion', 'Cultural Exchange']
     },
     {
       title: 'International Conferences',
-      description: 'Attend global conferences, summits, and forums to network and learn from world leaders',
+      description: 'Global gatherings that can broaden perspective, learning, and professional awareness',
       icon: <Users size={40} className="text-purple-600" />,
       examples: ['Youth Leadership Summits', 'Tech Conferences', 'UN Youth Forums', 'Model UN']
     },
     {
       title: 'Global Internships',
-      description: 'Professional internship opportunities with international organizations and companies',
+      description: 'Selected professional pathways that may offer international experience when available',
       icon: <Building size={40} className="text-yellow-600" />,
       examples: ['UN Internships', 'NGO Positions', 'Tech Company Internships', 'Embassy Programs']
     },
     {
       title: 'Online Programs',
-      description: 'Virtual exchange programs and online courses from top universities and organizations worldwide',
+      description: 'Virtual learning and exchange formats that can expand access to global ideas and institutions',
       icon: <BookOpen size={40} className="text-pink-600" />,
       examples: ['MOOCs', 'Virtual Exchanges', 'Online Certificates', 'Webinar Series']
     },
     {
       title: 'Travel Grants',
-      description: 'Funding opportunities to attend conferences, training programs, and educational events abroad',
+      description: 'Potential funding sources that may help make exposure-based travel and participation more possible',
       icon: <Plane size={40} className="text-red-600" />,
       examples: ['Conference Travel Grants', 'Research Funding', 'Training Programs', 'Cultural Tours']
     }
@@ -79,8 +79,8 @@ export default function GlobalExchangePage() {
   return (
     <>
       <Hero
-        title="Global Exchange Program"
-        subtitle="Your gateway to international opportunities and global experiences"
+        title="Global Exchange"
+        subtitle="A closer look at the kinds of international exposure and exchange opportunities that can broaden opportunity for Haitian students"
         backgroundImage="/nexus_pic.webp"
       />
 
@@ -90,13 +90,13 @@ export default function GlobalExchangePage() {
           <section className="mb-16 text-center">
             <div className="max-w-3xl mx-auto">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                EdLight Nexus connects Haitian students with transformative global opportunities. We curate 
-                scholarships, conferences, internships, and exchange programs from around the world, and 
-                provide application support to help you succeed.
+                EdLight Nexus is EdLight&apos;s international exposure and exchange initiative. This page highlights the
+                kinds of pathways that can help Haitian students engage global learning, cultural exchange, and new
+                ideas through thoughtful exploration and preparation.
               </p>
               <div className="bg-blue-50 p-6 rounded-lg">
                 <p className="text-blue-900 font-semibold">
-                  🌍 New opportunities added weekly • 💯 100% Free access • 🎓 Application support included
+                  Designed to encourage exploration, perspective, and meaningful opportunity.
                 </p>
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function GlobalExchangePage() {
               {opportunities.map((opportunity, index) => (
                 <Card key={index} title={opportunity.title} description={opportunity.description} icon={opportunity.icon} className="hover:shadow-xl transition-shadow">
                   <div className="border-t pt-4">
-                    <p className="text-sm font-semibold text-gray-600 mb-2">Examples:</p>
+                    <p className="text-sm font-semibold text-gray-600 mb-2">Illustrative examples:</p>
                     <ul className="text-sm text-gray-600 space-y-1">
                       {opportunity.examples.map((example, i) => (
                         <li key={i}>• {example}</li>
@@ -148,68 +148,68 @@ export default function GlobalExchangePage() {
           <section className="mb-16">
             <SectionHeader
               title="How We Support You"
-              subtitle="From discovery to application, we're with you every step"
+              subtitle="Nexus is designed to support thoughtful preparation, learning, and follow-through where capacity allows"
             />
             <div className="grid md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-blue-600">1</span>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">Opportunity Curation</h3>
+                <h3 className="font-bold text-gray-900 mb-2">Exploration</h3>
                 <p className="text-sm text-gray-700">
-                  We find and share relevant opportunities matched to your profile
+                  We help frame the kinds of global pathways that may align with student goals and readiness
                 </p>
               </div>
               <div className="text-center">
                 <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-green-600">2</span>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">Application Guidance</h3>
+                <h3 className="font-bold text-gray-900 mb-2">Preparation</h3>
                 <p className="text-sm text-gray-700">
-                  Get help with essays, CVs, and application materials
+                  Participants may receive guidance that helps them prepare thoughtfully for the experience
                 </p>
               </div>
               <div className="text-center">
                 <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-yellow-600">3</span>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">Interview Prep</h3>
+                <h3 className="font-bold text-gray-900 mb-2">Immersion</h3>
                 <p className="text-sm text-gray-700">
-                  Practice interviews and receive feedback from mentors
+                  The experience centers on learning through exposure, exchange, and engagement with new contexts
                 </p>
               </div>
               <div className="text-center">
                 <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-purple-600">4</span>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">Pre-Departure Support</h3>
+                <h3 className="font-bold text-gray-900 mb-2">Reflection</h3>
                 <p className="text-sm text-gray-700">
-                  Preparation sessions and alumni networking before you travel
+                  Fellows are encouraged to reflect on what they learn and how it can create value back home
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Success Stories */}
+          {/* Why this matters */}
           <section className="mb-16">
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 md:p-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-                Success Stories
+                Why this matters
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-white p-6 rounded-lg">
-                  <p className="text-gray-700 italic mb-4">
-                    &quot;Thanks to EdLight Nexus, I received a full scholarship to study Computer Science 
-                    in Canada. The application support was invaluable!&quot;
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    Global exposure can expand what students believe is possible. It can strengthen confidence,
+                    ambition, and a deeper understanding of how learning connects across borders.
                   </p>
-                  <p className="font-semibold text-gray-900">- Marie, Computer Science Student</p>
+                  <p className="font-semibold text-gray-900">Broader perspective</p>
                 </div>
                 <div className="bg-white p-6 rounded-lg">
-                  <p className="text-gray-700 italic mb-4">
-                    &quot;I attended a leadership conference in Kenya through an opportunity I found on 
-                    Nexus. It changed my perspective and opened doors I never imagined.&quot;
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    When designed carefully, exchange experiences can help young Haitians return with new insight,
+                    stronger leadership instincts, and a renewed sense of contribution.
                   </p>
-                  <p className="font-semibold text-gray-900">- Jean, ESLP Graduate</p>
+                  <p className="font-semibold text-gray-900">Meaningful return value</p>
                 </div>
               </div>
             </div>
@@ -219,23 +219,23 @@ export default function GlobalExchangePage() {
           <section className="text-center">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to Go Global?
+                Interested in Nexus?
               </h2>
               <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
-                Explore current opportunities and start your journey to a global experience today
+                Learn more about EdLight&apos;s approach to global exposure and exchange, or reach out to continue the conversation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="/nexus"
+                  href="mailto:nexus@edlight.org"
                   className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
                 >
-                  Browse Opportunities
+                  Contact nexus@edlight.org
                 </a>
                 <a
-                  href="/contact"
+                  href="/nexus"
                   className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
                 >
-                  Get Application Support
+                  Visit the Nexus page
                 </a>
               </div>
             </div>
