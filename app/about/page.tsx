@@ -10,7 +10,7 @@ const leadershipTeam = [
   { name: 'Herode Metellus', title: 'Fundraising Coordinator' },
   { name: 'Williamson Michel', title: 'Operations Manager' },
   { name: 'Stéphane Lainé', title: 'Lead Developer, EdLight Labs' },
-  { name: 'Fredler Pierre', title: 'Technology and Cybersecurity Lead' },
+  { name: 'Fredler Pierre-Louis', title: 'Technology and Cybersecurity Lead' },
   { name: 'Tchedly Alexis', title: 'Marketing & Outreach Coordinator' },
 ]
 
