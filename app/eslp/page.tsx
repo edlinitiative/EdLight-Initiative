@@ -325,10 +325,8 @@ export default function ESLPPage() {
             rel="noopener noreferrer"
             className="btn btn-light"
           >
-                  href={APPLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-light"
+            See past application
+          </a>
         </div>
       </Hero>
 

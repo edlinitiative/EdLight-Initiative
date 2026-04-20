@@ -8,7 +8,7 @@ interface TestimonialCardProps {
   image: string
 }
 
-export default function TestimonialCard({ name, role, quote, image }: TestimonialCardProps) {
+export default function TestimonialCard({ name, role, quote }: TestimonialCardProps) {
   const initials = name
     .split(/\s+/)
     .filter(Boolean)
