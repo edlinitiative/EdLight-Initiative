@@ -8,16 +8,18 @@ import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/academy', label: 'Academy' },
-  { href: '/code', label: 'Code' },
-  { href: '/labs', label: 'Labs' },
-  { href: '/nexus', label: 'Nexus' },
-  { href: '/eslp', label: 'ESLP' },
-  { href: '/about', label: 'About' },
-  { href: '/get-involved', label: 'Get Involved' },
-  { href: '/store', label: 'Store' },
+  { href: '/', label: 'Home', isLaunched: true },
+  { href: '/academy', label: 'Academy', isLaunched: false },
+  { href: '/code', label: 'Code', isLaunched: true },
+  { href: '/labs', label: 'Labs', isLaunched: true },
+  { href: '/nexus', label: 'Nexus', isLaunched: false },
+  { href: '/eslp', label: 'ESLP', isLaunched: true },
+  { href: '/about', label: 'About', isLaunched: true },
+  { href: '/get-involved', label: 'Get Involved', isLaunched: true },
+  { href: '/store', label: 'Store', isLaunched: true },
 ]
+
+const visibleNavLinks = navLinks.filter((link) => link.isLaunched)
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -95,7 +97,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {visibleNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -133,7 +135,7 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <div className="lg:hidden py-2 border-t">
             <div className="max-h-[calc(100vh-5rem)] overflow-y-auto">
-              {navLinks.map((link) => (
+              {visibleNavLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
