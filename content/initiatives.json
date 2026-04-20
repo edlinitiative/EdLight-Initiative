@@ -16,7 +16,7 @@
   {
     "slug": "eslp",
     "title": "EdLight Summer Leadership Program",
-    "summary": "A six-week leadership accelerator combining civic projects, mentorship, and university pathways.",
+    "summary": "A two-week hybrid leadership programme combining expert seminars, civic projects, mentorship, and future pathways.",
     "heroImage": "/images/initiatives/eslp.webp",
     "stats": [
       { "label": "Alumni", "value": "320" },
@@ -24,7 +24,7 @@
     ],
     "actions": [
       { "label": "View ESLP", "href": "/eslp" },
-      { "label": "Apply", "href": "/contact" }
+      { "label": "Apply", "href": "https://apply.edlight.org/eslp" }
     ]
   },
   {

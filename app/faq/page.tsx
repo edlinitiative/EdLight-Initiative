@@ -50,19 +50,19 @@ export default function FAQPage() {
       questions: [
         {
           question: 'What is ESLP?',
-          answer: 'ESLP is our flagship Summer Leadership Program that brings together young leaders for intensive training in leadership, entrepreneurship, and social impact. The program includes workshops, mentorship, project development, and cultural activities.'
+          answer: 'ESLP is our flagship two-week summer leadership programme for secondary students in Haiti. It combines expert-led seminars, mentorship, project development, civic learning, and a featured company excursion.'
         },
         {
           question: 'When does ESLP take place?',
-          answer: 'ESLP typically runs for 4-6 weeks during the summer months (June-August). Exact dates are announced in early spring each year.'
+          answer: 'For 2026, ESLP runs from August 10 to August 21. Applications are open now and close on May 31, 2026.'
         },
         {
           question: 'How do I apply to ESLP?',
-          answer: 'Applications open in early spring. Visit our ESLP page and fill out the application form. The selection process includes a written application and may include an interview.'
+          answer: 'Visit our ESLP page and complete the online application. Applicants should be ready to submit the form, supporting essays, a recent ID picture, and current school transcripts.'
         },
         {
           question: 'Is there a cost to participate in ESLP?',
-          answer: 'ESLP participation is free for selected participants. We cover program costs including materials, meals during program days, and certificates. Participants are responsible for their own transportation.'
+          answer: 'No. ESLP is free for selected participants. We cover core programme costs including learning sessions, materials, the organized excursion, and the closing celebration.'
         }
       ]
     },

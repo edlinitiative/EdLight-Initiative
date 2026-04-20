@@ -45,7 +45,7 @@ const ecosystemPrograms = [
   },
   {
     title: 'ESLP',
-    description: 'Summer Leadership Program developing the next generation of Haitian leaders.',
+    description: 'A two-week hybrid leadership programme helping Haitian students grow through seminars, mentorship, and community impact projects.',
     icon: <GraduationCap size={32} />,
     href: '/eslp',
   },

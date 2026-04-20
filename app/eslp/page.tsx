@@ -31,9 +31,11 @@ import testimonialsData from '@/data/testimonials.json'
 const APP_PREVIEW_URL =
   'https://drive.google.com/file/d/1Yj2Esxmw2khDxFmOXiupMOtZwKr1wERv/view?usp=sharing'
 const PROGRAM_DESC_URL =
-  'https://drive.google.com/file/d/1lhB-m426vXymiwZW24HNC8EsAgh2aaZ_/view?usp=sharing'
+  'https://drive.google.com/file/d/1IhfSC8LyVbs2nAJiL3lRSy06h_8oUntv/view?usp=sharing'
 const APPLY_URL = 'https://apply.edlight.org/eslp'
 const EMAIL = 'eslp@edlight.org'
+const PROGRAM_DATES = 'August 10–21, 2026'
+const APPLICATION_DEADLINE = 'May 31, 2026'
 
 /* ── Hero images (auto-carousel) ────────────────────────── */
 const heroImages = [
@@ -84,7 +86,7 @@ const experienceHighlights = [
   {
     title: 'City immersions',
     description:
-      "Site visits to companies, embassies, media houses, and cultural institutions that expand each fellow's worldview.",
+      'A featured company visit in Port-au-Prince helps fellows connect leadership learning to real workplace expectations.',
     icon: <Compass size={28} />,
   },
   {
@@ -127,9 +129,9 @@ const curriculumPillars = [
 /* ── Curriculum experience tabs ──────────────────────────── */
 const curriculumTabs = [
   {
-    label: 'Seminary',
+    label: 'Seminars',
     image: '/gallery/eslp-seminary-zoom.png',
-    alt: 'ESLP virtual seminary session — fellows and speakers on a Zoom call',
+    alt: 'ESLP virtual seminar session — fellows and speakers on a Zoom call',
     description:
       'From 9 AM to 12 PM, fellows meet virtually with expert speakers from institutions like Harvard, MIT, Cornell, Deutsche Bank, and Microsoft. Interactive sessions cover leadership, personal development, college admissions, finance, and entrepreneurship — offering students a platform to engage directly with industry leaders.',
   },
@@ -239,12 +241,12 @@ const faqs = [
   {
     question: 'When does the next cohort take place?',
     answer:
-      'Applications for ESLP 2026 are open now! The application deadline is May 31, 2026. The program runs August 10–21, 2026. Apply before the deadline to secure your spot!'
+      `Applications for ESLP 2026 are open now. The application deadline is ${APPLICATION_DEADLINE}, and the program runs ${PROGRAM_DATES}.`
   },
   {
     question: 'Is the program really free?',
     answer:
-      'Yes. Thanks to generous partners and sponsors, ESLP covers all program costs including materials, meals, excursions, and local transportation.',
+      'Yes. Thanks to generous partners and sponsors, ESLP covers core program costs including learning sessions, materials, the organized excursion, and the closing celebration.',
   },
   {
     question: 'What documents will I need to apply?',
@@ -254,12 +256,12 @@ const faqs = [
   {
     question: 'Do fellows need to speak English?',
     answer:
-      'Sessions are bilingual (Kreyòl and French/English). Comfort with Kreyòl is essential. Fellows also gain access to additional language practice resources during the residency.',
+      'No. The program is designed for Haitian students and core communication is accessible in Kreyòl and French, while some guest speakers may also engage in English.',
   },
   {
     question: 'What do I need to prepare before the program?',
     answer:
-      'You will need a laptop or desktop with a webcam, a reliable internet connection, Zoom installed, plus a notebook and pencil. You may also receive a welcome package from EdLight.',
+      'You will need a laptop, tablet, or phone with a camera, a stable internet connection, a quiet well-lit space, and a notebook with pens or pencils for daily activities.',
   },
   {
     question: 'How can organizations get involved?',
@@ -307,7 +309,7 @@ export default function ESLPPage() {
       {/* ═══ Hero ═══ */}
       <Hero
         title="EdLight Summer Leadership Program"
-        subtitle="Empowering the youth of Haiti with skills and knowledge to become better leaders and future citizens."
+        subtitle="A two-week hybrid leadership experience equipping Haitian secondary students with the tools to become engaged leaders and future citizens."
         backgroundImage={heroImages[currentHeroImage]}
       >
         <div className="flex flex-wrap justify-center gap-4">
@@ -351,23 +353,26 @@ export default function ESLPPage() {
             <div className="space-y-6">
               <SectionHeader
                 title="What is the EdLight Summer Leadership Program?"
-                subtitle="Launched in August 2022, ESLP is a two-week summer program for students between 15 and 18 years old designed to empower their leadership skills."
+                subtitle="Launched in August 2022, ESLP is a two-week summer programme for secondary students in Haiti designed to strengthen leadership, civic awareness, and future readiness."
               />
               <div className="glass rounded-2xl p-6 space-y-4">
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                  The idea came from the fact that no proper programs in Haiti
-                  bring students together to reflect on global and local issues.
-                  ESLP creates a viable space where students are introduced to
-                  concepts and practices that help make them better future citizens.
+                  ESLP complements academic learning with a focused journey through
+                  leadership, entrepreneurship, personal development, civic
+                  engagement, and global opportunity awareness. Fellows reflect on
+                  both local and international issues while building the confidence
+                  to lead in their schools and communities.
                 </p>
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                  We have had several prominent speakers from leading organizations
-                  and institutions — including{' '}
+                  The 2026 edition is designed as a hybrid experience: most
+                  sessions take place online, followed by an organized company
+                  excursion in Port-au-Prince and a closing day in person. We have
+                  welcomed speakers from leading organizations and institutions — including{' '}
                   <strong className="text-primary">
                     Harvard, MIT, Microsoft, Deutsche Bank, and Cornell
                   </strong>{' '}
-                  — who joined the program to share their expertise and inspire our
-                  fellows.
+                  — who join fellows to share expertise, challenge assumptions,
+                  and inspire action.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -398,14 +403,14 @@ export default function ESLPPage() {
         </div>
       </section>
 
-      {/* ═══ Inside the Residency — Card component ═══ */}
+      {/* ═══ Inside the Experience — Card component ═══ */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="space-y-8">
               <SectionHeader
-                title="Inside the ESLP residency"
-                subtitle="High-energy days blend leadership labs, design thinking, cultural exploration, and community-building."
+                title="Inside the ESLP experience"
+                subtitle="High-energy days blend virtual seminars, collaborative projects, mentor access, and a curated in-person company visit."
               />
               <div className="grid gap-6 sm:grid-cols-2">
                 {experienceHighlights.map((h) => (
@@ -528,7 +533,7 @@ export default function ESLPPage() {
                 {curriculumTabs[activeTab].label}
               </div>
               <h3 className="font-heading text-xl sm:text-2xl font-semibold text-text">
-                {curriculumTabs[activeTab].label === 'Seminary'
+                {curriculumTabs[activeTab].label === 'Seminars'
                   ? 'Interactive virtual seminars'
                   : curriculumTabs[activeTab].label === 'Excursion'
                     ? 'Real-world company visits'
@@ -652,7 +657,7 @@ export default function ESLPPage() {
             <div className="space-y-6">
               <SectionHeader
                 title="How to apply"
-                subtitle="When applications open, submit your documents through our online form. Here's what you'll need:"
+                subtitle="Submit your documents through our online form. Here's what you'll need for the 2026 application:"
               />
               <div className="glass rounded-2xl p-6 space-y-5">
                 {[
@@ -705,7 +710,7 @@ export default function ESLPPage() {
         </div>
       </section>
 
-      {/* ═══ ESLP 2026 — Coming Soon Announcement ═══ */}
+      {/* ═══ ESLP 2026 — Applications Open ═══ */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/90 via-primary to-primary/90 p-8 sm:p-12 text-white shadow-xl">
@@ -720,10 +725,11 @@ export default function ESLPPage() {
                 </h2>
                 <p className="text-base text-white/80 leading-relaxed max-w-xl">
                   Applications are now open for the 2026 edition of the EdLight
-                  Summer Leadership Program! The program runs{' '}
-                  <strong className="text-white">August 10–21, 2026</strong>. Submit
-                  your application before the deadline of{' '}
-                  <strong className="text-white">May 31, 2026</strong>.
+                  Summer Leadership Program. The programme runs{' '}
+                  <strong className="text-white">{PROGRAM_DATES}</strong> and will be
+                  delivered primarily online, with a featured excursion and final
+                  in-person closing experience. Submit your application before{' '}
+                  <strong className="text-white">{APPLICATION_DEADLINE}</strong>.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center md:flex-col lg:flex-row shrink-0">
@@ -770,8 +776,9 @@ export default function ESLPPage() {
               Scholarship guarantee
             </p>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              Every fellow attends ESLP tuition-free. Sponsors help cover travel
-              stipends, technology, and launch grants for alumni-led initiatives.
+              Every fellow attends ESLP tuition-free. Sponsors help cover core
+              learning costs, selected logistics for in-person moments, and
+              continued support for alumni growth.
             </p>
           </div>
         </div>
@@ -840,21 +847,20 @@ export default function ESLPPage() {
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
-                  ESLP 2026 · Dates coming soon
+                  ESLP 2026 · Applications now open
                 </p>
                 <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">
                   Ready to lead with purpose?
                 </h2>
                 <p className="mt-3 text-sm md:text-base text-white/80 max-w-lg">
-                  Sign up to be notified when applications open. You can also
-                  nominate a student or partner with ESLP to sponsor the next
-                  generation of Haitian leaders.
+                  Apply for the 2026 cohort, nominate a student, or partner with
+                  ESLP to support the next generation of Haitian leaders.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center shrink-0">
-                <button onClick={() => setNotifyOpen(true)} className="btn btn-light">
-                  <Bell size={16} /> Get notified
-                </button>
+                <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-light">
+                  <Bell size={16} /> Apply now
+                </a>
                 <a href={`mailto:${EMAIL}`} className="btn btn-ghost">
                   <Mail size={16} /> Partner with ESLP
                 </a>
