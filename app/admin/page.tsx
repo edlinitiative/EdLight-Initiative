@@ -8,7 +8,6 @@ interface ImpactData {
   studentsServed: number
   coursesOffered: number
   partnerOrganizations: number
-  communityMembers: number
 }
 
 interface TeamMember {
@@ -290,7 +289,6 @@ export default function AdminPage() {
       { key: 'studentsServed', label: 'Students Served' },
       { key: 'coursesOffered', label: 'Courses Offered' },
       { key: 'partnerOrganizations', label: 'Partner Organizations' },
-      { key: 'communityMembers', label: 'Community Members Reached' },
     ]
 
     return (

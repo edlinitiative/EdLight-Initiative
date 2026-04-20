@@ -55,7 +55,6 @@ const impactCounters = [
   { label: 'Students Served', value: impactData.studentsServed },
   { label: 'Courses Offered', value: impactData.coursesOffered },
   { label: 'Partner Organizations', value: impactData.partnerOrganizations },
-  { label: 'Community Members', value: impactData.communityMembers },
 ]
 
 export default function HomePage() {

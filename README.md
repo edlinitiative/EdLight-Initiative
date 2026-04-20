@@ -124,8 +124,7 @@ Edit `data/impact.json`:
 {
   "studentsServed": 2500,
   "coursesOffered": 45,
-  "partnerOrganizations": 18,
-  "communityMembers": 5000
+  "partnerOrganizations": 6
 }
 ```
 

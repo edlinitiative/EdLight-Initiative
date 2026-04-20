@@ -142,7 +142,7 @@ export default function MissionProjectsPage() {
           <section className="mb-16">
             <div className="bg-blue-600 text-white rounded-lg p-8 md:p-12 text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Impact</h2>
-              <div className="grid md:grid-cols-4 gap-8">
+              <div className="grid md:grid-cols-3 gap-8">
                 <div>
                   <div className="text-4xl md:text-5xl font-bold mb-2">2,500+</div>
                   <div className="text-blue-100">Students Served</div>
@@ -152,12 +152,8 @@ export default function MissionProjectsPage() {
                   <div className="text-blue-100">Courses Offered</div>
                 </div>
                 <div>
-                  <div className="text-4xl md:text-5xl font-bold mb-2">18+</div>
+                  <div className="text-4xl md:text-5xl font-bold mb-2">6+</div>
                   <div className="text-blue-100">Partner Organizations</div>
-                </div>
-                <div>
-                  <div className="text-4xl md:text-5xl font-bold mb-2">5,000+</div>
-                  <div className="text-blue-100">Community Members</div>
                 </div>
               </div>
             </div>
