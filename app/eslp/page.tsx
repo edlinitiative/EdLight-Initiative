@@ -32,6 +32,7 @@ const APP_PREVIEW_URL =
   'https://drive.google.com/file/d/1Yj2Esxmw2khDxFmOXiupMOtZwKr1wERv/view?usp=sharing'
 const PROGRAM_DESC_URL =
   'https://drive.google.com/file/d/1lhB-m426vXymiwZW24HNC8EsAgh2aaZ_/view?usp=sharing'
+const APPLY_URL = 'https://apply.edlight.org/eslp'
 const EMAIL = 'eslp@edlight.org'
 
 /* ── Hero images (auto-carousel) ────────────────────────── */
@@ -230,34 +231,15 @@ const benefits = [
   },
 ]
 
-/* ── ESLP testimonials (from data + inline) ─────────────── */
-const eslpTestimonial = testimonialsData.find((t) => t.role.includes('ESLP'))
-const eslpTestimonials = [
-  ...(eslpTestimonial ? [eslpTestimonial] : []),
-  {
-    id: 10,
-    name: 'Nathalie',
-    role: 'ESLP 2023 Fellow',
-    image: '/gallery/student-1.jpg',
-    quote:
-      'ESLP helped me discover my voice. I launched a literacy club at my school with the support of alumni mentors.',
-  },
-  {
-    id: 11,
-    name: 'James',
-    role: 'ESLP 2024 Fellow',
-    image: '/gallery/student-2.jpg',
-    quote:
-      'From day one, I felt seen and challenged. The workshops sharpened my confidence to lead community change.',
-  },
-]
+/* ── ESLP testimonials ──────────────────────────────────── */
+const eslpTestimonials = testimonialsData.filter((testimonial) => testimonial.role.includes('ESLP'))
 
 /* ── FAQ ─────────────────────────────────────────────────── */
 const faqs = [
   {
     question: 'When does the next cohort take place?',
     answer:
-      'The ESLP 2026 edition has not been announced yet. Dates, application deadlines, and orientation details will be shared on our channels and by email. Stay tuned!',
+      'Applications for ESLP 2026 are open now! The application deadline is May 31, 2026. The program runs August 10–21, 2026. Apply before the deadline to secure your spot!'
   },
   {
     question: 'Is the program really free?',
@@ -329,17 +311,24 @@ export default function ESLPPage() {
         backgroundImage={heroImages[currentHeroImage]}
       >
         <div className="flex flex-wrap justify-center gap-4">
-          <button onClick={() => setNotifyOpen(true)} className="btn btn-primary">
-            <Bell size={18} /> Get notified for ESLP 2026
-          </button>
+          <a
+            href={APPLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            <Bell size={18} /> Apply for ESLP 2026
+          </a>
           <a
             href={APP_PREVIEW_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-light"
           >
-            See past application
-          </a>
+                  href={APPLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-light"
         </div>
       </Hero>
 
@@ -392,9 +381,14 @@ export default function ESLPPage() {
                 >
                   Program description
                 </a>
-                <button onClick={() => setNotifyOpen(true)} className="btn btn-light">
-                  Get notified <Bell size={16} />
-                </button>
+                <a
+                  href={APPLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-light"
+                >
+                  Apply Now <ArrowRight size={16} />
+                </a>
               </div>
             </div>
             <ImageCarousel
@@ -721,21 +715,28 @@ export default function ESLPPage() {
             <div className="relative z-10 flex flex-col gap-8 md:flex-row md:items-center">
               <div className="flex-1 space-y-4">
                 <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest">
-                  <Bell size={14} /> Coming Soon
+                  <Bell size={14} /> Applications Open
                 </div>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold">
                   ESLP 2026
                 </h2>
                 <p className="text-base text-white/80 leading-relaxed max-w-xl">
-                  The next edition of the EdLight Summer Leadership Program has not
-                  been announced yet. Dates, application deadlines, and details will
-                  be shared soon. Sign up to be the first to know!
+                  Applications are now open for the 2026 edition of the EdLight
+                  Summer Leadership Program! The program runs{' '}
+                  <strong className="text-white">August 10–21, 2026</strong>. Submit
+                  your application before the deadline of{' '}
+                  <strong className="text-white">May 31, 2026</strong>.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center md:flex-col lg:flex-row shrink-0">
-                <button onClick={() => setNotifyOpen(true)} className="btn btn-light">
-                  <Bell size={16} /> Get notified
-                </button>
+                <a
+                  href={APPLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-light"
+                >
+                  <Mail size={16} /> Apply Now
+                </a>
                 <a
                   href={`mailto:${EMAIL}`}
                   className="btn btn-ghost"

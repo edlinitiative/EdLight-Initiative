@@ -1,23 +1,51 @@
 [
   {
     "id": 1,
-    "name": "Marie-Claire Joseph",
-    "role": "EdLight Academy Graduate",
+    "name": "Steïka Thimé",
+    "role": "ESLP Alumni",
     "image": "/gallery/student-1.jpg",
-    "quote": "EdLight gave me access to world-class education I never thought possible. The physics courses prepared me for university and changed my life trajectory."
+    "quote": "L'ESLP est l'une de mes plus grandes expériences de cette année et pour le reste de ma vie. J'étais plus qu'heureuse, et j'emporterai ces souvenirs dans ma tombe !"
   },
   {
     "id": 2,
-    "name": "Jean-Baptiste Pierre",
-  "role": "EdLight Labs Participant",
+    "name": "Léa Jennifer Mondésir",
+    "role": "ESLP 2024 Participant",
     "image": "/gallery/student-2.jpg",
-  "quote": "Through EdLight Labs, I built my first mobile app and learned to code. The mentorship and resources helped me launch my own startup."
+    "quote": "Je tiens à exprimer ma profonde gratitude pour ces deux semaines incroyables passées au sein de ce programme. Avoir eu la chance de participer à ESLP 2024, Gratuitemeent, a été une expérience inestimable."
   },
   {
     "id": 3,
-    "name": "Stephanie Laurent",
-    "role": "ESLP 2024 Alumni",
+    "name": "Djouna Nandy Janvier",
+    "role": "ESLP Alumni",
     "image": "/gallery/student-3.jpg",
-    "quote": "The Summer Leadership Program connected me with incredible mentors and peers. I learned leadership skills that I use every day in my community work."
+    "quote": "J'ai aussi eu la chance de côtoyer des jeunes ayant les même visions, de grands rêves avec des perceptions qui diffèrent. Edlight fut une belle expérience importante qui conduit vers des connaissances concrètes prêtes à être mises en pratique."
+  },
+  {
+    "id": 4,
+    "name": "Chrissy Legoute",
+    "role": "ESLP Alumni",
+    "image": "/gallery/student-1.jpg",
+    "quote": "Ce programme m’a donné l’opportunité de faire partie d’une initiative avisée, il m’a offert des outils qui me seront utiles tout au long de ma vie, m’a ouvert les yeux sur des sujets banalisés et m’a fait découvrir des traits de ma personnalité que j’ignorais."
+  },
+  {
+    "id": 5,
+    "name": "Leonel junior Pierre",
+    "role": "ESLP Alumni",
+    "image": "/gallery/student-2.jpg",
+    "quote": "Ces deux semaines passées dans l’apprentissage à l’ESLP ont été les meilleures de mon été. Que ce soit avec la découverte de nombreux traits de caractère en moi, ces quelques mots prononcés par des intervenants qui m'ont permis d'avoir une autre vision du monde."
+  },
+  {
+    "id": 6,
+    "name": "Amithaï Christi Géa Élysée",
+    "role": "ESLP Alumni",
+    "image": "/gallery/student-3.jpg",
+    "quote": "...Si je devais me parler dans 10 ans, jamais je ne regretterais ce choix et je le referais encore. À chaque question répondue, une autre surgissait. ESLP a aiguisé ma curiosité et m’a permis de mieux me connaître. J’ai découvert de nouvelles facettes de moi-même, de nouvelles passions, de nouvelles philosophies et perspectives."
+  },
+  {
+    "id": 7,
+    "name": "Wiethney Saïma BRUNACHE",
+    "role": "ESLP Alumni",
+    "image": "/gallery/student-1.jpg",
+    "quote": "La dernière fois que j'ai pris part à un programme d'été, je ne m'étais pas autant épanouie. Or, à l’ESLP, j'ai su mettre de côté tout ce qui m'empêcherait de m'ouvrir aux autres et de profiter pleinement de mon expérience. Je me suis sentie à ma place, et surtout, bien entourée."
   }
 ]
