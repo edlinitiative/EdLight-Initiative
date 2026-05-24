@@ -45,7 +45,7 @@ export default function Hero({ title, subtitle, backgroundImage, children, class
           <h1 className="display-xl mb-6 text-[var(--paper-on-dark)] leading-[1.05] animate-fade-in">
             {title}
           </h1>
-          <p className="body-lg text-[var(--paper-on-dark)]/75 mb-8 max-w-[560px] leading-relaxed">
+          <p className="body-lg text-[var(--paper-on-dark)]/90 mb-8 max-w-[560px] leading-relaxed">
             {subtitle}
           </p>
           {children && (

@@ -44,15 +44,27 @@ export default function ImpactCounters({ counters }: ImpactCountersProps) {
     return () => observer.disconnect()
   }, [counters, isVisible])
 
+  // Layout: 2 cols on mobile, then up to 4 cols on desktop matching counter count
+  const n = counters.length
+  const desktopColsClass =
+    n === 1 ? 'sm:grid-cols-1' :
+    n === 2 ? 'sm:grid-cols-2' :
+    n === 3 ? 'sm:grid-cols-3' :
+    'sm:grid-cols-4'
+  const mobileColsClass = n === 1 ? 'grid-cols-1' : 'grid-cols-2'
+
   return (
-    <div ref={sectionRef} className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-[var(--paper-200)]">
+    <div
+      ref={sectionRef}
+      className={`grid ${mobileColsClass} ${desktopColsClass} gap-px bg-[var(--paper-200)] border border-[var(--paper-200)]`}
+    >
       {counters.map((counter, index) => (
-        <div key={index} className="bg-[var(--paper-50)] px-4 py-6 sm:py-8 text-center">
-          <div className="numeral text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--accent)] mb-1">
+        <div key={index} className="bg-[var(--paper-50)] px-4 py-8 sm:py-10 text-center">
+          <div className="numeral text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--accent)] mb-2">
             {formatNumber(displayValues[index])}
             {counter.suffix || '+'}
           </div>
-          <div className="eyebrow text-[9px] sm:text-[10px] text-[var(--ink-700)] mt-1">{counter.label}</div>
+          <div className="eyebrow text-[10px] sm:text-[11px] text-[var(--ink-700)] mt-1">{counter.label}</div>
         </div>
       ))}
     </div>
