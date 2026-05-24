@@ -66,6 +66,11 @@ export default function StorePage() {
                     <div className="flex items-center justify-between border-t border-[var(--paper-200)] pt-4">
                       <span className="font-display text-[var(--ink-900)] text-2xl font-semibold">
                         ${product.price}
+                        {product.priceSuffix && (
+                          <span className="text-sm font-normal text-[var(--ink-500)]">
+                            {product.priceSuffix}
+                          </span>
+                        )}
                       </span>
                       <span className="eyebrow text-[10px] text-[var(--ink-400)] border border-[var(--paper-200)] px-2.5 py-1">
                         Coming soon

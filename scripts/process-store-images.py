@@ -100,7 +100,7 @@ for y in range(0, KIT_SIZE, 28):
 kit = Image.alpha_composite(kit, dot_layer)
 
 # Soft card frame in the centre so the products sit on a "tray".
-card_pad = 110
+card_pad = 40
 card = Image.new("RGBA", (KIT_SIZE, KIT_SIZE), (0, 0, 0, 0))
 cdraw = ImageDraw.Draw(card)
 cdraw.rounded_rectangle(
@@ -133,9 +133,9 @@ def fit(img, max_w, max_h):
     return img
 
 # Layout: tote on the left, t-shirt back-centre (largest), notebook front-right.
-tshirt_f   = fit(tshirt,   560, 560)
-tote_f     = fit(tote,     420, 460)
-notebook_f = fit(notebook, 380, 380)
+tshirt_f   = fit(tshirt,   680, 680)
+tote_f     = fit(tote,     520, 560)
+notebook_f = fit(notebook, 460, 460)
 
 # Soft drop shadows for grounding.
 def with_shadow(rgba, offset=(0, 22), blur=18, opacity=110):
