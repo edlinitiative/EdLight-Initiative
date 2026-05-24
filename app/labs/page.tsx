@@ -48,6 +48,12 @@ type CaseStudy = {
   description: string
   url?: string
   tag: string
+  /** Optional screenshot / hero image for the featured browser-frame layout. */
+  screenshot?: string
+  /** Optional outcome stats shown on the featured card. */
+  stats?: { label: string; value: string }[]
+  /** When true (and category matches active tab), this project renders as the large hero card at the top of the grid. */
+  featured?: boolean
   category: PortfolioCategory
 }
 
@@ -168,6 +174,13 @@ const caseStudies: CaseStudy[] = [
       'Learning portal with course categorization, embedded video experiences, and student analytics workflows.',
     tag: 'EdTech platform',
     category: 'internal',
+    screenshot: '/EdLight_Academy.webp',
+    stats: [
+      { value: '3', label: 'languages' },
+      { value: '12+', label: 'course tracks' },
+      { value: '< 1.5s', label: 'load on 3G' },
+    ],
+    featured: true,
   },
   {
     name: 'EdLight Nexus',
@@ -192,6 +205,12 @@ const caseStudies: CaseStudy[] = [
       'Bilingual platform for a humanitarian relief organization in Haiti — story-driven landing, programs overview, and donation pathway.',
     tag: 'Humanitarian platform',
     category: 'client',
+    stats: [
+      { value: '2', label: 'languages (EN/FR)' },
+      { value: '6 wk', label: 'design to launch' },
+      { value: '100', label: 'Lighthouse a11y' },
+    ],
+    featured: true,
   },
   {
     name: 'Rotaract NYC',
@@ -207,6 +226,12 @@ const caseStudies: CaseStudy[] = [
       'Concept website for a Haitian school featuring program navigation, faculty profiles, and parent resources.',
     tag: 'Education concept',
     category: 'concept',
+    stats: [
+      { value: '4', label: 'audience flows' },
+      { value: '20+', label: 'sample pages' },
+      { value: 'EN/FR', label: 'i18n ready' },
+    ],
+    featured: true,
   },
   {
     name: 'Nonprofit Starter Layout',
@@ -675,91 +700,224 @@ export default function LabsPage() {
             </p>
           )}
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            {filteredStudies.map((project, idx) => {
+          {(() => {
+            // When a discipline tab is active, promote the first `featured` project (or just the first)
+            // to a large hero card; the remainder render as the compact 2-col grid below.
+            const isDisciplineView = activeCategory !== 'all'
+            const featuredProject = isDisciplineView
+              ? filteredStudies.find((s) => s.featured) ?? filteredStudies[0]
+              : null
+            const secondaryProjects = featuredProject
+              ? filteredStudies.filter((s) => s !== featuredProject)
+              : filteredStudies
+
+            const browserBar = (project: CaseStudy) => {
               const displayUrl = project.url
                 ? project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')
                 : 'preview · not deployed'
-
-              const Inner = (
-                <div className="border border-white/15 bg-black/40 hover:border-white/30 transition-colors group overflow-hidden">
-                  {/* Browser chrome */}
-                  <div className="flex items-center gap-3 border-b border-white/10 px-3 py-2.5 bg-black/60">
-                    <div className="flex items-center gap-1.5">
-                      <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-                    </div>
-                    <div className="flex-1 min-w-0 border border-white/10 bg-white/5 px-3 py-1 font-mono-edl text-[11px] text-white/60 truncate">
-                      <span className="text-emerald-400/60 mr-1.5">{project.url ? '●' : '○'}</span>
-                      {displayUrl}
-                    </div>
-                    {project.url && (
-                      <ArrowUpRight
-                        size={14}
-                        className="text-white/40 group-hover:text-white group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all shrink-0"
-                      />
-                    )}
+              return (
+                <div className="flex items-center gap-3 border-b border-white/10 px-3 py-2.5 bg-black/60">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                   </div>
-
-                  {/* Frame content */}
-                  <div
-                    className="relative p-7 sm:p-9 min-h-[260px] flex flex-col"
-                    style={{
-                      background:
-                        'radial-gradient(circle at 80% 20%, rgba(30,66,159,0.15), transparent 60%), linear-gradient(180deg, #0a0a0a 0%, #050505 100%)',
-                    }}
-                  >
-                    <div className="flex items-start justify-between gap-4 mb-5">
-                      <span className="eyebrow text-[10px] text-[var(--paper-on-dark)]/70 border border-white/15 px-2.5 py-1">
-                        {project.tag}
-                      </span>
-                      <span className="numeral text-white/25 text-xs">
-                        {String(idx + 1).padStart(2, '0')}
-                      </span>
-                    </div>
-                    <h3 className="font-display text-white text-xl sm:text-2xl font-semibold mb-3 leading-tight">
-                      {project.name}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80 mb-5 flex-1">
-                      {project.description}
-                    </p>
-                    <div className="flex items-center justify-between border-t border-white/10 pt-4 mt-auto">
-                      {project.category === 'concept' ? (
-                        <span className="eyebrow text-[10px] text-amber-300/80">Demo · Not live</span>
-                      ) : (
-                        <span className="eyebrow text-[10px] text-emerald-300/80 flex items-center gap-1.5">
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                          Live
-                        </span>
-                      )}
-                      {project.url ? (
-                        <span className="inline-flex items-center gap-1.5 text-xs eyebrow text-white group-hover:gap-2.5 transition-all">
-                          Visit site <ArrowUpRight size={14} />
-                        </span>
-                      ) : (
-                        <span className="text-xs eyebrow text-white/40">In progress</span>
-                      )}
-                    </div>
+                  <div className="flex-1 min-w-0 border border-white/10 bg-white/5 px-3 py-1 font-mono-edl text-[11px] text-white/60 truncate">
+                    <span className="text-emerald-400/60 mr-1.5">{project.url ? '●' : '○'}</span>
+                    {displayUrl}
                   </div>
+                  {project.url && (
+                    <ArrowUpRight
+                      size={14}
+                      className="text-white/40 group-hover:text-white group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all shrink-0"
+                    />
+                  )}
                 </div>
               )
+            }
 
-              return project.url ? (
-                <Link
-                  key={project.name}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  {Inner}
-                </Link>
+            const statusBadge = (project: CaseStudy) =>
+              project.category === 'concept' ? (
+                <span className="eyebrow text-[10px] text-amber-300/80">Demo · Not live</span>
               ) : (
-                <div key={project.name}>{Inner}</div>
+                <span className="eyebrow text-[10px] text-emerald-300/80 flex items-center gap-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Live
+                </span>
               )
-            })}
-          </div>
+
+            return (
+              <>
+                {/* FEATURED HERO CARD (discipline view only) */}
+                {featuredProject && (
+                  <div className="mb-6">
+                    {(() => {
+                      const project = featuredProject
+                      const Inner = (
+                        <div className="border border-white/15 bg-black/40 hover:border-white/30 transition-colors group overflow-hidden">
+                          {browserBar(project)}
+                          <div className="grid lg:grid-cols-5">
+                            {/* Preview panel (image or styled mark) */}
+                            <div
+                              className="relative lg:col-span-3 min-h-[280px] sm:min-h-[360px] lg:min-h-[460px] overflow-hidden border-b lg:border-b-0 lg:border-r border-white/10"
+                              style={{
+                                background: project.screenshot
+                                  ? '#000'
+                                  : 'radial-gradient(circle at 30% 20%, rgba(30,66,159,0.35), transparent 60%), linear-gradient(135deg, #0d1733 0%, #050505 100%)',
+                              }}
+                            >
+                              {project.screenshot ? (
+                                <Image
+                                  src={project.screenshot}
+                                  alt={`${project.name} preview`}
+                                  fill
+                                  className="object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                                />
+                              ) : (
+                                <div className="absolute inset-0 flex items-center justify-center p-10">
+                                  <div className="text-center">
+                                    <div className="font-display text-white/95 text-3xl sm:text-5xl font-semibold leading-tight tracking-tight">
+                                      {project.name}
+                                    </div>
+                                    <div className="mt-4 eyebrow text-white/40 text-[10px]">
+                                      ✦ {project.tag}
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                              {/* Hairline grid only on the empty-preview panel for texture; never over real screenshots */}
+                              {!project.screenshot && (
+                                <div
+                                  className="absolute inset-0 opacity-[0.08] pointer-events-none"
+                                  style={{
+                                    backgroundImage:
+                                      'linear-gradient(rgba(232,226,212,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(232,226,212,0.5) 1px, transparent 1px)',
+                                    backgroundSize: '48px 48px',
+                                  }}
+                                />
+                              )}
+                            </div>
+
+                            {/* Meta panel */}
+                            <div className="relative lg:col-span-2 p-7 sm:p-9 flex flex-col">
+                              <div className="flex items-start justify-between gap-4 mb-5">
+                                <span className="eyebrow text-[10px] text-[var(--paper-on-dark)]/70 border border-white/15 px-2.5 py-1">
+                                  {project.tag}
+                                </span>
+                                <span className="eyebrow text-[10px] text-emerald-300/80">Featured</span>
+                              </div>
+                              <h3 className="font-display text-white text-2xl sm:text-3xl font-semibold mb-3 leading-tight">
+                                {project.name}
+                              </h3>
+                              <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/85 mb-6">
+                                {project.description}
+                              </p>
+
+                              {project.stats && project.stats.length > 0 && (
+                                <div className="grid grid-cols-3 gap-px bg-white/10 border-y border-white/10 mb-6">
+                                  {project.stats.map((stat) => (
+                                    <div key={stat.label} className="bg-[#0a0a0a] p-3">
+                                      <div className="font-display text-white text-lg sm:text-xl font-semibold leading-none">
+                                        {stat.value}
+                                      </div>
+                                      <div className="eyebrow text-[9px] text-white/55 mt-1.5 leading-tight">
+                                        {stat.label}
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+
+                              <div className="flex items-center justify-between border-t border-white/10 pt-4 mt-auto">
+                                {statusBadge(project)}
+                                {project.url ? (
+                                  <span className="inline-flex items-center gap-1.5 text-xs eyebrow text-white group-hover:gap-2.5 transition-all">
+                                    Visit site <ArrowUpRight size={14} />
+                                  </span>
+                                ) : (
+                                  <span className="text-xs eyebrow text-white/40">In progress</span>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                      return project.url ? (
+                        <Link
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block"
+                        >
+                          {Inner}
+                        </Link>
+                      ) : (
+                        Inner
+                      )
+                    })()}
+                  </div>
+                )}
+
+                {/* SECONDARY GRID (compact browser tiles) */}
+                {secondaryProjects.length > 0 && (
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    {secondaryProjects.map((project, idx) => {
+                      const Inner = (
+                        <div className="border border-white/15 bg-black/40 hover:border-white/30 transition-colors group overflow-hidden h-full">
+                          {browserBar(project)}
+                          <div
+                            className="relative p-7 sm:p-9 min-h-[260px] flex flex-col"
+                            style={{
+                              background:
+                                'radial-gradient(circle at 80% 20%, rgba(30,66,159,0.15), transparent 60%), linear-gradient(180deg, #0a0a0a 0%, #050505 100%)',
+                            }}
+                          >
+                            <div className="flex items-start justify-between gap-4 mb-5">
+                              <span className="eyebrow text-[10px] text-[var(--paper-on-dark)]/70 border border-white/15 px-2.5 py-1">
+                                {project.tag}
+                              </span>
+                              <span className="numeral text-white/25 text-xs">
+                                {String(idx + 1).padStart(2, '0')}
+                              </span>
+                            </div>
+                            <h3 className="font-display text-white text-xl sm:text-2xl font-semibold mb-3 leading-tight">
+                              {project.name}
+                            </h3>
+                            <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80 mb-5 flex-1">
+                              {project.description}
+                            </p>
+                            <div className="flex items-center justify-between border-t border-white/10 pt-4 mt-auto">
+                              {statusBadge(project)}
+                              {project.url ? (
+                                <span className="inline-flex items-center gap-1.5 text-xs eyebrow text-white group-hover:gap-2.5 transition-all">
+                                  Visit site <ArrowUpRight size={14} />
+                                </span>
+                              ) : (
+                                <span className="text-xs eyebrow text-white/40">In progress</span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      )
+                      return project.url ? (
+                        <Link
+                          key={project.name}
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block"
+                        >
+                          {Inner}
+                        </Link>
+                      ) : (
+                        <div key={project.name}>{Inner}</div>
+                      )
+                    })}
+                  </div>
+                )}
+              </>
+            )
+          })()}
         </div>
       </section>
 
