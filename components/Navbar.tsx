@@ -24,6 +24,8 @@ const visibleNavLinks = navLinks.filter((link) => link.isLaunched)
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  /** True when a dark section is currently behind the navbar — switches to white text on translucent backdrop. */
+  const [isOnDark, setIsOnDark] = useState(false)
   const pathname = usePathname() || '/'
   const paypalDonateUrl = 'https://www.paypal.com/donate/?hosted_button_id=6AKKBQXK47EZU'
 
@@ -34,6 +36,63 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Auto-adapt navbar color to whatever section is sitting under it.
+  // Any element marked `data-nav-theme="dark"` (e.g. the Labs page wrapper) will,
+  // while it sits beneath the navbar, flip the nav into the dark/light variant.
+  // Reset on every route change so each page evaluates its own sections.
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    setIsOnDark(false)
+    const NAV_HEIGHT = 64
+    const darkSections = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-nav-theme="dark"]')
+    )
+    if (darkSections.length === 0) return
+
+    // Track how many dark sections currently intersect the 1-pixel band right under the nav.
+    const intersecting = new Set<Element>()
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) intersecting.add(entry.target)
+          else intersecting.delete(entry.target)
+        })
+        setIsOnDark(intersecting.size > 0)
+      },
+      {
+        // Crop the viewport down to a 1px line just below the navbar bottom edge.
+        // Anything intersecting that line is "under" the nav.
+        rootMargin: `-${NAV_HEIGHT}px 0px -${Math.max(0, window.innerHeight - NAV_HEIGHT - 1)}px 0px`,
+        threshold: 0,
+      }
+    )
+    darkSections.forEach((el) => observer.observe(el))
+
+    // Re-evaluate when the viewport resizes (since rootMargin depends on innerHeight).
+    const onResize = () => {
+      observer.disconnect()
+      const ob = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) intersecting.add(entry.target)
+            else intersecting.delete(entry.target)
+          })
+          setIsOnDark(intersecting.size > 0)
+        },
+        {
+          rootMargin: `-${NAV_HEIGHT}px 0px -${Math.max(0, window.innerHeight - NAV_HEIGHT - 1)}px 0px`,
+          threshold: 0,
+        }
+      )
+      darkSections.forEach((el) => ob.observe(el))
+    }
+    window.addEventListener('resize', onResize)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', onResize)
+    }
+  }, [pathname])
 
   const isActivePath = (href: string) => {
     if (href === '/') {
@@ -74,11 +133,16 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-colors duration-200 border-b',
-        isScrolled
-          ? 'bg-[var(--paper-50)]/95 backdrop-blur-md border-[var(--paper-200)]'
-          : 'bg-[var(--paper-50)]/90 backdrop-blur-md border-transparent'
+        'fixed top-0 left-0 right-0 z-50 transition-colors duration-300 border-b backdrop-blur-md',
+        isOnDark
+          ? isScrolled
+            ? 'bg-[var(--ink-deep)]/80 border-white/10'
+            : 'bg-[var(--ink-deep)]/40 border-transparent'
+          : isScrolled
+            ? 'bg-[var(--paper-50)]/95 border-[var(--paper-200)]'
+            : 'bg-[var(--paper-50)]/90 border-transparent'
       )}
+      data-theme={isOnDark ? 'dark' : 'light'}
     >
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-16 relative">
@@ -89,7 +153,10 @@ export default function Navbar() {
                 src="/EdLight_Website_Logo.png"
                 alt="EdLight Initiative Logo"
                 fill
-                className="object-contain object-left"
+                className={cn(
+                  'object-contain object-left transition-[filter] duration-300',
+                  isOnDark && 'brightness-0 invert'
+                )}
                 priority
               />
             </div>
@@ -103,9 +170,13 @@ export default function Navbar() {
                 href={link.href}
                 className={cn(
                   'text-sm transition-colors',
-                  isActivePath(link.href)
-                    ? 'text-[var(--ink-900)] font-medium underline underline-offset-4 decoration-[var(--paper-300)]'
-                    : 'text-[var(--ink-700)] hover:text-[var(--ink-900)]'
+                  isOnDark
+                    ? isActivePath(link.href)
+                      ? 'text-white font-medium underline underline-offset-4 decoration-white/50'
+                      : 'text-white/75 hover:text-white'
+                    : isActivePath(link.href)
+                      ? 'text-[var(--ink-900)] font-medium underline underline-offset-4 decoration-[var(--paper-300)]'
+                      : 'text-[var(--ink-700)] hover:text-[var(--ink-900)]'
                 )}
                 aria-current={isActivePath(link.href) ? 'page' : undefined}
               >
@@ -119,7 +190,12 @@ export default function Navbar() {
             <button
               type="button"
               onClick={openDonatePopup}
-              className="inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-150 bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] px-4 py-1.5 text-sm whitespace-nowrap min-w-[100px]"
+              className={cn(
+                'inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-150 rounded-full px-4 py-1.5 text-sm whitespace-nowrap min-w-[100px]',
+                isOnDark
+                  ? 'bg-white text-[var(--ink-900)] hover:bg-[var(--paper-100)]'
+                  : 'bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)]'
+              )}
             >
               Donate
             </button>
@@ -128,7 +204,10 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden -mr-2 inline-flex h-11 w-11 items-center justify-center text-[var(--ink-900)]"
+            className={cn(
+              'lg:hidden -mr-2 inline-flex h-11 w-11 items-center justify-center transition-colors',
+              isOnDark ? 'text-white' : 'text-[var(--ink-900)]'
+            )}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -137,7 +216,12 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden pb-4 border-t border-[var(--paper-200)]">
+          <div
+            className={cn(
+              'lg:hidden pb-4 border-t',
+              isOnDark ? 'border-white/10' : 'border-[var(--paper-200)]'
+            )}
+          >
             <div className="max-h-[calc(100vh-4rem)] overflow-y-auto pt-2">
               {visibleNavLinks.map((link) => (
                 <Link
@@ -146,9 +230,13 @@ export default function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
                     'block py-3 px-4 text-base transition-colors',
-                    isActivePath(link.href)
-                      ? 'text-[var(--accent)] font-medium bg-[var(--paper-100)]'
-                      : 'text-[var(--ink-700)] hover:text-[var(--ink-900)] hover:bg-[var(--paper-100)]'
+                    isOnDark
+                      ? isActivePath(link.href)
+                        ? 'text-white font-medium bg-white/10'
+                        : 'text-white/80 hover:text-white hover:bg-white/5'
+                      : isActivePath(link.href)
+                        ? 'text-[var(--accent)] font-medium bg-[var(--paper-100)]'
+                        : 'text-[var(--ink-700)] hover:text-[var(--ink-900)] hover:bg-[var(--paper-100)]'
                   )}
                   aria-current={isActivePath(link.href) ? 'page' : undefined}
                 >
@@ -159,7 +247,12 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => { setIsMobileMenuOpen(false); openDonatePopup() }}
-                  className="inline-flex w-full items-center justify-center font-medium tracking-tight bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] px-4 py-2.5 text-sm"
+                  className={cn(
+                    'inline-flex w-full items-center justify-center font-medium tracking-tight rounded-full px-4 py-2.5 text-sm transition-colors',
+                    isOnDark
+                      ? 'bg-white text-[var(--ink-900)] hover:bg-[var(--paper-100)]'
+                      : 'bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)]'
+                  )}
                 >
                   Donate
                 </button>

@@ -29,6 +29,7 @@ export default function Hero({
 }: HeroProps) {
   return (
     <section
+      data-nav-theme="dark"
       className={cn(
         'relative overflow-hidden border-b border-white/10',
         backgroundImage

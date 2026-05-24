@@ -317,7 +317,10 @@ export default function LabsPage() {
   return (
     <div className="bg-[var(--ink-deep)] text-[var(--paper-on-dark)] min-h-screen">
       {/* ─── HERO: Immersive studio shot ─── */}
-      <section className="relative overflow-hidden min-h-[88vh] flex items-stretch border-b border-white/10">
+      <section
+        data-nav-theme="dark"
+        className="relative overflow-hidden min-h-[88vh] flex items-stretch border-b border-white/10"
+      >
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
@@ -418,7 +421,7 @@ export default function LabsPage() {
       </section>
 
       {/* ─── TECH STACK STRIP (code.edlight.org-inspired marquee) ─── */}
-      <section className="relative border-b border-white/10 bg-black">
+      <section data-nav-theme="dark" className="relative border-b border-white/10 bg-black">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-6 sm:py-7">
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
             <span className="eyebrow text-white/55 text-[10px] sm:text-[11px] flex items-center gap-2 shrink-0">
@@ -445,7 +448,7 @@ export default function LabsPage() {
       </section>
 
       {/* ─── BRIEF / INTRO ─── */}
-      <section className="relative border-b border-white/10 bg-[#0a0a0a]">
+      <section data-nav-theme="dark" className="relative border-b border-white/10 bg-[#0a0a0a]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
             <Reveal as="div" className="lg:col-span-4" from="left">
@@ -484,7 +487,7 @@ export default function LabsPage() {
       </section>
 
       {/* ─── CAPABILITIES ─── */}
-      <section id="capabilities" className="relative border-b border-white/10">
+      <section id="capabilities" data-nav-theme="dark" className="relative border-b border-white/10">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 sm:mb-16 gap-6">
             <Reveal as="div" className="max-w-xl">
@@ -572,7 +575,7 @@ export default function LabsPage() {
       </section>
 
       {/* ─── PROCESS (terminal aesthetic) ─── */}
-      <section className="relative border-b border-white/10 overflow-hidden">
+      <section data-nav-theme="dark" className="relative border-b border-white/10 overflow-hidden">
         <div
           className="absolute inset-0 opacity-30"
           style={{
@@ -653,7 +656,7 @@ export default function LabsPage() {
       </section>
 
       {/* ─── PORTFOLIO ─── */}
-      <section id="portfolio" className="relative border-b border-white/10 bg-[#0a0a0a]">
+      <section id="portfolio" data-nav-theme="dark" className="relative border-b border-white/10 bg-[#0a0a0a]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-6">
             <Reveal as="div" className="max-w-xl">
@@ -917,7 +920,7 @@ export default function LabsPage() {
       </section>
 
       {/* ─── STUDIO PORTRAIT (immersive image break) ─── */}
-      <section className="relative h-[60vh] min-h-[420px] overflow-hidden border-b border-white/10">
+      <section data-nav-theme="dark" className="relative h-[60vh] min-h-[420px] overflow-hidden border-b border-white/10">
         <Image
           src="/edlight_academy_group.webp"
           alt="EdLight Labs in collaboration with students"
@@ -946,7 +949,7 @@ export default function LabsPage() {
       </section>
 
       {/* ─── WHY LABS ─── */}
-      <section className="relative border-b border-white/10">
+      <section data-nav-theme="dark" className="relative border-b border-white/10">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
             <Reveal as="div" className="lg:col-span-4" from="left">
@@ -975,7 +978,7 @@ export default function LabsPage() {
       </section>
 
       {/* ─── INVOLVEMENT + CONTACT ─── */}
-      <section id="contact" className="relative border-b border-white/10 bg-[#0a0a0a]">
+      <section id="contact" data-nav-theme="dark" className="relative border-b border-white/10 bg-[#0a0a0a]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
           <Reveal as="div" className="max-w-xl mb-12">
             <div className="flex items-center gap-3 mb-5">
@@ -1036,7 +1039,7 @@ export default function LabsPage() {
       </section>
 
       {/* ─── CLOSING CTA ─── */}
-      <section className="relative overflow-hidden">
+      <section data-nav-theme="dark" className="relative overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
