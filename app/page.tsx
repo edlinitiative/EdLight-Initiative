@@ -83,32 +83,30 @@ export default function HomePage() {
         subtitle="Building a brighter future through quality education, mentorship, and global opportunities"
         backgroundImage={heroImages[currentHeroImage]}
       >
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/academy"
-            className="btn btn-light"
-          >
-            Explore Programs <ArrowRight size={20} />
-          </Link>
-          <Link
-            href="/get-involved"
-            className="btn btn-primary"
-          >
-            Support Us
-          </Link>
-        </div>
+        <Link
+          href="/academy"
+          className="inline-flex items-center gap-2 bg-[var(--paper-50)] text-[var(--accent)] font-medium px-6 py-3 hover:bg-[var(--paper-100)] transition-colors text-sm sm:text-base w-full sm:w-auto justify-center"
+        >
+          Explore Programs <ArrowRight size={16} />
+        </Link>
+        <Link
+          href="/get-involved"
+          className="inline-flex items-center gap-2 bg-[var(--accent)] text-white font-medium px-6 py-3 hover:bg-[var(--accent-hover)] transition-colors text-sm sm:text-base w-full sm:w-auto justify-center"
+        >
+          Support Us
+        </Link>
       </Hero>
 
       {/* Mission & Vision */}
-      <section className="py-12 sm:py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+      <section className="py-14 sm:py-20">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <div className="max-w-3xl mx-auto">
             <SectionHeader
               title="Our Mission & Vision"
               subtitle="Creating pathways to excellence for Haitian youth"
               centered
             />
-            <div className="glass rounded-2xl p-6 sm:p-8 space-y-5 sm:space-y-6 text-gray-700 leading-relaxed text-sm sm:text-base">
+            <div className="border border-[var(--paper-200)] bg-[var(--paper-100)] p-6 sm:p-8 space-y-4 text-[var(--ink-700)] leading-relaxed text-sm sm:text-base">
               <p>
                 EdLight Initiative was founded on the belief that every young person in Haiti deserves
                 access to world-class education and opportunities. We work to bridge the educational gap
@@ -131,14 +129,14 @@ export default function HomePage() {
       </section>
 
       {/* Ecosystem Programs */}
-      <section className="py-12 sm:py-16 md:py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Our Ecosystem"
             subtitle="Comprehensive programs supporting students at every stage"
             centered
           />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--paper-200)]">
             {ecosystemPrograms.map((program) => (
               <Card
                 key={program.title}
@@ -153,28 +151,26 @@ export default function HomePage() {
       </section>
 
       {/* Impact Counters */}
-      <section className="py-12 sm:py-16 md:py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader title="Our Impact" subtitle="Making a difference in communities across Haiti" centered />
-          <div className="glass rounded-2xl p-6 sm:p-8">
-            <ImpactCounters counters={impactCounters} />
-          </div>
+          <ImpactCounters counters={impactCounters} />
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-12 sm:py-16 md:py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader title="Student Stories" subtitle="Hear from our alumni" centered />
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <TestimonialCard {...testimonialsData[currentTestimonial]} />
-            <div className="flex justify-center gap-2 mt-5 sm:mt-6">
+            <div className="flex justify-center gap-2 mt-6">
               {testimonialsData.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
-                  className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors ${
-                    index === currentTestimonial ? 'bg-primary' : 'bg-gray-300'
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    index === currentTestimonial ? 'bg-[var(--accent)]' : 'bg-[var(--paper-300)]'
                   }`}
                   aria-label={`View testimonial ${index + 1}`}
                 />

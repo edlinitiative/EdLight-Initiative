@@ -74,38 +74,38 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
+        'fixed top-0 left-0 right-0 z-50 transition-colors duration-200 border-b',
         isScrolled
-          ? 'bg-white/70 backdrop-blur-xl border-white/30 shadow-md'
-          : 'bg-white/40 backdrop-blur-xl border-transparent'
+          ? 'bg-[var(--paper-50)]/95 backdrop-blur-md border-[var(--paper-200)]'
+          : 'bg-[var(--paper-50)]/90 backdrop-blur-md border-transparent'
       )}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20 relative">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+        <div className="flex items-center justify-between h-16 relative">
           {/* Logo */}
-          <Link href="/" className="flex items-center absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 z-10">
-            <div className="relative w-[21.6rem] h-[5.4rem] sm:w-80 sm:h-20 lg:w-96 lg:h-24">
+          <Link href="/" className="flex items-center z-10">
+            <div className="relative w-48 h-12 sm:w-56 sm:h-14">
               <Image
                 src="/EdLight_Website_Logo.png"
                 alt="EdLight Initiative Logo"
                 fill
-                className="object-contain"
+                className="object-contain object-left"
                 priority
               />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-7">
             {visibleNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'font-body text-sm font-medium transition-colors',
+                  'text-sm transition-colors',
                   isActivePath(link.href)
-                    ? 'text-primary underline decoration-primary/40 underline-offset-8'
-                    : 'text-gray-700 hover:text-primary'
+                    ? 'text-[var(--ink-900)] font-medium underline underline-offset-4 decoration-[var(--paper-300)]'
+                    : 'text-[var(--ink-700)] hover:text-[var(--ink-900)]'
                 )}
                 aria-current={isActivePath(link.href) ? 'page' : undefined}
               >
@@ -116,7 +116,11 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
-            <button type="button" onClick={openDonatePopup} className="btn btn-primary btn-sm">
+            <button
+              type="button"
+              onClick={openDonatePopup}
+              className="inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-150 bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] px-4 py-1.5 text-sm whitespace-nowrap min-w-[100px]"
+            >
               Donate
             </button>
           </div>
@@ -124,41 +128,38 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-3 text-text hover:bg-gray-100 rounded-lg transition-colors ml-auto relative z-10"
+            className="lg:hidden -mr-2 inline-flex h-11 w-11 items-center justify-center text-[var(--ink-900)]"
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-2 border-t">
-            <div className="max-h-[calc(100vh-5rem)] overflow-y-auto">
+          <div className="lg:hidden pb-4 border-t border-[var(--paper-200)]">
+            <div className="max-h-[calc(100vh-4rem)] overflow-y-auto pt-2">
               {visibleNavLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
-                    'block py-4 font-body px-4 rounded-lg mx-2 my-1 transition-colors text-base',
+                    'block py-3 px-4 text-base transition-colors',
                     isActivePath(link.href)
-                      ? 'bg-primary/10 text-primary font-semibold'
-                      : 'text-gray-700 hover:text-primary hover:bg-gray-50'
+                      ? 'text-[var(--accent)] font-medium bg-[var(--paper-100)]'
+                      : 'text-[var(--ink-700)] hover:text-[var(--ink-900)] hover:bg-[var(--paper-100)]'
                   )}
                   aria-current={isActivePath(link.href) ? 'page' : undefined}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="px-2 pb-4 pt-2">
+              <div className="px-4 pt-3">
                 <button
                   type="button"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false)
-                    openDonatePopup()
-                  }}
-                  className="btn btn-primary w-full justify-center"
+                  onClick={() => { setIsMobileMenuOpen(false); openDonatePopup() }}
+                  className="inline-flex w-full items-center justify-center font-medium tracking-tight bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] px-4 py-2.5 text-sm"
                 >
                   Donate
                 </button>

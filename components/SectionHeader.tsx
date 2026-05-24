@@ -15,10 +15,10 @@ export default function SectionHeader({
   className,
 }: SectionHeaderProps) {
   return (
-    <div className={cn('mb-8 sm:mb-10 md:mb-12', centered && 'text-center', className)}>
-      <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-text mb-2 leading-tight">{title}</h2>
+    <div className={cn('mb-8 sm:mb-12', centered && 'text-center', className)}>
+      <h2 className="display-md sm:display-lg text-[var(--ink-900)] mb-3 leading-tight">{title}</h2>
       {subtitle && (
-        <p className={cn('font-body text-base sm:text-lg text-gray-600/90 leading-relaxed', centered ? 'max-w-2xl mx-auto' : 'max-w-2xl')}>
+        <p className={cn('body-lg', centered ? 'max-w-2xl mx-auto' : 'max-w-2xl')}>
           {subtitle}
         </p>
       )}

@@ -13,33 +13,46 @@ export default function Hero({ title, subtitle, backgroundImage, children, class
   return (
     <section
       className={cn(
-        'relative min-h-[450px] sm:min-h-[500px] md:min-h-[550px] flex items-center justify-center overflow-hidden py-12 sm:py-16',
+        'relative overflow-hidden',
+        backgroundImage ? 'min-h-[480px] flex items-center' : '',
         className
       )}
       style={
         backgroundImage
           ? {
-              backgroundImage: `linear-gradient(rgba(2, 6, 23, 0.35), rgba(2, 6, 23, 0.55)), url(${backgroundImage})`,
+              backgroundImage: `url(${backgroundImage})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center 30%',
             }
           : undefined
       }
     >
-      {!backgroundImage && (
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-[#0C54A6] to-[#0B4B9C]">
-          <div className="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.85),transparent_55%)]" />
-        </div>
+      {/* Photo overlay for image heroes */}
+      {backgroundImage && (
+        <div className="absolute inset-0 photo-duotone" />
       )}
-      <div className="container relative z-10 px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center text-white glass-strong rounded-2xl p-5 sm:p-6 md:p-8">
-          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 animate-fade-in leading-tight">
+
+      {/* Solid dark hero for non-image heroes */}
+      {!backgroundImage && (
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(135deg, var(--ink-deep) 0%, #0f1e4a 60%, #1a3a7a 100%)' }}
+        />
+      )}
+
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
+        <div className="max-w-2xl">
+          <h1 className="display-xl mb-6 text-[var(--paper-on-dark)] leading-[1.05] animate-fade-in">
             {title}
           </h1>
-          <p className="font-body text-base sm:text-lg md:text-xl lg:text-2xl mb-5 sm:mb-6 max-w-3xl mx-auto opacity-90 leading-relaxed">
+          <p className="body-lg text-[var(--paper-on-dark)]/75 mb-8 max-w-[560px] leading-relaxed">
             {subtitle}
           </p>
-          {children}
+          {children && (
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-start gap-4">
+              {children}
+            </div>
+          )}
         </div>
       </div>
     </section>

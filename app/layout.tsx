@@ -1,13 +1,27 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-const inter = Inter({
+const hankenGrotesk = Hanken_Grotesk({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-sans',
+  display: 'swap',
+})
+
+const hankenGroteskDisplay = Hanken_Grotesk({
+  weight: ['600', '700', '800'],
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  weight: ['400', '500'],
+  subsets: ['latin'],
+  variable: '--font-mono',
   display: 'swap',
 })
 
@@ -122,7 +136,7 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" className={inter.variable}>
+      <html lang="en" className={`${hankenGrotesk.variable} ${hankenGroteskDisplay.variable} ${jetbrainsMono.variable}`}>
       <head>
         <script
           type="application/ld+json"

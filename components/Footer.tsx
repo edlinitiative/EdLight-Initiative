@@ -75,30 +75,24 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative mt-10 overflow-hidden">
-  <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#124594] via-[#3d7ed9] to-[#0f2f73]" />
-  <div className="absolute -right-28 top-14 -z-10 h-64 w-64 rounded-full bg-[#5a9bff]/25 blur-3xl" />
-  <div className="absolute left-[-22%] bottom-[-28%] -z-10 h-[18rem] w-[18rem] rounded-full bg-[#3a71d1]/25 blur-3xl" />
-
-      <div className="container mx-auto px-4 py-8 sm:py-10 text-white">
-        <div className="grid gap-8 sm:gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-5 space-y-5 sm:space-y-6">
+    <footer className="relative mt-16 border-t border-[var(--paper-200)]" style={{ background: 'var(--ink-deep)' }}>
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-16">
+        <div className="grid gap-10 lg:grid-cols-12">
+          {/* Brand column */}
+          <div className="lg:col-span-5 space-y-5">
             <div>
-              <h3 className="font-heading text-xl sm:text-2xl font-bold mb-2 sm:mb-3">EdLight Initiative</h3>
-              <p className="font-body text-white/80 leading-relaxed text-sm sm:text-base">
-                At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide high
-                school students with digital access to quality education through our online courses in STEM subjects.
-                Additionally, our Summer Leadership Program offers a unique opportunity for students to explore
-                innovation, entrepreneurship, and leadership beyond the classroom. Join us in our quest for educational
-                equity and help us empower the next generation of leaders. Together, we can create a brighter future for
-                all...{' '}
-                <Link href="/about" className="underline decoration-white/60 underline-offset-4 hover:text-white">
+              <h3 className="font-display text-lg font-bold text-[var(--paper-on-dark)] mb-3">EdLight Initiative</h3>
+              <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/60 max-w-sm">
+                At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide
+                high school students with digital access to quality education through STEM courses, leadership programs,
+                and global opportunities.{' '}
+                <Link href="/about" className="text-[var(--paper-on-dark)]/80 underline underline-offset-4 decoration-[var(--paper-on-dark)]/30 hover:text-[var(--paper-on-dark)] transition-colors">
                   Learn More
                 </Link>
                 .
               </p>
             </div>
-            <div className="flex flex-wrap gap-2 sm:gap-3">
+            <div className="flex flex-wrap gap-2">
               {socialLinks.map(({ href, label, icon: Icon }) => (
                 <a
                   key={label}
@@ -106,25 +100,22 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white/12 text-white transition hover:bg-white/25 active:scale-95"
+                  className="flex h-9 w-9 items-center justify-center border border-[var(--paper-on-dark)]/15 text-[var(--paper-on-dark)]/60 transition hover:border-[var(--paper-on-dark)]/35 hover:text-[var(--paper-on-dark)]"
                 >
-                  <Icon size={18} />
+                  <Icon size={16} />
                 </a>
               ))}
             </div>
           </div>
 
-          <div className="lg:col-span-7 grid gap-6 sm:gap-8 grid-cols-2 lg:grid-cols-3">
+          {/* Links columns */}
+          <div className="lg:col-span-7 grid gap-8 grid-cols-2 lg:grid-cols-3">
             <div>
-              <h4 className="font-heading text-base sm:text-lg font-semibold mb-3 sm:mb-4">Programs</h4>
-              <ul className="space-y-2 sm:space-y-3 text-white/80">
+              <h4 className="eyebrow text-[var(--paper-on-dark)]/50 mb-4">Programs</h4>
+              <ul className="space-y-2.5">
                 {programLinks.map(({ href, label }) => (
                   <li key={href}>
-                    <Link
-                      href={href}
-                      className="inline-flex items-center gap-2 text-sm transition hover:text-white"
-                    >
-                      <span>→</span>
+                    <Link href={href} className="text-sm text-[var(--paper-on-dark)]/60 hover:text-[var(--paper-on-dark)] transition-colors">
                       {label}
                     </Link>
                   </li>
@@ -133,15 +124,11 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-heading text-lg font-semibold mb-4">Explore</h4>
-              <ul className="space-y-3 text-white/80">
+              <h4 className="eyebrow text-[var(--paper-on-dark)]/50 mb-4">Explore</h4>
+              <ul className="space-y-2.5">
                 {orgLinks.map(({ href, label }) => (
                   <li key={href}>
-                    <Link
-                      href={href}
-                      className="inline-flex items-center gap-2 text-sm transition hover:text-white"
-                    >
-                      <span>→</span>
+                    <Link href={href} className="text-sm text-[var(--paper-on-dark)]/60 hover:text-[var(--paper-on-dark)] transition-colors">
                       {label}
                     </Link>
                   </li>
@@ -149,64 +136,54 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="space-y-3 sm:space-y-4 col-span-2 lg:col-span-1">
-              <h4 className="font-heading text-base sm:text-lg font-semibold mb-2 sm:mb-3">Stay in the loop</h4>
-              <p className="text-xs sm:text-sm text-white/80 mb-3 sm:mb-4">
-                Monthly highlights, student success stories, and program openings delivered to your inbox.
+            <div className="space-y-4 col-span-2 lg:col-span-1">
+              <h4 className="eyebrow text-[var(--paper-on-dark)]/50">Newsletter</h4>
+              <p className="text-xs text-[var(--paper-on-dark)]/50 leading-relaxed">
+                Monthly highlights, student stories, and program openings.
               </p>
-              <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                <label className="sr-only" htmlFor="newsletter-email">
-                  Email address
-                </label>
-                <div className="flex flex-col gap-2 sm:gap-3">
-                  <input
-                    id="newsletter-email"
-                    type="email"
-                    name="email"
-                    autoComplete="email"
-                    inputMode="email"
-                    placeholder="Email address"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                    className="w-full rounded-xl border border-white/30 bg-white/5 px-4 py-3 text-base text-white placeholder-white/60 focus:border-white focus:outline-none"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="w-full sm:w-auto rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/80 disabled:cursor-not-allowed disabled:opacity-70 active:scale-95"
-                    disabled={status === 'loading'}
-                  >
-                    {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
-                  </button>
-                </div>
-                <p
-                  className={`min-h-[1.25rem] text-xs ${
-                    status === 'error'
-                      ? 'text-red-200'
-                      : status === 'success'
-                      ? 'text-emerald-200'
-                      : 'text-white/60'
-                  }`}
-                  aria-live="polite"
+              <form onSubmit={handleNewsletterSubmit} className="space-y-2">
+                <label className="sr-only" htmlFor="newsletter-email">Email address</label>
+                <input
+                  id="newsletter-email"
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full border border-[var(--paper-on-dark)]/15 bg-white/[0.05] px-3 py-2.5 text-sm text-[var(--paper-on-dark)] placeholder-[var(--paper-on-dark)]/30 focus:border-[var(--paper-on-dark)]/40 focus:outline-none"
+                  required
+                />
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="w-full bg-[var(--accent)] text-white text-sm font-medium py-2.5 px-4 hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-50"
                 >
-                  {feedback ?? 'We respect your inbox. Unsubscribe any time.'}
-                </p>
+                  {status === 'loading' ? 'Subscribing…' : 'Subscribe'}
+                </button>
+                {feedback && (
+                  <p className={`text-xs ${status === 'error' ? 'text-red-300' : 'text-emerald-300'}`} aria-live="polite">
+                    {feedback}
+                  </p>
+                )}
               </form>
-              <div className="mt-2 flex items-center gap-2 text-xs sm:text-sm text-white/75">
-                <Mail size={16} />
-                <a href="mailto:info@edlight.org" className="hover:text-white transition-colors">info@edlight.org</a>
+              <div className="flex items-center gap-2 text-xs text-[var(--paper-on-dark)]/50">
+                <Mail size={14} />
+                <a href="mailto:info@edlight.org" className="hover:text-[var(--paper-on-dark)] transition-colors">info@edlight.org</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 sm:mt-10 border-t border-white/15 pt-4 sm:pt-5">
-          <div className="flex flex-col gap-3 sm:gap-4 text-xs sm:text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
-            <p>&copy; {currentYear} EdLight Initiative. All rights reserved.</p>
-            <p className="text-white/60">Crafting opportunities for Haiti&apos;s next generation.</p>
+        <div className="mt-12 border-t border-[var(--paper-on-dark)]/10 pt-6">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <p className="eyebrow text-[var(--paper-on-dark)]/30 text-[10px]">© {currentYear} EDLIGHT INITIATIVE · ALL RIGHTS RESERVED.</p>
+            <p className="text-xs text-[var(--paper-on-dark)]/30">Crafting opportunities for Haiti&apos;s next generation.</p>
           </div>
         </div>
       </div>
     </footer>
   )
 }
+
