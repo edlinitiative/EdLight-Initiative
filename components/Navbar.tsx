@@ -133,14 +133,17 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-colors duration-300 border-b backdrop-blur-md',
+        'fixed top-0 left-0 right-0 z-50 transition-colors duration-300 border-b',
         isOnDark
-          ? isScrolled
-            ? 'bg-[var(--ink-deep)]/80 border-white/10'
-            : 'bg-[var(--ink-deep)]/40 border-transparent'
+          ? // Over dark sections: stay transparent — let the section show through.
+            // Only nudge in a faint blur + hairline once the user scrolls, so the
+            // bar doesn't dissolve into the content but never becomes a slab.
+            isScrolled
+            ? 'bg-transparent backdrop-blur-sm border-white/10'
+            : 'bg-transparent border-transparent'
           : isScrolled
-            ? 'bg-[var(--paper-50)]/95 border-[var(--paper-200)]'
-            : 'bg-[var(--paper-50)]/90 border-transparent'
+            ? 'bg-[var(--paper-50)]/95 backdrop-blur-md border-[var(--paper-200)]'
+            : 'bg-[var(--paper-50)]/90 backdrop-blur-md border-transparent'
       )}
       data-theme={isOnDark ? 'dark' : 'light'}
     >
@@ -155,7 +158,7 @@ export default function Navbar() {
                 fill
                 className={cn(
                   'object-contain object-left transition-[filter] duration-300',
-                  isOnDark && 'brightness-0 invert'
+                  isOnDark && 'brightness-0 invert drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]'
                 )}
                 priority
               />
@@ -173,11 +176,12 @@ export default function Navbar() {
                   isOnDark
                     ? isActivePath(link.href)
                       ? 'text-white font-medium underline underline-offset-4 decoration-white/50'
-                      : 'text-white/75 hover:text-white'
+                      : 'text-white/85 hover:text-white'
                     : isActivePath(link.href)
                       ? 'text-[var(--ink-900)] font-medium underline underline-offset-4 decoration-[var(--paper-300)]'
                       : 'text-[var(--ink-700)] hover:text-[var(--ink-900)]'
                 )}
+                style={isOnDark ? { textShadow: '0 1px 8px rgba(0,0,0,0.45)' } : undefined}
                 aria-current={isActivePath(link.href) ? 'page' : undefined}
               >
                 {link.label}
@@ -206,7 +210,7 @@ export default function Navbar() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={cn(
               'lg:hidden -mr-2 inline-flex h-11 w-11 items-center justify-center transition-colors',
-              isOnDark ? 'text-white' : 'text-[var(--ink-900)]'
+              isOnDark ? 'text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]' : 'text-[var(--ink-900)]'
             )}
             aria-label="Toggle menu"
           >
@@ -218,8 +222,10 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <div
             className={cn(
-              'lg:hidden pb-4 border-t',
-              isOnDark ? 'border-white/10' : 'border-[var(--paper-200)]'
+              'lg:hidden pb-4 border-t backdrop-blur-md',
+              isOnDark
+                ? 'border-white/10 bg-[var(--ink-deep)]/90'
+                : 'border-[var(--paper-200)] bg-[var(--paper-50)]/95'
             )}
           >
             <div className="max-h-[calc(100vh-4rem)] overflow-y-auto pt-2">
