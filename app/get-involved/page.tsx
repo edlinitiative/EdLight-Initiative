@@ -148,7 +148,7 @@ export default function GetInvolvedPage() {
                 <div id="donate-button-container" className="inline-flex justify-center">
                   <div id="donate-button"></div>
                 </div>
-                <p className="text-xs text-white/70">
+                <p className="text-xs text-white/90">
                   Powered by PayPal. Choose a one-time gift or set up monthly support.
                 </p>
               </div>

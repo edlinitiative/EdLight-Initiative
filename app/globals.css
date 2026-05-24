@@ -91,15 +91,15 @@
 }
 
 .body-lg {
-  color: var(--ink-700);
+  /* color set by context (utility classes) */
   letter-spacing: -0.005em;
   font-size: 1.125rem;
   line-height: 1.6;
 }
 
 .body-prose {
+  /* color set by context (utility classes) */
   max-width: 42rem;
-  color: var(--ink-700);
   font-size: 1rem;
   line-height: 1.65;
 }

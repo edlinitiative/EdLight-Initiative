@@ -220,9 +220,9 @@ export default function NexusPage() {
             </div>
 
             <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-primary/95 via-primary/85 to-primary p-8 text-white shadow-xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/60">Illustrative residency format</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-white/85">Illustrative residency format</p>
               <h3 className="mt-4 font-heading text-2xl font-semibold">How a Nexus experience may come together</h3>
-              <p className="mt-4 text-sm text-white/80 leading-relaxed">
+              <p className="mt-4 text-sm text-white/95 leading-relaxed">
                 A Nexus residency may combine preparation, institutional exposure, cultural learning, and guided
                 reflection. The format can vary depending on the destination, timing, and organizational readiness, but
                 the goal remains consistent: meaningful international experience rooted in learning, perspective, and
@@ -243,9 +243,9 @@ export default function NexusPage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_rgba(15,23,42,0.9))]" />
         <div className="container relative mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">Journey</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">Journey</p>
             <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">From preparation to impact</h2>
-            <p className="mt-4 text-base text-slate-300">
+            <p className="mt-4 text-base text-slate-100">
               Each Nexus experience is designed around a thoughtful progression that may include preparation,
               immersion, reflection, and community impact.
             </p>
@@ -262,7 +262,7 @@ export default function NexusPage() {
                     </span>
                     <h3 className="font-heading text-lg font-semibold text-white">{phase.title}</h3>
                   </div>
-                  <p className="mt-4 text-sm text-slate-300">{phase.description}</p>
+                  <p className="mt-4 text-sm text-slate-100">{phase.description}</p>
                   <ul className="mt-4 space-y-2 text-sm text-slate-200/80">
                     {phase.details.map((detail) => (
                       <li key={detail} className="flex items-start gap-2">
@@ -338,7 +338,7 @@ export default function NexusPage() {
                 </div>
               ))}
               <div className="rounded-3xl bg-gradient-to-r from-primary to-primary/80 p-6 text-white shadow-lg">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Access principle</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">Access principle</p>
                 <p className="mt-3 text-lg leading-relaxed text-white/90">
                   The long-term aim is to ensure that financial barriers do not prevent promising Haitian students from
                   benefiting from global exposure when meaningful opportunities arise.
@@ -379,9 +379,9 @@ export default function NexusPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">EdLight Nexus</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">EdLight Nexus</p>
                 <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">A broader horizon for Haitian student leaders</h2>
-                <p className="mt-3 text-sm md:text-base text-white/80">
+                <p className="mt-3 text-sm md:text-base text-white/95">
                   Nexus is part of EdLight&apos;s broader mission to expand opportunity through education, leadership, and
                   exposure. As the initiative grows, it aims to create meaningful international experiences that help
                   young Haitians learn, connect, and lead.

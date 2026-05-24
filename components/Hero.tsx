@@ -120,7 +120,7 @@ export default function Hero({
                   className="px-4 py-4 sm:px-5 sm:py-5"
                   style={{ background: 'rgba(13,11,9,0.55)' }}
                 >
-                  <dt className="eyebrow text-white/60 text-[10px] mb-1">{item.label}</dt>
+                  <dt className="eyebrow text-white/85 text-[10px] mb-1">{item.label}</dt>
                   <dd className="numeral text-white text-lg sm:text-xl font-semibold">
                     {item.value}
                   </dd>

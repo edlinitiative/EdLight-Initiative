@@ -75,7 +75,13 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative mt-16 border-t border-[var(--paper-200)]" style={{ background: 'var(--ink-deep)' }}>
+    <footer
+      className="relative mt-16 border-t border-white/10"
+      style={{
+        background:
+          'linear-gradient(180deg, #001a4d 0%, #00102e 60%, #000a1f 100%)',
+      }}
+    >
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-16">
         <div className="grid gap-10 lg:grid-cols-12">
           {/* Brand column */}

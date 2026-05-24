@@ -263,11 +263,11 @@ export default function CodePage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_rgba(15,23,42,0.9))]" />
         <div className="container relative mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">Tracks</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">Tracks</p>
             <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">
               Structured paths from beginner to advanced
             </h2>
-            <p className="mt-4 text-base text-slate-300">
+            <p className="mt-4 text-base text-slate-100">
               Pick your language and start learning. Each track takes you from the fundamentals to job-ready skills.
             </p>
           </div>
@@ -286,8 +286,8 @@ export default function CodePage() {
                     </span>
                     <h3 className="font-heading text-lg font-semibold text-white">{track.title}</h3>
                   </div>
-                  <p className="mt-4 text-sm text-slate-300">{track.description}</p>
-                  <div className="mt-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  <p className="mt-4 text-sm text-slate-100">{track.description}</p>
+                  <div className="mt-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-wide text-slate-200">
                     <span className="rounded-full bg-white/10 px-3 py-1">{track.courses}</span>
                     <span className="rounded-full bg-white/10 px-3 py-1">{track.hours}</span>
                   </div>
@@ -407,9 +407,9 @@ export default function CodePage() {
             </div>
 
             <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-primary/95 via-primary/85 to-primary p-8 text-white shadow-xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/60">Inside a lesson</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-white/85">Inside a lesson</p>
               <h3 className="mt-4 font-heading text-2xl font-semibold">Read → Code → Repeat</h3>
-              <p className="mt-4 text-sm text-white/80 leading-relaxed">
+              <p className="mt-4 text-sm text-white/95 leading-relaxed">
                 Each lesson pairs a clear, focused explanation with an interactive coding exercise. You read the concept,
                 then immediately apply it by writing real code in the browser. Instant feedback tells you if you got it
                 right. No passive watching — you learn by doing.
@@ -466,13 +466,13 @@ export default function CodePage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">
                   Start building your future
                 </p>
                 <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">
                   Learn to code, earn certificates, build a portfolio
                 </h2>
-                <p className="mt-3 text-sm md:text-base text-white/80">
+                <p className="mt-3 text-sm md:text-base text-white/95">
                   EdLight Code is free and open to everyone. Pick a track and start writing real code today.
                 </p>
               </div>

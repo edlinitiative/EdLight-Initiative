@@ -253,9 +253,9 @@ export default function AcademyPage() {
             </div>
 
             <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-primary/95 via-primary/85 to-primary p-8 text-white shadow-xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/60">Experience snapshot</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-white/85">Experience snapshot</p>
               <h3 className="mt-4 font-heading text-2xl font-semibold">Interactive studio lessons</h3>
-              <p className="mt-4 text-sm text-white/80 leading-relaxed">
+              <p className="mt-4 text-sm text-white/95 leading-relaxed">
                 Lessons are shot in studio with motion graphics, real-life scenarios, and bilingual instructors. Every
                 chapter includes downloads and quick challenges so learners stay engaged beyond the video.
               </p>
@@ -273,9 +273,9 @@ export default function AcademyPage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_rgba(15,23,42,0.9))]" />
         <div className="container relative mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">Learning journey</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">Learning journey</p>
             <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">From discovery to mastery</h2>
-            <p className="mt-4 text-base text-slate-300">
+            <p className="mt-4 text-base text-slate-100">
               EdLight Academy guides students through an intentional flow so they can explore, understand, practice, and
               ultimately lead with confidence.
             </p>
@@ -292,7 +292,7 @@ export default function AcademyPage() {
                     </span>
                     <h3 className="font-heading text-lg font-semibold text-white">{phase.title}</h3>
                   </div>
-                  <p className="mt-4 text-sm text-slate-300">{phase.description}</p>
+                  <p className="mt-4 text-sm text-slate-100">{phase.description}</p>
                   <ul className="mt-4 space-y-2 text-sm text-slate-200/80">
                     {phase.bullets.map((bullet) => (
                       <li key={bullet} className="flex items-start gap-2">
@@ -408,7 +408,7 @@ export default function AcademyPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="font-heading text-lg font-semibold text-white">{video.title}</h3>
-                  <p className="mt-2 text-sm text-slate-300">{video.description}</p>
+                  <p className="mt-2 text-sm text-slate-100">{video.description}</p>
                 </div>
               </div>
             ))}
@@ -422,9 +422,9 @@ export default function AcademyPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Join the community</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">Join the community</p>
                 <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">Ready to unlock EdLight Academy?</h2>
-                <p className="mt-3 text-sm md:text-base text-white/80">
+                <p className="mt-3 text-sm md:text-base text-white/95">
                   Start learning for free, bring the platform to your classroom, or sponsor new course collections for Haitian
                   learners.
                 </p>

@@ -278,7 +278,7 @@ export default function LabsPage() {
         subtitle="Digital products, websites, and innovation pilots built for mission-led organizations."
         backgroundImage="/labs_pics.webp"
       >
-        <p className="mx-auto mt-4 max-w-2xl text-sm md:text-base text-white/80 leading-relaxed">
+        <p className="mx-auto mt-4 max-w-2xl text-sm md:text-base text-white/95 leading-relaxed">
           EdLight Labs is the digital product and innovation arm of EdLight. We design and build thoughtful digital
           experiences for organizations, initiatives, and communities working to create meaningful impact.
         </p>
@@ -357,9 +357,9 @@ export default function LabsPage() {
             </div>
 
             <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-primary/95 via-primary/85 to-primary p-8 text-white shadow-xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/60">Signature engagement</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-white/85">Signature engagement</p>
               <h3 className="mt-4 font-heading text-2xl font-semibold">Impact website accelerator</h3>
-              <p className="mt-4 text-sm text-white/80 leading-relaxed">
+              <p className="mt-4 text-sm text-white/95 leading-relaxed">
                 A focused sprint that combines brand discovery, user-centered design, and a guided launch playbook.
                 Ideal for organizations ready to establish or significantly elevate their digital presence.
               </p>
@@ -378,11 +378,11 @@ export default function LabsPage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_rgba(15,23,42,0.9))]" />
         <div className="container relative mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">Process</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">Process</p>
             <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">
               A collaborative build from strategy to growth
             </h2>
-            <p className="mt-4 text-base text-slate-300">
+            <p className="mt-4 text-base text-slate-100">
               Our team becomes an extension of yours — bringing structure, clarity, and technical rigor so you can stay
               focused on your mission.
             </p>
@@ -401,7 +401,7 @@ export default function LabsPage() {
                     </span>
                     <h3 className="font-heading text-lg font-semibold text-white">{phase.title}</h3>
                   </div>
-                  <p className="mt-4 text-sm text-slate-300">{phase.description}</p>
+                  <p className="mt-4 text-sm text-slate-100">{phase.description}</p>
                   <ul className="mt-4 space-y-2 text-sm text-slate-200/80">
                     {phase.bullets.map((bullet) => (
                       <li key={bullet} className="flex items-start gap-2">
@@ -561,9 +561,9 @@ export default function LabsPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">EdLight Labs</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">EdLight Labs</p>
                 <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">Let&apos;s build with purpose</h2>
-                <p className="mt-3 text-sm md:text-base text-white/80 max-w-lg">
+                <p className="mt-3 text-sm md:text-base text-white/95 max-w-lg">
                   Whether you are launching a new platform, improving an existing one, or exploring an early concept,
                   EdLight Labs helps turn ideas into thoughtful digital experiences.
                 </p>

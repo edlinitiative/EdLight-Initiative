@@ -425,13 +425,13 @@ export default function ESLPPage() {
             </div>
 
             <div className="glass-strong rounded-2xl bg-gradient-to-br from-primary/90 via-primary/80 to-primary/95 p-8 text-white shadow-xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/60">
+              <p className="text-sm uppercase tracking-[0.2em] text-white/85">
                 Signature experience
               </p>
               <h3 className="mt-4 font-heading text-2xl font-semibold">
                 Capstone Challenge Week
               </h3>
-              <p className="mt-4 text-sm text-white/80 leading-relaxed">
+              <p className="mt-4 text-sm text-white/95 leading-relaxed">
                 Fellows collaborate in multidisciplinary squads of 4–5 to design
                 solutions for local challenges. Each team is paired with an
                 experienced mentor in entrepreneurship and project development. They
@@ -552,13 +552,13 @@ export default function ESLPPage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_rgba(15,23,42,0.9))]" />
         <div className="container relative mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">
               Journey
             </p>
             <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">
               From application to alumni leadership
             </h2>
-            <p className="mt-4 text-base text-slate-300">
+            <p className="mt-4 text-base text-slate-100">
               ESLP is designed as a guided journey. Fellows receive holistic
               support at every phase — from recruitment to post-program mentorship.
             </p>
@@ -579,7 +579,7 @@ export default function ESLPPage() {
                       {phase.title}
                     </h3>
                   </div>
-                  <p className="text-sm text-slate-300 mb-4">
+                  <p className="text-sm text-slate-100 mb-4">
                     {phase.description}
                   </p>
                   <ul className="space-y-2 text-sm text-slate-200/80">
@@ -723,7 +723,7 @@ export default function ESLPPage() {
                 <h2 className="font-heading text-3xl md:text-4xl font-bold">
                   ESLP 2026
                 </h2>
-                <p className="text-base text-white/80 leading-relaxed max-w-xl">
+                <p className="text-base text-white/95 leading-relaxed max-w-xl">
                   Applications are now open for the 2026 edition of the EdLight
                   Summer Leadership Program. The programme runs{' '}
                   <strong className="text-white">{PROGRAM_DATES}</strong> and will be
@@ -846,13 +846,13 @@ export default function ESLPPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">
                   ESLP 2026 · Applications now open
                 </p>
                 <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">
                   Ready to lead with purpose?
                 </h2>
-                <p className="mt-3 text-sm md:text-base text-white/80 max-w-lg">
+                <p className="mt-3 text-sm md:text-base text-white/95 max-w-lg">
                   Apply for the 2026 cohort, nominate a student, or partner with
                   ESLP to support the next generation of Haitian leaders.
                 </p>
