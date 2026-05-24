@@ -186,6 +186,22 @@ const caseStudies: CaseStudy[] = [
     category: 'client',
   },
   {
+    name: 'Le Relief Haiti',
+    url: 'https://lereliefhaiti.com',
+    description:
+      'Bilingual platform for a humanitarian relief organization in Haiti — story-driven landing, programs overview, and donation pathway.',
+    tag: 'Humanitarian platform',
+    category: 'client',
+  },
+  {
+    name: 'Rotaract NYC',
+    url: 'https://rotaractnyc.org',
+    description:
+      'Service-club presence for Rotaract New York City — event calendar, member portal, and recruitment funnel.',
+    tag: 'Community organization',
+    category: 'client',
+  },
+  {
     name: 'École Dominique Savio',
     description:
       'Concept website for a Haitian school featuring program navigation, faculty profiles, and parent resources.',
@@ -295,16 +311,7 @@ export default function LabsPage() {
             mixBlendMode: 'multiply',
           }}
         />
-        {/* Grid overlay (studio blueprint) */}
-        <div
-          className="absolute inset-0 opacity-[0.18] pointer-events-none"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(232,226,212,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(232,226,212,0.5) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-          }}
-        />
-        {/* Scan-line / grain */}
+        {/* Subtle film grain (no grid on the photo) */}
         <div
           className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
           style={{
@@ -384,13 +391,40 @@ export default function LabsPage() {
         </div>
       </section>
 
+      {/* ─── TECH STACK STRIP (code.edlight.org-inspired marquee) ─── */}
+      <section className="relative border-b border-white/10 bg-black">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-6 sm:py-7">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+            <span className="eyebrow text-white/55 text-[10px] sm:text-[11px] flex items-center gap-2 shrink-0">
+              <span className="text-emerald-400/80">✦</span> Built with
+            </span>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 sm:gap-x-8 text-sm font-mono-edl text-white/70">
+              {[
+                'Next.js',
+                'TypeScript',
+                'React',
+                'Tailwind',
+                'Node.js',
+                'PostgreSQL',
+                'Prisma',
+                'Vercel',
+              ].map((tech) => (
+                <span key={tech} className="hover:text-white transition-colors">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── BRIEF / INTRO ─── */}
       <section className="relative border-b border-white/10 bg-[#0a0a0a]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-4">
               <div className="flex items-center gap-3 mb-5">
-                <span className="h-px w-8 bg-[var(--paper-on-dark)]/40" aria-hidden="true" />
+                <span className="text-emerald-400/80">✦</span>
                 <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">01 · Brief</span>
               </div>
               <h2 className="display-lg text-white leading-tight">
@@ -429,7 +463,7 @@ export default function LabsPage() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 sm:mb-16 gap-6">
             <div className="max-w-xl">
               <div className="flex items-center gap-3 mb-5">
-                <span className="h-px w-8 bg-[var(--paper-on-dark)]/40" aria-hidden="true" />
+                <span className="text-emerald-400/80">✦</span>
                 <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">02 · Capabilities</span>
               </div>
               <h2 className="display-lg text-white leading-tight mb-4">What we build.</h2>
@@ -521,7 +555,7 @@ export default function LabsPage() {
         <div className="relative max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
           <div className="max-w-2xl mb-14">
             <div className="flex items-center gap-3 mb-5">
-              <span className="h-px w-8 bg-[var(--paper-on-dark)]/40" aria-hidden="true" />
+              <span className="text-emerald-400/80">✦</span>
               <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">03 · Process</span>
             </div>
             <h2 className="display-lg text-white leading-tight mb-4">
@@ -596,7 +630,7 @@ export default function LabsPage() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-6">
             <div className="max-w-xl">
               <div className="flex items-center gap-3 mb-5">
-                <span className="h-px w-8 bg-[var(--paper-on-dark)]/40" aria-hidden="true" />
+                <span className="text-emerald-400/80">✦</span>
                 <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">04 · Selected work</span>
               </div>
               <h2 className="display-lg text-white leading-tight mb-4">From the studio.</h2>
@@ -641,35 +675,72 @@ export default function LabsPage() {
             </p>
           )}
 
-          <div className="grid sm:grid-cols-2 gap-px bg-white/10 border border-white/15">
+          <div className="grid sm:grid-cols-2 gap-6">
             {filteredStudies.map((project, idx) => {
+              const displayUrl = project.url
+                ? project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+                : 'preview · not deployed'
+
               const Inner = (
-                <div className="bg-[#0a0a0a] hover:bg-[#0f0f0f] p-7 sm:p-9 transition-colors h-full flex flex-col group">
-                  <div className="flex items-start justify-between gap-4 mb-5">
-                    <span className="eyebrow text-[10px] text-[var(--paper-on-dark)]/70 border border-white/15 px-2.5 py-1">
-                      {project.tag}
-                    </span>
-                    <span className="numeral text-white/25 text-xs">{String(idx + 1).padStart(2, '0')}</span>
+                <div className="border border-white/15 bg-black/40 hover:border-white/30 transition-colors group overflow-hidden">
+                  {/* Browser chrome */}
+                  <div className="flex items-center gap-3 border-b border-white/10 px-3 py-2.5 bg-black/60">
+                    <div className="flex items-center gap-1.5">
+                      <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                    </div>
+                    <div className="flex-1 min-w-0 border border-white/10 bg-white/5 px-3 py-1 font-mono-edl text-[11px] text-white/60 truncate">
+                      <span className="text-emerald-400/60 mr-1.5">{project.url ? '●' : '○'}</span>
+                      {displayUrl}
+                    </div>
+                    {project.url && (
+                      <ArrowUpRight
+                        size={14}
+                        className="text-white/40 group-hover:text-white group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all shrink-0"
+                      />
+                    )}
                   </div>
-                  <h3 className="font-display text-white text-xl sm:text-2xl font-semibold mb-3 leading-tight">
-                    {project.name}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80 mb-5 flex-1">
-                    {project.description}
-                  </p>
-                  <div className="flex items-center justify-between border-t border-white/10 pt-4 mt-auto">
-                    {project.category === 'concept' ? (
-                      <span className="eyebrow text-[10px] text-amber-300/80">Demo · Not live</span>
-                    ) : (
-                      <span className="eyebrow text-[10px] text-emerald-300/80">● Live</span>
-                    )}
-                    {project.url ? (
-                      <span className="inline-flex items-center gap-1.5 text-xs eyebrow text-white group-hover:gap-2.5 transition-all">
-                        Visit <ArrowUpRight size={14} />
+
+                  {/* Frame content */}
+                  <div
+                    className="relative p-7 sm:p-9 min-h-[260px] flex flex-col"
+                    style={{
+                      background:
+                        'radial-gradient(circle at 80% 20%, rgba(30,66,159,0.15), transparent 60%), linear-gradient(180deg, #0a0a0a 0%, #050505 100%)',
+                    }}
+                  >
+                    <div className="flex items-start justify-between gap-4 mb-5">
+                      <span className="eyebrow text-[10px] text-[var(--paper-on-dark)]/70 border border-white/15 px-2.5 py-1">
+                        {project.tag}
                       </span>
-                    ) : (
-                      <span className="text-xs eyebrow text-white/40">In progress</span>
-                    )}
+                      <span className="numeral text-white/25 text-xs">
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-white text-xl sm:text-2xl font-semibold mb-3 leading-tight">
+                      {project.name}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80 mb-5 flex-1">
+                      {project.description}
+                    </p>
+                    <div className="flex items-center justify-between border-t border-white/10 pt-4 mt-auto">
+                      {project.category === 'concept' ? (
+                        <span className="eyebrow text-[10px] text-amber-300/80">Demo · Not live</span>
+                      ) : (
+                        <span className="eyebrow text-[10px] text-emerald-300/80 flex items-center gap-1.5">
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          Live
+                        </span>
+                      )}
+                      {project.url ? (
+                        <span className="inline-flex items-center gap-1.5 text-xs eyebrow text-white group-hover:gap-2.5 transition-all">
+                          Visit site <ArrowUpRight size={14} />
+                        </span>
+                      ) : (
+                        <span className="text-xs eyebrow text-white/40">In progress</span>
+                      )}
+                    </div>
                   </div>
                 </div>
               )
@@ -707,14 +778,6 @@ export default function LabsPage() {
               'linear-gradient(90deg, rgba(13,11,9,0.9) 0%, rgba(13,11,9,0.55) 50%, rgba(13,11,9,0.85) 100%)',
           }}
         />
-        <div
-          className="absolute inset-0 opacity-[0.1] pointer-events-none"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(232,226,212,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(232,226,212,0.5) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-          }}
-        />
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10 h-full flex items-center">
           <div className="max-w-2xl">
             <span className="eyebrow text-white/80 text-[11px]">Studio · in practice</span>
@@ -735,7 +798,7 @@ export default function LabsPage() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-4">
               <div className="flex items-center gap-3 mb-5">
-                <span className="h-px w-8 bg-[var(--paper-on-dark)]/40" aria-hidden="true" />
+                <span className="text-emerald-400/80">✦</span>
                 <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">05 · Why Labs</span>
               </div>
               <h2 className="display-lg text-white leading-tight mb-4">Why teams choose us.</h2>
@@ -763,7 +826,7 @@ export default function LabsPage() {
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
           <div className="max-w-xl mb-12">
             <div className="flex items-center gap-3 mb-5">
-              <span className="h-px w-8 bg-[var(--paper-on-dark)]/40" aria-hidden="true" />
+              <span className="text-emerald-400/80">✦</span>
               <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">06 · Collaborate</span>
             </div>
             <h2 className="display-lg text-white leading-tight mb-4">Ways to get involved.</h2>
