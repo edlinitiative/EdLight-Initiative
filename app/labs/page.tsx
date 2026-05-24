@@ -20,6 +20,7 @@ import {
   X,
 } from 'lucide-react'
 import RequestQuoteForm from '@/components/RequestQuoteForm'
+import Reveal from '@/components/Reveal'
 
 type ValueProp = {
   title: string
@@ -202,12 +203,12 @@ const caseStudies: CaseStudy[] = [
     name: 'Le Relief Haiti',
     url: 'https://lereliefhaiti.com',
     description:
-      'Bilingual platform for a humanitarian relief organization in Haiti — story-driven landing, programs overview, and donation pathway.',
-    tag: 'Humanitarian platform',
+      'Independent news platform covering Haitian politics, current affairs, and analysis — bilingual editorial layouts, fast publishing workflow, and reader-first reading experience.',
+    tag: 'News & politics',
     category: 'client',
     stats: [
       { value: '2', label: 'languages (EN/FR)' },
-      { value: '6 wk', label: 'design to launch' },
+      { value: 'Daily', label: 'publishing cadence' },
       { value: '100', label: 'Lighthouse a11y' },
     ],
     featured: true,
@@ -447,7 +448,7 @@ export default function LabsPage() {
       <section className="relative border-b border-white/10 bg-[#0a0a0a]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
-            <div className="lg:col-span-4">
+            <Reveal as="div" className="lg:col-span-4" from="left">
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-emerald-400/80">✦</span>
                 <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">01 · Brief</span>
@@ -455,8 +456,8 @@ export default function LabsPage() {
               <h2 className="display-lg text-white leading-tight">
                 Technology for social impact.
               </h2>
-            </div>
-            <div className="lg:col-span-7 lg:col-start-6 space-y-6">
+            </Reveal>
+            <Reveal as="div" className="lg:col-span-7 lg:col-start-6 space-y-6" delay={120}>
               <p className="text-lg sm:text-xl leading-relaxed text-white/90">
                 Labs brings together strategy, design, and full-stack engineering to help mission-driven
                 teams launch digital experiences that are clear, useful, and built to grow.
@@ -466,18 +467,18 @@ export default function LabsPage() {
                 always pairing modern tools with practical delivery.
               </p>
               <div className="grid sm:grid-cols-3 gap-px bg-white/10 border-y border-white/15 mt-10">
-                {valueProps.map((vp) => {
+                {valueProps.map((vp, vpIdx) => {
                   const Icon = vp.icon
                   return (
-                    <div key={vp.title} className="bg-[#0a0a0a] p-5 sm:p-6">
+                    <Reveal key={vp.title} as="div" delay={200 + vpIdx * 100} className="bg-[#0a0a0a] p-5 sm:p-6">
                       <Icon size={18} className="text-[var(--paper-on-dark)] mb-3" />
                       <h3 className="font-display text-white text-sm font-semibold mb-2">{vp.title}</h3>
                       <p className="text-xs leading-relaxed text-[var(--paper-on-dark)]/75">{vp.description}</p>
-                    </div>
+                    </Reveal>
                   )
                 })}
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -486,7 +487,7 @@ export default function LabsPage() {
       <section id="capabilities" className="relative border-b border-white/10">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 sm:mb-16 gap-6">
-            <div className="max-w-xl">
+            <Reveal as="div" className="max-w-xl">
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-emerald-400/80">✦</span>
                 <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">02 · Capabilities</span>
@@ -495,7 +496,7 @@ export default function LabsPage() {
               <p className="body-lg text-[var(--paper-on-dark)]/85">
                 From strategy to launch, human-centered platforms that move your mission forward.
               </p>
-            </div>
+            </Reveal>
             <div className="hidden sm:flex items-center gap-2 text-[10px] eyebrow text-white/50">
               <Terminal size={14} />
               <span>$ ls ./services</span>
@@ -506,8 +507,10 @@ export default function LabsPage() {
             {capabilities.map((capability, idx) => {
               const Icon = capability.icon
               return (
-                <div
+                <Reveal
                   key={capability.title}
+                  as="div"
+                  delay={idx * 90}
                   className="bg-[#0a0a0a] p-7 sm:p-9 hover:bg-[#0f0f0f] transition-colors group"
                 >
                   <div className="flex items-start justify-between mb-5">
@@ -528,7 +531,7 @@ export default function LabsPage() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </Reveal>
               )
             })}
           </div>
@@ -578,7 +581,7 @@ export default function LabsPage() {
           }}
         />
         <div className="relative max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
-          <div className="max-w-2xl mb-14">
+          <Reveal as="div" className="max-w-2xl mb-14">
             <div className="flex items-center gap-3 mb-5">
               <span className="text-emerald-400/80">✦</span>
               <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">03 · Process</span>
@@ -590,7 +593,7 @@ export default function LabsPage() {
               Our team becomes an extension of yours — structure, clarity, and technical rigor so you can stay
               focused on your mission.
             </p>
-          </div>
+          </Reveal>
 
           {/* Terminal-style process block */}
           <div className="border border-white/15 bg-black/60 backdrop-blur-sm">
@@ -653,7 +656,7 @@ export default function LabsPage() {
       <section id="portfolio" className="relative border-b border-white/10 bg-[#0a0a0a]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-6">
-            <div className="max-w-xl">
+            <Reveal as="div" className="max-w-xl">
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-emerald-400/80">✦</span>
                 <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">04 · Selected work</span>
@@ -662,7 +665,7 @@ export default function LabsPage() {
               <p className="body-lg text-[var(--paper-on-dark)]/85">
                 Live platforms, internal initiatives, and concepts in development.
               </p>
-            </div>
+            </Reveal>
           </div>
 
           {/* Filter tabs */}
@@ -750,7 +753,7 @@ export default function LabsPage() {
               <>
                 {/* FEATURED HERO CARD (discipline view only) */}
                 {featuredProject && (
-                  <div className="mb-6">
+                  <Reveal as="div" className="mb-6" from="up" distance={32} duration={1000}>
                     {(() => {
                       const project = featuredProject
                       const Inner = (
@@ -784,17 +787,6 @@ export default function LabsPage() {
                                     </div>
                                   </div>
                                 </div>
-                              )}
-                              {/* Hairline grid only on the empty-preview panel for texture; never over real screenshots */}
-                              {!project.screenshot && (
-                                <div
-                                  className="absolute inset-0 opacity-[0.08] pointer-events-none"
-                                  style={{
-                                    backgroundImage:
-                                      'linear-gradient(rgba(232,226,212,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(232,226,212,0.5) 1px, transparent 1px)',
-                                    backgroundSize: '48px 48px',
-                                  }}
-                                />
                               )}
                             </div>
 
@@ -855,7 +847,7 @@ export default function LabsPage() {
                         Inner
                       )
                     })()}
-                  </div>
+                  </Reveal>
                 )}
 
                 {/* SECONDARY GRID (compact browser tiles) */}
@@ -900,17 +892,20 @@ export default function LabsPage() {
                         </div>
                       )
                       return project.url ? (
-                        <Link
-                          key={project.name}
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block"
-                        >
-                          {Inner}
-                        </Link>
+                        <Reveal key={project.name} as="div" delay={idx * 100}>
+                          <Link
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block h-full"
+                          >
+                            {Inner}
+                          </Link>
+                        </Reveal>
                       ) : (
-                        <div key={project.name}>{Inner}</div>
+                        <Reveal key={project.name} as="div" delay={idx * 100}>
+                          {Inner}
+                        </Reveal>
                       )
                     })}
                   </div>
@@ -954,7 +949,7 @@ export default function LabsPage() {
       <section className="relative border-b border-white/10">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
-            <div className="lg:col-span-4">
+            <Reveal as="div" className="lg:col-span-4" from="left">
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-emerald-400/80">✦</span>
                 <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">05 · Why Labs</span>
@@ -963,16 +958,16 @@ export default function LabsPage() {
               <p className="body-lg text-[var(--paper-on-dark)]/85">
                 We are designers, engineers, and strategists who care about the impact of what we build.
               </p>
-            </div>
+            </Reveal>
             <div className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-white/10 border border-white/15">
               {differentiators.map((point, idx) => (
-                <div key={point.title} className="bg-[#0a0a0a] p-6 sm:p-7">
+                <Reveal key={point.title} as="div" delay={idx * 90} className="bg-[#0a0a0a] p-6 sm:p-7">
                   <span className="numeral text-white/30 text-xs">{String(idx + 1).padStart(2, '0')}</span>
                   <h3 className="font-display text-white text-base sm:text-lg font-semibold mt-3 mb-2.5">
                     {point.title}
                   </h3>
                   <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80">{point.description}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -982,7 +977,7 @@ export default function LabsPage() {
       {/* ─── INVOLVEMENT + CONTACT ─── */}
       <section id="contact" className="relative border-b border-white/10 bg-[#0a0a0a]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
-          <div className="max-w-xl mb-12">
+          <Reveal as="div" className="max-w-xl mb-12">
             <div className="flex items-center gap-3 mb-5">
               <span className="text-emerald-400/80">✦</span>
               <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">06 · Collaborate</span>
@@ -991,15 +986,15 @@ export default function LabsPage() {
             <p className="body-lg text-[var(--paper-on-dark)]/85">
               Whether you need a platform, ongoing optimization, or an innovation partner — we&apos;re ready.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid sm:grid-cols-3 gap-px bg-white/10 border border-white/15 mb-12">
             {involvementPaths.map((path, idx) => (
-              <div key={path.title} className="bg-[#0a0a0a] p-7 sm:p-8">
+              <Reveal key={path.title} as="div" delay={idx * 110} className="bg-[#0a0a0a] p-7 sm:p-8">
                 <span className="numeral text-white/30 text-xs">0{idx + 1}</span>
                 <h3 className="font-display text-white text-lg font-semibold mt-3 mb-3">{path.title}</h3>
                 <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80">{path.description}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
 
@@ -1049,42 +1044,45 @@ export default function LabsPage() {
               'radial-gradient(circle at 30% 50%, rgba(30,66,159,0.5), transparent 60%), linear-gradient(135deg, #001a4d 0%, #000a1f 100%)',
           }}
         />
+        {/* Subtle radial dot texture (no grid lines) */}
         <div
-          className="absolute inset-0 opacity-[0.18] pointer-events-none"
+          className="absolute inset-0 opacity-[0.08] pointer-events-none"
           style={{
             backgroundImage:
-              'linear-gradient(rgba(232,226,212,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(232,226,212,0.4) 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
+              'radial-gradient(rgba(232,226,212,0.45) 1px, transparent 1px)',
+            backgroundSize: '24px 24px',
           }}
         />
         <div className="relative max-w-[1200px] mx-auto px-6 lg:px-10 py-24 sm:py-32">
-          <div className="max-w-3xl">
-            <span className="eyebrow text-white/75 text-[11px]">EdLight Labs</span>
-            <h2 className="display-xl text-white mt-5 mb-6 leading-[1.04]" style={{ textShadow: '0 1px 24px rgba(0,0,0,0.4)' }}>
-              Let&apos;s build with purpose.
-            </h2>
-            <p className="text-lg sm:text-xl text-white/95 max-w-xl leading-relaxed mb-10" style={{ textShadow: '0 1px 14px rgba(0,0,0,0.4)' }}>
-              Launching new, improving existing, or exploring a concept — Labs turns ideas into
-              thoughtful digital experiences.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button
-                type="button"
-                onClick={openQuoteModal}
-                className="group inline-flex items-center justify-center gap-2 bg-white text-[var(--ink-900)] font-medium px-6 py-3 hover:bg-[var(--paper-100)] transition-colors text-sm sm:text-base"
-              >
-                Start a project brief
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-              </button>
-              <a
-                href="mailto:labs@edlight.org"
-                className="inline-flex items-center justify-center gap-2 border border-white/40 bg-white/5 text-white font-medium px-6 py-3 hover:bg-white/10 hover:border-white/70 transition-colors text-sm sm:text-base backdrop-blur-sm"
-              >
-                labs@edlight.org
-                <ExternalLink size={14} />
-              </a>
+          <Reveal>
+            <div className="max-w-3xl">
+              <span className="eyebrow text-white/75 text-[11px]">EdLight Labs</span>
+              <h2 className="display-xl text-white mt-5 mb-6 leading-[1.04]" style={{ textShadow: '0 1px 24px rgba(0,0,0,0.4)' }}>
+                Let&apos;s build with purpose.
+              </h2>
+              <p className="text-lg sm:text-xl text-white/95 max-w-xl leading-relaxed mb-10" style={{ textShadow: '0 1px 14px rgba(0,0,0,0.4)' }}>
+                Launching new, improving existing, or exploring a concept — Labs turns ideas into
+                thoughtful digital experiences.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <button
+                  type="button"
+                  onClick={openQuoteModal}
+                  className="group inline-flex items-center justify-center gap-2 bg-white text-[var(--ink-900)] font-medium px-6 py-3 hover:bg-[var(--paper-100)] transition-colors text-sm sm:text-base"
+                >
+                  Start a project brief
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                </button>
+                <a
+                  href="mailto:labs@edlight.org"
+                  className="inline-flex items-center justify-center gap-2 border border-white/40 bg-white/5 text-white font-medium px-6 py-3 hover:bg-white/10 hover:border-white/70 transition-colors text-sm sm:text-base backdrop-blur-sm"
+                >
+                  labs@edlight.org
+                  <ExternalLink size={14} />
+                </a>
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
