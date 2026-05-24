@@ -135,12 +135,9 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-colors duration-300 border-b',
         isOnDark
-          ? // Over dark sections: stay transparent — let the section show through.
-            // Only nudge in a faint blur + hairline once the user scrolls, so the
-            // bar doesn't dissolve into the content but never becomes a slab.
-            isScrolled
-            ? 'bg-transparent backdrop-blur-sm border-white/10'
-            : 'bg-transparent border-transparent'
+          ? // Over dark sections: fully transparent — no backdrop, no hairline.
+            // The section's own background shows through; only text/logo flip white.
+            'bg-transparent border-transparent'
           : isScrolled
             ? 'bg-[var(--paper-50)]/95 backdrop-blur-md border-[var(--paper-200)]'
             : 'bg-[var(--paper-50)]/90 backdrop-blur-md border-transparent'
