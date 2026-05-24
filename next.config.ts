@@ -7,6 +7,13 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_BUILD_REPO: process.env.VERCEL_GIT_REPO_SLUG,
     NEXT_PUBLIC_BUILD_TIME: new Date().toISOString(),
   },
+  images: {
+    // Allow next/image to render locally-authored SVG assets (e.g. /store/sponsor.svg).
+    // CSP below blocks any script execution inside SVGs.
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
