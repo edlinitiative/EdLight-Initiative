@@ -1,9 +1,11 @@
 "use client"
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   ArrowRight,
+  ArrowUpRight,
   Compass,
   ExternalLink,
   Lightbulb,
@@ -12,12 +14,11 @@ import {
   Rocket,
   Settings,
   Target,
+  Terminal,
   Workflow,
   Wrench,
   X,
 } from 'lucide-react'
-import Hero from '@/components/Hero'
-import SectionHeader from '@/components/SectionHeader'
 import RequestQuoteForm from '@/components/RequestQuoteForm'
 
 type ValueProp = {
@@ -272,135 +273,198 @@ export default function LabsPage() {
       : caseStudies.filter((s) => s.category === activeCategory)
 
   return (
-    <>
-      <Hero
-        eyebrow="EdLight Labs"
-        title="Digital products built for mission-led organizations."
-        subtitle="The digital product and innovation arm of EdLight. We design and build thoughtful websites, platforms, and pilots for teams creating meaningful impact."
-        backgroundImage="/labs_pics.webp"
-      >
-        <button type="button" className="btn btn-primary" onClick={openQuoteModal}>
-          Build with Labs <ArrowRight size={18} />
-        </button>
-        <Link href="#capabilities" className="btn btn-light">
-          Explore capabilities
-        </Link>
-      </Hero>
-
-      {/* Value propositions */}
-      <section className="bg-gradient-to-b from-slate-50 via-white to-white py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Technology for social impact"
-            subtitle="Labs brings together strategy, design, engineering, and applied learning to help mission-driven teams launch digital experiences that are clear, useful, and built to grow. Our work spans websites, platforms, product prototypes, and internal innovation initiatives."
-            centered
+    <div className="bg-[var(--ink-deep)] text-[var(--paper-on-dark)] min-h-screen">
+      {/* ─── HERO: Immersive studio shot ─── */}
+      <section className="relative overflow-hidden min-h-[88vh] flex items-stretch border-b border-white/10">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/labs_pics.webp"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
           />
-          <div className="grid gap-6 md:grid-cols-3">
-            {valueProps.map((vp) => {
-              const Icon = vp.icon
-              return (
-                <div
-                  key={vp.title}
-                  className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-md transition hover:shadow-xl"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 transition group-hover:opacity-100" />
-                  <div className="relative z-10 space-y-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <Icon size={20} />
-                    </div>
-                    <h3 className="text-lg font-semibold text-text">{vp.title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{vp.description}</p>
-                  </div>
-                </div>
-              )
-            })}
+        </div>
+        {/* Duotone + scrim */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(13,11,9,0.7) 0%, rgba(13,11,9,0.5) 40%, rgba(13,11,9,0.85) 100%), radial-gradient(circle at 20% 30%, rgba(30,66,159,0.45), transparent 55%)',
+            mixBlendMode: 'multiply',
+          }}
+        />
+        {/* Grid overlay (studio blueprint) */}
+        <div
+          className="absolute inset-0 opacity-[0.18] pointer-events-none"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(232,226,212,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(232,226,212,0.5) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+          }}
+        />
+        {/* Scan-line / grain */}
+        <div
+          className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
+          style={{
+            backgroundImage:
+              'radial-gradient(rgba(232,226,212,0.6) 1px, transparent 1px)',
+            backgroundSize: '3px 3px',
+          }}
+        />
+
+        {/* Status bar (top) */}
+        <div className="absolute top-0 inset-x-0 z-20 border-b border-white/10 bg-black/30 backdrop-blur-sm">
+          <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-2 flex items-center justify-between text-[10px] sm:text-[11px] eyebrow text-white/70">
+            <span className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              LAB · ONLINE
+            </span>
+            <span className="hidden sm:inline">SECTOR /labs · BUILD 2026.05</span>
+            <span>LAT 18.5944° N · LON 72.3074° W</span>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10 py-24 sm:py-28 w-full flex flex-col justify-end">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-6 animate-fade-in">
+              <span className="h-px w-10 bg-white/50" aria-hidden="true" />
+              <span className="eyebrow text-white text-xs">EdLight Labs · Studio</span>
+            </div>
+            <h1
+              className="display-xl text-white leading-[1.02] mb-6 animate-fade-in"
+              style={{ textShadow: '0 1px 30px rgba(0,0,0,0.5)' }}
+            >
+              Where ideas become<br />
+              <span className="italic font-display text-[var(--paper-on-dark)]">working products.</span>
+            </h1>
+            <p
+              className="body-lg text-white/95 max-w-[620px] text-base sm:text-lg leading-relaxed mb-10"
+              style={{ textShadow: '0 1px 16px rgba(0,0,0,0.5)' }}
+            >
+              A design and engineering studio inside the EdLight Initiative. We build websites, platforms,
+              and innovation pilots for teams creating meaningful impact.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center">
+              <button
+                type="button"
+                onClick={openQuoteModal}
+                className="group inline-flex items-center justify-center gap-2 bg-white text-[var(--ink-900)] font-medium px-6 py-3 hover:bg-[var(--paper-100)] transition-colors text-sm sm:text-base"
+              >
+                Start a project
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+              </button>
+              <Link
+                href="#capabilities"
+                className="inline-flex items-center justify-center gap-2 border border-white/40 bg-white/5 text-white font-medium px-6 py-3 hover:bg-white/10 hover:border-white/70 transition-colors text-sm sm:text-base backdrop-blur-sm"
+              >
+                Explore capabilities
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero meta strip (bottom edge) */}
+        <div className="absolute bottom-0 inset-x-0 z-20 border-t border-white/10 bg-black/40 backdrop-blur-sm">
+          <div className="max-w-[1200px] mx-auto px-6 lg:px-10 grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10">
+            {[
+              { k: 'Projects shipped', v: '12+' },
+              { k: 'Internal platforms', v: '5' },
+              { k: 'Stack', v: 'Next.js · TS' },
+              { k: 'Response', v: '< 48h' },
+            ].map((s) => (
+              <div key={s.k} className="px-4 py-4 sm:py-5">
+                <div className="eyebrow text-white/60 text-[10px] mb-1">{s.k}</div>
+                <div className="numeral text-white text-base sm:text-lg font-semibold">{s.v}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Capabilities */}
-      <section id="capabilities" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div className="space-y-8">
-              <SectionHeader
-                title="What we build"
-                subtitle="From strategy to launch, Labs crafts human-centered platforms that move your mission forward."
-              />
-              <div className="grid gap-6 sm:grid-cols-2">
-                {capabilities.map((capability) => {
-                  const Icon = capability.icon
+      {/* ─── BRIEF / INTRO ─── */}
+      <section className="relative border-b border-white/10 bg-[#0a0a0a]">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+            <div className="lg:col-span-4">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="h-px w-8 bg-[var(--paper-on-dark)]/40" aria-hidden="true" />
+                <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">01 · Brief</span>
+              </div>
+              <h2 className="display-lg text-white leading-tight">
+                Technology for social impact.
+              </h2>
+            </div>
+            <div className="lg:col-span-7 lg:col-start-6 space-y-6">
+              <p className="text-lg sm:text-xl leading-relaxed text-white/90">
+                Labs brings together strategy, design, and full-stack engineering to help mission-driven
+                teams launch digital experiences that are clear, useful, and built to grow.
+              </p>
+              <p className="text-base leading-relaxed text-[var(--paper-on-dark)]/80">
+                We work across websites, platforms, product prototypes, and internal innovation initiatives —
+                always pairing modern tools with practical delivery.
+              </p>
+              <div className="grid sm:grid-cols-3 gap-px bg-white/10 border-y border-white/15 mt-10">
+                {valueProps.map((vp) => {
+                  const Icon = vp.icon
                   return (
-                    <div key={capability.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
-                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                        <Icon size={20} />
-                      </div>
-                      <h3 className="font-heading text-lg font-semibold text-text">{capability.title}</h3>
-                      <p className="mt-2 text-sm text-gray-600 leading-relaxed">{capability.description}</p>
-                      <ul className="mt-4 space-y-2 text-sm text-gray-600">
-                        {capability.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-start gap-2">
-                            <ArrowRight size={14} className="mt-1 text-primary" />
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    <div key={vp.title} className="bg-[#0a0a0a] p-5 sm:p-6">
+                      <Icon size={18} className="text-[var(--paper-on-dark)] mb-3" />
+                      <h3 className="font-display text-white text-sm font-semibold mb-2">{vp.title}</h3>
+                      <p className="text-xs leading-relaxed text-[var(--paper-on-dark)]/75">{vp.description}</p>
                     </div>
                   )
                 })}
               </div>
             </div>
-
-            <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-primary/95 via-primary/85 to-primary p-8 text-white shadow-xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/85">Signature engagement</p>
-              <h3 className="mt-4 font-heading text-2xl font-semibold">Impact website accelerator</h3>
-              <p className="mt-4 text-sm text-white/95 leading-relaxed">
-                A focused sprint that combines brand discovery, user-centered design, and a guided launch playbook.
-                Ideal for organizations ready to establish or significantly elevate their digital presence.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide">
-                <span className="rounded-full bg-white/15 px-3 py-1">Strategy workshop</span>
-                <span className="rounded-full bg-white/15 px-3 py-1">Design system</span>
-                <span className="rounded-full bg-white/15 px-3 py-1">Training & care</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="relative overflow-hidden bg-slate-950 py-20 text-slate-100">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_rgba(15,23,42,0.9))]" />
-        <div className="container relative mx-auto px-4">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">Process</p>
-            <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">
-              A collaborative build from strategy to growth
-            </h2>
-            <p className="mt-4 text-base text-slate-100">
-              Our team becomes an extension of yours — bringing structure, clarity, and technical rigor so you can stay
-              focused on your mission.
-            </p>
+      {/* ─── CAPABILITIES ─── */}
+      <section id="capabilities" className="relative border-b border-white/10">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 sm:mb-16 gap-6">
+            <div className="max-w-xl">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="h-px w-8 bg-[var(--paper-on-dark)]/40" aria-hidden="true" />
+                <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">02 · Capabilities</span>
+              </div>
+              <h2 className="display-lg text-white leading-tight mb-4">What we build.</h2>
+              <p className="body-lg text-[var(--paper-on-dark)]/85">
+                From strategy to launch, human-centered platforms that move your mission forward.
+              </p>
+            </div>
+            <div className="hidden sm:flex items-center gap-2 text-[10px] eyebrow text-white/50">
+              <Terminal size={14} />
+              <span>$ ls ./services</span>
+            </div>
           </div>
-          <div className="mt-14 grid gap-6 lg:grid-cols-4">
-            {processPhases.map((phase) => {
-              const Icon = phase.icon
+
+          <div className="grid sm:grid-cols-2 gap-px bg-white/10 border border-white/15">
+            {capabilities.map((capability, idx) => {
+              const Icon = capability.icon
               return (
                 <div
-                  key={phase.title}
-                  className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_10px_40px_rgba(15,23,42,0.5)]"
+                  key={capability.title}
+                  className="bg-[#0a0a0a] p-7 sm:p-9 hover:bg-[#0f0f0f] transition-colors group"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="rounded-full bg-white/10 p-2 text-primary">
+                  <div className="flex items-start justify-between mb-5">
+                    <div className="flex h-11 w-11 items-center justify-center border border-white/15 text-white group-hover:border-white/40 transition-colors">
                       <Icon size={20} />
-                    </span>
-                    <h3 className="font-heading text-lg font-semibold text-white">{phase.title}</h3>
+                    </div>
+                    <span className="numeral text-white/30 text-xs">{String(idx + 1).padStart(2, '0')}</span>
                   </div>
-                  <p className="mt-4 text-sm text-slate-100">{phase.description}</p>
-                  <ul className="mt-4 space-y-2 text-sm text-slate-200/80">
-                    {phase.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-2">
-                        <ArrowRight size={14} className="mt-1 text-primary" />
+                  <h3 className="font-display text-white text-xl font-semibold mb-3">{capability.title}</h3>
+                  <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80 mb-5">
+                    {capability.description}
+                  </p>
+                  <ul className="space-y-2.5 border-t border-white/10 pt-5">
+                    {capability.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-3 text-sm text-[var(--paper-on-dark)]/75">
+                        <span className="font-mono-edl text-white/40 text-xs mt-0.5">›</span>
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -409,27 +473,148 @@ export default function LabsPage() {
               )
             })}
           </div>
+
+          {/* Signature engagement banner */}
+          <div className="mt-12 relative overflow-hidden border border-white/15">
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'radial-gradient(circle at 80% 50%, rgba(30,66,159,0.55), transparent 60%), linear-gradient(135deg, #001a4d 0%, #000a1f 100%)',
+              }}
+            />
+            <div className="relative grid lg:grid-cols-2 gap-8 p-8 sm:p-12">
+              <div>
+                <span className="eyebrow text-white/70 text-[11px]">Signature engagement</span>
+                <h3 className="display-md text-white mt-4 mb-4">Impact website accelerator</h3>
+                <p className="text-base leading-relaxed text-white/90 max-w-md">
+                  A focused sprint pairing brand discovery, user-centered design, and a guided launch playbook.
+                  For organizations ready to elevate their digital presence.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2 self-end">
+                {['Strategy workshop', 'Design system', 'Training & care', 'Launch playbook', 'CMS handoff'].map(
+                  (chip) => (
+                    <span
+                      key={chip}
+                      className="eyebrow text-[10px] text-white/85 border border-white/25 px-3 py-1.5"
+                    >
+                      {chip}
+                    </span>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Portfolio */}
-      <section id="portfolio" className="bg-slate-50 py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Selected work"
-            subtitle="A snapshot of live platforms, internal initiatives, and concepts in development."
-            centered
-          />
+      {/* ─── PROCESS (terminal aesthetic) ─── */}
+      <section className="relative border-b border-white/10 overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            background:
+              'radial-gradient(circle at 50% 0%, rgba(30,66,159,0.4), transparent 50%)',
+          }}
+        />
+        <div className="relative max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
+          <div className="max-w-2xl mb-14">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="h-px w-8 bg-[var(--paper-on-dark)]/40" aria-hidden="true" />
+              <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">03 · Process</span>
+            </div>
+            <h2 className="display-lg text-white leading-tight mb-4">
+              A collaborative build, strategy to growth.
+            </h2>
+            <p className="body-lg text-[var(--paper-on-dark)]/85">
+              Our team becomes an extension of yours — structure, clarity, and technical rigor so you can stay
+              focused on your mission.
+            </p>
+          </div>
 
-          {/* Category filter tabs */}
-          <div className="mb-10 flex flex-wrap justify-center gap-3">
+          {/* Terminal-style process block */}
+          <div className="border border-white/15 bg-black/60 backdrop-blur-sm">
+            {/* terminal chrome */}
+            <div className="flex items-center justify-between border-b border-white/10 px-4 py-2.5">
+              <div className="flex items-center gap-1.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+              </div>
+              <span className="font-mono-edl text-[10px] text-white/40 uppercase tracking-wider">
+                edlight-labs / build.sh
+              </span>
+              <Terminal size={14} className="text-white/40" />
+            </div>
+
+            <div className="grid lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+              {processPhases.map((phase, idx) => {
+                const Icon = phase.icon
+                return (
+                  <div key={phase.title} className="p-7 sm:p-8">
+                    <div className="flex items-center gap-3 mb-5">
+                      <span className="font-mono-edl text-emerald-400/80 text-xs">
+                        $ phase_{idx + 1}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="border border-white/20 p-2 text-white">
+                        <Icon size={18} />
+                      </span>
+                      <h3 className="font-display text-white text-lg font-semibold">{phase.title}</h3>
+                    </div>
+                    <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80 mb-5">
+                      {phase.description}
+                    </p>
+                    <ul className="space-y-2 border-t border-white/10 pt-4">
+                      {phase.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-start gap-2 text-xs text-[var(--paper-on-dark)]/75 font-mono-edl">
+                          <span className="text-emerald-400/60">→</span>
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* terminal prompt footer */}
+            <div className="border-t border-white/10 px-4 py-3 font-mono-edl text-[11px] text-white/50 flex items-center gap-2">
+              <span className="text-emerald-400/80">✓</span>
+              <span>build complete — ready to ship</span>
+              <span className="ml-auto animate-pulse text-white/40">_</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PORTFOLIO ─── */}
+      <section id="portfolio" className="relative border-b border-white/10 bg-[#0a0a0a]">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-6">
+            <div className="max-w-xl">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="h-px w-8 bg-[var(--paper-on-dark)]/40" aria-hidden="true" />
+                <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">04 · Selected work</span>
+              </div>
+              <h2 className="display-lg text-white leading-tight mb-4">From the studio.</h2>
+              <p className="body-lg text-[var(--paper-on-dark)]/85">
+                Live platforms, internal initiatives, and concepts in development.
+              </p>
+            </div>
+          </div>
+
+          {/* Filter tabs */}
+          <div className="mb-10 flex flex-wrap gap-2 border-b border-white/10 pb-4">
             <button
               type="button"
               onClick={() => setActiveCategory('all')}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+              className={`px-4 py-2 text-xs eyebrow transition-colors ${
                 activeCategory === 'all'
-                  ? 'bg-primary text-white shadow-md'
-                  : 'border border-primary/20 bg-white text-gray-600 hover:border-primary/40'
+                  ? 'bg-white text-[var(--ink-900)]'
+                  : 'border border-white/20 text-white/75 hover:border-white/50 hover:text-white'
               }`}
             >
               All work
@@ -439,10 +624,10 @@ export default function LabsPage() {
                 key={cat.key}
                 type="button"
                 onClick={() => setActiveCategory(cat.key)}
-                className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+                className={`px-4 py-2 text-xs eyebrow transition-colors ${
                   activeCategory === cat.key
-                    ? 'bg-primary text-white shadow-md'
-                    : 'border border-primary/20 bg-white text-gray-600 hover:border-primary/40'
+                    ? 'bg-white text-[var(--ink-900)]'
+                    : 'border border-white/20 text-white/75 hover:border-white/50 hover:text-white'
                 }`}
               >
                 {cat.label}
@@ -450,97 +635,182 @@ export default function LabsPage() {
             ))}
           </div>
 
-          {/* Active category description */}
           {activeCategory !== 'all' && (
-            <p className="mb-8 text-center text-sm text-gray-500">
+            <p className="mb-8 text-sm text-[var(--paper-on-dark)]/65 max-w-2xl">
               {portfolioCategories.find((c) => c.key === activeCategory)?.description}
             </p>
           )}
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {filteredStudies.map((project) => (
-              <div
-                key={project.name}
-                className="group relative overflow-hidden rounded-3xl border border-primary/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 transition group-hover:opacity-100" />
-                <div className="relative z-10 flex items-center justify-between gap-3">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-primary/80">{project.tag}</p>
-                    <h3 className="mt-2 font-heading text-lg font-semibold text-text">{project.name}</h3>
+          <div className="grid sm:grid-cols-2 gap-px bg-white/10 border border-white/15">
+            {filteredStudies.map((project, idx) => {
+              const Inner = (
+                <div className="bg-[#0a0a0a] hover:bg-[#0f0f0f] p-7 sm:p-9 transition-colors h-full flex flex-col group">
+                  <div className="flex items-start justify-between gap-4 mb-5">
+                    <span className="eyebrow text-[10px] text-[var(--paper-on-dark)]/70 border border-white/15 px-2.5 py-1">
+                      {project.tag}
+                    </span>
+                    <span className="numeral text-white/25 text-xs">{String(idx + 1).padStart(2, '0')}</span>
                   </div>
-                  {project.url && (
-                    <Link
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-primary text-sm font-semibold"
-                    >
-                      Visit <ExternalLink size={14} />
-                    </Link>
-                  )}
-                </div>
-                <p className="relative z-10 mt-3 text-sm text-gray-600 leading-relaxed">{project.description}</p>
-                {project.category === 'concept' && (
-                  <p className="relative z-10 mt-4 text-xs font-semibold uppercase tracking-wide text-amber-600/80">
-                    Demo · Not a live client project
+                  <h3 className="font-display text-white text-xl sm:text-2xl font-semibold mb-3 leading-tight">
+                    {project.name}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80 mb-5 flex-1">
+                    {project.description}
                   </p>
-                )}
-              </div>
-            ))}
+                  <div className="flex items-center justify-between border-t border-white/10 pt-4 mt-auto">
+                    {project.category === 'concept' ? (
+                      <span className="eyebrow text-[10px] text-amber-300/80">Demo · Not live</span>
+                    ) : (
+                      <span className="eyebrow text-[10px] text-emerald-300/80">● Live</span>
+                    )}
+                    {project.url ? (
+                      <span className="inline-flex items-center gap-1.5 text-xs eyebrow text-white group-hover:gap-2.5 transition-all">
+                        Visit <ArrowUpRight size={14} />
+                      </span>
+                    ) : (
+                      <span className="text-xs eyebrow text-white/40">In progress</span>
+                    )}
+                  </div>
+                </div>
+              )
+
+              return project.url ? (
+                <Link
+                  key={project.name}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  {Inner}
+                </Link>
+              ) : (
+                <div key={project.name}>{Inner}</div>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* Why Labs */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Why teams work with EdLight Labs"
-            subtitle="We are designers, engineers, and strategists who care about the impact of what we build."
-            centered
-          />
-          <div className="grid gap-6 md:grid-cols-2">
-            {differentiators.map((point) => (
-              <div key={point.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
-                <h3 className="font-heading text-lg font-semibold text-text">{point.title}</h3>
-                <p className="mt-2 text-sm text-gray-600 leading-relaxed">{point.description}</p>
-              </div>
-            ))}
+      {/* ─── STUDIO PORTRAIT (immersive image break) ─── */}
+      <section className="relative h-[60vh] min-h-[420px] overflow-hidden border-b border-white/10">
+        <Image
+          src="/edlight_academy_group.webp"
+          alt="EdLight Labs in collaboration with students"
+          fill
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(13,11,9,0.9) 0%, rgba(13,11,9,0.55) 50%, rgba(13,11,9,0.85) 100%)',
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.1] pointer-events-none"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(232,226,212,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(232,226,212,0.5) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+          }}
+        />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10 h-full flex items-center">
+          <div className="max-w-2xl">
+            <span className="eyebrow text-white/80 text-[11px]">Studio · in practice</span>
+            <h2 className="display-lg text-white mt-5 leading-[1.05]" style={{ textShadow: '0 1px 24px rgba(0,0,0,0.5)' }}>
+              We build with the<br />communities we serve.
+            </h2>
+            <p className="body-lg text-white/95 mt-5 max-w-lg" style={{ textShadow: '0 1px 14px rgba(0,0,0,0.5)' }}>
+              Designers, engineers, and strategists working alongside students, teachers, and partner
+              organizations in Haiti and across the diaspora.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Contact / Collaborate */}
-      <section id="contact" className="py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Ways to get involved"
-            subtitle="Whether you need a new platform, ongoing optimization, or an innovation partner — we are ready to explore."
-            centered
-          />
-          <div className="grid gap-6 md:grid-cols-3">
-            {involvementPaths.map((path) => (
-              <div key={path.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
-                <h3 className="font-heading text-lg font-semibold text-text">{path.title}</h3>
-                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{path.description}</p>
+      {/* ─── WHY LABS ─── */}
+      <section className="relative border-b border-white/10">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+            <div className="lg:col-span-4">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="h-px w-8 bg-[var(--paper-on-dark)]/40" aria-hidden="true" />
+                <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">05 · Why Labs</span>
+              </div>
+              <h2 className="display-lg text-white leading-tight mb-4">Why teams choose us.</h2>
+              <p className="body-lg text-[var(--paper-on-dark)]/85">
+                We are designers, engineers, and strategists who care about the impact of what we build.
+              </p>
+            </div>
+            <div className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-white/10 border border-white/15">
+              {differentiators.map((point, idx) => (
+                <div key={point.title} className="bg-[#0a0a0a] p-6 sm:p-7">
+                  <span className="numeral text-white/30 text-xs">{String(idx + 1).padStart(2, '0')}</span>
+                  <h3 className="font-display text-white text-base sm:text-lg font-semibold mt-3 mb-2.5">
+                    {point.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80">{point.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── INVOLVEMENT + CONTACT ─── */}
+      <section id="contact" className="relative border-b border-white/10 bg-[#0a0a0a]">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 sm:py-28">
+          <div className="max-w-xl mb-12">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="h-px w-8 bg-[var(--paper-on-dark)]/40" aria-hidden="true" />
+              <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">06 · Collaborate</span>
+            </div>
+            <h2 className="display-lg text-white leading-tight mb-4">Ways to get involved.</h2>
+            <p className="body-lg text-[var(--paper-on-dark)]/85">
+              Whether you need a platform, ongoing optimization, or an innovation partner — we&apos;re ready.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-px bg-white/10 border border-white/15 mb-12">
+            {involvementPaths.map((path, idx) => (
+              <div key={path.title} className="bg-[#0a0a0a] p-7 sm:p-8">
+                <span className="numeral text-white/30 text-xs">0{idx + 1}</span>
+                <h3 className="font-display text-white text-lg font-semibold mt-3 mb-3">{path.title}</h3>
+                <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80">{path.description}</p>
               </div>
             ))}
           </div>
-          <div className="mt-10 rounded-3xl border border-primary/10 bg-white p-8 shadow-lg text-gray-700">
-            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+
+          {/* Contact block */}
+          <div className="border border-white/15 bg-black/40 backdrop-blur-sm p-8 sm:p-10">
+            <div className="grid lg:grid-cols-2 gap-8 lg:items-center">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary/80">Get in touch</p>
-                <h3 className="mt-2 text-lg font-semibold text-text">labs@edlight.org</h3>
-                <p className="mt-1 text-sm text-gray-600">
-                  Share a brief about your project or request a discovery call. We respond within two business days.
+                <span className="eyebrow text-white/70 text-[11px]">Get in touch</span>
+                <a
+                  href="mailto:labs@edlight.org"
+                  className="block mt-3 font-display text-white text-2xl sm:text-3xl font-semibold hover:text-[var(--paper-on-dark)] transition-colors"
+                >
+                  labs@edlight.org
+                </a>
+                <p className="mt-4 text-sm text-[var(--paper-on-dark)]/80 max-w-md leading-relaxed">
+                  Share a brief about your project or request a discovery call. We respond within
+                  two business days.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <button type="button" className="btn btn-primary" onClick={openQuoteModal}>
+              <div className="flex flex-col sm:flex-row gap-3 lg:justify-end">
+                <button
+                  type="button"
+                  onClick={openQuoteModal}
+                  className="inline-flex items-center justify-center gap-2 bg-white text-[var(--ink-900)] font-medium px-6 py-3 hover:bg-[var(--paper-100)] transition-colors text-sm"
+                >
                   Request a quote
+                  <ArrowRight size={16} />
                 </button>
-                <Link href="#portfolio" className="btn btn-light">
+                <Link
+                  href="#portfolio"
+                  className="inline-flex items-center justify-center gap-2 border border-white/30 bg-white/5 text-white font-medium px-6 py-3 hover:bg-white/10 hover:border-white/60 transition-colors text-sm"
+                >
                   View recent work
                 </Link>
               </div>
@@ -549,28 +819,49 @@ export default function LabsPage() {
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section className="pb-24">
-        <div className="container mx-auto px-4">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/90 via-primary to-primary/90 p-10 text-white shadow-xl">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
-            <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">EdLight Labs</p>
-                <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">Let&apos;s build with purpose</h2>
-                <p className="mt-3 text-sm md:text-base text-white/95 max-w-lg">
-                  Whether you are launching a new platform, improving an existing one, or exploring an early concept,
-                  EdLight Labs helps turn ideas into thoughtful digital experiences.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <button type="button" className="btn btn-light" onClick={openQuoteModal}>
-                  Start a project brief
-                </button>
-                <a href="mailto:labs@edlight.org" className="btn btn-primary">
-                  Contact labs@edlight.org
-                </a>
-              </div>
+      {/* ─── CLOSING CTA ─── */}
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(circle at 30% 50%, rgba(30,66,159,0.5), transparent 60%), linear-gradient(135deg, #001a4d 0%, #000a1f 100%)',
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.18] pointer-events-none"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(232,226,212,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(232,226,212,0.4) 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
+        />
+        <div className="relative max-w-[1200px] mx-auto px-6 lg:px-10 py-24 sm:py-32">
+          <div className="max-w-3xl">
+            <span className="eyebrow text-white/75 text-[11px]">EdLight Labs</span>
+            <h2 className="display-xl text-white mt-5 mb-6 leading-[1.04]" style={{ textShadow: '0 1px 24px rgba(0,0,0,0.4)' }}>
+              Let&apos;s build with purpose.
+            </h2>
+            <p className="text-lg sm:text-xl text-white/95 max-w-xl leading-relaxed mb-10" style={{ textShadow: '0 1px 14px rgba(0,0,0,0.4)' }}>
+              Launching new, improving existing, or exploring a concept — Labs turns ideas into
+              thoughtful digital experiences.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <button
+                type="button"
+                onClick={openQuoteModal}
+                className="group inline-flex items-center justify-center gap-2 bg-white text-[var(--ink-900)] font-medium px-6 py-3 hover:bg-[var(--paper-100)] transition-colors text-sm sm:text-base"
+              >
+                Start a project brief
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+              </button>
+              <a
+                href="mailto:labs@edlight.org"
+                className="inline-flex items-center justify-center gap-2 border border-white/40 bg-white/5 text-white font-medium px-6 py-3 hover:bg-white/10 hover:border-white/70 transition-colors text-sm sm:text-base backdrop-blur-sm"
+              >
+                labs@edlight.org
+                <ExternalLink size={14} />
+              </a>
             </div>
           </div>
         </div>
@@ -584,23 +875,23 @@ export default function LabsPage() {
           aria-modal="true"
         >
           <div
-            className="absolute inset-0 bg-black/60"
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             aria-hidden="true"
             onClick={closeQuoteModal}
           />
-          <div className="relative z-[95] w-full max-w-lg rounded-3xl bg-white p-5 shadow-2xl sm:max-w-2xl sm:p-6 lg:max-w-3xl lg:p-8">
+          <div className="relative z-[95] w-full max-w-lg bg-white p-5 shadow-2xl sm:max-w-2xl sm:p-6 lg:max-w-3xl lg:p-8 border border-[var(--paper-200)]">
             <div className="mb-6 flex items-start justify-between gap-4">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-primary">Website Development Brief</p>
-                <h2 className="mt-2 font-heading text-2xl font-semibold text-gray-900">Tell us about your project</h2>
-                <p className="mt-1 text-sm text-gray-600">
-                  Share your vision and requirements. We will schedule a discovery call within 2–3 business days.
+                <p className="eyebrow text-[var(--accent)] text-[11px]">Website Development Brief</p>
+                <h2 className="mt-2 font-display text-2xl font-semibold text-[var(--ink-900)]">Tell us about your project</h2>
+                <p className="mt-1 text-sm text-[var(--ink-700)]">
+                  Share your vision and requirements. We&apos;ll schedule a discovery call within 2–3 business days.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={closeQuoteModal}
-                className="rounded-full border border-gray-200 p-2 text-gray-500 transition hover:border-gray-300 hover:text-gray-700"
+                className="border border-[var(--paper-200)] p-2 text-[var(--ink-700)] transition hover:border-[var(--paper-300)] hover:text-[var(--ink-900)]"
                 aria-label="Close request quote form"
               >
                 <X size={18} />
@@ -612,6 +903,6 @@ export default function LabsPage() {
           </div>
         </div>
       )}
-    </>
+    </div>
   )
 }
