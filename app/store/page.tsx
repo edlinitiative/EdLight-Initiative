@@ -27,6 +27,7 @@ export default function StorePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-12">
             {storeData.map((product) => {
               const isSponsorKit = product.name.toLowerCase().includes('sponsor')
+              const isTote = product.name.toLowerCase().includes('tote')
               return (
                 <article
                   key={product.id}
@@ -42,6 +43,8 @@ export default function StorePage() {
                       className={
                         isSponsorKit
                           ? 'object-cover'
+                          : isTote
+                          ? 'object-contain group-hover:scale-[1.03] transition-transform duration-500'
                           : 'object-contain p-6 group-hover:scale-[1.03] transition-transform duration-500'
                       }
                     />
