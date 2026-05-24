@@ -81,12 +81,12 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-5 space-y-5">
             <div>
-              <h3 className="font-display text-lg font-bold text-[var(--paper-on-dark)] mb-3">EdLight Initiative</h3>
-              <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/75 max-w-sm">
+              <h3 className="font-display text-lg font-bold text-white mb-3">EdLight Initiative</h3>
+              <p className="text-sm leading-relaxed text-[var(--paper-on-dark)] max-w-sm">
                 At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide
                 high school students with digital access to quality education through STEM courses, leadership programs,
                 and global opportunities.{' '}
-                <Link href="/about" className="text-[var(--paper-on-dark)] underline underline-offset-4 decoration-[var(--paper-on-dark)]/50 hover:decoration-[var(--paper-on-dark)] transition-colors">
+                <Link href="/about" className="text-white underline underline-offset-4 decoration-[var(--paper-on-dark)]/60 hover:decoration-white transition-colors">
                   Learn More
                 </Link>
                 .
@@ -100,7 +100,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center border border-[var(--paper-on-dark)]/25 text-[var(--paper-on-dark)]/80 transition hover:border-[var(--paper-on-dark)]/50 hover:text-[var(--paper-on-dark)] hover:bg-white/[0.04]"
+                  className="flex h-9 w-9 items-center justify-center border border-[var(--paper-on-dark)]/40 text-[var(--paper-on-dark)] transition hover:border-white hover:text-white hover:bg-white/[0.08]"
                 >
                   <Icon size={16} />
                 </a>
@@ -111,11 +111,11 @@ export default function Footer() {
           {/* Links columns */}
           <div className="lg:col-span-7 grid gap-8 grid-cols-2 lg:grid-cols-3">
             <div>
-              <h4 className="eyebrow text-[var(--paper-on-dark)]/70 mb-4">Programs</h4>
+              <h4 className="eyebrow text-[var(--paper-on-dark)] mb-4">Programs</h4>
               <ul className="space-y-2.5">
                 {programLinks.map(({ href, label }) => (
                   <li key={href}>
-                    <Link href={href} className="text-sm text-[var(--paper-on-dark)]/80 hover:text-[var(--paper-on-dark)] transition-colors">
+                    <Link href={href} className="text-sm text-[var(--paper-on-dark)] hover:text-white transition-colors">
                       {label}
                     </Link>
                   </li>
@@ -124,11 +124,11 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="eyebrow text-[var(--paper-on-dark)]/70 mb-4">Explore</h4>
+              <h4 className="eyebrow text-[var(--paper-on-dark)] mb-4">Explore</h4>
               <ul className="space-y-2.5">
                 {orgLinks.map(({ href, label }) => (
                   <li key={href}>
-                    <Link href={href} className="text-sm text-[var(--paper-on-dark)]/80 hover:text-[var(--paper-on-dark)] transition-colors">
+                    <Link href={href} className="text-sm text-[var(--paper-on-dark)] hover:text-white transition-colors">
                       {label}
                     </Link>
                   </li>
@@ -137,8 +137,8 @@ export default function Footer() {
             </div>
 
             <div className="space-y-4 col-span-2 lg:col-span-1">
-              <h4 className="eyebrow text-[var(--paper-on-dark)]/70">Newsletter</h4>
-              <p className="text-xs text-[var(--paper-on-dark)]/75 leading-relaxed">
+              <h4 className="eyebrow text-[var(--paper-on-dark)]">Newsletter</h4>
+              <p className="text-xs text-[var(--paper-on-dark)] leading-relaxed">
                 Monthly highlights, student stories, and program openings.
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-2">
@@ -152,7 +152,7 @@ export default function Footer() {
                   placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full border border-[var(--paper-on-dark)]/25 bg-white/[0.06] px-3 py-2.5 text-sm text-[var(--paper-on-dark)] placeholder-[var(--paper-on-dark)]/50 focus:border-[var(--paper-on-dark)]/60 focus:outline-none"
+                  className="w-full border border-[var(--paper-on-dark)]/40 bg-white/[0.08] px-3 py-2.5 text-sm text-white placeholder-[var(--paper-on-dark)]/70 focus:border-white focus:outline-none"
                   required
                 />
                 <button
@@ -168,7 +168,7 @@ export default function Footer() {
                   </p>
                 )}
               </form>
-              <div className="flex items-center gap-2 text-xs text-[var(--paper-on-dark)]/75">
+              <div className="flex items-center gap-2 text-xs text-[var(--paper-on-dark)]">
                 <Mail size={14} />
                 <a href="mailto:info@edlight.org" className="hover:text-[var(--paper-on-dark)] transition-colors">info@edlight.org</a>
               </div>
@@ -176,10 +176,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-[var(--paper-on-dark)]/20 pt-6">
+        <div className="mt-12 border-t border-[var(--paper-on-dark)]/30 pt-6">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <p className="eyebrow text-[var(--paper-on-dark)]/60 text-[10px]">© {currentYear} EDLIGHT INITIATIVE · ALL RIGHTS RESERVED.</p>
-            <p className="text-xs text-[var(--paper-on-dark)]/60">Crafting opportunities for Haiti&apos;s next generation.</p>
+            <p className="eyebrow text-[var(--paper-on-dark)] text-[10px]">© {currentYear} EDLIGHT INITIATIVE · ALL RIGHTS RESERVED.</p>
+            <p className="text-xs text-[var(--paper-on-dark)]">Crafting opportunities for Haiti&apos;s next generation.</p>
           </div>
         </div>
       </div>
