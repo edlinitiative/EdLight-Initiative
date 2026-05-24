@@ -79,19 +79,27 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <Hero
-        title="Empowering the Next Generation of Haitian Innovators"
-        subtitle="Building a brighter future through quality education, mentorship, and global opportunities"
+        eyebrow="EdLight Initiative · Est. 2020"
+        title="Empowering the next generation of Haitian innovators."
+        subtitle="Quality education, mentorship, and global opportunities — built with and for students across Haiti."
         backgroundImage={heroImages[currentHeroImage]}
+        meta={[
+          { label: 'Students Served', value: `${impactData.studentsServed}+` },
+          { label: 'Programs', value: '5' },
+          { label: 'Partner Orgs', value: `${impactData.partnerOrganizations}+` },
+          { label: 'Founded', value: '2020' },
+        ]}
       >
         <Link
           href="/academy"
-          className="inline-flex items-center gap-2 bg-[var(--paper-50)] text-[var(--accent)] font-medium px-6 py-3 hover:bg-[var(--paper-100)] transition-colors text-sm sm:text-base w-full sm:w-auto justify-center"
+          className="group inline-flex items-center justify-center gap-2 bg-white text-[var(--ink-900)] font-medium px-6 py-3 hover:bg-[var(--paper-100)] transition-colors text-sm sm:text-base w-full sm:w-auto"
         >
-          Explore Programs <ArrowRight size={16} />
+          Explore Programs
+          <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
         </Link>
         <Link
           href="/get-involved"
-          className="inline-flex items-center gap-2 bg-[var(--accent)] text-white font-medium px-6 py-3 hover:bg-[var(--accent-hover)] transition-colors text-sm sm:text-base w-full sm:w-auto justify-center"
+          className="inline-flex items-center justify-center gap-2 border border-white/40 bg-white/5 text-white font-medium px-6 py-3 hover:bg-white/10 hover:border-white/70 transition-colors text-sm sm:text-base w-full sm:w-auto backdrop-blur-sm"
         >
           Support Us
         </Link>
