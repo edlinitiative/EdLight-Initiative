@@ -274,22 +274,17 @@ export default function LabsPage() {
   return (
     <>
       <Hero
-        title="EdLight Labs"
-        subtitle="Digital products, websites, and innovation pilots built for mission-led organizations."
+        eyebrow="EdLight Labs"
+        title="Digital products built for mission-led organizations."
+        subtitle="The digital product and innovation arm of EdLight. We design and build thoughtful websites, platforms, and pilots for teams creating meaningful impact."
         backgroundImage="/labs_pics.webp"
       >
-        <p className="mx-auto mt-4 max-w-2xl text-sm md:text-base text-white/95 leading-relaxed">
-          EdLight Labs is the digital product and innovation arm of EdLight. We design and build thoughtful digital
-          experiences for organizations, initiatives, and communities working to create meaningful impact.
-        </p>
-        <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-          <button type="button" className="btn btn-primary" onClick={openQuoteModal}>
-            Build with Labs <ArrowRight size={18} />
-          </button>
-          <Link href="#capabilities" className="btn btn-light">
-            Explore capabilities
-          </Link>
-        </div>
+        <button type="button" className="btn btn-primary" onClick={openQuoteModal}>
+          Build with Labs <ArrowRight size={18} />
+        </button>
+        <Link href="#capabilities" className="btn btn-light">
+          Explore capabilities
+        </Link>
       </Hero>
 
       {/* Value propositions */}

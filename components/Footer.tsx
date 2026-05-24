@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail } from 'lucide-react'
 
 const socialLinks = [
@@ -87,7 +88,15 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-5 space-y-5">
             <div>
-              <h3 className="font-display text-lg font-bold text-white mb-3">EdLight Initiative</h3>
+              <Link href="/" aria-label="EdLight Initiative home" className="inline-block mb-4">
+                <Image
+                  src="/EdLight_Website_Logo.png"
+                  alt="EdLight Initiative"
+                  width={200}
+                  height={50}
+                  className="h-10 sm:h-12 w-auto object-contain object-left brightness-0 invert"
+                />
+              </Link>
               <p className="text-sm leading-relaxed text-[var(--paper-on-dark)] max-w-sm">
                 At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide
                 high school students with digital access to quality education through STEM courses, leadership programs,
