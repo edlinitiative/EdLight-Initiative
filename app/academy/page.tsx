@@ -434,7 +434,7 @@ export default function AcademyPage() {
                 >
                   Start learning today
                 </a>
-                <a href="mailto:academy@edlight.org" className="btn btn-ghost">
+                <a href="/get-involved" className="btn btn-ghost">
                   Partner with EdLight
                 </a>
               </div>

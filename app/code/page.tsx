@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
+import Reveal from '@/components/Reveal'
 
 type Stat = {
   value: string
@@ -163,6 +164,29 @@ const projects: Project[] = [
   },
 ]
 
+const lessonFeatures = [
+  {
+    title: 'Bite-sized lessons',
+    description: 'Focused readings you can finish in 5-10 minutes. No fluff, just the concepts you need.',
+    icon: BookOpenCheck,
+  },
+  {
+    title: 'Hands-on exercises',
+    description: 'Practice coding directly in your browser after every lesson. No setup, no downloads.',
+    icon: Code2,
+  },
+  {
+    title: 'Works on any device',
+    description: 'Mobile-friendly and browser-based. Learn on a phone, tablet, or laptop — wherever you are.',
+    icon: Laptop,
+  },
+  {
+    title: 'Multilingual support',
+    description: 'Available in English, French, and Haitian Creole so you can learn in the language you think in.',
+    icon: GraduationCap,
+  },
+]
+
 const certFeatures = [
   {
     title: 'Unique verification link',
@@ -181,36 +205,49 @@ const certFeatures = [
   },
 ]
 
+function IconBadge({ icon: Icon }: { icon: React.ElementType }) {
+  return (
+    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+      <Icon size={22} />
+    </div>
+  )
+}
+
 export default function CodePage() {
   return (
     <>
       <Hero
+        eyebrow="EdLight Ecosystem · Learn to Code"
         title="EdLight Code"
         subtitle="The skills you need. The portfolio to prove it. Master Python, SQL, Web Development, and more through guided, hands-on courses — all in your browser."
         backgroundImage="/edlight_academy_group.webp"
+        meta={[
+          { label: 'Learning tracks', value: '6+' },
+          { label: 'Cost', value: 'Free' },
+          { label: 'Certificates', value: 'Verifiable' },
+          { label: 'Setup', value: 'None' },
+        ]}
       >
-        <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-          <a
-            href="https://code.edlight.org/tracks"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            Start learning free <ArrowRight size={18} />
-          </a>
-          <a
-            href="https://code.edlight.org/tracks"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-light"
-          >
-            Explore tracks
-          </a>
-        </div>
+        <a
+          href="https://code.edlight.org/tracks"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary"
+        >
+          Start learning free <ArrowRight size={18} />
+        </a>
+        <a
+          href="https://code.edlight.org/tracks"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-ghost"
+        >
+          Explore tracks
+        </a>
       </Hero>
 
       {/* Stats */}
-      <section className="bg-gradient-to-b from-slate-50 via-white to-white py-20">
+      <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Learn by doing, not watching"
@@ -218,80 +255,88 @@ export default function CodePage() {
             centered
           />
           <div className="grid gap-6 md:grid-cols-3">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-md transition hover:shadow-xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 transition group-hover:opacity-100" />
-                <div className="relative z-10 space-y-3">
-                  <span className="text-4xl font-bold text-primary">{stat.value}</span>
-                  <h3 className="text-lg font-semibold text-text">{stat.label}</h3>
-                  <p className="text-sm text-gray-600">{stat.description}</p>
+            {stats.map((stat, i) => (
+              <Reveal key={stat.label} delay={i * 80}>
+                <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-8 transition-shadow hover:shadow-md">
+                  <span className="numeral text-4xl font-bold text-[var(--accent)]">{stat.value}</span>
+                  <h3 className="mt-3 font-display text-lg font-semibold text-[var(--ink-900)]">{stat.label}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{stat.description}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* How it works */}
-      <section className="py-20">
+      <section className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="From zero to certified in three steps"
             subtitle="No complicated setup. No long lectures. Just learn, practice, and prove your skills."
             centered
           />
-          <div className="grid gap-8 md:grid-cols-3">
-            {howItWorks.map((step) => (
-              <div
-                key={step.number}
-                className="rounded-3xl border border-primary/10 bg-white p-8 shadow-sm"
-              >
-                <span className="text-5xl font-bold text-primary/20">{step.number}</span>
-                <h3 className="mt-4 font-heading text-xl font-semibold text-text">{step.title}</h3>
-                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{step.description}</p>
-              </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {howItWorks.map((step, i) => (
+              <Reveal key={step.number} delay={i * 80}>
+                <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-8 transition-shadow hover:shadow-md">
+                  <span className="numeral text-5xl font-bold text-[var(--accent-soft)]">{step.number}</span>
+                  <h3 className="mt-4 font-display text-lg font-semibold text-[var(--ink-900)]">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--ink-700)]">{step.description}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Tracks */}
-      <section className="relative overflow-hidden bg-slate-950 py-20 text-slate-100">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_rgba(15,23,42,0.9))]" />
+      {/* Tracks — dark editorial band */}
+      <section
+        className="relative overflow-hidden py-16 sm:py-20 md:py-24 text-white"
+        style={{
+          background:
+            'radial-gradient(circle at 85% 20%, rgba(30,66,159,0.35) 0%, transparent 55%), linear-gradient(135deg, var(--ink-deep) 0%, #0a1530 70%, #0f1e4a 100%)',
+        }}
+      >
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-overlay"
+          style={{
+            backgroundImage: 'radial-gradient(rgba(232,226,212,0.6) 1px, transparent 1px)',
+            backgroundSize: '3px 3px',
+          }}
+          aria-hidden="true"
+        />
         <div className="container relative mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">Tracks</p>
-            <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">
-              Structured paths from beginner to advanced
-            </h2>
-            <p className="mt-4 text-base text-slate-100">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="h-px w-8 bg-white/40" aria-hidden="true" />
+              <span className="eyebrow text-white/85">Tracks</span>
+            </div>
+            <h2 className="display-lg text-white">Structured paths from beginner to advanced</h2>
+            <p className="body-lg mt-4 text-white/90">
               Pick your language and start learning. Each track takes you from the fundamentals to job-ready skills.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {tracks.map((track) => {
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {tracks.map((track, i) => {
               const Icon = track.icon
               return (
-                <div
-                  key={track.title}
-                  className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_10px_40px_rgba(15,23,42,0.5)]"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="rounded-full bg-white/10 p-2 text-primary">
-                      <Icon size={20} />
-                    </span>
-                    <h3 className="font-heading text-lg font-semibold text-white">{track.title}</h3>
+                <Reveal key={track.title} delay={i * 80}>
+                  <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/10 text-[var(--accent-soft)]">
+                        <Icon size={22} />
+                      </span>
+                      <h3 className="font-display text-lg font-semibold text-white">{track.title}</h3>
+                    </div>
+                    <p className="mt-4 text-sm leading-relaxed text-white/80">{track.description}</p>
+                    <div className="mt-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-wide text-white/70">
+                      <span className="rounded-full bg-white/10 px-3 py-1">{track.courses}</span>
+                      <span className="rounded-full bg-white/10 px-3 py-1">{track.hours}</span>
+                    </div>
                   </div>
-                  <p className="mt-4 text-sm text-slate-100">{track.description}</p>
-                  <div className="mt-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-wide text-slate-200">
-                    <span className="rounded-full bg-white/10 px-3 py-1">{track.courses}</span>
-                    <span className="rounded-full bg-white/10 px-3 py-1">{track.hours}</span>
-                  </div>
-                </div>
+                </Reveal>
               )
             })}
           </div>
@@ -301,7 +346,7 @@ export default function CodePage() {
               href="https://code.edlight.org/tracks"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
+              className="btn btn-light"
             >
               View all tracks <ArrowRight size={16} />
             </a>
@@ -310,7 +355,7 @@ export default function CodePage() {
       </section>
 
       {/* Learn by building */}
-      <section className="py-20">
+      <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Learn by building"
@@ -318,30 +363,29 @@ export default function CodePage() {
             centered
           />
           <div className="grid gap-6 md:grid-cols-2">
-            {projects.map((project) => (
-              <div
-                key={project.title}
-                className="rounded-3xl border border-primary/10 bg-white p-7 shadow-sm"
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="font-heading text-lg font-semibold text-text">{project.title}</h3>
-                  <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                    {project.level}
-                  </span>
-                </div>
-                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{project.description}</p>
-                <div className="mt-4 flex flex-wrap items-center gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-gray-200 px-3 py-1 text-xs font-medium text-gray-600"
-                    >
-                      {tag}
+            {projects.map((project, i) => (
+              <Reveal key={project.title} delay={i * 80}>
+                <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-7 transition-shadow hover:shadow-md">
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{project.title}</h3>
+                    <span className="shrink-0 rounded-full bg-[var(--accent-soft)] px-3 py-1 text-xs font-semibold text-[var(--accent)]">
+                      {project.level}
                     </span>
-                  ))}
-                  <span className="ml-auto text-xs text-gray-400">{project.hours}</span>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--ink-700)]">{project.description}</p>
+                  <div className="mt-4 flex flex-wrap items-center gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-[var(--paper-200)] px-3 py-1 text-xs font-medium text-[var(--ink-700)]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    <span className="numeral ml-auto text-xs text-[var(--ink-400)]">{project.hours}</span>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
           <div className="mt-10 text-center">
@@ -349,7 +393,7 @@ export default function CodePage() {
               href="https://code.edlight.org/tracks"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] hover:underline"
             >
               Explore all projects on EdLight Code <ArrowRight size={16} />
             </a>
@@ -358,66 +402,63 @@ export default function CodePage() {
       </section>
 
       {/* Lesson format */}
-      <section className="bg-slate-50 py-20">
+      <section className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div className="space-y-8">
-              <SectionHeader
-                title="Short reads. Real practice."
-                subtitle="Every lesson is a focused reading followed by a hands-on coding exercise. No video lectures — just learn at your own pace and write real code."
-              />
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <BookOpenCheck size={20} />
-                  </div>
-                  <h3 className="font-heading text-lg font-semibold text-text">Bite-sized lessons</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">
-                    Focused readings you can finish in 5-10 minutes. No fluff, just the concepts you need.
-                  </p>
-                </div>
-                <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Code2 size={20} />
-                  </div>
-                  <h3 className="font-heading text-lg font-semibold text-text">Hands-on exercises</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">
-                    Practice coding directly in your browser after every lesson. No setup, no downloads.
-                  </p>
-                </div>
-                <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Laptop size={20} />
-                  </div>
-                  <h3 className="font-heading text-lg font-semibold text-text">Works on any device</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">
-                    Mobile-friendly and browser-based. Learn on a phone, tablet, or laptop — wherever you are.
-                  </p>
-                </div>
-                <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <GraduationCap size={20} />
-                  </div>
-                  <h3 className="font-heading text-lg font-semibold text-text">Multilingual support</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">
-                    Available in English, French, and Haitian Creole so you can learn in the language you think in.
-                  </p>
-                </div>
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <span className="h-px w-8 bg-[var(--paper-300)]" aria-hidden="true" />
+                <span className="eyebrow">Lesson format</span>
+              </div>
+              <h2 className="display-lg text-[var(--ink-900)]">Short reads. Real practice.</h2>
+              <p className="body-lg mt-4 text-[var(--ink-700)]">
+                Every lesson is a focused reading followed by a hands-on coding exercise. No video lectures — just learn
+                at your own pace and write real code.
+              </p>
+              <div className="mt-8 grid gap-6 sm:grid-cols-2">
+                {lessonFeatures.map((feature, i) => {
+                  const Icon = feature.icon
+                  return (
+                    <Reveal key={feature.title} delay={i * 80}>
+                      <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-6 transition-shadow hover:shadow-md">
+                        <IconBadge icon={Icon} />
+                        <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{feature.title}</h3>
+                        <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{feature.description}</p>
+                      </div>
+                    </Reveal>
+                  )
+                })}
               </div>
             </div>
 
-            <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-primary/95 via-primary/85 to-primary p-8 text-white shadow-xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/85">Inside a lesson</p>
-              <h3 className="mt-4 font-heading text-2xl font-semibold">Read → Code → Repeat</h3>
-              <p className="mt-4 text-sm text-white/95 leading-relaxed">
-                Each lesson pairs a clear, focused explanation with an interactive coding exercise. You read the concept,
-                then immediately apply it by writing real code in the browser. Instant feedback tells you if you got it
-                right. No passive watching — you learn by doing.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide">
-                <span className="rounded-full bg-white/15 px-3 py-1">No setup</span>
-                <span className="rounded-full bg-white/15 px-3 py-1">Instant feedback</span>
-                <span className="rounded-full bg-white/15 px-3 py-1">Real code</span>
+            <div
+              className="relative overflow-hidden rounded-3xl p-8 text-white"
+              style={{
+                background:
+                  'radial-gradient(circle at 80% 20%, rgba(30,66,159,0.4) 0%, transparent 55%), linear-gradient(135deg, var(--ink-deep) 0%, #0a1530 70%, #0f1e4a 100%)',
+              }}
+            >
+              <div
+                className="pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-overlay"
+                style={{
+                  backgroundImage: 'radial-gradient(rgba(232,226,212,0.6) 1px, transparent 1px)',
+                  backgroundSize: '3px 3px',
+                }}
+                aria-hidden="true"
+              />
+              <div className="relative z-10">
+                <span className="eyebrow text-white/85">Inside a lesson</span>
+                <h3 className="display-md mt-3 text-white">Read → Code → Repeat</h3>
+                <p className="mt-4 text-sm leading-relaxed text-white/85">
+                  Each lesson pairs a clear, focused explanation with an interactive coding exercise. You read the
+                  concept, then immediately apply it by writing real code in the browser. Instant feedback tells you if
+                  you got it right. No passive watching — you learn by doing.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide">
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-[var(--accent-soft)]">No setup</span>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-[var(--accent-soft)]">Instant feedback</span>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-[var(--accent-soft)]">Real code</span>
+                </div>
               </div>
             </div>
           </div>
@@ -425,7 +466,7 @@ export default function CodePage() {
       </section>
 
       {/* Certificates */}
-      <section className="py-20">
+      <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Certificates that employers trust"
@@ -433,16 +474,16 @@ export default function CodePage() {
             centered
           />
           <div className="grid gap-6 md:grid-cols-3">
-            {certFeatures.map((feature) => {
+            {certFeatures.map((feature, i) => {
               const Icon = feature.icon
               return (
-                <div key={feature.title} className="rounded-3xl border border-primary/10 bg-white p-7 shadow-sm">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Icon size={20} />
+                <Reveal key={feature.title} delay={i * 80}>
+                  <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-7 transition-shadow hover:shadow-md">
+                    <IconBadge icon={Icon} />
+                    <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{feature.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{feature.description}</p>
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-text">{feature.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">{feature.description}</p>
-                </div>
+                </Reveal>
               )
             })}
           </div>
@@ -451,7 +492,7 @@ export default function CodePage() {
               href="https://code.edlight.org/verify/demo"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] hover:underline"
             >
               See certificate verification <ArrowRight size={16} />
             </a>
@@ -460,23 +501,26 @@ export default function CodePage() {
       </section>
 
       {/* CTA */}
-      <section className="pb-24">
+      <section className="pb-20 sm:pb-24">
         <div className="container mx-auto px-4">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/90 via-primary to-primary/90 p-10 text-white shadow-xl">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
+          <div
+            className="relative overflow-hidden rounded-3xl p-10 text-white sm:p-14"
+            style={{
+              background:
+                'radial-gradient(circle at 80% 20%, rgba(30,66,159,0.4) 0%, transparent 55%), linear-gradient(135deg, var(--ink-deep) 0%, #0a1530 70%, #0f1e4a 100%)',
+            }}
+          >
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">
-                  Start building your future
-                </p>
-                <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">
+              <div className="max-w-xl">
+                <span className="eyebrow text-white/85">Start building your future</span>
+                <h2 className="display-md mt-3 text-white">
                   Learn to code, earn certificates, build a portfolio
                 </h2>
-                <p className="mt-3 text-sm md:text-base text-white/95">
+                <p className="mt-3 text-white/90">
                   EdLight Code is free and open to everyone. Pick a track and start writing real code today.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <a
                   href="https://code.edlight.org/tracks"
                   target="_blank"
@@ -485,7 +529,7 @@ export default function CodePage() {
                 >
                   Start learning free
                 </a>
-                <a href="mailto:code@edlight.org" className="btn btn-primary">
+                <a href="/get-involved" className="btn btn-ghost">
                   Partner with us
                 </a>
               </div>
