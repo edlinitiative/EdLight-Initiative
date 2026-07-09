@@ -1,439 +1,440 @@
 import React from 'react'
 import {
   ArrowRight,
-  Award,
+  Atom,
   BookOpenCheck,
-  Cast,
-  CheckCircle2,
-  Globe2,
+  Calculator,
+  CalendarCheck,
+  ClipboardList,
+  Dna,
+  Flame,
+  FlaskConical,
+  Gamepad2,
   GraduationCap,
-  Laptop,
+  Landmark,
+  Languages,
+  Medal,
+  School,
   Sparkles,
-  Users,
+  Target,
+  TrendingUp,
+  Trophy,
+  Zap,
 } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
-import videosData from '@/data/videos.json'
+import Reveal from '@/components/Reveal'
 
-type Stat = {
-  value: string
-  label: string
-  description: string
-}
-
-type Feature = {
+type Item = {
   title: string
   description: string
   icon: React.ElementType
 }
 
-type Pillar = {
-  title: string
-  description: string
-  highlights: string[]
-  icon: React.ElementType
-}
-
-type JourneyPhase = {
-  title: string
-  description: string
-  bullets: string[]
-  icon: React.ElementType
-}
-
-const stats: Stat[] = [
+// The four core product areas of the platform.
+const pillars: Item[] = [
   {
-    value: '500+',
-    label: 'Video lessons',
-    description: 'Covering maths, sciences, language, entrepreneurship, and career development.',
-  },
-  {
-    value: '100%',
-    label: 'Free access',
-    description: 'Built for Haitian learners everywhere with zero subscription fees.',
-  },
-  {
-    value: '24/7',
-    label: 'Learning availability',
-    description: 'Self-paced and mobile-friendly so students can learn anytime, anywhere.',
-  },
-]
-
-const features: Feature[] = [
-  {
-    title: 'Curriculum-aligned content',
+    title: 'Structured courses',
     description:
-      'Lessons designed with Haitian educators and university mentors to reinforce national exam requirements.',
+      'Video lessons organized by subject and level, aligned to the Haitian national curriculum and taught in French and Kreyòl.',
     icon: GraduationCap,
   },
   {
-    title: 'Bilingual learning experience',
+    title: 'Mock exams',
     description:
-      'Choose Haitian Creole or French, with subtitles and transcripts optimized for low bandwidth environments.',
-    icon: Globe2,
+      'Real past national exams — from 9e Année to the Baccalauréat and university entrance — each with detailed, worked corrections.',
+    icon: ClipboardList,
   },
   {
-    title: 'Dynamic feedback loop',
+    title: 'Trivia game',
     description:
-      'Instant feedback on quizzes, downloadable practice sets, and progress tracking dashboards.',
-    icon: CheckCircle2,
+      'A fast, daily trivia game across 15 categories, from chemistry and math to Haitian history, proverbs, and culture.',
+    icon: Gamepad2,
   },
   {
-    title: 'Mentors & community events',
+    title: 'Progress & rewards',
     description:
-      'Live study sessions, AMAs with professionals, and a supportive community of peers and alumni.',
-    icon: Users,
+      'Quizzes with instant feedback, XP, levels, daily streaks, achievement badges, and a weekly leaderboard to keep you motivated.',
+    icon: Trophy,
   },
 ]
 
-const pillars: Pillar[] = [
+// The gamification layer — the part that keeps learners coming back.
+const gamification: Item[] = [
   {
-    title: 'STEM Foundations',
-    description: 'Strengthen core analytical skills across maths, physics, and chemistry modules.',
-    highlights: [
-      'Interactive problem banks',
-      'Exam strategy clinics',
-      'Virtual lab demonstrations',
-    ],
-    icon: Laptop,
+    title: 'XP & levels',
+    description: 'Earn XP for every lesson, quiz, and trivia round, and level up as you go.',
+    icon: Zap,
   },
   {
-    title: 'Business & Economics',
-    description: 'Build financial literacy, entrepreneurship skills, and market awareness.',
-    highlights: [
-      'Budgeting and microenterprise labs',
-      'Case studies on Haitian innovators',
-      'Career pathways in finance and trade',
-    ],
-    icon: Award,
+    title: 'Daily streaks',
+    description: 'Keep your streak alive with a little learning each day — 3 days, a week, a month, and beyond.',
+    icon: Flame,
   },
   {
-    title: 'Languages & Communication',
-    description: 'Expand literacy, storytelling, and public speaking confidence in multiple languages.',
-    highlights: [
-      'Creole and French grammar journeys',
-      'Vocabulary builders with audio prompts',
-      'Speech workshops led by mentors',
-    ],
-    icon: Cast,
+    title: 'Weekly leaderboard',
+    description: 'See how you rank against other learners across the platform each week.',
+    icon: Trophy,
+  },
+  {
+    title: 'Achievements',
+    description: 'Unlock badges for milestones — from your first quiz to a full year of consistency.',
+    icon: Medal,
   },
 ]
 
-const learningJourney: JourneyPhase[] = [
-  {
-    title: 'Explore',
-    description: 'Learners browse curated playlists or search by subject, grade level, or exam goal.',
-    bullets: [
-      'Personalized onboarding quiz',
-      'Dynamic recommendations by interest',
-      'Saved playlists and reminders',
-    ],
-    icon: Sparkles,
-  },
-  {
-    title: 'Engage',
-    description: 'Video lessons combine storytelling, visuals, and real-world examples to explain complex topics.',
-    bullets: [
-      'Downloadable notes and slide decks',
-      'Hands-on prompts and reflection questions',
-      'Works seamlessly across mobile devices',
-    ],
-    icon: BookOpenCheck,
-  },
-  {
-    title: 'Practice',
-    description: 'Every lesson ends with interactive quizzes and exercises that provide instant coaching.',
-    bullets: [
-      'Adaptive question banks',
-      'Immediate grading and tips',
-      'Progress badges for milestones',
-    ],
-    icon: CheckCircle2,
-  },
-  {
-    title: 'Level up',
-    description: 'Learners connect with mentors, join live workshops, and access certificates for mastery.',
-    bullets: [
-      'Weekly study community sessions',
-      'Project-based showcases',
-      'Certificate download for completed tracks',
-    ],
-    icon: Users,
-  },
+const subjects: Item[] = [
+  { title: 'Mathematics', description: 'Algebra, calculus, and exam strategy.', icon: Calculator },
+  { title: 'Physics', description: 'Motion, energy, and the laws of the world.', icon: Atom },
+  { title: 'Chemistry', description: 'Reactions, matter, and lab concepts.', icon: FlaskConical },
+  { title: 'Life & Earth sciences (SVT)', description: 'Biology, the body, and the environment.', icon: Dna },
+  { title: 'Economics', description: 'Markets, development, and decision-making.', icon: TrendingUp },
+  { title: 'Languages', description: 'English and Spanish for the national exams.', icon: Languages },
 ]
 
-const courseCategories = [
+const examTiers: Item[] = [
   {
-    title: 'Maths',
-    description: 'Strengthen problem-solving with algebra, calculus, and exam strategies.',
-    icon: Laptop,
+    title: '9e Année',
+    description: 'Official 9th-grade fundamental exams with complete past papers and detailed corrections.',
+    icon: School,
   },
   {
-    title: 'Physics',
-    description: 'Explore motion, energy, and the laws that explain how the world works.',
+    title: 'Baccalauréat',
+    description: 'Terminale exams across every track — SVT, SMP, SES, Lettres, and Arts.',
     icon: GraduationCap,
   },
   {
-    title: 'Chemistry',
-    description: 'Understand reactions, matter, and laboratory concepts for modern science.',
-    icon: BookOpenCheck,
-  },
-  {
-    title: 'Economics',
-    description: 'Analyze markets, development, and decision-making in global contexts.',
-    icon: Award,
+    title: 'University entrance',
+    description: 'Admission concours and university exams to prepare for higher education with confidence.',
+    icon: Landmark,
   },
 ]
+
+const triviaCategories = [
+  'Flash Math',
+  'Chemical Symbols',
+  'Body & Life Science',
+  'English Express',
+  'World Capitals',
+  'Currencies',
+  'Flags',
+  'History of Haiti',
+  'Geography of Haiti',
+  'Haitian Culture',
+  'Haitian Figures',
+  'Haitian Proverbs',
+  'Science & Nature',
+  'National Symbols',
+  'Haitian Sport',
+]
+
+const studyPlan: Item[] = [
+  {
+    title: 'Personalized study plan',
+    description: 'A tailored plan with spaced repetition that schedules reviews so knowledge actually sticks.',
+    icon: CalendarCheck,
+  },
+  {
+    title: 'Weighted BAC score',
+    description: 'Track your readiness with a score weighted by your track’s coefficients — SVT ×4, Chemistry ×3, and more.',
+    icon: Target,
+  },
+  {
+    title: 'Progress dashboard',
+    description: 'See active courses, quizzes taken, average score, and your streak at a glance.',
+    icon: BookOpenCheck,
+  },
+]
+
+const howItWorks = [
+  'Create a free account at academy.edlight.org.',
+  'Pick a subject and follow structured lessons in French and Kreyòl.',
+  'Test yourself with quizzes, real past exams, and daily trivia.',
+  'Track your progress with XP, streaks, and a weighted BAC score.',
+  'Walk into your national exams prepared and confident.',
+]
+
+function IconBadge({ icon: Icon }: { icon: React.ElementType }) {
+  return (
+    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+      <Icon size={22} />
+    </div>
+  )
+}
 
 export default function AcademyPage() {
   return (
     <>
       <Hero
+        eyebrow="EdLight Ecosystem · Learning Platform"
         title="EdLight Academy"
-        subtitle="Modern, free, and bilingual digital learning designed for Haitian students everywhere."
-  backgroundImage="/edlight_academy_group.webp"
+        subtitle="A full learning platform for Haitian students — structured courses, real national exam prep, and a daily trivia game, all with progress tracking that keeps you motivated. Free and bilingual."
+        backgroundImage="/edlight_academy_group.webp"
+        meta={[
+          { label: 'Subjects', value: '6+' },
+          { label: 'Exam levels', value: '3' },
+          { label: 'Trivia categories', value: '15' },
+          { label: 'Cost to learners', value: 'Free' },
+        ]}
       >
-        <div className="flex justify-center gap-4">
-          <a href="https://academy.edlight.org" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-            Start learning <ArrowRight size={18} />
-          </a>
-          <a href="https://academy.edlight.org/courses" target="_blank" rel="noopener noreferrer" className="btn btn-light">
-            Explore courses
-          </a>
-        </div>
+        <a
+          href="https://academy.edlight.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary"
+        >
+          Start learning <ArrowRight size={18} />
+        </a>
+        <a
+          href="https://academy.edlight.org/courses"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-ghost"
+        >
+          Explore courses
+        </a>
       </Hero>
 
-      <section id="start" className="bg-gradient-to-b from-slate-50 via-white to-white py-20">
+      {/* Four ways to learn — the core restructure */}
+      <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
-            title="Education built for access and impact"
-            subtitle="Thousands of Haitian learners log into EdLight Academy to deepen knowledge, prepare for exams, and explore new futures."
+            title="One platform, four ways to learn"
+            subtitle="EdLight Academy is more than video lessons. Learners move between courses, exam practice, trivia, and a progress system built to keep them going."
             centered
           />
-          <div className="grid gap-6 md:grid-cols-3">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-md transition hover:shadow-xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 transition group-hover:opacity-100" />
-                <div className="relative z-10 space-y-3">
-                  <span className="text-4xl font-bold text-primary">{stat.value}</span>
-                  <h3 className="text-lg font-semibold text-text">{stat.label}</h3>
-                  <p className="text-sm text-gray-600">{stat.description}</p>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {pillars.map((pillar, i) => (
+              <Reveal key={pillar.title} delay={i * 80}>
+                <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-6 transition-shadow hover:shadow-md">
+                  <IconBadge icon={pillar.icon} />
+                  <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{pillar.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{pillar.description}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div className="space-y-8">
-              <SectionHeader
-                title="What makes EdLight Academy different"
-                subtitle="Purposeful design, localized stories, and tech-enabled learning keeps students engaged from the first lesson."
-              />
-              <div className="grid gap-6 sm:grid-cols-2">
-                {features.map((feature) => {
-                  const Icon = feature.icon
-                  return (
-                    <div key={feature.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
-                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                        <Icon size={20} />
-                      </div>
-                      <h3 className="font-heading text-lg font-semibold text-text">{feature.title}</h3>
-                      <p className="mt-2 text-sm text-gray-600 leading-relaxed">{feature.description}</p>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-primary/95 via-primary/85 to-primary p-8 text-white shadow-xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/85">Experience snapshot</p>
-              <h3 className="mt-4 font-heading text-2xl font-semibold">Interactive studio lessons</h3>
-              <p className="mt-4 text-sm text-white/95 leading-relaxed">
-                Lessons are shot in studio with motion graphics, real-life scenarios, and bilingual instructors. Every
-                chapter includes downloads and quick challenges so learners stay engaged beyond the video.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide">
-                <span className="rounded-full bg-white/15 px-3 py-1">Creole + French</span>
-                <span className="rounded-full bg-white/15 px-3 py-1">Offline downloads</span>
-                <span className="rounded-full bg-white/15 px-3 py-1">Exam prep labs</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-slate-950 py-20 text-slate-100">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_rgba(15,23,42,0.9))]" />
+      {/* Gamification — dark editorial band */}
+      <section
+        className="relative overflow-hidden py-16 sm:py-20 md:py-24 text-white"
+        style={{
+          background:
+            'radial-gradient(circle at 85% 20%, rgba(30,66,159,0.35) 0%, transparent 55%), linear-gradient(135deg, var(--ink-deep) 0%, #0a1530 70%, #0f1e4a 100%)',
+        }}
+      >
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-overlay"
+          style={{
+            backgroundImage: 'radial-gradient(rgba(232,226,212,0.6) 1px, transparent 1px)',
+            backgroundSize: '3px 3px',
+          }}
+          aria-hidden="true"
+        />
         <div className="container relative mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">Learning journey</p>
-            <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">From discovery to mastery</h2>
-            <p className="mt-4 text-base text-slate-100">
-              EdLight Academy guides students through an intentional flow so they can explore, understand, practice, and
-              ultimately lead with confidence.
+            <div className="flex items-center gap-3 mb-5">
+              <span className="h-px w-8 bg-white/40" aria-hidden="true" />
+              <span className="eyebrow text-white/85">Stay motivated</span>
+            </div>
+            <h2 className="display-lg text-white">Learning that keeps you coming back</h2>
+            <p className="body-lg mt-4 text-white/90">
+              Every lesson, quiz, and trivia round earns XP. Streaks, badges, and a weekly leaderboard turn steady
+              studying into something you actually look forward to.
             </p>
           </div>
-
-          <div className="mt-14 grid gap-6 lg:grid-cols-4">
-            {learningJourney.map((phase) => {
-              const Icon = phase.icon
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {gamification.map((item, i) => {
+              const Icon = item.icon
               return (
-                <div key={phase.title} className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_10px_40px_rgba(15,23,42,0.5)]">
-                  <div className="flex items-center gap-3">
-                    <span className="rounded-full bg-white/10 p-2 text-primary">
-                      <Icon size={20} />
-                    </span>
-                    <h3 className="font-heading text-lg font-semibold text-white">{phase.title}</h3>
+                <Reveal key={item.title} delay={i * 80}>
+                  <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-[var(--accent-soft)]">
+                      <Icon size={22} />
+                    </div>
+                    <h3 className="font-display text-lg font-semibold text-white">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/80">{item.description}</p>
                   </div>
-                  <p className="mt-4 text-sm text-slate-100">{phase.description}</p>
-                  <ul className="mt-4 space-y-2 text-sm text-slate-200/80">
-                    {phase.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-2">
-                        <ArrowRight size={14} className="mt-1 text-primary" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                </Reveal>
               )
             })}
           </div>
         </div>
       </section>
 
-      <section className="py-20">
+      {/* Courses */}
+      <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
-            title="Learning pillars"
-            subtitle="Learners can curate their journey across STEM, business, and communication tracks."
+            title="Structured courses, built for the Haitian curriculum"
+            subtitle="Designed with Haitian educators and delivered in French and Kreyòl, each subject is organized into levels so learners always know what comes next."
+          />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {subjects.map((subject, i) => {
+              const Icon = subject.icon
+              return (
+                <Reveal key={subject.title} delay={i * 60}>
+                  <div className="flex h-full items-start gap-4 rounded-2xl border border-[var(--paper-200)] bg-white p-6">
+                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                      <Icon size={22} />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-base font-semibold text-[var(--ink-900)]">{subject.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-[var(--ink-700)]">{subject.description}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              )
+            })}
+          </div>
+          <div className="mt-6 flex items-center gap-2 text-sm text-[var(--ink-400)]">
+            <Languages size={16} />
+            <span>Every course is available in both French and Haitian Creole.</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Mock exams */}
+      <section className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="Practice with real national exams"
+            subtitle="Our mock-exam library (examens blancs) covers the full Haitian path, using authentic past papers with detailed, step-by-step corrections."
             centered
           />
-          <div className="grid gap-8 lg:grid-cols-3">
-            {pillars.map((pillar) => {
-              const Icon = pillar.icon
+          <div className="grid gap-6 md:grid-cols-3">
+            {examTiers.map((tier, i) => {
+              const Icon = tier.icon
               return (
-                <div key={pillar.title} className="rounded-3xl border border-primary/10 bg-white p-7 shadow-sm">
-                  <div className="flex items-center gap-3">
-                    <span className="rounded-full bg-primary/10 p-2 text-primary">
-                      <Icon size={20} />
-                    </span>
-                    <h3 className="font-heading text-lg font-semibold text-text">{pillar.title}</h3>
+                <Reveal key={tier.title} delay={i * 80}>
+                  <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-7">
+                    <IconBadge icon={Icon} />
+                    <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{tier.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{tier.description}</p>
                   </div>
-                  <p className="mt-3 text-sm text-gray-600 leading-relaxed">{pillar.description}</p>
-                  <ul className="mt-4 space-y-2 text-sm text-gray-600">
-                    {pillar.highlights.map((highlight) => (
-                      <li key={highlight} className="flex items-start gap-2">
-                        <ArrowRight size={14} className="mt-1 text-primary" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                </Reveal>
               )
             })}
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      {/* Trivia */}
+      <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
-          <SectionHeader title="Course collections" subtitle="New playlists are added monthly to support exam prep, career exploration, and creative skills." centered />
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {courseCategories.map((category) => {
-              const Icon = category.icon
-              return (
-                <div
-                  key={category.title}
-                  className="group rounded-3xl border border-primary/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <span className="h-px w-8 bg-[var(--paper-300)]" aria-hidden="true" />
+                <span className="eyebrow">Play &amp; learn</span>
+              </div>
+              <h2 className="display-lg text-[var(--ink-900)]">Trivia: quick, daily, addictive</h2>
+              <p className="body-lg mt-4 text-[var(--ink-700)]">
+                A daily challenge of 10 questions worth bonus XP, plus 15 categories that mix core subjects with Haitian
+                history, geography, and culture. Perfect for a two-minute study break.
+              </p>
+              <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-[var(--paper-200)] bg-[var(--paper-50)] px-5 py-4">
+                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                  <Sparkles size={22} />
+                </div>
+                <div>
+                  <p className="font-display font-semibold text-[var(--ink-900)]">Daily challenge</p>
+                  <p className="text-sm text-[var(--ink-700)]">10 questions · +50 XP bonus</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {triviaCategories.map((category) => (
+                <span
+                  key={category}
+                  className="rounded-full border border-[var(--paper-200)] bg-white px-4 py-2 text-sm text-[var(--ink-700)]"
                 >
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Icon size={20} />
-                  </div>
-                  <h3 className="font-heading text-lg font-semibold text-text">{category.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">{category.description}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <SectionHeader
-              title="How it works"
-              subtitle="Five simple steps to start learning with EdLight Academy"
-              centered
-            />
-            <div className="rounded-3xl border border-primary/10 bg-white p-10 text-gray-700 space-y-4 shadow-lg">
-              {[
-                'Visit academy.edlight.org and create a free account or sign in.',
-                'Browse courses in Physics, Chemistry, Maths, Economics, and more.',
-                'Study structured lessons aligned with the Haitian curriculum in French and Kreyòl.',
-                'Take quizzes and practice exams to track your mastery in real time.',
-                'Prepare confidently for national exams and beyond.',
-              ].map((step, index) => (
-                <div key={step} className="flex items-start gap-4">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white font-semibold">
-                    {index + 1}
-                  </span>
-                  <p>{step}</p>
-                </div>
+                  {category}
+                </span>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-950 py-20 text-slate-100">
+      {/* Study plan / BAC prep */}
+      <section className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
-            title="Featured lessons"
-            subtitle="Discover what learners are watching right now on EdLight Academy."
+            title="Your personalized path to the bac"
+            subtitle="EdLight Academy turns scattered studying into a plan — and shows you exactly how ready you are for exam day."
             centered
           />
-          <div className="grid gap-8 md:grid-cols-3">
-            {videosData.map((video) => (
-              <div key={video.id} className="rounded-3xl border border-white/10 bg-white/5">
-                <div className="aspect-video flex items-center justify-center bg-gradient-to-br from-primary/10 to-transparent">
-                  <p className="text-sm text-slate-100/90">Video: {video.title}</p>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-heading text-lg font-semibold text-white">{video.title}</h3>
-                  <p className="mt-2 text-sm text-slate-100">{video.description}</p>
-                </div>
-              </div>
-            ))}
+          <div className="grid gap-6 md:grid-cols-3">
+            {studyPlan.map((item, i) => {
+              const Icon = item.icon
+              return (
+                <Reveal key={item.title} delay={i * 80}>
+                  <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-7">
+                    <IconBadge icon={Icon} />
+                    <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{item.description}</p>
+                  </div>
+                </Reveal>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      <section className="pb-24">
+      {/* How it works */}
+      <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/90 via-primary to-primary/90 p-10 text-white shadow-xl">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
+          <div className="mx-auto max-w-3xl">
+            <SectionHeader title="How it works" subtitle="Five steps to start learning with EdLight Academy." centered />
+            <ol className="mt-4 space-y-4">
+              {howItWorks.map((step, index) => (
+                <li
+                  key={step}
+                  className="flex items-start gap-4 rounded-2xl border border-[var(--paper-200)] bg-white p-5"
+                >
+                  <span className="numeral flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-sm font-semibold text-white">
+                    {index + 1}
+                  </span>
+                  <p className="pt-1 text-[var(--ink-700)]">{step}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="pb-20 sm:pb-24">
+        <div className="container mx-auto px-4">
+          <div
+            className="relative overflow-hidden rounded-3xl p-10 text-white sm:p-14"
+            style={{
+              background:
+                'radial-gradient(circle at 80% 20%, rgba(30,66,159,0.4) 0%, transparent 55%), linear-gradient(135deg, var(--ink-deep) 0%, #0a1530 70%, #0f1e4a 100%)',
+            }}
+          >
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">Join the community</p>
-                <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">Ready to unlock EdLight Academy?</h2>
-                <p className="mt-3 text-sm md:text-base text-white/95">
-                  Start learning for free, bring the platform to your classroom, or sponsor new course collections for Haitian
+              <div className="max-w-xl">
+                <span className="eyebrow text-white/85">Join the community</span>
+                <h2 className="display-md mt-3 text-white">Ready to unlock EdLight Academy?</h2>
+                <p className="mt-3 text-white/90">
+                  Start learning for free, bring the platform to your classroom, or sponsor new courses for Haitian
                   learners.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <a href="https://academy.edlight.org" target="_blank" rel="noopener noreferrer" className="btn btn-light">
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="https://academy.edlight.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-light"
+                >
                   Start learning today
                 </a>
-                <a href="mailto:academy@edlight.org" className="btn btn-primary">
+                <a href="mailto:academy@edlight.org" className="btn btn-ghost">
                   Partner with EdLight
                 </a>
               </div>
