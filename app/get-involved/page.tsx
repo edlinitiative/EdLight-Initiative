@@ -2,10 +2,10 @@
 
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { Users, Handshake, DollarSign, Mic, ShieldCheck } from 'lucide-react'
+import { Users, Handshake, DollarSign, Mic, ShieldCheck, Heart } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
-import Card from '@/components/Card'
+import Reveal from '@/components/Reveal'
 
 declare global {
   interface Window {
@@ -27,26 +27,32 @@ declare global {
   }
 }
 
-const waysToGetInvolved = [
+type Way = {
+  title: string
+  description: string
+  icon: React.ElementType
+}
+
+const waysToGetInvolved: Way[] = [
   {
     title: 'Volunteer',
     description: 'Share your skills and time to mentor students, teach courses, or support operations.',
-    icon: <Users size={32} />,
+    icon: Users,
   },
   {
     title: 'Partner',
     description: 'Organizations and institutions can partner with us to expand opportunities for students.',
-    icon: <Handshake size={32} />,
+    icon: Handshake,
   },
   {
     title: 'Donate',
     description: 'Financial support helps us provide free education and resources to more students.',
-    icon: <DollarSign size={32} />,
+    icon: DollarSign,
   },
   {
     title: 'Speak',
     description: 'Inspire our students by sharing your story and expertise as a guest speaker.',
-    icon: <Mic size={32} />,
+    icon: Mic,
   },
 ]
 
@@ -56,6 +62,18 @@ type FormData = {
   interest: string
   message: string
 }
+
+function IconBadge({ icon: Icon }: { icon: React.ElementType }) {
+  return (
+    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+      <Icon size={22} />
+    </div>
+  )
+}
+
+// Shared field styling so every input/select/textarea reads as one system.
+const fieldClasses =
+  'w-full rounded-xl border border-[var(--paper-200)] bg-white px-4 py-3 text-[var(--ink-900)] transition-colors focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30'
 
 export default function GetInvolvedPage() {
   const {
@@ -71,7 +89,7 @@ export default function GetInvolvedPage() {
     script.src = 'https://www.paypalobjects.com/donate/sdk/donate-sdk.js'
     script.charset = 'UTF-8'
     script.async = true
-    
+
     script.onload = () => {
       if (window.PayPal) {
         window.PayPal.Donation.Button({
@@ -85,9 +103,9 @@ export default function GetInvolvedPage() {
         }).render('#donate-button')
       }
     }
-    
+
     document.body.appendChild(script)
-    
+
     return () => {
       // Cleanup script on unmount
       if (document.body.contains(script)) {
@@ -106,144 +124,187 @@ export default function GetInvolvedPage() {
   return (
     <>
       <Hero
+        eyebrow="EdLight Ecosystem · Get Involved"
         title="Get Involved"
-        subtitle="Join us in empowering the next generation of Haitian innovators"
-  backgroundImage="/about_us.webp"
-      />
+        subtitle="Join us in empowering the next generation of Haitian innovators — as a volunteer, partner, donor, or guest speaker."
+        backgroundImage="/about_us.webp"
+        meta={[
+          { label: 'Ways to help', value: '4' },
+          { label: 'Donations to programs', value: '100%' },
+        ]}
+      >
+        <a href="#donate" className="btn btn-primary">
+          Donate now <Heart size={18} />
+        </a>
+        <a href="#contact" className="btn btn-ghost">
+          Contact us
+        </a>
+      </Hero>
 
-    <section className="py-20">
+      {/* Ways to get involved */}
+      <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
-            title="Ways to Get Involved"
-            subtitle="There are many ways you can support our mission"
+            title="Ways to get involved"
+            subtitle="There are many ways you can support our mission — pick the one that fits you best."
             centered
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {waysToGetInvolved.map((way) => (
-              <Card
-                key={way.title}
-                title={way.title}
-                description={way.description}
-                icon={way.icon}
-              />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {waysToGetInvolved.map((way, i) => (
+              <Reveal key={way.title} delay={i * 80}>
+                <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-6 transition-shadow hover:shadow-md">
+                  <IconBadge icon={way.icon} />
+                  <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{way.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{way.description}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="donate" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <SectionHeader title="Support Our Work" centered />
-            <p className="text-gray-700 mb-8">
-              Your donation directly supports scholarships, program costs, and resources for
-              students. Every contribution makes a difference.
+      {/* Support / donate — dark editorial band */}
+      <section
+        id="donate"
+        className="relative overflow-hidden py-16 sm:py-20 md:py-24 text-white"
+        style={{
+          background:
+            'radial-gradient(circle at 85% 20%, rgba(30,66,159,0.35) 0%, transparent 55%), linear-gradient(135deg, var(--ink-deep) 0%, #0a1530 70%, #0f1e4a 100%)',
+        }}
+      >
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-overlay"
+          style={{
+            backgroundImage: 'radial-gradient(rgba(232,226,212,0.6) 1px, transparent 1px)',
+            backgroundSize: '3px 3px',
+          }}
+          aria-hidden="true"
+        />
+        <div className="container relative mx-auto px-4">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="mb-5 flex items-center justify-center gap-3">
+              <span className="h-px w-8 bg-white/40" aria-hidden="true" />
+              <span className="eyebrow text-white/85">Support our work</span>
+            </div>
+            <h2 className="display-lg text-white">Fuel free education for Haitian students</h2>
+            <p className="body-lg mx-auto mt-4 max-w-xl text-white/90">
+              Your donation directly supports scholarships, program costs, and resources for students. Every
+              contribution makes a difference.
             </p>
-            <div className="glass rounded-2xl p-8 mb-8">
+
+            <div className="mx-auto mt-10 max-w-md rounded-2xl border border-white/10 bg-white/5 p-8">
               <div className="flex flex-col items-center gap-5">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-xs font-semibold tracking-wide uppercase text-white/90">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--accent-soft)]">
                   <ShieldCheck size={16} />
                   Secure PayPal Checkout
                 </span>
                 <div id="donate-button-container" className="inline-flex justify-center">
                   <div id="donate-button"></div>
                 </div>
-                <p className="text-xs text-white/90">
+                <p className="text-xs text-white/70">
                   Powered by PayPal. Choose a one-time gift or set up monthly support.
                 </p>
               </div>
             </div>
-            <p className="text-sm text-gray-600">
-              EdLight Initiative is committed to transparency. 100% of donations go directly to
-              programs and student support.
+
+            <p className="mt-6 text-sm text-white/70">
+              EdLight Initiative is committed to transparency. 100% of donations go directly to programs and student
+              support.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20">
+      {/* Contact form */}
+      <section id="contact" className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
-            <SectionHeader title="Contact Us" centered />
-            <div className="glass rounded-2xl p-8">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Name *
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  {...register('name', { required: 'Name is required' })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                />
-                {errors.name && (
-                  <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
-                )}
-              </div>
+          <div className="mx-auto max-w-2xl">
+            <SectionHeader
+              title="Contact us"
+              subtitle="Tell us how you’d like to get involved and we’ll be in touch soon."
+              centered
+            />
+            <Reveal>
+              <div className="rounded-2xl border border-[var(--paper-200)] bg-white p-6 shadow-sm sm:p-8">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="mb-2 block text-sm font-medium text-[var(--ink-700)]">
+                      Name *
+                    </label>
+                    <input
+                      id="name"
+                      type="text"
+                      {...register('name', { required: 'Name is required' })}
+                      className={fieldClasses}
+                    />
+                    {errors.name && (
+                      <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+                    )}
+                  </div>
 
-                <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email *
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  {...register('email', {
-                    required: 'Email is required',
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'Invalid email address',
-                    },
-                  })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                />
-                {errors.email && (
-                  <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
-                )}
-              </div>
+                  <div>
+                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-[var(--ink-700)]">
+                      Email *
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      {...register('email', {
+                        required: 'Email is required',
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: 'Invalid email address',
+                        },
+                      })}
+                      className={fieldClasses}
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                    )}
+                  </div>
 
-                <div>
-                <label htmlFor="interest" className="block text-sm font-medium text-gray-700 mb-2">
-                  I&apos;m interested in *
-                </label>
-                <select
-                  id="interest"
-                  {...register('interest', { required: 'Please select an option' })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                >
-                  <option value="">Select an option</option>
-                  <option value="volunteer">Volunteering</option>
-                  <option value="partner">Partnership</option>
-                  <option value="donate">Donation</option>
-                  <option value="speak">Guest Speaking</option>
-                  <option value="other">Other</option>
-                </select>
-                {errors.interest && (
-                  <p className="mt-1 text-sm text-red-600">{errors.interest.message}</p>
-                )}
-              </div>
+                  <div>
+                    <label htmlFor="interest" className="mb-2 block text-sm font-medium text-[var(--ink-700)]">
+                      I&apos;m interested in *
+                    </label>
+                    <select
+                      id="interest"
+                      {...register('interest', { required: 'Please select an option' })}
+                      className={fieldClasses}
+                    >
+                      <option value="">Select an option</option>
+                      <option value="volunteer">Volunteering</option>
+                      <option value="partner">Partnership</option>
+                      <option value="donate">Donation</option>
+                      <option value="speak">Guest Speaking</option>
+                      <option value="other">Other</option>
+                    </select>
+                    {errors.interest && (
+                      <p className="mt-1 text-sm text-red-600">{errors.interest.message}</p>
+                    )}
+                  </div>
 
-                <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  rows={5}
-                  {...register('message', { required: 'Message is required' })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                />
-                {errors.message && (
-                  <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
-                )}
-              </div>
+                  <div>
+                    <label htmlFor="message" className="mb-2 block text-sm font-medium text-[var(--ink-700)]">
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={5}
+                      {...register('message', { required: 'Message is required' })}
+                      className={fieldClasses}
+                    />
+                    {errors.message && (
+                      <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
+                    )}
+                  </div>
 
-                <button type="submit" className="btn btn-primary w-full justify-center">
-                  Send Message
-                </button>
-              </form>
-            </div>
+                  <button type="submit" className="btn btn-primary w-full justify-center">
+                    Send Message
+                  </button>
+                </form>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

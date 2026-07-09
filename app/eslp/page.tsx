@@ -572,7 +572,7 @@ export default function ESLPPage() {
                   className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-[0_10px_40px_rgba(15,23,42,0.5)]"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-primary font-bold text-sm">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-[var(--accent-soft)] font-bold text-sm">
                       {idx + 1}
                     </span>
                     <h3 className="font-heading text-lg font-semibold text-white">
@@ -585,7 +585,7 @@ export default function ESLPPage() {
                   <ul className="space-y-2 text-sm text-slate-200/80">
                     {phase.bullets.map((bullet) => (
                       <li key={bullet} className="flex items-start gap-2">
-                        <ArrowRight size={14} className="mt-1 text-primary shrink-0" />
+                        <ArrowRight size={14} className="mt-1 text-[var(--accent-soft)] shrink-0" />
                         <span>{bullet}</span>
                       </li>
                     ))}
