@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import { ArrowRight, CalendarCheck, Compass, Globe2, GraduationCap, Plane, Sparkles, Users } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
+import Reveal from '@/components/Reveal'
 
 export const metadata: Metadata = {
   title: 'EdLight Nexus | EdLight Initiative',
@@ -165,32 +166,44 @@ const faqs = [
   },
 ]
 
+// Shared dark editorial band background (matches academy / get-involved).
+const darkBand =
+  'radial-gradient(circle at 85% 20%, rgba(30,66,159,0.35) 0%, transparent 55%), linear-gradient(135deg, var(--ink-deep) 0%, #0a1530 70%, #0f1e4a 100%)'
+
+function IconChip({ icon: Icon }: { icon: React.ElementType }) {
+  return (
+    <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+      <Icon size={20} />
+    </span>
+  )
+}
+
 export default function NexusPage() {
   return (
     <>
       <Hero
+        eyebrow="EdLight Ecosystem · Global Exchange"
         title="EdLight Nexus"
         subtitle="Global learning and exchange experiences designed to broaden opportunity for Haitian students."
         backgroundImage="/nexus_pic.webp"
+        meta={[
+          { label: 'Program phases', value: '4' },
+          { label: 'Curated tracks', value: '3' },
+          { label: 'Focus', value: 'Global exposure' },
+        ]}
       >
-        <p className="mx-auto mb-6 max-w-2xl text-sm sm:text-base text-white/85 leading-relaxed">
-          EdLight Nexus is EdLight&apos;s international exposure and exchange initiative. It is designed to connect
-          Haitian students to new ideas, institutions, and communities through thoughtfully curated global learning
-          experiences.
-        </p>
-        <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-          <a href="mailto:nexus@edlight.org" className="btn btn-primary">
-            Contact nexus@edlight.org
-          </a>
-          <Link href="/get-involved#contact" className="btn btn-light">
-            Stay informed
-          </Link>
-        </div>
+        <a href="mailto:nexus@edlight.org" className="btn btn-primary">
+          Contact nexus@edlight.org
+        </a>
+        <Link href="/get-involved#contact" className="btn btn-ghost">
+          Stay informed
+        </Link>
       </Hero>
 
-      <section className="bg-gradient-to-b from-slate-50 via-white to-white py-20">
+      {/* Intro */}
+      <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl rounded-3xl border border-primary/10 bg-white p-8 shadow-sm md:p-10">
+          <div className="mx-auto max-w-3xl text-center">
             <SectionHeader
               title="A gateway to global exposure"
               subtitle="Nexus helps Haitian students expand their horizons through cross-cultural learning, leadership development, and international exposure. The program is built to create meaningful experiences that strengthen confidence, perspective, and long-term ambition."
@@ -201,84 +214,106 @@ export default function NexusPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      {/* What Nexus offers */}
+      <section className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-8">
               <SectionHeader
                 title="What Nexus is designed to offer"
                 subtitle="A thoughtful framework for global learning, cross-cultural growth, and meaningful return value for Haiti."
+                className="mb-0"
               />
               <div className="grid gap-6 sm:grid-cols-2">
-                {programHighlights.map((item) => (
-                  <div key={item.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
-                    <h3 className="font-heading text-lg font-semibold text-text mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
-                  </div>
+                {programHighlights.map((item, i) => (
+                  <Reveal key={item.title} delay={i * 60}>
+                    <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-6">
+                      <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{item.description}</p>
+                    </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-primary/95 via-primary/85 to-primary p-8 text-white shadow-xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/85">Illustrative residency format</p>
-              <h3 className="mt-4 font-heading text-2xl font-semibold">How a Nexus experience may come together</h3>
-              <p className="mt-4 text-sm text-white/95 leading-relaxed">
+            <div
+              className="relative overflow-hidden rounded-3xl p-8 text-white"
+              style={{ background: darkBand }}
+            >
+              <p className="eyebrow text-white/85">Illustrative residency format</p>
+              <h3 className="mt-4 font-display text-2xl font-semibold">How a Nexus experience may come together</h3>
+              <p className="mt-4 text-sm leading-relaxed text-white/90">
                 A Nexus residency may combine preparation, institutional exposure, cultural learning, and guided
-                reflection. The format can vary depending on the destination, timing, and organizational readiness, but
-                the goal remains consistent: meaningful international experience rooted in learning, perspective, and
-                contribution.
+                reflection. The format can vary depending on the destination, timing, and organizational readiness,
+                but the goal remains consistent: meaningful international experience rooted in learning, perspective,
+                and contribution.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide">
-                <span className="rounded-full bg-white/15 px-3 py-1">Preparation</span>
-                <span className="rounded-full bg-white/15 px-3 py-1">Immersion</span>
-                <span className="rounded-full bg-white/15 px-3 py-1">Reflection</span>
-                <span className="rounded-full bg-white/15 px-3 py-1">Community impact</span>
+              <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold">
+                {['Preparation', 'Immersion', 'Reflection', 'Community impact'].map((tag) => (
+                  <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-[var(--accent-soft)]">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-slate-950 py-20 text-slate-100">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_rgba(15,23,42,0.9))]" />
+      {/* Journey / phases — dark editorial band */}
+      <section className="relative overflow-hidden py-16 text-white sm:py-20 md:py-24" style={{ background: darkBand }}>
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-overlay"
+          style={{
+            backgroundImage: 'radial-gradient(rgba(232,226,212,0.6) 1px, transparent 1px)',
+            backgroundSize: '3px 3px',
+          }}
+          aria-hidden="true"
+        />
         <div className="container relative mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">Journey</p>
-            <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">From preparation to impact</h2>
-            <p className="mt-4 text-base text-slate-100">
+            <div className="mb-5 flex items-center gap-3">
+              <span className="h-px w-8 bg-white/40" aria-hidden="true" />
+              <span className="eyebrow text-white/85">Journey</span>
+            </div>
+            <h2 className="display-lg text-white">From preparation to impact</h2>
+            <p className="body-lg mt-4 text-white/90">
               Each Nexus experience is designed around a thoughtful progression that may include preparation,
               immersion, reflection, and community impact.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-4">
-            {phases.map((phase) => {
+          <div className="mt-12 grid gap-6 lg:grid-cols-4">
+            {phases.map((phase, i) => {
               const Icon = phase.icon
               return (
-                <div key={phase.title} className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_10px_40px_rgba(15,23,42,0.5)]">
-                  <div className="flex items-center gap-3">
-                    <span className="rounded-full bg-white/10 p-2 text-primary">
-                      <Icon size={20} />
-                    </span>
-                    <h3 className="font-heading text-lg font-semibold text-white">{phase.title}</h3>
+                <Reveal key={phase.title} delay={i * 80}>
+                  <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-[var(--accent-soft)]">
+                        <Icon size={20} />
+                      </span>
+                      <h3 className="font-display text-lg font-semibold text-white">{phase.title}</h3>
+                    </div>
+                    <p className="mt-4 text-sm text-white/80">{phase.description}</p>
+                    <ul className="mt-4 space-y-2 text-sm text-white/70">
+                      {phase.details.map((detail) => (
+                        <li key={detail} className="flex items-start gap-2">
+                          <ArrowRight size={14} className="mt-1 flex-shrink-0 text-[var(--accent-soft)]" />
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="mt-4 text-sm text-slate-100">{phase.description}</p>
-                  <ul className="mt-4 space-y-2 text-sm text-slate-200/80">
-                    {phase.details.map((detail) => (
-                      <li key={detail} className="flex items-start gap-2">
-                        <ArrowRight size={14} className="mt-1 text-primary" />
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                </Reveal>
               )
             })}
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      {/* Curated pathways */}
+      <section className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Curated pathways"
@@ -286,62 +321,63 @@ export default function NexusPage() {
             centered
           />
           <div className="grid gap-6 md:grid-cols-3">
-            {tracks.map((track) => {
+            {tracks.map((track, i) => {
               const Icon = track.icon
               return (
-                <div key={track.title} className="rounded-3xl border border-primary/10 bg-white p-7 shadow-sm">
-                  <div className="flex items-center gap-3">
-                    <span className="rounded-full bg-primary/10 p-2 text-primary">
-                      <Icon size={20} />
-                    </span>
-                    <h3 className="font-heading text-lg font-semibold text-text">{track.title}</h3>
+                <Reveal key={track.title} delay={i * 80}>
+                  <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-7">
+                    <div className="flex items-center gap-3">
+                      <IconChip icon={Icon} />
+                      <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{track.title}</h3>
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-[var(--ink-700)]">{track.description}</p>
+                    <ul className="mt-4 space-y-2 text-sm text-[var(--ink-700)]">
+                      {track.highlights.map((highlight) => (
+                        <li key={highlight} className="flex items-start gap-2">
+                          <ArrowRight size={14} className="mt-1 flex-shrink-0 text-[var(--accent)]" />
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="mt-3 text-sm text-gray-600 leading-relaxed">{track.description}</p>
-                  <ul className="mt-4 space-y-2 text-sm text-gray-600">
-                    {track.highlights.map((highlight) => (
-                      <li key={highlight} className="flex items-start gap-2">
-                        <ArrowRight size={14} className="mt-1 text-primary" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                </Reveal>
               )
             })}
           </div>
         </div>
       </section>
 
-      <section className="py-20">
+      {/* Access and support */}
+      <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div className="rounded-3xl border border-primary/20 bg-white p-8 shadow-xl">
+          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+            <div className="rounded-2xl border border-[var(--paper-200)] bg-white p-8">
               <SectionHeader
                 title="Access and support"
                 subtitle="EdLight aims to make Nexus as accessible as possible through fundraising guidance, partnership development, and financial support where available. Final funding structures may vary by cohort, destination, and partner availability."
               />
-              <div className="rounded-2xl border border-primary/10 bg-slate-50 p-6">
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Nexus is being developed with access in mind. Depending on the format of a given cohort, support may
-                  involve fundraising guidance, external relationship-building, or direct assistance when resources are
-                  available. Because each experience is shaped by real conditions, financial arrangements are reviewed on
-                  a case-by-case basis.
+              <div className="rounded-xl border border-[var(--paper-200)] bg-[var(--paper-50)] p-6">
+                <p className="text-sm leading-relaxed text-[var(--ink-700)]">
+                  Nexus is being developed with access in mind. Depending on the format of a given cohort, support
+                  may involve fundraising guidance, external relationship-building, or direct assistance when
+                  resources are available. Because each experience is shaped by real conditions, financial
+                  arrangements are reviewed on a case-by-case basis.
                 </p>
               </div>
             </div>
 
             <div className="space-y-6">
               {supportHighlights.map((item) => (
-                <div key={item.title} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm">
-                  <h3 className="font-heading text-lg font-semibold text-text">{item.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                <div key={item.title} className="rounded-2xl border border-[var(--paper-200)] bg-white p-6">
+                  <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{item.description}</p>
                 </div>
               ))}
-              <div className="rounded-3xl bg-gradient-to-r from-primary to-primary/80 p-6 text-white shadow-lg">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">Access principle</p>
-                <p className="mt-3 text-lg leading-relaxed text-white/90">
-                  The long-term aim is to ensure that financial barriers do not prevent promising Haitian students from
-                  benefiting from global exposure when meaningful opportunities arise.
+              <div className="relative overflow-hidden rounded-2xl p-6 text-white" style={{ background: darkBand }}>
+                <p className="eyebrow text-white/85">Access principle</p>
+                <p className="mt-3 leading-relaxed text-white/90">
+                  The long-term aim is to ensure that financial barriers do not prevent promising Haitian students
+                  from benefiting from global exposure when meaningful opportunities arise.
                 </p>
               </div>
             </div>
@@ -349,49 +385,55 @@ export default function NexusPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      {/* FAQ */}
+      <section className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Frequently asked questions"
             subtitle="If you still need clarity, send us a note at nexus@edlight.org. We will share more as Nexus continues to develop."
             centered
           />
-          <div className="mx-auto max-w-4xl space-y-4">
+          <div className="mx-auto max-w-3xl space-y-3">
             {faqs.map((faq) => (
               <details
                 key={faq.question}
-                className="group rounded-3xl border border-primary/10 bg-white p-6 shadow-sm transition"
+                className="group rounded-2xl border border-[var(--paper-200)] bg-white p-5 open:shadow-sm sm:p-6"
               >
-                <summary className="flex cursor-pointer items-center justify-between gap-3 text-left text-base font-semibold text-text">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-base font-semibold text-[var(--ink-900)]">
                   {faq.question}
-                  <span className="text-primary transition group-open:rotate-180">▾</span>
+                  <span
+                    className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-[var(--accent)] transition-transform group-open:rotate-45"
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
                 </summary>
-                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--ink-700)]">{faq.answer}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="pb-24">
+      {/* CTA */}
+      <section className="pb-20 sm:pb-24 pt-16 sm:pt-20">
         <div className="container mx-auto px-4">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/90 via-primary to-primary/90 p-10 text-white shadow-xl">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
+          <div className="relative overflow-hidden rounded-3xl p-10 text-white sm:p-14" style={{ background: darkBand }}>
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">EdLight Nexus</p>
-                <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">A broader horizon for Haitian student leaders</h2>
-                <p className="mt-3 text-sm md:text-base text-white/95">
-                  Nexus is part of EdLight&apos;s broader mission to expand opportunity through education, leadership, and
-                  exposure. As the initiative grows, it aims to create meaningful international experiences that help
-                  young Haitians learn, connect, and lead.
+              <div className="max-w-xl">
+                <span className="eyebrow text-white/85">EdLight Nexus</span>
+                <h2 className="display-md mt-3 text-white">A broader horizon for Haitian student leaders</h2>
+                <p className="mt-3 text-white/90">
+                  Nexus is part of EdLight&apos;s broader mission to expand opportunity through education, leadership,
+                  and exposure. As the initiative grows, it aims to create meaningful international experiences that
+                  help young Haitians learn, connect, and lead.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <a href="mailto:nexus@edlight.org" className="btn btn-light">
                   Contact nexus@edlight.org
                 </a>
-                <Link href="/get-involved#contact" className="btn btn-primary">
+                <Link href="/get-involved#contact" className="btn btn-ghost">
                   Learn more about EdLight
                 </Link>
               </div>
