@@ -18,8 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/get-involved`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/contact`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/faq`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/store`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${baseUrl}/request-quote`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/donate`, lastModified, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/privacy`, lastModified, changeFrequency: 'yearly', priority: 0.5 },
     { url: `${baseUrl}/terms-of-use`, lastModified, changeFrequency: 'yearly', priority: 0.5 },

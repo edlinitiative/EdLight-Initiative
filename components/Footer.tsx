@@ -24,7 +24,9 @@ const programLinks = [
 const orgLinks = [
   { href: '/about', label: 'About' },
   { href: '/get-involved', label: 'Get Involved' },
-  { href: '/store', label: 'Store' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/privacy', label: 'Privacy Policy' },
+  { href: '/terms-of-use', label: 'Terms of Use' },
 ]
 
 export default function Footer() {
@@ -196,6 +198,10 @@ export default function Footer() {
             <p className="eyebrow text-[var(--paper-on-dark)] text-[10px]">© {currentYear} EDLIGHT INITIATIVE · ALL RIGHTS RESERVED.</p>
             <p className="text-xs text-[var(--paper-on-dark)]">Crafting opportunities for Haiti&apos;s next generation.</p>
           </div>
+          <p className="mt-3 text-xs text-[var(--paper-on-dark)]/80">
+            EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation No. 1376443-5),
+            based in Montreal, Quebec.
+          </p>
         </div>
       </div>
     </footer>
