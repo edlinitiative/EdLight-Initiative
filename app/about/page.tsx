@@ -56,6 +56,11 @@ export default function AboutPage() {
                 Across these initiatives, EdLight seeks to bridge opportunity gaps and create
                 practical pathways for young Haitians in Haiti and beyond.
               </p>
+              <p>
+                EdLight Initiative is a not-for-profit corporation registered in Canada
+                (Corporation No. 1376443-5) and based in Montreal, Quebec. All programs are
+                offered free of charge to students.
+              </p>
             </div>
           </div>
 

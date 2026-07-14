@@ -14,7 +14,6 @@ type FormData = {
 export default function ContactPage() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const onSubmit = async (data: FormData) => {
@@ -22,20 +21,22 @@ export default function ContactPage() {
     setSubmitStatus('idle')
 
     try {
-      // TODO: Integrate with backend API or email service (e.g., Firebase, SendGrid, Resend)
-      // For now, we'll simulate a submission
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      console.log('Contact form submission:', data)
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      const result = await response.json().catch(() => ({}))
+
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.message || 'Submission failed')
+      }
+
       setSubmitStatus('success')
       reset()
-      
-      // Show success message
-      alert('Thank you for contacting us! We will respond to your inquiry within 2-3 business days.')
     } catch (error) {
       console.error('Error submitting form:', error)
       setSubmitStatus('error')
-      alert('There was an error submitting your message. Please try again or email us directly at info@edlight.org')
     } finally {
       setIsSubmitting(false)
     }
@@ -268,6 +269,17 @@ export default function ContactPage() {
                   </>
                 )}
               </button>
+
+              {submitStatus === 'success' && (
+                <p className="text-sm text-green-700 text-center" aria-live="polite">
+                  Thank you for contacting us! We will respond within 2-3 business days.
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="text-sm text-red-600 text-center" aria-live="polite">
+                  There was an error sending your message. Please try again or email us at info@edlight.org.
+                </p>
+              )}
 
               <p className="text-sm text-gray-500 text-center">
                 We typically respond within 2-3 business days

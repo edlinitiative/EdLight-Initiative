@@ -82,6 +82,7 @@ export default function GetInvolvedPage() {
     formState: { errors },
     reset,
   } = useForm<FormData>()
+  const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   useEffect(() => {
     // Load PayPal Donation SDK
@@ -114,11 +115,24 @@ export default function GetInvolvedPage() {
     }
   }, [])
 
-  const onSubmit = (data: FormData) => {
-    // TODO: Integrate with backend API or Firebase to handle form submissions
-    console.log('Form submitted:', data)
-    alert('Thank you for your interest! We will be in touch soon.')
-    reset()
+  const onSubmit = async (data: FormData) => {
+    setSubmitStatus('loading')
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      const result = await response.json().catch(() => ({}))
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.message || 'Submission failed')
+      }
+      setSubmitStatus('success')
+      reset()
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitStatus('error')
+    }
   }
 
   return (
@@ -299,9 +313,24 @@ export default function GetInvolvedPage() {
                     )}
                   </div>
 
-                  <button type="submit" className="btn btn-primary w-full justify-center">
-                    Send Message
+                  <button
+                    type="submit"
+                    disabled={submitStatus === 'loading'}
+                    className="btn btn-primary w-full justify-center disabled:opacity-60"
+                  >
+                    {submitStatus === 'loading' ? 'Sending…' : 'Send Message'}
                   </button>
+
+                  {submitStatus === 'success' && (
+                    <p className="text-sm text-green-700" aria-live="polite">
+                      Thank you for your interest! We will be in touch soon.
+                    </p>
+                  )}
+                  {submitStatus === 'error' && (
+                    <p className="text-sm text-red-600" aria-live="polite">
+                      There was an error sending your message. Please try again or email us at info@edlight.org.
+                    </p>
+                  )}
                 </form>
               </div>
             </Reveal>

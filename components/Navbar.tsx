@@ -16,7 +16,7 @@ const navLinks = [
   { href: '/eslp', label: 'ESLP', isLaunched: true },
   { href: '/about', label: 'About', isLaunched: true },
   { href: '/get-involved', label: 'Get Involved', isLaunched: true },
-  { href: '/store', label: 'Store', isLaunched: true },
+  { href: '/store', label: 'Store', isLaunched: false },
 ]
 
 const visibleNavLinks = navLinks.filter((link) => link.isLaunched)
