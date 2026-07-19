@@ -39,7 +39,7 @@ async function getToken(): Promise<string> {
     body: new URLSearchParams({ scope: 'read,write', grant_type: 'client_credentials' }).toString(),
   })
   if (!r.ok) throw new Error(`MonCash oauth failed (${r.status})`)
-  const j: any = await r.json().catch(() => ({}))
+  const j = (await r.json().catch(() => ({}))) as { access_token?: string }
   if (!j?.access_token) throw new Error('MonCash oauth: no access_token')
   // Tokens are short-lived (~59s); cache briefly to avoid re-auth on the two calls per return.
   cachedToken = { token: j.access_token, exp: Date.now() + 45_000 }
@@ -60,7 +60,10 @@ export async function resolveOrderId(transactionId: string): Promise<string | nu
       body: JSON.stringify({ transactionId }),
     })
     if (!r.ok) return null
-    const j: any = await r.json().catch(() => ({}))
+    const j = (await r.json().catch(() => ({}))) as {
+      payment?: { reference?: unknown }
+      reference?: unknown
+    }
     const ref = j?.payment?.reference ?? j?.reference
     return ref ? String(ref) : null
   } catch {

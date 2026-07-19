@@ -20,10 +20,12 @@ export async function POST(request: NextRequest) {
     let transactionId: string | null = null
     let orderId: string | null = null
 
+    const str = (v: unknown): string | null => (typeof v === 'string' && v ? v : null)
+
     if (contentType.includes('application/json')) {
-      const j = JSON.parse(raw || '{}')
-      transactionId = j?.transactionId || j?.transaction_id || null
-      orderId = j?.orderId || j?.order_id || j?.reference || null
+      const j = JSON.parse(raw || '{}') as Record<string, unknown>
+      transactionId = str(j.transactionId) || str(j.transaction_id)
+      orderId = str(j.orderId) || str(j.order_id) || str(j.reference)
     } else {
       const p = new URLSearchParams(raw)
       transactionId = p.get('transactionId') || p.get('transaction_id')
