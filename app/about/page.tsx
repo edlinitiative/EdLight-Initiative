@@ -9,6 +9,7 @@ const leadershipTeam = [
   { name: 'Rony Francillon', title: 'Director of ESLP & EdLight Nexus' },
   { name: 'Herode Metellus', title: 'Fundraising Coordinator' },
   { name: 'Williamson Michel', title: 'Operations Manager' },
+  { name: 'Christopher Michel', title: 'Internal Operations & Logistics' },
   { name: 'Stéphane Lainé', title: 'Lead Developer, EdLight Labs' },
   { name: 'Fredler Pierre-Louis', title: 'Technology and Cybersecurity Lead' },
 ]
