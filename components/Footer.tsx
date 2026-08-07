@@ -19,11 +19,16 @@ const programLinks = [
   { href: '/labs', label: 'EdLight Labs' },
   { href: '/nexus', label: 'EdLight Nexus' },
   { href: '/eslp', label: 'ESLP' },
+  { href: '/courses', label: 'Courses' },
+  { href: '/global-exchange', label: 'Global Exchange' },
+  { href: '/mission_projects', label: 'Mission Projects' },
 ]
 
 const orgLinks = [
   { href: '/about', label: 'About' },
   { href: '/get-involved', label: 'Get Involved' },
+  { href: '/donate', label: 'Donate' },
+  { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
   { href: '/privacy', label: 'Privacy Policy' },
   { href: '/terms-of-use', label: 'Terms of Use' },
@@ -49,9 +54,10 @@ function AndroidMark({ size = 14 }: { size?: number }) {
   )
 }
 
-// EdLight Code's App Store listing is still in review, so that link 404s until
-// Apple approves it. Kept live deliberately: the footer then needs no edit on
-// approval day.
+// Only public listings get a real link. EdLight Code's App Store page 404s
+// until Apple approves the submission, and the Ad Grants website policy
+// requires every link to work — so its iOS entry stays a non-link until then.
+// To go live: give that entry an href of https://apps.apple.com/app/id6796587680
 const mobileApps = [
   {
     name: 'EdLight Academy',
@@ -73,11 +79,7 @@ const mobileApps = [
     name: 'EdLight Code',
     tagline: 'Practice coding and digital skills in Kreyòl, French, or English.',
     platforms: [
-      {
-        platform: 'iOS',
-        icon: AppleMark,
-        href: 'https://apps.apple.com/app/id6796587680',
-      },
+      { platform: 'iOS', icon: AppleMark, href: null, note: 'Coming soon' },
       {
         platform: 'Android',
         icon: AndroidMark,
@@ -265,19 +267,33 @@ export default function Footer() {
                   {tagline}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {platforms.map(({ platform, href, icon: Icon }) => (
-                    <a
-                      key={platform}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Get ${name} for ${platform}`}
-                      className="inline-flex items-center gap-2 border border-[var(--paper-on-dark)]/40 px-3 py-2 text-xs text-[var(--paper-on-dark)] transition hover:border-white hover:bg-white/[0.08] hover:text-white"
-                    >
-                      <Icon size={14} />
-                      {platform}
-                    </a>
-                  ))}
+                  {platforms.map(({ platform, href, icon: Icon, note }) =>
+                    href ? (
+                      <a
+                        key={platform}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Get ${name} for ${platform}`}
+                        className="inline-flex items-center gap-2 border border-[var(--paper-on-dark)]/40 px-3 py-2 text-xs text-[var(--paper-on-dark)] transition hover:border-white hover:bg-white/[0.08] hover:text-white"
+                      >
+                        <Icon size={14} />
+                        {platform}
+                      </a>
+                    ) : (
+                      <span
+                        key={platform}
+                        aria-disabled="true"
+                        className="inline-flex items-center gap-2 border border-dashed border-[var(--paper-on-dark)]/25 px-3 py-2 text-xs text-[var(--paper-on-dark)]/45"
+                      >
+                        <Icon size={14} />
+                        {platform}
+                        {note && (
+                          <span className="text-[10px] uppercase tracking-wider">{note}</span>
+                        )}
+                      </span>
+                    )
+                  )}
                 </div>
               </div>
             ))}

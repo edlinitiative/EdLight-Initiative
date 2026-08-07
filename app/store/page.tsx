@@ -1,10 +1,19 @@
 import React from 'react'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import storeData from '@/data/store.json'
+
+// Every item here is still "coming soon". The Ad Grants website policy counts
+// placeholder and under-construction pages against the whole site, so this one
+// stays out of the index until the store actually sells something. It is
+// already absent from the nav and sitemap.
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+}
 
 export default function StorePage() {
   return (

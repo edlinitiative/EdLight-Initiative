@@ -1,7 +1,15 @@
 import React from 'react'
+import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import RequestQuoteForm from '@/components/RequestQuoteForm'
+
+// De-listed from the sitemap in the earlier Ad Grants pass as a commercial-
+// activity flag; noindex finishes that job, since a de-listed page is still
+// indexable. Still reachable by direct link for partners sent here.
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+}
 
 export default function RequestQuotePage() {
   return (

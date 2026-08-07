@@ -1,56 +1,21 @@
-'use client'
-
-import { useEffect } from 'react'
+import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import { Heart, Users, BookOpen, Laptop, Globe } from 'lucide-react'
 
-declare global {
-  interface Window {
-    PayPal?: {
-      Donation: {
-        Button: (config: {
-          env: string
-          hosted_button_id: string
-          image: {
-            src: string
-            alt: string
-            title: string
-          }
-        }) => {
-          render: (selector: string) => void
-        }
-      }
-    }
-  }
+// The same hosted button used by the header CTA and /get-involved. This page
+// previously loaded PayPal's JS SDK with a literal 'YOUR_BUTTON_ID' placeholder
+// and rendered a <button> with no handler, so the donate action did nothing at
+// all. A plain link is server-rendered, crawlable, and works without JS.
+const PAYPAL_DONATE_URL = 'https://www.paypal.com/donate/?hosted_button_id=6AKKBQXK47EZU'
+
+export const metadata: Metadata = {
+  title: 'Donate | EdLight Initiative',
+  description:
+    'Support free, quality education for high school students in Haiti. Your donation funds scholarships, learning materials, and technology access.',
 }
 
 export default function DonatePage() {
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.src = 'https://www.paypalobjects.com/donate/sdk/donate-sdk.js'
-    script.charset = 'UTF-8'
-    document.body.appendChild(script)
-
-    script.onload = () => {
-      if (window.PayPal) {
-        window.PayPal.Donation.Button({
-          env: 'production',
-          hosted_button_id: 'YOUR_BUTTON_ID',
-          image: {
-            src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
-            alt: 'Donate with PayPal button',
-            title: 'PayPal - The safer, easier way to pay online!',
-          },
-        }).render('#donate-button')
-      }
-    }
-
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
-
   const impactAreas = [
     {
       icon: <Users size={48} className="text-blue-600" />,
@@ -224,18 +189,22 @@ export default function DonatePage() {
                 </p>
               </div>
               <div className="flex justify-center">
-                <div id="donate-button" className="bg-white p-6 rounded-lg">
-                  {/* PayPal button will render here */}
+                <div className="bg-white p-6 rounded-lg">
                   <div className="text-center">
                     <p className="text-gray-700 mb-4">
                       Donate securely with PayPal or credit card
                     </p>
-                    <button className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors">
+                    <a
+                      href={PAYPAL_DONATE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
+                    >
                       <Heart className="inline mr-2" size={24} />
                       Donate Now
-                    </button>
+                    </a>
                     <p className="text-sm text-gray-500 mt-4">
-                      All donations are secure and tax-deductible
+                      Processed securely by PayPal. No account required.
                     </p>
                   </div>
                 </div>

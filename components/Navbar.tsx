@@ -25,7 +25,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname() || '/'
-  const paypalDonateUrl = 'https://www.paypal.com/donate/?hosted_button_id=6AKKBQXK47EZU'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,35 +39,6 @@ export default function Navbar() {
       return pathname === '/'
     }
     return pathname.startsWith(href)
-  }
-
-  const openDonatePopup = () => {
-    if (typeof window === 'undefined') return
-
-    const POPUP_WIDTH = 720
-    const POPUP_HEIGHT = 820
-
-    const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screenX
-    const dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screenY
-    const currentWidth = window.innerWidth || document.documentElement.clientWidth || screen.width
-    const currentHeight = window.innerHeight || document.documentElement.clientHeight || screen.height
-
-    const left = dualScreenLeft + Math.max(0, (currentWidth - POPUP_WIDTH) / 2)
-    const top = dualScreenTop + Math.max(0, (currentHeight - POPUP_HEIGHT) / 2)
-
-    const popup = window.open(
-      paypalDonateUrl,
-      'paypalDonatePopup',
-      `width=${POPUP_WIDTH},height=${POPUP_HEIGHT},top=${top},left=${left},` +
-        'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes'
-    )
-
-    if (!popup) {
-      window.location.href = paypalDonateUrl
-      return
-    }
-
-    popup.focus()
   }
 
   return (
@@ -114,15 +84,15 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button — a real link to /donate, so the donation path is
+              crawlable and works without JavaScript. */}
           <div className="hidden lg:flex items-center gap-4">
-            <button
-              type="button"
-              onClick={openDonatePopup}
+            <Link
+              href="/donate"
               className="inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-150 bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] px-4 py-1.5 text-sm whitespace-nowrap min-w-[100px]"
             >
               Donate
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -156,13 +126,13 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="px-4 pt-3">
-                <button
-                  type="button"
-                  onClick={() => { setIsMobileMenuOpen(false); openDonatePopup() }}
+                <Link
+                  href="/donate"
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className="inline-flex w-full items-center justify-center font-medium tracking-tight bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] px-4 py-2.5 text-sm"
                 >
                   Donate
-                </button>
+                </Link>
               </div>
             </div>
           </div>
