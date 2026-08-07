@@ -29,6 +29,64 @@ const orgLinks = [
   { href: '/terms-of-use', label: 'Terms of Use' },
 ]
 
+// lucide-react ships an Apple glyph but no Android one, so both platform marks
+// are inlined from Simple Icons (https://simpleicons.org, CC0) — one source
+// keeps their weight and 24x24 box consistent. The Android robot is a Google
+// trademark, used here only to identify the platform a link points to.
+function AppleMark({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" />
+    </svg>
+  )
+}
+
+function AndroidMark({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z" />
+    </svg>
+  )
+}
+
+// EdLight Code's App Store listing is still in review, so that link 404s until
+// Apple approves it. Kept live deliberately: the footer then needs no edit on
+// approval day.
+const mobileApps = [
+  {
+    name: 'EdLight Academy',
+    tagline: 'Courses, live classes, and certificates on your phone.',
+    platforms: [
+      {
+        platform: 'iOS',
+        icon: AppleMark,
+        href: 'https://apps.apple.com/app/id6792210920',
+      },
+      {
+        platform: 'Android',
+        icon: AndroidMark,
+        href: 'https://play.google.com/store/apps/details?id=com.edlightacademy',
+      },
+    ],
+  },
+  {
+    name: 'EdLight Code',
+    tagline: 'Practice coding and digital skills in Kreyòl, French, or English.',
+    platforms: [
+      {
+        platform: 'iOS',
+        icon: AppleMark,
+        href: 'https://apps.apple.com/app/id6796587680',
+      },
+      {
+        platform: 'Android',
+        icon: AndroidMark,
+        href: 'https://play.google.com/store/apps/details?id=org.edlight.code',
+      },
+    ],
+  },
+]
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
   const [email, setEmail] = useState('')
@@ -190,6 +248,39 @@ export default function Footer() {
                 <a href="mailto:info@edlight.org" className="hover:text-[var(--paper-on-dark)] transition-colors">info@edlight.org</a>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile apps */}
+        <div className="mt-12 border-t border-[var(--paper-on-dark)]/30 pt-8">
+          <h4 className="eyebrow text-[var(--paper-on-dark)] mb-1.5">Mobile Apps</h4>
+          <p className="mb-5 text-xs text-[var(--paper-on-dark)]/80">
+            Free to download, on phones and tablets.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:max-w-3xl">
+            {mobileApps.map(({ name, tagline, platforms }) => (
+              <div key={name} className="border border-[var(--paper-on-dark)]/25 p-4">
+                <p className="text-sm font-medium text-white">{name}</p>
+                <p className="mt-1 text-xs leading-relaxed text-[var(--paper-on-dark)]/80">
+                  {tagline}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {platforms.map(({ platform, href, icon: Icon }) => (
+                    <a
+                      key={platform}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Get ${name} for ${platform}`}
+                      className="inline-flex items-center gap-2 border border-[var(--paper-on-dark)]/40 px-3 py-2 text-xs text-[var(--paper-on-dark)] transition hover:border-white hover:bg-white/[0.08] hover:text-white"
+                    >
+                      <Icon size={14} />
+                      {platform}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
