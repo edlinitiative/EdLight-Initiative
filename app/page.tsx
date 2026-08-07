@@ -20,8 +20,10 @@ import SectionHeader from '@/components/SectionHeader'
 import Card from '@/components/Card'
 import TestimonialCard from '@/components/TestimonialCard'
 import ImpactCounters from '@/components/ImpactCounters'
+import PartnerLogoGrid from '@/components/PartnerLogoGrid'
 import impactData from '@/data/impact.json'
 import testimonialsData from '@/data/testimonials.json'
+import partnersData from '@/data/partners.json'
 import { FOUNDED_YEAR } from '@/lib/site'
 
 const heroImages = [
@@ -284,6 +286,18 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <SectionHeader
+            title="Our Partners"
+            subtitle="Organisations we work with to widen what our students can reach"
+            centered
+          />
+          <PartnerLogoGrid partners={partnersData} />
         </div>
       </section>
 

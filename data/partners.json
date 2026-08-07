@@ -1,19 +1,29 @@
 [
   {
     "id": 1,
-    "name": "UWC (United World Colleges)",
+    "name": "UWC Haiti",
     "logo": "/partners/uwc-logo.png",
     "website": "https://www.uwc.org"
   },
   {
     "id": 2,
-    "name": "Lekòl Kominotè Matènwa",
-    "logo": "/partners/lekol-logo.png"
+    "name": "Lekòl Kominotè Matènwa"
   },
   {
     "id": 3,
     "name": "Fellows Project",
-    "logo": "/partners/fellows-logo.png",
     "website": "https://www.thefellowsproject.org"
+  },
+  {
+    "id": 4,
+    "name": "Coursera",
+    "logo": "/partners/coursera-logo.png",
+    "website": "https://www.coursera.org"
+  },
+  {
+    "id": 5,
+    "name": "IICA",
+    "logo": "/partners/iica-logo.png",
+    "website": "https://iica.int"
   }
 ]
