@@ -95,7 +95,7 @@ export default function AboutPage() {
           />
           <div className="max-w-4xl mx-auto mt-6 mb-10 sm:mb-12 space-y-3 text-gray-700 leading-relaxed text-sm sm:text-base">
             <p>
-              EdLight was founded by Ted Jacquet, Stevenson Michel, and Christopher Michel.
+              EdLight was founded by Ted Jacquet and Stevenson Michel.
             </p>
             <p>Our leadership team includes:</p>
           </div>

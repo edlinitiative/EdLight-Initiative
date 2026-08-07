@@ -3,7 +3,7 @@ import { Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { SITE_URL } from '@/lib/site'
+import { SITE_URL, FOUNDED_YEAR } from '@/lib/site'
 
 const hankenGrotesk = Hanken_Grotesk({
   weight: ['400', '500', '600', '700'],
@@ -123,7 +123,7 @@ export default function RootLayout({
       'https://www.linkedin.com/company/edlight-initiative/',
       'https://www.youtube.com/@edlight-initiative',
     ],
-    foundingDate: '2015',
+    foundingDate: String(FOUNDED_YEAR),
     areaServed: {
       '@type': 'Place',
       name: 'Haiti',

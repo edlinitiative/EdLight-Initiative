@@ -22,6 +22,7 @@ import TestimonialCard from '@/components/TestimonialCard'
 import ImpactCounters from '@/components/ImpactCounters'
 import impactData from '@/data/impact.json'
 import testimonialsData from '@/data/testimonials.json'
+import { FOUNDED_YEAR } from '@/lib/site'
 
 const heroImages = [
   '/edlight_academy_group.webp',
@@ -136,7 +137,7 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <Hero
-        eyebrow="EdLight Initiative · Est. 2020"
+        eyebrow={`EdLight Initiative · Est. ${FOUNDED_YEAR}`}
         title="Empowering the next generation of Haitian innovators."
         subtitle="Quality education, mentorship, and global opportunities — built with and for students across Haiti."
         backgroundImage={heroImages[currentHeroImage]}
@@ -144,7 +145,7 @@ export default function HomePage() {
           { label: 'Students Served', value: `${impactData.studentsServed}+` },
           { label: 'Programs', value: '5' },
           { label: 'Partner Orgs', value: `${impactData.partnerOrganizations}+` },
-          { label: 'Founded', value: '2020' },
+          { label: 'Founded', value: String(FOUNDED_YEAR) },
         ]}
       >
         <Link
