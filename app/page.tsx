@@ -2,7 +2,19 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ArrowRight, BookOpen, Code2, Lightbulb, Globe, GraduationCap } from 'lucide-react'
+import {
+  ArrowRight,
+  BookOpen,
+  Code2,
+  Lightbulb,
+  Globe,
+  GraduationCap,
+  Laptop,
+  Users,
+  Compass,
+  HelpCircle,
+  Heart,
+} from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import Card from '@/components/Card'
@@ -55,6 +67,51 @@ const impactCounters = [
   { label: 'Students Served', value: impactData.studentsServed },
   { label: 'Courses Offered', value: impactData.coursesOffered },
   { label: 'Partner Organizations', value: impactData.partnerOrganizations },
+]
+
+const howItWorks = [
+  {
+    icon: <Laptop size={28} />,
+    title: 'Learn online, at no cost',
+    body: 'Every course we offer is free. Lessons run in a web browser and in our mobile apps, so a student with an ordinary phone and an intermittent connection can still take part. EdLight Code teaches in Haitian Creole, French, and English, because learning to program in a language you had to learn first is a barrier we would rather remove.',
+  },
+  {
+    icon: <Users size={28} />,
+    title: 'Learn alongside mentors',
+    body: 'Courses on their own are not enough. Our programs pair students with educators, builders, and mentors who review work, answer questions, and help students decide what to study next. EdLight Labs adds structured training and demo days for students building real technical projects.',
+  },
+  {
+    icon: <Compass size={28} />,
+    title: 'Reach further than Haiti',
+    body: 'Strong students should not be limited by where they were born. EdLight Nexus and our Global Exchange work connect students to scholarships, exchange programmes, and institutions abroad, while ESLP develops the leadership and civic confidence that those opportunities ask for.',
+  },
+]
+
+const exploreMore = [
+  {
+    href: '/courses',
+    icon: <BookOpen size={24} />,
+    title: 'Browse the course catalogue',
+    body: 'Free online courses to help you build valuable skills and transform your future.',
+  },
+  {
+    href: '/global-exchange',
+    icon: <Globe size={24} />,
+    title: 'Global Exchange',
+    body: 'The kinds of international exposure and exchange that broaden opportunity for Haitian students.',
+  },
+  {
+    href: '/mission_projects',
+    icon: <Lightbulb size={24} />,
+    title: 'Mission & Projects',
+    body: 'How we work to empower underserved communities through education, technology, and leadership.',
+  },
+  {
+    href: '/faq',
+    icon: <HelpCircle size={24} />,
+    title: 'Frequently asked questions',
+    body: 'Who can apply, what our programmes cost, and how to get started as a student or a supporter.',
+  },
 ]
 
 export default function HomePage() {
@@ -131,7 +188,40 @@ export default function HomePage() {
                 opportunities to reach their full potential and contribute to building a more prosperous
                 nation.
               </p>
+              <p>
+                In practice that means removing the things that usually stop a student: cost, distance,
+                and language. Our programmes are free to join, they run online so a student does not
+                have to move cities to attend, and our coding platform teaches in Haitian Creole and
+                French as well as English. We work with high school students across Haiti, and with the
+                teachers and community organisations already serving them.
+              </p>
+              <p>
+                EdLight is run by a multidisciplinary team of educators, builders, mentors, and
+                operators, and is registered as a not-for-profit corporation in Canada. We publish what
+                we do and what it costs, because families deciding whether to trust us with a student&apos;s
+                time deserve to see it.
+              </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <SectionHeader
+            title="How EdLight Works"
+            subtitle="What a student actually gets, and what it costs them"
+            centered
+          />
+          <div className="grid gap-px bg-[var(--paper-200)] sm:grid-cols-3">
+            {howItWorks.map(({ icon, title, body }) => (
+              <div key={title} className="bg-[var(--paper-50)] p-6 sm:p-8">
+                <div className="text-[var(--accent)] mb-4">{icon}</div>
+                <h3 className="text-lg font-semibold text-[var(--ink-900)] mb-3">{title}</h3>
+                <p className="text-sm leading-relaxed text-[var(--ink-700)]">{body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -144,6 +234,14 @@ export default function HomePage() {
             subtitle="Comprehensive programs supporting students at every stage"
             centered
           />
+          <p className="max-w-3xl mx-auto mb-10 text-center text-sm sm:text-base leading-relaxed text-[var(--ink-700)]">
+            Five programmes, each aimed at a different point in a student&apos;s path. Academy and Code
+            cover the learning itself, from secondary-school maths and physics through to programming
+            in Python and SQL. Labs supports students who are building something technical of their
+            own. Nexus and ESLP handle what comes next — the scholarships, exchanges, and leadership
+            experience that turn a strong student into a candidate. A student can start anywhere and
+            move between them.
+          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--paper-200)]">
             {ecosystemPrograms.map((program) => (
               <Card
@@ -183,6 +281,75 @@ export default function HomePage() {
                   aria-label={`View testimonial ${index + 1}`}
                 />
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Explore more — surfaces the deeper pages from the homepage */}
+      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <SectionHeader
+            title="Explore Further"
+            subtitle="More detail on our courses, our projects, and how to join"
+            centered
+          />
+          <div className="grid gap-px bg-[var(--paper-200)] sm:grid-cols-2">
+            {exploreMore.map(({ href, icon, title, body }) => (
+              <Link
+                key={href}
+                href={href}
+                className="group bg-[var(--paper-50)] p-6 sm:p-8 transition-colors hover:bg-[var(--paper-100)]"
+              >
+                <div className="text-[var(--accent)] mb-3">{icon}</div>
+                <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-[var(--ink-900)]">
+                  {title}
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
+                </h3>
+                <p className="text-sm leading-relaxed text-[var(--ink-700)]">{body}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Calls to action */}
+      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <div className="border border-[var(--paper-200)] bg-[var(--paper-100)] p-8 sm:p-12 text-center">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--ink-900)] mb-3">
+              Take the next step
+            </h2>
+            <p className="max-w-2xl mx-auto mb-8 text-sm sm:text-base leading-relaxed text-[var(--ink-700)]">
+              Whether you are a student in Haiti looking for a course, a professional willing to
+              mentor, or a donor deciding where a hundred dollars goes furthest — here is where to
+              start.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                href="/courses"
+                className="inline-flex items-center justify-center gap-2 bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--accent-hover)]"
+              >
+                <BookOpen size={16} />
+                Start a free course
+              </Link>
+              <Link
+                href="/donate"
+                className="inline-flex items-center justify-center gap-2 border border-[var(--ink-900)] px-6 py-3 text-sm font-medium text-[var(--ink-900)] transition-colors hover:bg-[var(--paper-200)]"
+              >
+                <Heart size={16} />
+                Donate
+              </Link>
+              <Link
+                href="/get-involved"
+                className="inline-flex items-center justify-center gap-2 border border-[var(--ink-400)] px-6 py-3 text-sm font-medium text-[var(--ink-700)] transition-colors hover:border-[var(--ink-900)] hover:text-[var(--ink-900)]"
+              >
+                <Users size={16} />
+                Volunteer or partner
+              </Link>
             </div>
           </div>
         </div>

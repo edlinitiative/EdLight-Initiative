@@ -65,10 +65,10 @@ export async function POST(request: Request) {
             Learn more about our programs:
           </p>
           <ul style="color: #044BAB; line-height: 1.8; margin-bottom: 20px;">
-            <li><a href="https://edlight.org/academy" style="color: #044BAB;">EdLight Academy</a> - Free online courses</li>
-            <li><a href="https://edlight.org/labs" style="color: #044BAB;">EdLight Labs</a> - STEM incubator</li>
-            <li><a href="https://edlight.org/nexus" style="color: #044BAB;">EdLight Nexus</a> - Global opportunities</li>
-            <li><a href="https://edlight.org/eslp" style="color: #044BAB;">ESLP</a> - Summer Leadership Program</li>
+            <li><a href="https://www.edlight.org/academy" style="color: #044BAB;">EdLight Academy</a> - Free online courses</li>
+            <li><a href="https://www.edlight.org/labs" style="color: #044BAB;">EdLight Labs</a> - STEM incubator</li>
+            <li><a href="https://www.edlight.org/nexus" style="color: #044BAB;">EdLight Nexus</a> - Global opportunities</li>
+            <li><a href="https://www.edlight.org/eslp" style="color: #044BAB;">ESLP</a> - Summer Leadership Program</li>
           </ul>
           <p style="color: #666; font-size: 14px; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
             Questions? Reply to this email or reach us at <a href="mailto:info@edlight.org" style="color: #044BAB;">info@edlight.org</a>

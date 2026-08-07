@@ -162,7 +162,7 @@ const processPhases: Phase[] = [
 const caseStudies: CaseStudy[] = [
   {
     name: 'EdLight Initiative',
-    url: 'https://edlight.org',
+    url: 'https://www.edlight.org',
     description:
       'Unified the mission, programs, and fundraising efforts into a storytelling hub with multilingual support.',
     tag: 'Nonprofit platform',
@@ -185,7 +185,7 @@ const caseStudies: CaseStudy[] = [
   },
   {
     name: 'EdLight Nexus',
-    url: 'https://edlight.org/nexus',
+    url: 'https://www.edlight.org/nexus',
     description:
       'Mobility and exchange site highlighting cohorts, application journeys, and partnership opportunities.',
     tag: 'Program microsite',

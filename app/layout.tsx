@@ -3,6 +3,7 @@ import { Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { SITE_URL } from '@/lib/site'
 
 const hankenGrotesk = Hanken_Grotesk({
   weight: ['400', '500', '600', '700'],
@@ -26,7 +27,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://edlight.org'),
+  metadataBase: new URL(SITE_URL),
   applicationName: 'EdLight Initiative',
   title: {
     default: 'EdLight Initiative | Empowering Haitian Youth Through Education',
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
   creator: 'EdLight Initiative',
   publisher: 'EdLight Initiative',
   alternates: {
-    canonical: 'https://edlight.org',
+    canonical: SITE_URL,
   },
   robots: {
     index: true,
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://edlight.org',
+    url: SITE_URL,
     siteName: 'EdLight Initiative',
     title: 'EdLight Initiative | Empowering Haitian Youth Through Education',
     description: 'Empowering the next generation of Haitian innovators through quality education, mentorship, and global opportunities.',
@@ -73,8 +74,8 @@ export const metadata: Metadata = {
     title: 'EdLight Initiative | Empowering Haitian Youth',
     description: 'Empowering the next generation of Haitian innovators through quality education, mentorship, and global opportunities.',
     images: ['/EdLight_Website_Logo.png'],
-    creator: '@edlightinit',
-    site: '@edlightinit',
+    creator: '@edlinitiative',
+    site: '@edlinitiative',
   },
   icons: {
     icon: [
@@ -106,19 +107,21 @@ export default function RootLayout({
     '@type': 'Organization',
     name: 'EdLight Initiative',
     description: 'Empowering underserved communities through education, technology, and leadership development',
-    url: 'https://edlight.org',
-    logo: 'https://edlight.org/EdLight_Website_Logo.png',
+    url: SITE_URL,
+    logo: `${SITE_URL}/EdLight_Website_Logo.png`,
     email: 'info@edlight.org',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'HT',
     },
+    // The canonical handles, matching the footer. 'twitter.com/edlightinit'
+    // used to sit here and 404s — the account is @edlinitiative.
     sameAs: [
-      'https://facebook.com/edlightinitiative',
-      'https://twitter.com/edlightinit',
-      'https://instagram.com/edlightinitiative',
-      'https://linkedin.com/company/edlight-initiative',
-      'https://youtube.com/@edlightinitiative',
+      'https://www.facebook.com/edlinitiative',
+      'https://x.com/edlinitiative',
+      'https://www.instagram.com/edlinitiative/',
+      'https://www.linkedin.com/company/edlight-initiative/',
+      'https://www.youtube.com/@edlight-initiative',
     ],
     foundingDate: '2015',
     areaServed: {
@@ -132,7 +135,7 @@ export default function RootLayout({
     '@type': 'WebSite',
     name: 'EdLight Initiative',
     alternateName: 'EdLight',
-    url: 'https://edlight.org',
+    url: SITE_URL,
   }
 
   return (
