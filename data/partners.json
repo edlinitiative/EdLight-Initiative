@@ -7,21 +7,12 @@
   },
   {
     "id": 2,
-    "name": "Lekòl Kominotè Matènwa"
-  },
-  {
-    "id": 3,
-    "name": "Fellows Project",
-    "website": "https://www.thefellowsproject.org"
-  },
-  {
-    "id": 4,
     "name": "Coursera",
     "logo": "/partners/coursera-logo.png",
     "website": "https://www.coursera.org"
   },
   {
-    "id": 5,
+    "id": 3,
     "name": "IICA",
     "logo": "/partners/iica-logo.png",
     "website": "https://iica.int"

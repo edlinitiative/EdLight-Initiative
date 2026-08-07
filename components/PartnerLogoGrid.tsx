@@ -36,11 +36,14 @@ function PartnerMark({ partner }: { partner: Partner }) {
 }
 
 export default function PartnerLogoGrid({ partners }: PartnerLogoGridProps) {
+  // Centred wrap rather than a fixed column count: partners are edited from the
+  // admin dashboard, and a grid sized for five leaves dangling empty cells the
+  // moment that list changes.
   return (
-    <div className="grid grid-cols-2 items-center gap-8 md:grid-cols-3 lg:grid-cols-5">
+    <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16">
       {partners.map((partner) => {
         const inner = (
-          <div className="relative flex h-20 items-center justify-center">
+          <div className="relative flex h-20 w-40 items-center justify-center sm:w-48">
             <PartnerMark partner={partner} />
           </div>
         )
