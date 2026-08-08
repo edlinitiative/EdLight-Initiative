@@ -31,9 +31,18 @@
 
      Four steps, not the eight opacities that had accumulated. `muted` is
      secondary prose, `faint` is placeholders and disabled states, and the
-     two line tints separate a hairline rule from an interactive edge. */
-  --on-dark-muted: rgb(232 226 212 / 0.80);
-  --on-dark-faint: rgb(232 226 212 / 0.62);
+     two line tints separate a hairline rule from an interactive edge.
+
+     On brightness: `muted` is the FULL paper cream, not a dimmed version of
+     it. Secondary prose on these navy grounds was set at 80% and still read
+     as murky next to the white headings beside it — legible by measurement,
+     not legible in practice, which is the only test that counts. Hierarchy
+     here comes from size and weight (small cream body under a white heading),
+     so there is nothing left for opacity to do except make the copy harder to
+     read. Only genuinely inactive things get dimmed, and even `faint` is kept
+     well above the disabled-text floor. */
+  --on-dark-muted: #e8e2d4;
+  --on-dark-faint: rgb(232 226 212 / 0.75);
   --line-on-dark: rgb(232 226 212 / 0.20);
   --line-on-dark-strong: rgb(232 226 212 / 0.35);
   --accent-ring: rgb(0 43 128 / 0.30);
