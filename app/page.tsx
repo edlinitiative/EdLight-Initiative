@@ -90,23 +90,26 @@ const howItWorks = [
   },
 ]
 
+// /courses, /global-exchange and /mission_projects were removed. These three
+// cards now point at the pages that still cover the same ground — deleting
+// them outright would have left this section with a single FAQ card in it.
 const exploreMore = [
   {
-    href: '/courses',
+    href: '/academy',
     icon: <BookOpen size={24} />,
     title: 'Browse the course catalogue',
     body: 'Free online courses to help you build valuable skills and transform your future.',
   },
   {
-    href: '/global-exchange',
+    href: '/nexus',
     icon: <Globe size={24} />,
-    title: 'Global Exchange',
+    title: 'Scholarships and exchange',
     body: 'The kinds of international exposure and exchange that broaden opportunity for Haitian students.',
   },
   {
-    href: '/mission_projects',
+    href: '/about',
     icon: <Lightbulb size={24} />,
-    title: 'Mission & Projects',
+    title: 'Our mission',
     body: 'How we work to empower underserved communities through education, technology, and leadership.',
   },
   {
@@ -345,7 +348,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
-                href="/courses"
+                href="/academy"
                 className="inline-flex items-center justify-center gap-2 bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--accent-hover)]"
               >
                 <BookOpen size={16} />

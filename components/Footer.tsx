@@ -19,9 +19,6 @@ const programLinks = [
   { href: '/labs', label: 'EdLight Labs' },
   { href: '/nexus', label: 'EdLight Nexus' },
   { href: '/eslp', label: 'ESLP' },
-  { href: '/courses', label: 'Courses' },
-  { href: '/global-exchange', label: 'Global Exchange' },
-  { href: '/mission_projects', label: 'Mission Projects' },
 ]
 
 const orgLinks = [
