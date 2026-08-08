@@ -163,7 +163,7 @@ export default function Footer() {
                 At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide
                 high school students with digital access to quality education through STEM courses, leadership programs,
                 and global opportunities.{' '}
-                <Link href="/about" className="text-white underline underline-offset-4 decoration-[var(--paper-on-dark)]/60 hover:decoration-white transition-colors">
+                <Link href="/about" className="text-white underline underline-offset-4 decoration-[var(--on-dark-faint)] hover:decoration-white transition-colors">
                   Learn More
                 </Link>
                 .
@@ -234,7 +234,7 @@ export default function Footer() {
                   placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full border border-[var(--paper-on-dark)]/35 bg-white/[0.08] px-3 py-2.5 text-sm text-white placeholder-[var(--paper-on-dark)]/70 focus:border-white focus:outline-none"
+                  className="w-full border border-[var(--line-on-dark-strong)] bg-white/[0.08] px-3 py-2.5 text-sm text-white placeholder-[var(--on-dark-faint)] focus:border-white focus:outline-none"
                   required
                 />
                 {/* The one thing in this footer that must be pressable on
@@ -278,9 +278,9 @@ export default function Footer() {
             columns above it, so the apps sit ON the footer's grid instead of
             floating in it. Each app is separated by space and a heading, which
             is all the grouping two items need. */}
-        <div className="mt-12 border-t border-[var(--paper-on-dark)]/20 pt-8">
+        <div className="mt-12 border-t border-[var(--line-on-dark)] pt-8">
           <h4 className="eyebrow text-[var(--paper-on-dark)] mb-1.5">Mobile Apps</h4>
-          <p className="mb-6 text-xs text-[var(--paper-on-dark)]/80">
+          <p className="mb-6 text-xs text-[var(--on-dark-muted)]">
             Free to download, on phones and tablets.
           </p>
           {/* Held to a readable measure. Spanning the full 1200px pushed the
@@ -293,7 +293,7 @@ export default function Footer() {
             {mobileApps.map(({ name, tagline, platforms }) => (
               <div key={name}>
                 <p className="text-sm font-medium text-white">{name}</p>
-                <p className="mt-1 max-w-xs text-xs leading-relaxed text-[var(--paper-on-dark)]/80">
+                <p className="mt-1 max-w-xs text-xs leading-relaxed text-[var(--on-dark-muted)]">
                   {tagline}
                 </p>
                 <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -305,7 +305,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Get ${name} for ${platform}`}
-                        className="inline-flex items-center gap-2 border border-[var(--paper-on-dark)]/35 px-3 py-2 text-xs text-[var(--paper-on-dark)] transition-colors hover:border-white hover:bg-white/[0.08] hover:text-white"
+                        className="inline-flex items-center gap-2 border border-[var(--line-on-dark-strong)] px-3 py-2 text-xs text-[var(--paper-on-dark)] transition-colors hover:border-white hover:bg-white/[0.08] hover:text-white"
                       >
                         <Icon size={14} />
                         {platform}
@@ -322,11 +322,11 @@ export default function Footer() {
                       // chip out of alignment.
                       <span
                         key={platform}
-                        className="inline-flex items-center gap-2 border border-transparent px-3 py-2 text-xs text-[var(--paper-on-dark)]/70"
+                        className="inline-flex items-center gap-2 border border-transparent px-3 py-2 text-xs text-[var(--on-dark-faint)]"
                       >
                         <Icon size={14} />
                         {platform}
-                        {note && <span className="text-[var(--paper-on-dark)]/55">— {note.toLowerCase()}</span>}
+                        {note && <span className="text-[var(--on-dark-faint)]">— {note.toLowerCase()}</span>}
                       </span>
                     )
                   )}
@@ -336,12 +336,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-[var(--paper-on-dark)]/20 pt-6">
+        <div className="mt-12 border-t border-[var(--line-on-dark)] pt-6">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <p className="eyebrow text-[var(--paper-on-dark)] text-[10px]">© {currentYear} EDLIGHT INITIATIVE · ALL RIGHTS RESERVED.</p>
             <p className="text-xs text-[var(--paper-on-dark)]">Crafting opportunities for Haiti&apos;s next generation.</p>
           </div>
-          <p className="mt-3 text-xs text-[var(--paper-on-dark)]/80">
+          <p className="mt-3 text-xs text-[var(--on-dark-muted)]">
             EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation No. 1376443-5),
             based in Montreal, Quebec.
           </p>

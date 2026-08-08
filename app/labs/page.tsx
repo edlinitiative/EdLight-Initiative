@@ -454,7 +454,7 @@ export default function LabsPage() {
             <Reveal as="div" className="lg:col-span-4" from="left">
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-emerald-400/80">✦</span>
-                <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">01 · Brief</span>
+                <span className="eyebrow text-[var(--on-dark-faint)] text-[11px]">01 · Brief</span>
               </div>
               <h2 className="display-lg text-white leading-tight">
                 Technology for social impact.
@@ -465,7 +465,7 @@ export default function LabsPage() {
                 Labs brings together strategy, design, and full-stack engineering to help mission-driven
                 teams launch digital experiences that are clear, useful, and built to grow.
               </p>
-              <p className="text-base leading-relaxed text-[var(--paper-on-dark)]/80">
+              <p className="text-base leading-relaxed text-[var(--on-dark-muted)]">
                 We work across websites, platforms, product prototypes, and internal innovation initiatives —
                 always pairing modern tools with practical delivery.
               </p>
@@ -476,7 +476,7 @@ export default function LabsPage() {
                     <Reveal key={vp.title} as="div" delay={200 + vpIdx * 100} className="bg-[#0a0a0a] p-5 sm:p-6">
                       <Icon size={18} className="text-[var(--paper-on-dark)] mb-3" />
                       <h3 className="font-display text-white text-sm font-semibold mb-2">{vp.title}</h3>
-                      <p className="text-xs leading-relaxed text-[var(--paper-on-dark)]/75">{vp.description}</p>
+                      <p className="text-xs leading-relaxed text-[var(--on-dark-muted)]">{vp.description}</p>
                     </Reveal>
                   )
                 })}
@@ -493,10 +493,10 @@ export default function LabsPage() {
             <Reveal as="div" className="max-w-xl">
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-emerald-400/80">✦</span>
-                <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">02 · Capabilities</span>
+                <span className="eyebrow text-[var(--on-dark-faint)] text-[11px]">02 · Capabilities</span>
               </div>
               <h2 className="display-lg text-white leading-tight mb-4">What we build.</h2>
-              <p className="body-lg text-[var(--paper-on-dark)]/85">
+              <p className="body-lg text-[var(--on-dark-muted)]">
                 From strategy to launch, human-centered platforms that move your mission forward.
               </p>
             </Reveal>
@@ -523,12 +523,12 @@ export default function LabsPage() {
                     <span className="numeral text-white/30 text-xs">{String(idx + 1).padStart(2, '0')}</span>
                   </div>
                   <h3 className="font-display text-white text-xl font-semibold mb-3">{capability.title}</h3>
-                  <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80 mb-5">
+                  <p className="text-sm leading-relaxed text-[var(--on-dark-muted)] mb-5">
                     {capability.description}
                   </p>
                   <ul className="space-y-2.5 border-t border-white/10 pt-5">
                     {capability.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-3 text-sm text-[var(--paper-on-dark)]/75">
+                      <li key={bullet} className="flex items-start gap-3 text-sm text-[var(--on-dark-muted)]">
                         <span className="font-mono-edl text-white/40 text-xs mt-0.5">›</span>
                         <span>{bullet}</span>
                       </li>
@@ -587,12 +587,12 @@ export default function LabsPage() {
           <Reveal as="div" className="max-w-2xl mb-14">
             <div className="flex items-center gap-3 mb-5">
               <span className="text-emerald-400/80">✦</span>
-              <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">03 · Process</span>
+              <span className="eyebrow text-[var(--on-dark-faint)] text-[11px]">03 · Process</span>
             </div>
             <h2 className="display-lg text-white leading-tight mb-4">
               A collaborative build, strategy to growth.
             </h2>
-            <p className="body-lg text-[var(--paper-on-dark)]/85">
+            <p className="body-lg text-[var(--on-dark-muted)]">
               Our team becomes an extension of yours — structure, clarity, and technical rigor so you can stay
               focused on your mission.
             </p>
@@ -629,12 +629,12 @@ export default function LabsPage() {
                       </span>
                       <h3 className="font-display text-white text-lg font-semibold">{phase.title}</h3>
                     </div>
-                    <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80 mb-5">
+                    <p className="text-sm leading-relaxed text-[var(--on-dark-muted)] mb-5">
                       {phase.description}
                     </p>
                     <ul className="space-y-2 border-t border-white/10 pt-4">
                       {phase.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-start gap-2 text-xs text-[var(--paper-on-dark)]/75 font-mono-edl">
+                        <li key={bullet} className="flex items-start gap-2 text-xs text-[var(--on-dark-muted)] font-mono-edl">
                           <span className="text-emerald-400/60">→</span>
                           <span>{bullet}</span>
                         </li>
@@ -662,10 +662,10 @@ export default function LabsPage() {
             <Reveal as="div" className="max-w-xl">
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-emerald-400/80">✦</span>
-                <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">04 · Selected work</span>
+                <span className="eyebrow text-[var(--on-dark-faint)] text-[11px]">04 · Selected work</span>
               </div>
               <h2 className="display-lg text-white leading-tight mb-4">From the studio.</h2>
-              <p className="body-lg text-[var(--paper-on-dark)]/85">
+              <p className="body-lg text-[var(--on-dark-muted)]">
                 Live platforms, internal initiatives, and concepts in development.
               </p>
             </Reveal>
@@ -701,7 +701,7 @@ export default function LabsPage() {
           </div>
 
           {activeCategory !== 'all' && (
-            <p className="mb-8 text-sm text-[var(--paper-on-dark)]/65 max-w-2xl">
+            <p className="mb-8 text-sm text-[var(--on-dark-faint)] max-w-2xl">
               {portfolioCategories.find((c) => c.key === activeCategory)?.description}
             </p>
           )}
@@ -796,7 +796,7 @@ export default function LabsPage() {
                             {/* Meta panel */}
                             <div className="relative lg:col-span-2 p-7 sm:p-9 flex flex-col">
                               <div className="flex items-start justify-between gap-4 mb-5">
-                                <span className="eyebrow text-[10px] text-[var(--paper-on-dark)]/70 border border-white/15 px-2.5 py-1">
+                                <span className="eyebrow text-[10px] text-[var(--on-dark-faint)] border border-white/15 px-2.5 py-1">
                                   {project.tag}
                                 </span>
                                 <span className="eyebrow text-[10px] text-emerald-300/80">Featured</span>
@@ -804,7 +804,7 @@ export default function LabsPage() {
                               <h3 className="font-display text-white text-2xl sm:text-3xl font-semibold mb-3 leading-tight">
                                 {project.name}
                               </h3>
-                              <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/85 mb-6">
+                              <p className="text-sm leading-relaxed text-[var(--on-dark-muted)] mb-6">
                                 {project.description}
                               </p>
 
@@ -868,7 +868,7 @@ export default function LabsPage() {
                             }}
                           >
                             <div className="flex items-start justify-between gap-4 mb-5">
-                              <span className="eyebrow text-[10px] text-[var(--paper-on-dark)]/70 border border-white/15 px-2.5 py-1">
+                              <span className="eyebrow text-[10px] text-[var(--on-dark-faint)] border border-white/15 px-2.5 py-1">
                                 {project.tag}
                               </span>
                               <span className="numeral text-white/25 text-xs">
@@ -878,7 +878,7 @@ export default function LabsPage() {
                             <h3 className="font-display text-white text-xl sm:text-2xl font-semibold mb-3 leading-tight">
                               {project.name}
                             </h3>
-                            <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80 mb-5 flex-1">
+                            <p className="text-sm leading-relaxed text-[var(--on-dark-muted)] mb-5 flex-1">
                               {project.description}
                             </p>
                             <div className="flex items-center justify-between border-t border-white/10 pt-4 mt-auto">
@@ -955,10 +955,10 @@ export default function LabsPage() {
             <Reveal as="div" className="lg:col-span-4" from="left">
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-emerald-400/80">✦</span>
-                <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">05 · Why Labs</span>
+                <span className="eyebrow text-[var(--on-dark-faint)] text-[11px]">05 · Why Labs</span>
               </div>
               <h2 className="display-lg text-white leading-tight mb-4">Why teams choose us.</h2>
-              <p className="body-lg text-[var(--paper-on-dark)]/85">
+              <p className="body-lg text-[var(--on-dark-muted)]">
                 We are designers, engineers, and strategists who care about the impact of what we build.
               </p>
             </Reveal>
@@ -969,7 +969,7 @@ export default function LabsPage() {
                   <h3 className="font-display text-white text-base sm:text-lg font-semibold mt-3 mb-2.5">
                     {point.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80">{point.description}</p>
+                  <p className="text-sm leading-relaxed text-[var(--on-dark-muted)]">{point.description}</p>
                 </Reveal>
               ))}
             </div>
@@ -983,10 +983,10 @@ export default function LabsPage() {
           <Reveal as="div" className="max-w-xl mb-12">
             <div className="flex items-center gap-3 mb-5">
               <span className="text-emerald-400/80">✦</span>
-              <span className="eyebrow text-[var(--paper-on-dark)]/70 text-[11px]">06 · Collaborate</span>
+              <span className="eyebrow text-[var(--on-dark-faint)] text-[11px]">06 · Collaborate</span>
             </div>
             <h2 className="display-lg text-white leading-tight mb-4">Ways to get involved.</h2>
-            <p className="body-lg text-[var(--paper-on-dark)]/85">
+            <p className="body-lg text-[var(--on-dark-muted)]">
               Whether you need a platform, ongoing optimization, or an innovation partner — we&apos;re ready.
             </p>
           </Reveal>
@@ -996,7 +996,7 @@ export default function LabsPage() {
               <Reveal key={path.title} as="div" delay={idx * 110} className="bg-[#0a0a0a] p-7 sm:p-8">
                 <span className="numeral text-white/30 text-xs">0{idx + 1}</span>
                 <h3 className="font-display text-white text-lg font-semibold mt-3 mb-3">{path.title}</h3>
-                <p className="text-sm leading-relaxed text-[var(--paper-on-dark)]/80">{path.description}</p>
+                <p className="text-sm leading-relaxed text-[var(--on-dark-muted)]">{path.description}</p>
               </Reveal>
             ))}
           </div>
@@ -1012,7 +1012,7 @@ export default function LabsPage() {
                 >
                   labs@edlight.org
                 </a>
-                <p className="mt-4 text-sm text-[var(--paper-on-dark)]/80 max-w-md leading-relaxed">
+                <p className="mt-4 text-sm text-[var(--on-dark-muted)] max-w-md leading-relaxed">
                   Share a brief about your project or request a discovery call. We respond within
                   two business days.
                 </p>

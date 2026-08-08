@@ -17,6 +17,27 @@
   --accent-hover: #1e429f;
   --accent-soft: #dbe1ff;
 
+  /* ── Tints for the navy grounds ──────────────────────────────────────────
+     These exist because `text-[var(--paper-on-dark)]/80` DOES NOT WORK, and
+     fails silently. Tailwind cannot apply an opacity modifier to an
+     arbitrary var() whose channel format it cannot see, so it emits no rule
+     at all — the element then inherits --ink-900, near-black, which on a
+     navy ground is invisible. Thirty-seven classes across the footer, Labs
+     and Get Involved were dead this way, including every app tagline in the
+     footer.
+
+     Finished rgba values instead: a plain arbitrary value with no modifier,
+     which Tailwind compiles verbatim. Use these — never `/NN` on a token.
+
+     Four steps, not the eight opacities that had accumulated. `muted` is
+     secondary prose, `faint` is placeholders and disabled states, and the
+     two line tints separate a hairline rule from an interactive edge. */
+  --on-dark-muted: rgb(232 226 212 / 0.80);
+  --on-dark-faint: rgb(232 226 212 / 0.62);
+  --line-on-dark: rgb(232 226 212 / 0.20);
+  --line-on-dark-strong: rgb(232 226 212 / 0.35);
+  --accent-ring: rgb(0 43 128 / 0.30);
+
   /* Semantic aliases */
   --background: var(--paper-50);
   --foreground: var(--ink-900);

@@ -73,7 +73,7 @@ function IconBadge({ icon: Icon }: { icon: React.ElementType }) {
 
 // Shared field styling so every input/select/textarea reads as one system.
 const fieldClasses =
-  'w-full rounded-xl border border-[var(--paper-200)] bg-white px-4 py-3 text-[var(--ink-900)] transition-colors focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30'
+  'w-full rounded-xl border border-[var(--paper-200)] bg-white px-4 py-3 text-[var(--ink-900)] transition-colors focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-ring)]'
 
 export default function GetInvolvedPage() {
   const {
