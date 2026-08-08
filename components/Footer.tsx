@@ -169,7 +169,12 @@ export default function Footer() {
                 .
               </p>
             </div>
-            <div className="flex flex-wrap gap-2">
+            {/* Unboxed. Five outlined squares here, plus two app cards, four
+                platform chips, an input and a button, made the footer a field
+                of thirteen rectangles competing for the same attention. The
+                icons are already legible shapes; the boxes added noise and no
+                information. Tap target stays 36px via padding, not a border. */}
+            <div className="flex flex-wrap gap-1">
               {socialLinks.map(({ href, label, icon: Icon }) => (
                 <a
                   key={label}
@@ -177,9 +182,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center border border-[var(--paper-on-dark)]/40 text-[var(--paper-on-dark)] transition hover:border-white hover:text-white hover:bg-white/[0.08]"
+                  className="flex h-9 w-9 items-center justify-center text-[var(--paper-on-dark)] transition-colors hover:text-white"
                 >
-                  <Icon size={16} />
+                  <Icon size={18} />
                 </a>
               ))}
             </div>
@@ -229,13 +234,25 @@ export default function Footer() {
                   placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full border border-[var(--paper-on-dark)]/40 bg-white/[0.08] px-3 py-2.5 text-sm text-white placeholder-[var(--paper-on-dark)]/70 focus:border-white focus:outline-none"
+                  className="w-full border border-[var(--paper-on-dark)]/35 bg-white/[0.08] px-3 py-2.5 text-sm text-white placeholder-[var(--paper-on-dark)]/70 focus:border-white focus:outline-none"
                   required
                 />
+                {/* The one thing in this footer that must be pressable on
+                    sight. It used to be bg-[var(--accent)] — #002b80, the
+                    brand navy — which measures 1.56:1 against this navy
+                    footer, so the only call to action on the page was
+                    effectively camouflaged. That token is built for the light
+                    page and cannot survive on a dark ground.
+
+                    White surface with the navy label instead: 15:1 against the
+                    background, 12.7:1 for the label, and it matches what the
+                    hero already does with "Explore Programs" on its dark
+                    photograph, so the site keeps one rule for on-dark buttons
+                    rather than two. */}
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full bg-[var(--accent)] text-white text-sm font-medium py-2.5 px-4 hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-50"
+                  className="w-full bg-white text-[var(--accent)] text-sm font-semibold py-2.5 px-4 transition-colors hover:bg-[var(--paper-on-dark)] disabled:opacity-60"
                 >
                   {status === 'loading' ? 'Subscribing…' : 'Subscribe'}
                 </button>
@@ -253,20 +270,33 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Mobile apps */}
-        <div className="mt-12 border-t border-[var(--paper-on-dark)]/30 pt-8">
+        {/* Mobile apps
+            Was two outlined cards inside `lg:max-w-3xl`, which stranded them
+            across two thirds of the footer while every rule above and below
+            ran full width — the block read as though it had come loose. The
+            outlines are gone and the grid now spans the same measure as the
+            columns above it, so the apps sit ON the footer's grid instead of
+            floating in it. Each app is separated by space and a heading, which
+            is all the grouping two items need. */}
+        <div className="mt-12 border-t border-[var(--paper-on-dark)]/20 pt-8">
           <h4 className="eyebrow text-[var(--paper-on-dark)] mb-1.5">Mobile Apps</h4>
-          <p className="mb-5 text-xs text-[var(--paper-on-dark)]/80">
+          <p className="mb-6 text-xs text-[var(--paper-on-dark)]/80">
             Free to download, on phones and tablets.
           </p>
-          <div className="grid gap-4 sm:grid-cols-2 lg:max-w-3xl">
+          {/* Held to a readable measure. Spanning the full 1200px pushed the
+              two apps to opposite ends of the footer with a canyon between
+              them and forced the taglines to wrap mid-phrase. Without the
+              outlines there is nothing to make the space at the right read as
+              a stranded box — it is just footer margin, exactly like the
+              brand paragraph above, which is also capped. */}
+          <div className="grid max-w-2xl gap-8 sm:grid-cols-2 sm:gap-10">
             {mobileApps.map(({ name, tagline, platforms }) => (
-              <div key={name} className="border border-[var(--paper-on-dark)]/25 p-4">
+              <div key={name}>
                 <p className="text-sm font-medium text-white">{name}</p>
-                <p className="mt-1 text-xs leading-relaxed text-[var(--paper-on-dark)]/80">
+                <p className="mt-1 max-w-xs text-xs leading-relaxed text-[var(--paper-on-dark)]/80">
                   {tagline}
                 </p>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-3 flex flex-wrap items-center gap-2">
                   {platforms.map(({ platform, href, icon: Icon, note }) =>
                     href ? (
                       <a
@@ -275,22 +305,28 @@ export default function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Get ${name} for ${platform}`}
-                        className="inline-flex items-center gap-2 border border-[var(--paper-on-dark)]/40 px-3 py-2 text-xs text-[var(--paper-on-dark)] transition hover:border-white hover:bg-white/[0.08] hover:text-white"
+                        className="inline-flex items-center gap-2 border border-[var(--paper-on-dark)]/35 px-3 py-2 text-xs text-[var(--paper-on-dark)] transition-colors hover:border-white hover:bg-white/[0.08] hover:text-white"
                       >
                         <Icon size={14} />
                         {platform}
                       </a>
                     ) : (
+                      // Not a chip. A dashed box that cannot be pressed still
+                      // looks like a control, and at 3.71:1 its label was the
+                      // least legible text in the footer. A plain line reads as
+                      // a status, which is what it is.
+                      // `border-transparent` rather than no border: it keeps the
+                      // identical box model to the real chip beside it, so the
+                      // two sit on one baseline. Dropping the border outright
+                      // made this line ride 1px high and knocked the Android
+                      // chip out of alignment.
                       <span
                         key={platform}
-                        aria-disabled="true"
-                        className="inline-flex items-center gap-2 border border-dashed border-[var(--paper-on-dark)]/25 px-3 py-2 text-xs text-[var(--paper-on-dark)]/45"
+                        className="inline-flex items-center gap-2 border border-transparent px-3 py-2 text-xs text-[var(--paper-on-dark)]/70"
                       >
                         <Icon size={14} />
                         {platform}
-                        {note && (
-                          <span className="text-[10px] uppercase tracking-wider">{note}</span>
-                        )}
+                        {note && <span className="text-[var(--paper-on-dark)]/55">— {note.toLowerCase()}</span>}
                       </span>
                     )
                   )}
@@ -300,7 +336,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-[var(--paper-on-dark)]/30 pt-6">
+        <div className="mt-12 border-t border-[var(--paper-on-dark)]/20 pt-6">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <p className="eyebrow text-[var(--paper-on-dark)] text-[10px]">© {currentYear} EDLIGHT INITIATIVE · ALL RIGHTS RESERVED.</p>
             <p className="text-xs text-[var(--paper-on-dark)]">Crafting opportunities for Haiti&apos;s next generation.</p>
