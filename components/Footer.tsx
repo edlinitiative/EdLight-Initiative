@@ -27,6 +27,13 @@ const orgLinks = [
   { href: '/donate', label: 'Donate' },
   { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
+]
+
+// Legal belongs in the bottom bar beside the copyright and the incorporation
+// details, not in a column of places to go. Having "Terms of Use" sit under
+// "About" and "Contact" also left that column at seven items against the
+// Programs column's five, which is what made the pair read as ragged.
+const legalLinks = [
   { href: '/privacy', label: 'Privacy Policy' },
   { href: '/terms-of-use', label: 'Terms of Use' },
 ]
@@ -268,25 +275,24 @@ export default function Footer() {
         </div>
 
         {/* Mobile apps
-            Was two outlined cards inside `lg:max-w-3xl`, which stranded them
-            across two thirds of the footer while every rule above and below
-            ran full width — the block read as though it had come loose. The
-            outlines are gone and the grid now spans the same measure as the
-            columns above it, so the apps sit ON the footer's grid instead of
-            floating in it. Each app is separated by space and a heading, which
-            is all the grouping two items need. */}
-        <div className="mt-12 border-t border-[var(--line-on-dark)] pt-8">
-          <h4 className="eyebrow text-[var(--paper-on-dark)] mb-1.5">Mobile Apps</h4>
-          <p className="mb-6 text-xs text-[var(--on-dark-muted)]">
-            Free to download, on phones and tablets.
-          </p>
-          {/* Held to a readable measure. Spanning the full 1200px pushed the
-              two apps to opposite ends of the footer with a canyon between
-              them and forced the taglines to wrap mid-phrase. Without the
-              outlines there is nothing to make the space at the right read as
-              a stranded box — it is just footer margin, exactly like the
-              brand paragraph above, which is also capped. */}
-          <div className="grid max-w-2xl gap-8 sm:grid-cols-2 sm:gap-10">
+            On the SAME 5/7 split as the columns above, so the label sits under
+            the brand text and the two apps line up under Programs and Explore.
+            Two earlier attempts got this wrong in opposite directions: boxed
+            cards capped at max-w-3xl left the block stranded two thirds across
+            while every rule ran full width, and removing the cap entirely
+            pushed the apps to opposite ends with a canyon between them.
+            Inheriting the grid that already exists solves both.
+
+            The card outlines are gone too — a heading and space are all the
+            grouping two items need. */}
+        <div className="mt-12 grid gap-8 border-t border-[var(--line-on-dark)] pt-8 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <h4 className="eyebrow text-[var(--paper-on-dark)] mb-1.5">Mobile Apps</h4>
+            <p className="text-xs text-[var(--on-dark-muted)]">
+              Free to download, on phones and tablets.
+            </p>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:col-span-7">
             {mobileApps.map(({ name, tagline, platforms }) => (
               <div key={name}>
                 <p className="text-sm font-medium text-white">{name}</p>
@@ -333,10 +339,25 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Legal bar. The slogan that used to sit opposite the copyright
+            ("Crafting opportunities for Haiti's next generation") is gone: the
+            brand paragraph at the top of this footer already says the mission,
+            and a second, vaguer version of it was taking the one slot where
+            people actually look for Privacy and Terms. */}
         <div className="mt-12 border-t border-[var(--line-on-dark)] pt-6">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="eyebrow text-[var(--paper-on-dark)] text-[10px]">© {currentYear} EDLIGHT INITIATIVE · ALL RIGHTS RESERVED.</p>
-            <p className="text-xs text-[var(--paper-on-dark)]">Crafting opportunities for Haiti&apos;s next generation.</p>
+            <nav aria-label="Legal" className="flex items-center gap-4">
+              {legalLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-xs text-[var(--on-dark-muted)] transition-colors hover:text-white"
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
           </div>
           <p className="mt-3 text-xs text-[var(--on-dark-muted)]">
             EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation No. 1376443-5),
