@@ -153,12 +153,16 @@ export default function CourseraScholarsPage() {
         title="Become an EdLight Coursera Scholar"
         subtitle="Talent is everywhere. Opportunity is not."
       >
-        <p className="mx-auto mb-6 max-w-2xl text-sm sm:text-base text-white/85 leading-relaxed">
+        {/* Left-aligned, NOT centred. Hero renders its children inside a
+            left-aligned max-w-3xl block, so `mx-auto` on this paragraph and
+            `justify-center` on the buttons centred them underneath a headline
+            that stays hard left — the whole hero read as misaligned. */}
+        <p className="mb-6 max-w-2xl text-sm sm:text-base text-white/85 leading-relaxed">
           Gain free access to world-class online learning through EdLight Initiative&apos;s partnership with
           Coursera. Build new skills, earn certificates, and take the next step toward your academic and
           professional goals.
         </p>
-        <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+        <div className="flex flex-col gap-4 sm:flex-row">
           <a href={APPLICATION_URL} className="btn btn-primary">
             Apply now
             <ArrowRight size={16} />
