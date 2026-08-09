@@ -21,7 +21,7 @@ export default function RequestQuotePage() {
       />
 
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="max-w-3xl mx-auto">
             <SectionHeader
               title="Request a Quote"

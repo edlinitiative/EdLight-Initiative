@@ -157,7 +157,7 @@ export default function GetInvolvedPage() {
 
       {/* Ways to get involved */}
       <section className="py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Ways to get involved"
             subtitle="There are many ways you can support our mission — pick the one that fits you best."
@@ -194,7 +194,7 @@ export default function GetInvolvedPage() {
           }}
           aria-hidden="true"
         />
-        <div className="container relative mx-auto px-4">
+        <div className="max-w-[1200px] relative mx-auto px-6 lg:px-10">
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-5 flex items-center justify-center gap-3">
               <span className="h-px w-8 bg-white/40" aria-hidden="true" />
@@ -231,7 +231,7 @@ export default function GetInvolvedPage() {
 
       {/* Contact form */}
       <section id="contact" className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="mx-auto max-w-2xl">
             <SectionHeader
               title="Contact us"

@@ -248,7 +248,7 @@ export default function CodePage() {
 
       {/* Stats */}
       <section className="py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Learn by doing, not watching"
             subtitle="EdLight Code turns lessons into real-world skills. Every lesson is a focused reading followed by a hands-on coding exercise — no video lectures, just learn at your own pace and write real code."
@@ -270,7 +270,7 @@ export default function CodePage() {
 
       {/* How it works */}
       <section className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="From zero to certified in three steps"
             subtitle="No complicated setup. No long lectures. Just learn, practice, and prove your skills."
@@ -306,7 +306,7 @@ export default function CodePage() {
           }}
           aria-hidden="true"
         />
-        <div className="container relative mx-auto px-4">
+        <div className="max-w-[1200px] relative mx-auto px-6 lg:px-10">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-5">
               <span className="h-px w-8 bg-white/40" aria-hidden="true" />
@@ -356,7 +356,7 @@ export default function CodePage() {
 
       {/* Learn by building */}
       <section className="py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Learn by building"
             subtitle="Apply your skills by building real-world applications — from portfolio sites to data analysis pipelines."
@@ -403,7 +403,7 @@ export default function CodePage() {
 
       {/* Lesson format */}
       <section className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div>
               <div className="flex items-center gap-3 mb-5">
@@ -467,7 +467,7 @@ export default function CodePage() {
 
       {/* Certificates */}
       <section className="py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Certificates that employers trust"
             subtitle="Complete a track and earn a certificate with a unique verification link. No more 'trust me' — employers can verify your skills in seconds."
@@ -502,7 +502,7 @@ export default function CodePage() {
 
       {/* CTA */}
       <section className="pb-20 sm:pb-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div
             className="relative overflow-hidden rounded-3xl p-10 text-white sm:p-14"
             style={{

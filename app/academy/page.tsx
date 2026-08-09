@@ -197,7 +197,7 @@ export default function AcademyPage() {
 
       {/* Four ways to learn — the core restructure */}
       <section className="py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="One platform, four ways to learn"
             subtitle="EdLight Academy is more than video lessons. Learners move between courses, exam practice, trivia, and a progress system built to keep them going."
@@ -233,7 +233,7 @@ export default function AcademyPage() {
           }}
           aria-hidden="true"
         />
-        <div className="container relative mx-auto px-4">
+        <div className="max-w-[1200px] relative mx-auto px-6 lg:px-10">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-5">
               <span className="h-px w-8 bg-white/40" aria-hidden="true" />
@@ -266,7 +266,7 @@ export default function AcademyPage() {
 
       {/* Courses */}
       <section className="py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Structured courses, built for the Haitian curriculum"
             subtitle="Designed with Haitian educators and delivered in French and Kreyòl, each subject is organized into levels so learners always know what comes next."
@@ -298,7 +298,7 @@ export default function AcademyPage() {
 
       {/* Mock exams */}
       <section className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Practice with real national exams"
             subtitle="Our mock-exam library (examens blancs) covers the full Haitian path, using authentic past papers with detailed, step-by-step corrections."
@@ -323,7 +323,7 @@ export default function AcademyPage() {
 
       {/* Trivia */}
       <section className="py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <div className="flex items-center gap-3 mb-5">
@@ -361,7 +361,7 @@ export default function AcademyPage() {
 
       {/* Study plan / BAC prep */}
       <section className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Your personalized path to the bac"
             subtitle="EdLight Academy turns scattered studying into a plan — and shows you exactly how ready you are for exam day."
@@ -386,7 +386,7 @@ export default function AcademyPage() {
 
       {/* How it works */}
       <section className="py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="mx-auto max-w-3xl">
             <SectionHeader title="How it works" subtitle="Five steps to start learning with EdLight Academy." centered />
             <ol className="mt-4 space-y-4">
@@ -408,7 +408,7 @@ export default function AcademyPage() {
 
       {/* CTA */}
       <section className="pb-20 sm:pb-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div
             className="relative overflow-hidden rounded-3xl p-10 text-white sm:p-14"
             style={{

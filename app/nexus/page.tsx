@@ -189,7 +189,7 @@ export default function NexusPage() {
       </Hero>
 
       <section className="bg-gradient-to-b from-slate-50 via-white to-white py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="mx-auto max-w-4xl rounded-3xl border border-primary/10 bg-white p-8 shadow-sm md:p-10">
             <SectionHeader
               title="A gateway to global exposure"
@@ -202,7 +202,7 @@ export default function NexusPage() {
       </section>
 
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-8">
               <SectionHeader
@@ -241,7 +241,7 @@ export default function NexusPage() {
 
       <section className="relative overflow-hidden bg-slate-950 py-20 text-slate-100">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_rgba(15,23,42,0.9))]" />
-        <div className="container relative mx-auto px-4">
+        <div className="max-w-[1200px] relative mx-auto px-6 lg:px-10">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">Journey</p>
             <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">From preparation to impact</h2>
@@ -279,7 +279,7 @@ export default function NexusPage() {
       </section>
 
       <section className="bg-slate-50 py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Curated pathways"
             subtitle="Nexus can be shaped around areas that align with student interests, learning goals, and the nature of each experience."
@@ -313,7 +313,7 @@ export default function NexusPage() {
       </section>
 
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div className="rounded-3xl border border-primary/20 bg-white p-8 shadow-xl">
               <SectionHeader
@@ -350,7 +350,7 @@ export default function NexusPage() {
       </section>
 
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Frequently asked questions"
             subtitle="If you still need clarity, send us a note at nexus@edlight.org. We will share more as Nexus continues to develop."
@@ -374,7 +374,7 @@ export default function NexusPage() {
       </section>
 
       <section className="pb-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/90 via-primary to-primary/90 p-10 text-white shadow-xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">

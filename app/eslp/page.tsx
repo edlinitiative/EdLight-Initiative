@@ -334,7 +334,7 @@ export default function ESLPPage() {
 
       {/* ═══ Impact Stats — Animated Counters ═══ */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="The flagship leadership experience for Haitian teens"
             subtitle="Since 2022, ESLP has combined world-class facilitation, real-world exposure, and a vibrant alumni network so young leaders can transform their ideas into action."
@@ -348,7 +348,7 @@ export default function ESLPPage() {
 
       {/* ═══ What is ESLP — text + image ═══ */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="space-y-6">
               <SectionHeader
@@ -405,7 +405,7 @@ export default function ESLPPage() {
 
       {/* ═══ Inside the Experience — Card component ═══ */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="space-y-8">
               <SectionHeader
@@ -455,7 +455,7 @@ export default function ESLPPage() {
 
       {/* ═══ Curriculum Pillars — Card component ═══ */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Curriculum"
             subtitle="The ESLP curriculum focuses on five core areas spread across the two-week program. For each topic, we invite expert speakers from leading institutions."
@@ -485,7 +485,7 @@ export default function ESLPPage() {
 
       {/* ═══ Curriculum Experience — Tabbed ═══ */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Experience the curriculum"
             subtitle="From virtual seminars with world-class speakers to hands-on excursions and a celebration of achievement."
@@ -550,7 +550,7 @@ export default function ESLPPage() {
       {/* ═══ Journey Phases ═══ */}
       <section className="relative overflow-hidden bg-slate-950 py-16 md:py-20 text-slate-100">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_rgba(15,23,42,0.9))]" />
-        <div className="container relative mx-auto px-4">
+        <div className="max-w-[1200px] relative mx-auto px-6 lg:px-10">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">
               Journey
@@ -599,7 +599,7 @@ export default function ESLPPage() {
 
       {/* ═══ Eligibility & Selection ═══ */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Eligibility & selection"
             subtitle="We're looking for young leaders who are eager to learn, collaborate, and serve their communities."
@@ -643,7 +643,7 @@ export default function ESLPPage() {
 
       {/* ═══ Application Process — with image ═══ */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="relative overflow-hidden rounded-2xl shadow-xl">
               <Image
@@ -712,7 +712,7 @@ export default function ESLPPage() {
 
       {/* ═══ ESLP 2026 — Applications Open ═══ */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/90 via-primary to-primary/90 p-8 sm:p-12 text-white shadow-xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.15),_transparent)]" />
             <div className="relative z-10 flex flex-col gap-8 md:flex-row md:items-center">
@@ -755,7 +755,7 @@ export default function ESLPPage() {
 
       {/* ═══ Fully Funded — Card component ═══ */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Fully funded for every fellow"
             subtitle="ESLP is powered by partners and donors who believe that leadership development should be accessible."
@@ -786,7 +786,7 @@ export default function ESLPPage() {
 
       {/* ═══ Alumni & Testimonials — TestimonialCard + carousel ═══ */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Voices from our alumni"
             subtitle="Meet the inspiring faces of our past participants. Through ESLP, they have honed their skills, gained invaluable insights, and forged lifelong connections."
@@ -812,7 +812,7 @@ export default function ESLPPage() {
 
       {/* ═══ FAQ ═══ */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Frequently asked questions"
             subtitle={`Need more details? Email ${EMAIL} and our team will follow up within two business days.`}
@@ -841,7 +841,7 @@ export default function ESLPPage() {
 
       {/* ═══ Final CTA ═══ */}
       <section className="pb-20 md:pb-24">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/90 via-primary to-primary/90 p-8 sm:p-10 text-white shadow-xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent)]" />
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">

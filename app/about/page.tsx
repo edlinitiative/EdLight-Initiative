@@ -40,7 +40,7 @@ export default function AboutPage() {
 
       {/* Our Story + Mission / Vision */}
       <section className="py-12 sm:py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="max-w-4xl mx-auto mb-12 sm:mb-14 md:mb-16">
             <SectionHeader title="Our Story" />
             <div className="space-y-5 sm:space-y-6 text-gray-700 leading-relaxed text-sm sm:text-base">
@@ -88,7 +88,7 @@ export default function AboutPage() {
 
       {/* Team Section */}
       <section className="py-12 sm:py-16 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Meet the EdLight Team"
             subtitle="EdLight is powered by a multidisciplinary team of educators, builders, mentors, and operators working across education, technology, and leadership development."
@@ -118,7 +118,7 @@ export default function AboutPage() {
 
       {/* Journey / Timeline Section */}
       <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Our Journey"
             subtitle="EdLight has grown into a broader ecosystem of educational and leadership initiatives designed to serve Haitian youth through learning, mentorship, innovation, and exposure to global opportunities."
@@ -151,7 +151,7 @@ export default function AboutPage() {
 
       {/* Closing */}
       <section className="py-16 sm:py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg sm:text-xl font-medium text-gray-800 leading-relaxed">
               EdLight continues to build practical, mission-driven pathways for students through
