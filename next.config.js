@@ -24,6 +24,29 @@ const nextConfig = {
       { source: '/mission_projects', destination: '/about', permanent: true },
     ]
   },
+  async headers() {
+    // Rescued from next.config.ts, which Next 14 never reads — so none of
+    // these were reaching production. Checked against the live site before
+    // moving them: only Strict-Transport-Security was being sent, and that
+    // comes from Vercel, not from here. X-Frame-Options, X-Content-Type-
+    // Options, Referrer-Policy and Permissions-Policy were all absent.
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-DNS-Prefetch-Control', value: 'on' },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+        ],
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig
