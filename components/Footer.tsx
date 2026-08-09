@@ -18,6 +18,7 @@ const programLinks = [
   { href: '/code', label: 'EdLight Code' },
   { href: '/labs', label: 'EdLight Labs' },
   { href: '/nexus', label: 'EdLight Nexus' },
+  { href: '/coursera-scholars', label: 'Coursera Scholars' },
   { href: '/eslp', label: 'ESLP' },
 ]
 

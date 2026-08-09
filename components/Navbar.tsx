@@ -13,6 +13,7 @@ const navLinks = [
   { href: '/code', label: 'Code', isLaunched: true },
   { href: '/labs', label: 'Labs', isLaunched: true },
   { href: '/nexus', label: 'Nexus', isLaunched: false },
+  { href: '/coursera-scholars', label: 'Scholars', isLaunched: true },
   { href: '/eslp', label: 'ESLP', isLaunched: true },
   { href: '/about', label: 'About', isLaunched: true },
   { href: '/get-involved', label: 'Get Involved', isLaunched: true },

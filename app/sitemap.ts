@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/code`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/labs`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/nexus`, lastModified, changeFrequency: 'daily', priority: 0.9 },
+    { url: `${baseUrl}/coursera-scholars`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/eslp`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/about`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/get-involved`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
