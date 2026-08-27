@@ -32,24 +32,24 @@ const APP_PREVIEW_URL =
   'https://drive.google.com/file/d/1Yj2Esxmw2khDxFmOXiupMOtZwKr1wERv/view?usp=sharing'
 const PROGRAM_DESC_URL =
   'https://drive.google.com/file/d/1IhfSC8LyVbs2nAJiL3lRSy06h_8oUntv/view?usp=sharing'
-const APPLY_URL = 'https://apply.edlight.org/eslp'
 const EMAIL = 'eslp@edlight.org'
 const PROGRAM_DATES = 'August 10–21, 2026'
-const APPLICATION_DEADLINE = 'May 31, 2026'
+const NEXT_CYCLE_OPENS = 'spring 2027'
 
 /* ── Hero images (auto-carousel) ────────────────────────── */
 const heroImages = [
-  '/Graduation_Pics.webp',
-  '/ESLP_Cultural_Performances.webp',
+  '/gallery/eslp-2026-graduation-promotion.webp',
+  '/gallery/eslp-2026-metropole-plateau.webp',
+  '/gallery/eslp-2026-graduation-danse.webp',
   '/Best_Participant_Award.webp',
 ]
 
 /* ── Impact counters (auto-update each August) ─────────── */
 // ESLP launched August 2022 with ~30 participants.
 // Each August edition adds ~35 new participants and 1 year.
-const ESLP_BASE_PARTICIPANTS = 65 // total through August 2024
-const ESLP_BASE_YEARS = 3         // as of August 2024
-const ESLP_BASE_EDITION = 2024    // last counted edition
+const ESLP_BASE_PARTICIPANTS = 135 // total through August 2026
+const ESLP_BASE_YEARS = 5          // as of August 2026
+const ESLP_BASE_EDITION = 2026     // last counted edition
 const PARTICIPANTS_PER_YEAR = 35
 
 function getEditionsCompleted(): number {
@@ -86,7 +86,7 @@ const experienceHighlights = [
   {
     title: 'City immersions',
     description:
-      'A featured company visit in Port-au-Prince helps fellows connect leadership learning to real workplace expectations.',
+      'A featured company visit in Port-au-Prince — Radio Télé Métropole in 2026 — helps fellows connect leadership learning to real workplace expectations.',
     icon: <Compass size={28} />,
   },
   {
@@ -137,17 +137,17 @@ const curriculumTabs = [
   },
   {
     label: 'Excursion',
-    image: '/gallery/eslp-3.jpg',
-    alt: 'ESLP fellows visiting a prominent company in Port-au-Prince',
+    image: '/gallery/eslp-2026-metropole-plateau.webp',
+    alt: 'ESLP 2026 fellows on the news set during their visit to Radio Télé Métropole in Port-au-Prince',
     description:
-      'The program includes an enriching excursion to a prominent company in Port-au-Prince, allowing fellows to gain real-world insights into workplace dynamics, innovation, and leadership in action. Transportation and entries are fully covered for every fellow.',
+      'The program includes an enriching excursion to a prominent company in Port-au-Prince — in 2026, fellows spent a day at Radio Télé Métropole, exchanging with journalists and touring the newsroom, studios, and control room. Transportation and entries are fully covered for every fellow.',
   },
   {
     label: 'Graduation',
-    image: '/gallery/eslp-6.jpg',
-    alt: 'ESLP graduation ceremony and celebration',
+    image: '/gallery/eslp-2026-graduation-promotion.webp',
+    alt: 'The 35 graduated fellows of ESLP 2026 holding their certificates at IICA in Pétion-Ville',
     description:
-      'The program culminates in a capstone pitch showcase where cohort teams present their community initiatives to a panel of mentors, partners, and families. Fellows receive certificates of distinction recognizing their leadership, collaboration, and successful completion of projects.',
+      'The program culminates in a capstone pitch showcase where cohort teams present their community initiatives to a panel of mentors, partners, and families. In 2026, 35 fellows graduated at IICA in Pétion-Ville, receiving certificates of distinction recognizing their leadership, collaboration, and successful completion of projects.',
   },
 ]
 
@@ -241,7 +241,7 @@ const faqs = [
   {
     question: 'When does the next cohort take place?',
     answer:
-      `Applications for ESLP 2026 are open now. The application deadline is ${APPLICATION_DEADLINE}, and the program runs ${PROGRAM_DATES}.`
+      `The 2026 edition ran ${PROGRAM_DATES} and concluded with 35 fellows graduating at IICA in Pétion-Ville. Applications for ESLP 2027 will open in ${NEXT_CYCLE_OPENS} — join the notify list to hear first.`
   },
   {
     question: 'Is the program really free?',
@@ -271,9 +271,10 @@ const faqs = [
 
 /* ── "What is ESLP" section carousel images ─────────────── */
 const whatIsEslpImages = [
-  { src: '/gallery/eslp-1.jpg', alt: 'ESLP fellows during a leadership workshop' },
-  { src: '/gallery/eslp-2.jpg', alt: 'Students collaborating on their capstone project' },
-  { src: '/gallery/eslp-5.jpg', alt: 'Fellows presenting their entrepreneurial ideas' },
+  { src: '/gallery/eslp-2026-metropole-groupe.webp', alt: 'The ESLP 2026 cohort with the Radio Télé Métropole team in Port-au-Prince' },
+  { src: '/gallery/eslp-2026-graduation-certificat.webp', alt: 'An ESLP 2026 fellow receiving her certificate at the graduation ceremony' },
+  { src: '/gallery/eslp-2026-graduation-violon.webp', alt: 'A fellow performing violin at the ESLP 2026 graduation ceremony' },
+  { src: '/gallery/eslp-2026-metropole-exterieur.webp', alt: 'The ESLP 2026 cohort in front of the Radio Télé Métropole offices' },
 ]
 
 /* ═══════════════════════════════════════════════════════════
@@ -313,14 +314,13 @@ export default function ESLPPage() {
         backgroundImage={heroImages[currentHeroImage]}
       >
         <div className="flex flex-wrap justify-center gap-4">
-          <a
-            href={APPLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => setNotifyOpen(true)}
             className="btn btn-primary"
           >
-            <Bell size={18} /> Apply for ESLP 2026
-          </a>
+            <Bell size={18} /> Get notified for ESLP 2027
+          </button>
           <a
             href={APP_PREVIEW_URL}
             target="_blank"
@@ -364,9 +364,10 @@ export default function ESLPPage() {
                   to lead in their schools and communities.
                 </p>
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                  The 2026 edition is designed as a hybrid experience: most
-                  sessions take place online, followed by an organized company
-                  excursion in Port-au-Prince and a closing day in person. We have
+                  The 2026 edition ran as a hybrid experience: most sessions took
+                  place online, followed by a company excursion to Radio Télé
+                  Métropole in Port-au-Prince and a closing graduation day at IICA
+                  in Pétion-Ville, where 35 fellows received their certificates. We have
                   welcomed speakers from leading organizations and institutions — including{' '}
                   <strong className="text-primary">
                     Harvard, MIT, Microsoft, Deutsche Bank, and Cornell
@@ -384,14 +385,13 @@ export default function ESLPPage() {
                 >
                   Program description
                 </a>
-                <a
-                  href={APPLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={() => setNotifyOpen(true)}
                   className="btn btn-light"
                 >
-                  Apply Now <ArrowRight size={16} />
-                </a>
+                  Get notified for 2027 <ArrowRight size={16} />
+                </button>
               </div>
             </div>
             <ImageCarousel
@@ -718,29 +718,30 @@ export default function ESLPPage() {
             <div className="relative z-10 flex flex-col gap-8 md:flex-row md:items-center">
               <div className="flex-1 space-y-4">
                 <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest">
-                  <Bell size={14} /> Applications Open
+                  <GraduationCap size={14} /> Cohort Graduated
                 </div>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold">
                   ESLP 2026
                 </h2>
                 <p className="text-base text-white/95 leading-relaxed max-w-xl">
-                  Applications are now open for the 2026 edition of the EdLight
-                  Summer Leadership Program. The programme runs{' '}
-                  <strong className="text-white">{PROGRAM_DATES}</strong> and will be
-                  delivered primarily online, with a featured excursion and final
-                  in-person closing experience. Submit your application before{' '}
-                  <strong className="text-white">{APPLICATION_DEADLINE}</strong>.
+                  The 2026 edition of the EdLight Summer Leadership Program ran{' '}
+                  <strong className="text-white">{PROGRAM_DATES}</strong> — two weeks
+                  of virtual seminars, a company excursion to{' '}
+                  <strong className="text-white">Radio Télé Métropole</strong> in
+                  Port-au-Prince, and a graduation ceremony at{' '}
+                  <strong className="text-white">IICA in Pétion-Ville</strong> where
+                  35 fellows received their certificates. Applications for ESLP 2027
+                  will open in <strong className="text-white">{NEXT_CYCLE_OPENS}</strong>.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center md:flex-col lg:flex-row shrink-0">
-                <a
-                  href={APPLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={() => setNotifyOpen(true)}
                   className="btn btn-light"
                 >
-                  <Mail size={16} /> Apply Now
-                </a>
+                  <Bell size={16} /> Get notified for 2027
+                </button>
                 <a
                   href={`mailto:${EMAIL}`}
                   className="btn btn-ghost"
@@ -847,20 +848,20 @@ export default function ESLPPage() {
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">
-                  ESLP 2026 · Applications now open
+                  ESLP 2027 · Applications open {NEXT_CYCLE_OPENS}
                 </p>
                 <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">
                   Ready to lead with purpose?
                 </h2>
                 <p className="mt-3 text-sm md:text-base text-white/95 max-w-lg">
-                  Apply for the 2026 cohort, nominate a student, or partner with
-                  ESLP to support the next generation of Haitian leaders.
+                  Join the notify list for the 2027 cohort, nominate a student, or
+                  partner with ESLP to support the next generation of Haitian leaders.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center shrink-0">
-                <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-light">
-                  <Bell size={16} /> Apply now
-                </a>
+                <button type="button" onClick={() => setNotifyOpen(true)} className="btn btn-light">
+                  <Bell size={16} /> Get notified for 2027
+                </button>
                 <a href={`mailto:${EMAIL}`} className="btn btn-ghost">
                   <Mail size={16} /> Partner with ESLP
                 </a>
