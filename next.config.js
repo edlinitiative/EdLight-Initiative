@@ -1,3 +1,11 @@
+const createNextIntlPlugin = require('next-intl/plugin')
+
+// Points next-intl at i18n/request.ts. Without i18n routing: the locale comes
+// from i18n/config.ts rather than a URL segment, so app/ keeps its shape and
+// pages stay statically prerendered. That file documents what to change when
+// a routing model is picked.
+const withNextIntl = createNextIntlPlugin('./i18n/request.ts')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -49,4 +57,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = withNextIntl(nextConfig)

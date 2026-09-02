@@ -1,0 +1,26 @@
+{
+  "programs": "Programmes",
+  "about": "À propos",
+  "getInvolved": "S'impliquer",
+  "contact": "Contact",
+  "donate": "Faire un don",
+  "toggleMenu": "Afficher le menu",
+  "homeAria": "Accueil EdLight Initiative",
+  "logoAlt": "Logo d'EdLight Initiative",
+  "academy": {
+    "label": "EdLight Academy",
+    "description": "Cours gratuits de mathématiques, physique, économie et plus"
+  },
+  "code": {
+    "label": "EdLight Code",
+    "description": "Parcours de programmation en créole haïtien, français et anglais"
+  },
+  "scholars": {
+    "label": "Coursera Scholars",
+    "description": "Certificats Coursera financés pour les élèves haïtiens"
+  },
+  "eslp": {
+    "label": "ESLP",
+    "description": "Notre programme d'été de leadership de deux semaines"
+  }
+}

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X, ChevronDown } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { cn } from '@/lib/utils'
 
 /**
@@ -23,34 +24,22 @@ import { cn } from '@/lib/utils'
  * out of the sitemap, so linking to them from the primary nav would
  * contradict that.
  */
+// Structure here, wording in messages/<locale>.json. `key` indexes into the
+// `nav` namespace — nav.academy.label and nav.academy.description — so a
+// translator changes copy without touching this file and a developer changes
+// routes without touching a translation.
 const programLinks = [
-  {
-    href: '/academy',
-    label: 'EdLight Academy',
-    description: 'Free courses in maths, physics, economics, and more',
-  },
-  {
-    href: '/code',
-    label: 'EdLight Code',
-    description: 'Coding tracks in Haitian Creole, French, and English',
-  },
-  {
-    href: '/coursera-scholars',
-    label: 'Coursera Scholars',
-    description: 'Funded Coursera certificates for Haitian students',
-  },
-  {
-    href: '/eslp',
-    label: 'ESLP',
-    description: 'Our two-week summer leadership programme',
-  },
-]
+  { href: '/academy', key: 'academy' },
+  { href: '/code', key: 'code' },
+  { href: '/coursera-scholars', key: 'scholars' },
+  { href: '/eslp', key: 'eslp' },
+] as const
 
 const directLinks = [
-  { href: '/about', label: 'About' },
-  { href: '/get-involved', label: 'Get Involved' },
-  { href: '/contact', label: 'Contact' },
-]
+  { href: '/about', key: 'about' },
+  { href: '/get-involved', key: 'getInvolved' },
+  { href: '/contact', key: 'contact' },
+] as const
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -58,6 +47,7 @@ export default function Navbar() {
   const [isProgramsOpen, setIsProgramsOpen] = useState(false)
   const programsRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname() || '/'
+  const t = useTranslations('nav')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -126,7 +116,7 @@ export default function Navbar() {
             <div className="relative w-48 h-12 sm:w-56 sm:h-14">
               <Image
                 src="/EdLight_Website_Logo.png"
-                alt="EdLight Initiative Logo"
+                alt={t('logoAlt')}
                 fill
                 sizes="224px"
                 className="object-contain object-left"
@@ -150,7 +140,7 @@ export default function Navbar() {
                     : 'text-[var(--ink-700)] hover:text-[var(--ink-900)]'
                 )}
               >
-                Programs
+                {t('programs')}
                 <ChevronDown
                   size={14}
                   className={cn('transition-transform', isProgramsOpen && 'rotate-180')}
@@ -161,7 +151,7 @@ export default function Navbar() {
               {isProgramsOpen && (
                 <div className="absolute left-0 top-full pt-3 z-50">
                   <ul className="w-[340px] border border-[var(--paper-200)] bg-[var(--paper-50)] py-2 shadow-lg">
-                    {programLinks.map(({ href, label, description }) => (
+                    {programLinks.map(({ href, key }) => (
                       <li key={href}>
                         <Link
                           href={href}
@@ -176,10 +166,10 @@ export default function Navbar() {
                                 : 'font-medium text-[var(--ink-900)]'
                             )}
                           >
-                            {label}
+                            {t(`${key}.label`)}
                           </span>
                           <span className="mt-0.5 block text-xs leading-relaxed text-[var(--ink-700)]">
-                            {description}
+                            {t(`${key}.description`)}
                           </span>
                         </Link>
                       </li>
@@ -201,7 +191,7 @@ export default function Navbar() {
                 )}
                 aria-current={isActivePath(link.href) ? 'page' : undefined}
               >
-                {link.label}
+                {t(link.key)}
               </Link>
             ))}
           </div>
@@ -213,7 +203,7 @@ export default function Navbar() {
               href="/donate"
               className="inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-150 bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] px-4 py-1.5 text-sm whitespace-nowrap min-w-[100px]"
             >
-              Donate
+              {t('donate')}
             </Link>
           </div>
 
@@ -221,7 +211,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden -mr-2 inline-flex h-11 w-11 items-center justify-center text-[var(--ink-900)]"
-            aria-label="Toggle menu"
+            aria-label={t('toggleMenu')}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -239,9 +229,9 @@ export default function Navbar() {
                   utility layered over it. A section label in the primary nav
                   should be readable. */}
               <p className="px-4 pt-2 pb-1 text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--ink-700)]">
-                Programs
+                {t('programs')}
               </p>
-              {programLinks.map(({ href, label, description }) => (
+              {programLinks.map(({ href, key }) => (
                 <Link
                   key={href}
                   href={href}
@@ -262,10 +252,10 @@ export default function Navbar() {
                         : 'text-[var(--ink-900)]'
                     )}
                   >
-                    {label}
+                    {t(`${key}.label`)}
                   </span>
                   <span className="mt-0.5 block text-xs leading-relaxed text-[var(--ink-700)]">
-                    {description}
+                    {t(`${key}.description`)}
                   </span>
                 </Link>
               ))}
@@ -284,7 +274,7 @@ export default function Navbar() {
                     )}
                     aria-current={isActivePath(link.href) ? 'page' : undefined}
                   >
-                    {link.label}
+                    {t(link.key)}
                   </Link>
                 ))}
               </div>
@@ -294,7 +284,7 @@ export default function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="inline-flex w-full items-center justify-center font-medium tracking-tight bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] px-4 py-2.5 text-sm"
                 >
-                  Donate
+                  {t('donate')}
                 </Link>
               </div>
             </div>

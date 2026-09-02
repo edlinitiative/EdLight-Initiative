@@ -1,0 +1,26 @@
+{
+  "programs": "Programs",
+  "about": "About",
+  "getInvolved": "Get Involved",
+  "contact": "Contact",
+  "donate": "Donate",
+  "toggleMenu": "Toggle menu",
+  "homeAria": "EdLight Initiative home",
+  "logoAlt": "EdLight Initiative Logo",
+  "academy": {
+    "label": "EdLight Academy",
+    "description": "Free courses in maths, physics, economics, and more"
+  },
+  "code": {
+    "label": "EdLight Code",
+    "description": "Coding tracks in Haitian Creole, French, and English"
+  },
+  "scholars": {
+    "label": "Coursera Scholars",
+    "description": "Funded Coursera certificates for Haitian students"
+  },
+  "eslp": {
+    "label": "ESLP",
+    "description": "Our two-week summer leadership programme"
+  }
+}

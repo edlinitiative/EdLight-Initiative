@@ -1,0 +1,42 @@
+{
+  "logoAlt": "EdLight Initiative",
+  "mission": "At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide high school students with digital access to quality education through STEM courses, leadership programs, and global opportunities.",
+  "missionLink": "Learn more about our mission",
+  "programsHeading": "Programs",
+  "exploreHeading": "Explore",
+  "newsletterHeading": "Newsletter",
+  "newsletterBlurb": "Monthly highlights, student stories, and program openings.",
+  "emailLabel": "Email address",
+  "emailPlaceholder": "your@email.com",
+  "subscribe": "Subscribe",
+  "subscribing": "Subscribing…",
+  "subscribeInvalid": "Please enter a valid email address.",
+  "subscribeSuccess": "Thanks for subscribing! We'll be in touch soon.",
+  "subscribeFailed": "Subscription failed. Please try again.",
+  "subscribeError": "Something went wrong. Please try again in a moment.",
+  "programs": {
+    "academy": "EdLight Academy",
+    "code": "EdLight Code",
+    "scholars": "Coursera Scholars",
+    "eslp": "ESLP"
+  },
+  "explore": {
+    "about": "About",
+    "getInvolved": "Get Involved",
+    "donate": "Donate",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "appsHeading": "Mobile Apps",
+  "appsBlurb": "Free to download, on phones and tablets.",
+  "appAcademyTagline": "Courses, live classes, and certificates on your phone.",
+  "appCodeTagline": "Practice coding and digital skills in Kreyòl, French, or English.",
+  "appGetAria": "Get {app} for {platform}",
+  "comingSoon": "Coming soon",
+  "copyright": "© {year} EDLIGHT INITIATIVE · ALL RIGHTS RESERVED.",
+  "legalNav": "Legal",
+  "privacy": "Privacy Policy",
+  "terms": "Terms of Use",
+  "incorporation": "EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation No. {number}), based in {address}, serving students across Haiti.",
+  "homeAria": "EdLight Initiative home"
+}

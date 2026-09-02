@@ -1,0 +1,42 @@
+{
+  "logoAlt": "EdLight Initiative",
+  "mission": "Chez EdLight, notre mission est de rendre l'éducation gratuite et accessible à toutes et à tous en Haïti. Nous donnons aux élèves du secondaire un accès numérique à une éducation de qualité grâce à des cours de sciences, des programmes de leadership et des occasions à l'international.",
+  "missionLink": "En savoir plus sur notre mission",
+  "programsHeading": "Programmes",
+  "exploreHeading": "Explorer",
+  "newsletterHeading": "Infolettre",
+  "newsletterBlurb": "Chaque mois : nos temps forts, des parcours d'élèves et les inscriptions à venir.",
+  "emailLabel": "Adresse courriel",
+  "emailPlaceholder": "vous@courriel.com",
+  "subscribe": "S'abonner",
+  "subscribing": "Abonnement en cours…",
+  "subscribeInvalid": "Veuillez saisir une adresse courriel valide.",
+  "subscribeSuccess": "Merci de votre abonnement ! Nous vous écrirons bientôt.",
+  "subscribeFailed": "L'abonnement a échoué. Veuillez réessayer.",
+  "subscribeError": "Une erreur s'est produite. Veuillez réessayer dans un instant.",
+  "programs": {
+    "academy": "EdLight Academy",
+    "code": "EdLight Code",
+    "scholars": "Coursera Scholars",
+    "eslp": "ESLP"
+  },
+  "explore": {
+    "about": "À propos",
+    "getInvolved": "S'impliquer",
+    "donate": "Faire un don",
+    "faq": "Questions fréquentes",
+    "contact": "Contact"
+  },
+  "appsHeading": "Applications mobiles",
+  "appsBlurb": "Téléchargement gratuit, sur téléphone et tablette.",
+  "appAcademyTagline": "Des cours, des classes en direct et des certificats sur votre téléphone.",
+  "appCodeTagline": "Pratiquez la programmation et les compétences numériques en kreyòl, en français ou en anglais.",
+  "appGetAria": "Télécharger {app} pour {platform}",
+  "comingSoon": "Bientôt disponible",
+  "copyright": "© {year} EDLIGHT INITIATIVE · TOUS DROITS RÉSERVÉS.",
+  "legalNav": "Mentions légales",
+  "privacy": "Politique de confidentialité",
+  "terms": "Conditions d'utilisation",
+  "incorporation": "EdLight Initiative est une société à but non lucratif enregistrée au Canada (société n° {number}), établie à {address}, au service des élèves de tout Haïti.",
+  "homeAria": "Accueil EdLight Initiative"
+}

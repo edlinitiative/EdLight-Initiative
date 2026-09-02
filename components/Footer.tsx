@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail } from 'lucide-react'
 import { SOCIAL_LINKS, type SocialPlatform } from '@/lib/socials'
+import { useTranslations } from 'next-intl'
 import { CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE } from '@/lib/site'
 
 // Icons live here; the URLs live in lib/socials.ts, which is the single list
@@ -23,28 +24,28 @@ const socialIcons: Record<SocialPlatform, typeof Facebook> = {
 // because it has no cohort, dates, or way to apply — and a footer link is
 // exactly how a crawler would keep finding them anyway.
 const programLinks = [
-  { href: '/academy', label: 'EdLight Academy' },
-  { href: '/code', label: 'EdLight Code' },
-  { href: '/coursera-scholars', label: 'Coursera Scholars' },
-  { href: '/eslp', label: 'ESLP' },
-]
+  { href: '/academy', key: 'academy' },
+  { href: '/code', key: 'code' },
+  { href: '/coursera-scholars', key: 'scholars' },
+  { href: '/eslp', key: 'eslp' },
+] as const
 
 const orgLinks = [
-  { href: '/about', label: 'About' },
-  { href: '/get-involved', label: 'Get Involved' },
-  { href: '/donate', label: 'Donate' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/contact', label: 'Contact' },
-]
+  { href: '/about', key: 'about' },
+  { href: '/get-involved', key: 'getInvolved' },
+  { href: '/donate', key: 'donate' },
+  { href: '/faq', key: 'faq' },
+  { href: '/contact', key: 'contact' },
+] as const
 
 // Legal belongs in the bottom bar beside the copyright and the incorporation
 // details, not in a column of places to go. Having "Terms of Use" sit under
 // "About" and "Contact" also left that column at seven items against the
 // Programs column's five, which is what made the pair read as ragged.
 const legalLinks = [
-  { href: '/privacy', label: 'Privacy Policy' },
-  { href: '/terms-of-use', label: 'Terms of Use' },
-]
+  { href: '/privacy', key: 'privacy' },
+  { href: '/terms-of-use', key: 'terms' },
+] as const
 
 // lucide-react ships an Apple glyph but no Android one, so both platform marks
 // are inlined from Simple Icons (https://simpleicons.org, CC0) — one source
@@ -73,7 +74,7 @@ function AndroidMark({ size = 14 }: { size?: number }) {
 const mobileApps = [
   {
     name: 'EdLight Academy',
-    tagline: 'Courses, live classes, and certificates on your phone.',
+    taglineKey: 'appAcademyTagline',
     platforms: [
       {
         platform: 'iOS',
@@ -89,9 +90,9 @@ const mobileApps = [
   },
   {
     name: 'EdLight Code',
-    tagline: 'Practice coding and digital skills in Kreyòl, French, or English.',
+    taglineKey: 'appCodeTagline',
     platforms: [
-      { platform: 'iOS', icon: AppleMark, href: null, note: 'Coming soon' },
+      { platform: 'iOS', icon: AppleMark, href: null, noteKey: 'comingSoon' },
       {
         platform: 'Android',
         icon: AndroidMark,
@@ -102,6 +103,7 @@ const mobileApps = [
 ]
 
 export default function Footer() {
+  const t = useTranslations('footer')
   const currentYear = new Date().getFullYear()
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -114,7 +116,7 @@ export default function Footer() {
 
     if (!emailPattern.test(email)) {
       setStatus('error')
-      setFeedback('Please enter a valid email address.')
+      setFeedback(t('subscribeInvalid'))
       return
     }
 
@@ -133,18 +135,18 @@ export default function Footer() {
       const result = await response.json().catch(() => ({}))
 
       if (!response.ok || !result?.success) {
-        throw new Error(result?.message || 'Subscription failed. Please try again.')
+        throw new Error(result?.message || t('subscribeFailed'))
       }
 
       setStatus('success')
-      setFeedback("Thanks for subscribing! We'll be in touch soon.")
+      setFeedback(t('subscribeSuccess'))
       setEmail('')
     } catch (error) {
       setStatus('error')
       setFeedback(
         error instanceof Error
           ? error.message
-          : 'Something went wrong. Please try again in a moment.'
+          : t('subscribeError')
       )
     }
   }
@@ -162,21 +164,24 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-5 space-y-5">
             <div>
-              <Link href="/" aria-label="EdLight Initiative home" className="inline-block mb-4">
+              <Link href="/" aria-label={t('homeAria')} className="inline-block mb-4">
                 <Image
                   src="/EdLight_Website_Logo.png"
-                  alt="EdLight Initiative"
+                  alt={t('logoAlt')}
                   width={200}
                   height={50}
                   className="h-10 sm:h-12 w-auto object-contain object-left brightness-0 invert"
                 />
               </Link>
+              {/* The sentence and its trailing link are two keys, not one
+                  string with markup in it. A translator gets whole sentences
+                  to work with, and the punctuation between them stays in the
+                  layout where it belongs — French would otherwise need the
+                  full stop inside the translated string. */}
               <p className="text-sm leading-relaxed text-[var(--paper-on-dark)] max-w-sm">
-                At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide
-                high school students with digital access to quality education through STEM courses, leadership programs,
-                and global opportunities.{' '}
+                {t('mission')}{' '}
                 <Link href="/about" className="text-white underline underline-offset-4 decoration-[var(--on-dark-faint)] hover:decoration-white transition-colors">
-                  Learn more about our mission
+                  {t('missionLink')}
                 </Link>
                 .
               </p>
@@ -208,12 +213,12 @@ export default function Footer() {
           {/* Links columns */}
           <div className="lg:col-span-7 grid gap-8 grid-cols-2 lg:grid-cols-3">
             <div>
-              <h4 className="eyebrow text-[var(--paper-on-dark)] mb-4">Programs</h4>
+              <h4 className="eyebrow text-[var(--paper-on-dark)] mb-4">{t('programsHeading')}</h4>
               <ul className="space-y-2.5">
-                {programLinks.map(({ href, label }) => (
+                {programLinks.map(({ href, key }) => (
                   <li key={href}>
                     <Link href={href} className="text-sm text-[var(--paper-on-dark)] hover:text-white transition-colors">
-                      {label}
+                      {t(`programs.${key}`)}
                     </Link>
                   </li>
                 ))}
@@ -221,12 +226,12 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="eyebrow text-[var(--paper-on-dark)] mb-4">Explore</h4>
+              <h4 className="eyebrow text-[var(--paper-on-dark)] mb-4">{t('exploreHeading')}</h4>
               <ul className="space-y-2.5">
-                {orgLinks.map(({ href, label }) => (
+                {orgLinks.map(({ href, key }) => (
                   <li key={href}>
                     <Link href={href} className="text-sm text-[var(--paper-on-dark)] hover:text-white transition-colors">
-                      {label}
+                      {t(`explore.${key}`)}
                     </Link>
                   </li>
                 ))}
@@ -234,19 +239,19 @@ export default function Footer() {
             </div>
 
             <div className="space-y-4 col-span-2 lg:col-span-1">
-              <h4 className="eyebrow text-[var(--paper-on-dark)]">Newsletter</h4>
+              <h4 className="eyebrow text-[var(--paper-on-dark)]">{t('newsletterHeading')}</h4>
               <p className="text-xs text-[var(--paper-on-dark)] leading-relaxed">
                 Monthly highlights, student stories, and program openings.
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-2">
-                <label className="sr-only" htmlFor="newsletter-email">Email address</label>
+                <label className="sr-only" htmlFor="newsletter-email">{t('emailLabel')}</label>
                 <input
                   id="newsletter-email"
                   type="email"
                   name="email"
                   autoComplete="email"
                   inputMode="email"
-                  placeholder="your@email.com"
+                  placeholder={t('emailPlaceholder')}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full border border-[var(--line-on-dark-strong)] bg-white/[0.08] px-3 py-2.5 text-sm text-white placeholder-[var(--on-dark-faint)] focus:border-white focus:outline-none"
@@ -269,7 +274,7 @@ export default function Footer() {
                   disabled={status === 'loading'}
                   className="w-full bg-white text-[var(--accent)] text-sm font-semibold py-2.5 px-4 transition-colors hover:bg-[var(--paper-on-dark)] disabled:opacity-60"
                 >
-                  {status === 'loading' ? 'Subscribing…' : 'Subscribe'}
+                  {status === 'loading' ? t('subscribing') : t('subscribe')}
                 </button>
                 {feedback && (
                   <p className={`text-xs ${status === 'error' ? 'text-red-300' : 'text-emerald-300'}`} aria-live="polite">
@@ -298,27 +303,27 @@ export default function Footer() {
             grouping two items need. */}
         <div className="mt-12 grid gap-8 border-t border-[var(--line-on-dark)] pt-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <h4 className="eyebrow text-[var(--paper-on-dark)] mb-1.5">Mobile Apps</h4>
+            <h4 className="eyebrow text-[var(--paper-on-dark)] mb-1.5">{t('appsHeading')}</h4>
             <p className="text-xs text-[var(--on-dark-muted)]">
-              Free to download, on phones and tablets.
+              {t('appsBlurb')}
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:col-span-7">
-            {mobileApps.map(({ name, tagline, platforms }) => (
+            {mobileApps.map(({ name, taglineKey, platforms }) => (
               <div key={name}>
                 <p className="text-sm font-medium text-white">{name}</p>
                 <p className="mt-1 max-w-xs text-xs leading-relaxed text-[var(--on-dark-muted)]">
-                  {tagline}
+                  {t(taglineKey)}
                 </p>
                 <div className="mt-3 flex flex-wrap items-center gap-2">
-                  {platforms.map(({ platform, href, icon: Icon, note }) =>
+                  {platforms.map(({ platform, href, icon: Icon, noteKey }) =>
                     href ? (
                       <a
                         key={platform}
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`Get ${name} for ${platform}`}
+                        aria-label={t('appGetAria', { app: name, platform })}
                         className="inline-flex items-center gap-2 border border-[var(--line-on-dark-strong)] px-3 py-2 text-xs text-[var(--paper-on-dark)] transition-colors hover:border-white hover:bg-white/[0.08] hover:text-white"
                       >
                         <Icon size={14} />
@@ -340,7 +345,7 @@ export default function Footer() {
                       >
                         <Icon size={14} />
                         {platform}
-                        {note && <span className="text-[var(--on-dark-faint)]">— {note.toLowerCase()}</span>}
+                        {noteKey && <span className="text-[var(--on-dark-faint)]">— {t(noteKey).toLowerCase()}</span>}
                       </span>
                     )
                   )}
@@ -357,23 +362,28 @@ export default function Footer() {
             people actually look for Privacy and Terms. */}
         <div className="mt-12 border-t border-[var(--line-on-dark)] pt-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="eyebrow text-[var(--paper-on-dark)] text-[10px]">© {currentYear} EDLIGHT INITIATIVE · ALL RIGHTS RESERVED.</p>
-            <nav aria-label="Legal" className="flex items-center gap-4">
-              {legalLinks.map(({ href, label }) => (
+            <p className="eyebrow text-[var(--paper-on-dark)] text-[10px]">{t('copyright', { year: currentYear })}</p>
+            <nav aria-label={t('legalNav')} className="flex items-center gap-4">
+              {legalLinks.map(({ href, key }) => (
                 <Link
                   key={href}
                   href={href}
                   className="text-xs text-[var(--on-dark-muted)] transition-colors hover:text-white"
                 >
-                  {label}
+                  {t(key)}
                 </Link>
               ))}
             </nav>
           </div>
+          {/* The corporation number and address stay in lib/site.ts and are
+              interpolated in — facts, not copy, and they must not be
+              translatable or a locale could end up asserting a different
+              registration. */}
           <p className="mt-3 text-xs text-[var(--on-dark-muted)]">
-            EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation
-            No. {CORPORATION_NUMBER}), based in {REGISTERED_ADDRESS_LINE}, serving students across
-            Haiti.
+            {t('incorporation', {
+              number: CORPORATION_NUMBER,
+              address: REGISTERED_ADDRESS_LINE,
+            })}
           </p>
         </div>
       </div>

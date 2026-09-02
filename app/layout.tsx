@@ -11,6 +11,8 @@ import {
   AREA_SERVED,
 } from '@/lib/site'
 import { SOCIAL_URLS } from '@/lib/socials'
+import { NextIntlClientProvider } from 'next-intl'
+import { getLocale, getMessages, getTranslations } from 'next-intl/server'
 
 const hankenGrotesk = Hanken_Grotesk({
   weight: ['400', '500', '600', '700'],
@@ -104,7 +106,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
@@ -145,8 +147,14 @@ export default function RootLayout({
     url: SITE_URL,
   }
 
+  // `lang` follows the rendered locale rather than being hardcoded "en", so
+  // it stays correct the moment a routing model is switched on.
+  const locale = await getLocale()
+  const messages = await getMessages()
+  const t = await getTranslations('common')
+
   return (
-      <html lang="en" className={`${hankenGrotesk.variable} ${hankenGroteskDisplay.variable} ${jetbrainsMono.variable}`}>
+      <html lang={locale} className={`${hankenGrotesk.variable} ${hankenGroteskDisplay.variable} ${jetbrainsMono.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -158,14 +166,20 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-        <Navbar />
-        <main id="main-content" className="pt-16">
-          {children}
-        </main>
-        <Footer />
+        {/* Only the client components below actually need the provider, but
+            wrapping here keeps every call site — server or client — reading
+            from the same catalogue. Server components still resolve their
+            messages on the server; nothing extra is shipped for those. */}
+        <NextIntlClientProvider messages={messages}>
+          <a href="#main-content" className="skip-link">
+            {t('skipToContent')}
+          </a>
+          <Navbar />
+          <main id="main-content" className="pt-16">
+            {children}
+          </main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   )
