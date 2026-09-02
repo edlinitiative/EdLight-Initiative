@@ -46,16 +46,25 @@ export default function TestimonialCarousel({
   return (
     <div ref={sectionRef} className="max-w-2xl mx-auto">
       <TestimonialCard {...testimonials[current]} />
-      <div className="flex justify-center gap-2 mt-6">
+      {/* The dot is 8px; the button around it is 24px.
+          These used to be bare 8x8 buttons — below the 24x24 minimum target
+          size, and genuinely fiddly to hit on a phone. The dot stays the same
+          size visually; the padding that makes it tappable is invisible. */}
+      <div className="flex justify-center mt-6">
         {testimonials.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`w-2 h-2 rounded-full transition-colors ${
-              index === current ? 'bg-[var(--accent)]' : 'bg-[var(--paper-300)]'
-            }`}
+            className="inline-flex h-6 w-6 items-center justify-center"
             aria-label={`View testimonial ${index + 1}`}
-          />
+            aria-current={index === current ? 'true' : undefined}
+          >
+            <span
+              className={`block h-2 w-2 rounded-full transition-colors ${
+                index === current ? 'bg-[var(--accent)]' : 'bg-[var(--paper-300)]'
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>

@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 
+import { CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE, SITE_URL } from '@/lib/site'
+
 export const metadata: Metadata = {
   title: 'Privacy Policy | EdLight Initiative',
   description: 'Learn how EdLight Initiative collects, uses, and protects your personal information.',
@@ -10,7 +12,7 @@ export default function PrivacyPage() {
     <main className="min-h-screen bg-gray-50 py-16 px-4">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
-        <p className="text-sm text-gray-600 mb-8">Last Updated: February 17, 2026</p>
+        <p className="text-sm text-gray-600 mb-8">Last Updated: September 2, 2026</p>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Introduction</h2>
@@ -23,27 +25,67 @@ export default function PrivacyPage() {
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Information We Collect</h2>
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">Personal Information</h3>
+          {/* This section used to be a generic list — "register for our programs",
+              "participate in surveys", and a catch-all sentence ending in
+              "payment information" — that matched no form on the site. There
+              are exactly four forms, each collects a known set of fields, and
+              two of them behave differently from the other two, which is the
+              part a reader actually needs. It also claimed we collect payment
+              information; we never have. Donations leave the site for PayPal
+              before any card number is typed, and there is nothing else to pay
+              for, so the sentence invented a category of data we do not hold.
+              Enumerate the real forms instead: a policy that overstates is as
+              hard to rely on as one that understates. */}
+          <h3 className="text-xl font-semibold text-gray-800 mb-3">Information You Give Us</h3>
           <p className="text-gray-700 leading-relaxed mb-4">
-            We may collect personal information that you voluntarily provide to us when you:
+            We only collect personal information that you type into one of our forms. There are four:
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-            <li>Register for our programs or courses</li>
-            <li>Subscribe to our newsletter</li>
-            <li>Fill out contact or donation forms</li>
-            <li>Participate in surveys or feedback requests</li>
-            <li>Communicate with us via email or other channels</li>
+            <li><strong>Contact form:</strong> your name, email address, the subject and area of interest you select, and your message</li>
+            <li><strong>Newsletter signup:</strong> your email address only</li>
+            <li><strong>ESLP notification list:</strong> your name, email address, and phone number if you choose to give one, so we can tell you when applications open</li>
+            <li><strong>Website quote request:</strong> your name, email address, organisation, existing website, and the project details you describe</li>
           </ul>
           <p className="text-gray-700 leading-relaxed mt-4">
-            This information may include: name, email address, phone number, mailing address, 
-            educational background, and payment information.
+            All four forms are delivered to our inbox as email by <strong>Resend</strong>, our email
+            provider. Subscribing to the newsletter or a notification list also sends you a
+            confirmation email. Nothing you submit is written to a database or stored on this
+            website; the record is the message in our inbox, and you can ask us to delete yours at
+            any time.
+          </p>
+          <p className="text-gray-700 leading-relaxed mt-4">
+            We do not ask for payment information anywhere on this site, and we never see your card
+            details. All programmes are free, so there is nothing to pay for; donations are handled
+            entirely by PayPal, as described in section 4.
           </p>
 
           <h3 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Automatically Collected Information</h3>
+          {/* Was "we may automatically collect... your web browser, IP address,
+              time zone, and cookies... browsing actions and patterns", which
+              describes an analytics stack this site does not have. Verified
+              against the source before rewriting: there is no Google tag, no
+              Google Tag Manager, no Vercel Analytics, no gtag call and no
+              analytics dependency in package.json — app/layout.tsx loads two
+              JSON-LD blocks and nothing else. The site sets no cookies at all.
+              The only automatic collection that genuinely happens is our host's
+              standard request logging, so that is what this now says.
+
+              IF YOU ADD GOOGLE ANALYTICS OR A GOOGLE ADS CONVERSION TAG — which
+              an Ad Grants account will likely want — this paragraph and section
+              5 both become untrue and must be updated in the same change as the
+              tag. Say that Google Analytics and Google Ads measurement set
+              cookies on your device, that they record pages viewed, approximate
+              location derived from IP, and actions such as form submissions,
+              and that Google processes this as a third party under its own
+              privacy policy. Do not add that text before the tag ships: a
+              policy claiming cookies the site never sets is its own problem. */}
           <p className="text-gray-700 leading-relaxed">
-            When you visit our website, we may automatically collect certain information about your device, 
-            including information about your web browser, IP address, time zone, and cookies. We may also 
-            collect information about your browsing actions and patterns.
+            This site does not use analytics, advertising, or tracking cookies, and it does not
+            build a profile of your browsing. Like any website, our hosting provider automatically
+            logs basic technical information with each request — your IP address, browser type, and
+            the page requested — which is used to serve the site, keep it secure, and diagnose
+            faults. If we introduce analytics or advertising measurement in future, we will update
+            this policy and the &quot;Last Updated&quot; date before doing so.
           </p>
         </section>
 
@@ -57,7 +99,9 @@ export default function PrivacyPage() {
             <li>To process registrations and applications</li>
             <li>To send you newsletters and updates (with your consent)</li>
             <li>To respond to your inquiries and provide customer support</li>
-            <li>To process donations and payments</li>
+            {/* Was "To process donations and payments". We process neither —
+                PayPal does. All we do with a donation is acknowledge it. */}
+            <li>To acknowledge and keep a record of donations</li>
             <li>To improve our website and services</li>
             <li>To comply with legal obligations</li>
             <li>To protect against fraud and ensure security</li>
@@ -70,8 +114,16 @@ export default function PrivacyPage() {
             We do not sell, trade, or rent your personal information to third parties. We may share your 
             information in the following circumstances:
           </p>
+          {/* "Trusted third-party service providers (e.g., payment processors,
+              email service providers)" named nobody, so a reader could not tell
+              which companies actually receive their data or go read those
+              companies' policies. There are only three, and two of them are the
+              ones people ask about — who takes the card, and who Coursera is to
+              us. Naming them costs a line each. */}
           <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-            <li><strong>Service Providers:</strong> With trusted third-party service providers who assist us in operating our website and services (e.g., payment processors, email service providers)</li>
+            <li><strong>Resend:</strong> our email provider, which delivers every form submission and every email we send you on our behalf</li>
+            <li><strong>PayPal:</strong> which processes donations on its own site. You enter your payment details with PayPal, not with us; we receive only the donation record PayPal shows us, never your card or bank details</li>
+            <li><strong>Coursera:</strong> for learners selected as EdLight Coursera Scholars, we share the details needed to create your Coursera account under our Social Impact partnership. This applies only if you apply and are selected; Coursera then handles your account under its own privacy policy</li>
             <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
             <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
             <li><strong>With Your Consent:</strong> When you have given us explicit permission</li>
@@ -80,10 +132,20 @@ export default function PrivacyPage() {
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Cookies and Tracking Technologies</h2>
+          {/* Opened with "We use cookies and similar tracking technologies to
+              track activity on our website" and warned that refusing cookies
+              would break parts of the site. Both were false: nothing in this
+              codebase sets a cookie, and every page works with cookies fully
+              disabled. Telling people you track them when you do not is not a
+              safe default — it invites a consent-banner question that does not
+              apply, and it is the kind of copied-in claim a reviewer checks
+              against the actual page. See the note in section 2 before adding
+              a Google tag; this section changes with it. */}
           <p className="text-gray-700 leading-relaxed">
-            We use cookies and similar tracking technologies to track activity on our website and store certain 
-            information. You can instruct your browser to refuse all cookies or to indicate when a cookie is 
-            being sent. However, if you do not accept cookies, you may not be able to use some portions of our website.
+            We do not use cookies on this website. We set no cookies of our own and load no
+            third-party analytics or advertising scripts, so there is nothing here for you to accept
+            or refuse, and the site works normally with cookies disabled in your browser. Note that
+            PayPal and Coursera do use cookies on their own sites once you follow a link to them.
           </p>
         </section>
 
@@ -111,7 +173,8 @@ export default function PrivacyPage() {
             <li>Withdrawal of consent</li>
           </ul>
           <p className="text-gray-700 leading-relaxed mt-4">
-            To exercise these rights, please contact us at info@edlight.org
+            To exercise these rights, please contact us at {CONTACT_EMAIL}, or write to us at the
+            address in section 12.
           </p>
         </section>
 
@@ -155,10 +218,19 @@ export default function PrivacyPage() {
           <p className="text-gray-700 leading-relaxed mb-4">
             If you have any questions about this Privacy Policy, please contact us:
           </p>
+          {/* An email address alone is not a usable route for a data-protection
+              request. Section 7 invites people to exercise access and deletion
+              rights, and those requests are the ones most likely to need a
+              postal address — a reader in that position had nowhere to send a
+              letter, and no way to see which country's regulator covers us.
+              Address and corporation number come from lib/site.ts so this block
+              and the footer state the same thing. */}
           <div className="bg-gray-50 p-4 rounded-lg">
             <p className="text-gray-700"><strong>EdLight Initiative</strong></p>
-            <p className="text-gray-700">Email: info@edlight.org</p>
-            <p className="text-gray-700">Website: edlight.org</p>
+            <p className="text-gray-700">Corporation No. {CORPORATION_NUMBER}</p>
+            <p className="text-gray-700">{REGISTERED_ADDRESS_LINE}</p>
+            <p className="text-gray-700">Email: {CONTACT_EMAIL}</p>
+            <p className="text-gray-700">Website: {SITE_URL.replace('https://', '')}</p>
           </div>
         </section>
       </div>

@@ -1,6 +1,13 @@
 import { NextResponse } from 'next/server'
-import { promises as fs } from 'fs'
-import path from 'path'
+import { Resend } from 'resend'
+
+/**
+ * Same fix as /api/eslp-notify: this appended each quote request to
+ * data/requests.json via fs.writeFile, which throws EROFS on Vercel's
+ * read-only deployment filesystem. Every submission returned a 500, so the
+ * form on /request-quote and the one embedded in /labs had been quietly
+ * dropping enquiries. It emails them now.
+ */
 
 type RequestPayload = {
   name: string
@@ -18,10 +25,18 @@ type RequestPayload = {
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
+const resendApiKey = process.env.RESEND_API_KEY
+const quoteInbox =
+  process.env.QUOTE_INBOX || process.env.CONTACT_INBOX || process.env.NEWSLETTER_INBOX
+const fromAddress =
+  process.env.NEWSLETTER_FROM_EMAIL || 'EdLight Initiative <onboarding@resend.dev>'
+
+const resend = resendApiKey ? new Resend(resendApiKey) : null
+
 export async function POST(request: Request) {
   try {
-    const body = await request.json()
-    const payload = body as RequestPayload
+    const body = await request.json().catch(() => null)
+    const payload = body as RequestPayload | null
 
     if (
       !payload?.name ||
@@ -32,31 +47,66 @@ export async function POST(request: Request) {
       !payload?.contentStatus ||
       !payload?.keyFeatures
     ) {
-      return NextResponse.json({ success: false, message: 'Missing required fields' }, { status: 400 })
+      return NextResponse.json(
+        { success: false, message: 'Missing required fields' },
+        { status: 400 }
+      )
     }
 
     if (!emailRegex.test(payload.email)) {
-      return NextResponse.json({ success: false, message: 'Invalid email address' }, { status: 400 })
+      return NextResponse.json(
+        { success: false, message: 'Invalid email address' },
+        { status: 400 }
+      )
     }
 
-    const filePath = path.join(process.cwd(), 'data', 'requests.json')
-    const existing = await fs.readFile(filePath, 'utf8').catch(() => '[]')
-    const arr = JSON.parse(existing || '[]')
-
-    const entry = {
-      id: Date.now(),
-      createdAt: new Date().toISOString(),
-      ...payload,
+    if (!resend || !quoteInbox) {
+      console.warn('Quote request attempted without Resend configuration.')
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            'We could not submit that just now. Please email info@edlight.org with your request.',
+        },
+        { status: 500 }
+      )
     }
 
-    arr.push(entry)
-    await fs.writeFile(filePath, JSON.stringify(arr, null, 2), 'utf8')
-
-    // Optionally: send email notification here if configured
+    await resend.emails.send({
+      from: fromAddress,
+      to: [quoteInbox],
+      replyTo: payload.email,
+      subject: `Quote request — ${payload.name}${payload.organization ? ` (${payload.organization})` : ''}`,
+      text: [
+        `Name:            ${payload.name}`,
+        `Email:           ${payload.email}`,
+        `Organisation:    ${payload.organization || '(not given)'}`,
+        `Current website: ${payload.currentWebsite || '(not given)'}`,
+        `Request type:    ${payload.requestType || '(not given)'}`,
+        '',
+        `Project type:    ${payload.projectType}`,
+        `Budget:          ${payload.budget}`,
+        `Timeline:        ${payload.timeline}`,
+        `Content status:  ${payload.contentStatus}`,
+        '',
+        'Key features:',
+        payload.keyFeatures,
+        '',
+        'Additional notes:',
+        payload.additionalNotes || '(none)',
+      ].join('\n'),
+    })
 
     return NextResponse.json({ success: true }, { status: 201 })
   } catch (error) {
     console.error('Request quote API error', error)
-    return NextResponse.json({ success: false, message: 'Server error' }, { status: 500 })
+    return NextResponse.json(
+      {
+        success: false,
+        message:
+          'We could not submit that just now. Please try again, or email info@edlight.org.',
+      },
+      { status: 500 }
+    )
   }
 }

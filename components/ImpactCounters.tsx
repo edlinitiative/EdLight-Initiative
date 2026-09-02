@@ -62,7 +62,11 @@ export default function ImpactCounters({ counters }: ImpactCountersProps) {
         <div key={index} className="bg-[var(--paper-50)] px-4 py-8 sm:py-10 text-center">
           <div className="numeral text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--accent)] mb-2">
             {formatNumber(displayValues[index])}
-            {counter.suffix || '+'}
+            {/* `??`, not `||`. With `||`, a counter that deliberately passes
+                suffix: '' — an exact count, like our three partner
+                organisations — fell through to '+' and rendered "3+",
+                inflating a number we can name every one of. */}
+            {counter.suffix ?? '+'}
           </div>
           <div className="eyebrow text-[10px] sm:text-[11px] text-[var(--ink-700)] mt-1">{counter.label}</div>
         </div>

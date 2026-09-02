@@ -6,6 +6,7 @@ import { Users, Handshake, DollarSign, Mic, ShieldCheck, Heart } from 'lucide-re
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import Reveal from '@/components/Reveal'
+import { CORPORATION_NUMBER } from '@/lib/site'
 
 declare global {
   interface Window {
@@ -33,25 +34,34 @@ type Way = {
   icon: React.ElementType
 }
 
+// Each of these used to be a single vague sentence, which left the whole page
+// at roughly 160 words — thin enough that the Ad Grants website policy would
+// count it against the site, and too thin to answer the question a willing
+// volunteer actually arrives with: what would I be doing, and how much of me
+// does it need?
 const waysToGetInvolved: Way[] = [
   {
     title: 'Volunteer',
-    description: 'Share your skills and time to mentor students, teach courses, or support operations.',
+    description:
+      'Mentor a student through a course, teach a workshop in your subject, review project work, or help with the operations behind the programmes. Most volunteers give a few hours a month, remotely. Tell us what you know and when you are free, and we will match you to something real.',
     icon: Users,
   },
   {
     title: 'Partner',
-    description: 'Organizations and institutions can partner with us to expand opportunities for students.',
+    description:
+      'Schools, universities, businesses, and NGOs work with us to widen what our students can reach — course content, exam preparation, venues, equipment, internships, and scholarship routes. Our current partners are UWC, Coursera, and IICA.',
     icon: Handshake,
   },
   {
     title: 'Donate',
-    description: 'Financial support helps us provide free education and resources to more students.',
+    description:
+      'Programmes are free to every student, and stay that way because donors carry the cost: the learning platform, course materials and certificates, scholarships for the programmes that select participants, and the coordinators who run them in Haiti.',
     icon: DollarSign,
   },
   {
     title: 'Speak',
-    description: 'Inspire our students by sharing your story and expertise as a guest speaker.',
+    description:
+      'Our students rarely meet someone doing the job they are aiming at. A single honest hour about your work, how you got there, and what you would do differently changes what a student believes is available to them. ESLP and our course cohorts both host guest speakers.',
     icon: Mic,
   },
 ]
@@ -142,9 +152,13 @@ export default function GetInvolvedPage() {
         title="Get Involved"
         subtitle="Join us in empowering the next generation of Haitian innovators — as a volunteer, partner, donor, or guest speaker."
         backgroundImage="/about_us.webp"
+        // "Donations to programs: 100%" is an absolute nobody outside the
+        // organisation can check, and it is not literally true of any charity
+        // that pays for a platform and coordinators. What is true and
+        // checkable is the price a student pays.
         meta={[
           { label: 'Ways to help', value: '4' },
-          { label: 'Donations to programs', value: '100%' },
+          { label: 'Cost to students', value: '$0' },
         ]}
       >
         <a href="#donate" className="btn btn-primary">
@@ -222,8 +236,10 @@ export default function GetInvolvedPage() {
             </div>
 
             <p className="mt-6 text-sm text-white/70">
-              EdLight Initiative is committed to transparency. 100% of donations go directly to programs and student
-              support.
+              EdLight Initiative is a not-for-profit corporation registered in Canada
+              (Corporation No. {CORPORATION_NUMBER}). We do not yet hold registered-charity
+              status, so we cannot issue tax receipts — we would rather say so before you give
+              than after.
             </p>
           </div>
         </div>

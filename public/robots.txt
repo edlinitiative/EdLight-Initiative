@@ -1,5 +1,5 @@
 # Robots.txt for EdLight Initiative
-# https://edlight.org/robots.txt
+# https://www.edlight.org/robots.txt
 
 # Allow all search engines to crawl the site
 User-agent: *
@@ -10,4 +10,9 @@ Disallow: /admin/
 Disallow: /api/admin/
 
 # Sitemap location
-Sitemap: https://edlight.org/sitemap.xml
+#
+# This must be the www host. It declared the apex — https://edlight.org —
+# which 307-redirects to www, so the one URL whose job is to tell a crawler
+# where the sitemap is was itself a redirect. lib/site.ts holds the same
+# canonical origin for the sitemap, canonical tags, and JSON-LD.
+Sitemap: https://www.edlight.org/sitemap.xml

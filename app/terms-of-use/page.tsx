@@ -1,5 +1,13 @@
 import { Metadata } from 'next'
 
+import {
+  AREA_SERVED,
+  CONTACT_EMAIL,
+  CORPORATION_NUMBER,
+  REGISTERED_ADDRESS_LINE,
+  SITE_URL,
+} from '@/lib/site'
+
 export const metadata: Metadata = {
   title: 'Terms of Use | EdLight Initiative',
   description: 'Terms and conditions for using the EdLight Initiative website and services.',
@@ -10,7 +18,7 @@ export default function TermsPage() {
     <main className="min-h-screen bg-gray-50 py-16 px-4">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-6">Terms of Use</h1>
-        <p className="text-sm text-gray-600 mb-8">Last Updated: February 17, 2026</p>
+        <p className="text-sm text-gray-600 mb-8">Last Updated: September 2, 2026</p>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h2>
@@ -23,10 +31,20 @@ export default function TermsPage() {
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. About EdLight Initiative</h2>
+          {/* Said "a non-profit organization" with no jurisdiction and no
+              registration number. That is the vaguest true thing we could have
+              written: it does not say which country's law made us a legal
+              person, which is exactly what a reader has to know before the
+              governing-law clause in section 13 means anything. It also let the
+              page be read as a Haitian entity, since Haiti is the only place
+              this document used to name. We are registered in Canada and we
+              work in Haiti — both facts, stated together, from lib/site.ts so
+              the footer and this page cannot drift apart. */}
           <p className="text-gray-700 leading-relaxed">
-            EdLight Initiative is a non-profit organization dedicated to empowering underserved communities 
-            through education, technology, and leadership development. Our Services include educational programs, 
-            courses, leadership training, and community initiatives.
+            EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation
+            No. {CORPORATION_NUMBER}), based in {REGISTERED_ADDRESS_LINE}, serving secondary-school
+            students in {AREA_SERVED}. Our Services include educational programs, courses, leadership
+            training, and community initiatives.
           </p>
         </section>
 
@@ -101,18 +119,40 @@ export default function TermsPage() {
             the right to refuse or cancel any registration at our discretion.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">Fees and Payments</h3>
+          {/* Was "Fees and Payments": "Some programs may require fees. All fees
+              are non-refundable... Payment must be made in advance of program
+              participation." None of that is true and none of it ever was.
+              Every programme is free — the homepage, the FAQ, the Coursera
+              Scholars page ("there is never an application fee") and the footer
+              all say so. A prospective student reading the Terms found the one
+              page on the site telling them they might be billed, and a
+              reviewer checking whether a free-education claim holds up found
+              the same contradiction. Deleting the clause is not enough; the
+              silence would still leave the question open, so the section now
+              answers it. */}
+          <h3 className="text-xl font-semibold text-gray-800 mb-3">No Fees</h3>
           <p className="text-gray-700 leading-relaxed">
-            Some programs may require fees. All fees are non-refundable unless otherwise specified in writing. 
-            Payment must be made in advance of program participation.
+            All EdLight Initiative programmes are provided free of charge. There is no application
+            fee, no tuition, no paid tier, and no paid upgrade. We will never ask you to pay to
+            apply for, enrol in, or complete any of our programmes.
           </p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">6. Donations</h2>
+          {/* Ended with "Donors will receive acknowledgment for tax purposes
+              where applicable." Being a not-for-profit corporation is not the
+              same as being a registered charity, and we are only the first.
+              We hold no charitable registration and cannot issue a tax receipt
+              to anyone, so "where applicable" was doing the work of a
+              disclaimer while reading as a promise — the reader most likely to
+              rely on it is the one about to give money. Say plainly that no
+              receipt is coming, before the donation, not after. */}
           <p className="text-gray-700 leading-relaxed">
-            Donations to EdLight Initiative are voluntary and non-refundable. We will use donations to support 
-            our mission and programs. Donors will receive acknowledgment for tax purposes where applicable.
+            Donations to EdLight Initiative are voluntary and non-refundable. We will use donations
+            to support our mission and programs. EdLight Initiative does not hold registered-charity
+            status and cannot issue tax receipts, so donations are not tax-deductible. Donations are
+            processed by PayPal; EdLight Initiative never receives or stores your card details.
           </p>
         </section>
 
@@ -178,9 +218,18 @@ export default function TermsPage() {
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">13. Governing Law</h2>
+          {/* Named the laws of Haiti and the courts of Haiti. That is where our
+              students are, not where the corporation is — we are incorporated
+              in Canada and based in Quebec, and Haiti's courts have no
+              jurisdiction over a Canadian corporation on the strength of a
+              clause we wrote ourselves. As drafted the clause pointed at a
+              forum that could not hear the dispute, which makes it worse than
+              having none. Quebec is both the seat of the corporation and the
+              province whose law actually governs it. */}
           <p className="text-gray-700 leading-relaxed">
-            These Terms shall be governed by and construed in accordance with the laws of Haiti, without regard 
-            to its conflict of law provisions. Any disputes shall be resolved in the courts of Haiti.
+            These Terms shall be governed by and construed in accordance with the laws of the
+            Province of Quebec and the federal laws of Canada applicable therein, without regard to
+            conflict of law provisions. Any disputes shall be resolved in the courts of Quebec.
           </p>
         </section>
 
@@ -197,10 +246,17 @@ export default function TermsPage() {
           <p className="text-gray-700 leading-relaxed mb-4">
             If you have any questions about these Terms, please contact us:
           </p>
+          {/* Email and a bare domain were the only way to reach the entity
+              behind these Terms. A governing-law clause naming Quebec is not
+              checkable against an address the page never gives, and a reader
+              deciding whether to accept the Terms should not have to take the
+              jurisdiction on faith. The registered address closes that gap. */}
           <div className="bg-gray-50 p-4 rounded-lg">
             <p className="text-gray-700"><strong>EdLight Initiative</strong></p>
-            <p className="text-gray-700">Email: info@edlight.org</p>
-            <p className="text-gray-700">Website: edlight.org</p>
+            <p className="text-gray-700">Corporation No. {CORPORATION_NUMBER}</p>
+            <p className="text-gray-700">{REGISTERED_ADDRESS_LINE}</p>
+            <p className="text-gray-700">Email: {CONTACT_EMAIL}</p>
+            <p className="text-gray-700">Website: {SITE_URL.replace('https://', '')}</p>
           </div>
         </section>
       </div>

@@ -41,12 +41,14 @@ export const ADMIN_SECTIONS: AdminSectionMeta[] = [
     label: 'Nexus Opportunities',
     description: 'Curate the opportunities and deadlines featured in EdLight Nexus.'
   },
-  {
-    id: 'media',
-    file: 'media.json',
-    label: 'Media Mentions',
-    description: 'Keep press coverage and publication links up to date.'
-  },
+  // The "Media Mentions" entry is gone, along with data/media.json and
+  // content/press.json. Between them they held five press mentions that were
+  // invented as sample content — "Haiti Times", "Caribbean Education
+  // Journal", "Montréal Daily" — each linking to example.com. Nothing
+  // rendered them today, but they were one admin toggle away from publishing
+  // fabricated coverage with dead links, which is both dishonest and a
+  // straightforward Ad Grants failure. Recreate the file with real coverage
+  // if there is any to list.
   {
     id: 'partners',
     file: 'partners.json',

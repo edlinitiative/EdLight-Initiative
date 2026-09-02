@@ -1,5 +1,9 @@
 {
-  "studentsServed": 2500,
-  "coursesOffered": 45,
+  "_comment": "Only figures the site itself evidences. The previous file claimed 2,500 students served annually and 45 courses offered; neither is supported by anything we publish, and both contradicted ESLP's own alumni count. Every number here can be checked against a page: alumni against the ESLP cohort record, subjects against the Academy catalogue, tracks against code.edlight.org/tracks, partners against the logos on the homepage. Update these by hand when the underlying record changes.",
+  "eslpAlumni": 135,
+  "eslpAlumniThrough": "August 2026",
+  "eslpEditions": 5,
+  "academySubjects": 6,
+  "codeTracks": 6,
   "partnerOrganizations": 3
 }

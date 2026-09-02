@@ -357,7 +357,10 @@ export default function LabsPage() {
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
               LAB · ONLINE
             </span>
-            <span className="hidden sm:inline">SECTOR /labs · BUILD 2026.05</span>
+            {/* Was "BUILD 2026.05" — a version stamp nobody was updating, so
+                it aged into a visible signal that the page had been abandoned.
+                Decorative chrome should not carry a date it cannot keep. */}
+            <span className="hidden sm:inline">SECTOR /labs</span>
             <span>LAT 18.5944° N · LON 72.3074° W</span>
           </div>
         </div>

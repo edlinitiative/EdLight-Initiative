@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import {
-  ArrowRight,
   BarChart3,
   BrainCircuit,
   Briefcase,
@@ -14,6 +13,7 @@ import {
 } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
+import NotifyButton from '@/components/NotifyButton'
 
 // ── Framing, and the lines that must not drift ───────────────────────────────
 // EdLight Initiative is a Coursera Social Impact Partner. EdLight — not
@@ -43,10 +43,21 @@ export const metadata: Metadata = {
   },
 }
 
-// Applications open 1 September 2026. Kept here rather than inline so the date
-// changes in one place — and so this page can be built before the intake opens.
-const APPLICATION_URL = 'https://apply.edlight.org/coursera-scholars'
-const APPLICATIONS_OPEN = 'September 2026'
+// Applications are not open, and the page no longer says they are.
+//
+// It used to read "Applications for the inaugural cohort open in September
+// 2026" — written while that was in the future, and left standing once it
+// arrived, so the page was advertising a window in the future tense on a date
+// that had already passed. Worse, "Apply now" pointed at
+// https://apply.edlight.org/coursera-scholars, which is a general portal
+// landing page rather than a Scholars form, so the button did not do what it
+// said. Both are things the Ad Grants website policy rejects a site over.
+//
+// The CTA is the notify list until there is a form to point at. To reopen:
+// set APPLICATIONS_OPEN to the real window, restore an APPLICATION_URL that
+// resolves to an actual Scholars application, and swap the NotifyButton back
+// to a link.
+const SCHOLARS_NOTIFY_LABEL = 'Coursera Scholars'
 
 const benefits = [
   {
@@ -163,16 +174,15 @@ export default function CourseraScholarsPage() {
           professional goals.
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
-          <a href={APPLICATION_URL} className="btn btn-primary">
-            Apply now
-            <ArrowRight size={16} />
-          </a>
+          <NotifyButton cycleLabel={SCHOLARS_NOTIFY_LABEL} className="btn btn-primary">
+            Get notified when applications open
+          </NotifyButton>
           <a href="#how-it-works" className="btn btn-outline">
             Learn more
           </a>
         </div>
         <p className="mt-6 text-xs uppercase tracking-[0.18em] text-white/70">
-          Applications for the inaugural {APPLICATIONS_OPEN} cohort
+          Inaugural cohort · applications not yet open
         </p>
       </Hero>
 
@@ -340,16 +350,18 @@ export default function CourseraScholarsPage() {
       <section className="bg-slate-50 py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="display-lg mb-3 leading-tight text-[var(--ink-900)]">Ready to apply?</h2>
+            <h2 className="display-lg mb-3 leading-tight text-[var(--ink-900)]">
+              Want to be first to know?
+            </h2>
             <p className="mb-8 body-lg text-[var(--ink-700)]">
-              Applications for the inaugural cohort open in {APPLICATIONS_OPEN}. Tell us what you want to learn,
-              and why.
+              The inaugural cohort is still being put together and applications have not opened
+              yet. Join the list and we will write to you the day they do — before we announce it
+              anywhere else.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <a href={APPLICATION_URL} className="btn btn-primary">
-                Apply now
-                <ArrowRight size={16} />
-              </a>
+              <NotifyButton cycleLabel={SCHOLARS_NOTIFY_LABEL} className="btn btn-primary">
+                Get notified
+              </NotifyButton>
               <Link href="/contact" className="btn btn-outline">
                 Ask a question
               </Link>

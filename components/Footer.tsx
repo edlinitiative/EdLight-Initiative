@@ -4,20 +4,27 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail } from 'lucide-react'
+import { SOCIAL_LINKS, type SocialPlatform } from '@/lib/socials'
+import { CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE } from '@/lib/site'
 
-const socialLinks = [
-  { href: 'https://www.facebook.com/edlinitiative', label: 'Facebook', icon: Facebook },
-  { href: 'https://x.com/edlinitiative', label: 'Twitter', icon: Twitter },
-  { href: 'https://www.instagram.com/edlinitiative/', label: 'Instagram', icon: Instagram },
-  { href: 'https://www.youtube.com/@edlight-initiative', label: 'YouTube', icon: Youtube },
-  { href: 'https://www.linkedin.com/company/edlight-initiative/', label: 'LinkedIn', icon: Linkedin },
-]
+// Icons live here; the URLs live in lib/socials.ts, which is the single list
+// the contact page reads too. There used to be two divergent sets of handles
+// across the site, which meant one of them was dead.
+const socialIcons: Record<SocialPlatform, typeof Facebook> = {
+  facebook: Facebook,
+  x: Twitter,
+  instagram: Instagram,
+  youtube: Youtube,
+  linkedin: Linkedin,
+}
 
+// EdLight Labs and EdLight Nexus are no longer listed. Both are noindexed and
+// out of the sitemap — Labs because it sells commercial web services, Nexus
+// because it has no cohort, dates, or way to apply — and a footer link is
+// exactly how a crawler would keep finding them anyway.
 const programLinks = [
   { href: '/academy', label: 'EdLight Academy' },
   { href: '/code', label: 'EdLight Code' },
-  { href: '/labs', label: 'EdLight Labs' },
-  { href: '/nexus', label: 'EdLight Nexus' },
   { href: '/coursera-scholars', label: 'Coursera Scholars' },
   { href: '/eslp', label: 'ESLP' },
 ]
@@ -180,9 +187,11 @@ export default function Footer() {
                 icons are already legible shapes; the boxes added noise and no
                 information. Tap target stays 36px via padding, not a border. */}
             <div className="flex flex-wrap gap-1">
-              {socialLinks.map(({ href, label, icon: Icon }) => (
+              {SOCIAL_LINKS.map(({ platform, href, label }) => {
+                const Icon = socialIcons[platform]
+                return (
                 <a
-                  key={label}
+                  key={platform}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -191,7 +200,8 @@ export default function Footer() {
                 >
                   <Icon size={18} />
                 </a>
-              ))}
+                )
+              })}
             </div>
           </div>
 
@@ -269,7 +279,7 @@ export default function Footer() {
               </form>
               <div className="flex items-center gap-2 text-xs text-[var(--paper-on-dark)]">
                 <Mail size={14} />
-                <a href="mailto:info@edlight.org" className="hover:text-[var(--paper-on-dark)] transition-colors">info@edlight.org</a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-[var(--paper-on-dark)] transition-colors">{CONTACT_EMAIL}</a>
               </div>
             </div>
           </div>
@@ -361,8 +371,9 @@ export default function Footer() {
             </nav>
           </div>
           <p className="mt-3 text-xs text-[var(--on-dark-muted)]">
-            EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation No. 1376443-5),
-            based in Montreal, Quebec.
+            EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation
+            No. {CORPORATION_NUMBER}), based in {REGISTERED_ADDRESS_LINE}, serving students across
+            Haiti.
           </p>
         </div>
       </div>

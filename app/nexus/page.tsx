@@ -5,10 +5,24 @@ import { ArrowRight, CalendarCheck, Compass, Globe2, GraduationCap, Plane, Spark
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 
+// Noindexed until Nexus is a thing a student can join.
+//
+// The page runs to roughly 650 words in which every claim is conditional —
+// "designed to", "may include", "where possible", "as the initiative
+// continues to develop". There is no cohort, no destination, no dates, and no
+// application. That is an under-construction page, which the Ad Grants
+// website policy counts against the whole site, and it was sitting in the
+// sitemap at priority 0.9 while being hidden from the nav — a high-priority
+// orphan pointing at a promise.
+//
+// To bring it back: give it real dates and a real way to apply, drop the
+// robots block below, and restore it to the sitemap, the navbar's
+// programLinks, the footer, and the homepage ecosystem list.
 export const metadata: Metadata = {
   title: 'EdLight Nexus | EdLight Initiative',
   description:
     'EdLight Nexus is EdLight’s global exposure and exchange initiative, designed to broaden opportunity for Haitian students through thoughtful international learning experiences.',
+  robots: { index: false, follow: false },
 }
 
 type Phase = {

@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import { Heart, Users, BookOpen, Laptop, Globe } from 'lucide-react'
+import impactData from '@/data/impact.json'
+import { CONTACT_EMAIL } from '@/lib/site'
 
 // The same hosted button used by the header CTA and /get-involved. This page
 // previously loaded PayPal's JS SDK with a literal 'YOUR_BUTTON_ID' placeholder
@@ -17,33 +19,35 @@ export const metadata: Metadata = {
 
 export default function DonatePage() {
   const impactAreas = [
+    // The per-amount equivalences that used to sit here — "$500 equips 1
+    // computer workstation", "$50 provides materials for 5 students" — were
+    // not derived from any cost model we can show a donor. Precise-sounding
+    // numbers nobody can check are worse for trust than an honest description
+    // of what the money is for, so the categories stayed and the arithmetic
+    // went.
     {
       icon: <Users size={48} className="text-blue-600" />,
-      title: 'Student Scholarships',
-      description: 'Provide full or partial scholarships for students to access programs and courses',
-      amount: '$100',
-      impact: 'Sponsors 1 student for a full course'
+      title: 'Scholarships',
+      description:
+        'Places on the programmes that select participants, so a student is never kept out by what it costs to take part.',
     },
     {
       icon: <BookOpen size={48} className="text-green-600" />,
-      title: 'Educational Materials',
-      description: 'Supply textbooks, course materials, and online resources for learners',
-      amount: '$50',
-      impact: 'Provides materials for 5 students'
+      title: 'Learning materials',
+      description:
+        'Course materials, exam preparation, and the certificates students earn — all provided at no charge.',
     },
     {
       icon: <Laptop size={48} className="text-purple-600" />,
-      title: 'Technology Access',
-      description: 'Purchase computers, tablets, and equipment for EdLight Labs',
-      amount: '$500',
-      impact: 'Equips 1 computer workstation'
+      title: 'Platform and connectivity',
+      description:
+        'Running EdLight Academy and EdLight Code, and keeping them usable on an ordinary phone with an intermittent connection.',
     },
     {
       icon: <Globe size={48} className="text-yellow-600" />,
-      title: 'Program Operations',
-      description: 'Cover operational costs including internet, facilities, and staff',
-      amount: '$250',
-      impact: 'Supports 1 month of operations'
+      title: 'Programme operations',
+      description:
+        'The people and logistics behind the programmes: mentors, coordinators in Haiti, and the events that bring students together.',
     }
   ]
 
@@ -101,19 +105,35 @@ export default function DonatePage() {
                 and opportunities to underserved youth in Haiti and beyond. Every contribution, no matter 
                 the size, directly impacts students&apos; lives and helps break the cycle of poverty through education.
               </p>
+              {/* These three replace "2,500+ students served annually" and
+                  "45+ courses offered", neither of which the organisation can
+                  evidence and both of which contradicted ESLP's own alumni
+                  record. Each figure below is checkable against a page on this
+                  site: the alumni count against the ESLP cohort record, the
+                  subject and track counts against the Academy catalogue and
+                  code.edlight.org/tracks, and the price against every
+                  programme page. */}
               <div className="bg-blue-50 p-8 rounded-lg">
                 <div className="grid md:grid-cols-3 gap-6">
                   <div>
-                    <div className="text-4xl font-bold text-blue-600 mb-2">2,500+</div>
-                    <div className="text-gray-700">Students Served Annually</div>
+                    <div className="text-4xl font-bold text-blue-600 mb-2">
+                      {impactData.eslpAlumni}
+                    </div>
+                    <div className="text-gray-700">
+                      ESLP alumni through {impactData.eslpAlumniThrough}
+                    </div>
                   </div>
                   <div>
-                    <div className="text-4xl font-bold text-green-600 mb-2">100%</div>
-                    <div className="text-gray-700">Free Programs</div>
+                    <div className="text-4xl font-bold text-green-600 mb-2">$0</div>
+                    <div className="text-gray-700">Cost to every student, always</div>
                   </div>
                   <div>
-                    <div className="text-4xl font-bold text-purple-600 mb-2">45+</div>
-                    <div className="text-gray-700">Courses Offered</div>
+                    <div className="text-4xl font-bold text-purple-600 mb-2">
+                      {impactData.academySubjects + impactData.codeTracks}
+                    </div>
+                    <div className="text-gray-700">
+                      Free subjects and coding tracks to learn from
+                    </div>
                   </div>
                 </div>
               </div>
@@ -135,15 +155,9 @@ export default function DonatePage() {
                       <h3 className="text-xl font-bold text-gray-900 mb-2">
                         {area.title}
                       </h3>
-                      <p className="text-gray-700 mb-4">
+                      <p className="text-gray-700">
                         {area.description}
                       </p>
-                      <div className="bg-gray-50 p-3 rounded-lg">
-                        <div className="flex justify-between items-center">
-                          <span className="text-2xl font-bold text-blue-600">{area.amount}</span>
-                          <span className="text-sm text-gray-600">{area.impact}</span>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -266,9 +280,14 @@ export default function DonatePage() {
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Is my donation tax-deductible?
                 </h3>
+                {/* Kept deliberately blunt, and worded identically to the same
+                    answer on /faq. A donor who assumes a receipt is coming and
+                    discovers otherwise at tax time is a worse outcome than one
+                    who knows before giving. */}
                 <p className="text-gray-700">
-                  We are working on obtaining tax-exempt status. Please contact us at info@edlight.org 
-                  for information about donation receipts and tax deductibility.
+                  Not at present. EdLight Initiative is a registered Canadian not-for-profit
+                  corporation, but it does not yet hold registered-charity status, so we cannot
+                  issue tax receipts. Write to {CONTACT_EMAIL} if you need documentation of a gift.
                 </p>
               </div>
               <div>
@@ -276,8 +295,9 @@ export default function DonatePage() {
                   How is my donation used?
                 </h3>
                 <p className="text-gray-700">
-                  100% of your donation goes directly to supporting our programs, students, and operations. 
-                  We maintain transparency and provide regular updates on how funds are utilized.
+                  It funds the things that keep programmes free for students: platform and course
+                  costs, learning materials, scholarships for the programmes that select
+                  participants, and the coordinators who run them in Haiti.
                 </p>
               </div>
               <div>
@@ -293,9 +313,12 @@ export default function DonatePage() {
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Will I receive updates on the impact of my donation?
                 </h3>
+                {/* Said "quarterly newsletter". The only newsletter this site
+                    runs is the monthly one in the footer, and there is no
+                    separate donor mailing. */}
                 <p className="text-gray-700">
-                  Absolutely! Donors receive our quarterly newsletter with stories, updates, and reports 
-                  on how contributions are making a difference in students&apos; lives.
+                  Yes. Subscribe to our monthly newsletter at the bottom of any page for student
+                  stories, programme news, and updates on what your support paid for.
                 </p>
               </div>
             </div>

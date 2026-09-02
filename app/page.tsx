@@ -31,43 +31,52 @@ import { FOUNDED_YEAR } from '@/lib/site'
 // speed the Ad Grants website policy reviews against).
 const heroImage = '/edlight_academy_group.webp'
 
+// Four, not five. EdLight Nexus is gone from this list: it has no dates, no
+// cohort, and no way to apply, and a card promising a programme that a
+// visitor cannot join is the "under construction" page the Ad Grants website
+// policy names explicitly. It returns here when there is something to join.
+// EdLight Labs is gone for a different reason — it sells commercial web
+// services, which does not belong in a list of free student programmes.
 const ecosystemPrograms = [
   {
     title: 'EdLight Academy',
-    description: 'Free online courses in Math, Physics, Economics, and Leadership for Haitian students.',
+    description:
+      'Free courses in Mathematics, Physics, Chemistry, SVT, Economics, and Languages — built around the 9e Année and Baccalauréat exams.',
     icon: <BookOpen size={32} />,
     href: '/academy',
   },
   {
     title: 'EdLight Code',
-    description: 'Hands-on coding tracks in Python, SQL, Web Development, and more — learn and earn certificates in your browser.',
+    description:
+      'Six hands-on coding tracks — Python, SQL, HTML, CSS, JavaScript, Terminal & Git — taught in Haitian Creole, French, and English.',
     icon: <Code2 size={32} />,
     href: '/code',
   },
   {
-    title: 'EdLight Labs',
-    description: 'STEM incubator providing training, mentorship, and demo day opportunities for tech innovators.',
-    icon: <Lightbulb size={32} />,
-    href: '/labs',
-  },
-  {
-    title: 'EdLight Nexus',
-    description: 'Connecting students with global exchange programs, scholarships, and opportunities.',
-    icon: <Globe size={32} />,
-    href: '/nexus',
+    title: 'Coursera Scholars',
+    description:
+      'Funded Coursera certificates, run with Coursera, so Haitian students can earn recognised professional credentials at no cost.',
+    icon: <GraduationCap size={32} />,
+    href: '/coursera-scholars',
   },
   {
     title: 'ESLP',
-    description: 'A two-week hybrid leadership programme helping Haitian students grow through seminars, mentorship, and community impact projects.',
-    icon: <GraduationCap size={32} />,
+    description:
+      'A two-week summer leadership programme: seminars, mentorship, a company excursion, and a community impact project.',
+    icon: <Users size={32} />,
     href: '/eslp',
   },
 ]
 
+// Every number here can be checked against a page on this site. The three
+// that used to be here — 2,500 students served, 45 courses offered, 3 partner
+// organisations — could not: the first two are unsupported by anything we
+// publish, and 2,500 students a year sat oddly beside ESLP's own record of
+// 135 alumni in total.
 const impactCounters = [
-  { label: 'Students Served', value: impactData.studentsServed },
-  { label: 'Courses Offered', value: impactData.coursesOffered },
-  { label: 'Partner Organizations', value: impactData.partnerOrganizations },
+  { label: `ESLP alumni through ${impactData.eslpAlumniThrough}`, value: impactData.eslpAlumni },
+  { label: 'Free subjects and coding tracks', value: impactData.academySubjects + impactData.codeTracks },
+  { label: 'Partner organisations', value: impactData.partnerOrganizations, suffix: '' },
 ]
 
 const howItWorks = [
@@ -79,36 +88,40 @@ const howItWorks = [
   {
     icon: <Users size={28} />,
     title: 'Learn alongside mentors',
-    body: 'Courses on their own are not enough. Our programs pair students with educators, builders, and mentors who review work, answer questions, and help students decide what to study next. EdLight Labs adds structured training and demo days for students building real technical projects.',
+    body: 'Courses on their own are not enough. Our programmes pair students with educators, builders, and mentors who review work, answer questions, and help students decide what to study next. ESLP goes further, putting a cohort in a room together for two weeks with people who have done the thing they want to do.',
   },
   {
     icon: <Compass size={28} />,
     title: 'Reach further than Haiti',
-    body: 'Strong students should not be limited by where they were born. EdLight Nexus and our Global Exchange work connect students to scholarships, exchange programmes, and institutions abroad, while ESLP develops the leadership and civic confidence that those opportunities ask for.',
+    body: 'Strong students should not be limited by where they were born. Coursera Scholars funds recognised professional certificates that carry weight outside Haiti, and ESLP develops the leadership and civic confidence that scholarships and universities ask for.',
   },
 ]
 
-// /courses, /global-exchange and /mission_projects were removed. These three
-// cards now point at the pages that still cover the same ground — deleting
-// them outright would have left this section with a single FAQ card in it.
+// /courses, /global-exchange and /mission_projects were removed. These cards
+// now point at the pages that still cover the same ground — deleting them
+// outright would have left this section with a single FAQ card in it.
+//
+// "Scholarships and exchange" used to point at /nexus, which is now noindexed
+// for having no cohort or application. It points at Coursera Scholars
+// instead, which is the scholarship route students can actually take.
 const exploreMore = [
   {
     href: '/academy',
     icon: <BookOpen size={24} />,
     title: 'Browse the course catalogue',
-    body: 'Free online courses to help you build valuable skills and transform your future.',
+    body: 'Free courses in the six subjects Haitian students need for the national exams.',
   },
   {
-    href: '/nexus',
+    href: '/coursera-scholars',
     icon: <Globe size={24} />,
-    title: 'Scholarships and exchange',
-    body: 'The kinds of international exposure and exchange that broaden opportunity for Haitian students.',
+    title: 'Scholarships and certificates',
+    body: 'Funded Coursera credentials for Haitian students, run in partnership with Coursera.',
   },
   {
     href: '/about',
     icon: <Lightbulb size={24} />,
     title: 'Our mission',
-    body: 'How we work to empower underserved communities through education, technology, and leadership.',
+    body: 'Who we are, how we are registered, and how we work to widen access to education.',
   },
   {
     href: '/faq',
@@ -128,10 +141,10 @@ export default function HomePage() {
         subtitle="Quality education, mentorship, and global opportunities — built with and for students across Haiti."
         backgroundImage={heroImage}
         meta={[
-          { label: 'Students Served', value: `${impactData.studentsServed}+` },
-          { label: 'Programs', value: '5' },
-          { label: 'Partner Orgs', value: `${impactData.partnerOrganizations}+` },
-          { label: 'Founded', value: String(FOUNDED_YEAR) },
+          { label: 'Programmes', value: String(ecosystemPrograms.length) },
+          { label: 'ESLP alumni', value: `${impactData.eslpAlumni}` },
+          { label: 'Partner orgs', value: String(impactData.partnerOrganizations) },
+          { label: 'Cost to students', value: '$0' },
         ]}
       >
         <Link
@@ -222,12 +235,11 @@ export default function HomePage() {
             centered
           />
           <p className="max-w-3xl mx-auto mb-10 text-center text-sm sm:text-base leading-relaxed text-[var(--ink-700)]">
-            Five programmes, each aimed at a different point in a student&apos;s path. Academy and Code
-            cover the learning itself, from secondary-school maths and physics through to programming
-            in Python and SQL. Labs supports students who are building something technical of their
-            own. Nexus and ESLP handle what comes next — the scholarships, exchanges, and leadership
-            experience that turn a strong student into a candidate. A student can start anywhere and
-            move between them.
+            Four programmes, each aimed at a different point in a student&apos;s path. Academy and
+            Code cover the learning itself, from secondary-school maths and physics through to
+            programming in Python and SQL. Coursera Scholars and ESLP handle what comes next — the
+            credentials and the leadership experience that turn a strong student into a candidate.
+            All four are free, and a student can start anywhere and move between them.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--paper-200)]">
             {ecosystemPrograms.map((program) => (

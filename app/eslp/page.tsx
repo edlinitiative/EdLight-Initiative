@@ -35,6 +35,8 @@ const PROGRAM_DESC_URL =
 const EMAIL = 'eslp@edlight.org'
 const PROGRAM_DATES = 'August 10–21, 2026'
 const NEXT_CYCLE_OPENS = 'spring 2027'
+/** The cycle the notify list is collecting for. Keep in step with the buttons. */
+const NEXT_CYCLE_LABEL = 'ESLP 2027'
 
 /* ── Hero images (auto-carousel) ────────────────────────── */
 const heroImages = [
@@ -44,29 +46,22 @@ const heroImages = [
   '/Best_Participant_Award.webp',
 ]
 
-/* ── Impact counters (auto-update each August) ─────────── */
-// ESLP launched August 2022 with ~30 participants.
-// Each August edition adds ~35 new participants and 1 year.
-const ESLP_BASE_PARTICIPANTS = 135 // total through August 2026
-const ESLP_BASE_YEARS = 5          // as of August 2026
-const ESLP_BASE_EDITION = 2026     // last counted edition
-const PARTICIPANTS_PER_YEAR = 35
-
-function getEditionsCompleted(): number {
-  const now = new Date()
-  const year = now.getFullYear()
-  const month = now.getMonth() // 0-indexed, August = 7
-  // Count how many August editions have passed since the base
-  const editionYear = month >= 8 ? year : year - 1 // after Sept 1 → this year counts
-  return Math.max(0, editionYear - ESLP_BASE_EDITION)
-}
-
-const extraEditions = getEditionsCompleted()
+/* ── Impact counters ───────────────────────────────────── */
+// These were computed, not recorded. The old version took a 2026 baseline and
+// added 35 alumni and one edition every time the calendar passed 1 September,
+// whether or not an edition had actually run — so on 1 September 2027 the page
+// would have claimed 170 alumni from a cohort that might never have met. A
+// counter that invents its own numbers is the kind of unverifiable statistic
+// the Ad Grants website policy treats as a content-quality failure, and it
+// would have been wrong in EdLight's favour every year.
+//
+// They are recorded figures now. After each August edition, update these by
+// hand from the actual cohort record.
 const impactCounters = [
-  { label: 'Alumni', value: ESLP_BASE_PARTICIPANTS + extraEditions * PARTICIPANTS_PER_YEAR, suffix: '+' },
-  { label: 'Women', value: 73, suffix: '%' },
-  { label: 'Years of Experience', value: ESLP_BASE_YEARS + extraEditions, suffix: '+' },
-  { label: 'Scholarships', value: 100, suffix: '%' },
+  { label: 'Alumni', value: 135, suffix: '' },           // total through August 2026
+  { label: 'Women', value: 73, suffix: '%' },            // share of the 2026 cohort
+  { label: 'Editions', value: 5, suffix: '' },           // 2022 through 2026
+  { label: 'On scholarship', value: 100, suffix: '%' },  // every participant, every edition
 ]
 
 /* ── Experience highlights ──────────────────────────────── */
@@ -657,7 +652,7 @@ export default function ESLPPage() {
             <div className="space-y-6">
               <SectionHeader
                 title="How to apply"
-                subtitle="Submit your documents through our online form. Here's what you'll need for the 2026 application:"
+                subtitle={`Applications are closed. When ${NEXT_CYCLE_LABEL} opens in ${NEXT_CYCLE_OPENS}, this is what you will need to submit:`}
               />
               <div className="glass rounded-2xl p-6 space-y-5">
                 {[
@@ -872,7 +867,11 @@ export default function ESLPPage() {
       </section>
 
       {/* ═══ Notify Modal ═══ */}
-      <NotifyModal open={notifyOpen} onClose={() => setNotifyOpen(false)} />
+      <NotifyModal
+        open={notifyOpen}
+        onClose={() => setNotifyOpen(false)}
+        cycleLabel={NEXT_CYCLE_LABEL}
+      />
     </>
   )
 }

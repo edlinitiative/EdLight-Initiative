@@ -6,9 +6,19 @@ import { X, Bell, Loader2, CheckCircle2 } from 'lucide-react'
 interface NotifyModalProps {
   open: boolean
   onClose: () => void
+  /**
+   * Which cycle this list is for, e.g. "ESLP 2027".
+   *
+   * This used to be the hardcoded string "ESLP 2026", while every one of the
+   * four buttons that opens the modal was labelled "Get notified for ESLP
+   * 2027". Someone clicking through to join the 2027 list was told they had
+   * joined the 2026 one — for a cohort that had already graduated. Passing
+   * the label in means the button and the modal cannot drift apart again.
+   */
+  cycleLabel: string
 }
 
-export default function NotifyModal({ open, onClose }: NotifyModalProps) {
+export default function NotifyModal({ open, onClose, cycleLabel }: NotifyModalProps) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -79,7 +89,12 @@ export default function NotifyModal({ open, onClose }: NotifyModalProps) {
       const res = await fetch('/api/eslp-notify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() }),
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+          cycle: cycleLabel,
+        }),
       })
 
       const data = await res.json()
@@ -131,7 +146,7 @@ export default function NotifyModal({ open, onClose }: NotifyModalProps) {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">You&apos;re on the list!</h3>
               <p className="text-gray-600 mb-6">
-                We&apos;ll notify you as soon as ESLP 2026 details are announced.
+                We&apos;ll notify you as soon as {cycleLabel} details are announced.
               </p>
               <button
                 onClick={handleClose}
@@ -148,7 +163,7 @@ export default function NotifyModal({ open, onClose }: NotifyModalProps) {
                   <Bell size={24} className="text-primary" />
                 </div>
                 <h2 id="notify-modal-title" className="text-xl font-bold text-gray-900">
-                  Get Notified for ESLP 2026
+                  Get Notified for {cycleLabel}
                 </h2>
                 <p className="mt-1 text-sm text-gray-500">
                   Be the first to know when applications open.

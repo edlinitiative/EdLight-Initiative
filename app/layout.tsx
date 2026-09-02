@@ -3,7 +3,14 @@ import { Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { SITE_URL, FOUNDED_YEAR } from '@/lib/site'
+import {
+  SITE_URL,
+  FOUNDED_YEAR,
+  CONTACT_EMAIL,
+  REGISTERED_ADDRESS,
+  AREA_SERVED,
+} from '@/lib/site'
+import { SOCIAL_URLS } from '@/lib/socials'
 
 const hankenGrotesk = Hanken_Grotesk({
   weight: ['400', '500', '600', '700'],
@@ -109,24 +116,24 @@ export default function RootLayout({
     description: 'Empowering underserved communities through education, technology, and leadership development',
     url: SITE_URL,
     logo: `${SITE_URL}/EdLight_Website_Logo.png`,
-    email: 'info@edlight.org',
+    email: CONTACT_EMAIL,
+    // addressCountry was 'HT'. The organisation is registered in Canada and
+    // based in Montreal; Haiti is where it works, which is what areaServed is
+    // for. Declaring Haiti as the postal address contradicted both the
+    // footer's incorporation line and the registration itself.
     address: {
       '@type': 'PostalAddress',
-      addressCountry: 'HT',
+      addressLocality: REGISTERED_ADDRESS.locality,
+      addressRegion: REGISTERED_ADDRESS.region,
+      addressCountry: REGISTERED_ADDRESS.countryCode,
     },
     // The canonical handles, matching the footer. 'twitter.com/edlightinit'
     // used to sit here and 404s — the account is @edlinitiative.
-    sameAs: [
-      'https://www.facebook.com/edlinitiative',
-      'https://x.com/edlinitiative',
-      'https://www.instagram.com/edlinitiative/',
-      'https://www.linkedin.com/company/edlight-initiative/',
-      'https://www.youtube.com/@edlight-initiative',
-    ],
+    sameAs: SOCIAL_URLS,
     foundingDate: String(FOUNDED_YEAR),
     areaServed: {
       '@type': 'Place',
-      name: 'Haiti',
+      name: AREA_SERVED,
     },
   }
 
