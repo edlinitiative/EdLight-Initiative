@@ -1,0 +1,21 @@
+{
+  "close": "Fermer",
+  "heading": "Être averti pour {cycle}",
+  "subheading": "Soyez informé dès l’ouverture des candidatures.",
+  "nameLabel": "Nom complet",
+  "namePlaceholder": "p. ex. Jean Pierre",
+  "emailLabel": "Adresse courriel",
+  "emailPlaceholder": "vous@courriel.com",
+  "phoneLabel": "Numéro de téléphone",
+  "phonePlaceholder": "+509 0000-0000",
+  "submit": "M’avertir",
+  "submitting": "Envoi en cours…",
+  "successTitle": "Vous êtes inscrit !",
+  "successBody": "Nous vous écrirons dès l’annonce des détails de {cycle}.",
+  "done": "Terminé",
+  "errorName": "Veuillez saisir votre nom.",
+  "errorEmail": "Veuillez saisir une adresse courriel valide.",
+  "errorGeneric": "Une erreur s’est produite. Veuillez réessayer.",
+  "errorNetwork": "Erreur de connexion. Vérifiez votre connexion et réessayez.",
+  "privacyNote": "Nous respectons votre vie privée. Jamais de pourriel."
+}

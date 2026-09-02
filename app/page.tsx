@@ -13,6 +13,7 @@ import {
   HelpCircle,
   Heart,
 } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import Card from '@/components/Card'
@@ -37,65 +38,37 @@ const heroImage = '/edlight_academy_group.webp'
 // policy names explicitly. It returns here when there is something to join.
 // EdLight Labs is gone for a different reason — it sells commercial web
 // services, which does not belong in a list of free student programmes.
+//
+// Structure here, wording in messages/<locale>/home.json. `key` indexes into
+// the `home` namespace — home.ecosystem.programs.academy.title and .description
+// — so a translator changes copy without touching this file and a developer
+// changes routes and icons without touching a translation.
 const ecosystemPrograms = [
-  {
-    title: 'EdLight Academy',
-    description:
-      'Free courses in Mathematics, Physics, Chemistry, SVT, Economics, and Languages — built around the 9e Année and Baccalauréat exams.',
-    icon: <BookOpen size={32} />,
-    href: '/academy',
-  },
-  {
-    title: 'EdLight Code',
-    description:
-      'Six hands-on coding tracks — Python, SQL, HTML, CSS, JavaScript, Terminal & Git — taught in Haitian Creole, French, and English.',
-    icon: <Code2 size={32} />,
-    href: '/code',
-  },
-  {
-    title: 'Coursera Scholars',
-    description:
-      'Funded Coursera certificates, run with Coursera, so Haitian students can earn recognised professional credentials at no cost.',
-    icon: <GraduationCap size={32} />,
-    href: '/coursera-scholars',
-  },
-  {
-    title: 'ESLP',
-    description:
-      'A two-week summer leadership programme: seminars, mentorship, a company excursion, and a community impact project.',
-    icon: <Users size={32} />,
-    href: '/eslp',
-  },
-]
+  { key: 'academy', icon: <BookOpen size={32} />, href: '/academy' },
+  { key: 'code', icon: <Code2 size={32} />, href: '/code' },
+  { key: 'scholars', icon: <GraduationCap size={32} />, href: '/coursera-scholars' },
+  { key: 'eslp', icon: <Users size={32} />, href: '/eslp' },
+] as const
 
 // Every number here can be checked against a page on this site. The three
 // that used to be here — 2,500 students served, 45 courses offered, 3 partner
 // organisations — could not: the first two are unsupported by anything we
 // publish, and 2,500 students a year sat oddly beside ESLP's own record of
 // 135 alumni in total.
-const impactCounters = [
-  { label: `ESLP alumni through ${impactData.eslpAlumniThrough}`, value: impactData.eslpAlumni },
-  { label: 'Free subjects and coding tracks', value: impactData.academySubjects + impactData.codeTracks },
-  { label: 'Partner organisations', value: impactData.partnerOrganizations, suffix: '' },
+//
+// The numbers stay in data/impact.json and are passed straight through; only
+// the labels are translated, and the one date in them is interpolated.
+const impactCounters: { key: string; value: number; suffix?: string }[] = [
+  { key: 'alumni', value: impactData.eslpAlumni },
+  { key: 'subjects', value: impactData.academySubjects + impactData.codeTracks },
+  { key: 'partners', value: impactData.partnerOrganizations, suffix: '' },
 ]
 
 const howItWorks = [
-  {
-    icon: <Laptop size={28} />,
-    title: 'Learn online, at no cost',
-    body: 'Every course we offer is free. Lessons run in a web browser and in our mobile apps, so a student with an ordinary phone and an intermittent connection can still take part. EdLight Code teaches in Haitian Creole, French, and English, because learning to program in a language you had to learn first is a barrier we would rather remove.',
-  },
-  {
-    icon: <Users size={28} />,
-    title: 'Learn alongside mentors',
-    body: 'Courses on their own are not enough. Our programmes pair students with educators, builders, and mentors who review work, answer questions, and help students decide what to study next. ESLP goes further, putting a cohort in a room together for two weeks with people who have done the thing they want to do.',
-  },
-  {
-    icon: <Compass size={28} />,
-    title: 'Reach further than Haiti',
-    body: 'Strong students should not be limited by where they were born. Coursera Scholars funds recognised professional certificates that carry weight outside Haiti, and ESLP develops the leadership and civic confidence that scholarships and universities ask for.',
-  },
-]
+  { key: 'online', icon: <Laptop size={28} /> },
+  { key: 'mentors', icon: <Users size={28} /> },
+  { key: 'beyond', icon: <Compass size={28} /> },
+] as const
 
 // /courses, /global-exchange and /mission_projects were removed. These cards
 // now point at the pages that still cover the same ground — deleting them
@@ -105,60 +78,42 @@ const howItWorks = [
 // for having no cohort or application. It points at Coursera Scholars
 // instead, which is the scholarship route students can actually take.
 const exploreMore = [
-  {
-    href: '/academy',
-    icon: <BookOpen size={24} />,
-    title: 'Browse the course catalogue',
-    body: 'Free courses in the six subjects Haitian students need for the national exams.',
-  },
-  {
-    href: '/coursera-scholars',
-    icon: <Globe size={24} />,
-    title: 'Scholarships and certificates',
-    body: 'Funded Coursera credentials for Haitian students, run in partnership with Coursera.',
-  },
-  {
-    href: '/about',
-    icon: <Lightbulb size={24} />,
-    title: 'Our mission',
-    body: 'Who we are, how we are registered, and how we work to widen access to education.',
-  },
-  {
-    href: '/faq',
-    icon: <HelpCircle size={24} />,
-    title: 'Frequently asked questions',
-    body: 'Who can apply, what our programmes cost, and how to get started as a student or a supporter.',
-  },
-]
+  { key: 'academy', href: '/academy', icon: <BookOpen size={24} /> },
+  { key: 'scholars', href: '/coursera-scholars', icon: <Globe size={24} /> },
+  { key: 'about', href: '/about', icon: <Lightbulb size={24} /> },
+  { key: 'faq', href: '/faq', icon: <HelpCircle size={24} /> },
+] as const
 
-export default function HomePage() {
+export default async function HomePage() {
+  const t = await getTranslations('home')
+
   return (
     <>
       {/* Hero Section */}
       <Hero
-        eyebrow={`EdLight Initiative · Est. ${FOUNDED_YEAR}`}
-        title="Empowering the next generation of Haitian innovators."
-        subtitle="Quality education, mentorship, and global opportunities — built with and for students across Haiti."
+        eyebrow={t('hero.eyebrow', { year: String(FOUNDED_YEAR) })}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
         backgroundImage={heroImage}
         meta={[
-          { label: 'Programmes', value: String(ecosystemPrograms.length) },
-          { label: 'ESLP alumni', value: `${impactData.eslpAlumni}` },
-          { label: 'Partner orgs', value: String(impactData.partnerOrganizations) },
-          { label: 'Cost to students', value: '$0' },
+          { label: t('hero.meta.programmes'), value: String(ecosystemPrograms.length) },
+          { label: t('hero.meta.alumni'), value: `${impactData.eslpAlumni}` },
+          { label: t('hero.meta.partners'), value: String(impactData.partnerOrganizations) },
+          { label: t('hero.meta.cost'), value: t('hero.meta.costValue') },
         ]}
       >
         <Link
           href="/academy"
           className="group inline-flex items-center justify-center gap-2 bg-white text-[var(--ink-900)] font-medium px-6 py-3 hover:bg-[var(--paper-100)] transition-colors text-sm sm:text-base w-full sm:w-auto"
         >
-          Explore Programs
+          {t('hero.explorePrograms')}
           <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
         </Link>
         <Link
           href="/get-involved"
           className="inline-flex items-center justify-center gap-2 border border-white/40 bg-white/5 text-white font-medium px-6 py-3 hover:bg-white/10 hover:border-white/70 transition-colors text-sm sm:text-base w-full sm:w-auto backdrop-blur-sm"
         >
-          Support Us
+          {t('hero.supportUs')}
         </Link>
       </Hero>
 
@@ -167,40 +122,16 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="max-w-3xl mx-auto">
             <SectionHeader
-              title="Our Mission & Vision"
-              subtitle="Creating pathways to excellence for Haitian youth"
+              title={t('mission.title')}
+              subtitle={t('mission.subtitle')}
               centered
             />
             <div className="border border-[var(--paper-200)] bg-[var(--paper-100)] p-6 sm:p-8 space-y-4 text-[var(--ink-700)] leading-relaxed text-sm sm:text-base">
-              <p>
-                EdLight Initiative was founded on the belief that every young person in Haiti deserves
-                access to world-class education and opportunities. We work to bridge the educational gap
-                by providing free, high-quality learning resources and creating connections with global
-                institutions.
-              </p>
-              <p>
-                Through our comprehensive ecosystem of programs—from online courses to tech incubators
-                to leadership development—we empower students to pursue their dreams and become the
-                innovators, leaders, and changemakers Haiti needs.
-              </p>
-              <p>
-                Our vision is a Haiti where every motivated student has the resources, mentorship, and
-                opportunities to reach their full potential and contribute to building a more prosperous
-                nation.
-              </p>
-              <p>
-                In practice that means removing the things that usually stop a student: cost, distance,
-                and language. Our programmes are free to join, they run online so a student does not
-                have to move cities to attend, and our coding platform teaches in Haitian Creole and
-                French as well as English. We work with high school students across Haiti, and with the
-                teachers and community organisations already serving them.
-              </p>
-              <p>
-                EdLight is run by a multidisciplinary team of educators, builders, mentors, and
-                operators, and is registered as a not-for-profit corporation in Canada. We publish what
-                we do and what it costs, because families deciding whether to trust us with a student&apos;s
-                time deserve to see it.
-              </p>
+              <p>{t('mission.p1')}</p>
+              <p>{t('mission.p2')}</p>
+              <p>{t('mission.p3')}</p>
+              <p>{t('mission.p4')}</p>
+              <p>{t('mission.p5')}</p>
             </div>
           </div>
         </div>
@@ -210,16 +141,20 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="How EdLight Works"
-            subtitle="What a student actually gets, and what it costs them"
+            title={t('howItWorks.title')}
+            subtitle={t('howItWorks.subtitle')}
             centered
           />
           <div className="grid gap-px bg-[var(--paper-200)] sm:grid-cols-3">
-            {howItWorks.map(({ icon, title, body }) => (
-              <div key={title} className="bg-[var(--paper-50)] p-6 sm:p-8">
+            {howItWorks.map(({ key, icon }) => (
+              <div key={key} className="bg-[var(--paper-50)] p-6 sm:p-8">
                 <div className="text-[var(--accent)] mb-4">{icon}</div>
-                <h3 className="text-lg font-semibold text-[var(--ink-900)] mb-3">{title}</h3>
-                <p className="text-sm leading-relaxed text-[var(--ink-700)]">{body}</p>
+                <h3 className="text-lg font-semibold text-[var(--ink-900)] mb-3">
+                  {t(`howItWorks.items.${key}.title`)}
+                </h3>
+                <p className="text-sm leading-relaxed text-[var(--ink-700)]">
+                  {t(`howItWorks.items.${key}.body`)}
+                </p>
               </div>
             ))}
           </div>
@@ -230,23 +165,19 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="Our Ecosystem"
-            subtitle="Comprehensive programs supporting students at every stage"
+            title={t('ecosystem.title')}
+            subtitle={t('ecosystem.subtitle')}
             centered
           />
           <p className="max-w-3xl mx-auto mb-10 text-center text-sm sm:text-base leading-relaxed text-[var(--ink-700)]">
-            Four programmes, each aimed at a different point in a student&apos;s path. Academy and
-            Code cover the learning itself, from secondary-school maths and physics through to
-            programming in Python and SQL. Coursera Scholars and ESLP handle what comes next — the
-            credentials and the leadership experience that turn a strong student into a candidate.
-            All four are free, and a student can start anywhere and move between them.
+            {t('ecosystem.intro')}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--paper-200)]">
             {ecosystemPrograms.map((program) => (
               <Card
-                key={program.title}
-                title={program.title}
-                description={program.description}
+                key={program.key}
+                title={t(`ecosystem.programs.${program.key}.title`)}
+                description={t(`ecosystem.programs.${program.key}.description`)}
                 icon={program.icon}
                 href={program.href}
               />
@@ -258,15 +189,25 @@ export default function HomePage() {
       {/* Impact Counters */}
       <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader title="Our Impact" subtitle="Making a difference in communities across Haiti" centered />
-          <ImpactCounters counters={impactCounters} />
+          <SectionHeader title={t('impact.title')} subtitle={t('impact.subtitle')} centered />
+          <ImpactCounters
+            counters={impactCounters.map(({ key, value, suffix }) => ({
+              value,
+              suffix,
+              label: t(`impact.counters.${key}`, { through: impactData.eslpAlumniThrough }),
+            }))}
+          />
         </div>
       </section>
 
       {/* Testimonials */}
       <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader title="Student Stories" subtitle="Hear from our alumni" centered />
+          <SectionHeader
+            title={t('testimonials.title')}
+            subtitle={t('testimonials.subtitle')}
+            centered
+          />
           <TestimonialCarousel testimonials={testimonialsData} />
         </div>
       </section>
@@ -275,8 +216,8 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="Our Partners"
-            subtitle="Organisations we work with to widen what our students can reach"
+            title={t('partners.title')}
+            subtitle={t('partners.subtitle')}
             centered
           />
           <PartnerLogoGrid partners={partnersData} />
@@ -287,12 +228,12 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="Explore Further"
-            subtitle="More detail on our courses, our projects, and how to join"
+            title={t('explore.title')}
+            subtitle={t('explore.subtitle')}
             centered
           />
           <div className="grid gap-px bg-[var(--paper-200)] sm:grid-cols-2">
-            {exploreMore.map(({ href, icon, title, body }) => (
+            {exploreMore.map(({ key, href, icon }) => (
               <Link
                 key={href}
                 href={href}
@@ -300,13 +241,15 @@ export default function HomePage() {
               >
                 <div className="text-[var(--accent)] mb-3">{icon}</div>
                 <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-[var(--ink-900)]">
-                  {title}
+                  {t(`explore.items.${key}.title`)}
                   <ArrowRight
                     size={16}
                     className="transition-transform group-hover:translate-x-0.5"
                   />
                 </h3>
-                <p className="text-sm leading-relaxed text-[var(--ink-700)]">{body}</p>
+                <p className="text-sm leading-relaxed text-[var(--ink-700)]">
+                  {t(`explore.items.${key}.body`)}
+                </p>
               </Link>
             ))}
           </div>
@@ -318,12 +261,10 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="border border-[var(--paper-200)] bg-[var(--paper-100)] p-8 sm:p-12 text-center">
             <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--ink-900)] mb-3">
-              Take the next step
+              {t('cta.title')}
             </h2>
             <p className="max-w-2xl mx-auto mb-8 text-sm sm:text-base leading-relaxed text-[var(--ink-700)]">
-              Whether you are a student in Haiti looking for a course, a professional willing to
-              mentor, or a donor deciding where a hundred dollars goes furthest — here is where to
-              start.
+              {t('cta.body')}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
@@ -331,21 +272,21 @@ export default function HomePage() {
                 className="inline-flex items-center justify-center gap-2 bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--accent-hover)]"
               >
                 <BookOpen size={16} />
-                Start a free course
+                {t('cta.startCourse')}
               </Link>
               <Link
                 href="/donate"
                 className="inline-flex items-center justify-center gap-2 border border-[var(--ink-900)] px-6 py-3 text-sm font-medium text-[var(--ink-900)] transition-colors hover:bg-[var(--paper-200)]"
               >
                 <Heart size={16} />
-                Donate
+                {t('cta.donate')}
               </Link>
               <Link
                 href="/get-involved"
                 className="inline-flex items-center justify-center gap-2 border border-[var(--ink-400)] px-6 py-3 text-sm font-medium text-[var(--ink-700)] transition-colors hover:border-[var(--ink-900)] hover:text-[var(--ink-900)]"
               >
                 <Users size={16} />
-                Volunteer or partner
+                {t('cta.volunteer')}
               </Link>
             </div>
           </div>

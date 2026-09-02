@@ -1,0 +1,21 @@
+{
+  "close": "Close",
+  "heading": "Get Notified for {cycle}",
+  "subheading": "Be the first to know when applications open.",
+  "nameLabel": "Full Name",
+  "namePlaceholder": "e.g. Jean Pierre",
+  "emailLabel": "Email Address",
+  "emailPlaceholder": "you@example.com",
+  "phoneLabel": "Phone Number",
+  "phonePlaceholder": "+1 (555) 123-4567",
+  "submit": "Notify Me",
+  "submitting": "Submitting…",
+  "successTitle": "You're on the list!",
+  "successBody": "We'll notify you as soon as {cycle} details are announced.",
+  "done": "Done",
+  "errorName": "Please enter your name.",
+  "errorEmail": "Please enter a valid email address.",
+  "errorGeneric": "Something went wrong. Please try again.",
+  "errorNetwork": "Network error. Please check your connection and try again.",
+  "privacyNote": "We respect your privacy. No spam, ever."
+}

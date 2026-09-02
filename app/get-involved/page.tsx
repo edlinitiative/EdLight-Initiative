@@ -3,10 +3,11 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { Users, Handshake, DollarSign, Mic, ShieldCheck, Heart } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import Reveal from '@/components/Reveal'
-import { CORPORATION_NUMBER } from '@/lib/site'
+import { CONTACT_EMAIL, CORPORATION_NUMBER } from '@/lib/site'
 
 declare global {
   interface Window {
@@ -28,43 +29,24 @@ declare global {
   }
 }
 
-type Way = {
-  title: string
-  description: string
-  icon: React.ElementType
-}
-
 // Each of these used to be a single vague sentence, which left the whole page
 // at roughly 160 words — thin enough that the Ad Grants website policy would
 // count it against the site, and too thin to answer the question a willing
 // volunteer actually arrives with: what would I be doing, and how much of me
 // does it need?
-const waysToGetInvolved: Way[] = [
-  {
-    title: 'Volunteer',
-    description:
-      'Mentor a student through a course, teach a workshop in your subject, review project work, or help with the operations behind the programmes. Most volunteers give a few hours a month, remotely. Tell us what you know and when you are free, and we will match you to something real.',
-    icon: Users,
-  },
-  {
-    title: 'Partner',
-    description:
-      'Schools, universities, businesses, and NGOs work with us to widen what our students can reach — course content, exam preparation, venues, equipment, internships, and scholarship routes. Our current partners are UWC, Coursera, and IICA.',
-    icon: Handshake,
-  },
-  {
-    title: 'Donate',
-    description:
-      'Programmes are free to every student, and stay that way because donors carry the cost: the learning platform, course materials and certificates, scholarships for the programmes that select participants, and the coordinators who run them in Haiti.',
-    icon: DollarSign,
-  },
-  {
-    title: 'Speak',
-    description:
-      'Our students rarely meet someone doing the job they are aiming at. A single honest hour about your work, how you got there, and what you would do differently changes what a student believes is available to them. ESLP and our course cohorts both host guest speakers.',
-    icon: Mic,
-  },
-]
+//
+// The wording now lives in messages/<locale>/getInvolved.json under
+// `ways.<key>`; only the order and the icon live here.
+const waysToGetInvolved = [
+  { key: 'volunteer', icon: Users },
+  { key: 'partner', icon: Handshake },
+  { key: 'donate', icon: DollarSign },
+  { key: 'speak', icon: Mic },
+] as const
+
+// The option values are what the API receives, so they are not translated;
+// only the labels beside them are.
+const interestOptions = ['volunteer', 'partner', 'donate', 'speak', 'other'] as const
 
 type FormData = {
   name: string
@@ -86,6 +68,7 @@ const fieldClasses =
   'w-full rounded-xl border border-[var(--paper-200)] bg-white px-4 py-3 text-[var(--ink-900)] transition-colors focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-ring)]'
 
 export default function GetInvolvedPage() {
+  const t = useTranslations('getInvolved')
   const {
     register,
     handleSubmit,
@@ -135,6 +118,7 @@ export default function GetInvolvedPage() {
       })
       const result = await response.json().catch(() => ({}))
       if (!response.ok || !result?.success) {
+        // Console only — the visitor sees form.error instead.
         throw new Error(result?.message || 'Submission failed')
       }
       setSubmitStatus('success')
@@ -148,24 +132,27 @@ export default function GetInvolvedPage() {
   return (
     <>
       <Hero
-        eyebrow="EdLight Ecosystem · Get Involved"
-        title="Get Involved"
-        subtitle="Join us in empowering the next generation of Haitian innovators — as a volunteer, partner, donor, or guest speaker."
+        eyebrow={t('hero.eyebrow')}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
         backgroundImage="/about_us.webp"
         // "Donations to programs: 100%" is an absolute nobody outside the
         // organisation can check, and it is not literally true of any charity
         // that pays for a platform and coordinators. What is true and
         // checkable is the price a student pays.
+        //
+        // The count stays a literal — a digit is a digit in every locale — but
+        // the price does not: "$0" is written "0 $" in French.
         meta={[
-          { label: 'Ways to help', value: '4' },
-          { label: 'Cost to students', value: '$0' },
+          { label: t('hero.metaWaysLabel'), value: '4' },
+          { label: t('hero.metaCostLabel'), value: t('hero.metaCostValue') },
         ]}
       >
         <a href="#donate" className="btn btn-primary">
-          Donate now <Heart size={18} />
+          {t('hero.donateCta')} <Heart size={18} />
         </a>
         <a href="#contact" className="btn btn-ghost">
-          Contact us
+          {t('hero.contactCta')}
         </a>
       </Hero>
 
@@ -173,17 +160,21 @@ export default function GetInvolvedPage() {
       <section className="py-16 sm:py-20 md:py-24">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="Ways to get involved"
-            subtitle="There are many ways you can support our mission — pick the one that fits you best."
+            title={t('ways.heading')}
+            subtitle={t('ways.subheading')}
             centered
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {waysToGetInvolved.map((way, i) => (
-              <Reveal key={way.title} delay={i * 80}>
+              <Reveal key={way.key} delay={i * 80}>
                 <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-6 transition-shadow hover:shadow-md">
                   <IconBadge icon={way.icon} />
-                  <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{way.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{way.description}</p>
+                  <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">
+                    {t(`ways.${way.key}.title`)}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">
+                    {t(`ways.${way.key}.description`)}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -212,34 +203,32 @@ export default function GetInvolvedPage() {
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-5 flex items-center justify-center gap-3">
               <span className="h-px w-8 bg-white/40" aria-hidden="true" />
-              <span className="eyebrow text-white/85">Support our work</span>
+              <span className="eyebrow text-white/85">{t('support.eyebrow')}</span>
             </div>
-            <h2 className="display-lg text-white">Fuel free education for Haitian students</h2>
+            <h2 className="display-lg text-white">{t('support.title')}</h2>
             <p className="body-lg mx-auto mt-4 max-w-xl text-white/90">
-              Your donation directly supports scholarships, program costs, and resources for students. Every
-              contribution makes a difference.
+              {t('support.body')}
             </p>
 
             <div className="mx-auto mt-10 max-w-md rounded-2xl border border-white/10 bg-white/5 p-8">
               <div className="flex flex-col items-center gap-5">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--accent-soft)]">
                   <ShieldCheck size={16} />
-                  Secure PayPal Checkout
+                  {t('support.secureCheckout')}
                 </span>
                 <div id="donate-button-container" className="inline-flex justify-center">
                   <div id="donate-button"></div>
                 </div>
                 <p className="text-xs text-white/70">
-                  Powered by PayPal. Choose a one-time gift or set up monthly support.
+                  {t('support.poweredBy')}
                 </p>
               </div>
             </div>
 
+            {/* The corporation number is a fact from lib/site.ts, interpolated
+                rather than translated. */}
             <p className="mt-6 text-sm text-white/70">
-              EdLight Initiative is a not-for-profit corporation registered in Canada
-              (Corporation No. {CORPORATION_NUMBER}). We do not yet hold registered-charity
-              status, so we cannot issue tax receipts — we would rather say so before you give
-              than after.
+              {t('support.taxNotice', { number: CORPORATION_NUMBER })}
             </p>
           </div>
         </div>
@@ -250,8 +239,8 @@ export default function GetInvolvedPage() {
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="mx-auto max-w-2xl">
             <SectionHeader
-              title="Contact us"
-              subtitle="Tell us how you’d like to get involved and we’ll be in touch soon."
+              title={t('form.heading')}
+              subtitle={t('form.subheading')}
               centered
             />
             <Reveal>
@@ -259,12 +248,12 @@ export default function GetInvolvedPage() {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="mb-2 block text-sm font-medium text-[var(--ink-700)]">
-                      Name *
+                      {t('form.nameLabel')} *
                     </label>
                     <input
                       id="name"
                       type="text"
-                      {...register('name', { required: 'Name is required' })}
+                      {...register('name', { required: t('form.nameRequired') })}
                       className={fieldClasses}
                     />
                     {errors.name && (
@@ -274,16 +263,16 @@ export default function GetInvolvedPage() {
 
                   <div>
                     <label htmlFor="email" className="mb-2 block text-sm font-medium text-[var(--ink-700)]">
-                      Email *
+                      {t('form.emailLabel')} *
                     </label>
                     <input
                       id="email"
                       type="email"
                       {...register('email', {
-                        required: 'Email is required',
+                        required: t('form.emailRequired'),
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                          message: 'Invalid email address',
+                          message: t('form.emailInvalid'),
                         },
                       })}
                       className={fieldClasses}
@@ -295,19 +284,19 @@ export default function GetInvolvedPage() {
 
                   <div>
                     <label htmlFor="interest" className="mb-2 block text-sm font-medium text-[var(--ink-700)]">
-                      I&apos;m interested in *
+                      {t('form.interestLabel')} *
                     </label>
                     <select
                       id="interest"
-                      {...register('interest', { required: 'Please select an option' })}
+                      {...register('interest', { required: t('form.interestRequired') })}
                       className={fieldClasses}
                     >
-                      <option value="">Select an option</option>
-                      <option value="volunteer">Volunteering</option>
-                      <option value="partner">Partnership</option>
-                      <option value="donate">Donation</option>
-                      <option value="speak">Guest Speaking</option>
-                      <option value="other">Other</option>
+                      <option value="">{t('form.interestPlaceholder')}</option>
+                      {interestOptions.map((option) => (
+                        <option key={option} value={option}>
+                          {t(`form.interests.${option}`)}
+                        </option>
+                      ))}
                     </select>
                     {errors.interest && (
                       <p className="mt-1 text-sm text-red-600">{errors.interest.message}</p>
@@ -316,12 +305,12 @@ export default function GetInvolvedPage() {
 
                   <div>
                     <label htmlFor="message" className="mb-2 block text-sm font-medium text-[var(--ink-700)]">
-                      Message *
+                      {t('form.messageLabel')} *
                     </label>
                     <textarea
                       id="message"
                       rows={5}
-                      {...register('message', { required: 'Message is required' })}
+                      {...register('message', { required: t('form.messageRequired') })}
                       className={fieldClasses}
                     />
                     {errors.message && (
@@ -334,17 +323,17 @@ export default function GetInvolvedPage() {
                     disabled={submitStatus === 'loading'}
                     className="btn btn-primary w-full justify-center disabled:opacity-60"
                   >
-                    {submitStatus === 'loading' ? 'Sending…' : 'Send Message'}
+                    {submitStatus === 'loading' ? t('form.sending') : t('form.submit')}
                   </button>
 
                   {submitStatus === 'success' && (
                     <p className="text-sm text-green-700" aria-live="polite">
-                      Thank you for your interest! We will be in touch soon.
+                      {t('form.success')}
                     </p>
                   )}
                   {submitStatus === 'error' && (
                     <p className="text-sm text-red-600" aria-live="polite">
-                      There was an error sending your message. Please try again or email us at info@edlight.org.
+                      {t('form.error', { email: CONTACT_EMAIL })}
                     </p>
                   )}
                 </form>

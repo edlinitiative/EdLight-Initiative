@@ -1,12 +1,12 @@
 {
   "programs": "Programmes",
   "about": "À propos",
-  "getInvolved": "S'impliquer",
+  "getInvolved": "S’impliquer",
   "contact": "Contact",
   "donate": "Faire un don",
   "toggleMenu": "Afficher le menu",
   "homeAria": "Accueil EdLight Initiative",
-  "logoAlt": "Logo d'EdLight Initiative",
+  "logoAlt": "Logo d’EdLight Initiative",
   "academy": {
     "label": "EdLight Academy",
     "description": "Cours gratuits de mathématiques, physique, économie et plus"
@@ -21,6 +21,6 @@
   },
   "eslp": {
     "label": "ESLP",
-    "description": "Notre programme d'été de leadership de deux semaines"
+    "description": "Notre programme d’été de leadership de deux semaines"
   }
 }

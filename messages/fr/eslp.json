@@ -1,0 +1,265 @@
+{
+  "programDates": "du 10 au 21 août 2026",
+  "nextCycleOpens": "au printemps 2027",
+  "notifyCta": "Être averti pour 2027",
+  "hero": {
+    "title": "EdLight Summer Leadership Program",
+    "subtitle": "Une expérience de leadership hybride de deux semaines qui donne aux élèves du secondaire haïtiens les outils pour devenir des leaders engagés et des citoyens de demain.",
+    "notify": "Être averti pour ESLP 2027",
+    "seeApplication": "Voir le formulaire précédent"
+  },
+  "stats": {
+    "title": "L’expérience de leadership phare pour les adolescents haïtiens",
+    "subtitle": "Depuis 2022, ESLP réunit un encadrement de haut niveau, une exposition au monde réel et un réseau d’anciens dynamique pour que de jeunes leaders transforment leurs idées en actions."
+  },
+  "counters": {
+    "alumni": "Anciens",
+    "women": "Femmes",
+    "editions": "Éditions",
+    "scholarship": "Boursiers"
+  },
+  "whatIs": {
+    "title": "Qu’est-ce que l’EdLight Summer Leadership Program ?",
+    "subtitle": "Lancé en août 2022, ESLP est un programme d’été de deux semaines destiné aux élèves du secondaire en Haïti, conçu pour renforcer le leadership, la conscience citoyenne et la préparation à l’avenir.",
+    "p1": "ESLP complète les apprentissages scolaires par un parcours ciblé en leadership, entrepreneuriat, développement personnel, engagement citoyen et ouverture aux occasions internationales. Les participants réfléchissent aux enjeux locaux comme internationaux tout en gagnant la confiance nécessaire pour agir dans leur école et leur communauté.",
+    "p2": "L’édition 2026 s’est déroulée en mode hybride : la plupart des séances ont eu lieu en ligne, suivies d’une excursion en entreprise à Radio Télé Métropole à Port-au-Prince et d’une journée de graduation à l’IICA, à Pétion-Ville, où 35 participants ont reçu leur certificat. Nous avons accueilli des intervenants d’organisations et d’institutions de premier plan — dont <b>Harvard, MIT, Microsoft, Deutsche Bank et Cornell</b> — qui rejoignent les participants pour partager leur expertise, bousculer les idées reçues et inspirer l’action.",
+    "programDescription": "Description du programme"
+  },
+  "gallery": {
+    "metropoleGroupe": "La cohorte ESLP 2026 avec l’équipe de Radio Télé Métropole à Port-au-Prince",
+    "graduationCertificat": "Une participante d’ESLP 2026 recevant son certificat lors de la cérémonie de graduation",
+    "graduationViolon": "Un participant jouant du violon lors de la cérémonie de graduation d’ESLP 2026",
+    "metropoleExterieur": "La cohorte ESLP 2026 devant les bureaux de Radio Télé Métropole"
+  },
+  "experience": {
+    "title": "Au cœur de l’expérience ESLP",
+    "subtitle": "Des journées intenses qui mêlent séminaires virtuels, projets collaboratifs, accès à des mentors et une visite d’entreprise soigneusement choisie."
+  },
+  "highlights": {
+    "leadershipStudios": {
+      "title": "Ateliers de leadership",
+      "description": "Des séances interactives sur le leadership personnel, l’innovation sociale, la prise de parole en public et la résolution de problèmes en équipe."
+    },
+    "masterclasses": {
+      "title": "Classes de maître et mentors",
+      "description": "Animées par des leaders haïtiens et internationaux venus de Harvard, du MIT, de la Deutsche Bank, de Microsoft et d’ailleurs."
+    },
+    "cityImmersions": {
+      "title": "Immersions en ville",
+      "description": "Une visite d’entreprise à Port-au-Prince — Radio Télé Métropole en 2026 — aide les participants à relier les apprentissages en leadership aux attentes réelles du monde du travail."
+    },
+    "pitchNight": {
+      "title": "Soirée de présentation d’impact",
+      "description": "Les équipes de la cohorte conçoivent des initiatives pour les communautés haïtiennes et les présentent devant un jury de mentors et de partenaires."
+    }
+  },
+  "capstone": {
+    "eyebrow": "Expérience phare",
+    "title": "Semaine du défi final",
+    "body": "Les participants collaborent en équipes multidisciplinaires de 4 à 5 personnes pour concevoir des solutions à des défis locaux. Chaque équipe est jumelée à un mentor expérimenté en entrepreneuriat et en gestion de projet. Elles réalisent des entrevues avec les parties prenantes, prototypent leurs idées et présentent une feuille de route concrète lors de la soirée de présentation finale, devant les familles, les anciens et les partenaires.",
+    "tags": {
+      "designThinking": "Design thinking",
+      "communityImpact": "Impact communautaire",
+      "teamCoaching": "Accompagnement d’équipe",
+      "mentorship": "Mentorat"
+    }
+  },
+  "curriculum": {
+    "title": "Programme de formation",
+    "subtitle": "Le programme ESLP s’articule autour de cinq domaines clés répartis sur les deux semaines. Pour chaque thème, nous invitons des spécialistes issus d’institutions de premier plan.",
+    "note": "En parallèle, les élèves sont répartis en équipes et invités à développer un projet répondant à un besoin précis de leur communauté. Le programme comprend aussi une excursion dans une grande entreprise de Port-au-Prince, qui permet aux élèves de découvrir concrètement la dynamique du milieu de travail, l’innovation et le leadership en action."
+  },
+  "pillars": {
+    "personalDiscovery": {
+      "title": "Découverte de soi",
+      "description": "Connaissance de soi, styles de leadership, clarification des valeurs et prise de parole en public."
+    },
+    "professionalOrientation": {
+      "title": "Orientation professionnelle",
+      "description": "Exploration de carrière, ateliers de CV et mentorat par des professionnels du secteur."
+    },
+    "collegeAdmissions": {
+      "title": "Admissions universitaires et bourses",
+      "description": "Accompagnement pour étudier à l’étranger : États-Unis, Canada, France, Taïwan, Maroc et plus encore."
+    },
+    "finance": {
+      "title": "Finance",
+      "description": "Finances personnelles, budget, épargne et compréhension du contexte économique."
+    },
+    "entrepreneurship": {
+      "title": "Entrepreneuriat",
+      "description": "Canevas de modèle d’affaires, étude de marché, prototypage et présentation finale du projet."
+    }
+  },
+  "tabs": {
+    "title": "Le programme en action",
+    "subtitle": "Des séminaires virtuels avec des intervenants de haut niveau aux excursions sur le terrain, jusqu’à la célébration des réussites.",
+    "seminars": {
+      "label": "Séminaires",
+      "alt": "Séance de séminaire virtuel ESLP — participants et intervenants réunis en appel Zoom",
+      "heading": "Séminaires virtuels interactifs",
+      "description": "De 9 h à 12 h, les participants rencontrent en ligne des spécialistes issus d’institutions comme Harvard, le MIT, Cornell, la Deutsche Bank et Microsoft. Ces séances interactives portent sur le leadership, le développement personnel, les admissions universitaires, la finance et l’entrepreneuriat — offrant aux élèves une tribune pour échanger directement avec des leaders du secteur."
+    },
+    "excursion": {
+      "label": "Excursion",
+      "alt": "Les participants d’ESLP 2026 sur le plateau du journal lors de leur visite à Radio Télé Métropole à Port-au-Prince",
+      "heading": "Visites d’entreprise sur le terrain",
+      "description": "Le programme comprend une excursion enrichissante dans une entreprise réputée de Port-au-Prince — en 2026, les participants ont passé une journée à Radio Télé Métropole, échangeant avec les journalistes et visitant la salle de rédaction, les studios et la régie. Le transport et les entrées sont entièrement pris en charge pour chaque participant."
+    },
+    "graduation": {
+      "label": "Graduation",
+      "alt": "Les 35 participants diplômés d’ESLP 2026 tenant leur certificat à l’IICA, à Pétion-Ville",
+      "heading": "Présentation finale et cérémonie",
+      "description": "Le programme culmine avec une présentation des projets finaux, où les équipes de la cohorte exposent leurs initiatives communautaires devant un jury de mentors, de partenaires et de familles. En 2026, 35 participants ont été diplômés à l’IICA, à Pétion-Ville, et ont reçu un certificat de distinction soulignant leur leadership, leur collaboration et la réussite de leurs projets."
+    }
+  },
+  "journey": {
+    "eyebrow": "Parcours",
+    "title": "De la candidature au leadership des anciens",
+    "intro": "ESLP est conçu comme un parcours accompagné. Les participants reçoivent un soutien complet à chaque étape — du recrutement au mentorat après le programme."
+  },
+  "phases": {
+    "discover": {
+      "title": "Découvrir",
+      "description": "Nous recrutons des élèves curieux et engagés dans leur communauté, prêts à grandir comme leaders.",
+      "bullet1": "Formulaire de candidature avec de courts essais",
+      "bullet2": "Envoi des relevés de notes et d’une photo d’identité",
+      "bullet3": "Sélection fondée sur la motivation, l’engagement et la représentativité"
+    },
+    "prepare": {
+      "title": "Se préparer",
+      "description": "Les participants retenus rejoignent des cercles préparatoires qui créent la communauté avant le premier jour.",
+      "bullet1": "Séance d’accueil pour les participants et les familles",
+      "bullet2": "Ordinateur portable, webcaméra et connexion Internet stable requis",
+      "bullet3": "Réception de votre trousse de bienvenue EdLight"
+    },
+    "immerse": {
+      "title": "S’immerger",
+      "description": "Deux semaines d’apprentissage par l’expérience, mêlant séminaires, travail de terrain et expression créative.",
+      "bullet1": "Séminaires virtuels le matin avec des spécialistes",
+      "bullet2": "Projets entrepreneuriaux en équipe avec des mentors",
+      "bullet3": "Excursion dans une entreprise réputée de Port-au-Prince"
+    },
+    "amplify": {
+      "title": "Rayonner",
+      "description": "Les participants obtiennent leur diplôme, rejoignent le réseau des anciens et continuent de lancer des projets communautaires.",
+      "bullet1": "Présentation des projets finaux avec les partenaires et les familles",
+      "bullet2": "Mentorat des anciens et occasions de microsubventions",
+      "bullet3": "Accompagnement continu en leadership avec l’équipe EdLight"
+    }
+  },
+  "eligibility": {
+    "title": "Admissibilité et sélection",
+    "subtitle": "Nous cherchons de jeunes leaders désireux d’apprendre, de collaborer et de servir leur communauté.",
+    "whoTitle": "Qui devrait poser sa candidature ?",
+    "items": {
+      "age": "Élèves de 15 à 18 ans actuellement inscrits dans une école secondaire haïtienne.",
+      "qualities": "Apprenants qui font preuve de curiosité, d’esprit d’équipe, d’empathie et de potentiel de leadership.",
+      "commitment": "Participants qui s’engagent à assister à chaque séance, atelier et excursion."
+    }
+  },
+  "selection": {
+    "title": "Comment nous sélectionnons les participants",
+    "intro": "ESLP est très sélectif. Nous évaluons chaque candidature de façon globale afin de former une cohorte diversifiée d’environ 30 élèves, alignée sur notre mission.",
+    "criteria": {
+      "motivation": "Motivation, caractère et adhésion à la mission d’EdLight",
+      "community": "Engagement communautaire ou leadership dans des clubs, des groupes religieux ou des initiatives",
+      "curiosity": "Curiosité intellectuelle, discipline et volonté d’apprendre",
+      "representation": "Représentation équilibrée entre les régions, les écoles et les genres"
+    }
+  },
+  "apply": {
+    "imageAlt": "Des élèves d’EdLight réunis en groupe",
+    "title": "Comment poser sa candidature",
+    "subtitle": "Les candidatures sont closes. Lorsque {cycle} ouvrira {opens}, voici ce qu’il faudra soumettre :",
+    "preview": "Aperçu du formulaire précédent",
+    "steps": {
+      "form": {
+        "title": "Formulaire de candidature",
+        "desc": "Remplissez le formulaire avec votre nom, votre adresse, les renseignements sur votre école et plus encore."
+      },
+      "essays": {
+        "title": "Deux essais",
+        "desc": "L’un sur vos activités parascolaires, l’autre sur votre intérêt pour le programme."
+      },
+      "photo": {
+        "title": "Photo d’identité",
+        "desc": "Fournissez une photo d’identité récente à des fins d’identification."
+      },
+      "transcripts": {
+        "title": "Relevés de notes",
+        "desc": "Soumettez les relevés de notes de votre année scolaire en cours au format PDF."
+      }
+    }
+  },
+  "cohort2026": {
+    "badge": "Cohorte diplômée",
+    "title": "ESLP 2026",
+    "body": "L’édition 2026 du EdLight Summer Leadership Program s’est déroulée <b>{dates}</b> — deux semaines de séminaires virtuels, une excursion en entreprise à <b>Radio Télé Métropole</b> à Port-au-Prince et une cérémonie de graduation à l’<b>IICA, à Pétion-Ville</b>, où 35 participants ont reçu leur certificat. Les candidatures pour ESLP 2027 ouvriront <b>{opens}</b>."
+  },
+  "funding": {
+    "title": "Entièrement financé pour chaque participant",
+    "subtitle": "ESLP est rendu possible par des partenaires et des donateurs convaincus que le développement du leadership doit être accessible.",
+    "guaranteeEyebrow": "Garantie de bourse",
+    "guaranteeBody": "Chaque participant suit ESLP sans frais de scolarité. Les commanditaires aident à couvrir les coûts d’apprentissage essentiels, une partie de la logistique des moments en présentiel et le soutien continu aux anciens."
+  },
+  "benefits": {
+    "allInclusive": {
+      "title": "Une expérience tout compris",
+      "description": "Ateliers, matériel pédagogique, fournitures et repas quotidiens fournis à chaque participant."
+    },
+    "excursions": {
+      "title": "Excursions et ateliers culturels",
+      "description": "Transport et entrées entièrement couverts pour les visites, les projets de service et les activités culturelles."
+    },
+    "mentors": {
+      "title": "Mentors et réseau des anciens",
+      "description": "Accès à des mentors du secteur et accompagnement continu des anciens d’ESLP après la graduation."
+    },
+    "certificate": {
+      "title": "Certificat de distinction",
+      "description": "Souligne le leadership, la collaboration et la réussite des projets finaux."
+    }
+  },
+  "testimonials": {
+    "title": "Paroles d’anciens",
+    "subtitle": "Découvrez les visages inspirants de nos anciens participants. Grâce à ESLP, ils ont affûté leurs compétences, acquis des perspectives précieuses et noué des liens durables.",
+    "dotAria": "Voir le témoignage {number}"
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "subtitle": "Besoin de précisions ? Écrivez à {email} et notre équipe vous répondra en deux jours ouvrables."
+  },
+  "faqs": {
+    "dates": {
+      "question": "Quand aura lieu la prochaine cohorte ?",
+      "answer": "L’édition 2026 s’est déroulée {dates} et s’est conclue par la graduation de 35 participants à l’IICA, à Pétion-Ville. Les candidatures pour ESLP 2027 ouvriront {opens} — inscrivez-vous à la liste d’avis pour l’apprendre en premier."
+    },
+    "free": {
+      "question": "Le programme est-il vraiment gratuit ?",
+      "answer": "Oui. Grâce à des partenaires et des commanditaires généreux, ESLP couvre les coûts essentiels du programme, dont les séances d’apprentissage, le matériel, l’excursion organisée et la célébration de clôture."
+    },
+    "documents": {
+      "question": "Quels documents dois-je fournir pour poser ma candidature ?",
+      "answer": "En général, vous soumettez : (1) un formulaire de candidature, (2) deux essais — l’un sur vos activités parascolaires et l’autre sur votre intérêt pour le programme, (3) une photo d’identité récente et (4) vos relevés de notes en cours au format PDF."
+    },
+    "english": {
+      "question": "Les participants doivent-ils parler anglais ?",
+      "answer": "Non. Le programme est conçu pour les élèves haïtiens et la communication se fait en kreyòl et en français, même si certains intervenants invités peuvent s’exprimer en anglais."
+    },
+    "prepare": {
+      "question": "Que dois-je préparer avant le programme ?",
+      "answer": "Il vous faudra un ordinateur portable, une tablette ou un téléphone doté d’une caméra, une connexion Internet stable, un endroit calme et bien éclairé, ainsi qu’un cahier avec des stylos ou des crayons pour les activités quotidiennes."
+    },
+    "organizations": {
+      "question": "Comment les organisations peuvent-elles s’impliquer ?",
+      "answer": "Les organisations peuvent animer une séance, accueillir une excursion, offrir des bourses ou proposer des stages aux anciens d’ESLP. Écrivez à {email} pour bâtir un partenariat ensemble."
+    }
+  },
+  "finalCta": {
+    "eyebrow": "ESLP 2027 · Candidatures ouvertes {opens}",
+    "title": "Prêt à diriger avec conviction ?",
+    "body": "Inscrivez-vous à la liste d’avis pour la cohorte 2027, proposez la candidature d’un élève ou devenez partenaire d’ESLP pour soutenir la prochaine génération de leaders haïtiens.",
+    "partner": "Devenir partenaire d’ESLP"
+  }
+}

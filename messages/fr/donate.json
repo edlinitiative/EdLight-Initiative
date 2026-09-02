@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "title": "Faire un don | EdLight Initiative",
+    "description": "Soutenez une éducation gratuite et de qualité pour les élèves du secondaire en Haïti. Votre don finance des bourses, du matériel pédagogique et l’accès à la technologie."
+  },
+  "hero": {
+    "title": "Soutenez notre mission",
+    "subtitle": "Votre don donne des moyens aux élèves et transforme des communautés par l’éducation"
+  },
+  "why": {
+    "heading": "Pourquoi votre soutien compte",
+    "body": "EdLight Initiative compte sur la générosité de donateurs comme vous pour offrir gratuitement une éducation et des possibilités aux jeunes mal desservis en Haïti et ailleurs. Chaque contribution, quelle que soit son importance, change directement la vie des élèves et aide à briser le cycle de la pauvreté par l’éducation.",
+    "alumniLabel": "Anciens de l’ESLP ({through})",
+    "costAmount": "{amount} $",
+    "costLabel": "Coût pour chaque élève, toujours",
+    "subjectsLabel": "Matières et parcours de programmation gratuits à explorer"
+  },
+  "impact": {
+    "heading": "Où va votre don",
+    "subtitle": "Voyez l’effet direct de votre contribution",
+    "areas": {
+      "scholarships": {
+        "title": "Bourses",
+        "description": "Des places dans les programmes qui sélectionnent leurs participants, pour qu’aucun élève ne soit écarté à cause du coût de la participation."
+      },
+      "materials": {
+        "title": "Matériel pédagogique",
+        "description": "Le matériel de cours, la préparation aux examens et les certificats que les élèves obtiennent — le tout offert gratuitement."
+      },
+      "platform": {
+        "title": "Plateforme et connectivité",
+        "description": "Faire fonctionner EdLight Academy et EdLight Code, et les garder utilisables sur un téléphone ordinaire avec une connexion intermittente."
+      },
+      "operations": {
+        "title": "Fonctionnement des programmes",
+        "description": "Les personnes et la logistique derrière les programmes : mentors, coordonnateurs en Haïti et événements qui rassemblent les élèves."
+      }
+    }
+  },
+  "levels": {
+    "heading": "Paliers de don",
+    "subtitle": "Choisissez un montant qui vous convient",
+    "amount": "{amount} $",
+    "custom": "Ou choisissez un montant personnalisé ci-dessous",
+    "tiers": {
+      "supporter": {
+        "title": "Soutien",
+        "description": "Aidez-nous à maintenir notre plateforme d’apprentissage en ligne"
+      },
+      "contributor": {
+        "title": "Contributeur",
+        "description": "Fournissez du matériel pédagogique aux élèves"
+      },
+      "sponsor": {
+        "title": "Parrain",
+        "description": "Parrainez un élève pour un cours complet"
+      },
+      "patron": {
+        "title": "Mécène",
+        "description": "Soutenez plusieurs élèves et programmes"
+      },
+      "champion": {
+        "title": "Champion",
+        "description": "Ayez une incidence déterminante sur notre communauté"
+      }
+    }
+  },
+  "cta": {
+    "heading": "Faites votre don aujourd’hui",
+    "subheading": "Traitement sécurisé des dons par PayPal",
+    "body": "Faites un don en toute sécurité par PayPal ou par carte de crédit",
+    "button": "Faire un don",
+    "note": "Traitement sécurisé par PayPal. Aucun compte requis."
+  },
+  "otherWays": {
+    "heading": "Autres façons de donner",
+    "subtitle": "D’autres options pour soutenir notre mission",
+    "monthly": {
+      "title": "Don mensuel",
+      "body": "Devenez un donateur régulier grâce à des contributions mensuelles",
+      "link": "En savoir plus"
+    },
+    "corporate": {
+      "title": "Partenariat d’entreprise",
+      "body": "Associez-vous à nous pour avoir une plus grande incidence grâce au don d’entreprise",
+      "link": "Nous joindre"
+    },
+    "inKind": {
+      "title": "Dons en nature",
+      "body": "Donnez de l’équipement, des livres ou d’autre matériel pour soutenir nos programmes",
+      "link": "Écrivez-nous"
+    }
+  },
+  "faq": {
+    "heading": "FAQ sur les dons",
+    "subtitle": "Questions fréquentes sur les dons",
+    "tax": {
+      "question": "Mon don est-il déductible d’impôt ?",
+      "answer": "Pas pour l’instant. EdLight Initiative est une société canadienne sans but lucratif enregistrée, mais elle ne détient pas encore le statut d’organisme de bienfaisance enregistré ; nous ne pouvons donc pas délivrer de reçus fiscaux. Écrivez à {email} si vous avez besoin d’une attestation de don."
+    },
+    "use": {
+      "question": "Comment mon don est-il utilisé ?",
+      "answer": "Il finance ce qui permet aux programmes de rester gratuits pour les élèves : les coûts de la plateforme et des cours, le matériel pédagogique, les bourses pour les programmes qui sélectionnent leurs participants, et les coordonnateurs qui les animent en Haïti."
+    },
+    "memory": {
+      "question": "Puis-je faire un don à la mémoire ou en l’honneur de quelqu’un ?",
+      "answer": "Oui ! Joignez une note à votre don ou communiquez avec nous pour organiser un don commémoratif ou honorifique. Nous pouvons informer la personne honorée ou sa famille de votre généreuse contribution."
+    },
+    "updates": {
+      "question": "Recevrai-je des nouvelles de l’effet de mon don ?",
+      "answer": "Oui. Abonnez-vous à notre infolettre mensuelle au bas de n’importe quelle page pour des récits d’élèves, des nouvelles des programmes et des mises à jour sur ce que votre soutien a permis de financer."
+    }
+  },
+  "thanks": {
+    "heading": "Merci de votre soutien",
+    "body": "Chaque don, quelle que soit son importance, nous rapproche de notre mission : donner des moyens aux communautés mal desservies grâce à l’éducation. Ensemble, nous changeons des vies et bâtissons un avenir meilleur."
+  }
+}

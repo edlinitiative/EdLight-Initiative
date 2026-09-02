@@ -1,0 +1,113 @@
+{
+  "precedenceNotice": "This page is available in other languages for convenience. The English version is the authoritative text and governs in the event of any discrepancy.",
+  "meta": {
+    "title": "Terms of Use | EdLight Initiative",
+    "description": "Terms and conditions for using the EdLight Initiative website and services."
+  },
+  "title": "Terms of Use",
+  "lastUpdated": "Last Updated: September 2, 2026",
+  "s1": {
+    "heading": "1. Acceptance of Terms",
+    "body": "By accessing and using the EdLight Initiative website and services (\"Services\"), you accept and agree to be bound by these Terms of Use (\"Terms\"). If you do not agree to these Terms, please do not use our Services."
+  },
+  "s2": {
+    "heading": "2. About EdLight Initiative",
+    "body": "EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation No. {number}), based in {address}, serving secondary-school students in {area}. Our Services include educational programs, courses, leadership training, and community initiatives."
+  },
+  "s3": {
+    "heading": "3. Use of Services",
+    "eligibilityHeading": "Eligibility",
+    "eligibilityBody": "You must be at least 13 years old to use our Services. If you are under 18, you must have parental or guardian consent to use our Services.",
+    "accountHeading": "Account Responsibilities",
+    "accountIntro": "If you create an account, you are responsible for:",
+    "account": {
+      "credentials": "Maintaining the confidentiality of your account credentials",
+      "activities": "All activities that occur under your account",
+      "notify": "Notifying us immediately of any unauthorized use",
+      "accurate": "Providing accurate and complete information"
+    },
+    "prohibitedHeading": "Prohibited Conduct",
+    "prohibitedIntro": "You agree not to:",
+    "prohibited": {
+      "illegal": "Use our Services for any illegal purpose",
+      "laws": "Violate any applicable laws or regulations",
+      "rights": "Infringe upon the rights of others",
+      "malware": "Transmit viruses, malware, or other harmful code",
+      "access": "Attempt to gain unauthorized access to our systems",
+      "harass": "Harass, abuse, or harm other users",
+      "impersonate": "Impersonate any person or entity",
+      "harvest": "Collect or harvest information about other users"
+    }
+  },
+  "s4": {
+    "heading": "4. Intellectual Property",
+    "ourContentHeading": "Our Content",
+    "ourContentBody": "All content on our website, including text, graphics, logos, images, videos, and software, is the property of EdLight Initiative or our licensors and is protected by copyright, trademark, and other intellectual property laws.",
+    "licenseHeading": "License to Use",
+    "licenseIntro": "We grant you a limited, non-exclusive, non-transferable license to access and use our Services for personal, non-commercial purposes. You may not:",
+    "license": {
+      "modify": "Modify, copy, or distribute our content without permission",
+      "commercial": "Use our content for commercial purposes",
+      "notices": "Remove any copyright or proprietary notices"
+    },
+    "userContentHeading": "User Content",
+    "userContentBody": "By submitting content to our Services (e.g., testimonials, feedback), you grant us a non-exclusive, worldwide, royalty-free license to use, reproduce, modify, and display such content in connection with our Services and promotional activities."
+  },
+  "s5": {
+    "heading": "5. Programs and Courses",
+    "registrationHeading": "Registration",
+    "registrationBody": "Registration for our programs and courses is subject to availability and acceptance. We reserve the right to refuse or cancel any registration at our discretion.",
+    "noFeesHeading": "No Fees",
+    "noFeesBody": "All EdLight Initiative programmes are provided free of charge. There is no application fee, no tuition, no paid tier, and no paid upgrade. We will never ask you to pay to apply for, enrol in, or complete any of our programmes."
+  },
+  "s6": {
+    "heading": "6. Donations",
+    "body": "Donations to EdLight Initiative are voluntary and non-refundable. We will use donations to support our mission and programs. EdLight Initiative does not hold registered-charity status and cannot issue tax receipts, so donations are not tax-deductible. Donations are processed by PayPal; EdLight Initiative never receives or stores your card details."
+  },
+  "s7": {
+    "heading": "7. Third-Party Services",
+    "body": "Our Services may contain links to third-party websites or services. We are not responsible for the content, privacy policies, or practices of third-party websites. Your use of third-party services is at your own risk."
+  },
+  "s8": {
+    "heading": "8. Disclaimers",
+    "intro": "Our Services are provided \"as is\" and \"as available\" without warranties of any kind, either express or implied, including but not limited to:",
+    "items": {
+      "merchantability": "Warranties of merchantability or fitness for a particular purpose",
+      "accuracy": "Accuracy, reliability, or completeness of content",
+      "uninterrupted": "Uninterrupted or error-free operation",
+      "viruses": "Freedom from viruses or harmful components"
+    }
+  },
+  "s9": {
+    "heading": "9. Limitation of Liability",
+    "body": "To the fullest extent permitted by law, EdLight Initiative and its directors, officers, employees, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of our Services, even if we have been advised of the possibility of such damages."
+  },
+  "s10": {
+    "heading": "10. Indemnification",
+    "body": "You agree to indemnify, defend, and hold harmless EdLight Initiative from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from your use of our Services or violation of these Terms."
+  },
+  "s11": {
+    "heading": "11. Termination",
+    "body": "We reserve the right to terminate or suspend your access to our Services at any time, with or without cause or notice, including for violation of these Terms. Upon termination, your right to use our Services will immediately cease."
+  },
+  "s12": {
+    "heading": "12. Modifications to Terms",
+    "body": "We may modify these Terms at any time. We will notify you of material changes by posting the updated Terms on our website with a new \"Last Updated\" date. Your continued use of our Services after changes constitutes acceptance of the modified Terms."
+  },
+  "s13": {
+    "heading": "13. Governing Law",
+    "body": "These Terms shall be governed by and construed in accordance with the laws of the Province of Quebec and the federal laws of Canada applicable therein, without regard to conflict of law provisions. Any disputes shall be resolved in the courts of Quebec."
+  },
+  "s14": {
+    "heading": "14. Severability",
+    "body": "If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect."
+  },
+  "s15": {
+    "heading": "15. Contact Information",
+    "intro": "If you have any questions about these Terms, please contact us:",
+    "orgName": "EdLight Initiative",
+    "corporationLine": "Corporation No. {number}",
+    "emailLine": "Email: {email}",
+    "websiteLine": "Website: {website}"
+  }
+}

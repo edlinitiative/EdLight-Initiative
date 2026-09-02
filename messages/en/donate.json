@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "title": "Donate | EdLight Initiative",
+    "description": "Support free, quality education for high school students in Haiti. Your donation funds scholarships, learning materials, and technology access."
+  },
+  "hero": {
+    "title": "Support Our Mission",
+    "subtitle": "Your donation empowers students and transforms communities through education"
+  },
+  "why": {
+    "heading": "Why Your Support Matters",
+    "body": "EdLight Initiative relies on the generosity of donors like you to provide free education and opportunities to underserved youth in Haiti and beyond. Every contribution, no matter the size, directly impacts students' lives and helps break the cycle of poverty through education.",
+    "alumniLabel": "ESLP alumni through {through}",
+    "costAmount": "${amount}",
+    "costLabel": "Cost to every student, always",
+    "subjectsLabel": "Free subjects and coding tracks to learn from"
+  },
+  "impact": {
+    "heading": "Where Your Donation Goes",
+    "subtitle": "See the direct impact of your contribution",
+    "areas": {
+      "scholarships": {
+        "title": "Scholarships",
+        "description": "Places on the programmes that select participants, so a student is never kept out by what it costs to take part."
+      },
+      "materials": {
+        "title": "Learning materials",
+        "description": "Course materials, exam preparation, and the certificates students earn — all provided at no charge."
+      },
+      "platform": {
+        "title": "Platform and connectivity",
+        "description": "Running EdLight Academy and EdLight Code, and keeping them usable on an ordinary phone with an intermittent connection."
+      },
+      "operations": {
+        "title": "Programme operations",
+        "description": "The people and logistics behind the programmes: mentors, coordinators in Haiti, and the events that bring students together."
+      }
+    }
+  },
+  "levels": {
+    "heading": "Donation Levels",
+    "subtitle": "Choose an amount that works for you",
+    "amount": "${amount}",
+    "custom": "Or choose a custom amount below",
+    "tiers": {
+      "supporter": {
+        "title": "Supporter",
+        "description": "Help us maintain our online learning platform"
+      },
+      "contributor": {
+        "title": "Contributor",
+        "description": "Provide learning materials for students"
+      },
+      "sponsor": {
+        "title": "Sponsor",
+        "description": "Sponsor a student for a complete course"
+      },
+      "patron": {
+        "title": "Patron",
+        "description": "Support multiple students and programs"
+      },
+      "champion": {
+        "title": "Champion",
+        "description": "Make a transformative impact on our community"
+      }
+    }
+  },
+  "cta": {
+    "heading": "Make Your Donation Today",
+    "subheading": "Secure donation processing through PayPal",
+    "body": "Donate securely with PayPal or credit card",
+    "button": "Donate Now",
+    "note": "Processed securely by PayPal. No account required."
+  },
+  "otherWays": {
+    "heading": "Other Ways to Give",
+    "subtitle": "Additional options to support our mission",
+    "monthly": {
+      "title": "Monthly Giving",
+      "body": "Become a sustaining donor with recurring monthly contributions",
+      "link": "Learn More"
+    },
+    "corporate": {
+      "title": "Corporate Partnership",
+      "body": "Partner with us to make a larger impact through corporate giving",
+      "link": "Contact Us"
+    },
+    "inKind": {
+      "title": "In-Kind Donations",
+      "body": "Donate equipment, books, or other materials to support our programs",
+      "link": "Get in Touch"
+    }
+  },
+  "faq": {
+    "heading": "Donation FAQ",
+    "subtitle": "Common questions about giving",
+    "tax": {
+      "question": "Is my donation tax-deductible?",
+      "answer": "Not at present. EdLight Initiative is a registered Canadian not-for-profit corporation, but it does not yet hold registered-charity status, so we cannot issue tax receipts. Write to {email} if you need documentation of a gift."
+    },
+    "use": {
+      "question": "How is my donation used?",
+      "answer": "It funds the things that keep programmes free for students: platform and course costs, learning materials, scholarships for the programmes that select participants, and the coordinators who run them in Haiti."
+    },
+    "memory": {
+      "question": "Can I donate in memory or honor of someone?",
+      "answer": "Yes! Please include a note with your donation or contact us to arrange a memorial or honorary gift. We can notify the honoree or their family of your generous contribution."
+    },
+    "updates": {
+      "question": "Will I receive updates on the impact of my donation?",
+      "answer": "Yes. Subscribe to our monthly newsletter at the bottom of any page for student stories, programme news, and updates on what your support paid for."
+    }
+  },
+  "thanks": {
+    "heading": "Thank You for Your Support",
+    "body": "Every donation, no matter the size, brings us closer to our mission of empowering underserved communities through education. Together, we are changing lives and building a brighter future."
+  }
+}

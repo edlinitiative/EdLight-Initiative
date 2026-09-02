@@ -13,196 +13,104 @@ import {
   Sparkles,
   Terminal,
 } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import Reveal from '@/components/Reveal'
 
+// Structure, icons, and numeric facts live here; every word lives in
+// messages/<locale>/code.json. `key` indexes into the catalogue — e.g.
+// code.tracks.items.<key>.title — so copy and layout change independently.
+
 type Stat = {
+  key: string
   value: string
-  label: string
-  description: string
 }
 
 type Track = {
-  title: string
-  description: string
-  courses: string
+  key: string
+  /** Interpolated into the `tracks.courseCount` plural, not translated. */
+  courses: number
   hours: string
   icon: React.ElementType
 }
 
 type Step = {
+  key: string
   number: string
-  title: string
-  description: string
 }
 
 type Project = {
-  title: string
-  level: string
-  description: string
-  tags: string[]
+  key: string
+  level: 'beginner' | 'intermediate'
+  tags: readonly string[]
   hours: string
 }
 
+type Feature = {
+  key: string
+  icon: React.ElementType
+}
+
 const stats: Stat[] = [
-  {
-    value: '6+',
-    label: 'Learning tracks',
-    description: 'SQL, Python, HTML, CSS, JavaScript, Terminal & Git — with more on the way.',
-  },
-  {
-    value: '100%',
-    label: 'Free & browser-based',
-    description: 'No downloads, no setup. Write real code directly in your browser from any device.',
-  },
-  {
-    value: '✓',
-    label: 'Verifiable certificates',
-    description: 'Complete a track and earn a certificate with a unique verification link employers can check instantly.',
-  },
+  { key: 'tracks', value: '6+' },
+  { key: 'free', value: '100%' },
+  { key: 'certificates', value: '✓' },
 ]
 
 const tracks: Track[] = [
-  {
-    title: 'SQL Track',
-    description: 'Master database querying from basics to advanced analytics. Learn to extract insights from data.',
-    courses: '6 courses',
-    hours: '~60 h',
-    icon: Database,
-  },
-  {
-    title: 'Python Track',
-    description: 'Learn Python programming from scratch. From variables and functions to pandas DataFrames.',
-    courses: '7 courses',
-    hours: '~55 h',
-    icon: Code2,
-  },
-  {
-    title: 'Terminal & Git',
-    description: 'Master the command line, Git fundamentals, and professional collaboration workflows with GitHub.',
-    courses: '3 courses',
-    hours: '~9 h',
-    icon: Terminal,
-  },
-  {
-    title: 'HTML Track',
-    description: 'Build semantic, accessible, and search-optimized web pages from the ground up.',
-    courses: '3 courses',
-    hours: '~12 h',
-    icon: Globe2,
-  },
-  {
-    title: 'CSS Track',
-    description: 'From selectors and the box model through Flexbox, Grid layouts, responsive design, and animations.',
-    courses: '3 courses',
-    hours: '~14 h',
-    icon: Laptop,
-  },
-  {
-    title: 'JavaScript Track',
-    description: 'Master JavaScript from fundamentals through DOM manipulation, events, async/await, and advanced patterns.',
-    courses: '3 courses',
-    hours: '~14 h',
-    icon: Sparkles,
-  },
+  { key: 'sql', courses: 6, hours: '~60 h', icon: Database },
+  { key: 'python', courses: 7, hours: '~55 h', icon: Code2 },
+  { key: 'terminal', courses: 3, hours: '~9 h', icon: Terminal },
+  { key: 'html', courses: 3, hours: '~12 h', icon: Globe2 },
+  { key: 'css', courses: 3, hours: '~14 h', icon: Laptop },
+  { key: 'javascript', courses: 3, hours: '~14 h', icon: Sparkles },
 ]
 
 const howItWorks: Step[] = [
-  {
-    number: '01',
-    title: 'Pick a track',
-    description:
-      'Choose from Python, SQL, HTML, CSS, JavaScript, Terminal & Git, and more. Start from the beginning or jump to what you need.',
-  },
-  {
-    number: '02',
-    title: 'Learn with lessons & labs',
-    description:
-      'Read bite-sized lessons, then practice with hands-on coding exercises directly in your browser — no setup required.',
-  },
-  {
-    number: '03',
-    title: 'Earn a certificate',
-    description:
-      'Complete a track and get a verifiable certificate. Share it on LinkedIn or let employers verify it in seconds.',
-  },
+  { key: 'pick', number: '01' },
+  { key: 'learn', number: '02' },
+  { key: 'certify', number: '03' },
 ]
 
 const projects: Project[] = [
   {
-    title: 'Build Your Personal Portfolio',
-    level: 'Intermediate',
-    description:
-      'Create a professional portfolio website from scratch using HTML, CSS, and JavaScript.',
-    tags: ['HTML', 'CSS', 'JavaScript'],
+    key: 'portfolio',
+    level: 'intermediate',
+    tags: ['html', 'css', 'javascript'],
     hours: '~8 h',
   },
   {
-    title: 'SQL: Analyze Sales Data',
-    level: 'Beginner',
-    description:
-      'Query customers, orders, and products to uncover business insights using SELECT, JOIN, and GROUP BY.',
-    tags: ['SQL', 'Data Analysis'],
+    key: 'salesData',
+    level: 'beginner',
+    tags: ['sql', 'dataAnalysis'],
     hours: '~3 h',
   },
   {
-    title: 'Python: Automate Expense Reports',
-    level: 'Beginner',
-    description:
-      'Filter, aggregate, and generate reports from real-world expense data using Python.',
-    tags: ['Python', 'Automation'],
+    key: 'expenseReports',
+    level: 'beginner',
+    tags: ['python', 'automation'],
     hours: '~3 h',
   },
   {
-    title: 'Interactive Quiz App',
-    level: 'Intermediate',
-    description:
-      'Build a fully functional quiz application with scoring, timers, and results using JavaScript.',
-    tags: ['HTML', 'CSS', 'JavaScript'],
+    key: 'quizApp',
+    level: 'intermediate',
+    tags: ['html', 'css', 'javascript'],
     hours: '~5 h',
   },
 ]
 
-const lessonFeatures = [
-  {
-    title: 'Bite-sized lessons',
-    description: 'Focused readings you can finish in 5-10 minutes. No fluff, just the concepts you need.',
-    icon: BookOpenCheck,
-  },
-  {
-    title: 'Hands-on exercises',
-    description: 'Practice coding directly in your browser after every lesson. No setup, no downloads.',
-    icon: Code2,
-  },
-  {
-    title: 'Works on any device',
-    description: 'Mobile-friendly and browser-based. Learn on a phone, tablet, or laptop — wherever you are.',
-    icon: Laptop,
-  },
-  {
-    title: 'Multilingual support',
-    description: 'Available in English, French, and Haitian Creole so you can learn in the language you think in.',
-    icon: GraduationCap,
-  },
+const lessonFeatures: Feature[] = [
+  { key: 'biteSized', icon: BookOpenCheck },
+  { key: 'handsOn', icon: Code2 },
+  { key: 'anyDevice', icon: Laptop },
+  { key: 'multilingual', icon: GraduationCap },
 ]
 
-const certFeatures = [
-  {
-    title: 'Unique verification link',
-    description: 'Each certificate has a unique URL that anyone can visit to verify authenticity.',
-    icon: Link2,
-  },
-  {
-    title: 'Instant employer verification',
-    description: 'Employers can verify your certificate in seconds — no login required.',
-    icon: CheckCircle2,
-  },
-  {
-    title: 'Shareable credentials',
-    description: 'Add your certificate to LinkedIn or share the verification link directly.',
-    icon: Award,
-  },
+const certFeatures: Feature[] = [
+  { key: 'link', icon: Link2 },
+  { key: 'employer', icon: CheckCircle2 },
+  { key: 'shareable', icon: Award },
 ]
 
 function IconBadge({ icon: Icon }: { icon: React.ElementType }) {
@@ -213,19 +121,21 @@ function IconBadge({ icon: Icon }: { icon: React.ElementType }) {
   )
 }
 
-export default function CodePage() {
+export default async function CodePage() {
+  const t = await getTranslations('code')
+
   return (
     <>
       <Hero
-        eyebrow="EdLight Ecosystem · Learn to Code"
-        title="EdLight Code"
-        subtitle="The skills you need. The portfolio to prove it. Master Python, SQL, Web Development, and more through guided, hands-on courses — all in your browser."
+        eyebrow={t('hero.eyebrow')}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
         backgroundImage="/edlight_academy_group.webp"
         meta={[
-          { label: 'Learning tracks', value: '6+' },
-          { label: 'Cost', value: 'Free' },
-          { label: 'Certificates', value: 'Verifiable' },
-          { label: 'Setup', value: 'None' },
+          { label: t('hero.meta.tracks'), value: '6+' },
+          { label: t('hero.meta.cost'), value: t('hero.meta.costValue') },
+          { label: t('hero.meta.certificates'), value: t('hero.meta.certificatesValue') },
+          { label: t('hero.meta.setup'), value: t('hero.meta.setupValue') },
         ]}
       >
         <a
@@ -234,7 +144,7 @@ export default function CodePage() {
           rel="noopener noreferrer"
           className="btn btn-primary"
         >
-          Start learning free <ArrowRight size={18} />
+          {t('hero.ctaPrimary')} <ArrowRight size={18} />
         </a>
         <a
           href="https://code.edlight.org/tracks"
@@ -242,25 +152,25 @@ export default function CodePage() {
           rel="noopener noreferrer"
           className="btn btn-ghost"
         >
-          Explore tracks
+          {t('hero.ctaSecondary')}
         </a>
       </Hero>
 
       {/* Stats */}
       <section className="py-16 sm:py-20 md:py-24">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader
-            title="Learn by doing, not watching"
-            subtitle="EdLight Code turns lessons into real-world skills. Every lesson is a focused reading followed by a hands-on coding exercise — no video lectures, just learn at your own pace and write real code."
-            centered
-          />
+          <SectionHeader title={t('stats.title')} subtitle={t('stats.subtitle')} centered />
           <div className="grid gap-6 md:grid-cols-3">
             {stats.map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 80}>
+              <Reveal key={stat.key} delay={i * 80}>
                 <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-8 transition-shadow hover:shadow-md">
                   <span className="numeral text-4xl font-bold text-[var(--accent)]">{stat.value}</span>
-                  <h3 className="mt-3 font-display text-lg font-semibold text-[var(--ink-900)]">{stat.label}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{stat.description}</p>
+                  <h3 className="mt-3 font-display text-lg font-semibold text-[var(--ink-900)]">
+                    {t(`stats.items.${stat.key}.label`)}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">
+                    {t(`stats.items.${stat.key}.description`)}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -271,18 +181,18 @@ export default function CodePage() {
       {/* How it works */}
       <section className="bg-[var(--paper-100)] py-16 sm:py-20 md:py-24">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader
-            title="From zero to certified in three steps"
-            subtitle="No complicated setup. No long lectures. Just learn, practice, and prove your skills."
-            centered
-          />
+          <SectionHeader title={t('howItWorks.title')} subtitle={t('howItWorks.subtitle')} centered />
           <div className="grid gap-6 md:grid-cols-3">
             {howItWorks.map((step, i) => (
               <Reveal key={step.number} delay={i * 80}>
                 <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-8 transition-shadow hover:shadow-md">
                   <span className="numeral text-5xl font-bold text-[var(--accent-soft)]">{step.number}</span>
-                  <h3 className="mt-4 font-display text-lg font-semibold text-[var(--ink-900)]">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--ink-700)]">{step.description}</p>
+                  <h3 className="mt-4 font-display text-lg font-semibold text-[var(--ink-900)]">
+                    {t(`howItWorks.steps.${step.key}.title`)}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--ink-700)]">
+                    {t(`howItWorks.steps.${step.key}.description`)}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -310,29 +220,33 @@ export default function CodePage() {
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-5">
               <span className="h-px w-8 bg-white/40" aria-hidden="true" />
-              <span className="eyebrow text-white/85">Tracks</span>
+              <span className="eyebrow text-white/85">{t('tracks.eyebrow')}</span>
             </div>
-            <h2 className="display-lg text-white">Structured paths from beginner to advanced</h2>
-            <p className="body-lg mt-4 text-white/90">
-              Pick your language and start learning. Each track takes you from the fundamentals to job-ready skills.
-            </p>
+            <h2 className="display-lg text-white">{t('tracks.title')}</h2>
+            <p className="body-lg mt-4 text-white/90">{t('tracks.body')}</p>
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {tracks.map((track, i) => {
               const Icon = track.icon
               return (
-                <Reveal key={track.title} delay={i * 80}>
+                <Reveal key={track.key} delay={i * 80}>
                   <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6">
                     <div className="flex items-center gap-3">
                       <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/10 text-[var(--accent-soft)]">
                         <Icon size={22} />
                       </span>
-                      <h3 className="font-display text-lg font-semibold text-white">{track.title}</h3>
+                      <h3 className="font-display text-lg font-semibold text-white">
+                        {t(`tracks.items.${track.key}.title`)}
+                      </h3>
                     </div>
-                    <p className="mt-4 text-sm leading-relaxed text-white/80">{track.description}</p>
+                    <p className="mt-4 text-sm leading-relaxed text-white/80">
+                      {t(`tracks.items.${track.key}.description`)}
+                    </p>
                     <div className="mt-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-wide text-white/70">
-                      <span className="rounded-full bg-white/10 px-3 py-1">{track.courses}</span>
+                      <span className="rounded-full bg-white/10 px-3 py-1">
+                        {t('tracks.courseCount', { count: track.courses })}
+                      </span>
                       <span className="rounded-full bg-white/10 px-3 py-1">{track.hours}</span>
                     </div>
                   </div>
@@ -348,7 +262,7 @@ export default function CodePage() {
               rel="noopener noreferrer"
               className="btn btn-light"
             >
-              View all tracks <ArrowRight size={16} />
+              {t('tracks.viewAll')} <ArrowRight size={16} />
             </a>
           </div>
         </div>
@@ -357,29 +271,29 @@ export default function CodePage() {
       {/* Learn by building */}
       <section className="py-16 sm:py-20 md:py-24">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader
-            title="Learn by building"
-            subtitle="Apply your skills by building real-world applications — from portfolio sites to data analysis pipelines."
-            centered
-          />
+          <SectionHeader title={t('projects.title')} subtitle={t('projects.subtitle')} centered />
           <div className="grid gap-6 md:grid-cols-2">
             {projects.map((project, i) => (
-              <Reveal key={project.title} delay={i * 80}>
+              <Reveal key={project.key} delay={i * 80}>
                 <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-7 transition-shadow hover:shadow-md">
                   <div className="flex items-center justify-between gap-3">
-                    <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{project.title}</h3>
+                    <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">
+                      {t(`projects.items.${project.key}.title`)}
+                    </h3>
                     <span className="shrink-0 rounded-full bg-[var(--accent-soft)] px-3 py-1 text-xs font-semibold text-[var(--accent)]">
-                      {project.level}
+                      {t(`projects.levels.${project.level}`)}
                     </span>
                   </div>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--ink-700)]">{project.description}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--ink-700)]">
+                    {t(`projects.items.${project.key}.description`)}
+                  </p>
                   <div className="mt-4 flex flex-wrap items-center gap-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
                         className="rounded-full border border-[var(--paper-200)] px-3 py-1 text-xs font-medium text-[var(--ink-700)]"
                       >
-                        {tag}
+                        {t(`projects.tags.${tag}`)}
                       </span>
                     ))}
                     <span className="numeral ml-auto text-xs text-[var(--ink-400)]">{project.hours}</span>
@@ -395,7 +309,7 @@ export default function CodePage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] hover:underline"
             >
-              Explore all projects on EdLight Code <ArrowRight size={16} />
+              {t('projects.exploreAll')} <ArrowRight size={16} />
             </a>
           </div>
         </div>
@@ -408,22 +322,23 @@ export default function CodePage() {
             <div>
               <div className="flex items-center gap-3 mb-5">
                 <span className="h-px w-8 bg-[var(--paper-300)]" aria-hidden="true" />
-                <span className="eyebrow">Lesson format</span>
+                <span className="eyebrow">{t('lessonFormat.eyebrow')}</span>
               </div>
-              <h2 className="display-lg text-[var(--ink-900)]">Short reads. Real practice.</h2>
-              <p className="body-lg mt-4 text-[var(--ink-700)]">
-                Every lesson is a focused reading followed by a hands-on coding exercise. No video lectures — just learn
-                at your own pace and write real code.
-              </p>
+              <h2 className="display-lg text-[var(--ink-900)]">{t('lessonFormat.title')}</h2>
+              <p className="body-lg mt-4 text-[var(--ink-700)]">{t('lessonFormat.body')}</p>
               <div className="mt-8 grid gap-6 sm:grid-cols-2">
                 {lessonFeatures.map((feature, i) => {
                   const Icon = feature.icon
                   return (
-                    <Reveal key={feature.title} delay={i * 80}>
+                    <Reveal key={feature.key} delay={i * 80}>
                       <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-6 transition-shadow hover:shadow-md">
                         <IconBadge icon={Icon} />
-                        <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{feature.title}</h3>
-                        <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{feature.description}</p>
+                        <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">
+                          {t(`lessonFormat.features.${feature.key}.title`)}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">
+                          {t(`lessonFormat.features.${feature.key}.description`)}
+                        </p>
                       </div>
                     </Reveal>
                   )
@@ -447,17 +362,21 @@ export default function CodePage() {
                 aria-hidden="true"
               />
               <div className="relative z-10">
-                <span className="eyebrow text-white/85">Inside a lesson</span>
-                <h3 className="display-md mt-3 text-white">Read → Code → Repeat</h3>
+                <span className="eyebrow text-white/85">{t('lessonFormat.insideEyebrow')}</span>
+                <h3 className="display-md mt-3 text-white">{t('lessonFormat.insideTitle')}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-white/85">
-                  Each lesson pairs a clear, focused explanation with an interactive coding exercise. You read the
-                  concept, then immediately apply it by writing real code in the browser. Instant feedback tells you if
-                  you got it right. No passive watching — you learn by doing.
+                  {t('lessonFormat.insideBody')}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide">
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-[var(--accent-soft)]">No setup</span>
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-[var(--accent-soft)]">Instant feedback</span>
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-[var(--accent-soft)]">Real code</span>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-[var(--accent-soft)]">
+                    {t('lessonFormat.badges.noSetup')}
+                  </span>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-[var(--accent-soft)]">
+                    {t('lessonFormat.badges.instantFeedback')}
+                  </span>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-[var(--accent-soft)]">
+                    {t('lessonFormat.badges.realCode')}
+                  </span>
                 </div>
               </div>
             </div>
@@ -468,20 +387,20 @@ export default function CodePage() {
       {/* Certificates */}
       <section className="py-16 sm:py-20 md:py-24">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader
-            title="Certificates that employers trust"
-            subtitle="Complete a track and earn a certificate with a unique verification link. No more 'trust me' — employers can verify your skills in seconds."
-            centered
-          />
+          <SectionHeader title={t('certificates.title')} subtitle={t('certificates.subtitle')} centered />
           <div className="grid gap-6 md:grid-cols-3">
             {certFeatures.map((feature, i) => {
               const Icon = feature.icon
               return (
-                <Reveal key={feature.title} delay={i * 80}>
+                <Reveal key={feature.key} delay={i * 80}>
                   <div className="h-full rounded-2xl border border-[var(--paper-200)] bg-white p-7 transition-shadow hover:shadow-md">
                     <IconBadge icon={Icon} />
-                    <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">{feature.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{feature.description}</p>
+                    <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">
+                      {t(`certificates.items.${feature.key}.title`)}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">
+                      {t(`certificates.items.${feature.key}.description`)}
+                    </p>
                   </div>
                 </Reveal>
               )
@@ -494,7 +413,7 @@ export default function CodePage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] hover:underline"
             >
-              See certificate verification <ArrowRight size={16} />
+              {t('certificates.seeVerification')} <ArrowRight size={16} />
             </a>
           </div>
         </div>
@@ -512,13 +431,9 @@ export default function CodePage() {
           >
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div className="max-w-xl">
-                <span className="eyebrow text-white/85">Start building your future</span>
-                <h2 className="display-md mt-3 text-white">
-                  Learn to code, earn certificates, build a portfolio
-                </h2>
-                <p className="mt-3 text-white/90">
-                  EdLight Code is free and open to everyone. Pick a track and start writing real code today.
-                </p>
+                <span className="eyebrow text-white/85">{t('cta.eyebrow')}</span>
+                <h2 className="display-md mt-3 text-white">{t('cta.title')}</h2>
+                <p className="mt-3 text-white/90">{t('cta.body')}</p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <a
@@ -527,10 +442,10 @@ export default function CodePage() {
                   rel="noopener noreferrer"
                   className="btn btn-light"
                 >
-                  Start learning free
+                  {t('cta.primary')}
                 </a>
                 <a href="/get-involved" className="btn btn-ghost">
-                  Partner with us
+                  {t('cta.secondary')}
                 </a>
               </div>
             </div>

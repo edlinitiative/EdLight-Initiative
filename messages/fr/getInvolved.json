@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "eyebrow": "Écosystème EdLight · S’impliquer",
+    "title": "S’impliquer",
+    "subtitle": "Aidez-nous à outiller la prochaine génération d’innovateurs haïtiens — comme bénévole, partenaire, donateur ou conférencier invité.",
+    "metaWaysLabel": "Façons d’aider",
+    "metaCostLabel": "Coût pour les élèves",
+    "metaCostValue": "0 $",
+    "donateCta": "Faire un don",
+    "contactCta": "Nous contacter"
+  },
+  "ways": {
+    "heading": "Façons de s’impliquer",
+    "subheading": "Il y a plusieurs façons de soutenir notre mission — choisissez celle qui vous convient le mieux.",
+    "volunteer": {
+      "title": "Bénévolat",
+      "description": "Accompagnez un élève tout au long d’un cours, animez un atelier dans votre domaine, évaluez des travaux de projet ou aidez aux opérations qui font vivre les programmes. La plupart des bénévoles donnent quelques heures par mois, à distance. Dites-nous ce que vous savez faire et quand vous êtes disponible, et nous vous confierons une mission concrète."
+    },
+    "partner": {
+      "title": "Partenariat",
+      "description": "Des écoles, des universités, des entreprises et des ONG travaillent avec nous pour élargir ce que nos élèves peuvent atteindre — contenus de cours, préparation aux examens, locaux, équipement, stages et voies vers des bourses. Nos partenaires actuels sont UWC, Coursera et IICA."
+    },
+    "donate": {
+      "title": "Faire un don",
+      "description": "Les programmes sont gratuits pour chaque élève, et le restent parce que les donateurs en assument le coût : la plateforme d’apprentissage, le matériel de cours et les certificats, les bourses des programmes qui sélectionnent leurs participants, et les coordonnateurs qui les font fonctionner en Haïti."
+    },
+    "speak": {
+      "title": "Prendre la parole",
+      "description": "Nos élèves rencontrent rarement quelqu’un qui exerce le métier qu’ils visent. Une seule heure de franchise sur votre travail, sur le chemin que vous avez pris et sur ce que vous feriez autrement change ce qu’un élève croit possible pour lui. L’ESLP et nos cohortes de cours accueillent tous deux des conférenciers invités."
+    }
+  },
+  "support": {
+    "eyebrow": "Soutenir notre travail",
+    "title": "Financez une éducation gratuite pour les élèves haïtiens",
+    "body": "Votre don soutient directement les bourses, les coûts des programmes et les ressources destinées aux élèves. Chaque contribution compte.",
+    "secureCheckout": "Paiement sécurisé PayPal",
+    "poweredBy": "Propulsé par PayPal. Choisissez un don unique ou mettez en place un soutien mensuel.",
+    "taxNotice": "EdLight Initiative est une société à but non lucratif enregistrée au Canada (société n° {number}). Nous ne détenons pas encore le statut d’organisme de bienfaisance enregistré, nous ne pouvons donc pas délivrer de reçus fiscaux — nous préférons vous le dire avant votre don plutôt qu’après."
+  },
+  "form": {
+    "heading": "Nous contacter",
+    "subheading": "Dites-nous comment vous aimeriez vous impliquer et nous vous répondrons bientôt.",
+    "nameLabel": "Nom",
+    "nameRequired": "Le nom est obligatoire",
+    "emailLabel": "Courriel",
+    "emailRequired": "Le courriel est obligatoire",
+    "emailInvalid": "Adresse courriel invalide",
+    "interestLabel": "Ce qui m’intéresse",
+    "interestRequired": "Veuillez sélectionner une option",
+    "interestPlaceholder": "Sélectionnez une option",
+    "interests": {
+      "volunteer": "Bénévolat",
+      "partner": "Partenariat",
+      "donate": "Don",
+      "speak": "Conférence invitée",
+      "other": "Autre"
+    },
+    "messageLabel": "Message",
+    "messageRequired": "Le message est obligatoire",
+    "sending": "Envoi en cours…",
+    "submit": "Envoyer le message",
+    "success": "Merci de votre intérêt ! Nous vous répondrons bientôt.",
+    "error": "Une erreur s’est produite lors de l’envoi de votre message. Veuillez réessayer ou nous écrire à {email}."
+  }
+}

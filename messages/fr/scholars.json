@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "title": "EdLight Coursera Scholars",
+    "description": "Posez votre candidature pour devenir EdLight Coursera Scholar et accédez gratuitement à une formation en ligne de haut niveau grâce au partenariat Coursera Social Impact d’EdLight Initiative.",
+    "ogTitle": "EdLight Coursera Scholars | EdLight Initiative",
+    "ogDescription": "Un accès gratuit à une formation en ligne de haut niveau pour les apprenants haïtiens motivés. Développez vos compétences, obtenez des certificats et franchissez l’étape suivante."
+  },
+  "hero": {
+    "title": "Devenez EdLight Coursera Scholar",
+    "subtitle": "Le talent est partout. Les occasions ne le sont pas.",
+    "body": "Accédez gratuitement à une formation en ligne de haut niveau grâce au partenariat d’EdLight Initiative avec Coursera. Développez de nouvelles compétences, obtenez des certificats et franchissez l’étape suivante vers vos objectifs scolaires et professionnels.",
+    "notify": "Être averti de l’ouverture des candidatures",
+    "learnMore": "En savoir plus",
+    "note": "Première cohorte · candidatures pas encore ouvertes"
+  },
+  "partnership": {
+    "title": "EdLight × Coursera",
+    "subtitle": "Un partenariat qui transforme l’accès en occasions.",
+    "p1": "EdLight Initiative a été retenue comme partenaire du programme Coursera Social Impact, ce qui nous permet d’offrir aux apprenants admissibles un accès gratuit à des cours en ligne de qualité et à des formations professionnelles.",
+    "p2": "Avec EdLight Coursera Scholars, nous transformons ce partenariat en un programme structuré conçu pour aider des apprenants talentueux à acquérir des compétences qui créent de véritables occasions pour leur avenir."
+  },
+  "benefits": {
+    "title": "Pourquoi devenir Scholar ?",
+    "subtitle": "Une bourse, c’est plus qu’un compte — c’est un élan structuré vers ce que vous cherchez à atteindre.",
+    "items": {
+      "learn": {
+        "title": "Apprendre",
+        "body": "Étudiez la technologie, les affaires, les données, l’IA et bien d’autres domaines grâce au catalogue offert dans le cadre du partenariat Coursera d’EdLight."
+      },
+      "build": {
+        "title": "Construire",
+        "body": "Développez des compétences pratiques et utiles à votre carrière, au service de l’objectif scolaire ou professionnel que vous poursuivez réellement."
+      },
+      "earn": {
+        "title": "Obtenir",
+        "body": "Terminez les cours et les certificats professionnels admissibles, et repartez avec quelque chose à présenter à une université ou à un employeur."
+      },
+      "grow": {
+        "title": "Grandir",
+        "body": "Rejoignez une cohorte d’apprenants ambitieux de tout Haïti, avec le soutien et le suivi d’EdLight tout au long du parcours."
+      }
+    }
+  },
+  "who": {
+    "title": "Qui peut poser sa candidature ?",
+    "subtitle": "EdLight Coursera Scholars s’adresse aux apprenants motivés, prêts à investir en eux-mêmes.",
+    "list": {
+      "students": "Élèves et étudiants",
+      "graduates": "Diplômés universitaires",
+      "professionals": "Jeunes professionnels",
+      "entrepreneurs": "Entrepreneurs",
+      "jobSeekers": "Chercheurs d’emploi",
+      "selfDirected": "Apprenants autonomes"
+    },
+    "body": "Ce qui compte le plus, c’est un objectif clair et l’engagement d’apprendre. Vous n’avez besoin ni d’un dossier scolaire parfait, ni d’une place à l’université, ni d’une expérience préalable des cours en ligne."
+  },
+  "steps": {
+    "title": "Comment ça fonctionne",
+    "subtitle": "Quatre étapes, de la candidature au certificat.",
+    "items": {
+      "apply": {
+        "title": "Poser sa candidature",
+        "body": "Dites-nous qui vous êtes, ce que vous voulez apprendre et ce que vous comptez en faire. Le formulaire fonctionne sur un téléphone et s’enregistre au fur et à mesure."
+      },
+      "selected": {
+        "title": "Être sélectionné",
+        "body": "EdLight examine chaque candidature selon la motivation, les objectifs d’apprentissage, l’impact possible, l’engagement et l’accès."
+      },
+      "start": {
+        "title": "Commencer à apprendre",
+        "body": "Les Scholars sélectionnés reçoivent un accès gratuit à Coursera par l’intermédiaire d’EdLight et choisissent leur premier cours."
+      },
+      "finish": {
+        "title": "Terminer ce que vous commencez",
+        "body": "Terminez vos cours, obtenez les certificats admissibles et faites part de vos progrès à EdLight."
+      }
+    }
+  },
+  "pathways": {
+    "title": "Parcours d’apprentissage",
+    "subtitle": "Choisissez une orientation dans votre candidature. Vous restez libre de choisir vos propres cours parmi le catalogue disponible.",
+    "items": {
+      "ai": {
+        "title": "IA et apprentissage automatique",
+        "body": "Les fondamentaux, l’IA générative et l’apprentissage automatique appliqué."
+      },
+      "tech": {
+        "title": "Technologie et logiciel",
+        "body": "Programmation, développement web, infonuagique et cybersécurité."
+      },
+      "data": {
+        "title": "Données et analytique",
+        "body": "Analyse de données, SQL, Python, Excel et intelligence d’affaires."
+      },
+      "business": {
+        "title": "Affaires et finance",
+        "body": "Finance, comptabilité, marketing, stratégie et gestion de projet."
+      },
+      "entrepreneurship": {
+        "title": "Entrepreneuriat",
+        "body": "Créer une entreprise, innover et croître dans le numérique."
+      },
+      "professional": {
+        "title": "Compétences professionnelles",
+        "body": "Communication, leadership, anglais et préparation aux entretiens."
+      }
+    }
+  },
+  "commitment": {
+    "title": "Une bourse est une occasion — et un engagement.",
+    "p1": "Les places sont limitées, et chacune d’elles pourrait revenir à quelqu’un d’autre. Les Scholars sélectionnés doivent activer leur accès, commencer un cours et terminer au moins un cours ou un certificat qui compte.",
+    "p2": "Si un Scholar n’est pas en mesure de commencer, nous préférons l’apprendre tôt et offrir la place à quelqu’un sur la liste d’attente plutôt que de la laisser inutilisée."
+  },
+  "faq": {
+    "title": "Questions"
+  },
+  "faqs": {
+    "cost": {
+      "q": "Combien coûte le programme ?",
+      "a": "Rien. La participation est gratuite pour les EdLight Coursera Scholars sélectionnés, et il n’y a jamais de frais de candidature."
+    },
+    "eligibility": {
+      "q": "Qui peut poser sa candidature ?",
+      "a": "Les apprenants motivés de 16 ans et plus — élèves et étudiants, diplômés, jeunes professionnels, entrepreneurs et apprenants autonomes. La première cohorte s’adresse principalement aux apprenants établis en Haïti."
+    },
+    "enrolment": {
+      "q": "Dois-je être inscrit dans un établissement scolaire ?",
+      "a": "Non. Une inscription en cours n’est pas exigée, et nous n’attendons pas un dossier scolaire parfait."
+    },
+    "experience": {
+      "q": "Dois-je avoir déjà utilisé Coursera ?",
+      "a": "Non. Une expérience préalable ne favorise ni ne défavorise votre candidature."
+    },
+    "subjects": {
+      "q": "Que puis-je étudier ?",
+      "a": "Les matières disponibles dépendent du catalogue Coursera offert dans le cadre du partenariat Social Impact d’EdLight. Vous choisirez un parcours d’apprentissage dans votre candidature, puis suivrez une formation alignée sur vos objectifs, parmi de nombreux domaines."
+    },
+    "certificate": {
+      "q": "Vais-je recevoir un certificat ?",
+      "a": "De nombreux cours et programmes Coursera délivrent un certificat en cas de réussite, selon le cours et le catalogue disponible. Les Scholars qui remplissent les exigences propres au programme d’EdLight peuvent aussi recevoir une reconnaissance d’EdLight, distincte de tout certificat Coursera."
+    },
+    "selection": {
+      "q": "Est-ce Coursera qui sélectionne les Scholars ?",
+      "a": "Non. EdLight Initiative est partenaire du programme Coursera Social Impact, et c’est EdLight qui gère les candidatures et la sélection des EdLight Coursera Scholars."
+    },
+    "notSelected": {
+      "q": "Que se passe-t-il si je ne suis pas sélectionné ?",
+      "a": "Les candidatures solides peuvent être placées sur la liste d’attente et réexaminées lorsque des places supplémentaires se libèrent ou pour une cohorte future."
+    },
+    "inactive": {
+      "q": "Que se passe-t-il si j’arrête d’utiliser Coursera ?",
+      "a": "Les places sont limitées. Si un Scholar ne commence pas à apprendre après plusieurs rappels, EdLight peut offrir cette place à quelqu’un sur la liste d’attente afin que l’occasion ne soit pas perdue."
+    },
+    "outsideHaiti": {
+      "q": "Puis-je poser ma candidature depuis l’étranger ?",
+      "a": "La première cohorte s’adresse principalement aux apprenants en Haïti. EdLight pourra élargir l’admissibilité lors de cohortes futures."
+    }
+  },
+  "cta": {
+    "title": "Vous voulez être averti en premier ?",
+    "body": "La première cohorte est encore en cours de constitution et les candidatures ne sont pas ouvertes. Inscrivez-vous à la liste et nous vous écrirons le jour même de l’ouverture — avant toute annonce ailleurs.",
+    "notify": "Être averti",
+    "ask": "Poser une question"
+  }
+}

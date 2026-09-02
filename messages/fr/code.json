@@ -1,0 +1,180 @@
+{
+  "hero": {
+    "eyebrow": "Écosystème EdLight · Apprendre à programmer",
+    "title": "EdLight Code",
+    "subtitle": "Les compétences dont vous avez besoin. Le portfolio pour les prouver. Maîtrisez Python, SQL, le développement web et plus encore grâce à des cours guidés et pratiques — le tout dans votre navigateur.",
+    "meta": {
+      "tracks": "Parcours d’apprentissage",
+      "cost": "Coût",
+      "costValue": "Gratuit",
+      "certificates": "Certificats",
+      "certificatesValue": "Vérifiables",
+      "setup": "Installation",
+      "setupValue": "Aucune"
+    },
+    "ctaPrimary": "Commencer gratuitement",
+    "ctaSecondary": "Explorer les parcours"
+  },
+  "stats": {
+    "title": "Apprendre en faisant, pas en regardant",
+    "subtitle": "EdLight Code transforme les leçons en compétences concrètes. Chaque leçon est une lecture ciblée suivie d’un exercice de programmation pratique — pas de cours vidéo, simplement apprendre à votre rythme et écrire du vrai code.",
+    "items": {
+      "tracks": {
+        "label": "Parcours d’apprentissage",
+        "description": "SQL, Python, HTML, CSS, JavaScript, Terminal et Git — et d’autres à venir."
+      },
+      "free": {
+        "label": "Gratuit et dans le navigateur",
+        "description": "Aucun téléchargement, aucune installation. Écrivez du vrai code directement dans votre navigateur, depuis n’importe quel appareil."
+      },
+      "certificates": {
+        "label": "Certificats vérifiables",
+        "description": "Terminez un parcours et obtenez un certificat accompagné d’un lien de vérification unique que les employeurs peuvent consulter instantanément."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "De zéro à certifié en trois étapes",
+    "subtitle": "Aucune installation compliquée. Aucun long cours magistral. Apprenez, pratiquez et prouvez vos compétences.",
+    "steps": {
+      "pick": {
+        "title": "Choisissez un parcours",
+        "description": "Choisissez parmi Python, SQL, HTML, CSS, JavaScript, Terminal et Git, et plus encore. Commencez au début ou allez directement à ce dont vous avez besoin."
+      },
+      "learn": {
+        "title": "Apprenez avec des leçons et des ateliers",
+        "description": "Lisez des leçons courtes, puis pratiquez avec des exercices de programmation directement dans votre navigateur — aucune installation requise."
+      },
+      "certify": {
+        "title": "Obtenez un certificat",
+        "description": "Terminez un parcours et recevez un certificat vérifiable. Partagez-le sur LinkedIn ou laissez les employeurs le vérifier en quelques secondes."
+      }
+    }
+  },
+  "tracks": {
+    "eyebrow": "Parcours",
+    "title": "Des parcours structurés, du débutant à l’avancé",
+    "body": "Choisissez votre langage et commencez à apprendre. Chaque parcours vous mène des fondamentaux à des compétences prêtes pour l’emploi.",
+    "courseCount": "{count, plural, one {# cours} other {# cours}}",
+    "viewAll": "Voir tous les parcours",
+    "items": {
+      "sql": {
+        "title": "Parcours SQL",
+        "description": "Maîtrisez l’interrogation de bases de données, des bases à l’analytique avancée. Apprenez à tirer des enseignements des données."
+      },
+      "python": {
+        "title": "Parcours Python",
+        "description": "Apprenez la programmation Python à partir de zéro. Des variables et des fonctions aux DataFrames de pandas."
+      },
+      "terminal": {
+        "title": "Terminal et Git",
+        "description": "Maîtrisez la ligne de commande, les bases de Git et les flux de collaboration professionnels avec GitHub."
+      },
+      "html": {
+        "title": "Parcours HTML",
+        "description": "Construisez des pages web sémantiques, accessibles et optimisées pour la recherche, à partir de zéro."
+      },
+      "css": {
+        "title": "Parcours CSS",
+        "description": "Des sélecteurs et du modèle de boîte jusqu’à Flexbox, aux grilles CSS, au design adaptatif et aux animations."
+      },
+      "javascript": {
+        "title": "Parcours JavaScript",
+        "description": "Maîtrisez JavaScript, des fondamentaux à la manipulation du DOM, aux événements, à async/await et aux patrons avancés."
+      }
+    }
+  },
+  "projects": {
+    "title": "Apprendre en construisant",
+    "subtitle": "Mettez vos compétences en pratique en construisant de vraies applications — du site portfolio aux chaînes d’analyse de données.",
+    "exploreAll": "Explorer tous les projets sur EdLight Code",
+    "levels": {
+      "beginner": "Débutant",
+      "intermediate": "Intermédiaire"
+    },
+    "tags": {
+      "html": "HTML",
+      "css": "CSS",
+      "javascript": "JavaScript",
+      "sql": "SQL",
+      "python": "Python",
+      "dataAnalysis": "Analyse de données",
+      "automation": "Automatisation"
+    },
+    "items": {
+      "portfolio": {
+        "title": "Construire votre portfolio personnel",
+        "description": "Créez un site portfolio professionnel à partir de zéro avec HTML, CSS et JavaScript."
+      },
+      "salesData": {
+        "title": "SQL : analyser des données de ventes",
+        "description": "Interrogez les clients, les commandes et les produits pour en tirer des enseignements commerciaux avec SELECT, JOIN et GROUP BY."
+      },
+      "expenseReports": {
+        "title": "Python : automatiser des notes de frais",
+        "description": "Filtrez, agrégez et générez des rapports à partir de données de dépenses réelles avec Python."
+      },
+      "quizApp": {
+        "title": "Application de quiz interactive",
+        "description": "Construisez une application de quiz entièrement fonctionnelle, avec score, minuteries et résultats, en JavaScript."
+      }
+    }
+  },
+  "lessonFormat": {
+    "eyebrow": "Format des leçons",
+    "title": "Des lectures courtes. De la vraie pratique.",
+    "body": "Chaque leçon est une lecture ciblée suivie d’un exercice de programmation pratique. Pas de cours vidéo — simplement apprendre à votre rythme et écrire du vrai code.",
+    "features": {
+      "biteSized": {
+        "title": "Leçons courtes",
+        "description": "Des lectures ciblées que vous terminez en 5 à 10 minutes. Pas de remplissage, seulement les notions dont vous avez besoin."
+      },
+      "handsOn": {
+        "title": "Exercices pratiques",
+        "description": "Programmez directement dans votre navigateur après chaque leçon. Aucune installation, aucun téléchargement."
+      },
+      "anyDevice": {
+        "title": "Fonctionne sur tous les appareils",
+        "description": "Adapté au mobile et accessible dans le navigateur. Apprenez sur un téléphone, une tablette ou un portable — où que vous soyez."
+      },
+      "multilingual": {
+        "title": "Prise en charge multilingue",
+        "description": "Offert en anglais, en français et en créole haïtien, pour que vous appreniez dans la langue dans laquelle vous pensez."
+      }
+    },
+    "insideEyebrow": "Dans une leçon",
+    "insideTitle": "Lire → Coder → Recommencer",
+    "insideBody": "Chaque leçon associe une explication claire et ciblée à un exercice de programmation interactif. Vous lisez la notion, puis vous l’appliquez immédiatement en écrivant du vrai code dans le navigateur. Une rétroaction instantanée vous dit si vous avez juste. Pas de visionnement passif — vous apprenez en faisant.",
+    "badges": {
+      "noSetup": "Aucune installation",
+      "instantFeedback": "Rétroaction instantanée",
+      "realCode": "Du vrai code"
+    }
+  },
+  "certificates": {
+    "title": "Des certificats auxquels les employeurs se fient",
+    "subtitle": "Terminez un parcours et obtenez un certificat accompagné d’un lien de vérification unique. Fini le « croyez-moi sur parole » — les employeurs peuvent vérifier vos compétences en quelques secondes.",
+    "seeVerification": "Voir la vérification d’un certificat",
+    "items": {
+      "link": {
+        "title": "Lien de vérification unique",
+        "description": "Chaque certificat possède une URL unique que n’importe qui peut visiter pour en vérifier l’authenticité."
+      },
+      "employer": {
+        "title": "Vérification instantanée par les employeurs",
+        "description": "Les employeurs peuvent vérifier votre certificat en quelques secondes — aucune connexion requise."
+      },
+      "shareable": {
+        "title": "Attestations partageables",
+        "description": "Ajoutez votre certificat à LinkedIn ou partagez directement le lien de vérification."
+      }
+    }
+  },
+  "cta": {
+    "eyebrow": "Commencez à bâtir votre avenir",
+    "title": "Apprenez à programmer, obtenez des certificats, bâtissez un portfolio",
+    "body": "EdLight Code est gratuit et ouvert à tous. Choisissez un parcours et commencez à écrire du vrai code dès aujourd’hui.",
+    "primary": "Commencer gratuitement",
+    "secondary": "Devenir partenaire"
+  }
+}

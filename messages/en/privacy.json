@@ -1,0 +1,130 @@
+{
+  "precedenceNotice": "This page is available in other languages for convenience. The English version is the authoritative text and governs in the event of any discrepancy.",
+  "meta": {
+    "title": "Privacy Policy | EdLight Initiative",
+    "description": "Learn how EdLight Initiative collects, uses, and protects your personal information."
+  },
+  "title": "Privacy Policy",
+  "lastUpdated": "Last Updated: September 2, 2026",
+  "s1": {
+    "heading": "1. Introduction",
+    "body": "EdLight Initiative (\"we,\" \"our,\" or \"us\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services."
+  },
+  "s2": {
+    "heading": "2. Information We Collect",
+    "giveUsHeading": "Information You Give Us",
+    "giveUsIntro": "We only collect personal information that you type into one of our forms. There are four:",
+    "forms": {
+      "contact": {
+        "label": "Contact form:",
+        "text": "your name, email address, the subject and area of interest you select, and your message"
+      },
+      "newsletter": {
+        "label": "Newsletter signup:",
+        "text": "your email address only"
+      },
+      "eslp": {
+        "label": "ESLP notification list:",
+        "text": "your name, email address, and phone number if you choose to give one, so we can tell you when applications open"
+      },
+      "quote": {
+        "label": "Website quote request:",
+        "text": "your name, email address, organisation, existing website, and the project details you describe"
+      }
+    },
+    "delivery": "All four forms are delivered to our inbox as email by <strong>Resend</strong>, our email provider. Subscribing to the newsletter or a notification list also sends you a confirmation email. Nothing you submit is written to a database or stored on this website; the record is the message in our inbox, and you can ask us to delete yours at any time.",
+    "noPayment": "We do not ask for payment information anywhere on this site, and we never see your card details. All programmes are free, so there is nothing to pay for; donations are handled entirely by PayPal, as described in section 4.",
+    "autoHeading": "Automatically Collected Information",
+    "autoBody": "This site does not use analytics, advertising, or tracking cookies, and it does not build a profile of your browsing. Like any website, our hosting provider automatically logs basic technical information with each request — your IP address, browser type, and the page requested — which is used to serve the site, keep it secure, and diagnose faults. If we introduce analytics or advertising measurement in future, we will update this policy and the \"Last Updated\" date before doing so."
+  },
+  "s3": {
+    "heading": "3. How We Use Your Information",
+    "intro": "We use the information we collect for the following purposes:",
+    "uses": {
+      "operate": "To provide, operate, and maintain our services",
+      "registrations": "To process registrations and applications",
+      "newsletters": "To send you newsletters and updates (with your consent)",
+      "inquiries": "To respond to your inquiries and provide customer support",
+      "donations": "To acknowledge and keep a record of donations",
+      "improve": "To improve our website and services",
+      "legal": "To comply with legal obligations",
+      "fraud": "To protect against fraud and ensure security"
+    }
+  },
+  "s4": {
+    "heading": "4. Information Sharing and Disclosure",
+    "intro": "We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:",
+    "items": {
+      "resend": {
+        "label": "Resend:",
+        "text": "our email provider, which delivers every form submission and every email we send you on our behalf"
+      },
+      "paypal": {
+        "label": "PayPal:",
+        "text": "which processes donations on its own site. You enter your payment details with PayPal, not with us; we receive only the donation record PayPal shows us, never your card or bank details"
+      },
+      "coursera": {
+        "label": "Coursera:",
+        "text": "for learners selected as EdLight Coursera Scholars, we share the details needed to create your Coursera account under our Social Impact partnership. This applies only if you apply and are selected; Coursera then handles your account under its own privacy policy"
+      },
+      "legal": {
+        "label": "Legal Requirements:",
+        "text": "When required by law or to protect our rights"
+      },
+      "business": {
+        "label": "Business Transfers:",
+        "text": "In connection with a merger, acquisition, or sale of assets"
+      },
+      "consent": {
+        "label": "With Your Consent:",
+        "text": "When you have given us explicit permission"
+      }
+    }
+  },
+  "s5": {
+    "heading": "5. Cookies and Tracking Technologies",
+    "body": "We do not use cookies on this website. We set no cookies of our own and load no third-party analytics or advertising scripts, so there is nothing here for you to accept or refuse, and the site works normally with cookies disabled in your browser. Note that PayPal and Coursera do use cookies on their own sites once you follow a link to them."
+  },
+  "s6": {
+    "heading": "6. Data Security",
+    "body": "We implement appropriate technical and organizational security measures to protect your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security."
+  },
+  "s7": {
+    "heading": "7. Your Rights",
+    "intro": "Depending on your location, you may have the following rights:",
+    "rights": {
+      "access": "Access to your personal information",
+      "correction": "Correction of inaccurate information",
+      "deletion": "Deletion of your personal information",
+      "restriction": "Restriction of processing",
+      "portability": "Data portability",
+      "objection": "Objection to processing",
+      "withdrawal": "Withdrawal of consent"
+    },
+    "exercise": "To exercise these rights, please contact us at {email}, or write to us at the address in section 12."
+  },
+  "s8": {
+    "heading": "8. Children's Privacy",
+    "body": "Our services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us."
+  },
+  "s9": {
+    "heading": "9. Third-Party Links",
+    "body": "Our website may contain links to third-party websites. We are not responsible for the privacy practices of these websites. We encourage you to read the privacy policies of any third-party sites you visit."
+  },
+  "s10": {
+    "heading": "10. International Data Transfers",
+    "body": "Your information may be transferred to and maintained on servers located outside of your state, province, country, or other governmental jurisdiction where data protection laws may differ. By using our services, you consent to this transfer."
+  },
+  "s11": {
+    "heading": "11. Changes to This Privacy Policy",
+    "body": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last Updated\" date."
+  },
+  "s12": {
+    "heading": "12. Contact Us",
+    "intro": "If you have any questions about this Privacy Policy, please contact us:",
+    "orgName": "EdLight Initiative",
+    "corporationLine": "Corporation No. {number}",
+    "emailLine": "Email: {email}",
+    "websiteLine": "Website: {website}"
+  }
+}

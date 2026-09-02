@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import {
   ArrowRight,
   Bell,
@@ -33,9 +34,18 @@ const APP_PREVIEW_URL =
 const PROGRAM_DESC_URL =
   'https://drive.google.com/file/d/1IhfSC8LyVbs2nAJiL3lRSy06h_8oUntv/view?usp=sharing'
 const EMAIL = 'eslp@edlight.org'
-const PROGRAM_DATES = 'August 10–21, 2026'
-const NEXT_CYCLE_OPENS = 'spring 2027'
-/** The cycle the notify list is collecting for. Keep in step with the buttons. */
+// The programme window ("August 10–21, 2026") and the next application window
+// ("spring 2027") used to be constants here. They read as English prose, not as
+// data — a French reader needs "du 10 au 21 août 2026" — so they live in
+// messages/<locale>/eslp.json as `programDates` and `nextCycleOpens` and are
+// interpolated into the sentences that quote them.
+/**
+ * The cycle the notify list is collecting for. Keep in step with the buttons.
+ *
+ * NOT translatable. This exact string is posted to /api/eslp-notify as the
+ * `cycle` field and matched against the NOTIFY_CYCLES allowlist there, so a
+ * translated value would be rejected and the notify form would break.
+ */
 const NEXT_CYCLE_LABEL = 'ESLP 2027'
 
 /* ── Hero images (auto-carousel) ────────────────────────── */
@@ -57,225 +67,111 @@ const heroImages = [
 //
 // They are recorded figures now. After each August edition, update these by
 // hand from the actual cohort record.
+// The numbers are the recorded facts and stay here; the labels are copy and
+// live in messages/<locale>/eslp.json under `counters`.
 const impactCounters = [
-  { label: 'Alumni', value: 135, suffix: '' },           // total through August 2026
-  { label: 'Women', value: 73, suffix: '%' },            // share of the 2026 cohort
-  { label: 'Editions', value: 5, suffix: '' },           // 2022 through 2026
-  { label: 'On scholarship', value: 100, suffix: '%' },  // every participant, every edition
-]
+  { key: 'alumni', value: 135, suffix: '' },           // total through August 2026
+  { key: 'women', value: 73, suffix: '%' },            // share of the 2026 cohort
+  { key: 'editions', value: 5, suffix: '' },           // 2022 through 2026
+  { key: 'scholarship', value: 100, suffix: '%' },     // every participant, every edition
+] as const
 
 /* ── Experience highlights ──────────────────────────────── */
 const experienceHighlights = [
-  {
-    title: 'Leadership studios',
-    description:
-      'Interactive sessions on personal leadership, social innovation, public speaking, and collaborative problem solving.',
-    icon: <Users size={28} />,
-  },
-  {
-    title: 'Masterclasses & mentors',
-    description:
-      'Facilitated by Haitian and international leaders from Harvard, MIT, Deutsche Bank, Microsoft, and more.',
-    icon: <Star size={28} />,
-  },
-  {
-    title: 'City immersions',
-    description:
-      'A featured company visit in Port-au-Prince — Radio Télé Métropole in 2026 — helps fellows connect leadership learning to real workplace expectations.',
-    icon: <Compass size={28} />,
-  },
-  {
-    title: 'Impact pitch night',
-    description:
-      'Cohort teams design initiatives for Haitian communities and present them to a panel of mentors and partners.',
-    icon: <Sparkles size={28} />,
-  },
-]
+  { key: 'leadershipStudios', icon: <Users size={28} /> },
+  { key: 'masterclasses', icon: <Star size={28} /> },
+  { key: 'cityImmersions', icon: <Compass size={28} /> },
+  { key: 'pitchNight', icon: <Sparkles size={28} /> },
+] as const
+
+const capstoneTags = [
+  'designThinking',
+  'communityImpact',
+  'teamCoaching',
+  'mentorship',
+] as const
 
 /* ── Curriculum pillars ─────────────────────────────────── */
 const curriculumPillars = [
-  {
-    title: 'Personal Discovery',
-    description: 'Self-awareness, leadership styles, values mapping, and public speaking.',
-    icon: <Brain size={28} />,
-  },
-  {
-    title: 'Professional Orientation',
-    description: 'Career exploration, résumé clinics, and mentorship from industry professionals.',
-    icon: <Briefcase size={28} />,
-  },
-  {
-    title: 'College Admissions & Scholarships',
-    description: 'Guidance on studying abroad in the USA, Canada, France, Taiwan, Morocco, and more.',
-    icon: <GraduationCap size={28} />,
-  },
-  {
-    title: 'Finance',
-    description: 'Personal finance, budgeting, saving, and understanding the economic landscape.',
-    icon: <DollarSign size={28} />,
-  },
-  {
-    title: 'Entrepreneurship',
-    description: 'Business model canvas, market research, prototyping, and the final capstone pitch.',
-    icon: <Lightbulb size={28} />,
-  },
-]
+  { key: 'personalDiscovery', icon: <Brain size={28} /> },
+  { key: 'professionalOrientation', icon: <Briefcase size={28} /> },
+  { key: 'collegeAdmissions', icon: <GraduationCap size={28} /> },
+  { key: 'finance', icon: <DollarSign size={28} /> },
+  { key: 'entrepreneurship', icon: <Lightbulb size={28} /> },
+] as const
 
 /* ── Curriculum experience tabs ──────────────────────────── */
+// The panel heading used to be derived from the visible label with a chain of
+// string comparisons, which would have stopped matching the moment the label
+// was translated. Each tab carries its own `heading` key instead.
 const curriculumTabs = [
-  {
-    label: 'Seminars',
-    image: '/gallery/eslp-seminary-zoom.png',
-    alt: 'ESLP virtual seminar session — fellows and speakers on a Zoom call',
-    description:
-      'From 9 AM to 12 PM, fellows meet virtually with expert speakers from institutions like Harvard, MIT, Cornell, Deutsche Bank, and Microsoft. Interactive sessions cover leadership, personal development, college admissions, finance, and entrepreneurship — offering students a platform to engage directly with industry leaders.',
-  },
-  {
-    label: 'Excursion',
-    image: '/gallery/eslp-2026-metropole-plateau.webp',
-    alt: 'ESLP 2026 fellows on the news set during their visit to Radio Télé Métropole in Port-au-Prince',
-    description:
-      'The program includes an enriching excursion to a prominent company in Port-au-Prince — in 2026, fellows spent a day at Radio Télé Métropole, exchanging with journalists and touring the newsroom, studios, and control room. Transportation and entries are fully covered for every fellow.',
-  },
-  {
-    label: 'Graduation',
-    image: '/gallery/eslp-2026-graduation-promotion.webp',
-    alt: 'The 35 graduated fellows of ESLP 2026 holding their certificates at IICA in Pétion-Ville',
-    description:
-      'The program culminates in a capstone pitch showcase where cohort teams present their community initiatives to a panel of mentors, partners, and families. In 2026, 35 fellows graduated at IICA in Pétion-Ville, receiving certificates of distinction recognizing their leadership, collaboration, and successful completion of projects.',
-  },
-]
+  { key: 'seminars', image: '/gallery/eslp-seminary-zoom.png' },
+  { key: 'excursion', image: '/gallery/eslp-2026-metropole-plateau.webp' },
+  { key: 'graduation', image: '/gallery/eslp-2026-graduation-promotion.webp' },
+] as const
 
 /* ── Journey phases ─────────────────────────────────────── */
 const phases = [
-  {
-    title: 'Discover',
-    description: 'We recruit curious, community-minded students ready to grow as leaders.',
-    bullets: [
-      'Application form with short essays',
-      'Submit transcripts and an ID photo',
-      'Selection based on motivation, service, and representation',
-    ],
-    icon: Compass,
-  },
-  {
-    title: 'Prepare',
-    description: 'Accepted fellows join pre-program circles that build community before day one.',
-    bullets: [
-      'Welcome orientation for fellows and families',
-      'Laptop, webcam, and stable internet required',
-      'Receive your EdLight welcome package',
-    ],
-    icon: CalendarDays,
-  },
-  {
-    title: 'Immerse',
-    description: 'Two weeks of experiential learning blending seminars, fieldwork, and creative expression.',
-    bullets: [
-      'Morning virtual seminars with expert speakers',
-      'Team-based entrepreneurial projects with mentors',
-      'Excursion to a prominent company in Port-au-Prince',
-    ],
-    icon: BookOpenCheck,
-  },
-  {
-    title: 'Amplify',
-    description: 'Fellows graduate, join the alumni network, and continue to launch community projects.',
-    bullets: [
-      'Capstone pitch showcase with partners and families',
-      'Alumni mentorship and micro-grant opportunities',
-      'Ongoing leadership coaching with the EdLight team',
-    ],
-    icon: Sparkles,
-  },
-]
+  { key: 'discover', icon: Compass },
+  { key: 'prepare', icon: CalendarDays },
+  { key: 'immerse', icon: BookOpenCheck },
+  { key: 'amplify', icon: Sparkles },
+] as const
+
+/** Every phase carries exactly three bullets. */
+const PHASE_BULLETS = ['bullet1', 'bullet2', 'bullet3'] as const
 
 /* ── Eligibility & selection ────────────────────────────── */
-const eligibility = [
-  'Students aged 15–18 currently enrolled in a Haitian high school.',
-  'Learners who demonstrate curiosity, teamwork, empathy, and leadership potential.',
-  'Participants committed to attending every session, workshop, and excursion.',
-]
+const eligibility = ['age', 'qualities', 'commitment'] as const
 
 const selectionCriteria = [
-  "Motivation, character, and alignment with EdLight's mission",
-  'Community involvement or leadership in clubs, faith groups, or initiatives',
-  'Academic curiosity, discipline, and willingness to learn',
-  'Balanced representation across regions, schools, and gender',
-]
+  'motivation',
+  'community',
+  'curiosity',
+  'representation',
+] as const
+
+/* ── Application steps ──────────────────────────────────── */
+const applicationSteps = [
+  { step: '1', key: 'form' },
+  { step: '2', key: 'essays' },
+  { step: '3', key: 'photo' },
+  { step: '4', key: 'transcripts' },
+] as const
 
 /* ── Benefits ───────────────────────────────────────────── */
 const benefits = [
-  {
-    title: 'All-inclusive experience',
-    description: 'Workshops, curriculum materials, supplies, and daily meals provided for every fellow.',
-    icon: <BookOpenCheck size={28} />,
-  },
-  {
-    title: 'Excursions & cultural labs',
-    description: 'Transportation and entries for site visits, service projects, and cultural events covered in full.',
-    icon: <Compass size={28} />,
-  },
-  {
-    title: 'Mentors & alumni network',
-    description: 'Access to industry mentors plus ongoing guidance from ESLP alumni after graduation.',
-    icon: <Users size={28} />,
-  },
-  {
-    title: 'Certificate of distinction',
-    description: 'Recognizes leadership, collaboration, and successful completion of capstone projects.',
-    icon: <Star size={28} />,
-  },
-]
+  { key: 'allInclusive', icon: <BookOpenCheck size={28} /> },
+  { key: 'excursions', icon: <Compass size={28} /> },
+  { key: 'mentors', icon: <Users size={28} /> },
+  { key: 'certificate', icon: <Star size={28} /> },
+] as const
 
 /* ── ESLP testimonials ──────────────────────────────────── */
 const eslpTestimonials = testimonialsData.filter((testimonial) => testimonial.role.includes('ESLP'))
 
 /* ── FAQ ─────────────────────────────────────────────────── */
-const faqs = [
-  {
-    question: 'When does the next cohort take place?',
-    answer:
-      `The 2026 edition ran ${PROGRAM_DATES} and concluded with 35 fellows graduating at IICA in Pétion-Ville. Applications for ESLP 2027 will open in ${NEXT_CYCLE_OPENS} — join the notify list to hear first.`
-  },
-  {
-    question: 'Is the program really free?',
-    answer:
-      'Yes. Thanks to generous partners and sponsors, ESLP covers core program costs including learning sessions, materials, the organized excursion, and the closing celebration.',
-  },
-  {
-    question: 'What documents will I need to apply?',
-    answer:
-      'Typically you submit: (1) an application form, (2) two essays — one about your extracurricular activities and another about your interest in the program, (3) a recent ID picture, and (4) your current academic transcripts as a PDF.',
-  },
-  {
-    question: 'Do fellows need to speak English?',
-    answer:
-      'No. The program is designed for Haitian students and core communication is accessible in Kreyòl and French, while some guest speakers may also engage in English.',
-  },
-  {
-    question: 'What do I need to prepare before the program?',
-    answer:
-      'You will need a laptop, tablet, or phone with a camera, a stable internet connection, a quiet well-lit space, and a notebook with pens or pencils for daily activities.',
-  },
-  {
-    question: 'How can organizations get involved?',
-    answer: `Organizations can mentor a session, host an excursion, provide scholarships, or offer internships to ESLP alumni. Reach out to ${EMAIL} to co-create a partnership.`,
-  },
-]
+const faqs = ['dates', 'free', 'documents', 'english', 'prepare', 'organizations'] as const
 
 /* ── "What is ESLP" section carousel images ─────────────── */
 const whatIsEslpImages = [
-  { src: '/gallery/eslp-2026-metropole-groupe.webp', alt: 'The ESLP 2026 cohort with the Radio Télé Métropole team in Port-au-Prince' },
-  { src: '/gallery/eslp-2026-graduation-certificat.webp', alt: 'An ESLP 2026 fellow receiving her certificate at the graduation ceremony' },
-  { src: '/gallery/eslp-2026-graduation-violon.webp', alt: 'A fellow performing violin at the ESLP 2026 graduation ceremony' },
-  { src: '/gallery/eslp-2026-metropole-exterieur.webp', alt: 'The ESLP 2026 cohort in front of the Radio Télé Métropole offices' },
-]
+  { src: '/gallery/eslp-2026-metropole-groupe.webp', key: 'metropoleGroupe' },
+  { src: '/gallery/eslp-2026-graduation-certificat.webp', key: 'graduationCertificat' },
+  { src: '/gallery/eslp-2026-graduation-violon.webp', key: 'graduationViolon' },
+  { src: '/gallery/eslp-2026-metropole-exterieur.webp', key: 'metropoleExterieur' },
+] as const
 
 /* ═══════════════════════════════════════════════════════════
    Page Component
    ═══════════════════════════════════════════════════════════ */
 export default function ESLPPage() {
+  const t = useTranslations('eslp')
+
+  /* The dates are copy, not layout: they are read from the catalogue and
+     interpolated into every sentence that quotes them. */
+  const programDates = t('programDates')
+  const nextCycleOpens = t('nextCycleOpens')
+
   /* ── Notify modal ── */
   const [notifyOpen, setNotifyOpen] = useState(false)
 
@@ -291,6 +187,19 @@ export default function ESLPPage() {
   /* ── Curriculum tab ── */
   const [activeTab, setActiveTab] = useState(0)
 
+  /* Memoised so ImpactCounters, which keys an effect off the array identity,
+     does not rebuild its IntersectionObserver on every re-render of this page
+     (the hero and testimonial carousels re-render it every few seconds). */
+  const counters = useMemo(
+    () => impactCounters.map(({ key, value, suffix }) => ({ label: t(`counters.${key}`), value, suffix })),
+    [t]
+  )
+
+  const carouselImages = useMemo(
+    () => whatIsEslpImages.map(({ src, key }) => ({ src, alt: t(`gallery.${key}`) })),
+    [t]
+  )
+
   /* ── Testimonial carousel ── */
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
   useEffect(() => {
@@ -304,8 +213,8 @@ export default function ESLPPage() {
     <>
       {/* ═══ Hero ═══ */}
       <Hero
-        title="EdLight Summer Leadership Program"
-        subtitle="A two-week hybrid leadership experience equipping Haitian secondary students with the tools to become engaged leaders and future citizens."
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
         backgroundImage={heroImages[currentHeroImage]}
       >
         <div className="flex flex-wrap justify-center gap-4">
@@ -314,7 +223,7 @@ export default function ESLPPage() {
             onClick={() => setNotifyOpen(true)}
             className="btn btn-primary"
           >
-            <Bell size={18} /> Get notified for ESLP 2027
+            <Bell size={18} /> {t('hero.notify')}
           </button>
           <a
             href={APP_PREVIEW_URL}
@@ -322,7 +231,7 @@ export default function ESLPPage() {
             rel="noopener noreferrer"
             className="btn btn-light"
           >
-            See past application
+            {t('hero.seeApplication')}
           </a>
         </div>
       </Hero>
@@ -331,12 +240,12 @@ export default function ESLPPage() {
       <section className="py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="The flagship leadership experience for Haitian teens"
-            subtitle="Since 2022, ESLP has combined world-class facilitation, real-world exposure, and a vibrant alumni network so young leaders can transform their ideas into action."
+            title={t('stats.title')}
+            subtitle={t('stats.subtitle')}
             centered
           />
           <div className="glass rounded-2xl p-6 sm:p-10">
-            <ImpactCounters counters={impactCounters} />
+            <ImpactCounters counters={counters} />
           </div>
         </div>
       </section>
@@ -347,28 +256,21 @@ export default function ESLPPage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="space-y-6">
               <SectionHeader
-                title="What is the EdLight Summer Leadership Program?"
-                subtitle="Launched in August 2022, ESLP is a two-week summer programme for secondary students in Haiti designed to strengthen leadership, civic awareness, and future readiness."
+                title={t('whatIs.title')}
+                subtitle={t('whatIs.subtitle')}
               />
               <div className="glass rounded-2xl p-6 space-y-4">
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                  ESLP complements academic learning with a focused journey through
-                  leadership, entrepreneurship, personal development, civic
-                  engagement, and global opportunity awareness. Fellows reflect on
-                  both local and international issues while building the confidence
-                  to lead in their schools and communities.
+                  {t('whatIs.p1')}
                 </p>
+                {/* The emphasised run of institution names sits mid-sentence, so
+                    splitting it into two keys would leave a translator with two
+                    half-sentences. t.rich keeps the sentence whole and passes the
+                    markup in as a tag. */}
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                  The 2026 edition ran as a hybrid experience: most sessions took
-                  place online, followed by a company excursion to Radio Télé
-                  Métropole in Port-au-Prince and a closing graduation day at IICA
-                  in Pétion-Ville, where 35 fellows received their certificates. We have
-                  welcomed speakers from leading organizations and institutions — including{' '}
-                  <strong className="text-primary">
-                    Harvard, MIT, Microsoft, Deutsche Bank, and Cornell
-                  </strong>{' '}
-                  — who join fellows to share expertise, challenge assumptions,
-                  and inspire action.
+                  {t.rich('whatIs.p2', {
+                    b: (chunks) => <strong className="text-primary">{chunks}</strong>,
+                  })}
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -378,19 +280,19 @@ export default function ESLPPage() {
                   rel="noopener noreferrer"
                   className="btn btn-primary"
                 >
-                  Program description
+                  {t('whatIs.programDescription')}
                 </a>
                 <button
                   type="button"
                   onClick={() => setNotifyOpen(true)}
                   className="btn btn-light"
                 >
-                  Get notified for 2027 <ArrowRight size={16} />
+                  {t('notifyCta')} <ArrowRight size={16} />
                 </button>
               </div>
             </div>
             <ImageCarousel
-              images={whatIsEslpImages}
+              images={carouselImages}
               interval={4500}
               aspectRatio="aspect-[3/2]"
             />
@@ -404,15 +306,15 @@ export default function ESLPPage() {
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="space-y-8">
               <SectionHeader
-                title="Inside the ESLP experience"
-                subtitle="High-energy days blend virtual seminars, collaborative projects, mentor access, and a curated in-person company visit."
+                title={t('experience.title')}
+                subtitle={t('experience.subtitle')}
               />
               <div className="grid gap-6 sm:grid-cols-2">
                 {experienceHighlights.map((h) => (
                   <Card
-                    key={h.title}
-                    title={h.title}
-                    description={h.description}
+                    key={h.key}
+                    title={t(`highlights.${h.key}.title`)}
+                    description={t(`highlights.${h.key}.description`)}
                     icon={h.icon}
                   />
                 ))}
@@ -421,27 +323,20 @@ export default function ESLPPage() {
 
             <div className="glass-strong rounded-2xl bg-gradient-to-br from-primary/90 via-primary/80 to-primary/95 p-8 text-white shadow-xl">
               <p className="text-sm uppercase tracking-[0.2em] text-white/85">
-                Signature experience
+                {t('capstone.eyebrow')}
               </p>
               <h3 className="mt-4 font-heading text-2xl font-semibold">
-                Capstone Challenge Week
+                {t('capstone.title')}
               </h3>
               <p className="mt-4 text-sm text-white/95 leading-relaxed">
-                Fellows collaborate in multidisciplinary squads of 4–5 to design
-                solutions for local challenges. Each team is paired with an
-                experienced mentor in entrepreneurship and project development. They
-                complete stakeholder interviews, prototype ideas, and present an
-                actionable roadmap during the closing pitch night in front of
-                families, alumni, and partners.
+                {t('capstone.body')}
               </p>
               <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide">
-                {['Design thinking', 'Community impact', 'Team coaching', 'Mentorship'].map(
-                  (tag) => (
-                    <span key={tag} className="rounded-full bg-white/15 px-3 py-1">
-                      {tag}
-                    </span>
-                  )
-                )}
+                {capstoneTags.map((tag) => (
+                  <span key={tag} className="rounded-full bg-white/15 px-3 py-1">
+                    {t(`capstone.tags.${tag}`)}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -452,27 +347,23 @@ export default function ESLPPage() {
       <section className="py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="Curriculum"
-            subtitle="The ESLP curriculum focuses on five core areas spread across the two-week program. For each topic, we invite expert speakers from leading institutions."
+            title={t('curriculum.title')}
+            subtitle={t('curriculum.subtitle')}
             centered
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {curriculumPillars.map((pillar) => (
               <Card
-                key={pillar.title}
-                title={pillar.title}
-                description={pillar.description}
+                key={pillar.key}
+                title={t(`pillars.${pillar.key}.title`)}
+                description={t(`pillars.${pillar.key}.description`)}
                 icon={pillar.icon}
               />
             ))}
           </div>
           <div className="glass rounded-2xl mt-10 p-6">
             <p className="mx-auto max-w-3xl text-center text-sm text-gray-600 leading-relaxed">
-              In parallel, students are grouped into teams and challenged to
-              develop a project that addresses a specific need in their community.
-              The program also includes an excursion to a major company in
-              Port-au-Prince, allowing students to gain real-world insights into
-              workplace dynamics, innovation, and leadership in action.
+              {t('curriculum.note')}
             </p>
           </div>
         </div>
@@ -482,8 +373,8 @@ export default function ESLPPage() {
       <section className="py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="Experience the curriculum"
-            subtitle="From virtual seminars with world-class speakers to hands-on excursions and a celebration of achievement."
+            title={t('tabs.title')}
+            subtitle={t('tabs.subtitle')}
             centered
           />
 
@@ -491,7 +382,7 @@ export default function ESLPPage() {
           <div className="flex justify-center gap-2 sm:gap-3 mb-10">
             {curriculumTabs.map((tab, idx) => (
               <button
-                key={tab.label}
+                key={tab.key}
                 onClick={() => setActiveTab(idx)}
                 className={`px-5 sm:px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
                   activeTab === idx
@@ -499,7 +390,7 @@ export default function ESLPPage() {
                     : 'glass text-gray-600 hover:text-primary'
                 }`}
               >
-                {tab.label}
+                {t(`tabs.${tab.key}.label`)}
               </button>
             ))}
           </div>
@@ -509,14 +400,14 @@ export default function ESLPPage() {
             <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-[3/2]">
               {curriculumTabs.map((tab, idx) => (
                 <div
-                  key={tab.label}
+                  key={tab.key}
                   className={`absolute inset-0 transition-opacity duration-500 ${
                     activeTab === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'
                   }`}
                 >
                   <Image
                     src={tab.image}
-                    alt={tab.alt}
+                    alt={t(`tabs.${tab.key}.alt`)}
                     fill
                     className="object-cover"
                   />
@@ -525,17 +416,13 @@ export default function ESLPPage() {
             </div>
             <div className="glass rounded-2xl p-6 sm:p-8 space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary">
-                {curriculumTabs[activeTab].label}
+                {t(`tabs.${curriculumTabs[activeTab].key}.label`)}
               </div>
               <h3 className="font-heading text-xl sm:text-2xl font-semibold text-text">
-                {curriculumTabs[activeTab].label === 'Seminars'
-                  ? 'Interactive virtual seminars'
-                  : curriculumTabs[activeTab].label === 'Excursion'
-                    ? 'Real-world company visits'
-                    : 'Capstone showcase & ceremony'}
+                {t(`tabs.${curriculumTabs[activeTab].key}.heading`)}
               </h3>
               <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                {curriculumTabs[activeTab].description}
+                {t(`tabs.${curriculumTabs[activeTab].key}.description`)}
               </p>
             </div>
           </div>
@@ -548,14 +435,13 @@ export default function ESLPPage() {
         <div className="max-w-[1200px] relative mx-auto px-6 lg:px-10">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">
-              Journey
+              {t('journey.eyebrow')}
             </p>
             <h2 className="mt-4 font-heading text-3xl md:text-4xl font-bold text-white">
-              From application to alumni leadership
+              {t('journey.title')}
             </h2>
             <p className="mt-4 text-base text-slate-100">
-              ESLP is designed as a guided journey. Fellows receive holistic
-              support at every phase — from recruitment to post-program mentorship.
+              {t('journey.intro')}
             </p>
           </div>
 
@@ -563,7 +449,7 @@ export default function ESLPPage() {
             {phases.map((phase, idx) => {
               return (
                 <div
-                  key={phase.title}
+                  key={phase.key}
                   className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-[0_10px_40px_rgba(15,23,42,0.5)]"
                 >
                   <div className="flex items-center gap-3 mb-4">
@@ -571,17 +457,17 @@ export default function ESLPPage() {
                       {idx + 1}
                     </span>
                     <h3 className="font-heading text-lg font-semibold text-white">
-                      {phase.title}
+                      {t(`phases.${phase.key}.title`)}
                     </h3>
                   </div>
                   <p className="text-sm text-slate-100 mb-4">
-                    {phase.description}
+                    {t(`phases.${phase.key}.description`)}
                   </p>
                   <ul className="space-y-2 text-sm text-slate-200/80">
-                    {phase.bullets.map((bullet) => (
+                    {PHASE_BULLETS.map((bullet) => (
                       <li key={bullet} className="flex items-start gap-2">
                         <ArrowRight size={14} className="mt-1 text-[var(--accent-soft)] shrink-0" />
-                        <span>{bullet}</span>
+                        <span>{t(`phases.${phase.key}.${bullet}`)}</span>
                       </li>
                     ))}
                   </ul>
@@ -596,38 +482,36 @@ export default function ESLPPage() {
       <section className="py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="Eligibility & selection"
-            subtitle="We're looking for young leaders who are eager to learn, collaborate, and serve their communities."
+            title={t('eligibility.title')}
+            subtitle={t('eligibility.subtitle')}
             centered
           />
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
             <div className="glass rounded-2xl p-6 sm:p-8">
               <h3 className="flex items-center gap-2 font-heading text-lg font-semibold text-text mb-4">
-                <Users size={22} className="text-primary" /> Who should apply?
+                <Users size={22} className="text-primary" /> {t('eligibility.whoTitle')}
               </h3>
               <ul className="space-y-3 text-sm sm:text-base text-gray-700">
                 {eligibility.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="mt-2 h-2 w-2 rounded-full bg-primary shrink-0" />
-                    <span>{item}</span>
+                    <span>{t(`eligibility.items.${item}`)}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="glass rounded-2xl p-6 sm:p-8">
               <h3 className="flex items-center gap-2 font-heading text-lg font-semibold text-text mb-4">
-                <Star size={22} className="text-primary" /> How we select fellows
+                <Star size={22} className="text-primary" /> {t('selection.title')}
               </h3>
               <p className="text-sm sm:text-base text-gray-700 mb-4">
-                ESLP is highly competitive. We evaluate each application
-                holistically to build a diverse, mission-aligned cohort of ~30
-                students.
+                {t('selection.intro')}
               </p>
               <ul className="space-y-2 text-sm sm:text-base text-gray-700">
                 {selectionCriteria.map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <ArrowRight size={14} className="mt-1.5 text-primary shrink-0" />
-                    <span>{item}</span>
+                    <span>{t(`selection.criteria.${item}`)}</span>
                   </li>
                 ))}
               </ul>
@@ -643,7 +527,7 @@ export default function ESLPPage() {
             <div className="relative overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/edlight_academy_group.webp"
-                alt="EdLight students in a group setting"
+                alt={t('apply.imageAlt')}
                 width={720}
                 height={480}
                 className="h-auto w-full object-cover"
@@ -651,41 +535,20 @@ export default function ESLPPage() {
             </div>
             <div className="space-y-6">
               <SectionHeader
-                title="How to apply"
-                subtitle={`Applications are closed. When ${NEXT_CYCLE_LABEL} opens in ${NEXT_CYCLE_OPENS}, this is what you will need to submit:`}
+                title={t('apply.title')}
+                subtitle={t('apply.subtitle', { cycle: NEXT_CYCLE_LABEL, opens: nextCycleOpens })}
               />
               <div className="glass rounded-2xl p-6 space-y-5">
-                {[
-                  {
-                    step: '1',
-                    title: 'Application Form',
-                    desc: 'Fill out the form with your name, address, school information, and more.',
-                  },
-                  {
-                    step: '2',
-                    title: 'Two Essays',
-                    desc: 'One about your extracurricular activities, another showcasing your interest in the program.',
-                  },
-                  {
-                    step: '3',
-                    title: 'ID Picture',
-                    desc: 'Provide a recent ID picture for identification purposes.',
-                  },
-                  {
-                    step: '4',
-                    title: 'Transcripts',
-                    desc: 'Submit your current academic year transcripts as a PDF.',
-                  },
-                ].map((item) => (
+                {applicationSteps.map((item) => (
                   <div key={item.step} className="flex gap-4 items-start">
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-white font-bold text-sm shadow-md">
                       {item.step}
                     </span>
                     <div>
                       <h4 className="font-heading font-semibold text-text">
-                        {item.title}
+                        {t(`apply.steps.${item.key}.title`)}
                       </h4>
-                      <p className="text-sm text-gray-600">{item.desc}</p>
+                      <p className="text-sm text-gray-600">{t(`apply.steps.${item.key}.desc`)}</p>
                     </div>
                   </div>
                 ))}
@@ -697,7 +560,7 @@ export default function ESLPPage() {
                   rel="noopener noreferrer"
                   className="btn btn-light"
                 >
-                  Preview past application
+                  {t('apply.preview')}
                 </a>
               </div>
             </div>
@@ -713,20 +576,17 @@ export default function ESLPPage() {
             <div className="relative z-10 flex flex-col gap-8 md:flex-row md:items-center">
               <div className="flex-1 space-y-4">
                 <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest">
-                  <GraduationCap size={14} /> Cohort Graduated
+                  <GraduationCap size={14} /> {t('cohort2026.badge')}
                 </div>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold">
-                  ESLP 2026
+                  {t('cohort2026.title')}
                 </h2>
                 <p className="text-base text-white/95 leading-relaxed max-w-xl">
-                  The 2026 edition of the EdLight Summer Leadership Program ran{' '}
-                  <strong className="text-white">{PROGRAM_DATES}</strong> — two weeks
-                  of virtual seminars, a company excursion to{' '}
-                  <strong className="text-white">Radio Télé Métropole</strong> in
-                  Port-au-Prince, and a graduation ceremony at{' '}
-                  <strong className="text-white">IICA in Pétion-Ville</strong> where
-                  35 fellows received their certificates. Applications for ESLP 2027
-                  will open in <strong className="text-white">{NEXT_CYCLE_OPENS}</strong>.
+                  {t.rich('cohort2026.body', {
+                    dates: programDates,
+                    opens: nextCycleOpens,
+                    b: (chunks) => <strong className="text-white">{chunks}</strong>,
+                  })}
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center md:flex-col lg:flex-row shrink-0">
@@ -735,7 +595,7 @@ export default function ESLPPage() {
                   onClick={() => setNotifyOpen(true)}
                   className="btn btn-light"
                 >
-                  <Bell size={16} /> Get notified for 2027
+                  <Bell size={16} /> {t('notifyCta')}
                 </button>
                 <a
                   href={`mailto:${EMAIL}`}
@@ -753,28 +613,26 @@ export default function ESLPPage() {
       <section className="py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="Fully funded for every fellow"
-            subtitle="ESLP is powered by partners and donors who believe that leadership development should be accessible."
+            title={t('funding.title')}
+            subtitle={t('funding.subtitle')}
             centered
           />
           <div className="grid gap-6 sm:grid-cols-2">
             {benefits.map((benefit) => (
               <Card
-                key={benefit.title}
-                title={benefit.title}
-                description={benefit.description}
+                key={benefit.key}
+                title={t(`benefits.${benefit.key}.title`)}
+                description={t(`benefits.${benefit.key}.description`)}
                 icon={benefit.icon}
               />
             ))}
           </div>
           <div className="glass-strong rounded-2xl mt-10 p-6 sm:p-8 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary/70 mb-2">
-              Scholarship guarantee
+              {t('funding.guaranteeEyebrow')}
             </p>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              Every fellow attends ESLP tuition-free. Sponsors help cover core
-              learning costs, selected logistics for in-person moments, and
-              continued support for alumni growth.
+              {t('funding.guaranteeBody')}
             </p>
           </div>
         </div>
@@ -784,8 +642,8 @@ export default function ESLPPage() {
       <section className="py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="Voices from our alumni"
-            subtitle="Meet the inspiring faces of our past participants. Through ESLP, they have honed their skills, gained invaluable insights, and forged lifelong connections."
+            title={t('testimonials.title')}
+            subtitle={t('testimonials.subtitle')}
             centered
           />
           <div className="max-w-3xl mx-auto">
@@ -798,7 +656,7 @@ export default function ESLPPage() {
                   className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors ${
                     index === currentTestimonial ? 'bg-primary' : 'bg-gray-300'
                   }`}
-                  aria-label={`View testimonial ${index + 1}`}
+                  aria-label={t('testimonials.dotAria', { number: index + 1 })}
                 />
               ))}
             </div>
@@ -810,24 +668,28 @@ export default function ESLPPage() {
       <section className="py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="Frequently asked questions"
-            subtitle={`Need more details? Email ${EMAIL} and our team will follow up within two business days.`}
+            title={t('faq.title')}
+            subtitle={t('faq.subtitle', { email: EMAIL })}
             centered
           />
           <div className="mx-auto max-w-4xl space-y-4">
             {faqs.map((faq) => (
               <details
-                key={faq.question}
+                key={faq}
                 className="group glass rounded-2xl p-6 transition"
               >
                 <summary className="flex cursor-pointer items-center justify-between gap-3 text-left text-base font-semibold text-text">
-                  {faq.question}
+                  {t(`faqs.${faq}.question`)}
                   <span className="text-primary transition group-open:rotate-180">
                     ▾
                   </span>
                 </summary>
                 <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
-                  {faq.answer}
+                  {t(`faqs.${faq}.answer`, {
+                    dates: programDates,
+                    opens: nextCycleOpens,
+                    email: EMAIL,
+                  })}
                 </p>
               </details>
             ))}
@@ -843,22 +705,21 @@ export default function ESLPPage() {
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/90">
-                  ESLP 2027 · Applications open {NEXT_CYCLE_OPENS}
+                  {t('finalCta.eyebrow', { opens: nextCycleOpens })}
                 </p>
                 <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold">
-                  Ready to lead with purpose?
+                  {t('finalCta.title')}
                 </h2>
                 <p className="mt-3 text-sm md:text-base text-white/95 max-w-lg">
-                  Join the notify list for the 2027 cohort, nominate a student, or
-                  partner with ESLP to support the next generation of Haitian leaders.
+                  {t('finalCta.body')}
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center shrink-0">
                 <button type="button" onClick={() => setNotifyOpen(true)} className="btn btn-light">
-                  <Bell size={16} /> Get notified for 2027
+                  <Bell size={16} /> {t('notifyCta')}
                 </button>
                 <a href={`mailto:${EMAIL}`} className="btn btn-ghost">
-                  <Mail size={16} /> Partner with ESLP
+                  <Mail size={16} /> {t('finalCta.partner')}
                 </a>
               </div>
             </div>

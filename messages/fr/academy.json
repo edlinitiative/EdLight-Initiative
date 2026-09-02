@@ -1,0 +1,170 @@
+{
+  "hero": {
+    "eyebrow": "Écosystème EdLight · Plateforme d’apprentissage",
+    "title": "EdLight Academy",
+    "subtitle": "Une plateforme d’apprentissage complète pour les élèves haïtiens — des cours structurés, une véritable préparation aux examens nationaux et un jeu de questions quotidien, le tout avec un suivi des progrès qui entretient votre motivation. Gratuite et bilingue.",
+    "meta": {
+      "subjects": "Matières",
+      "examLevels": "Niveaux d’examen",
+      "triviaCategories": "Catégories de questions",
+      "cost": "Coût pour les apprenants",
+      "costValue": "Gratuit"
+    },
+    "ctaPrimary": "Commencer à apprendre",
+    "ctaSecondary": "Explorer les cours"
+  },
+  "pillars": {
+    "title": "Une plateforme, quatre façons d’apprendre",
+    "subtitle": "EdLight Academy, ce n’est pas que des leçons vidéo. Les apprenants passent des cours à la pratique d’examens, au jeu de questions et à un système de progression conçu pour les faire avancer.",
+    "items": {
+      "courses": {
+        "title": "Cours structurés",
+        "description": "Des leçons vidéo organisées par matière et par niveau, alignées sur le programme national haïtien et enseignées en français et en Kreyòl."
+      },
+      "exams": {
+        "title": "Examens blancs",
+        "description": "De véritables examens nationaux passés — de la 9e Année au Baccalauréat et aux concours d’entrée à l’université — chacun accompagné de corrigés détaillés et expliqués."
+      },
+      "trivia": {
+        "title": "Jeu de questions",
+        "description": "Un jeu de questions rapide et quotidien réparti en 15 catégories, de la chimie et des mathématiques à l’histoire, aux proverbes et à la culture haïtiens."
+      },
+      "progress": {
+        "title": "Progrès et récompenses",
+        "description": "Des quiz à rétroaction instantanée, des XP, des niveaux, des séries quotidiennes, des badges de réussite et un classement hebdomadaire pour entretenir votre motivation."
+      }
+    }
+  },
+  "gamification": {
+    "eyebrow": "Gardez la motivation",
+    "title": "Un apprentissage qui vous donne envie de revenir",
+    "body": "Chaque leçon, chaque quiz et chaque manche de questions rapporte des XP. Les séries, les badges et le classement hebdomadaire transforment l’étude régulière en quelque chose que vous attendez avec plaisir.",
+    "items": {
+      "xp": {
+        "title": "XP et niveaux",
+        "description": "Gagnez des XP à chaque leçon, quiz et manche de questions, et montez de niveau au fil du temps."
+      },
+      "streaks": {
+        "title": "Séries quotidiennes",
+        "description": "Gardez votre série en vie en apprenant un peu chaque jour — 3 jours, une semaine, un mois et bien plus."
+      },
+      "leaderboard": {
+        "title": "Classement hebdomadaire",
+        "description": "Voyez chaque semaine comment vous vous situez par rapport aux autres apprenants de la plateforme."
+      },
+      "achievements": {
+        "title": "Réussites",
+        "description": "Débloquez des badges pour vos jalons — de votre premier quiz à une année entière de régularité."
+      }
+    }
+  },
+  "subjects": {
+    "title": "Des cours structurés, conçus pour le programme haïtien",
+    "subtitle": "Conçues avec des enseignants haïtiens et offertes en français et en Kreyòl, les matières sont organisées en niveaux pour que les apprenants sachent toujours ce qui vient ensuite.",
+    "note": "Chaque cours est offert à la fois en français et en créole haïtien.",
+    "items": {
+      "maths": {
+        "title": "Mathématiques",
+        "description": "L’algèbre, l’analyse et la stratégie d’examen."
+      },
+      "physics": {
+        "title": "Physique",
+        "description": "Le mouvement, l’énergie et les lois du monde."
+      },
+      "chemistry": {
+        "title": "Chimie",
+        "description": "Les réactions, la matière et les notions de laboratoire."
+      },
+      "svt": {
+        "title": "Sciences de la vie et de la Terre (SVT)",
+        "description": "La biologie, le corps humain et l’environnement."
+      },
+      "economics": {
+        "title": "Économie",
+        "description": "Les marchés, le développement et la prise de décision."
+      },
+      "languages": {
+        "title": "Langues",
+        "description": "L’anglais et l’espagnol pour les examens nationaux."
+      }
+    }
+  },
+  "exams": {
+    "title": "Entraînez-vous avec de véritables examens nationaux",
+    "subtitle": "Notre bibliothèque d’examens blancs couvre tout le parcours haïtien, à partir de sujets d’examen authentiques accompagnés de corrigés détaillés, étape par étape.",
+    "items": {
+      "ninthYear": {
+        "title": "9e Année",
+        "description": "Les examens officiels de 9e année fondamentale, avec les sujets complets des années passées et des corrigés détaillés."
+      },
+      "bac": {
+        "title": "Baccalauréat",
+        "description": "Les examens de Terminale dans toutes les séries — SVT, SMP, SES, Lettres et Arts."
+      },
+      "university": {
+        "title": "Entrée à l’université",
+        "description": "Les concours d’admission et les examens universitaires pour aborder les études supérieures en confiance."
+      }
+    }
+  },
+  "trivia": {
+    "eyebrow": "Jouer et apprendre",
+    "title": "Le jeu de questions : rapide, quotidien, addictif",
+    "body": "Un défi quotidien de 10 questions qui rapporte des XP bonus, plus 15 catégories qui mêlent les matières principales à l’histoire, à la géographie et à la culture haïtiennes. Parfait pour une pause d’étude de deux minutes.",
+    "dailyChallenge": "Défi quotidien",
+    "dailyChallengeDetail": "10 questions · +50 XP en bonus",
+    "categories": {
+      "flashMath": "Maths éclair",
+      "chemicalSymbols": "Symboles chimiques",
+      "bodyLifeScience": "Le corps et les sciences de la vie",
+      "englishExpress": "Anglais express",
+      "worldCapitals": "Capitales du monde",
+      "currencies": "Monnaies",
+      "flags": "Drapeaux",
+      "historyOfHaiti": "Histoire d’Haïti",
+      "geographyOfHaiti": "Géographie d’Haïti",
+      "haitianCulture": "Culture haïtienne",
+      "haitianFigures": "Figures haïtiennes",
+      "haitianProverbs": "Proverbes haïtiens",
+      "scienceNature": "Sciences et nature",
+      "nationalSymbols": "Symboles nationaux",
+      "haitianSport": "Sport haïtien"
+    }
+  },
+  "studyPlan": {
+    "title": "Votre parcours personnalisé vers le bac",
+    "subtitle": "EdLight Academy transforme une étude dispersée en un plan — et vous montre exactement où vous en êtes avant le jour de l’examen.",
+    "items": {
+      "plan": {
+        "title": "Plan d’étude personnalisé",
+        "description": "Un plan sur mesure avec répétition espacée qui programme les révisions pour que les connaissances restent vraiment."
+      },
+      "score": {
+        "title": "Score pondéré du BAC",
+        "description": "Suivez votre préparation grâce à un score pondéré par les coefficients de votre série — SVT ×4, chimie ×3, et plus encore."
+      },
+      "dashboard": {
+        "title": "Tableau de bord des progrès",
+        "description": "Voyez d’un coup d’œil vos cours en cours, les quiz passés, votre note moyenne et votre série."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Comment ça fonctionne",
+    "subtitle": "Cinq étapes pour commencer à apprendre avec EdLight Academy.",
+    "steps": {
+      "account": "Créez un compte gratuit sur academy.edlight.org.",
+      "subject": "Choisissez une matière et suivez des leçons structurées en français et en Kreyòl.",
+      "test": "Testez-vous avec des quiz, de véritables examens passés et le jeu de questions quotidien.",
+      "track": "Suivez vos progrès avec les XP, les séries et un score pondéré du BAC.",
+      "exams": "Abordez vos examens nationaux avec préparation et confiance."
+    }
+  },
+  "cta": {
+    "eyebrow": "Rejoignez la communauté",
+    "title": "Envie de découvrir EdLight Academy ?",
+    "body": "Commencez à apprendre gratuitement, apportez la plateforme dans votre classe ou parrainez de nouveaux cours pour les apprenants haïtiens.",
+    "primary": "Commencez à apprendre dès aujourd’hui",
+    "secondary": "Devenir partenaire d’EdLight"
+  }
+}

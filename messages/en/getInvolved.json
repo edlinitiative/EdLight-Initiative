@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "eyebrow": "EdLight Ecosystem · Get Involved",
+    "title": "Get Involved",
+    "subtitle": "Join us in empowering the next generation of Haitian innovators — as a volunteer, partner, donor, or guest speaker.",
+    "metaWaysLabel": "Ways to help",
+    "metaCostLabel": "Cost to students",
+    "metaCostValue": "$0",
+    "donateCta": "Donate now",
+    "contactCta": "Contact us"
+  },
+  "ways": {
+    "heading": "Ways to get involved",
+    "subheading": "There are many ways you can support our mission — pick the one that fits you best.",
+    "volunteer": {
+      "title": "Volunteer",
+      "description": "Mentor a student through a course, teach a workshop in your subject, review project work, or help with the operations behind the programmes. Most volunteers give a few hours a month, remotely. Tell us what you know and when you are free, and we will match you to something real."
+    },
+    "partner": {
+      "title": "Partner",
+      "description": "Schools, universities, businesses, and NGOs work with us to widen what our students can reach — course content, exam preparation, venues, equipment, internships, and scholarship routes. Our current partners are UWC, Coursera, and IICA."
+    },
+    "donate": {
+      "title": "Donate",
+      "description": "Programmes are free to every student, and stay that way because donors carry the cost: the learning platform, course materials and certificates, scholarships for the programmes that select participants, and the coordinators who run them in Haiti."
+    },
+    "speak": {
+      "title": "Speak",
+      "description": "Our students rarely meet someone doing the job they are aiming at. A single honest hour about your work, how you got there, and what you would do differently changes what a student believes is available to them. ESLP and our course cohorts both host guest speakers."
+    }
+  },
+  "support": {
+    "eyebrow": "Support our work",
+    "title": "Fuel free education for Haitian students",
+    "body": "Your donation directly supports scholarships, program costs, and resources for students. Every contribution makes a difference.",
+    "secureCheckout": "Secure PayPal Checkout",
+    "poweredBy": "Powered by PayPal. Choose a one-time gift or set up monthly support.",
+    "taxNotice": "EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation No. {number}). We do not yet hold registered-charity status, so we cannot issue tax receipts — we would rather say so before you give than after."
+  },
+  "form": {
+    "heading": "Contact us",
+    "subheading": "Tell us how you’d like to get involved and we’ll be in touch soon.",
+    "nameLabel": "Name",
+    "nameRequired": "Name is required",
+    "emailLabel": "Email",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "interestLabel": "I'm interested in",
+    "interestRequired": "Please select an option",
+    "interestPlaceholder": "Select an option",
+    "interests": {
+      "volunteer": "Volunteering",
+      "partner": "Partnership",
+      "donate": "Donation",
+      "speak": "Guest Speaking",
+      "other": "Other"
+    },
+    "messageLabel": "Message",
+    "messageRequired": "Message is required",
+    "sending": "Sending…",
+    "submit": "Send Message",
+    "success": "Thank you for your interest! We will be in touch soon.",
+    "error": "There was an error sending your message. Please try again or email us at {email}."
+  }
+}

@@ -15,9 +15,25 @@
  * check in scripts/check-messages.mjs, which runs in the build.
  */
 export const NAMESPACES = [
+  // Shared chrome
   'common',
   'nav',
   'footer',
+  'notify',
+  'errors',
+  // One per page
+  'home',
+  'about',
+  'academy',
+  'code',
+  'scholars',
+  'eslp',
+  'faq',
+  'getInvolved',
+  'contact',
+  'donate',
+  'privacy',
+  'terms',
 ] as const
 
 export type Namespace = (typeof NAMESPACES)[number]

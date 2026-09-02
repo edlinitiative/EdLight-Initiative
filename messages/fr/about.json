@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "title": "À propos d’EdLight",
+    "subtitle": "Élargir l’accès à l’éducation, au leadership, à l’innovation et aux occasions pour la jeunesse haïtienne."
+  },
+  "story": {
+    "title": "Notre histoire",
+    "p1": "EdLight Initiative est un organisme guidé par sa mission, qui s’engage à élargir l’accès à une éducation de qualité, au développement du leadership et aux occasions à l’international pour la jeunesse haïtienne. Grâce à un écosystème de programmes en croissance, EdLight travaille à donner aux élèves les connaissances, les compétences et l’exposition nécessaires pour réussir sur le plan scolaire, sur le plan professionnel et comme futurs leaders.",
+    "p2": "Son travail couvre l’apprentissage numérique, la formation en programmation et en technique, le développement du leadership, l’ouverture sur le monde et des solutions technologiques conçues pour avoir un impact. À travers ces initiatives, EdLight cherche à combler les écarts d’occasions et à créer des parcours concrets pour les jeunes haïtiens, en Haïti et ailleurs.",
+    "p3": "EdLight Initiative est une société à but non lucratif enregistrée au Canada (société n° {number}) et établie à {locality}, {region}. Tous les programmes sont offerts gratuitement aux élèves."
+  },
+  "missionVision": {
+    "missionTitle": "Mission",
+    "missionBody": "Élargir l’accès à une éducation de qualité, au mentorat, à l’innovation et aux occasions à l’international pour la jeunesse haïtienne.",
+    "visionTitle": "Vision",
+    "visionBody": "Un avenir où les élèves haïtiens disposent des outils, du soutien et des occasions nécessaires pour réaliser leur plein potentiel et porter un changement positif dans leur communauté et au-delà."
+  },
+  "team": {
+    "title": "Rencontrez l’équipe EdLight",
+    "subtitle": "EdLight est portée par une équipe multidisciplinaire d’éducateurs, de bâtisseurs, de mentors et de gestionnaires qui travaillent en éducation, en technologie et en développement du leadership.",
+    "foundedBy": "EdLight a été fondée par {founderOne} et {founderTwo}.",
+    "leadershipIntro": "Notre équipe de direction comprend :",
+    "titles": {
+      "stevensonMichel": "Cofondateur et chef de la direction",
+      "tedJacquet": "Cofondateur et chef des finances / Produit et croissance",
+      "ronyFrancillon": "Directeur, ESLP et Nexus",
+      "herodeMetellus": "Coordonnateur du financement",
+      "williamsonMichel": "Responsable des opérations en Haïti",
+      "christopherMichel": "Opérations internes et logistique",
+      "stephaneLaine": "Coordonnateur des opérations en Haïti",
+      "fredlerPierreLouis": "Responsable de la cybersécurité / Conseiller"
+    }
+  },
+  "journey": {
+    "title": "Notre parcours",
+    "subtitle": "EdLight est devenue un écosystème plus large d’initiatives éducatives et de leadership conçues pour servir la jeunesse haïtienne par l’apprentissage, le mentorat, l’innovation et l’ouverture aux occasions à l’international.",
+    "items": {
+      "launch": {
+        "year": "2022",
+        "title": "Lancement de l’ESLP",
+        "description": "Le EdLight Summer Leadership Program a été lancé en août 2022 comme une expérience de leadership conçue pour aider les élèves à gagner en confiance, en vision et en engagement civique."
+      },
+      "today": {
+        "year": "Aujourd’hui",
+        "title": "Un écosystème en croissance",
+        "description": "Aujourd’hui, la plateforme publique d’EdLight met en avant un écosystème plus large qui comprend EdLight Academy, l’ESLP, EdLight Nexus et EdLight Labs — tous travaillant ensemble à élargir les occasions pour la jeunesse haïtienne."
+      }
+    }
+  },
+  "closing": "EdLight continue de bâtir des parcours concrets et guidés par sa mission pour les élèves, à travers l’éducation, le leadership, la technologie et la communauté."
+}

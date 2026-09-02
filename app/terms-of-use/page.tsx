@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 import {
   AREA_SERVED,
@@ -8,29 +9,54 @@ import {
   SITE_URL,
 } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Terms of Use | EdLight Initiative',
-  description: 'Terms and conditions for using the EdLight Initiative website and services.',
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('terms')
+
+  return {
+    title: t('meta.title'),
+    description: t('meta.description'),
+  }
 }
 
-export default function TermsPage() {
+// List orders live here; the wording lives in messages/<locale>/terms.json.
+const ACCOUNT_KEYS = ['credentials', 'activities', 'notify', 'accurate'] as const
+
+const PROHIBITED_KEYS = [
+  'illegal',
+  'laws',
+  'rights',
+  'malware',
+  'access',
+  'harass',
+  'impersonate',
+  'harvest',
+] as const
+
+const LICENSE_KEYS = ['modify', 'commercial', 'notices'] as const
+
+const DISCLAIMER_KEYS = ['merchantability', 'accuracy', 'uninterrupted', 'viruses'] as const
+
+export default async function TermsPage() {
+  const t = await getTranslations('terms')
+
   return (
     <main className="min-h-screen bg-gray-50 py-16 px-4">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-6">Terms of Use</h1>
-        <p className="text-sm text-gray-600 mb-8">Last Updated: September 2, 2026</p>
+        <h1 className="text-4xl font-bold text-gray-900 mb-6">{t('title')}</h1>
+        <p className="text-sm text-gray-600 mb-2">{t('lastUpdated')}</p>
+        {/* Shown in every locale, English included. These Terms are a contract:
+            a reader accepting them has to know which language version is the
+            one they are accepting, and that is as true on the English page —
+            which is the binding one — as on a translation. */}
+        <p className="text-xs text-gray-500 mb-8">{t('precedenceNotice')}</p>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h2>
-          <p className="text-gray-700 leading-relaxed">
-            By accessing and using the EdLight Initiative website and services (&quot;Services&quot;), you accept 
-            and agree to be bound by these Terms of Use (&quot;Terms&quot;). If you do not agree to these Terms, 
-            please do not use our Services.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s1.heading')}</h2>
+          <p className="text-gray-700 leading-relaxed">{t('s1.body')}</p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. About EdLight Initiative</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s2.heading')}</h2>
           {/* Said "a non-profit organization" with no jurisdiction and no
               registration number. That is the vaguest true thing we could have
               written: it does not say which country's law made us a legal
@@ -39,85 +65,60 @@ export default function TermsPage() {
               page be read as a Haitian entity, since Haiti is the only place
               this document used to name. We are registered in Canada and we
               work in Haiti — both facts, stated together, from lib/site.ts so
-              the footer and this page cannot drift apart. */}
+              the footer and this page cannot drift apart, and interpolated
+              rather than translated so no locale can state a different one. */}
           <p className="text-gray-700 leading-relaxed">
-            EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation
-            No. {CORPORATION_NUMBER}), based in {REGISTERED_ADDRESS_LINE}, serving secondary-school
-            students in {AREA_SERVED}. Our Services include educational programs, courses, leadership
-            training, and community initiatives.
+            {t('s2.body', {
+              number: CORPORATION_NUMBER,
+              address: REGISTERED_ADDRESS_LINE,
+              area: AREA_SERVED,
+            })}
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. Use of Services</h2>
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">Eligibility</h3>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            You must be at least 13 years old to use our Services. If you are under 18, you must have 
-            parental or guardian consent to use our Services.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s3.heading')}</h2>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('s3.eligibilityHeading')}</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">{t('s3.eligibilityBody')}</p>
 
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">Account Responsibilities</h3>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            If you create an account, you are responsible for:
-          </p>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('s3.accountHeading')}</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">{t('s3.accountIntro')}</p>
           <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-            <li>Maintaining the confidentiality of your account credentials</li>
-            <li>All activities that occur under your account</li>
-            <li>Notifying us immediately of any unauthorized use</li>
-            <li>Providing accurate and complete information</li>
+            {ACCOUNT_KEYS.map((key) => (
+              <li key={key}>{t(`s3.account.${key}`)}</li>
+            ))}
           </ul>
 
-          <h3 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Prohibited Conduct</h3>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            You agree not to:
-          </p>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3 mt-6">{t('s3.prohibitedHeading')}</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">{t('s3.prohibitedIntro')}</p>
           <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-            <li>Use our Services for any illegal purpose</li>
-            <li>Violate any applicable laws or regulations</li>
-            <li>Infringe upon the rights of others</li>
-            <li>Transmit viruses, malware, or other harmful code</li>
-            <li>Attempt to gain unauthorized access to our systems</li>
-            <li>Harass, abuse, or harm other users</li>
-            <li>Impersonate any person or entity</li>
-            <li>Collect or harvest information about other users</li>
+            {PROHIBITED_KEYS.map((key) => (
+              <li key={key}>{t(`s3.prohibited.${key}`)}</li>
+            ))}
           </ul>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Intellectual Property</h2>
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">Our Content</h3>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            All content on our website, including text, graphics, logos, images, videos, and software, is the 
-            property of EdLight Initiative or our licensors and is protected by copyright, trademark, and other 
-            intellectual property laws.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s4.heading')}</h2>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('s4.ourContentHeading')}</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">{t('s4.ourContentBody')}</p>
 
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">License to Use</h3>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            We grant you a limited, non-exclusive, non-transferable license to access and use our Services for 
-            personal, non-commercial purposes. You may not:
-          </p>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('s4.licenseHeading')}</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">{t('s4.licenseIntro')}</p>
           <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-            <li>Modify, copy, or distribute our content without permission</li>
-            <li>Use our content for commercial purposes</li>
-            <li>Remove any copyright or proprietary notices</li>
+            {LICENSE_KEYS.map((key) => (
+              <li key={key}>{t(`s4.license.${key}`)}</li>
+            ))}
           </ul>
 
-          <h3 className="text-xl font-semibold text-gray-800 mb-3 mt-6">User Content</h3>
-          <p className="text-gray-700 leading-relaxed">
-            By submitting content to our Services (e.g., testimonials, feedback), you grant us a non-exclusive, 
-            worldwide, royalty-free license to use, reproduce, modify, and display such content in connection 
-            with our Services and promotional activities.
-          </p>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3 mt-6">{t('s4.userContentHeading')}</h3>
+          <p className="text-gray-700 leading-relaxed">{t('s4.userContentBody')}</p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Programs and Courses</h2>
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">Registration</h3>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Registration for our programs and courses is subject to availability and acceptance. We reserve 
-            the right to refuse or cancel any registration at our discretion.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s5.heading')}</h2>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('s5.registrationHeading')}</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">{t('s5.registrationBody')}</p>
 
           {/* Was "Fees and Payments": "Some programs may require fees. All fees
               are non-refundable... Payment must be made in advance of program
@@ -129,17 +130,13 @@ export default function TermsPage() {
               reviewer checking whether a free-education claim holds up found
               the same contradiction. Deleting the clause is not enough; the
               silence would still leave the question open, so the section now
-              answers it. */}
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">No Fees</h3>
-          <p className="text-gray-700 leading-relaxed">
-            All EdLight Initiative programmes are provided free of charge. There is no application
-            fee, no tuition, no paid tier, and no paid upgrade. We will never ask you to pay to
-            apply for, enrol in, or complete any of our programmes.
-          </p>
+              answers it — in every locale. */}
+          <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('s5.noFeesHeading')}</h3>
+          <p className="text-gray-700 leading-relaxed">{t('s5.noFeesBody')}</p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">6. Donations</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s6.heading')}</h2>
           {/* Ended with "Donors will receive acknowledgment for tax purposes
               where applicable." Being a not-for-profit corporation is not the
               same as being a registered charity, and we are only the first.
@@ -147,77 +144,48 @@ export default function TermsPage() {
               to anyone, so "where applicable" was doing the work of a
               disclaimer while reading as a promise — the reader most likely to
               rely on it is the one about to give money. Say plainly that no
-              receipt is coming, before the donation, not after. */}
-          <p className="text-gray-700 leading-relaxed">
-            Donations to EdLight Initiative are voluntary and non-refundable. We will use donations
-            to support our mission and programs. EdLight Initiative does not hold registered-charity
-            status and cannot issue tax receipts, so donations are not tax-deductible. Donations are
-            processed by PayPal; EdLight Initiative never receives or stores your card details.
-          </p>
+              receipt is coming, before the donation, not after. The same answer
+              appears on /donate and /faq; keep all three in step. */}
+          <p className="text-gray-700 leading-relaxed">{t('s6.body')}</p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Third-Party Services</h2>
-          <p className="text-gray-700 leading-relaxed">
-            Our Services may contain links to third-party websites or services. We are not responsible for the 
-            content, privacy policies, or practices of third-party websites. Your use of third-party services 
-            is at your own risk.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s7.heading')}</h2>
+          <p className="text-gray-700 leading-relaxed">{t('s7.body')}</p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Disclaimers</h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Our Services are provided &quot;as is&quot; and &quot;as available&quot; without warranties of any kind, 
-            either express or implied, including but not limited to:
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s8.heading')}</h2>
+          <p className="text-gray-700 leading-relaxed mb-4">{t('s8.intro')}</p>
           <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-            <li>Warranties of merchantability or fitness for a particular purpose</li>
-            <li>Accuracy, reliability, or completeness of content</li>
-            <li>Uninterrupted or error-free operation</li>
-            <li>Freedom from viruses or harmful components</li>
+            {DISCLAIMER_KEYS.map((key) => (
+              <li key={key}>{t(`s8.items.${key}`)}</li>
+            ))}
           </ul>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Limitation of Liability</h2>
-          <p className="text-gray-700 leading-relaxed">
-            To the fullest extent permitted by law, EdLight Initiative and its directors, officers, employees, 
-            and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive 
-            damages arising out of or related to your use of our Services, even if we have been advised of the 
-            possibility of such damages.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s9.heading')}</h2>
+          <p className="text-gray-700 leading-relaxed">{t('s9.body')}</p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. Indemnification</h2>
-          <p className="text-gray-700 leading-relaxed">
-            You agree to indemnify, defend, and hold harmless EdLight Initiative from any claims, damages, losses, 
-            liabilities, and expenses (including legal fees) arising from your use of our Services or violation 
-            of these Terms.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s10.heading')}</h2>
+          <p className="text-gray-700 leading-relaxed">{t('s10.body')}</p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">11. Termination</h2>
-          <p className="text-gray-700 leading-relaxed">
-            We reserve the right to terminate or suspend your access to our Services at any time, with or without 
-            cause or notice, including for violation of these Terms. Upon termination, your right to use our 
-            Services will immediately cease.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s11.heading')}</h2>
+          <p className="text-gray-700 leading-relaxed">{t('s11.body')}</p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">12. Modifications to Terms</h2>
-          <p className="text-gray-700 leading-relaxed">
-            We may modify these Terms at any time. We will notify you of material changes by posting the updated 
-            Terms on our website with a new &quot;Last Updated&quot; date. Your continued use of our Services after 
-            changes constitutes acceptance of the modified Terms.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s12.heading')}</h2>
+          <p className="text-gray-700 leading-relaxed">{t('s12.body')}</p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">13. Governing Law</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s13.heading')}</h2>
           {/* Named the laws of Haiti and the courts of Haiti. That is where our
               students are, not where the corporation is — we are incorporated
               in Canada and based in Quebec, and Haiti's courts have no
@@ -225,38 +193,32 @@ export default function TermsPage() {
               clause we wrote ourselves. As drafted the clause pointed at a
               forum that could not hear the dispute, which makes it worse than
               having none. Quebec is both the seat of the corporation and the
-              province whose law actually governs it. */}
-          <p className="text-gray-700 leading-relaxed">
-            These Terms shall be governed by and construed in accordance with the laws of the
-            Province of Quebec and the federal laws of Canada applicable therein, without regard to
-            conflict of law provisions. Any disputes shall be resolved in the courts of Quebec.
-          </p>
+              province whose law actually governs it. Every translation of this
+              clause must name Quebec and Canada, never Haiti. */}
+          <p className="text-gray-700 leading-relaxed">{t('s13.body')}</p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">14. Severability</h2>
-          <p className="text-gray-700 leading-relaxed">
-            If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions 
-            shall remain in full force and effect.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s14.heading')}</h2>
+          <p className="text-gray-700 leading-relaxed">{t('s14.body')}</p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">15. Contact Information</h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            If you have any questions about these Terms, please contact us:
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s15.heading')}</h2>
+          <p className="text-gray-700 leading-relaxed mb-4">{t('s15.intro')}</p>
           {/* Email and a bare domain were the only way to reach the entity
               behind these Terms. A governing-law clause naming Quebec is not
               checkable against an address the page never gives, and a reader
               deciding whether to accept the Terms should not have to take the
               jurisdiction on faith. The registered address closes that gap. */}
           <div className="bg-gray-50 p-4 rounded-lg">
-            <p className="text-gray-700"><strong>EdLight Initiative</strong></p>
-            <p className="text-gray-700">Corporation No. {CORPORATION_NUMBER}</p>
+            <p className="text-gray-700"><strong>{t('s15.orgName')}</strong></p>
+            <p className="text-gray-700">{t('s15.corporationLine', { number: CORPORATION_NUMBER })}</p>
             <p className="text-gray-700">{REGISTERED_ADDRESS_LINE}</p>
-            <p className="text-gray-700">Email: {CONTACT_EMAIL}</p>
-            <p className="text-gray-700">Website: {SITE_URL.replace('https://', '')}</p>
+            <p className="text-gray-700">{t('s15.emailLine', { email: CONTACT_EMAIL })}</p>
+            <p className="text-gray-700">
+              {t('s15.websiteLine', { website: SITE_URL.replace('https://', '') })}
+            </p>
           </div>
         </section>
       </div>

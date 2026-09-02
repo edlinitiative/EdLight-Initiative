@@ -1,0 +1,10 @@
+{
+  "notFoundTitle": "Page Not Found",
+  "notFoundBody": "Oops! The page you're looking for doesn't exist or has been moved.",
+  "goHome": "Go Home",
+  "contactUs": "Contact Us",
+  "serverTitle": "Something Went Wrong",
+  "serverBody": "We're sorry, but something unexpected happened. Our team has been notified and is working on a fix.",
+  "tryAgain": "Try Again",
+  "errorId": "Error ID: {digest}"
+}

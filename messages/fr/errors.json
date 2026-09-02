@@ -1,0 +1,10 @@
+{
+  "notFoundTitle": "Page introuvable",
+  "notFoundBody": "Désolé ! La page que vous cherchez n’existe pas ou a été déplacée.",
+  "goHome": "Accueil",
+  "contactUs": "Nous joindre",
+  "serverTitle": "Une erreur est survenue",
+  "serverBody": "Nous sommes désolés, un problème inattendu s’est produit. Notre équipe en a été informée et travaille à le corriger.",
+  "tryAgain": "Réessayer",
+  "errorId": "Identifiant de l’erreur : {digest}"
+}

@@ -1,0 +1,180 @@
+{
+  "hero": {
+    "eyebrow": "EdLight Ecosystem · Learn to Code",
+    "title": "EdLight Code",
+    "subtitle": "The skills you need. The portfolio to prove it. Master Python, SQL, Web Development, and more through guided, hands-on courses — all in your browser.",
+    "meta": {
+      "tracks": "Learning tracks",
+      "cost": "Cost",
+      "costValue": "Free",
+      "certificates": "Certificates",
+      "certificatesValue": "Verifiable",
+      "setup": "Setup",
+      "setupValue": "None"
+    },
+    "ctaPrimary": "Start learning free",
+    "ctaSecondary": "Explore tracks"
+  },
+  "stats": {
+    "title": "Learn by doing, not watching",
+    "subtitle": "EdLight Code turns lessons into real-world skills. Every lesson is a focused reading followed by a hands-on coding exercise — no video lectures, just learn at your own pace and write real code.",
+    "items": {
+      "tracks": {
+        "label": "Learning tracks",
+        "description": "SQL, Python, HTML, CSS, JavaScript, Terminal & Git — with more on the way."
+      },
+      "free": {
+        "label": "Free & browser-based",
+        "description": "No downloads, no setup. Write real code directly in your browser from any device."
+      },
+      "certificates": {
+        "label": "Verifiable certificates",
+        "description": "Complete a track and earn a certificate with a unique verification link employers can check instantly."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "From zero to certified in three steps",
+    "subtitle": "No complicated setup. No long lectures. Just learn, practice, and prove your skills.",
+    "steps": {
+      "pick": {
+        "title": "Pick a track",
+        "description": "Choose from Python, SQL, HTML, CSS, JavaScript, Terminal & Git, and more. Start from the beginning or jump to what you need."
+      },
+      "learn": {
+        "title": "Learn with lessons & labs",
+        "description": "Read bite-sized lessons, then practice with hands-on coding exercises directly in your browser — no setup required."
+      },
+      "certify": {
+        "title": "Earn a certificate",
+        "description": "Complete a track and get a verifiable certificate. Share it on LinkedIn or let employers verify it in seconds."
+      }
+    }
+  },
+  "tracks": {
+    "eyebrow": "Tracks",
+    "title": "Structured paths from beginner to advanced",
+    "body": "Pick your language and start learning. Each track takes you from the fundamentals to job-ready skills.",
+    "courseCount": "{count, plural, one {# course} other {# courses}}",
+    "viewAll": "View all tracks",
+    "items": {
+      "sql": {
+        "title": "SQL Track",
+        "description": "Master database querying from basics to advanced analytics. Learn to extract insights from data."
+      },
+      "python": {
+        "title": "Python Track",
+        "description": "Learn Python programming from scratch. From variables and functions to pandas DataFrames."
+      },
+      "terminal": {
+        "title": "Terminal & Git",
+        "description": "Master the command line, Git fundamentals, and professional collaboration workflows with GitHub."
+      },
+      "html": {
+        "title": "HTML Track",
+        "description": "Build semantic, accessible, and search-optimized web pages from the ground up."
+      },
+      "css": {
+        "title": "CSS Track",
+        "description": "From selectors and the box model through Flexbox, Grid layouts, responsive design, and animations."
+      },
+      "javascript": {
+        "title": "JavaScript Track",
+        "description": "Master JavaScript from fundamentals through DOM manipulation, events, async/await, and advanced patterns."
+      }
+    }
+  },
+  "projects": {
+    "title": "Learn by building",
+    "subtitle": "Apply your skills by building real-world applications — from portfolio sites to data analysis pipelines.",
+    "exploreAll": "Explore all projects on EdLight Code",
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate"
+    },
+    "tags": {
+      "html": "HTML",
+      "css": "CSS",
+      "javascript": "JavaScript",
+      "sql": "SQL",
+      "python": "Python",
+      "dataAnalysis": "Data Analysis",
+      "automation": "Automation"
+    },
+    "items": {
+      "portfolio": {
+        "title": "Build Your Personal Portfolio",
+        "description": "Create a professional portfolio website from scratch using HTML, CSS, and JavaScript."
+      },
+      "salesData": {
+        "title": "SQL: Analyze Sales Data",
+        "description": "Query customers, orders, and products to uncover business insights using SELECT, JOIN, and GROUP BY."
+      },
+      "expenseReports": {
+        "title": "Python: Automate Expense Reports",
+        "description": "Filter, aggregate, and generate reports from real-world expense data using Python."
+      },
+      "quizApp": {
+        "title": "Interactive Quiz App",
+        "description": "Build a fully functional quiz application with scoring, timers, and results using JavaScript."
+      }
+    }
+  },
+  "lessonFormat": {
+    "eyebrow": "Lesson format",
+    "title": "Short reads. Real practice.",
+    "body": "Every lesson is a focused reading followed by a hands-on coding exercise. No video lectures — just learn at your own pace and write real code.",
+    "features": {
+      "biteSized": {
+        "title": "Bite-sized lessons",
+        "description": "Focused readings you can finish in 5-10 minutes. No fluff, just the concepts you need."
+      },
+      "handsOn": {
+        "title": "Hands-on exercises",
+        "description": "Practice coding directly in your browser after every lesson. No setup, no downloads."
+      },
+      "anyDevice": {
+        "title": "Works on any device",
+        "description": "Mobile-friendly and browser-based. Learn on a phone, tablet, or laptop — wherever you are."
+      },
+      "multilingual": {
+        "title": "Multilingual support",
+        "description": "Available in English, French, and Haitian Creole so you can learn in the language you think in."
+      }
+    },
+    "insideEyebrow": "Inside a lesson",
+    "insideTitle": "Read → Code → Repeat",
+    "insideBody": "Each lesson pairs a clear, focused explanation with an interactive coding exercise. You read the concept, then immediately apply it by writing real code in the browser. Instant feedback tells you if you got it right. No passive watching — you learn by doing.",
+    "badges": {
+      "noSetup": "No setup",
+      "instantFeedback": "Instant feedback",
+      "realCode": "Real code"
+    }
+  },
+  "certificates": {
+    "title": "Certificates that employers trust",
+    "subtitle": "Complete a track and earn a certificate with a unique verification link. No more 'trust me' — employers can verify your skills in seconds.",
+    "seeVerification": "See certificate verification",
+    "items": {
+      "link": {
+        "title": "Unique verification link",
+        "description": "Each certificate has a unique URL that anyone can visit to verify authenticity."
+      },
+      "employer": {
+        "title": "Instant employer verification",
+        "description": "Employers can verify your certificate in seconds — no login required."
+      },
+      "shareable": {
+        "title": "Shareable credentials",
+        "description": "Add your certificate to LinkedIn or share the verification link directly."
+      }
+    }
+  },
+  "cta": {
+    "eyebrow": "Start building your future",
+    "title": "Learn to code, earn certificates, build a portfolio",
+    "body": "EdLight Code is free and open to everyone. Pick a track and start writing real code today.",
+    "primary": "Start learning free",
+    "secondary": "Partner with us"
+  }
+}

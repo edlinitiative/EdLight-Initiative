@@ -1,0 +1,112 @@
+{
+  "hero": {
+    "eyebrow": "EdLight Initiative · Fondée en {year}",
+    "title": "Donner à la prochaine génération d’innovateurs haïtiens les moyens d’agir.",
+    "subtitle": "Une éducation de qualité, du mentorat et des occasions à l’international — bâtis avec et pour les élèves de tout Haïti.",
+    "meta": {
+      "programmes": "Programmes",
+      "alumni": "Anciens de l’ESLP",
+      "partners": "Organismes partenaires",
+      "cost": "Coût pour les élèves",
+      "costValue": "0 $"
+    },
+    "explorePrograms": "Découvrir les programmes",
+    "supportUs": "Nous soutenir"
+  },
+  "mission": {
+    "title": "Notre mission et notre vision",
+    "subtitle": "Ouvrir des voies vers l’excellence pour la jeunesse haïtienne",
+    "p1": "EdLight Initiative a été fondée sur la conviction que chaque jeune en Haïti mérite d’avoir accès à une éducation et à des occasions de calibre mondial. Nous travaillons à combler l’écart éducatif en offrant des ressources d’apprentissage gratuites et de qualité, et en créant des liens avec des institutions du monde entier.",
+    "p2": "Grâce à notre écosystème complet de programmes, qui va des cours en ligne aux incubateurs technologiques et au développement du leadership, nous donnons aux élèves les moyens de poursuivre leurs rêves et de devenir les innovateurs, les leaders et les artisans du changement dont Haïti a besoin.",
+    "p3": "Notre vision est celle d’une Haïti où chaque élève motivé dispose des ressources, du mentorat et des occasions nécessaires pour réaliser son plein potentiel et contribuer à bâtir un pays plus prospère.",
+    "p4": "Concrètement, cela veut dire écarter ce qui arrête habituellement un élève : le coût, la distance et la langue. Nos programmes sont gratuits, ils se donnent en ligne pour qu’un élève n’ait pas à déménager pour y participer, et notre plateforme de programmation enseigne en créole haïtien et en français autant qu’en anglais. Nous travaillons avec des élèves du secondaire partout en Haïti, ainsi qu’avec les enseignants et les organismes communautaires qui les accompagnent déjà.",
+    "p5": "EdLight est portée par une équipe multidisciplinaire d’éducateurs, de bâtisseurs, de mentors et de gestionnaires, et est enregistrée comme société à but non lucratif au Canada. Nous publions ce que nous faisons et ce que cela coûte, parce que les familles qui décident de nous confier le temps d’un élève méritent de le voir."
+  },
+  "howItWorks": {
+    "title": "Comment fonctionne EdLight",
+    "subtitle": "Ce qu’un élève reçoit concrètement, et ce que cela lui coûte",
+    "items": {
+      "online": {
+        "title": "Apprendre en ligne, gratuitement",
+        "body": "Tous les cours que nous offrons sont gratuits. Les leçons se suivent dans un navigateur web et dans nos applications mobiles, de sorte qu’un élève avec un téléphone ordinaire et une connexion intermittente peut tout de même participer. EdLight Code enseigne en créole haïtien, en français et en anglais, parce qu’apprendre à programmer dans une langue qu’il a d’abord fallu apprendre est un obstacle que nous préférons retirer."
+      },
+      "mentors": {
+        "title": "Apprendre aux côtés de mentors",
+        "body": "Les cours seuls ne suffisent pas. Nos programmes jumellent les élèves avec des éducateurs, des bâtisseurs et des mentors qui révisent leur travail, répondent à leurs questions et les aident à décider quoi étudier ensuite. L’ESLP va plus loin : il réunit une cohorte dans une même salle pendant deux semaines avec des gens qui ont fait ce qu’ils veulent faire."
+      },
+      "beyond": {
+        "title": "Aller plus loin qu’Haïti",
+        "body": "Les élèves forts ne devraient pas être limités par leur lieu de naissance. Coursera Scholars finance des certificats professionnels reconnus qui ont du poids hors d’Haïti, et l’ESLP développe le leadership et l’assurance civique que recherchent les bourses et les universités."
+      }
+    }
+  },
+  "ecosystem": {
+    "title": "Notre écosystème",
+    "subtitle": "Des programmes complets qui accompagnent les élèves à chaque étape",
+    "intro": "Quatre programmes, chacun visant un moment différent du parcours d’un élève. Academy et Code couvrent l’apprentissage lui-même, des mathématiques et de la physique du secondaire jusqu’à la programmation en Python et en SQL. Coursera Scholars et l’ESLP prennent en charge la suite — les titres et l’expérience de leadership qui font d’un bon élève une candidature solide. Les quatre sont gratuits, et un élève peut commencer n’importe où et passer de l’un à l’autre.",
+    "programs": {
+      "academy": {
+        "title": "EdLight Academy",
+        "description": "Des cours gratuits en mathématiques, physique, chimie, SVT, économie et langues — conçus autour des examens de 9e Année et du Baccalauréat."
+      },
+      "code": {
+        "title": "EdLight Code",
+        "description": "Six parcours de programmation pratiques — Python, SQL, HTML, CSS, JavaScript, Terminal et Git — enseignés en créole haïtien, en français et en anglais."
+      },
+      "scholars": {
+        "title": "Coursera Scholars",
+        "description": "Des certificats Coursera financés, offerts avec Coursera, pour que les élèves haïtiens obtiennent des titres professionnels reconnus sans frais."
+      },
+      "eslp": {
+        "title": "ESLP",
+        "description": "Un programme d’été en leadership de deux semaines : séminaires, mentorat, visite d’entreprise et projet à impact communautaire."
+      }
+    }
+  },
+  "impact": {
+    "title": "Notre impact",
+    "subtitle": "Faire une différence dans les communautés de tout Haïti",
+    "counters": {
+      "alumni": "Anciens de l’ESLP jusqu’en {through}",
+      "subjects": "Matières et parcours de programmation gratuits",
+      "partners": "Organismes partenaires"
+    }
+  },
+  "testimonials": {
+    "title": "Parcours d’élèves",
+    "subtitle": "La parole à nos anciens"
+  },
+  "partners": {
+    "title": "Nos partenaires",
+    "subtitle": "Les organismes avec qui nous travaillons pour élargir ce que nos élèves peuvent atteindre"
+  },
+  "explore": {
+    "title": "Pour aller plus loin",
+    "subtitle": "Plus de détails sur nos cours, nos projets et la façon de nous rejoindre",
+    "items": {
+      "academy": {
+        "title": "Parcourir le catalogue de cours",
+        "body": "Des cours gratuits dans les six matières dont les élèves haïtiens ont besoin pour les examens nationaux."
+      },
+      "scholars": {
+        "title": "Bourses et certificats",
+        "body": "Des titres Coursera financés pour les élèves haïtiens, en partenariat avec Coursera."
+      },
+      "about": {
+        "title": "Notre mission",
+        "body": "Qui nous sommes, comment nous sommes enregistrés et comment nous travaillons à élargir l’accès à l’éducation."
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "body": "Qui peut postuler, ce que coûtent nos programmes et comment commencer, comme élève ou comme soutien."
+      }
+    }
+  },
+  "cta": {
+    "title": "Passez à l’étape suivante",
+    "body": "Que vous soyez un élève en Haïti à la recherche d’un cours, un professionnel prêt à faire du mentorat ou un donateur qui cherche où cent dollars iront le plus loin — voici par où commencer.",
+    "startCourse": "Commencer un cours gratuit",
+    "donate": "Faire un don",
+    "volunteer": "Devenir bénévole ou partenaire"
+  }
+}

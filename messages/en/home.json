@@ -1,0 +1,112 @@
+{
+  "hero": {
+    "eyebrow": "EdLight Initiative · Est. {year}",
+    "title": "Empowering the next generation of Haitian innovators.",
+    "subtitle": "Quality education, mentorship, and global opportunities — built with and for students across Haiti.",
+    "meta": {
+      "programmes": "Programmes",
+      "alumni": "ESLP alumni",
+      "partners": "Partner orgs",
+      "cost": "Cost to students",
+      "costValue": "$0"
+    },
+    "explorePrograms": "Explore Programs",
+    "supportUs": "Support Us"
+  },
+  "mission": {
+    "title": "Our Mission & Vision",
+    "subtitle": "Creating pathways to excellence for Haitian youth",
+    "p1": "EdLight Initiative was founded on the belief that every young person in Haiti deserves access to world-class education and opportunities. We work to bridge the educational gap by providing free, high-quality learning resources and creating connections with global institutions.",
+    "p2": "Through our comprehensive ecosystem of programs—from online courses to tech incubators to leadership development—we empower students to pursue their dreams and become the innovators, leaders, and changemakers Haiti needs.",
+    "p3": "Our vision is a Haiti where every motivated student has the resources, mentorship, and opportunities to reach their full potential and contribute to building a more prosperous nation.",
+    "p4": "In practice that means removing the things that usually stop a student: cost, distance, and language. Our programmes are free to join, they run online so a student does not have to move cities to attend, and our coding platform teaches in Haitian Creole and French as well as English. We work with high school students across Haiti, and with the teachers and community organisations already serving them.",
+    "p5": "EdLight is run by a multidisciplinary team of educators, builders, mentors, and operators, and is registered as a not-for-profit corporation in Canada. We publish what we do and what it costs, because families deciding whether to trust us with a student's time deserve to see it."
+  },
+  "howItWorks": {
+    "title": "How EdLight Works",
+    "subtitle": "What a student actually gets, and what it costs them",
+    "items": {
+      "online": {
+        "title": "Learn online, at no cost",
+        "body": "Every course we offer is free. Lessons run in a web browser and in our mobile apps, so a student with an ordinary phone and an intermittent connection can still take part. EdLight Code teaches in Haitian Creole, French, and English, because learning to program in a language you had to learn first is a barrier we would rather remove."
+      },
+      "mentors": {
+        "title": "Learn alongside mentors",
+        "body": "Courses on their own are not enough. Our programmes pair students with educators, builders, and mentors who review work, answer questions, and help students decide what to study next. ESLP goes further, putting a cohort in a room together for two weeks with people who have done the thing they want to do."
+      },
+      "beyond": {
+        "title": "Reach further than Haiti",
+        "body": "Strong students should not be limited by where they were born. Coursera Scholars funds recognised professional certificates that carry weight outside Haiti, and ESLP develops the leadership and civic confidence that scholarships and universities ask for."
+      }
+    }
+  },
+  "ecosystem": {
+    "title": "Our Ecosystem",
+    "subtitle": "Comprehensive programs supporting students at every stage",
+    "intro": "Four programmes, each aimed at a different point in a student's path. Academy and Code cover the learning itself, from secondary-school maths and physics through to programming in Python and SQL. Coursera Scholars and ESLP handle what comes next — the credentials and the leadership experience that turn a strong student into a candidate. All four are free, and a student can start anywhere and move between them.",
+    "programs": {
+      "academy": {
+        "title": "EdLight Academy",
+        "description": "Free courses in Mathematics, Physics, Chemistry, SVT, Economics, and Languages — built around the 9e Année and Baccalauréat exams."
+      },
+      "code": {
+        "title": "EdLight Code",
+        "description": "Six hands-on coding tracks — Python, SQL, HTML, CSS, JavaScript, Terminal & Git — taught in Haitian Creole, French, and English."
+      },
+      "scholars": {
+        "title": "Coursera Scholars",
+        "description": "Funded Coursera certificates, run with Coursera, so Haitian students can earn recognised professional credentials at no cost."
+      },
+      "eslp": {
+        "title": "ESLP",
+        "description": "A two-week summer leadership programme: seminars, mentorship, a company excursion, and a community impact project."
+      }
+    }
+  },
+  "impact": {
+    "title": "Our Impact",
+    "subtitle": "Making a difference in communities across Haiti",
+    "counters": {
+      "alumni": "ESLP alumni through {through}",
+      "subjects": "Free subjects and coding tracks",
+      "partners": "Partner organisations"
+    }
+  },
+  "testimonials": {
+    "title": "Student Stories",
+    "subtitle": "Hear from our alumni"
+  },
+  "partners": {
+    "title": "Our Partners",
+    "subtitle": "Organisations we work with to widen what our students can reach"
+  },
+  "explore": {
+    "title": "Explore Further",
+    "subtitle": "More detail on our courses, our projects, and how to join",
+    "items": {
+      "academy": {
+        "title": "Browse the course catalogue",
+        "body": "Free courses in the six subjects Haitian students need for the national exams."
+      },
+      "scholars": {
+        "title": "Scholarships and certificates",
+        "body": "Funded Coursera credentials for Haitian students, run in partnership with Coursera."
+      },
+      "about": {
+        "title": "Our mission",
+        "body": "Who we are, how we are registered, and how we work to widen access to education."
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "body": "Who can apply, what our programmes cost, and how to get started as a student or a supporter."
+      }
+    }
+  },
+  "cta": {
+    "title": "Take the next step",
+    "body": "Whether you are a student in Haiti looking for a course, a professional willing to mentor, or a donor deciding where a hundred dollars goes furthest — here is where to start.",
+    "startCourse": "Start a free course",
+    "donate": "Donate",
+    "volunteer": "Volunteer or partner"
+  }
+}

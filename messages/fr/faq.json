@@ -1,0 +1,161 @@
+{
+  "metaTitle": "Questions fréquentes | EdLight Initiative",
+  "metaDescription": "Qui peut participer aux programmes d’EdLight, ce qu’ils coûtent, comment poser sa candidature et comment soutenir notre travail. Des réponses pour les élèves, les bénévoles, les partenaires et les donateurs.",
+  "hero": {
+    "eyebrow": "Assistance",
+    "title": "Questions fréquentes",
+    "subtitle": "Qui peut participer, ce que coûtent nos programmes, comment poser sa candidature et comment soutenir notre travail."
+  },
+  "categories": {
+    "general": {
+      "title": "Généralités",
+      "questions": {
+        "whatIs": {
+          "question": "Qu’est-ce qu’EdLight Initiative ?",
+          "answer": "EdLight Initiative est un organisme à but non lucratif qui œuvre à rendre une éducation de qualité gratuite et accessible aux élèves d’Haïti. Nous proposons des cours en ligne, une plateforme de programmation, un programme d’été de leadership et un programme de bourses, et nous mettons les élèves en relation avec des mentors et des occasions au-delà d’Haïti."
+        },
+        "where": {
+          "question": "Où EdLight Initiative est-elle établie ?",
+          "answer": "EdLight Initiative est une société à but non lucratif enregistrée au Canada (société n° {number}), établie à {address}. Nos programmes s’adressent aux élèves du secondaire de tout Haïti, et notre équipe opérationnelle travaille en Haïti toute l’année."
+        },
+        "who": {
+          "question": "Qui peut participer aux programmes d’EdLight ?",
+          "answer": "Nos programmes sont conçus pour les élèves du secondaire en Haïti et pour les jeunes qui préparent le Baccalauréat ou l’entrée à l’université. EdLight Academy et EdLight Code sont ouverts à toute personne qui peut y accéder en ligne. L’ESLP et Coursera Scholars sélectionnent leurs participants sur candidature. Les conditions d’admissibilité de chacun sont décrites sur la page du programme concerné."
+        },
+        "cost": {
+          "question": "Combien coûtent les programmes d’EdLight ?",
+          "answer": "Rien. Tous les programmes d’EdLight sont gratuits pour les élèves, y compris le matériel de cours, les certificats et — pour les participants sélectionnés de l’ESLP — les séances, l’excursion et la célébration de clôture. Il n’y a ni formule payante ni option supérieure."
+        },
+        "funding": {
+          "question": "Comment EdLight Initiative est-elle financée ?",
+          "answer": "Par des dons individuels, des subventions et des partenariats avec des organisations. Les programmes restent gratuits pour les élèves parce que les coûts sont portés par les donateurs et les partenaires plutôt que par les participants."
+        }
+      }
+    },
+    "academy": {
+      "title": "EdLight Academy",
+      "questions": {
+        "teaches": {
+          "question": "Qu’enseigne EdLight Academy ?",
+          "answer": "Academy couvre les six matières dont les élèves haïtiens ont besoin pour les examens nationaux : mathématiques, physique, chimie, sciences de la vie et de la Terre (SVT), économie et langues (anglais et espagnol). Les cours sont organisés autour de la 9e Année, du Baccalauréat et de l’entrée à l’université, et comprennent des leçons structurées, des examens blancs et un jeu-questionnaire quotidien."
+        },
+        "free": {
+          "question": "Les cours sont-ils vraiment gratuits ?",
+          "answer": "Oui — tous, sans frais pour le matériel ni pour les certificats. Academy est gratuite et bilingue."
+        },
+        "certificate": {
+          "question": "Est-ce que je reçois un certificat ?",
+          "answer": "Oui. Les élèves qui terminent un cours et en remplissent les exigences reçoivent un certificat numérique qu’ils peuvent partager ou ajouter à un CV."
+        },
+        "requirements": {
+          "question": "De quoi ai-je besoin pour suivre un cours ?",
+          "answer": "D’un téléphone ou d’un ordinateur avec une connexion Internet. Les leçons fonctionnent dans un navigateur web et dans nos applications mobiles, et elles sont conçues pour fonctionner sur un téléphone ordinaire avec une connexion intermittente. Il n’y a rien à installer ni rien à acheter."
+        }
+      }
+    },
+    "code": {
+      "title": "EdLight Code",
+      "questions": {
+        "whatIs": {
+          "question": "Qu’est-ce qu’EdLight Code ?",
+          "answer": "Une plateforme de programmation pratique avec six parcours d’apprentissage — Python, SQL, HTML, CSS, JavaScript et Terminal & Git — enseignés au moyen de leçons et de laboratoires pratiques que vous réalisez dans votre navigateur."
+        },
+        "creole": {
+          "question": "Puis-je apprendre en créole haïtien ?",
+          "answer": "Oui. EdLight Code enseigne en créole haïtien, en français et en anglais. Devoir apprendre une deuxième langue avant de pouvoir commencer à apprendre à programmer est un obstacle que nous préférons supprimer."
+        },
+        "outcome": {
+          "question": "Qu’est-ce que j’obtiens à la fin d’un parcours ?",
+          "answer": "Un certificat accompagné d’un lien de vérification qu’un employeur peut consulter, et les projets que vous avez réalisés en chemin, qui comptent davantage que le certificat."
+        }
+      }
+    },
+    "eslp": {
+      "title": "ESLP (EdLight Summer Leadership Program)",
+      "questions": {
+        "whatIs": {
+          "question": "Qu’est-ce que l’ESLP ?",
+          "answer": "L’ESLP est notre programme d’été de leadership de deux semaines destiné aux élèves du secondaire en Haïti. Il combine des séminaires animés par des spécialistes, du mentorat, l’élaboration de projets, l’apprentissage citoyen et une visite d’entreprise, et il se termine par une remise de diplômes."
+        },
+        "applications": {
+          "question": "L’ESLP accepte-t-il des candidatures en ce moment ?",
+          "answer": "Non. La cohorte 2026 s’est déroulée du 10 au 21 août 2026 et a été diplômée. Les dates et les modalités de candidature de la prochaine édition n’ont pas encore été annoncées. Inscrivez-vous à la liste d’avis sur la <link>page de l’ESLP</link> et nous vous écrirons dès l’ouverture du prochain cycle."
+        },
+        "cost": {
+          "question": "Combien l’ESLP coûte-t-il aux participants ?",
+          "answer": "Rien. Les participants sélectionnés y assistent grâce à une bourse complète. Les coûts du programme — séances, matériel, excursion et célébration de clôture — sont couverts."
+        },
+        "application": {
+          "question": "En quoi consiste la candidature ?",
+          "answer": "Lorsqu’un cycle est ouvert, les candidats remplissent un formulaire en ligne et soumettent des textes de motivation, une photo d’identité récente et leurs relevés de notes scolaires à jour. La page de l’ESLP présente toutes les exigences pendant la période de candidature."
+        }
+      }
+    },
+    "scholars": {
+      "title": "Coursera Scholars",
+      "questions": {
+        "whatIs": {
+          "question": "Qu’est-ce que Coursera Scholars ?",
+          "answer": "Un programme qui finance des certificats Coursera pour les élèves haïtiens, mené en partenariat avec Coursera, afin qu’ils puissent obtenir des titres professionnels reconnus sans frais."
+        },
+        "applyNow": {
+          "question": "Puis-je poser ma candidature maintenant ?",
+          "answer": "Pas encore. La première cohorte est en cours de finalisation et les candidatures ne sont pas ouvertes. Inscrivez-vous à la liste d’avis sur la <link>page Coursera Scholars</link> pour savoir quand elles ouvriront."
+        }
+      }
+    },
+    "volunteering": {
+      "title": "Bénévolat et partenariats",
+      "questions": {
+        "how": {
+          "question": "Comment puis-je faire du bénévolat ?",
+          "answer": "En accompagnant des élèves, en enseignant un cours ou un atelier, en soutenant des événements ou en aidant aux opérations. Dites-nous ce que vous pouvez offrir et quand vous êtes disponible au moyen du formulaire de la <link>page S’impliquer</link>."
+        },
+        "partner": {
+          "question": "Mon organisation peut-elle devenir partenaire d’EdLight ?",
+          "answer": "Oui. Nous travaillons avec des écoles, des universités, des entreprises et des ONG pour élargir ce que nos élèves peuvent atteindre — nos partenaires actuels sont UWC, Coursera et IICA. Amorcez la conversation au moyen de la <link>page S’impliquer</link> ou écrivez à {email}."
+        },
+        "teach": {
+          "question": "Je veux enseigner un cours. Par où commencer ?",
+          "answer": "Remplissez le formulaire de bénévolat et indiquez ce que vous aimeriez enseigner. Une personne de l’équipe vous recontactera pour discuter du sujet, du format et du calendrier."
+        }
+      }
+    },
+    "donations": {
+      "title": "Dons",
+      "questions": {
+        "how": {
+          "question": "Comment puis-je faire un don ?",
+          "answer": "Par la <link>page de don</link>, avec PayPal ou une carte de crédit ou de débit. Un compte PayPal n’est pas nécessaire."
+        },
+        "taxDeductible": {
+          "question": "Mon don est-il déductible d’impôt ?",
+          "answer": "Pas pour le moment. EdLight Initiative est une société canadienne à but non lucratif enregistrée, mais elle ne détient pas encore le statut d’organisme de bienfaisance enregistré, nous ne pouvons donc pas délivrer de reçus fiscaux. Nous préférons le dire clairement plutôt que de laisser un donateur croire le contraire. Écrivez à {email} s’il vous faut un justificatif de don."
+        },
+        "use": {
+          "question": "À quoi sert mon don ?",
+          "answer": "Il finance ce qui permet aux programmes de rester gratuits : le matériel de cours et les coûts de la plateforme, l’équipement, les bourses de certains programmes et les opérations qui les font vivre."
+        }
+      }
+    },
+    "contact": {
+      "title": "Contact et assistance",
+      "questions": {
+        "reach": {
+          "question": "Comment joindre EdLight Initiative ?",
+          "answer": "Écrivez à {email} ou utilisez le formulaire de la <link>page de contact</link>. Nous répondons généralement sous deux à trois jours ouvrables."
+        },
+        "keepUp": {
+          "question": "Comment suivre ce que fait EdLight ?",
+          "answer": "Abonnez-vous à l’infolettre au bas de n’importe quelle page pour recevoir chaque mois nos temps forts, des parcours d’élèves et les inscriptions à venir, ou suivez-nous sur Facebook, X, Instagram, YouTube et LinkedIn."
+        }
+      }
+    }
+  },
+  "cta": {
+    "title": "Vous avez encore une question ?",
+    "subtitle": "Si la réponse ne se trouve pas ici, posez-nous la question directement — nous lisons tout ce qui nous parvient.",
+    "contact": "Nous contacter",
+    "email": "Écrire à {email}"
+  }
+}

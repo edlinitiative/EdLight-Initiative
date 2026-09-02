@@ -1,0 +1,130 @@
+{
+  "precedenceNotice": "Cette page est proposée en d’autres langues à titre indicatif. La version anglaise fait foi et prévaut en cas de divergence.",
+  "meta": {
+    "title": "Politique de confidentialité | EdLight Initiative",
+    "description": "Découvrez comment EdLight Initiative recueille, utilise et protège vos renseignements personnels."
+  },
+  "title": "Politique de confidentialité",
+  "lastUpdated": "Dernière mise à jour : 2 septembre 2026",
+  "s1": {
+    "heading": "1. Introduction",
+    "body": "EdLight Initiative (« nous », « notre » ou « nos ») s’engage à protéger votre vie privée. La présente politique de confidentialité explique comment nous recueillons, utilisons, communiquons et protégeons vos renseignements lorsque vous visitez notre site Web ou utilisez nos services."
+  },
+  "s2": {
+    "heading": "2. Renseignements que nous recueillons",
+    "giveUsHeading": "Renseignements que vous nous fournissez",
+    "giveUsIntro": "Nous ne recueillons que les renseignements personnels que vous saisissez dans l’un de nos formulaires. Il y en a quatre :",
+    "forms": {
+      "contact": {
+        "label": "Formulaire de contact :",
+        "text": "votre nom, votre adresse courriel, le sujet et le domaine d’intérêt que vous sélectionnez, ainsi que votre message"
+      },
+      "newsletter": {
+        "label": "Inscription à l’infolettre :",
+        "text": "votre adresse courriel uniquement"
+      },
+      "eslp": {
+        "label": "Liste d’avis ESLP :",
+        "text": "votre nom, votre adresse courriel et votre numéro de téléphone si vous choisissez de le fournir, afin que nous puissions vous prévenir de l’ouverture des candidatures"
+      },
+      "quote": {
+        "label": "Demande de soumission pour un site Web :",
+        "text": "votre nom, votre adresse courriel, votre organisation, votre site Web actuel et les détails du projet que vous décrivez"
+      }
+    },
+    "delivery": "Les quatre formulaires nous parviennent par courriel dans notre boîte de réception, acheminés par <strong>Resend</strong>, notre fournisseur de services de courriel. L’inscription à l’infolettre ou à une liste d’avis vous envoie également un courriel de confirmation. Rien de ce que vous soumettez n’est inscrit dans une base de données ni conservé sur ce site Web ; le seul enregistrement est le message dans notre boîte de réception, et vous pouvez nous demander de supprimer le vôtre à tout moment.",
+    "noPayment": "Nous ne demandons de renseignements de paiement nulle part sur ce site et nous ne voyons jamais les données de votre carte. Tous les programmes sont gratuits, il n’y a donc rien à payer ; les dons sont traités entièrement par PayPal, comme il est indiqué à la section 4.",
+    "autoHeading": "Renseignements recueillis automatiquement",
+    "autoBody": "Ce site n’utilise ni outils d’analyse, ni publicité, ni témoins de suivi, et il ne dresse aucun profil de votre navigation. Comme tout site Web, notre hébergeur consigne automatiquement des renseignements techniques de base à chaque requête — votre adresse IP, le type de navigateur et la page demandée — qui servent à afficher le site, à en assurer la sécurité et à diagnostiquer les pannes. Si nous introduisons un jour des outils d’analyse ou de mesure publicitaire, nous mettrons à jour la présente politique et la date de « Dernière mise à jour » avant de le faire."
+  },
+  "s3": {
+    "heading": "3. Comment nous utilisons vos renseignements",
+    "intro": "Nous utilisons les renseignements recueillis aux fins suivantes :",
+    "uses": {
+      "operate": "Fournir, exploiter et maintenir nos services",
+      "registrations": "Traiter les inscriptions et les candidatures",
+      "newsletters": "Vous envoyer des infolettres et des nouvelles (avec votre consentement)",
+      "inquiries": "Répondre à vos demandes et vous offrir du soutien",
+      "donations": "Accuser réception des dons et en tenir un registre",
+      "improve": "Améliorer notre site Web et nos services",
+      "legal": "Respecter nos obligations légales",
+      "fraud": "Prévenir la fraude et assurer la sécurité"
+    }
+  },
+  "s4": {
+    "heading": "4. Communication et divulgation de vos renseignements",
+    "intro": "Nous ne vendons, n’échangeons ni ne louons vos renseignements personnels à des tiers. Nous pouvons communiquer vos renseignements dans les circonstances suivantes :",
+    "items": {
+      "resend": {
+        "label": "Resend :",
+        "text": "notre fournisseur de services de courriel, qui livre chaque soumission de formulaire et chaque courriel que nous vous envoyons en notre nom"
+      },
+      "paypal": {
+        "label": "PayPal :",
+        "text": "qui traite les dons sur son propre site. Vous saisissez vos renseignements de paiement auprès de PayPal, et non auprès de nous ; nous ne recevons que le relevé du don que PayPal nous présente, jamais les données de votre carte ou de votre compte bancaire"
+      },
+      "coursera": {
+        "label": "Coursera :",
+        "text": "pour les apprenants sélectionnés comme EdLight Coursera Scholars, nous communiquons les renseignements nécessaires à la création de votre compte Coursera dans le cadre de notre partenariat Social Impact. Cela ne s’applique que si vous posez votre candidature et êtes sélectionné ; Coursera gère ensuite votre compte selon sa propre politique de confidentialité"
+      },
+      "legal": {
+        "label": "Obligations légales :",
+        "text": "Lorsque la loi l’exige ou pour protéger nos droits"
+      },
+      "business": {
+        "label": "Transferts d’entreprise :",
+        "text": "Dans le cadre d’une fusion, d’une acquisition ou d’une vente d’actifs"
+      },
+      "consent": {
+        "label": "Avec votre consentement :",
+        "text": "Lorsque vous nous avez donné une autorisation explicite"
+      }
+    }
+  },
+  "s5": {
+    "heading": "5. Témoins et technologies de suivi",
+    "body": "Nous n’utilisons pas de témoins sur ce site Web. Nous ne déposons aucun témoin qui nous soit propre et ne chargeons aucun script d’analyse ou de publicité de tiers ; il n’y a donc rien à accepter ni à refuser ici, et le site fonctionne normalement lorsque les témoins sont désactivés dans votre navigateur. Notez que PayPal et Coursera utilisent des témoins sur leurs propres sites dès que vous suivez un lien vers ceux-ci."
+  },
+  "s6": {
+    "heading": "6. Sécurité des données",
+    "body": "Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos renseignements personnels. Toutefois, aucune méthode de transmission sur Internet ni de stockage électronique n’est sûre à 100 %, et nous ne pouvons garantir une sécurité absolue."
+  },
+  "s7": {
+    "heading": "7. Vos droits",
+    "intro": "Selon l’endroit où vous vous trouvez, vous pouvez disposer des droits suivants :",
+    "rights": {
+      "access": "L’accès à vos renseignements personnels",
+      "correction": "La rectification de renseignements inexacts",
+      "deletion": "La suppression de vos renseignements personnels",
+      "restriction": "La limitation du traitement",
+      "portability": "La portabilité des données",
+      "objection": "L’opposition au traitement",
+      "withdrawal": "Le retrait de votre consentement"
+    },
+    "exercise": "Pour exercer ces droits, veuillez communiquer avec nous à {email} ou nous écrire à l’adresse indiquée à la section 12."
+  },
+  "s8": {
+    "heading": "8. Vie privée des enfants",
+    "body": "Nos services ne s’adressent pas aux enfants de moins de 13 ans. Nous ne recueillons pas sciemment de renseignements personnels auprès d’enfants de moins de 13 ans. Si vous êtes parent ou tuteur et croyez que votre enfant nous a fourni des renseignements personnels, veuillez communiquer avec nous."
+  },
+  "s9": {
+    "heading": "9. Liens vers des sites tiers",
+    "body": "Notre site Web peut contenir des liens vers des sites Web de tiers. Nous ne sommes pas responsables des pratiques de confidentialité de ces sites. Nous vous encourageons à lire la politique de confidentialité de tout site tiers que vous visitez."
+  },
+  "s10": {
+    "heading": "10. Transferts internationaux de données",
+    "body": "Vos renseignements peuvent être transférés vers des serveurs situés à l’extérieur de votre État, de votre province, de votre pays ou de tout autre territoire, où les lois sur la protection des données peuvent différer, et y être conservés. En utilisant nos services, vous consentez à ce transfert."
+  },
+  "s11": {
+    "heading": "11. Modifications de la présente politique de confidentialité",
+    "body": "Nous pouvons mettre à jour la présente politique de confidentialité de temps à autre. Nous vous informerons de toute modification en publiant la nouvelle politique de confidentialité sur cette page et en actualisant la date de « Dernière mise à jour »."
+  },
+  "s12": {
+    "heading": "12. Nous joindre",
+    "intro": "Si vous avez des questions au sujet de la présente politique de confidentialité, veuillez communiquer avec nous :",
+    "orgName": "EdLight Initiative",
+    "corporationLine": "Numéro de société : {number}",
+    "emailLine": "Courriel : {email}",
+    "websiteLine": "Site Web : {website}"
+  }
+}

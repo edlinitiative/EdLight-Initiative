@@ -1,0 +1,170 @@
+{
+  "hero": {
+    "eyebrow": "EdLight Ecosystem · Learning Platform",
+    "title": "EdLight Academy",
+    "subtitle": "A full learning platform for Haitian students — structured courses, real national exam prep, and a daily trivia game, all with progress tracking that keeps you motivated. Free and bilingual.",
+    "meta": {
+      "subjects": "Subjects",
+      "examLevels": "Exam levels",
+      "triviaCategories": "Trivia categories",
+      "cost": "Cost to learners",
+      "costValue": "Free"
+    },
+    "ctaPrimary": "Start learning",
+    "ctaSecondary": "Explore courses"
+  },
+  "pillars": {
+    "title": "One platform, four ways to learn",
+    "subtitle": "EdLight Academy is more than video lessons. Learners move between courses, exam practice, trivia, and a progress system built to keep them going.",
+    "items": {
+      "courses": {
+        "title": "Structured courses",
+        "description": "Video lessons organized by subject and level, aligned to the Haitian national curriculum and taught in French and Kreyòl."
+      },
+      "exams": {
+        "title": "Mock exams",
+        "description": "Real past national exams — from 9e Année to the Baccalauréat and university entrance — each with detailed, worked corrections."
+      },
+      "trivia": {
+        "title": "Trivia game",
+        "description": "A fast, daily trivia game across 15 categories, from chemistry and math to Haitian history, proverbs, and culture."
+      },
+      "progress": {
+        "title": "Progress & rewards",
+        "description": "Quizzes with instant feedback, XP, levels, daily streaks, achievement badges, and a weekly leaderboard to keep you motivated."
+      }
+    }
+  },
+  "gamification": {
+    "eyebrow": "Stay motivated",
+    "title": "Learning that keeps you coming back",
+    "body": "Every lesson, quiz, and trivia round earns XP. Streaks, badges, and a weekly leaderboard turn steady studying into something you actually look forward to.",
+    "items": {
+      "xp": {
+        "title": "XP & levels",
+        "description": "Earn XP for every lesson, quiz, and trivia round, and level up as you go."
+      },
+      "streaks": {
+        "title": "Daily streaks",
+        "description": "Keep your streak alive with a little learning each day — 3 days, a week, a month, and beyond."
+      },
+      "leaderboard": {
+        "title": "Weekly leaderboard",
+        "description": "See how you rank against other learners across the platform each week."
+      },
+      "achievements": {
+        "title": "Achievements",
+        "description": "Unlock badges for milestones — from your first quiz to a full year of consistency."
+      }
+    }
+  },
+  "subjects": {
+    "title": "Structured courses, built for the Haitian curriculum",
+    "subtitle": "Designed with Haitian educators and delivered in French and Kreyòl, each subject is organized into levels so learners always know what comes next.",
+    "note": "Every course is available in both French and Haitian Creole.",
+    "items": {
+      "maths": {
+        "title": "Mathematics",
+        "description": "Algebra, calculus, and exam strategy."
+      },
+      "physics": {
+        "title": "Physics",
+        "description": "Motion, energy, and the laws of the world."
+      },
+      "chemistry": {
+        "title": "Chemistry",
+        "description": "Reactions, matter, and lab concepts."
+      },
+      "svt": {
+        "title": "Life & Earth sciences (SVT)",
+        "description": "Biology, the body, and the environment."
+      },
+      "economics": {
+        "title": "Economics",
+        "description": "Markets, development, and decision-making."
+      },
+      "languages": {
+        "title": "Languages",
+        "description": "English and Spanish for the national exams."
+      }
+    }
+  },
+  "exams": {
+    "title": "Practice with real national exams",
+    "subtitle": "Our mock-exam library (examens blancs) covers the full Haitian path, using authentic past papers with detailed, step-by-step corrections.",
+    "items": {
+      "ninthYear": {
+        "title": "9e Année",
+        "description": "Official 9th-grade fundamental exams with complete past papers and detailed corrections."
+      },
+      "bac": {
+        "title": "Baccalauréat",
+        "description": "Terminale exams across every track — SVT, SMP, SES, Lettres, and Arts."
+      },
+      "university": {
+        "title": "University entrance",
+        "description": "Admission concours and university exams to prepare for higher education with confidence."
+      }
+    }
+  },
+  "trivia": {
+    "eyebrow": "Play & learn",
+    "title": "Trivia: quick, daily, addictive",
+    "body": "A daily challenge of 10 questions worth bonus XP, plus 15 categories that mix core subjects with Haitian history, geography, and culture. Perfect for a two-minute study break.",
+    "dailyChallenge": "Daily challenge",
+    "dailyChallengeDetail": "10 questions · +50 XP bonus",
+    "categories": {
+      "flashMath": "Flash Math",
+      "chemicalSymbols": "Chemical Symbols",
+      "bodyLifeScience": "Body & Life Science",
+      "englishExpress": "English Express",
+      "worldCapitals": "World Capitals",
+      "currencies": "Currencies",
+      "flags": "Flags",
+      "historyOfHaiti": "History of Haiti",
+      "geographyOfHaiti": "Geography of Haiti",
+      "haitianCulture": "Haitian Culture",
+      "haitianFigures": "Haitian Figures",
+      "haitianProverbs": "Haitian Proverbs",
+      "scienceNature": "Science & Nature",
+      "nationalSymbols": "National Symbols",
+      "haitianSport": "Haitian Sport"
+    }
+  },
+  "studyPlan": {
+    "title": "Your personalized path to the bac",
+    "subtitle": "EdLight Academy turns scattered studying into a plan — and shows you exactly how ready you are for exam day.",
+    "items": {
+      "plan": {
+        "title": "Personalized study plan",
+        "description": "A tailored plan with spaced repetition that schedules reviews so knowledge actually sticks."
+      },
+      "score": {
+        "title": "Weighted BAC score",
+        "description": "Track your readiness with a score weighted by your track’s coefficients — SVT ×4, Chemistry ×3, and more."
+      },
+      "dashboard": {
+        "title": "Progress dashboard",
+        "description": "See active courses, quizzes taken, average score, and your streak at a glance."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "subtitle": "Five steps to start learning with EdLight Academy.",
+    "steps": {
+      "account": "Create a free account at academy.edlight.org.",
+      "subject": "Pick a subject and follow structured lessons in French and Kreyòl.",
+      "test": "Test yourself with quizzes, real past exams, and daily trivia.",
+      "track": "Track your progress with XP, streaks, and a weighted BAC score.",
+      "exams": "Walk into your national exams prepared and confident."
+    }
+  },
+  "cta": {
+    "eyebrow": "Join the community",
+    "title": "Ready to unlock EdLight Academy?",
+    "body": "Start learning for free, bring the platform to your classroom, or sponsor new courses for Haitian learners.",
+    "primary": "Start learning today",
+    "secondary": "Partner with EdLight"
+  }
+}

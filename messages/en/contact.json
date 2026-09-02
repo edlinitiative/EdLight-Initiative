@@ -1,0 +1,51 @@
+{
+  "metaTitle": "Contact Us",
+  "metaDescription": "Reach EdLight Initiative by email or through our contact form. We reply to students, volunteers, partners, and donors within two to three business days.",
+  "shareTitle": "Contact Us | EdLight Initiative",
+  "shareDescription": "Reach EdLight Initiative by email or through our contact form. We reply within two to three business days.",
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "Get in touch",
+    "subtitle": "Questions about a programme, an offer to help, a partnership, or a gift — this reaches the team directly."
+  },
+  "channels": {
+    "email": {
+      "title": "Email",
+      "note": "The fastest way to reach us."
+    },
+    "location": {
+      "title": "Where we are",
+      "note": "Registered as a Canadian not-for-profit corporation (No. {number}). Our programmes serve students across {area}."
+    },
+    "response": {
+      "title": "Response time",
+      "body": "Two to three business days",
+      "note": "Monday to Friday, Eastern Time. We read everything that comes in."
+    }
+  },
+  "followHeading": "Follow our work",
+  "beforeYouWrite": {
+    "heading": "Before you write",
+    "body": "Many questions about eligibility, cost, and how to apply are already answered on the <faqLink>FAQ page</faqLink>. If you want to volunteer or partner with us, the <involvedLink>Get Involved page</involvedLink> has a form built for that."
+  },
+  "form": {
+    "heading": "Send us a message",
+    "requiredNote": "Fields marked * are required.",
+    "nameLabel": "Full name",
+    "nameRequired": "Please tell us your name.",
+    "emailLabel": "Email address",
+    "emailRequired": "We need an email address to reply to.",
+    "emailInvalid": "That does not look like a valid email address.",
+    "subjectLabel": "Subject",
+    "subjectRequired": "A short subject helps us route your message.",
+    "subjectPlaceholder": "Applying to a programme, volunteering, partnership…",
+    "messageLabel": "Message",
+    "messageRequired": "Please tell us what you need.",
+    "messageMinLength": "A little more detail will help us answer properly.",
+    "sending": "Sending…",
+    "submit": "Send message",
+    "success": "Thank you — your message is with us. We usually reply within two to three business days.",
+    "error": "Something went wrong sending that. Please try again, or email us directly at <link>{email}</link>.",
+    "replyNote": "We usually reply within two to three business days."
+  }
+}

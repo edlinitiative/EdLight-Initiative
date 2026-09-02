@@ -1,40 +1,38 @@
 import React from 'react'
 import { Target, Eye, Users } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
+import { CORPORATION_NUMBER, REGISTERED_ADDRESS } from '@/lib/site'
 
+// Names are not translatable, so they stay here as literals. `key` indexes the
+// job title into messages/<locale>/about.json — about.team.titles.<key> — since
+// "Co-Founder & CEO" very much is translatable.
 const leadershipTeam = [
-  { name: 'Stevenson Michel', title: 'Co-Founder & CEO' },
-  { name: 'Ted Jacquet', title: 'Co-Founder & CFO / Product & Growth' },
-  { name: 'Rony Francillon', title: 'Director, ESLP & Nexus' },
-  { name: 'Hérode Métellus', title: 'Fundraising Coordinator' },
-  { name: 'Williamson Michel', title: 'Haiti Operations Manager' },
-  { name: 'Christopher Michel', title: 'Internal Operations & Logistics' },
-  { name: 'Stéphane Lainé', title: 'Haiti Operations Coordinator' },
-  { name: 'Fredler Pierre-Louis', title: 'Cybersecurity Lead / Advisor' },
-]
+  { name: 'Stevenson Michel', key: 'stevensonMichel' },
+  { name: 'Ted Jacquet', key: 'tedJacquet' },
+  { name: 'Rony Francillon', key: 'ronyFrancillon' },
+  { name: 'Hérode Métellus', key: 'herodeMetellus' },
+  { name: 'Williamson Michel', key: 'williamsonMichel' },
+  { name: 'Christopher Michel', key: 'christopherMichel' },
+  { name: 'Stéphane Lainé', key: 'stephaneLaine' },
+  { name: 'Fredler Pierre-Louis', key: 'fredlerPierreLouis' },
+] as const
 
-const timeline = [
-  {
-    year: '2022',
-    title: 'Launch of ESLP',
-    description:
-      'The EdLight Summer Leadership Program launched in August 2022 as a leadership experience designed to help students grow in confidence, vision, and civic engagement.',
-  },
-  {
-    year: 'Today',
-    title: 'A growing ecosystem',
-    description:
-      "Today, EdLight's public platform highlights a broader ecosystem that includes EdLight Academy, ESLP, EdLight Nexus, and EdLight Labs — all working together to expand opportunity for Haitian youth.",
-  },
-]
+// The two founders, named in about.team.foundedBy as ICU values so the
+// sentence around them can be translated without retyping the names.
+const FOUNDERS = { founderOne: 'Ted Jacquet', founderTwo: 'Stevenson Michel' }
 
-export default function AboutPage() {
+const timeline = [{ key: 'launch' }, { key: 'today' }] as const
+
+export default async function AboutPage() {
+  const t = await getTranslations('about')
+
   return (
     <>
       <Hero
-        title="About EdLight"
-        subtitle="Expanding access to education, leadership, innovation, and opportunity for Haitian youth."
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
         backgroundImage="/edlight_academy_group.webp"
       />
 
@@ -42,25 +40,16 @@ export default function AboutPage() {
       <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="max-w-4xl mx-auto mb-12 sm:mb-14 md:mb-16">
-            <SectionHeader title="Our Story" />
+            <SectionHeader title={t('story.title')} />
             <div className="space-y-5 sm:space-y-6 text-gray-700 leading-relaxed text-sm sm:text-base">
+              <p>{t('story.p1')}</p>
+              <p>{t('story.p2')}</p>
               <p>
-                EdLight Initiative is a mission-driven organization committed to expanding access to
-                quality education, leadership development, and global opportunities for Haitian
-                youth. Through a growing ecosystem of programs, EdLight works to equip students with
-                the knowledge, skills, and exposure needed to thrive academically, professionally,
-                and as future leaders.
-              </p>
-              <p>
-                Its work spans digital learning, coding and technical training, leadership
-                development, global exposure, and technology-enabled solutions built for impact.
-                Across these initiatives, EdLight seeks to bridge opportunity gaps and create
-                practical pathways for young Haitians in Haiti and beyond.
-              </p>
-              <p>
-                EdLight Initiative is a not-for-profit corporation registered in Canada
-                (Corporation No. 1376443-5) and based in Montreal, Quebec. All programs are
-                offered free of charge to students.
+                {t('story.p3', {
+                  number: CORPORATION_NUMBER,
+                  locality: REGISTERED_ADDRESS.locality,
+                  region: REGISTERED_ADDRESS.region,
+                })}
               </p>
             </div>
           </div>
@@ -68,18 +57,20 @@ export default function AboutPage() {
           <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-14 md:mb-16 max-w-2xl mx-auto">
             <div className="glass rounded-2xl p-6 sm:p-8 text-center">
               <Target className="w-10 h-10 sm:w-12 sm:h-12 text-primary mx-auto mb-3 sm:mb-4" />
-              <h3 className="font-heading text-lg sm:text-xl font-bold mb-2 sm:mb-3">Mission</h3>
+              <h3 className="font-heading text-lg sm:text-xl font-bold mb-2 sm:mb-3">
+                {t('missionVision.missionTitle')}
+              </h3>
               <p className="text-gray-700 text-sm sm:text-base">
-                To expand access to quality education, mentorship, innovation, and global
-                opportunities for Haitian youth.
+                {t('missionVision.missionBody')}
               </p>
             </div>
             <div className="glass rounded-2xl p-6 sm:p-8 text-center">
               <Eye className="w-10 h-10 sm:w-12 sm:h-12 text-primary mx-auto mb-3 sm:mb-4" />
-              <h3 className="font-heading text-lg sm:text-xl font-bold mb-2 sm:mb-3">Vision</h3>
+              <h3 className="font-heading text-lg sm:text-xl font-bold mb-2 sm:mb-3">
+                {t('missionVision.visionTitle')}
+              </h3>
               <p className="text-gray-700 text-sm sm:text-base">
-                A future in which Haitian students have the tools, support, and opportunities to
-                reach their full potential and drive positive change in their communities and beyond.
+                {t('missionVision.visionBody')}
               </p>
             </div>
           </div>
@@ -90,15 +81,13 @@ export default function AboutPage() {
       <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="Meet the EdLight Team"
-            subtitle="EdLight is powered by a multidisciplinary team of educators, builders, mentors, and operators working across education, technology, and leadership development."
+            title={t('team.title')}
+            subtitle={t('team.subtitle')}
             centered
           />
           <div className="max-w-4xl mx-auto mt-6 mb-10 sm:mb-12 space-y-3 text-gray-700 leading-relaxed text-sm sm:text-base">
-            <p>
-              EdLight was founded by Ted Jacquet and Stevenson Michel.
-            </p>
-            <p>Our leadership team includes:</p>
+            <p>{t('team.foundedBy', FOUNDERS)}</p>
+            <p>{t('team.leadershipIntro')}</p>
           </div>
           <div className="grid gap-6 sm:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {leadershipTeam.map((leader) => (
@@ -109,7 +98,9 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <h3 className="font-heading font-bold text-lg text-text">{leader.name}</h3>
-                <p className="mt-1 text-primary text-sm font-medium">{leader.title}</p>
+                <p className="mt-1 text-primary text-sm font-medium">
+                  {t(`team.titles.${leader.key}`)}
+                </p>
               </div>
             ))}
           </div>
@@ -120,17 +111,17 @@ export default function AboutPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
-            title="Our Journey"
-            subtitle="EdLight has grown into a broader ecosystem of educational and leadership initiatives designed to serve Haitian youth through learning, mentorship, innovation, and exposure to global opportunities."
+            title={t('journey.title')}
+            subtitle={t('journey.subtitle')}
             centered
           />
           <div className="max-w-4xl mx-auto mt-12">
             <div className="space-y-8">
               {timeline.map((item, index) => (
-                <div key={index} className="flex gap-6">
+                <div key={item.key} className="flex gap-6">
                   <div className="flex-shrink-0 w-24 text-right">
                     <span className="inline-block bg-blue-600 text-white px-4 py-2 rounded-full font-bold text-lg">
-                      {item.year}
+                      {t(`journey.items.${item.key}.year`)}
                     </span>
                   </div>
                   <div className="relative flex-1 pb-8">
@@ -138,8 +129,10 @@ export default function AboutPage() {
                       <div className="absolute left-0 top-12 bottom-0 w-0.5 bg-blue-200"></div>
                     )}
                     <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                      <p className="text-gray-700">{item.description}</p>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                        {t(`journey.items.${item.key}.title`)}
+                      </h3>
+                      <p className="text-gray-700">{t(`journey.items.${item.key}.description`)}</p>
                     </div>
                   </div>
                 </div>
@@ -154,8 +147,7 @@ export default function AboutPage() {
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg sm:text-xl font-medium text-gray-800 leading-relaxed">
-              EdLight continues to build practical, mission-driven pathways for students through
-              education, leadership, technology, and community.
+              {t('closing')}
             </p>
           </div>
         </div>
@@ -163,4 +155,3 @@ export default function AboutPage() {
     </>
   )
 }
-

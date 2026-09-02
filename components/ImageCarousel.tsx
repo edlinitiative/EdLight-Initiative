@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 interface CarouselImage {
   src: string
@@ -28,6 +29,7 @@ export default function ImageCarousel({
   showArrows = true,
   showDots = true,
 }: ImageCarouselProps) {
+  const t = useTranslations('common')
   const [current, setCurrent] = useState(0)
 
   const next = useCallback(() => {
@@ -73,14 +75,14 @@ export default function ImageCarousel({
           <button
             onClick={prev}
             className="absolute left-3 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50"
-            aria-label="Previous image"
+            aria-label={t('previousImage')}
           >
             <ChevronLeft size={20} />
           </button>
           <button
             onClick={next}
             className="absolute right-3 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50"
-            aria-label="Next image"
+            aria-label={t('nextImage')}
           >
             <ChevronRight size={20} />
           </button>

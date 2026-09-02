@@ -1,0 +1,113 @@
+{
+  "precedenceNotice": "Cette page est proposée en d’autres langues à titre indicatif. La version anglaise fait foi et prévaut en cas de divergence.",
+  "meta": {
+    "title": "Conditions d’utilisation | EdLight Initiative",
+    "description": "Conditions générales d’utilisation du site Web et des services d’EdLight Initiative."
+  },
+  "title": "Conditions d’utilisation",
+  "lastUpdated": "Dernière mise à jour : 2 septembre 2026",
+  "s1": {
+    "heading": "1. Acceptation des Conditions",
+    "body": "En accédant au site Web et aux services d’EdLight Initiative (les « Services ») et en les utilisant, vous acceptez d’être lié par les présentes conditions d’utilisation (les « Conditions »). Si vous n’acceptez pas ces Conditions, veuillez ne pas utiliser nos Services."
+  },
+  "s2": {
+    "heading": "2. À propos d’EdLight Initiative",
+    "body": "EdLight Initiative est une société sans but lucratif enregistrée au Canada (numéro de société {number}), établie à {address}, au service des élèves du secondaire en {area}. Nos Services comprennent des programmes éducatifs, des cours, de la formation en leadership et des initiatives communautaires."
+  },
+  "s3": {
+    "heading": "3. Utilisation des Services",
+    "eligibilityHeading": "Admissibilité",
+    "eligibilityBody": "Vous devez être âgé d’au moins 13 ans pour utiliser nos Services. Si vous avez moins de 18 ans, vous devez obtenir le consentement d’un parent ou d’un tuteur pour utiliser nos Services.",
+    "accountHeading": "Responsabilités liées au compte",
+    "accountIntro": "Si vous créez un compte, il vous incombe :",
+    "account": {
+      "credentials": "De préserver la confidentialité de vos identifiants de compte",
+      "activities": "De toutes les activités effectuées à partir de votre compte",
+      "notify": "De nous signaler immédiatement toute utilisation non autorisée",
+      "accurate": "De fournir des renseignements exacts et complets"
+    },
+    "prohibitedHeading": "Conduites interdites",
+    "prohibitedIntro": "Vous vous engagez à ne pas :",
+    "prohibited": {
+      "illegal": "Utiliser nos Services à des fins illégales",
+      "laws": "Enfreindre les lois ou les règlements applicables",
+      "rights": "Porter atteinte aux droits d’autrui",
+      "malware": "Transmettre des virus, des maliciels ou tout autre code nuisible",
+      "access": "Tenter d’accéder sans autorisation à nos systèmes",
+      "harass": "Harceler, maltraiter ou léser d’autres utilisateurs",
+      "impersonate": "Usurper l’identité d’une personne ou d’une entité",
+      "harvest": "Recueillir ou extraire des renseignements sur d’autres utilisateurs"
+    }
+  },
+  "s4": {
+    "heading": "4. Propriété intellectuelle",
+    "ourContentHeading": "Notre contenu",
+    "ourContentBody": "L’ensemble du contenu de notre site Web, y compris les textes, les graphiques, les logos, les images, les vidéos et les logiciels, est la propriété d’EdLight Initiative ou de ses concédants de licence et est protégé par le droit d’auteur, le droit des marques de commerce et les autres lois sur la propriété intellectuelle.",
+    "licenseHeading": "Licence d’utilisation",
+    "licenseIntro": "Nous vous accordons une licence limitée, non exclusive et non transférable pour accéder à nos Services et les utiliser à des fins personnelles et non commerciales. Vous ne pouvez pas :",
+    "license": {
+      "modify": "Modifier, copier ou distribuer notre contenu sans autorisation",
+      "commercial": "Utiliser notre contenu à des fins commerciales",
+      "notices": "Supprimer les mentions de droit d’auteur ou de propriété"
+    },
+    "userContentHeading": "Contenu des utilisateurs",
+    "userContentBody": "En soumettant du contenu à nos Services (par exemple des témoignages ou des commentaires), vous nous accordez une licence non exclusive, mondiale et libre de redevances pour utiliser, reproduire, modifier et afficher ce contenu dans le cadre de nos Services et de nos activités promotionnelles."
+  },
+  "s5": {
+    "heading": "5. Programmes et cours",
+    "registrationHeading": "Inscription",
+    "registrationBody": "L’inscription à nos programmes et à nos cours est assujettie aux places disponibles et à l’acceptation de votre demande. Nous nous réservons le droit de refuser ou d’annuler toute inscription à notre discrétion.",
+    "noFeesHeading": "Aucuns frais",
+    "noFeesBody": "Tous les programmes d’EdLight Initiative sont offerts gratuitement. Il n’y a aucuns frais de candidature, aucuns droits de scolarité, aucune formule payante et aucune mise à niveau payante. Nous ne vous demanderons jamais de payer pour poser votre candidature, vous inscrire ou terminer l’un de nos programmes."
+  },
+  "s6": {
+    "heading": "6. Dons",
+    "body": "Les dons à EdLight Initiative sont volontaires et non remboursables. Nous utilisons les dons pour soutenir notre mission et nos programmes. EdLight Initiative ne détient pas le statut d’organisme de bienfaisance enregistré et ne peut pas délivrer de reçus fiscaux ; les dons ne sont donc pas déductibles d’impôt. Les dons sont traités par PayPal ; EdLight Initiative ne reçoit ni ne conserve jamais les données de votre carte."
+  },
+  "s7": {
+    "heading": "7. Services de tiers",
+    "body": "Nos Services peuvent contenir des liens vers des sites Web ou des services de tiers. Nous ne sommes pas responsables du contenu, des politiques de confidentialité ni des pratiques des sites Web de tiers. Vous utilisez les services de tiers à vos propres risques."
+  },
+  "s8": {
+    "heading": "8. Exclusions de garantie",
+    "intro": "Nos Services sont fournis « tels quels » et « selon leur disponibilité », sans garantie d’aucune sorte, expresse ou implicite, notamment :",
+    "items": {
+      "merchantability": "Les garanties de qualité marchande ou d’adaptation à un usage particulier",
+      "accuracy": "L’exactitude, la fiabilité ou l’exhaustivité du contenu",
+      "uninterrupted": "Un fonctionnement ininterrompu ou exempt d’erreurs",
+      "viruses": "L’absence de virus ou d’éléments nuisibles"
+    }
+  },
+  "s9": {
+    "heading": "9. Limitation de responsabilité",
+    "body": "Dans toute la mesure permise par la loi, EdLight Initiative ainsi que ses administrateurs, dirigeants, employés et sociétés affiliées ne peuvent être tenus responsables des dommages indirects, accessoires, particuliers, consécutifs ou punitifs découlant de votre utilisation de nos Services ou s’y rapportant, même si nous avons été avisés de la possibilité de tels dommages."
+  },
+  "s10": {
+    "heading": "10. Indemnisation",
+    "body": "Vous acceptez d’indemniser EdLight Initiative, de la défendre et de la tenir à couvert de toute réclamation, de tout dommage, de toute perte, de toute responsabilité et de tous frais (y compris les frais juridiques) découlant de votre utilisation de nos Services ou de votre violation des présentes Conditions."
+  },
+  "s11": {
+    "heading": "11. Résiliation",
+    "body": "Nous nous réservons le droit de résilier ou de suspendre votre accès à nos Services à tout moment, avec ou sans motif ni préavis, notamment en cas de violation des présentes Conditions. Dès la résiliation, votre droit d’utiliser nos Services cesse immédiatement."
+  },
+  "s12": {
+    "heading": "12. Modification des Conditions",
+    "body": "Nous pouvons modifier les présentes Conditions à tout moment. Nous vous informerons de toute modification importante en publiant les Conditions mises à jour sur notre site Web, accompagnées d’une nouvelle date de « Dernière mise à jour ». Votre utilisation continue de nos Services après une modification vaut acceptation des Conditions modifiées."
+  },
+  "s13": {
+    "heading": "13. Droit applicable",
+    "body": "Les présentes Conditions sont régies et interprétées conformément aux lois de la province de Québec et aux lois fédérales du Canada qui y sont applicables, sans égard aux règles de conflit de lois. Tout différend sera soumis aux tribunaux du Québec."
+  },
+  "s14": {
+    "heading": "14. Divisibilité",
+    "body": "Si une disposition des présentes Conditions est jugée invalide ou inexécutable, les dispositions restantes demeurent pleinement en vigueur."
+  },
+  "s15": {
+    "heading": "15. Coordonnées",
+    "intro": "Si vous avez des questions au sujet des présentes Conditions, veuillez communiquer avec nous :",
+    "orgName": "EdLight Initiative",
+    "corporationLine": "Numéro de société : {number}",
+    "emailLine": "Courriel : {email}",
+    "websiteLine": "Site Web : {website}"
+  }
+}

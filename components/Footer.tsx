@@ -241,7 +241,7 @@ export default function Footer() {
             <div className="space-y-4 col-span-2 lg:col-span-1">
               <h4 className="eyebrow text-[var(--paper-on-dark)]">{t('newsletterHeading')}</h4>
               <p className="text-xs text-[var(--paper-on-dark)] leading-relaxed">
-                Monthly highlights, student stories, and program openings.
+                {t('newsletterBlurb')}
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-2">
                 <label className="sr-only" htmlFor="newsletter-email">{t('emailLabel')}</label>

@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "title": "About EdLight",
+    "subtitle": "Expanding access to education, leadership, innovation, and opportunity for Haitian youth."
+  },
+  "story": {
+    "title": "Our Story",
+    "p1": "EdLight Initiative is a mission-driven organization committed to expanding access to quality education, leadership development, and global opportunities for Haitian youth. Through a growing ecosystem of programs, EdLight works to equip students with the knowledge, skills, and exposure needed to thrive academically, professionally, and as future leaders.",
+    "p2": "Its work spans digital learning, coding and technical training, leadership development, global exposure, and technology-enabled solutions built for impact. Across these initiatives, EdLight seeks to bridge opportunity gaps and create practical pathways for young Haitians in Haiti and beyond.",
+    "p3": "EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation No. {number}) and based in {locality}, {region}. All programs are offered free of charge to students."
+  },
+  "missionVision": {
+    "missionTitle": "Mission",
+    "missionBody": "To expand access to quality education, mentorship, innovation, and global opportunities for Haitian youth.",
+    "visionTitle": "Vision",
+    "visionBody": "A future in which Haitian students have the tools, support, and opportunities to reach their full potential and drive positive change in their communities and beyond."
+  },
+  "team": {
+    "title": "Meet the EdLight Team",
+    "subtitle": "EdLight is powered by a multidisciplinary team of educators, builders, mentors, and operators working across education, technology, and leadership development.",
+    "foundedBy": "EdLight was founded by {founderOne} and {founderTwo}.",
+    "leadershipIntro": "Our leadership team includes:",
+    "titles": {
+      "stevensonMichel": "Co-Founder & CEO",
+      "tedJacquet": "Co-Founder & CFO / Product & Growth",
+      "ronyFrancillon": "Director, ESLP & Nexus",
+      "herodeMetellus": "Fundraising Coordinator",
+      "williamsonMichel": "Haiti Operations Manager",
+      "christopherMichel": "Internal Operations & Logistics",
+      "stephaneLaine": "Haiti Operations Coordinator",
+      "fredlerPierreLouis": "Cybersecurity Lead / Advisor"
+    }
+  },
+  "journey": {
+    "title": "Our Journey",
+    "subtitle": "EdLight has grown into a broader ecosystem of educational and leadership initiatives designed to serve Haitian youth through learning, mentorship, innovation, and exposure to global opportunities.",
+    "items": {
+      "launch": {
+        "year": "2022",
+        "title": "Launch of ESLP",
+        "description": "The EdLight Summer Leadership Program launched in August 2022 as a leadership experience designed to help students grow in confidence, vision, and civic engagement."
+      },
+      "today": {
+        "year": "Today",
+        "title": "A growing ecosystem",
+        "description": "Today, EdLight's public platform highlights a broader ecosystem that includes EdLight Academy, ESLP, EdLight Nexus, and EdLight Labs — all working together to expand opportunity for Haitian youth."
+      }
+    }
+  },
+  "closing": "EdLight continues to build practical, mission-driven pathways for students through education, leadership, technology, and community."
+}

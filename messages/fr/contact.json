@@ -1,0 +1,51 @@
+{
+  "metaTitle": "Nous contacter",
+  "metaDescription": "Joignez EdLight Initiative par courriel ou au moyen de notre formulaire de contact. Nous répondons aux élèves, aux bénévoles, aux partenaires et aux donateurs sous deux à trois jours ouvrables.",
+  "shareTitle": "Nous contacter | EdLight Initiative",
+  "shareDescription": "Joignez EdLight Initiative par courriel ou au moyen de notre formulaire de contact. Nous répondons sous deux à trois jours ouvrables.",
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "Écrivez-nous",
+    "subtitle": "Une question sur un programme, une offre d’aide, un partenariat ou un don — ce message parvient directement à l’équipe."
+  },
+  "channels": {
+    "email": {
+      "title": "Courriel",
+      "note": "Le moyen le plus rapide de nous joindre."
+    },
+    "location": {
+      "title": "Où nous sommes",
+      "note": "Enregistrée comme société canadienne à but non lucratif (n° {number}). Nos programmes s’adressent aux élèves de tout {area}."
+    },
+    "response": {
+      "title": "Délai de réponse",
+      "body": "Deux à trois jours ouvrables",
+      "note": "Du lundi au vendredi, heure de l’Est. Nous lisons tout ce qui nous parvient."
+    }
+  },
+  "followHeading": "Suivez notre travail",
+  "beforeYouWrite": {
+    "heading": "Avant de nous écrire",
+    "body": "Beaucoup de questions sur l’admissibilité, les coûts et la façon de poser sa candidature trouvent déjà réponse sur la <faqLink>page des questions fréquentes</faqLink>. Si vous souhaitez faire du bénévolat ou devenir partenaire, la <involvedLink>page S’impliquer</involvedLink> propose un formulaire conçu pour cela."
+  },
+  "form": {
+    "heading": "Envoyez-nous un message",
+    "requiredNote": "Les champs marqués d’un * sont obligatoires.",
+    "nameLabel": "Nom complet",
+    "nameRequired": "Veuillez nous indiquer votre nom.",
+    "emailLabel": "Adresse courriel",
+    "emailRequired": "Nous avons besoin d’une adresse courriel pour vous répondre.",
+    "emailInvalid": "Cette adresse courriel ne semble pas valide.",
+    "subjectLabel": "Objet",
+    "subjectRequired": "Un objet bref nous aide à orienter votre message.",
+    "subjectPlaceholder": "Candidature à un programme, bénévolat, partenariat…",
+    "messageLabel": "Message",
+    "messageRequired": "Veuillez nous dire ce dont vous avez besoin.",
+    "messageMinLength": "Un peu plus de détails nous aidera à vous répondre correctement.",
+    "sending": "Envoi en cours…",
+    "submit": "Envoyer le message",
+    "success": "Merci — votre message nous est bien parvenu. Nous répondons généralement sous deux à trois jours ouvrables.",
+    "error": "Une erreur s’est produite lors de l’envoi. Veuillez réessayer ou nous écrire directement à <link>{email}</link>.",
+    "replyNote": "Nous répondons généralement sous deux à trois jours ouvrables."
+  }
+}
