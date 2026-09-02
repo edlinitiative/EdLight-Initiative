@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { readField } from '@/lib/formInput'
+import { rateLimit, clientIp } from '@/lib/rateLimit'
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -12,8 +14,24 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null
 
 export async function POST(request: Request) {
   try {
+    // Same exposure as the notify route: a welcome email goes to whatever
+    // address is submitted, with nothing proving the address wanted it.
+    const limit = rateLimit(`newsletter:${clientIp(request)}`, 5, 60 * 60 * 1000)
+    if (!limit.ok) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'Too many subscription attempts from this connection. Please try again later.',
+        },
+        { status: 429, headers: { 'Retry-After': String(limit.retryAfter) } }
+      )
+    }
+
     const body = await request.json().catch(() => null)
-    const email = typeof body?.email === 'string' ? body.email.trim() : ''
+    // Bounded, so an oversized value cannot be pushed through to Resend. The
+    // anchored emailRegex below rejects whitespace, so a value that passes it
+    // is safe to use as a header.
+    const email = readField(body?.email)
 
     if (!emailRegex.test(email)) {
       return NextResponse.json(

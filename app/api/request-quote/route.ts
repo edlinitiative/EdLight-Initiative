@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { readField, headerSafe, LONG_FIELD_MAX } from '@/lib/formInput'
+import { rateLimit, clientIp } from '@/lib/rateLimit'
 
 /**
  * Same fix as /api/eslp-notify: this appended each quote request to
@@ -9,19 +11,10 @@ import { Resend } from 'resend'
  * dropping enquiries. It emails them now.
  */
 
-type RequestPayload = {
-  name: string
-  email: string
-  organization?: string
-  currentWebsite?: string
-  projectType: string
-  budget: string
-  timeline: string
-  contentStatus: string
-  keyFeatures: string
-  additionalNotes?: string
-  requestType?: string
-}
+// The RequestPayload type that used to sit here described the shape we hoped
+// for and was applied with a bare `as` cast, which asserts rather than
+// checks. Each field is now read individually through readField, so the cast
+// — and the false assurance it gave — are gone.
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -35,17 +28,47 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null
 
 export async function POST(request: Request) {
   try {
+    const limit = rateLimit(`quote:${clientIp(request)}`, 10, 60 * 60 * 1000)
+    if (!limit.ok) {
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            'Too many requests from this connection. Please try again later, or email us at info@edlight.org.',
+        },
+        { status: 429, headers: { 'Retry-After': String(limit.retryAfter) } }
+      )
+    }
+
     const body = await request.json().catch(() => null)
-    const payload = body as RequestPayload | null
+
+    // Read every field through readField rather than trusting the payload
+    // shape. Before, the raw values went straight into the email: unbounded,
+    // so a single POST could mail us as much text as it liked, and `name` and
+    // `organization` were interpolated into the Subject, where a CR or LF
+    // would have let the sender append mail headers of their own.
+    const f = {
+      name: readField(body?.name),
+      email: readField(body?.email),
+      organization: readField(body?.organization),
+      currentWebsite: readField(body?.currentWebsite),
+      projectType: readField(body?.projectType),
+      budget: readField(body?.budget),
+      timeline: readField(body?.timeline),
+      contentStatus: readField(body?.contentStatus),
+      keyFeatures: readField(body?.keyFeatures, LONG_FIELD_MAX),
+      additionalNotes: readField(body?.additionalNotes, LONG_FIELD_MAX),
+      requestType: readField(body?.requestType),
+    }
 
     if (
-      !payload?.name ||
-      !payload?.email ||
-      !payload?.projectType ||
-      !payload?.budget ||
-      !payload?.timeline ||
-      !payload?.contentStatus ||
-      !payload?.keyFeatures
+      !f.name ||
+      !f.email ||
+      !f.projectType ||
+      !f.budget ||
+      !f.timeline ||
+      !f.contentStatus ||
+      !f.keyFeatures
     ) {
       return NextResponse.json(
         { success: false, message: 'Missing required fields' },
@@ -53,7 +76,7 @@ export async function POST(request: Request) {
       )
     }
 
-    if (!emailRegex.test(payload.email)) {
+    if (!emailRegex.test(f.email)) {
       return NextResponse.json(
         { success: false, message: 'Invalid email address' },
         { status: 400 }
@@ -72,28 +95,32 @@ export async function POST(request: Request) {
       )
     }
 
+    const subjectOrg = headerSafe(f.organization, 60)
+
     await resend.emails.send({
       from: fromAddress,
+      // Safe as a header: emailRegex is anchored and rejects whitespace, so a
+      // value that passes it cannot contain a CR or LF.
+      replyTo: f.email,
       to: [quoteInbox],
-      replyTo: payload.email,
-      subject: `Quote request — ${payload.name}${payload.organization ? ` (${payload.organization})` : ''}`,
+      subject: `Quote request — ${headerSafe(f.name, 60)}${subjectOrg ? ` (${subjectOrg})` : ''}`,
       text: [
-        `Name:            ${payload.name}`,
-        `Email:           ${payload.email}`,
-        `Organisation:    ${payload.organization || '(not given)'}`,
-        `Current website: ${payload.currentWebsite || '(not given)'}`,
-        `Request type:    ${payload.requestType || '(not given)'}`,
+        `Name:            ${headerSafe(f.name)}`,
+        `Email:           ${f.email}`,
+        `Organisation:    ${headerSafe(f.organization) || '(not given)'}`,
+        `Current website: ${headerSafe(f.currentWebsite) || '(not given)'}`,
+        `Request type:    ${headerSafe(f.requestType) || '(not given)'}`,
         '',
-        `Project type:    ${payload.projectType}`,
-        `Budget:          ${payload.budget}`,
-        `Timeline:        ${payload.timeline}`,
-        `Content status:  ${payload.contentStatus}`,
+        `Project type:    ${headerSafe(f.projectType)}`,
+        `Budget:          ${headerSafe(f.budget)}`,
+        `Timeline:        ${headerSafe(f.timeline)}`,
+        `Content status:  ${headerSafe(f.contentStatus)}`,
         '',
         'Key features:',
-        payload.keyFeatures,
+        f.keyFeatures,
         '',
         'Additional notes:',
-        payload.additionalNotes || '(none)',
+        f.additionalNotes || '(none)',
       ].join('\n'),
     })
 

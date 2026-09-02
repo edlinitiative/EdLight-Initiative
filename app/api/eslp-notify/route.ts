@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { readField, headerSafe, oneOf } from '@/lib/formInput'
+import { rateLimit, clientIp } from '@/lib/rateLimit'
 
 /**
  * This route used to append each signup to data/eslp-notifications.json with
@@ -17,6 +19,16 @@ import { Resend } from 'resend'
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
+/**
+ * The lists this endpoint will accept a signup for.
+ *
+ * Must stay in step with the `cycleLabel` values passed to NotifyModal —
+ * 'ESLP 2027' from app/eslp/page.tsx, 'Coursera Scholars' from
+ * app/coursera-scholars/page.tsx. Anything else falls back to a generic
+ * label rather than being echoed into the email.
+ */
+const NOTIFY_CYCLES = ['ESLP 2027', 'Coursera Scholars'] as const
+
 const resendApiKey = process.env.RESEND_API_KEY
 const notifyInbox =
   process.env.ESLP_NOTIFY_INBOX || process.env.NEWSLETTER_INBOX || process.env.CONTACT_INBOX
@@ -27,12 +39,32 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null
 
 export async function POST(request: Request) {
   try {
+    // This endpoint mails a confirmation to whatever address it is given, so
+    // an unthrottled version is a way to send EdLight-branded mail to someone
+    // who never asked, or to bomb one address by POSTing in a loop.
+    const limit = rateLimit(`notify:${clientIp(request)}`, 5, 60 * 60 * 1000)
+    if (!limit.ok) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'Too many signups from this connection. Please try again later.',
+        },
+        { status: 429, headers: { 'Retry-After': String(limit.retryAfter) } }
+      )
+    }
+
     const body = await request.json().catch(() => null)
 
-    const name = typeof body?.name === 'string' ? body.name.trim() : ''
-    const email = typeof body?.email === 'string' ? body.email.trim() : ''
-    const phone = typeof body?.phone === 'string' ? body.phone.trim() : ''
-    const cycle = typeof body?.cycle === 'string' && body.cycle.trim() ? body.cycle.trim() : 'ESLP'
+    const name = readField(body?.name)
+    const email = readField(body?.email)
+    const phone = readField(body?.phone)
+
+    // `cycle` decides what the subject line says, so it must not be free text
+    // from the client. It arrived as `body.cycle.trim()` interpolated straight
+    // into `subject`, which let a caller put a CR or LF there and append mail
+    // headers of their own. An allowlist removes the class of bug rather than
+    // escaping around it — the modal only ever sends one of these two.
+    const cycle = oneOf(readField(body?.cycle), NOTIFY_CYCLES, 'an EdLight programme')
 
     if (!name) {
       return NextResponse.json(
@@ -64,12 +96,15 @@ export async function POST(request: Request) {
       from: fromAddress,
       to: [notifyInbox],
       subject: `New ${cycle} notify-list signup`,
+      // headerSafe on the body too, not just the subject. These are
+      // "Label: value" lines, so a name containing a newline could forge a
+      // field the visitor never filled in.
       text: [
         `Someone asked to be notified about ${cycle}.`,
         '',
-        `Name:  ${name}`,
+        `Name:  ${headerSafe(name)}`,
         `Email: ${email}`,
-        `Phone: ${phone || '(not given)'}`,
+        `Phone: ${headerSafe(phone) || '(not given)'}`,
       ].join('\n'),
     })
 
@@ -78,7 +113,7 @@ export async function POST(request: Request) {
       to: [email],
       subject: `You're on the ${cycle} notification list`,
       text: [
-        `Hi ${name},`,
+        `Hi ${headerSafe(name)},`,
         '',
         `You're on the list. We'll write to you as soon as ${cycle} dates and application details are announced — you'll hear from us before we announce it anywhere else.`,
         '',

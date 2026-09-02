@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { readField, headerSafe, LONG_FIELD_MAX } from '@/lib/formInput'
+import { rateLimit, clientIp } from '@/lib/rateLimit'
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -12,12 +14,32 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null
 
 export async function POST(request: Request) {
   try {
+    // Lower risk than the notify routes — this mails staff, not the
+    // submitter, so it cannot be aimed at a third party. Still capped, so the
+    // inbox and the Resend quota cannot be flooded from one source.
+    const limit = rateLimit(`contact:${clientIp(request)}`, 10, 60 * 60 * 1000)
+    if (!limit.ok) {
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            'Too many messages from this connection. Please try again later, or email us at info@edlight.org.',
+        },
+        { status: 429, headers: { 'Retry-After': String(limit.retryAfter) } }
+      )
+    }
+
+    // Same treatment as the other two form routes. `subject`, `interest` and
+    // `name` were interpolated raw into the mail Subject below, so a value
+    // containing a CR or LF let the sender append headers of their own — a
+    // Bcc, a different Reply-To. They were also unbounded, so one POST could
+    // mail an arbitrary amount of text.
     const body = await request.json().catch(() => null)
-    const name = typeof body?.name === 'string' ? body.name.trim() : ''
-    const email = typeof body?.email === 'string' ? body.email.trim() : ''
-    const subject = typeof body?.subject === 'string' ? body.subject.trim() : ''
-    const interest = typeof body?.interest === 'string' ? body.interest.trim() : ''
-    const message = typeof body?.message === 'string' ? body.message.trim() : ''
+    const name = readField(body?.name)
+    const email = readField(body?.email)
+    const subject = readField(body?.subject)
+    const interest = readField(body?.interest)
+    const message = readField(body?.message, LONG_FIELD_MAX)
 
     if (!name || !message || !emailRegex.test(email)) {
       return NextResponse.json(
@@ -42,12 +64,12 @@ export async function POST(request: Request) {
       from: fromAddress,
       to: [contactInbox],
       replyTo: email,
-      subject: `Contact form: ${subject || interest || 'New message'} — ${name}`,
+      subject: `Contact form: ${headerSafe(subject || interest || 'New message', 80)} — ${headerSafe(name, 60)}`,
       text: [
-        `Name: ${name}`,
+        `Name: ${headerSafe(name)}`,
         `Email: ${email}`,
-        interest ? `Interest: ${interest}` : null,
-        subject ? `Subject: ${subject}` : null,
+        interest ? `Interest: ${headerSafe(interest)}` : null,
+        subject ? `Subject: ${headerSafe(subject)}` : null,
         '',
         message,
       ]
