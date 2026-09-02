@@ -109,10 +109,14 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
+        // bg-[var(--nav-surface)], not bg-[var(--paper-50)]/95. The opacity
+        // modifier on a hex token compiles to nothing and left this bar
+        // transparent; the tokens carry their own alpha. See the note beside
+        // them in globals.css.
         'fixed top-0 left-0 right-0 z-50 transition-colors duration-200 border-b',
         isScrolled
-          ? 'bg-[var(--paper-50)]/95 backdrop-blur-md border-[var(--paper-200)]'
-          : 'bg-[var(--paper-50)]/90 backdrop-blur-md border-transparent'
+          ? 'bg-[var(--nav-surface)] backdrop-blur-md border-[var(--paper-200)]'
+          : 'bg-[var(--nav-surface-top)] backdrop-blur-md border-transparent'
       )}
     >
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10">

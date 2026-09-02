@@ -47,6 +47,23 @@
   --line-on-dark-strong: rgb(232 226 212 / 0.35);
   --accent-ring: rgb(0 43 128 / 0.30);
 
+  /* ── The fixed navbar's own ground ──────────────────────────────────────
+     The same silent failure as above, in the one component where it hurt
+     most. The navbar asked for `bg-[var(--paper-50)]/95`, Tailwind emitted
+     nothing, and the computed background was rgba(0,0,0,0) — the bar was
+     fully TRANSPARENT in both states. On light pages that passed unnoticed,
+     because paper showed through and looked like the intended surface. Scroll
+     a dark hero under it and the nav's near-black link text sat on navy: the
+     logo vanished and "Programs" disappeared entirely.
+
+     Finished rgba values, per the rule above. These are --paper-50 (#fbf9f5)
+     expressed in channels so an alpha can actually be applied. Over the
+     darkest ground on the site (--ink-deep) 0.95 resolves to ~#efeeeb, which
+     keeps --ink-700 link text near 8:1 — legible over any content that can
+     pass beneath it, which is the whole job of a fixed bar. */
+  --nav-surface: rgb(251 249 245 / 0.95);
+  --nav-surface-top: rgb(251 249 245 / 0.9);
+
   /* Semantic aliases */
   --background: var(--paper-50);
   --foreground: var(--ink-900);
@@ -220,6 +237,10 @@
     outline-offset: 2px;
   }
 
+  /* LIGHT GROUNDS ONLY. The label is near-black on a transparent background,
+     so on any dark section or photographic hero this button disappears
+     without any styling error to notice. `.btn-ghost` below is the on-dark
+     counterpart — reach for that one inside a <Hero> or a navy band. */
   .btn-outline {
     background: transparent;
     color: var(--ink-900);

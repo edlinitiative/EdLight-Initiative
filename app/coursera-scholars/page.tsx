@@ -177,7 +177,13 @@ export default function CourseraScholarsPage() {
           <NotifyButton cycleLabel={SCHOLARS_NOTIFY_LABEL} className="btn btn-primary">
             Get notified when applications open
           </NotifyButton>
-          <a href="#how-it-works" className="btn btn-outline">
+          {/* btn-ghost, not btn-outline. btn-outline is the light-ground
+              variant: near-black label on a transparent background. Inside
+              this Hero that put --ink-900 text on a dark navy photograph, so
+              the site's secondary call to action was effectively invisible.
+              btn-ghost is the on-dark counterpart, and it is what every other
+              hero on the site already uses. */}
+          <a href="#how-it-works" className="btn btn-ghost">
             Learn more
           </a>
         </div>
