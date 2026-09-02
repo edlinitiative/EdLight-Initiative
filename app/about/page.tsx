@@ -4,14 +4,14 @@ import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 
 const leadershipTeam = [
-  { name: 'Ted Jacquet', title: 'Co-Founder & CFO' },
   { name: 'Stevenson Michel', title: 'Co-Founder & CEO' },
-  { name: 'Rony Francillon', title: 'Director of ESLP & EdLight Nexus' },
-  { name: 'Herode Metellus', title: 'Fundraising Coordinator' },
-  { name: 'Williamson Michel', title: 'Operations Manager' },
+  { name: 'Ted Jacquet', title: 'Co-Founder & CFO / Product & Growth' },
+  { name: 'Rony Francillon', title: 'Director, ESLP & Nexus' },
+  { name: 'Hérode Métellus', title: 'Fundraising Coordinator' },
+  { name: 'Williamson Michel', title: 'Haiti Operations Manager' },
   { name: 'Christopher Michel', title: 'Internal Operations & Logistics' },
-  { name: 'Stéphane Lainé', title: 'Lead Developer, EdLight Labs' },
-  { name: 'Fredler Pierre-Louis', title: 'Technology and Cybersecurity Lead' },
+  { name: 'Stéphane Lainé', title: 'Haiti Operations Coordinator' },
+  { name: 'Fredler Pierre-Louis', title: 'Cybersecurity Lead / Advisor' },
 ]
 
 const timeline = [

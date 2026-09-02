@@ -1,28 +1,28 @@
 [
   {
     "id": 1,
-    "name": "Ted Jacquet",
-    "role": "Co-Founder & CFO",
-    "image": "",
-    "bio": ""
-  },
-  {
-    "id": 2,
     "name": "Stevenson Michel",
     "role": "Co-Founder & CEO",
     "image": "",
     "bio": ""
   },
   {
+    "id": 2,
+    "name": "Ted Jacquet",
+    "role": "Co-Founder & CFO / Product & Growth",
+    "image": "",
+    "bio": ""
+  },
+  {
     "id": 3,
     "name": "Rony Francillon",
-    "role": "Director of ESLP & EdLight Nexus",
+    "role": "Director, ESLP & Nexus",
     "image": "",
     "bio": ""
   },
   {
     "id": 4,
-    "name": "Herode Metellus",
+    "name": "Hérode Métellus",
     "role": "Fundraising Coordinator",
     "image": "",
     "bio": ""
@@ -30,7 +30,7 @@
   {
     "id": 5,
     "name": "Williamson Michel",
-    "role": "Operations Manager",
+    "role": "Haiti Operations Manager",
     "image": "",
     "bio": ""
   },
@@ -44,14 +44,14 @@
   {
     "id": 7,
     "name": "Stéphane Lainé",
-    "role": "Lead Developer, EdLight Labs",
+    "role": "Haiti Operations Coordinator",
     "image": "",
     "bio": ""
   },
   {
     "id": 8,
     "name": "Fredler Pierre-Louis",
-    "role": "Technology and Cybersecurity Lead",
+    "role": "Cybersecurity Lead / Advisor",
     "image": "",
     "bio": ""
   }
