@@ -1,6 +1,4 @@
-'use client'
-
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -18,7 +16,7 @@ import {
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import Card from '@/components/Card'
-import TestimonialCard from '@/components/TestimonialCard'
+import TestimonialCarousel from '@/components/TestimonialCarousel'
 import ImpactCounters from '@/components/ImpactCounters'
 import PartnerLogoGrid from '@/components/PartnerLogoGrid'
 import impactData from '@/data/impact.json'
@@ -26,12 +24,12 @@ import testimonialsData from '@/data/testimonials.json'
 import partnersData from '@/data/partners.json'
 import { FOUNDED_YEAR } from '@/lib/site'
 
-const heroImages = [
-  '/edlight_academy_group.webp',
-  '/labs_pics.webp',
-  '/nexus_pic.webp',
-  '/ESLP_Cultural_Performances.webp',
-]
+// A single static hero image, rendered through next/image with priority.
+// This used to be a 4-image carousel rotating every 5 seconds via CSS
+// background-image — unoptimized, un-preloaded, and repainting the whole
+// viewport mid-load, which tanked LCP and Speed Index on mobile (the load
+// speed the Ad Grants website policy reviews against).
+const heroImage = '/edlight_academy_group.webp'
 
 const ecosystemPrograms = [
   {
@@ -121,23 +119,6 @@ const exploreMore = [
 ]
 
 export default function HomePage() {
-  const [currentHeroImage, setCurrentHeroImage] = useState(0)
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonialsData.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentHeroImage((prev) => (prev + 1) % heroImages.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
-
   return (
     <>
       {/* Hero Section */}
@@ -145,7 +126,7 @@ export default function HomePage() {
         eyebrow={`EdLight Initiative · Est. ${FOUNDED_YEAR}`}
         title="Empowering the next generation of Haitian innovators."
         subtitle="Quality education, mentorship, and global opportunities — built with and for students across Haiti."
-        backgroundImage={heroImages[currentHeroImage]}
+        backgroundImage={heroImage}
         meta={[
           { label: 'Students Served', value: `${impactData.studentsServed}+` },
           { label: 'Programs', value: '5' },
@@ -274,21 +255,7 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader title="Student Stories" subtitle="Hear from our alumni" centered />
-          <div className="max-w-2xl mx-auto">
-            <TestimonialCard {...testimonialsData[currentTestimonial]} />
-            <div className="flex justify-center gap-2 mt-6">
-              {testimonialsData.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentTestimonial ? 'bg-[var(--accent)]' : 'bg-[var(--paper-300)]'
-                  }`}
-                  aria-label={`View testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
+          <TestimonialCarousel testimonials={testimonialsData} />
         </div>
       </section>
 

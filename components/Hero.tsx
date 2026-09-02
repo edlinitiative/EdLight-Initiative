@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 interface HeroMetaItem {
@@ -37,19 +38,20 @@ export default function Hero({
           : 'flex items-stretch',
         className
       )}
-      style={
-        backgroundImage
-          ? {
-              backgroundImage: `url(${backgroundImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center 30%',
-            }
-          : { background: 'var(--ink-deep)' }
-      }
+      style={backgroundImage ? undefined : { background: 'var(--ink-deep)' }}
     >
       {/* Image hero: editorial duotone + readability scrim weighted to the left */}
       {backgroundImage && (
         <>
+          <Image
+            src={backgroundImage}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: 'center 30%' }}
+          />
           <div className="absolute inset-0 photo-duotone" />
           <div
             className="absolute inset-0"

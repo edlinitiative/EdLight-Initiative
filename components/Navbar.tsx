@@ -60,6 +60,7 @@ export default function Navbar() {
                 src="/EdLight_Website_Logo.png"
                 alt="EdLight Initiative Logo"
                 fill
+                sizes="224px"
                 className="object-contain object-left"
                 priority
               />

@@ -169,7 +169,7 @@ export default function Footer() {
                 high school students with digital access to quality education through STEM courses, leadership programs,
                 and global opportunities.{' '}
                 <Link href="/about" className="text-white underline underline-offset-4 decoration-[var(--on-dark-faint)] hover:decoration-white transition-colors">
-                  Learn More
+                  Learn more about our mission
                 </Link>
                 .
               </p>
