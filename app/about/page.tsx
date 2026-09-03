@@ -99,11 +99,24 @@ const activities = [
  * cohort against /eslp, the subject and track counts against /academy and
  * /code, the app listings against the footer.
  *
- * Three milestones are missing on purpose, because nothing in the codebase
- * evidences their dates: the year of incorporation in Canada, the year
- * EdLight Code launched, and the year the mobile apps shipped. All three
- * would strengthen this section. Add them here once someone confirms the
- * actual dates — do not infer them.
+ * Where the three previously-missing dates came from, since none of them is
+ * derivable from the code:
+ *
+ *   - Incorporation in Canada, 2022: confirmed by the team. The month is not
+ *     recorded, and nothing establishes whether it fell before or after that
+ *     August's first ESLP cohort — so the two share one 2022 entry rather
+ *     than being listed in an order we cannot support.
+ *   - EdLight Code, 2026: the /code page entered this repository on
+ *     2026-02-22 (commit 9974b16). That dates Code joining the public
+ *     programme lineup, which is what the entry claims; it is not a claim
+ *     about when the platform itself first existed.
+ *   - The mobile apps, 2026: the footer began linking both listings on
+ *     2026-08-07 (commit bb6e283), and both store pages are live. Google Play
+ *     no longer publishes a "Released on" date and the App Store listing
+ *     shows none, so the year is as precise as the evidence goes.
+ *
+ * If anyone can supply the actual incorporation month or store release dates,
+ * tighten these — but do not guess them.
  */
 const timeline = [
   {
@@ -114,9 +127,8 @@ const timeline = [
   },
   {
     year: '2022',
-    title: 'First ESLP cohort',
-    description:
-      'The EdLight Summer Leadership Program runs for the first time in August 2022 — a leadership experience built to grow students’ confidence, vision, and civic engagement.',
+    title: 'Incorporated in Canada, and the first ESLP cohort',
+    description: `EdLight Initiative is incorporated as a not-for-profit corporation in Canada — Corporation No. ${CORPORATION_NUMBER}, based in ${REGISTERED_ADDRESS_LINE}. The same year, the EdLight Summer Leadership Program runs for the first time in August: a leadership experience built to grow students’ confidence, vision, and civic engagement.`,
   },
   {
     year: `2022–2026`,
@@ -124,9 +136,14 @@ const timeline = [
     description: `ESLP has run every summer since, reaching ${impactData.eslpAlumni} alumni through ${impactData.eslpAlumniThrough}. The 2026 edition ran 10–21 August and graduated 35 fellows at IICA in Pétion-Ville, with a company excursion to Radio Télé Métropole in Port-au-Prince.`,
   },
   {
+    year: '2026',
+    title: 'EdLight Code launches, and the courses reach phones',
+    description: `EdLight Code joins the public programme lineup with ${impactData.codeTracks} tracks taught in Haitian Creole, French, and English — so a student does not have to learn a second language before learning to program. The same year, EdLight Academy ships on the App Store and Google Play and EdLight Code on Google Play, putting the courses on the phones students already own.`,
+  },
+  {
     year: 'Today',
-    title: 'Four free programmes, on the web and on phones',
-    description: `EdLight now runs Academy, Code, Coursera Scholars, and ESLP — ${impactData.academySubjects} exam subjects and ${impactData.codeTracks} coding tracks between them, all free to the student. EdLight Academy is on the App Store and Google Play and EdLight Code on Google Play, so the courses run on the phones students already own. Applications for ESLP 2027 open in spring 2027.`,
+    title: 'Four free programmes, open to any student in Haiti',
+    description: `EdLight runs Academy, Code, Coursera Scholars, and ESLP — ${impactData.academySubjects} exam subjects and ${impactData.codeTracks} coding tracks between them, free at every stage, on the web and on mobile. Applications for ESLP 2027 open in spring 2027.`,
   },
 ]
 
