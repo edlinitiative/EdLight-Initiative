@@ -106,12 +106,15 @@ const activities = [
  *     recorded, and nothing establishes whether it fell before or after that
  *     August's first ESLP cohort — so the two share one 2022 entry rather
  *     than being listed in an order we cannot support.
- *   - EdLight Academy, 2021: confirmed by the team. Note that the unused
- *     data/timeline.json dates Academy to 2020 and has it "reach 100
- *     students"; that file is dead code and wrong on both counts — do not
- *     revive it as a source. The 2020 entry here no longer says EdLight
- *     started out with course material, which it cannot have if Academy
- *     opened in 2021.
+ *   - EdLight Academy, 2020: confirmed by the team, the same year EdLight was
+ *     founded — so the two share one entry rather than implying that the
+ *     organisation existed for a while before its first programme opened.
+ *     (Asked twice: the answer came back 2021 first and was then corrected to
+ *     2020. 2020 is the one to keep.) The unused data/timeline.json agrees on
+ *     this year, but still claims Academy "reach[ed] 100 students", 2,500
+ *     students served overall, and Nexus and Labs as live programmes — none
+ *     of which anything here evidences. Nothing imports that file; do not
+ *     revive it as a source.
  *   - EdLight Code, 2026: confirmed by the team, and independently consistent
  *     with the /code page entering this repository on 2026-02-22 (commit
  *     9974b16).
@@ -126,14 +129,8 @@ const activities = [
 const timeline = [
   {
     year: String(FOUNDED_YEAR),
-    title: 'EdLight Initiative founded',
-    description:
-      'Ted Jacquet and Stevenson Michel start EdLight to widen access to quality education for students in Haiti — no fees, no travel, and material in a language students already speak.',
-  },
-  {
-    year: '2021',
-    title: 'EdLight Academy launches',
-    description: `The first programme opens: free online courses built around the 9e Année and Baccalauréat syllabi, run in a browser so a student does not have to move cities to attend. Academy now covers ${impactData.academySubjects} subjects.`,
+    title: 'EdLight Initiative founded, and Academy launches',
+    description: `Ted Jacquet and Stevenson Michel start EdLight to widen access to quality education for students in Haiti — no fees, no travel, and material in a language students already speak. EdLight Academy opens the same year with free online courses built around the 9e Année and Baccalauréat syllabi, run in a browser so a student does not have to move cities to attend. Academy now covers ${impactData.academySubjects} subjects.`,
   },
   {
     year: '2022',
