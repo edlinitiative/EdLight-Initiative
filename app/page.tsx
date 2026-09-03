@@ -22,7 +22,12 @@ import PartnerLogoGrid from '@/components/PartnerLogoGrid'
 import impactData from '@/data/impact.json'
 import testimonialsData from '@/data/testimonials.json'
 import partnersData from '@/data/partners.json'
-import { FOUNDED_YEAR } from '@/lib/site'
+import {
+  FOUNDED_YEAR,
+  MISSION_STATEMENT,
+  NONPROFIT_STATUS_LINE,
+  NONPROFIT_STATUS_SHORT,
+} from '@/lib/site'
 
 // A single static hero image, rendered through next/image with priority.
 // This used to be a 4-image carousel rotating every 5 seconds via CSS
@@ -135,8 +140,14 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
+      {/* The eyebrow is the first text on the site. It used to spend itself on
+          "EdLight Initiative · Est. 2020" — the name, which the logo an inch
+          above it already says, and a founding year. The nonprofit status goes
+          there instead, because the Ad Grants policy asks for it to be
+          displayed prominently and that is the most prominent line on the
+          site. The founding year survives beside it. */}
       <Hero
-        eyebrow={`EdLight Initiative · Est. ${FOUNDED_YEAR}`}
+        eyebrow={`${NONPROFIT_STATUS_SHORT} · Est. ${FOUNDED_YEAR}`}
         title="Empowering the next generation of Haitian innovators."
         subtitle="Quality education, mentorship, and global opportunities — built with and for students across Haiti."
         backgroundImage={heroImage}
@@ -162,6 +173,60 @@ export default function HomePage() {
         </Link>
       </Hero>
 
+      {/* Who we are — the band directly under the hero.
+          The rejection asked for two things by name: that the nonprofit
+          status be displayed prominently, and that there be a clear
+          description of the mission and activities. Both used to be reachable
+          only by scrolling into the fifth paragraph of the mission block
+          below, where the status sat in a subordinate clause. A reviewer who
+          reads the top of the homepage and stops now has both.
+
+          Deliberately plain — no card, no icon, no animation. It is a
+          statement of fact and it should read like one. */}
+      <section className="border-b border-[var(--paper-200)] bg-[var(--paper-100)]">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-8 sm:py-10">
+          <div className="grid gap-6 lg:grid-cols-12 lg:gap-10">
+            <div className="lg:col-span-7">
+              <h2 className="text-lg sm:text-xl font-semibold leading-snug text-[var(--ink-900)]">
+                {MISSION_STATEMENT}
+              </h2>
+              <p className="mt-3 text-sm sm:text-base leading-relaxed text-[var(--ink-700)]">
+                We run free online courses in the subjects Haitian students sit national exams
+                in, a coding platform taught in Haitian Creole, French, and English, funded
+                professional certificates, and a two-week residential summer leadership
+                programme. Every one of them is free to the student.
+              </p>
+            </div>
+            <div className="lg:col-span-5 lg:border-l lg:border-[var(--paper-300)] lg:pl-10">
+              {/* Not the `eyebrow` class. It hardcodes `color:
+                  var(--ink-400)` (#747683), which a Tailwind arbitrary text
+                  colour layered on top does not override — the same trap the
+                  mobile nav has a note about. On --paper-100 that measures
+                  4.06:1 at 12px, under the 4.5:1 floor, so the label on the
+                  one block the Ad Grants review is looking for was the least
+                  legible text on the page. Same look, spelled out, with a
+                  colour that wins. */}
+              <h3 className="mb-2 font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--ink-700)]">
+                Our nonprofit status
+              </h3>
+              <p className="text-sm leading-relaxed text-[var(--ink-700)]">
+                {NONPROFIT_STATUS_LINE}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ink-700)]">
+                We do not yet hold registered-charity status, so we cannot issue tax receipts.{' '}
+                <Link
+                  href="/about"
+                  className="text-[var(--accent)] underline underline-offset-4 hover:text-[var(--accent-hover)]"
+                >
+                  Read more about who we are
+                </Link>
+                .
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mission & Vision */}
       <section className="py-14 sm:py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
@@ -171,35 +236,40 @@ export default function HomePage() {
               subtitle="Creating pathways to excellence for Haitian youth"
               centered
             />
+            {/* Three paragraphs, down from five. The first two said the same
+                thing twice in the register of a grant application ("bridge
+                the educational gap", "become the innovators, leaders, and
+                changemakers Haiti needs") without naming a single concrete
+                thing the organisation does, and the fifth restated the
+                nonprofit registration that the band under the hero now
+                carries. What is left is the mission, the three barriers we
+                actually work on, and the vision. */}
             <div className="border border-[var(--paper-200)] bg-[var(--paper-100)] p-6 sm:p-8 space-y-4 text-[var(--ink-700)] leading-relaxed text-sm sm:text-base">
+              {/* Does not re-state MISSION_STATEMENT: the status band a
+                  screen above already opens with it, and reading the same
+                  sentence twice in one scroll makes the second one look like
+                  boilerplate. This picks up where that band left off. */}
               <p>
-                EdLight Initiative was founded on the belief that every young person in Haiti deserves
-                access to world-class education and opportunities. We work to bridge the educational gap
-                by providing free, high-quality learning resources and creating connections with global
-                institutions.
+                A student in Haiti who wants to sit the Baccalauréat, learn to program, or earn a
+                credential an employer outside the country will recognise should not be stopped
+                by what their family can pay, how far they live from a city, or which language
+                the material happens to be in.
               </p>
               <p>
-                Through our comprehensive ecosystem of programs—from online courses to tech incubators
-                to leadership development—we empower students to pursue their dreams and become the
-                innovators, leaders, and changemakers Haiti needs.
+                Those three barriers are what our programmes are built around. Every course we
+                offer is free, with no fee at any stage. Lessons run in a web browser and in our
+                mobile apps, so a student with an ordinary phone and an intermittent connection
+                can take part without moving cities. And EdLight Code teaches in Haitian Creole
+                and French as well as English, because having to learn a second language before
+                you can learn to program is a barrier we would rather remove than accept. We work
+                with high school students across Haiti, and with the teachers and community
+                organisations already serving them.
               </p>
               <p>
-                Our vision is a Haiti where every motivated student has the resources, mentorship, and
-                opportunities to reach their full potential and contribute to building a more prosperous
-                nation.
-              </p>
-              <p>
-                In practice that means removing the things that usually stop a student: cost, distance,
-                and language. Our programmes are free to join, they run online so a student does not
-                have to move cities to attend, and our coding platform teaches in Haitian Creole and
-                French as well as English. We work with high school students across Haiti, and with the
-                teachers and community organisations already serving them.
-              </p>
-              <p>
-                EdLight is run by a multidisciplinary team of educators, builders, mentors, and
-                operators, and is registered as a not-for-profit corporation in Canada. We publish what
-                we do and what it costs, because families deciding whether to trust us with a student&apos;s
-                time deserve to see it.
+                Our vision is a Haiti where every motivated student has the resources,
+                mentorship, and opportunities to reach their full potential — and where the
+                students who do go on to build the country were not selected by their families&apos;
+                means.
               </p>
             </div>
           </div>

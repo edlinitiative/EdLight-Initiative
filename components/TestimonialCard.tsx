@@ -25,8 +25,8 @@ export default function TestimonialCard({ name, role, quote }: TestimonialCardPr
           <span className="sr-only">Initials for {name}</span>
         </div>
         <div>
-          <h4 className="font-display font-semibold text-[var(--ink-900)] text-sm sm:text-base">{name}</h4>
-          <p className="eyebrow text-[10px] sm:text-xs text-[var(--ink-400)] mt-0.5">{role}</p>
+          <h3 className="font-display font-semibold text-[var(--ink-900)] text-sm sm:text-base">{name}</h3>
+          <p className="eyebrow-ink text-[10px] sm:text-xs mt-0.5">{role}</p>
         </div>
       </div>
       <p className="body-lg text-[var(--ink-700)] italic leading-relaxed text-sm sm:text-base">&quot;{quote}&quot;</p>

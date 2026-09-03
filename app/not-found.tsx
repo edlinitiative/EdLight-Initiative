@@ -26,15 +26,20 @@ export default function NotFound() {
           </Link>
         </div>
         
+        {/* The four live programmes, matching the navbar, the footer, and the
+            homepage. This listed EdLight Labs and EdLight Nexus, which are
+            both hidden — Labs now 404s and Nexus has no cohort or application
+            — so a visitor who landed here looking for a missing page was
+            offered two more missing pages. */}
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
           <Link href="/academy" className="text-blue-600 hover:underline">
             EdLight Academy
           </Link>
-          <Link href="/labs" className="text-blue-600 hover:underline">
-            EdLight Labs
+          <Link href="/code" className="text-blue-600 hover:underline">
+            EdLight Code
           </Link>
-          <Link href="/nexus" className="text-blue-600 hover:underline">
-            EdLight Nexus
+          <Link href="/coursera-scholars" className="text-blue-600 hover:underline">
+            Coursera Scholars
           </Link>
           <Link href="/eslp" className="text-blue-600 hover:underline">
             ESLP

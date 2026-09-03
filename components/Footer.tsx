@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail } from 'lucide-react'
 import { SOCIAL_LINKS, type SocialPlatform } from '@/lib/socials'
-import { CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE } from '@/lib/site'
+import { CONTACT_EMAIL, MISSION_STATEMENT, NONPROFIT_STATUS_LINE } from '@/lib/site'
 
 // Icons live here; the URLs live in lib/socials.ts, which is the single list
 // the contact page reads too. There used to be two divergent sets of handles
@@ -171,10 +171,15 @@ export default function Footer() {
                   className="h-10 sm:h-12 w-auto object-contain object-left brightness-0 invert"
                 />
               </Link>
+              {/* One mission sentence, from lib/site.ts. This used to open "At
+                  EdLight, our mission is to make education free and accessible
+                  to all people in Haiti" — a fourth wording of the mission,
+                  and the only one that promised all people rather than the
+                  students we actually serve. */}
               <p className="text-sm leading-relaxed text-[var(--paper-on-dark)] max-w-sm">
-                At EdLight, our mission is to make education free and accessible to all people in Haiti. We provide
-                high school students with digital access to quality education through STEM courses, leadership programs,
-                and global opportunities.{' '}
+                {MISSION_STATEMENT} We give secondary-school students digital access to STEM
+                courses, coding tracks, leadership programmes, and global opportunities — free,
+                at every stage.{' '}
                 <Link href="/about" className="text-white underline underline-offset-4 decoration-[var(--on-dark-faint)] hover:decoration-white transition-colors">
                   Learn more about our mission
                 </Link>
@@ -207,8 +212,12 @@ export default function Footer() {
 
           {/* Links columns */}
           <div className="lg:col-span-7 grid gap-8 grid-cols-2 lg:grid-cols-3">
+            {/* h3, not h4. These are the first headings inside the footer,
+                and the last heading before them is the closing section's h2 —
+                so h4 skipped a level and failed the heading-order audit on
+                every page. */}
             <div>
-              <h4 className="eyebrow text-[var(--paper-on-dark)] mb-4">Programs</h4>
+              <h3 className="eyebrow text-[var(--paper-on-dark)] mb-4">Programs</h3>
               <ul className="space-y-2.5">
                 {programLinks.map(({ href, label }) => (
                   <li key={href}>
@@ -221,7 +230,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="eyebrow text-[var(--paper-on-dark)] mb-4">Explore</h4>
+              <h3 className="eyebrow text-[var(--paper-on-dark)] mb-4">Explore</h3>
               <ul className="space-y-2.5">
                 {orgLinks.map(({ href, label }) => (
                   <li key={href}>
@@ -234,7 +243,7 @@ export default function Footer() {
             </div>
 
             <div className="space-y-4 col-span-2 lg:col-span-1">
-              <h4 className="eyebrow text-[var(--paper-on-dark)]">Newsletter</h4>
+              <h3 className="eyebrow text-[var(--paper-on-dark)]">Newsletter</h3>
               <p className="text-xs text-[var(--paper-on-dark)] leading-relaxed">
                 Monthly highlights, student stories, and program openings.
               </p>
@@ -298,7 +307,7 @@ export default function Footer() {
             grouping two items need. */}
         <div className="mt-12 grid gap-8 border-t border-[var(--line-on-dark)] pt-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <h4 className="eyebrow text-[var(--paper-on-dark)] mb-1.5">Mobile Apps</h4>
+            <h3 className="eyebrow text-[var(--paper-on-dark)] mb-1.5">Mobile Apps</h3>
             <p className="text-xs text-[var(--on-dark-muted)]">
               Free to download, on phones and tablets.
             </p>
@@ -371,9 +380,7 @@ export default function Footer() {
             </nav>
           </div>
           <p className="mt-3 text-xs text-[var(--on-dark-muted)]">
-            EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation
-            No. {CORPORATION_NUMBER}), based in {REGISTERED_ADDRESS_LINE}, serving students across
-            Haiti.
+            {NONPROFIT_STATUS_LINE}
           </p>
         </div>
       </div>

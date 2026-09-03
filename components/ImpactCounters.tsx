@@ -68,7 +68,7 @@ export default function ImpactCounters({ counters }: ImpactCountersProps) {
                 inflating a number we can name every one of. */}
             {counter.suffix ?? '+'}
           </div>
-          <div className="eyebrow text-[10px] sm:text-[11px] text-[var(--ink-700)] mt-1">{counter.label}</div>
+          <div className="eyebrow-ink text-[10px] sm:text-[11px] mt-1">{counter.label}</div>
         </div>
       ))}
     </div>
