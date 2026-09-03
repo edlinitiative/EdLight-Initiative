@@ -117,3 +117,31 @@ export const NONPROFIT_STATUS_SHORT = 'Registered Canadian not-for-profit'
  * them back.
  */
 export const COMMERCIAL_SERVICES_ENABLED = false
+
+/**
+ * Whether /nexus is publicly reachable.
+ *
+ * EdLight Nexus has a page but not a programme. Every sentence on it is
+ * conditional — "is designed to connect", "what Nexus is designed to offer",
+ * "stay informed" — and there is no cohort, no dates, and no way to apply.
+ * The Ad Grants website policy names pages under construction explicitly, and
+ * noindexing it (an earlier pass) keeps it out of search results while
+ * leaving it reachable by anyone who types the URL, reviewers included.
+ *
+ * TO RESTORE: set this to true once Nexus has dates and a way for a student
+ * to apply. It is out of the navbar, footer, homepage programme list, and
+ * sitemap on purpose; this flag does not put it back into any of them.
+ */
+export const NEXUS_ENABLED = false
+
+/**
+ * Whether /store is publicly reachable.
+ *
+ * Every item in the store is marked "Coming soon" and the page says the store
+ * is launching soon — four products, none of which can be bought. That is a
+ * placeholder page, and the same reasoning as NEXUS_ENABLED applies: noindex
+ * is not the same as not being there.
+ *
+ * TO RESTORE: set this to true once the products can actually be purchased.
+ */
+export const STORE_ENABLED = false

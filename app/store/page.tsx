@@ -1,4 +1,6 @@
 import React from 'react'
+import { notFound } from 'next/navigation'
+import { STORE_ENABLED } from '@/lib/site'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,6 +18,15 @@ export const metadata: Metadata = {
 }
 
 export default function StorePage() {
+  // Every product here is marked "Coming soon" and the page says the store
+  // is launching soon, so there is nothing a visitor can act on. Same
+  // reasoning as /nexus, and the same placement: gating in a layout leaves
+  // the page's markup in the response's flight payload, so the gate has to
+  // be inside the page. See STORE_ENABLED in lib/site.ts.
+  if (!STORE_ENABLED) {
+    notFound()
+  }
+
   return (
     <>
       <Hero
