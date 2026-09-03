@@ -106,10 +106,15 @@ const activities = [
  *     recorded, and nothing establishes whether it fell before or after that
  *     August's first ESLP cohort — so the two share one 2022 entry rather
  *     than being listed in an order we cannot support.
- *   - EdLight Code, 2026: the /code page entered this repository on
- *     2026-02-22 (commit 9974b16). That dates Code joining the public
- *     programme lineup, which is what the entry claims; it is not a claim
- *     about when the platform itself first existed.
+ *   - EdLight Academy, 2021: confirmed by the team. Note that the unused
+ *     data/timeline.json dates Academy to 2020 and has it "reach 100
+ *     students"; that file is dead code and wrong on both counts — do not
+ *     revive it as a source. The 2020 entry here no longer says EdLight
+ *     started out with course material, which it cannot have if Academy
+ *     opened in 2021.
+ *   - EdLight Code, 2026: confirmed by the team, and independently consistent
+ *     with the /code page entering this repository on 2026-02-22 (commit
+ *     9974b16).
  *   - The mobile apps, 2026: the footer began linking both listings on
  *     2026-08-07 (commit bb6e283), and both store pages are live. Google Play
  *     no longer publishes a "Released on" date and the App Store listing
@@ -123,7 +128,12 @@ const timeline = [
     year: String(FOUNDED_YEAR),
     title: 'EdLight Initiative founded',
     description:
-      'Ted Jacquet and Stevenson Michel start EdLight to widen access to quality education for students in Haiti, beginning with free online course material.',
+      'Ted Jacquet and Stevenson Michel start EdLight to widen access to quality education for students in Haiti — no fees, no travel, and material in a language students already speak.',
+  },
+  {
+    year: '2021',
+    title: 'EdLight Academy launches',
+    description: `The first programme opens: free online courses built around the 9e Année and Baccalauréat syllabi, run in a browser so a student does not have to move cities to attend. Academy now covers ${impactData.academySubjects} subjects.`,
   },
   {
     year: '2022',
@@ -328,7 +338,7 @@ export default function AboutPage() {
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Our journey"
-            subtitle={`From a set of free course notes in ${FOUNDED_YEAR} to four programmes, two mobile apps, and ${impactData.eslpAlumni} leadership programme alumni`}
+            subtitle={`From two founders in ${FOUNDED_YEAR} to four programmes, two mobile apps, and ${impactData.eslpAlumni} leadership programme alumni`}
           />
           <ol className="max-w-3xl">
             {timeline.map((item, index) => (
