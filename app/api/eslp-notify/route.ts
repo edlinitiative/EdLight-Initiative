@@ -23,11 +23,14 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
  * The lists this endpoint will accept a signup for.
  *
  * Must stay in step with the `cycleLabel` values passed to NotifyModal —
- * 'ESLP 2027' from app/eslp/page.tsx, 'Coursera Scholars' from
+ * 'ESLP 2027' from app/eslp/page.tsx, 'EdLight Scholars' from
  * app/coursera-scholars/page.tsx. Anything else falls back to a generic
  * label rather than being echoed into the email.
+ *
+ * 'Coursera Scholars' is the pre-rename label. It stays accepted so signups
+ * recorded under it remain valid; nothing sends it any more.
  */
-const NOTIFY_CYCLES = ['ESLP 2027', 'Coursera Scholars'] as const
+const NOTIFY_CYCLES = ['ESLP 2027', 'EdLight Scholars', 'Coursera Scholars'] as const
 
 const resendApiKey = process.env.RESEND_API_KEY
 const notifyInbox =

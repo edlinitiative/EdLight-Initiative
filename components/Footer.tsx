@@ -25,7 +25,7 @@ const socialIcons: Record<SocialPlatform, typeof Facebook> = {
 const programLinks = [
   { href: '/academy', label: 'EdLight Academy' },
   { href: '/code', label: 'EdLight Code' },
-  { href: '/coursera-scholars', label: 'Coursera Scholars' },
+  { href: '/coursera-scholars', label: 'EdLight Scholars' },
   { href: '/eslp', label: 'ESLP' },
 ]
 

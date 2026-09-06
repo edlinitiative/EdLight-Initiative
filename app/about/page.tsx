@@ -74,7 +74,7 @@ const activities = [
   {
     href: '/coursera-scholars',
     icon: <GraduationCap size={24} />,
-    title: 'Coursera Scholars',
+    title: 'EdLight Scholars',
     body: 'Funded Coursera certificates, run with Coursera, so Haitian students can earn professional credentials that carry weight outside Haiti at no cost.',
   },
   {
@@ -150,7 +150,7 @@ const timeline = [
   {
     year: 'Today',
     title: 'Four free programmes, open to any student in Haiti',
-    description: `EdLight runs Academy, Code, Coursera Scholars, and ESLP — ${impactData.academySubjects} exam subjects and ${impactData.codeTracks} coding tracks between them, free at every stage, on the web and on mobile. Applications for ESLP 2027 open in spring 2027.`,
+    description: `EdLight runs Academy, Code, EdLight Scholars, and ESLP — ${impactData.academySubjects} exam subjects and ${impactData.codeTracks} coding tracks between them, free at every stage, on the web and on mobile. Applications for ESLP 2027 open in spring 2027.`,
   },
 ]
 

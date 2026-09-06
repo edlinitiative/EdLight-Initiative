@@ -36,8 +36,8 @@ const programLinks = [
   },
   {
     href: '/coursera-scholars',
-    label: 'Coursera Scholars',
-    description: 'Funded Coursera certificates for Haitian students',
+    label: 'EdLight Scholars',
+    description: 'Funded professional certificates for Haitian learners',
   },
   {
     href: '/eslp',

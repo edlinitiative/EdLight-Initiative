@@ -51,7 +51,7 @@ const faqs: FaqCategory[] = [
       {
         question: 'Who can participate in EdLight programmes?',
         answer:
-          'Our programmes are built for secondary-school students in Haiti and for young people preparing for the Baccalauréat or for university. EdLight Academy and EdLight Code are open to anyone who can reach them online. ESLP and Coursera Scholars select participants through an application. Eligibility for each is described on that programme\'s page.',
+          'Our programmes are built for secondary-school students in Haiti and for young people preparing for the Baccalauréat or for university. EdLight Academy and EdLight Code are open to anyone who can reach them online. ESLP and EdLight Scholars select participants through an application. Eligibility for each is described on that programme\'s page.',
       },
       {
         question: 'What do EdLight programmes cost?',
@@ -142,10 +142,10 @@ const faqs: FaqCategory[] = [
     ],
   },
   {
-    category: 'Coursera Scholars',
+    category: 'EdLight Scholars',
     questions: [
       {
-        question: 'What is Coursera Scholars?',
+        question: 'What is the EdLight Scholars Program?',
         answer:
           'A programme that funds Coursera certificates for Haitian students, run in partnership with Coursera, so that students can earn recognised professional credentials at no cost to them.',
       },
@@ -156,7 +156,7 @@ const faqs: FaqCategory[] = [
             Not yet. The inaugural cohort is being finalised and applications are not open. Join the
             notify list on the{' '}
             <Link href="/coursera-scholars" className="underline underline-offset-4">
-              Coursera Scholars page
+              EdLight Scholars page
             </Link>{' '}
             to hear when it opens.
           </>

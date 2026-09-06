@@ -54,11 +54,11 @@ export const metadata: Metadata = {
   // Bare title: the root layout applies the template '%s | EdLight Initiative'.
   // Spelling out the suffix here rendered "… | EdLight Initiative | EdLight
   // Initiative" in the browser tab and in search results.
-  title: 'EdLight Coursera Scholars',
+  title: 'EdLight Scholars Program',
   description:
     'Free access to world-class online learning through EdLight Initiative’s Coursera Social Impact partnership. Learners can apply directly, and universities can partner with EdLight to bring Coursera to their own students.',
   openGraph: {
-    title: 'EdLight Coursera Scholars | EdLight Initiative',
+    title: 'EdLight Scholars Program | EdLight Initiative',
     description:
       'Free access to world-class online learning for motivated Haitian learners, directly or through a partner university. Build skills, earn certificates, and take your next step.',
     type: 'website',
@@ -79,7 +79,9 @@ export const metadata: Metadata = {
 // set APPLICATIONS_OPEN to the real window, restore an APPLICATION_URL that
 // resolves to an actual Scholars application, and swap the NotifyButton back
 // to a link.
-const SCHOLARS_NOTIFY_LABEL = 'Coursera Scholars'
+// Renamed from 'Coursera Scholars': the programme is not tied to a single
+// platform. The API still accepts the old value so earlier signups stay valid.
+const SCHOLARS_NOTIFY_LABEL = 'EdLight Scholars'
 
 const benefits = [
   {
@@ -171,7 +173,7 @@ const cohorts = [
 ]
 
 // EdLight programme photography. These are learners from EdLight's own
-// programmes, NOT Coursera Scholars (there is no cohort yet) — alt text and
+// programmes, NOT EdLight Scholars (there is no cohort yet) — alt text and
 // the section copy stay accurate about that.
 const gallery = [
   { src: '/gallery/student-1.jpg', alt: 'An EdLight learner receiving a certificate' },
@@ -185,7 +187,7 @@ const gallery = [
 const faqs = [
   {
     q: 'How much does the program cost?',
-    a: 'Nothing. Participation is free for selected EdLight Coursera Scholars, and there is never an application fee.',
+    a: 'Nothing. Participation is free for selected EdLight Scholars, and there is never an application fee.',
   },
   {
     q: 'When does the program start?',
@@ -241,7 +243,7 @@ export default function CourseraScholarsPage() {
   return (
     <>
       <Hero
-        title="Become an EdLight Coursera Scholar"
+        title="Become an EdLight Scholar"
         subtitle="Talent is everywhere. Opportunity is not."
         backgroundImage="/Graduation_Pics.webp"
         /* This frame carries ~20% of architecture above the group, so the
@@ -295,7 +297,7 @@ export default function CourseraScholarsPage() {
               opportunities.
             </p>
             <p className="body-lg text-[var(--ink-700)]">
-              Through EdLight Coursera Scholars, we are turning that partnership into a structured program
+              Through the EdLight Scholars Program, we are turning that partnership into a structured program
               designed to help talented learners gain skills that create real opportunities for their futures.
             </p>
             <p className="body-lg text-[var(--ink-700)]">
@@ -369,7 +371,7 @@ export default function CourseraScholarsPage() {
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Who can apply?"
-            subtitle="EdLight Coursera Scholars is for motivated learners who are ready to invest in themselves."
+            subtitle="The EdLight Scholars Program is for motivated learners who are ready to invest in themselves."
           />
           <div className="grid gap-8 lg:grid-cols-12">
             <div className="lg:col-span-7">

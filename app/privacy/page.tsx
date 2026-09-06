@@ -123,7 +123,7 @@ export default function PrivacyPage() {
           <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
             <li><strong>Resend:</strong> our email provider, which delivers every form submission and every email we send you on our behalf</li>
             <li><strong>PayPal:</strong> which processes donations on its own site. You enter your payment details with PayPal, not with us; we receive only the donation record PayPal shows us, never your card or bank details</li>
-            <li><strong>Coursera:</strong> for learners selected as EdLight Coursera Scholars, we share the details needed to create your Coursera account under our Social Impact partnership. This applies only if you apply and are selected; Coursera then handles your account under its own privacy policy</li>
+            <li><strong>Coursera:</strong> for learners selected as EdLight Scholars, we share the details needed to create your Coursera account under our Social Impact partnership. This applies only if you apply and are selected; Coursera then handles your account under its own privacy policy</li>
             <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
             <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
             <li><strong>With Your Consent:</strong> When you have given us explicit permission</li>

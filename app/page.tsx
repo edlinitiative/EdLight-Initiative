@@ -58,7 +58,7 @@ const ecosystemPrograms = [
     href: '/code',
   },
   {
-    title: 'Coursera Scholars',
+    title: 'EdLight Scholars',
     description:
       'Funded Coursera certificates, run with Coursera, so Haitian students can earn recognised professional credentials at no cost.',
     icon: <GraduationCap size={32} />,
@@ -98,7 +98,7 @@ const howItWorks = [
   {
     icon: <Compass size={28} />,
     title: 'Reach further than Haiti',
-    body: 'Strong students should not be limited by where they were born. Coursera Scholars funds recognised professional certificates that carry weight outside Haiti, and ESLP develops the leadership and civic confidence that scholarships and universities ask for.',
+    body: 'Strong students should not be limited by where they were born. EdLight Scholars funds recognised professional certificates that carry weight outside Haiti, and ESLP develops the leadership and civic confidence that scholarships and universities ask for.',
   },
 ]
 
@@ -107,7 +107,7 @@ const howItWorks = [
 // outright would have left this section with a single FAQ card in it.
 //
 // "Scholarships and exchange" used to point at /nexus, which is now noindexed
-// for having no cohort or application. It points at Coursera Scholars
+// for having no cohort or application. It points at EdLight Scholars
 // instead, which is the scholarship route students can actually take.
 const exploreMore = [
   {
@@ -307,7 +307,7 @@ export default function HomePage() {
           <p className="max-w-3xl mx-auto mb-10 text-center text-sm sm:text-base leading-relaxed text-[var(--ink-700)]">
             Four programmes, each aimed at a different point in a student&apos;s path. Academy and
             Code cover the learning itself, from secondary-school maths and physics through to
-            programming in Python and SQL. Coursera Scholars and ESLP handle what comes next — the
+            programming in Python and SQL. EdLight Scholars and ESLP handle what comes next — the
             credentials and the leadership experience that turn a strong student into a candidate.
             All four are free, and a student can start anywhere and move between them.
           </p>

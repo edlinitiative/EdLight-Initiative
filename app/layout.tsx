@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   // COMMERCIAL_SERVICES_ENABLED is false and Nexus is noindexed with no
   // cohort to join, so the site was advertising two brands it does not serve
   // a page for.
-  keywords: ['EdLight Initiative', 'Haiti education', 'STEM education', 'online courses', 'leadership program', 'scholarships Haiti', 'EdLight Academy', 'EdLight Code', 'Coursera Scholars', 'ESLP'],
+  keywords: ['EdLight Initiative', 'Haiti education', 'STEM education', 'online courses', 'leadership program', 'scholarships Haiti', 'EdLight Academy', 'EdLight Code', 'EdLight Scholars', 'ESLP'],
   authors: [{ name: 'EdLight Initiative' }],
   creator: 'EdLight Initiative',
   publisher: 'EdLight Initiative',

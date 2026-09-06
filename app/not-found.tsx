@@ -39,7 +39,7 @@ export default function NotFound() {
             EdLight Code
           </Link>
           <Link href="/coursera-scholars" className="text-blue-600 hover:underline">
-            Coursera Scholars
+            EdLight Scholars
           </Link>
           <Link href="/eslp" className="text-blue-600 hover:underline">
             ESLP
