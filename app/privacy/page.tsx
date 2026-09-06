@@ -159,7 +159,44 @@ export default function PrivacyPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Your Rights</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. How Long We Keep Information</h2>
+          {/* The policy previously said nothing about retention while section 8
+              offered a deletion right, which left the partner convention (which
+              relies on keeping participation records for the alumni network)
+              contradicting this page. Retention is stated here as the default,
+              with the statutory rights left intact in section 8. */}
+          <p className="text-gray-700 leading-relaxed mb-4">
+            We keep information for as long as it is needed for the purpose it was collected for.
+          </p>
+          <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+            <li>
+              <strong>Programme participants.</strong> If you are selected for one of our programmes —
+              including the EdLight Scholars Program and ESLP — we keep your participation record after
+              your cohort ends. We use it to follow your progress, to report the programme&apos;s impact to
+              our funders and partners, and to keep you part of the EdLight alumni network. Taking part in a
+              programme includes agreeing to this.
+            </li>
+            <li>
+              <strong>Enquiries and messages.</strong> Kept while we handle your message and for a
+              reasonable period afterwards as a record of the exchange.
+            </li>
+            <li>
+              <strong>Notify lists.</strong> Kept until you unsubscribe, or until the cycle you signed up
+              for has passed.
+            </li>
+            <li>
+              <strong>Donation records.</strong> Kept for as long as Canadian charitable and tax
+              record-keeping rules require.
+            </li>
+          </ul>
+          <p className="text-gray-700 leading-relaxed mt-4">
+            You can ask us to stop sending you communications at any time. We will act on that without
+            deleting your participation record.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Your Rights</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             Depending on your location, you may have the following rights:
           </p>
@@ -173,22 +210,30 @@ export default function PrivacyPage() {
             <li>Withdrawal of consent</li>
           </ul>
           <p className="text-gray-700 leading-relaxed mt-4">
+            These rights are not absolute. Where we have a continuing legitimate interest or a legal
+            obligation — for example the record that you took part in and completed a programme, or
+            records we must keep for charitable reporting — we may retain some information after a
+            deletion request. If that happens we will tell you what we kept and why.
+          </p>
+          <p className="text-gray-700 leading-relaxed mt-4">
             To exercise these rights, please contact us at {CONTACT_EMAIL}, or write to us at the
-            address in section 12.
+            address in section 13.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Children&apos;s Privacy</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Children&apos;s Privacy</h2>
           <p className="text-gray-700 leading-relaxed">
-            Our services are not directed to children under 13. We do not knowingly collect personal information 
-            from children under 13. If you are a parent or guardian and believe your child has provided us with 
-            personal information, please contact us.
+            Our services are not directed to children under 13, and we do not knowingly collect personal
+            information from them. Some of our programmes accept participants aged 16 and over. Where a
+            participant is under the age of majority, we rely on their school or the parent or guardian to
+            confirm they may take part and that their information may be shared with us. If you are a parent
+            or guardian and believe your child has provided us with personal information, please contact us.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Third-Party Links</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. Third-Party Links</h2>
           <p className="text-gray-700 leading-relaxed">
             Our website may contain links to third-party websites. We are not responsible for the privacy 
             practices of these websites. We encourage you to read the privacy policies of any third-party 
@@ -197,7 +242,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. International Data Transfers</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">11. International Data Transfers</h2>
           <p className="text-gray-700 leading-relaxed">
             Your information may be transferred to and maintained on servers located outside of your state, 
             province, country, or other governmental jurisdiction where data protection laws may differ. 
@@ -206,7 +251,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">11. Changes to This Privacy Policy</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">12. Changes to This Privacy Policy</h2>
           <p className="text-gray-700 leading-relaxed">
             We may update this Privacy Policy from time to time. We will notify you of any changes by posting 
             the new Privacy Policy on this page and updating the &quot;Last Updated&quot; date.
@@ -214,12 +259,12 @@ export default function PrivacyPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">12. Contact Us</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">13. Contact Us</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             If you have any questions about this Privacy Policy, please contact us:
           </p>
           {/* An email address alone is not a usable route for a data-protection
-              request. Section 7 invites people to exercise access and deletion
+              request. Section 8 invites people to exercise access and deletion
               rights, and those requests are the ones most likely to need a
               postal address — a reader in that position had nowhere to send a
               letter, and no way to see which country's regulator covers us.
