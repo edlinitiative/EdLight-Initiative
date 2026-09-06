@@ -243,9 +243,12 @@ export default function CourseraScholarsPage() {
       <Hero
         title="Become an EdLight Coursera Scholar"
         subtitle="Talent is everywhere. Opportunity is not."
-        backgroundImage="/gallery/eslp-2026-graduation-promotion.webp"
-        /* Wide group shot: anchor to the top so the back row's heads survive
-           the crop at every viewport width. */
+        backgroundImage="/Graduation_Pics.webp"
+        /* This frame carries ~20% of architecture above the group, so the
+           headline lands on the ceiling rather than on people's faces. The
+           previous shot (eslp-2026-graduation-promotion) filled the frame edge
+           to edge with only ~5% headroom, so the left-hand faces sat under the
+           headline and the readability scrim no matter how it was anchored. */
         objectPosition="center top"
       >
         {/* Left-aligned, NOT centred. Hero renders its children inside a
