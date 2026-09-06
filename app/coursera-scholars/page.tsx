@@ -2,18 +2,23 @@ import React from 'react'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import {
+  BadgeCheck,
   BarChart3,
   BrainCircuit,
   Briefcase,
+  Building2,
+  ClipboardList,
   Code2,
   GraduationCap,
   Lightbulb,
+  RefreshCw,
   Rocket,
   Users,
 } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import NotifyButton from '@/components/NotifyButton'
+import GalleryGrid from '@/components/GalleryGrid'
 
 // ── Framing, and the lines that must not drift ───────────────────────────────
 // EdLight Initiative is a Coursera Social Impact Partner. EdLight — not
@@ -26,7 +31,24 @@ import NotifyButton from '@/components/NotifyButton'
 // The count of donated licences (300) and the first cohort size are
 // deliberately absent from the public page: the brief says not to advertise a
 // number of places unless EdLight decides to, and a public number is very hard
-// to walk back once the cohort is sized differently.
+// to walk back once the cohort is sized differently. That still holds, and it
+// is why the institutional section below says "a block of licences" rather
+// than the per-school figure that appears in the PDF sent to universities.
+//
+// There are now TWO routes in, and every section has to hold both without
+// promising either a place it cannot fill:
+//   1. Partner institutions nominate their own students (the route being sold
+//      to universities right now, ahead of the first cohort).
+//   2. Individual learners apply directly to EdLight.
+// Route 2 has no form yet, so its CTA stays the notify list. Route 1 has a
+// real, working CTA — email — which is why it can be a live link.
+//
+// Dates ARE public as of the Coursera contract: the first cohort begins
+// 1 October 2026 and cohorts run three months. Because the page states a
+// date, it now carries a maintenance duty the old copy failed: once
+// 1 October 2026 passes, "begins" is wrong and must be revised. That exact
+// drift — a future-tense window left standing after its date — is what the Ad
+// Grants website policy previously failed this site over.
 
 export const metadata: Metadata = {
   // Bare title: the root layout applies the template '%s | EdLight Initiative'.
@@ -34,11 +56,11 @@ export const metadata: Metadata = {
   // Initiative" in the browser tab and in search results.
   title: 'EdLight Coursera Scholars',
   description:
-    'Apply to become an EdLight Coursera Scholar and gain free access to world-class online learning through EdLight Initiative’s Coursera Social Impact partnership.',
+    'Free access to world-class online learning through EdLight Initiative’s Coursera Social Impact partnership. Learners can apply directly, and universities can partner with EdLight to bring Coursera to their own students.',
   openGraph: {
     title: 'EdLight Coursera Scholars | EdLight Initiative',
     description:
-      'Free access to world-class online learning for motivated Haitian learners. Build skills, earn certificates, and take your next step.',
+      'Free access to world-class online learning for motivated Haitian learners, directly or through a partner university. Build skills, earn certificates, and take your next step.',
     type: 'website',
   },
 }
@@ -91,16 +113,40 @@ const pathways = [
   { icon: Users, title: 'Professional Skills', body: 'Communication, leadership, English, and interview preparation.' },
 ]
 
+// Deliberately no per-school licence figure here — see the framing note above.
+const institutionBenefits = [
+  {
+    icon: Building2,
+    title: 'Licences for your students',
+    body: 'Your institution receives a block of Coursera licences each cohort, and chooses which of your students receive them.',
+  },
+  {
+    icon: RefreshCw,
+    title: 'A new cohort every three months',
+    body: 'At the end of each three-month cohort the licences are released and reassigned to a new group of your students.',
+  },
+  {
+    icon: ClipboardList,
+    title: 'Progress you can see',
+    body: 'EdLight tracks how your nominated students are doing and sends the institution a report at the end of every cohort.',
+  },
+  {
+    icon: BadgeCheck,
+    title: 'Recognised as a partner',
+    body: 'Your institution is named as an official partner of the program, at no cost and with no financial commitment.',
+  },
+]
+
 const steps = [
   {
     number: '01',
-    title: 'Apply',
-    body: 'Tell us who you are, what you want to learn, and what you plan to do with it. The application works on a phone and saves as you go.',
+    title: 'Apply or get nominated',
+    body: 'If your university is a partner institution, it nominates its own students — ask your school. Otherwise you apply to EdLight directly when applications open.',
   },
   {
     number: '02',
     title: 'Get selected',
-    body: 'EdLight reviews every application on motivation, learning goals, potential impact, commitment, and access.',
+    body: 'Partner institutions select their own students. For direct applications, EdLight reviews each one on motivation, learning goals, potential impact, commitment, and access.',
   },
   {
     number: '03',
@@ -114,18 +160,52 @@ const steps = [
   },
 ]
 
+// Cohort windows as published in the partner-institution PDF. Cohorts 2-4 are
+// deliberately off a strict three-month roll so none opens during the holiday
+// or academic break. Dates are public; the licence count is not.
+const cohorts = [
+  { name: 'Cohort 1', window: '1 October – 31 December 2026', note: 'Programme launch' },
+  { name: 'Cohort 2', window: '11 January – 11 April 2027', note: 'After the academic break' },
+  { name: 'Cohort 3', window: '19 April – 19 July 2027', note: 'Second semester' },
+  { name: 'Cohort 4', window: '26 July – 26 October 2027', note: 'Summer session' },
+]
+
+// EdLight programme photography. These are learners from EdLight's own
+// programmes, NOT Coursera Scholars (there is no cohort yet) — alt text and
+// the section copy stay accurate about that.
+const gallery = [
+  { src: '/gallery/student-1.jpg', alt: 'An EdLight learner receiving a certificate' },
+  { src: '/gallery/eslp-2026-graduation-promotion.webp', alt: 'An EdLight cohort at their graduation' },
+  { src: '/gallery/student-2.jpg', alt: 'EdLight learners at a programme session' },
+  { src: '/gallery/eslp-2026-graduation-certificat.webp', alt: 'A certificate being awarded at an EdLight graduation' },
+  { src: '/gallery/student-3.jpg', alt: 'An EdLight learner at a programme session' },
+  { src: '/gallery/eslp-3.jpg', alt: 'EdLight learners working together' },
+]
+
 const faqs = [
   {
     q: 'How much does the program cost?',
     a: 'Nothing. Participation is free for selected EdLight Coursera Scholars, and there is never an application fee.',
   },
   {
+    q: 'When does the program start?',
+    a: 'The first cohort begins on 1 October 2026. Every cohort runs for three months, after which the places are passed on to a new group of learners.',
+  },
+  {
     q: 'Who can apply?',
     a: 'Motivated learners aged 16 and over — students, graduates, young professionals, entrepreneurs, and self-directed learners. The first cohort primarily serves learners based in Haiti.',
   },
   {
+    q: 'How do I join — do I apply, or does my university nominate me?',
+    a: 'Both routes exist. If you study at a partner institution, your university selects its own students, so ask your faculty or student affairs office whether it takes part. If it does not, or if you are not currently a student, you can apply to EdLight directly once applications open — join the notify list and we will tell you when they do.',
+  },
+  {
     q: 'Do I need to be enrolled in school?',
-    a: 'No. Current enrolment is not required, and we do not expect a perfect academic record.',
+    a: 'Not for the direct route — current enrolment is not required and we do not expect a perfect academic record. The nomination route is different: those places belong to a partner institution, so they go to that institution’s own students.',
+  },
+  {
+    q: 'My university would like to take part. What do we do?',
+    a: 'Write to info@edlight.org with the name of your institution and a contact person. We agree the number of licences and your cohort dates, sign a one-page partnership agreement, and you nominate your students. There is no cost to the institution or to its students.',
   },
   {
     q: 'Do I need previous Coursera experience?',
@@ -141,7 +221,7 @@ const faqs = [
   },
   {
     q: 'Is Coursera selecting the Scholars?',
-    a: 'No. EdLight Initiative is a Coursera Social Impact Partner, and EdLight manages the application and selection process for EdLight Coursera Scholars.',
+    a: 'No. EdLight Initiative is a Coursera Social Impact Partner. EdLight runs the program — managing direct applications itself, and working with partner institutions who select their own nominated students. Coursera does not choose Scholars or co-administer the program.',
   },
   {
     q: 'What happens if I am not selected?',
@@ -163,6 +243,7 @@ export default function CourseraScholarsPage() {
       <Hero
         title="Become an EdLight Coursera Scholar"
         subtitle="Talent is everywhere. Opportunity is not."
+        backgroundImage="/gallery/eslp-2026-graduation-promotion.webp"
       >
         {/* Left-aligned, NOT centred. Hero renders its children inside a
             left-aligned max-w-3xl block, so `mx-auto` on this paragraph and
@@ -188,7 +269,7 @@ export default function CourseraScholarsPage() {
           </a>
         </div>
         <p className="mt-6 text-xs uppercase tracking-[0.18em] text-white/70">
-          Inaugural cohort · applications not yet open
+          Inaugural cohort begins 1 October 2026 · direct applications not yet open
         </p>
       </Hero>
 
@@ -211,11 +292,55 @@ export default function CourseraScholarsPage() {
               Through EdLight Coursera Scholars, we are turning that partnership into a structured program
               designed to help talented learners gain skills that create real opportunities for their futures.
             </p>
+            <p className="body-lg text-[var(--ink-700)]">
+              Scholars join in one of two ways: nominated by a partner university, or by applying to EdLight
+              directly. The first cohort begins on 1 October 2026, and every cohort runs for three months.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      {/* Universities. Placed directly after the partnership section because
+          this is the audience with the nearer deadline — institutions have to
+          nominate before a cohort opens, students only have to apply. */}
+      <section id="institutions" className="bg-slate-50 py-20">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <SectionHeader
+            title="For universities and institutions"
+            subtitle="Bring Coursera to a cohort of your students. EdLight provides the licences and the follow-up; your institution chooses who receives them."
+            centered
+          />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {institutionBenefits.map(({ icon: Icon, title, body }) => (
+              <div key={title} className="border border-[var(--paper-200)] bg-white p-6">
+                <Icon size={24} className="text-[var(--accent)]" aria-hidden="true" />
+                <h3 className="mt-4 text-lg font-semibold text-[var(--ink-900)]">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mx-auto mt-10 max-w-3xl border-l-2 border-[var(--accent)] bg-white p-6">
+            <h3 className="text-lg font-semibold text-[var(--ink-900)]">How your institution joins</h3>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">
+              Write to us with the name of your institution and a contact person. We agree the number of
+              licences and your cohort dates, sign a one-page partnership agreement, and you send us the
+              students you have selected. There is no cost to the institution or to the students.
+            </p>
+            {/* A real mailto, not a portal link that does not lead to a form —
+                this CTA can be live precisely because it does what it says. */}
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a href="mailto:info@edlight.org?subject=Coursera%20partnership%20enquiry" className="btn btn-primary">
+                Email us about a partnership
+              </a>
+              <Link href="/contact" className="btn btn-outline">
+                Contact form
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Why become a Scholar?"
@@ -234,7 +359,7 @@ export default function CourseraScholarsPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-slate-50 py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title="Who can apply?"
@@ -264,14 +389,19 @@ export default function CourseraScholarsPage() {
             <div className="lg:col-span-5">
               <p className="body-lg text-[var(--ink-700)]">
                 What matters most is a clear goal and the commitment to learn. You do not need a perfect
-                academic record, a university place, or previous experience with online courses.
+                academic record or previous experience with online courses.
+              </p>
+              <p className="mt-4 body-lg text-[var(--ink-700)]">
+                A university place is not required to apply directly. If you are studying at a{' '}
+                <a href="#institutions" className="underline underline-offset-4">partner institution</a>,
+                your school nominates its own students — so it is worth asking there first.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="how-it-works" className="bg-slate-50 py-20">
+      <section id="how-it-works" className="py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader title="How it works" subtitle="Four steps, from application to certificate." centered />
           {/* Numbered because these genuinely are sequential — you cannot start
@@ -285,6 +415,33 @@ export default function CourseraScholarsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-20">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <SectionHeader
+            title="Key dates"
+            subtitle="Cohorts run for three months. When one ends, the places pass to the next group of learners."
+            centered
+          />
+          <div className="mx-auto max-w-3xl border-t border-[var(--paper-200)]">
+            {cohorts.map(({ name, window, note }) => (
+              <div
+                key={name}
+                className="flex flex-col gap-1 border-b border-[var(--paper-200)] py-5 sm:flex-row sm:items-baseline sm:gap-6"
+              >
+                <span className="w-28 shrink-0 font-semibold text-[var(--ink-900)]">{name}</span>
+                <span className="flex-1 text-[var(--ink-900)]">{window}</span>
+                <span className="text-sm text-[var(--ink-700)]">{note}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-[var(--ink-700)]">
+            Partner institutions nominate their students before a cohort opens — for Cohort 1 the deadline is
+            20 September 2026. Direct applications open separately; join the notify list and we will write to
+            you with the date.
+          </p>
         </div>
       </section>
 
@@ -304,6 +461,17 @@ export default function CourseraScholarsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-20">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <SectionHeader
+            title="EdLight learners"
+            subtitle="Photographs from EdLight programmes in Haiti — the community Scholars join."
+            centered
+          />
+          <GalleryGrid images={gallery} columns={3} />
         </div>
       </section>
 
@@ -360,9 +528,10 @@ export default function CourseraScholarsPage() {
               Want to be first to know?
             </h2>
             <p className="mb-8 body-lg text-[var(--ink-700)]">
-              The inaugural cohort is still being put together and applications have not opened
+              The inaugural cohort is still being put together and direct applications have not opened
               yet. Join the list and we will write to you the day they do — before we announce it
-              anywhere else.
+              anywhere else. If you are writing on behalf of a university,{' '}
+              <a href="#institutions" className="underline underline-offset-4">start here</a> instead.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
               <NotifyButton cycleLabel={SCHOLARS_NOTIFY_LABEL} className="btn btn-primary">
