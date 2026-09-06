@@ -1,32 +1,29 @@
 /**
- * Locale configuration — and the one place the routing decision lives.
+ * Locale configuration.
  *
- * The site is English-only in the browser today. Every user-visible string
- * has been extracted into messages/<locale>.json and a French translation
- * exists and is complete, but nothing yet lets a visitor reach it. That is
- * deliberate: how a visitor selects a language is a decision with real
- * trade-offs that had not been made when the strings were extracted, and
- * extraction is worth doing on its own.
+ * The site serves both English and French from the SAME urls — edlight.org/about
+ * is French for a French visitor and English for everyone else. There is no
+ * /en or /fr segment in anything a visitor sees or shares.
  *
- * ── Turning French on ──────────────────────────────────────────────────────
+ * How that works: every page lives under app/[locale]/, so Next prerenders a
+ * static English page and a static French page at build time. middleware.ts
+ * then rewrites (never redirects) an incoming /about to /en/about or /fr/about,
+ * so the url stays clean while a prebuilt page is served. Nothing is rendered
+ * per request.
  *
- * Two options, and they are not equivalent:
+ * Which language a visitor gets, in order:
+ *   1. the NEXT_LOCALE cookie, if they have picked one from the switcher
+ *   2. the browser's Accept-Language header
+ *   3. DEFAULT_LOCALE
  *
- * 1. PATH ROUTING — /fr/academy. Add a [locale] segment, move app/* under it,
- *    add next-intl's middleware, and set `hreflang` alternates in the root
- *    metadata. Pages stay statically prerendered, every language gets its own
- *    indexable URL, and a link to a French page can be shared. This is the
- *    only option Google can index in more than one language, because
- *    `hreflang` requires distinct URLs.
+ * Accept-Language, not IP geolocation: an address tells you a country, not a
+ * language. It misreads the diaspora, VPNs, and Haitian carriers routed through
+ * US ranges, and every search crawler would look American.
  *
- * 2. COOKIE — one URL, language remembered per visitor. Change
- *    `resolveLocale()` below to read a cookie and nothing else moves. But
- *    reading a cookie during render opts every page out of static generation,
- *    so all twelve pages become server-rendered per request, and Google still
- *    only ever sees one language.
- *
- * Whichever is chosen, the message catalogues and every call site stay as
- * they are. Only this file and the app/ directory layout change.
+ * ── The trade-off, stated plainly ──────────────────────────────────────────
+ * One url per page means Google can only ever index one language of it —
+ * hreflang needs distinct urls. The French is for visitors, not for search. If
+ * French organic traffic is ever wanted, that requires visible /fr urls.
  */
 
 export const LOCALES = ['en', 'fr'] as const
@@ -45,18 +42,5 @@ export function isLocale(value: string): value is Locale {
   return (LOCALES as readonly string[]).includes(value)
 }
 
-/**
- * Which locale to render.
- *
- * Hardcoded to the default until a routing model is chosen — see the note at
- * the top of this file. To switch to cookies, this becomes:
- *
- *   import { cookies } from 'next/headers'
- *   const value = cookies().get('NEXT_LOCALE')?.value
- *   return value && isLocale(value) ? value : DEFAULT_LOCALE
- *
- * (and every page becomes dynamically rendered as a result).
- */
-export function resolveLocale(): Locale {
-  return DEFAULT_LOCALE
-}
+/** Locales in the order middleware prefers them when matching Accept-Language. */
+export const LOCALE_MATCH_ORDER: readonly Locale[] = ['fr', 'en']

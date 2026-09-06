@@ -7,6 +7,7 @@ import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail } from 'lucide-re
 import { SOCIAL_LINKS, type SocialPlatform } from '@/lib/socials'
 import { useTranslations } from 'next-intl'
 import { CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE } from '@/lib/site'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 // Icons live here; the URLs live in lib/socials.ts, which is the single list
 // the contact page reads too. There used to be two divergent sets of handles
@@ -363,6 +364,8 @@ export default function Footer() {
         <div className="mt-12 border-t border-[var(--line-on-dark)] pt-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="eyebrow text-[var(--paper-on-dark)] text-[10px]">{t('copyright', { year: currentYear })}</p>
+            <div className="flex items-center gap-5">
+              <LanguageSwitcher className="text-xs text-[var(--on-dark-muted)]" />
             <nav aria-label={t('legalNav')} className="flex items-center gap-4">
               {legalLinks.map(({ href, key }) => (
                 <Link
@@ -374,6 +377,7 @@ export default function Footer() {
                 </Link>
               ))}
             </nav>
+            </div>
           </div>
           {/* The corporation number and address stay in lib/site.ts and are
               interpolated in — facts, not copy, and they must not be
