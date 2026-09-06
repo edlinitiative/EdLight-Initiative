@@ -244,6 +244,9 @@ export default function CourseraScholarsPage() {
         title="Become an EdLight Coursera Scholar"
         subtitle="Talent is everywhere. Opportunity is not."
         backgroundImage="/gallery/eslp-2026-graduation-promotion.webp"
+        /* Wide group shot: anchor to the top so the back row's heads survive
+           the crop at every viewport width. */
+        objectPosition="center top"
       >
         {/* Left-aligned, NOT centred. Hero renders its children inside a
             left-aligned max-w-3xl block, so `mx-auto` on this paragraph and
