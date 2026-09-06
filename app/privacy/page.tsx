@@ -29,6 +29,8 @@ const USE_KEYS = [
 
 const SHARING_KEYS = ['resend', 'paypal', 'coursera', 'legal', 'business', 'consent'] as const
 
+const RETENTION_KEYS = ['participants', 'enquiries', 'notify', 'donations'] as const
+
 const RIGHT_KEYS = [
   'access',
   'correction',
@@ -163,21 +165,32 @@ export default async function PrivacyPage() {
         </section>
 
         <section className="mb-8">
+          {/* Retention is stated as the default here so the partner convention,
+              which relies on keeping participation records for the alumni
+              network, does not contradict this page. The statutory rights stay
+              intact in the next section. */}
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s7.heading')}</h2>
           <p className="text-gray-700 leading-relaxed mb-4">{t('s7.intro')}</p>
           <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-            {RIGHT_KEYS.map((key) => (
-              <li key={key}>{t(`s7.rights.${key}`)}</li>
+            {RETENTION_KEYS.map((key) => (
+              <li key={key}>{t(`s7.items.${key}`)}</li>
             ))}
           </ul>
-          <p className="text-gray-700 leading-relaxed mt-4">
-            {t('s7.exercise', { email: CONTACT_EMAIL })}
-          </p>
+          <p className="text-gray-700 leading-relaxed mt-4">{t('s7.note')}</p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s8.heading')}</h2>
-          <p className="text-gray-700 leading-relaxed">{t('s8.body')}</p>
+          <p className="text-gray-700 leading-relaxed mb-4">{t('s8.intro')}</p>
+          <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+            {RIGHT_KEYS.map((key) => (
+              <li key={key}>{t(`s8.rights.${key}`)}</li>
+            ))}
+          </ul>
+          <p className="text-gray-700 leading-relaxed mt-4">{t('s8.limits')}</p>
+          <p className="text-gray-700 leading-relaxed mt-4">
+            {t('s8.exercise', { email: CONTACT_EMAIL })}
+          </p>
         </section>
 
         <section className="mb-8">
@@ -197,9 +210,14 @@ export default async function PrivacyPage() {
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s12.heading')}</h2>
-          <p className="text-gray-700 leading-relaxed mb-4">{t('s12.intro')}</p>
+          <p className="text-gray-700 leading-relaxed">{t('s12.body')}</p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s13.heading')}</h2>
+          <p className="text-gray-700 leading-relaxed mb-4">{t('s13.intro')}</p>
           {/* An email address alone is not a usable route for a data-protection
-              request. Section 7 invites people to exercise access and deletion
+              request. Section 8 invites people to exercise access and deletion
               rights, and those requests are the ones most likely to need a
               postal address — a reader in that position had nowhere to send a
               letter, and no way to see which country's regulator covers us.
@@ -207,12 +225,12 @@ export default async function PrivacyPage() {
               and the footer state the same thing, and so that no locale can end
               up asserting a different registration. */}
           <div className="bg-gray-50 p-4 rounded-lg">
-            <p className="text-gray-700"><strong>{t('s12.orgName')}</strong></p>
-            <p className="text-gray-700">{t('s12.corporationLine', { number: CORPORATION_NUMBER })}</p>
+            <p className="text-gray-700"><strong>{t('s13.orgName')}</strong></p>
+            <p className="text-gray-700">{t('s13.corporationLine', { number: CORPORATION_NUMBER })}</p>
             <p className="text-gray-700">{REGISTERED_ADDRESS_LINE}</p>
-            <p className="text-gray-700">{t('s12.emailLine', { email: CONTACT_EMAIL })}</p>
+            <p className="text-gray-700">{t('s13.emailLine', { email: CONTACT_EMAIL })}</p>
             <p className="text-gray-700">
-              {t('s12.websiteLine', { website: SITE_URL.replace('https://', '') })}
+              {t('s13.websiteLine', { website: SITE_URL.replace('https://', '') })}
             </p>
           </div>
         </section>

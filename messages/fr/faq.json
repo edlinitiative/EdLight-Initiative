@@ -20,7 +20,7 @@
         },
         "who": {
           "question": "Qui peut participer aux programmes d’EdLight ?",
-          "answer": "Nos programmes sont conçus pour les élèves du secondaire en Haïti et pour les jeunes qui préparent le Baccalauréat ou l’entrée à l’université. EdLight Academy et EdLight Code sont ouverts à toute personne qui peut y accéder en ligne. L’ESLP et Coursera Scholars sélectionnent leurs participants sur candidature. Les conditions d’admissibilité de chacun sont décrites sur la page du programme concerné."
+          "answer": "Nos programmes sont conçus pour les élèves du secondaire en Haïti et pour les jeunes qui préparent le Baccalauréat ou l’entrée à l’université. EdLight Academy et EdLight Code sont ouverts à toute personne qui peut y accéder en ligne. L’ESLP et EdLight Scholars sélectionnent leurs participants sur candidature. Les conditions d’admissibilité de chacun sont décrites sur la page du programme concerné."
         },
         "cost": {
           "question": "Combien coûtent les programmes d’EdLight ?",
@@ -92,15 +92,15 @@
       }
     },
     "scholars": {
-      "title": "Coursera Scholars",
+      "title": "EdLight Scholars",
       "questions": {
         "whatIs": {
-          "question": "Qu’est-ce que Coursera Scholars ?",
+          "question": "Qu’est-ce que EdLight Scholars ?",
           "answer": "Un programme qui finance des certificats Coursera pour les élèves haïtiens, mené en partenariat avec Coursera, afin qu’ils puissent obtenir des titres professionnels reconnus sans frais."
         },
         "applyNow": {
           "question": "Puis-je poser ma candidature maintenant ?",
-          "answer": "Pas encore. La première cohorte est en cours de finalisation et les candidatures ne sont pas ouvertes. Inscrivez-vous à la liste d’avis sur la <link>page Coursera Scholars</link> pour savoir quand elles ouvriront."
+          "answer": "Pas encore. La première cohorte est en cours de finalisation et les candidatures ne sont pas ouvertes. Inscrivez-vous à la liste d’avis sur la <link>page EdLight Scholars</link> pour savoir quand elles ouvriront."
         }
       }
     },

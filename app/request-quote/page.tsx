@@ -1,4 +1,6 @@
 import React from 'react'
+import { notFound } from 'next/navigation'
+import { COMMERCIAL_SERVICES_ENABLED } from '@/lib/site'
 import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
@@ -12,6 +14,18 @@ export const metadata: Metadata = {
 }
 
 export default function RequestQuotePage() {
+  // The intake form for EdLight Labs' commercial services — it promises a
+  // quote from the partnerships team, which is the same surface /labs is,
+  // one step down the funnel. Gated on the same flag so both return
+  // together; see COMMERCIAL_SERVICES_ENABLED in lib/site.ts.
+  //
+  // Inside the page, not a layout: a layout gate renders the 404 shell while
+  // the page still executes, leaving the whole form in the response's flight
+  // payload.
+  if (!COMMERCIAL_SERVICES_ENABLED) {
+    notFound()
+  }
+
   return (
     <>
       <Hero

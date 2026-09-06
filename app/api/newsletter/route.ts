@@ -87,7 +87,7 @@ export async function POST(request: Request) {
           <ul style="color: #044BAB; line-height: 1.8; margin-bottom: 20px;">
             <li><a href="https://www.edlight.org/academy" style="color: #044BAB;">EdLight Academy</a> - Free courses for the national exams</li>
             <li><a href="https://www.edlight.org/code" style="color: #044BAB;">EdLight Code</a> - Coding tracks in Kreyòl, French, and English</li>
-            <li><a href="https://www.edlight.org/coursera-scholars" style="color: #044BAB;">Coursera Scholars</a> - Funded Coursera certificates</li>
+            <li><a href="https://www.edlight.org/coursera-scholars" style="color: #044BAB;">EdLight Scholars</a> - Funded professional certificates</li>
             <li><a href="https://www.edlight.org/eslp" style="color: #044BAB;">ESLP</a> - Summer Leadership Program</li>
           </ul>
           <p style="color: #666; font-size: 14px; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">

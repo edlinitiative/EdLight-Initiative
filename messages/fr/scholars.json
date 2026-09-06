@@ -1,23 +1,24 @@
 {
   "meta": {
-    "title": "EdLight Coursera Scholars",
-    "description": "Posez votre candidature pour devenir EdLight Coursera Scholar et accédez gratuitement à une formation en ligne de haut niveau grâce au partenariat Coursera Social Impact d’EdLight Initiative.",
-    "ogTitle": "EdLight Coursera Scholars | EdLight Initiative",
+    "title": "Programme EdLight Scholars",
+    "description": "Posez votre candidature pour devenir EdLight Scholar et accédez gratuitement à une formation en ligne de haut niveau grâce au partenariat Coursera Social Impact d’EdLight Initiative.",
+    "ogTitle": "Programme EdLight Scholars | EdLight Initiative",
     "ogDescription": "Un accès gratuit à une formation en ligne de haut niveau pour les apprenants haïtiens motivés. Développez vos compétences, obtenez des certificats et franchissez l’étape suivante."
   },
   "hero": {
-    "title": "Devenez EdLight Coursera Scholar",
+    "title": "Devenez EdLight Scholar",
     "subtitle": "Le talent est partout. Les occasions ne le sont pas.",
     "body": "Accédez gratuitement à une formation en ligne de haut niveau grâce au partenariat d’EdLight Initiative avec Coursera. Développez de nouvelles compétences, obtenez des certificats et franchissez l’étape suivante vers vos objectifs scolaires et professionnels.",
     "notify": "Être averti de l’ouverture des candidatures",
     "learnMore": "En savoir plus",
-    "note": "Première cohorte · candidatures pas encore ouvertes"
+    "note": "Première cohorte le 1er octobre 2026 · candidatures directes pas encore ouvertes"
   },
   "partnership": {
     "title": "EdLight × Coursera",
     "subtitle": "Un partenariat qui transforme l’accès en occasions.",
     "p1": "EdLight Initiative a été retenue comme partenaire du programme Coursera Social Impact, ce qui nous permet d’offrir aux apprenants admissibles un accès gratuit à des cours en ligne de qualité et à des formations professionnelles.",
-    "p2": "Avec EdLight Coursera Scholars, nous transformons ce partenariat en un programme structuré conçu pour aider des apprenants talentueux à acquérir des compétences qui créent de véritables occasions pour leur avenir."
+    "p2": "Avec Programme EdLight Scholars, nous transformons ce partenariat en un programme structuré conçu pour aider des apprenants talentueux à acquérir des compétences qui créent de véritables occasions pour leur avenir.",
+    "p3": "On rejoint le programme de deux façons : sur nomination d’une université partenaire, ou en postulant directement auprès d’EdLight. La première cohorte débute le 1er octobre 2026 et chaque cohorte dure trois mois."
   },
   "benefits": {
     "title": "Pourquoi devenir Scholar ?",
@@ -43,7 +44,7 @@
   },
   "who": {
     "title": "Qui peut poser sa candidature ?",
-    "subtitle": "EdLight Coursera Scholars s’adresse aux apprenants motivés, prêts à investir en eux-mêmes.",
+    "subtitle": "Programme EdLight Scholars s’adresse aux apprenants motivés, prêts à investir en eux-mêmes.",
     "list": {
       "students": "Élèves et étudiants",
       "graduates": "Diplômés universitaires",
@@ -52,19 +53,20 @@
       "jobSeekers": "Chercheurs d’emploi",
       "selfDirected": "Apprenants autonomes"
     },
-    "body": "Ce qui compte le plus, c’est un objectif clair et l’engagement d’apprendre. Vous n’avez besoin ni d’un dossier scolaire parfait, ni d’une place à l’université, ni d’une expérience préalable des cours en ligne."
+    "body": "Ce qui compte le plus, c’est un objectif clair et l’engagement d’apprendre. Vous n’avez besoin ni d’un dossier scolaire parfait, ni d’une place à l’université, ni d’une expérience préalable des cours en ligne.",
+    "body2": "Une place à l’université n’est pas nécessaire pour postuler directement. Si vous étudiez dans un <partner>établissement partenaire</partner>, votre école nomme elle-même ses étudiants — il vaut donc la peine de commencer par là."
   },
   "steps": {
     "title": "Comment ça fonctionne",
     "subtitle": "Quatre étapes, de la candidature au certificat.",
     "items": {
       "apply": {
-        "title": "Poser sa candidature",
-        "body": "Dites-nous qui vous êtes, ce que vous voulez apprendre et ce que vous comptez en faire. Le formulaire fonctionne sur un téléphone et s’enregistre au fur et à mesure."
+        "title": "Postuler ou être nommé",
+        "body": "Si votre université est un établissement partenaire, elle nomme elle-même ses étudiants — renseignez-vous auprès d’elle. Sinon, vous postulerez directement auprès d’EdLight dès l’ouverture des candidatures."
       },
       "selected": {
         "title": "Être sélectionné",
-        "body": "EdLight examine chaque candidature selon la motivation, les objectifs d’apprentissage, l’impact possible, l’engagement et l’accès."
+        "body": "Les établissements partenaires sélectionnent leurs propres étudiants. Pour les candidatures directes, EdLight examine chacune d’elles selon la motivation, les objectifs d’apprentissage, l’impact potentiel, l’engagement et l’accès."
       },
       "start": {
         "title": "Commencer à apprendre",
@@ -117,15 +119,23 @@
   "faqs": {
     "cost": {
       "q": "Combien coûte le programme ?",
-      "a": "Rien. La participation est gratuite pour les EdLight Coursera Scholars sélectionnés, et il n’y a jamais de frais de candidature."
+      "a": "Rien. La participation est gratuite pour les Programme EdLight Scholars sélectionnés, et il n’y a jamais de frais de candidature."
+    },
+    "start": {
+      "q": "Quand le programme commence-t-il ?",
+      "a": "La première cohorte débute le 1er octobre 2026. Chaque cohorte dure trois mois, après quoi les places sont transmises à un nouveau groupe d’apprenants."
     },
     "eligibility": {
       "q": "Qui peut poser sa candidature ?",
       "a": "Les apprenants motivés de 16 ans et plus — élèves et étudiants, diplômés, jeunes professionnels, entrepreneurs et apprenants autonomes. La première cohorte s’adresse principalement aux apprenants établis en Haïti."
     },
+    "howToJoin": {
+      "q": "Comment participer — dois-je postuler ou mon université doit-elle me nommer ?",
+      "a": "Les deux voies existent. Si vous étudiez dans un établissement partenaire, votre université sélectionne elle-même ses étudiants : renseignez-vous auprès de votre faculté ou du service des affaires étudiantes. Si ce n’est pas le cas, ou si vous n’êtes pas étudiant, vous pourrez postuler directement auprès d’EdLight dès l’ouverture des candidatures — inscrivez-vous à la liste et nous vous préviendrons."
+    },
     "enrolment": {
       "q": "Dois-je être inscrit dans un établissement scolaire ?",
-      "a": "Non. Une inscription en cours n’est pas exigée, et nous n’attendons pas un dossier scolaire parfait."
+      "a": "Pas pour la voie directe : l’inscription en cours n’est pas exigée et nous n’attendons pas un dossier scolaire parfait. La voie de nomination est différente : ces places appartiennent à un établissement partenaire et reviennent donc à ses propres étudiants."
     },
     "experience": {
       "q": "Dois-je avoir déjà utilisé Coursera ?",
@@ -139,9 +149,13 @@
       "q": "Vais-je recevoir un certificat ?",
       "a": "De nombreux cours et programmes Coursera délivrent un certificat en cas de réussite, selon le cours et le catalogue disponible. Les Scholars qui remplissent les exigences propres au programme d’EdLight peuvent aussi recevoir une reconnaissance d’EdLight, distincte de tout certificat Coursera."
     },
+    "universityPartner": {
+      "q": "Mon université souhaite participer. Que faire ?",
+      "a": "Écrivez à info@edlight.org en indiquant le nom de votre institution et une personne de contact. Nous convenons du nombre de licences et de votre calendrier, signons une convention de partenariat d’une page, puis vous nommez vos étudiants. Aucun frais pour l’institution ni pour ses étudiants."
+    },
     "selection": {
       "q": "Est-ce Coursera qui sélectionne les Scholars ?",
-      "a": "Non. EdLight Initiative est partenaire du programme Coursera Social Impact, et c’est EdLight qui gère les candidatures et la sélection des EdLight Coursera Scholars."
+      "a": "Non. EdLight Initiative est partenaire social de Coursera. C’est EdLight qui gère le programme — les candidatures directes d’une part, et le travail avec les établissements partenaires qui nomment eux-mêmes leurs étudiants d’autre part. Coursera ne choisit pas les Scholars et ne coadministre pas le programme."
     },
     "notSelected": {
       "q": "Que se passe-t-il si je ne suis pas sélectionné ?",
@@ -158,8 +172,75 @@
   },
   "cta": {
     "title": "Vous voulez être averti en premier ?",
-    "body": "La première cohorte est encore en cours de constitution et les candidatures ne sont pas ouvertes. Inscrivez-vous à la liste et nous vous écrirons le jour même de l’ouverture — avant toute annonce ailleurs.",
+    "body": "La première cohorte est encore en cours de constitution et les candidatures directes ne sont pas ouvertes. Inscrivez-vous à la liste : nous vous écrirons le jour même de leur ouverture, avant toute autre annonce.",
     "notify": "Être averti",
     "ask": "Poser une question"
+  },
+  "institutions": {
+    "title": "Pour les universités et les institutions",
+    "subtitle": "Offrez Coursera à une cohorte de vos étudiants. EdLight fournit les licences et le suivi ; votre institution choisit qui en bénéficie.",
+    "items": {
+      "licences": {
+        "title": "Des licences pour vos étudiants",
+        "body": "Votre institution reçoit un ensemble de licences Coursera à chaque cohorte et choisit lesquels de vos étudiants en bénéficient."
+      },
+      "renewal": {
+        "title": "Une nouvelle cohorte tous les trois mois",
+        "body": "À la fin de chaque cohorte de trois mois, les licences sont libérées et réattribuées à un nouveau groupe de vos étudiants."
+      },
+      "progress": {
+        "title": "Un suivi visible",
+        "body": "EdLight suit la progression des étudiants que vous avez nommés et remet à l’institution un rapport à la fin de chaque cohorte."
+      },
+      "recognised": {
+        "title": "Reconnue comme partenaire",
+        "body": "Votre institution est citée comme partenaire officiel du programme, sans aucun frais ni engagement financier."
+      }
+    },
+    "join": {
+      "title": "Comment votre institution participe",
+      "body": "Écrivez-nous en indiquant le nom de votre institution et une personne de contact. Nous convenons du nombre de licences et de votre calendrier, signons une convention de partenariat d’une page, puis vous nous transmettez les étudiants sélectionnés. Aucun frais pour l’institution ni pour les étudiants.",
+      "email": "Nous écrire au sujet d’un partenariat",
+      "contact": "Formulaire de contact"
+    }
+  },
+  "dates": {
+    "title": "Dates clés",
+    "subtitle": "Chaque cohorte dure trois mois. À la fin de l’une, les places passent au groupe suivant.",
+    "cohorts": {
+      "c1": {
+        "name": "Cohorte 1",
+        "window": "1er octobre – 31 décembre 2026",
+        "note": "Lancement du programme"
+      },
+      "c2": {
+        "name": "Cohorte 2",
+        "window": "11 janvier – 11 avril 2027",
+        "note": "Après les congés académiques"
+      },
+      "c3": {
+        "name": "Cohorte 3",
+        "window": "19 avril – 19 juillet 2027",
+        "note": "Second semestre"
+      },
+      "c4": {
+        "name": "Cohorte 4",
+        "window": "26 juillet – 26 octobre 2027",
+        "note": "Session d’été"
+      }
+    },
+    "note": "Les institutions partenaires nomment leurs étudiants avant l’ouverture d’une cohorte — pour la Cohorte 1, la date limite est le 20 septembre 2026. Les candidatures directes ouvrent séparément ; inscrivez-vous à la liste et nous vous communiquerons la date."
+  },
+  "gallery": {
+    "title": "Les apprenants d’EdLight",
+    "subtitle": "Photographies des programmes d’EdLight en Haïti — la communauté que rejoignent les Scholars.",
+    "alt": {
+      "certificate": "Un apprenant d’EdLight recevant un certificat",
+      "graduation": "Une cohorte d’EdLight lors de la remise des certificats",
+      "session": "Des apprenants d’EdLight lors d’une séance du programme",
+      "award": "Remise d’un certificat lors d’une graduation EdLight",
+      "learner": "Une apprenante d’EdLight lors d’une séance du programme",
+      "together": "Des apprenants d’EdLight travaillant ensemble"
+    }
   }
 }

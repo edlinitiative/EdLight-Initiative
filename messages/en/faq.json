@@ -20,7 +20,7 @@
         },
         "who": {
           "question": "Who can participate in EdLight programmes?",
-          "answer": "Our programmes are built for secondary-school students in Haiti and for young people preparing for the Baccalauréat or for university. EdLight Academy and EdLight Code are open to anyone who can reach them online. ESLP and Coursera Scholars select participants through an application. Eligibility for each is described on that programme's page."
+          "answer": "Our programmes are built for secondary-school students in Haiti and for young people preparing for the Baccalauréat or for university. EdLight Academy and EdLight Code are open to anyone who can reach them online. ESLP and EdLight Scholars select participants through an application. Eligibility for each is described on that programme's page."
         },
         "cost": {
           "question": "What do EdLight programmes cost?",
@@ -92,15 +92,15 @@
       }
     },
     "scholars": {
-      "title": "Coursera Scholars",
+      "title": "EdLight Scholars",
       "questions": {
         "whatIs": {
-          "question": "What is Coursera Scholars?",
+          "question": "What is EdLight Scholars?",
           "answer": "A programme that funds Coursera certificates for Haitian students, run in partnership with Coursera, so that students can earn recognised professional credentials at no cost to them."
         },
         "applyNow": {
           "question": "Can I apply now?",
-          "answer": "Not yet. The inaugural cohort is being finalised and applications are not open. Join the notify list on the <link>Coursera Scholars page</link> to hear when it opens."
+          "answer": "Not yet. The inaugural cohort is being finalised and applications are not open. Join the notify list on the <link>EdLight Scholars page</link> to hear when it opens."
         }
       }
     },

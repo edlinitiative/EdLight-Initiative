@@ -65,7 +65,7 @@
       },
       "coursera": {
         "label": "Coursera:",
-        "text": "for learners selected as EdLight Coursera Scholars, we share the details needed to create your Coursera account under our Social Impact partnership. This applies only if you apply and are selected; Coursera then handles your account under its own privacy policy"
+        "text": "for learners selected as EdLight Scholars Program, we share the details needed to create your Coursera account under our Social Impact partnership. This applies only if you apply and are selected; Coursera then handles your account under its own privacy policy"
       },
       "legal": {
         "label": "Legal Requirements:",
@@ -90,7 +90,18 @@
     "body": "We implement appropriate technical and organizational security measures to protect your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security."
   },
   "s7": {
-    "heading": "7. Your Rights",
+    "heading": "7. How Long We Keep Information",
+    "intro": "We keep information for as long as it is needed for the purpose it was collected for.",
+    "items": {
+      "participants": "Programme participants. If you are selected for one of our programmes — including the EdLight Scholars Program and ESLP — we keep your participation record after your cohort ends. We use it to follow your progress, to report the programme’s impact to our funders and partners, and to keep you part of the EdLight alumni network. Taking part in a programme includes agreeing to this.",
+      "enquiries": "Enquiries and messages. Kept while we handle your message and for a reasonable period afterwards as a record of the exchange.",
+      "notify": "Notify lists. Kept until you unsubscribe, or until the cycle you signed up for has passed.",
+      "donations": "Donation records. Kept for as long as Canadian charitable and tax record-keeping rules require."
+    },
+    "note": "You can ask us to stop sending you communications at any time. We will act on that without deleting your participation record."
+  },
+  "s8": {
+    "heading": "8. Your Rights",
     "intro": "Depending on your location, you may have the following rights:",
     "rights": {
       "access": "Access to your personal information",
@@ -101,26 +112,27 @@
       "objection": "Objection to processing",
       "withdrawal": "Withdrawal of consent"
     },
-    "exercise": "To exercise these rights, please contact us at {email}, or write to us at the address in section 12."
-  },
-  "s8": {
-    "heading": "8. Children's Privacy",
-    "body": "Our services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us."
+    "exercise": "To exercise these rights, please contact us at {email}, or write to us at the address in section 13.",
+    "limits": "These rights are not absolute. Where we have a continuing legitimate interest or a legal obligation — for example the record that you took part in and completed a programme, or records we must keep for charitable reporting — we may retain some information after a deletion request. If that happens we will tell you what we kept and why."
   },
   "s9": {
-    "heading": "9. Third-Party Links",
-    "body": "Our website may contain links to third-party websites. We are not responsible for the privacy practices of these websites. We encourage you to read the privacy policies of any third-party sites you visit."
+    "heading": "9. Children's Privacy",
+    "body": "Our services are not directed to children under 13, and we do not knowingly collect personal information from them. Some of our programmes accept participants aged 16 and over. Where a participant is under the age of majority, we rely on their school or the parent or guardian to confirm they may take part and that their information may be shared with us. If you are a parent or guardian and believe your child has provided us with personal information, please contact us."
   },
   "s10": {
-    "heading": "10. International Data Transfers",
-    "body": "Your information may be transferred to and maintained on servers located outside of your state, province, country, or other governmental jurisdiction where data protection laws may differ. By using our services, you consent to this transfer."
+    "heading": "10. Third-Party Links",
+    "body": "Our website may contain links to third-party websites. We are not responsible for the privacy practices of these websites. We encourage you to read the privacy policies of any third-party sites you visit."
   },
   "s11": {
-    "heading": "11. Changes to This Privacy Policy",
-    "body": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last Updated\" date."
+    "heading": "11. International Data Transfers",
+    "body": "Your information may be transferred to and maintained on servers located outside of your state, province, country, or other governmental jurisdiction where data protection laws may differ. By using our services, you consent to this transfer."
   },
   "s12": {
-    "heading": "12. Contact Us",
+    "heading": "12. Changes to This Privacy Policy",
+    "body": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last Updated\" date."
+  },
+  "s13": {
+    "heading": "13. Contact Us",
     "intro": "If you have any questions about this Privacy Policy, please contact us:",
     "orgName": "EdLight Initiative",
     "corporationLine": "Corporation No. {number}",

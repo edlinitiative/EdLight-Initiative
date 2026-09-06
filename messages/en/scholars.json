@@ -1,23 +1,24 @@
 {
   "meta": {
-    "title": "EdLight Coursera Scholars",
-    "description": "Apply to become an EdLight Coursera Scholar and gain free access to world-class online learning through EdLight Initiative’s Coursera Social Impact partnership.",
-    "ogTitle": "EdLight Coursera Scholars | EdLight Initiative",
+    "title": "EdLight Scholars Program",
+    "description": "Apply to become an EdLight Scholar and gain free access to world-class online learning through EdLight Initiative’s Coursera Social Impact partnership.",
+    "ogTitle": "EdLight Scholars Program | EdLight Initiative",
     "ogDescription": "Free access to world-class online learning for motivated Haitian learners. Build skills, earn certificates, and take your next step."
   },
   "hero": {
-    "title": "Become an EdLight Coursera Scholar",
+    "title": "Become an EdLight Scholar",
     "subtitle": "Talent is everywhere. Opportunity is not.",
     "body": "Gain free access to world-class online learning through EdLight Initiative's partnership with Coursera. Build new skills, earn certificates, and take the next step toward your academic and professional goals.",
     "notify": "Get notified when applications open",
     "learnMore": "Learn more",
-    "note": "Inaugural cohort · applications not yet open"
+    "note": "Inaugural cohort begins 1 October 2026 · direct applications not yet open"
   },
   "partnership": {
     "title": "EdLight × Coursera",
     "subtitle": "A partnership that turns access into opportunity.",
     "p1": "EdLight Initiative has been selected as a Coursera Social Impact Partner, allowing us to provide eligible learners with free access to high-quality online courses and professional learning opportunities.",
-    "p2": "Through EdLight Coursera Scholars, we are turning that partnership into a structured program designed to help talented learners gain skills that create real opportunities for their futures."
+    "p2": "Through EdLight Scholars Program, we are turning that partnership into a structured program designed to help talented learners gain skills that create real opportunities for their futures.",
+    "p3": "Scholars join in one of two ways: nominated by a partner university, or by applying to EdLight directly. The first cohort begins on 1 October 2026, and every cohort runs for three months."
   },
   "benefits": {
     "title": "Why become a Scholar?",
@@ -43,7 +44,7 @@
   },
   "who": {
     "title": "Who can apply?",
-    "subtitle": "EdLight Coursera Scholars is for motivated learners who are ready to invest in themselves.",
+    "subtitle": "EdLight Scholars Program is for motivated learners who are ready to invest in themselves.",
     "list": {
       "students": "Students",
       "graduates": "University graduates",
@@ -52,19 +53,20 @@
       "jobSeekers": "Job seekers",
       "selfDirected": "Self-directed learners"
     },
-    "body": "What matters most is a clear goal and the commitment to learn. You do not need a perfect academic record, a university place, or previous experience with online courses."
+    "body": "What matters most is a clear goal and the commitment to learn. You do not need a perfect academic record, a university place, or previous experience with online courses.",
+    "body2": "A university place is not required to apply directly. If you are studying at a <partner>partner institution</partner>, your school nominates its own students — so it is worth asking there first."
   },
   "steps": {
     "title": "How it works",
     "subtitle": "Four steps, from application to certificate.",
     "items": {
       "apply": {
-        "title": "Apply",
-        "body": "Tell us who you are, what you want to learn, and what you plan to do with it. The application works on a phone and saves as you go."
+        "title": "Apply or get nominated",
+        "body": "If your university is a partner institution, it nominates its own students — ask your school. Otherwise you apply to EdLight directly when applications open."
       },
       "selected": {
         "title": "Get selected",
-        "body": "EdLight reviews every application on motivation, learning goals, potential impact, commitment, and access."
+        "body": "Partner institutions select their own students. For direct applications, EdLight reviews each one on motivation, learning goals, potential impact, commitment, and access."
       },
       "start": {
         "title": "Start learning",
@@ -117,15 +119,23 @@
   "faqs": {
     "cost": {
       "q": "How much does the program cost?",
-      "a": "Nothing. Participation is free for selected EdLight Coursera Scholars, and there is never an application fee."
+      "a": "Nothing. Participation is free for selected EdLight Scholars Program, and there is never an application fee."
+    },
+    "start": {
+      "q": "When does the programme start?",
+      "a": "The first cohort begins on 1 October 2026. Every cohort runs for three months, after which the places are passed on to a new group of learners."
     },
     "eligibility": {
       "q": "Who can apply?",
       "a": "Motivated learners aged 16 and over — students, graduates, young professionals, entrepreneurs, and self-directed learners. The first cohort primarily serves learners based in Haiti."
     },
+    "howToJoin": {
+      "q": "How do I join — do I apply, or does my university nominate me?",
+      "a": "Both routes exist. If you study at a partner institution, your university selects its own students, so ask your faculty or student affairs office whether it takes part. If it does not, or if you are not currently a student, you can apply to EdLight directly once applications open — join the notify list and we will tell you when they do."
+    },
     "enrolment": {
       "q": "Do I need to be enrolled in school?",
-      "a": "No. Current enrolment is not required, and we do not expect a perfect academic record."
+      "a": "Not for the direct route — current enrolment is not required and we do not expect a perfect academic record. The nomination route is different: those places belong to a partner institution, so they go to that institution’s own students."
     },
     "experience": {
       "q": "Do I need previous Coursera experience?",
@@ -139,9 +149,13 @@
       "q": "Will I receive a certificate?",
       "a": "Many Coursera courses and programs provide a certificate on successful completion, depending on the specific course and the catalogue available. Scholars who complete EdLight’s own program requirements may also receive recognition from EdLight, which is separate from any Coursera certificate."
     },
+    "universityPartner": {
+      "q": "My university would like to take part. What do we do?",
+      "a": "Write to info@edlight.org with the name of your institution and a contact person. We agree the number of licences and your cohort dates, sign a one-page partnership agreement, and you nominate your students. There is no cost to the institution or to its students."
+    },
     "selection": {
       "q": "Is Coursera selecting the Scholars?",
-      "a": "No. EdLight Initiative is a Coursera Social Impact Partner, and EdLight manages the application and selection process for EdLight Coursera Scholars."
+      "a": "No. EdLight Initiative is a Coursera Social Impact Partner. EdLight runs the programme — managing direct applications itself, and working with partner institutions who select their own nominated students. Coursera does not choose Scholars or co-administer the programme."
     },
     "notSelected": {
       "q": "What happens if I am not selected?",
@@ -158,8 +172,75 @@
   },
   "cta": {
     "title": "Want to be first to know?",
-    "body": "The inaugural cohort is still being put together and applications have not opened yet. Join the list and we will write to you the day they do — before we announce it anywhere else.",
+    "body": "The inaugural cohort is still being put together and direct applications have not opened yet. Join the list and we will write to you the day they do — before we announce it anywhere else.",
     "notify": "Get notified",
     "ask": "Ask a question"
+  },
+  "institutions": {
+    "title": "For universities and institutions",
+    "subtitle": "Bring Coursera to a cohort of your students. EdLight provides the licences and the follow-up; your institution chooses who receives them.",
+    "items": {
+      "licences": {
+        "title": "Licences for your students",
+        "body": "Your institution receives a block of Coursera licences each cohort, and chooses which of your students receive them."
+      },
+      "renewal": {
+        "title": "A new cohort every three months",
+        "body": "At the end of each three-month cohort the licences are released and reassigned to a new group of your students."
+      },
+      "progress": {
+        "title": "Progress you can see",
+        "body": "EdLight tracks how your nominated students are doing and sends the institution a report at the end of every cohort."
+      },
+      "recognised": {
+        "title": "Recognised as a partner",
+        "body": "Your institution is named as an official partner of the programme, at no cost and with no financial commitment."
+      }
+    },
+    "join": {
+      "title": "How your institution joins",
+      "body": "Write to us with the name of your institution and a contact person. We agree the number of licences and your cohort dates, sign a one-page partnership agreement, and you send us the students you have selected. There is no cost to the institution or to the students.",
+      "email": "Email us about a partnership",
+      "contact": "Contact form"
+    }
+  },
+  "dates": {
+    "title": "Key dates",
+    "subtitle": "Cohorts run for three months. When one ends, the places pass to the next group of learners.",
+    "cohorts": {
+      "c1": {
+        "name": "Cohort 1",
+        "window": "1 October – 31 December 2026",
+        "note": "Programme launch"
+      },
+      "c2": {
+        "name": "Cohort 2",
+        "window": "11 January – 11 April 2027",
+        "note": "After the academic break"
+      },
+      "c3": {
+        "name": "Cohort 3",
+        "window": "19 April – 19 July 2027",
+        "note": "Second semester"
+      },
+      "c4": {
+        "name": "Cohort 4",
+        "window": "26 July – 26 October 2027",
+        "note": "Summer session"
+      }
+    },
+    "note": "Partner institutions nominate their students before a cohort opens — for Cohort 1 the deadline is 20 September 2026. Direct applications open separately; join the notify list and we will write to you with the date."
+  },
+  "gallery": {
+    "title": "EdLight learners",
+    "subtitle": "Photographs from EdLight programmes in Haiti — the community Scholars join.",
+    "alt": {
+      "certificate": "An EdLight learner receiving a certificate",
+      "graduation": "An EdLight cohort at their graduation",
+      "session": "EdLight learners at a programme session",
+      "award": "A certificate being awarded at an EdLight graduation",
+      "learner": "An EdLight learner at a programme session",
+      "together": "EdLight learners working together"
+    }
   }
 }

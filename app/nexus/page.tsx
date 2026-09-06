@@ -1,4 +1,6 @@
 import React from 'react'
+import { notFound } from 'next/navigation'
+import { NEXUS_ENABLED } from '@/lib/site'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { ArrowRight, CalendarCheck, Compass, Globe2, GraduationCap, Plane, Sparkles, Users } from 'lucide-react'
@@ -18,11 +20,22 @@ import SectionHeader from '@/components/SectionHeader'
 // To bring it back: give it real dates and a real way to apply, drop the
 // robots block below, and restore it to the sitemap, the navbar's
 // programLinks, the footer, and the homepage ecosystem list.
-export const metadata: Metadata = {
-  title: 'EdLight Nexus | EdLight Initiative',
-  description:
-    'EdLight Nexus is EdLight’s global exposure and exchange initiative, designed to broaden opportunity for Haitian students through thoughtful international learning experiences.',
-  robots: { index: false, follow: false },
+// generateMetadata rather than a static export, because metadata is produced
+// independently of the component: with the page gated, notFound() stopped the
+// markup but this block still ran, so the 404 response carried Nexus's title
+// and its "global exposure and exchange initiative" description in meta tags.
+// A hidden page should not describe itself. The real metadata is kept for when
+// NEXUS_ENABLED goes true.
+export function generateMetadata(): Metadata {
+  if (!NEXUS_ENABLED) {
+    return { robots: { index: false, follow: false } }
+  }
+  return {
+    title: 'EdLight Nexus | EdLight Initiative',
+    description:
+      'EdLight Nexus is EdLight’s global exposure and exchange initiative, designed to broaden opportunity for Haitian students through thoughtful international learning experiences.',
+    robots: { index: false, follow: false },
+  }
 }
 
 type Phase = {
@@ -180,6 +193,25 @@ const faqs = [
 ]
 
 export default function NexusPage() {
+  // /nexus has a page but not a programme: no cohort, no dates, and no way
+  // to apply, with copy written entirely in the conditional ("is designed to
+  // connect", "what Nexus is designed to offer"). It was noindexed in an
+  // earlier Ad Grants pass, which keeps it out of search results but leaves
+  // it reachable by anyone who types the URL — and the website policy's
+  // "under construction" clause is about what a reader finds, not what a
+  // crawler indexes.
+  //
+  // The gate is here rather than in a layout on purpose. notFound() in a
+  // layout renders the 404 shell, but the page component still executes and
+  // its entire markup ships inside the RSC flight payload of the response —
+  // so the "hidden" page was being served in full to anyone reading the HTML
+  // source. Gating inside the page is what actually stops it rendering.
+  //
+  // See NEXUS_ENABLED in lib/site.ts for the condition to bring it back.
+  if (!NEXUS_ENABLED) {
+    notFound()
+  }
+
   return (
     <>
       <Hero

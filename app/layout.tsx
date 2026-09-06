@@ -9,6 +9,9 @@ import {
   CONTACT_EMAIL,
   REGISTERED_ADDRESS,
   AREA_SERVED,
+  CORPORATION_NUMBER,
+  MISSION_STATEMENT,
+  ACTIVITIES_STATEMENT,
 } from '@/lib/site'
 import { SOCIAL_URLS } from '@/lib/socials'
 import { NextIntlClientProvider } from 'next-intl'
@@ -42,9 +45,16 @@ export const metadata: Metadata = {
     default: 'EdLight Initiative | Empowering Haitian Youth Through Education',
     template: '%s | EdLight Initiative'
   },
+  // Leads with the mission and the nonprofit status, because this is the
+  // sentence that shows under the title in search results and it is where a
+  // reviewer searching for the organisation first sees what it is.
   description:
-    'Empowering the next generation of Haitian innovators through quality education, mentorship, and global opportunities. Free online courses, STEM programs, leadership training, and scholarships.',
-  keywords: ['EdLight Initiative', 'Haiti education', 'STEM education', 'online courses', 'leadership program', 'scholarships Haiti', 'EdLight Academy', 'EdLight Labs', 'EdLight Nexus', 'ESLP'],
+    `${MISSION_STATEMENT} A registered Canadian not-for-profit running free online courses, coding tracks in Haitian Creole, French, and English, funded professional certificates, and a summer leadership programme.`,
+  // 'EdLight Labs' and 'EdLight Nexus' are gone: Labs 404s while
+  // COMMERCIAL_SERVICES_ENABLED is false and Nexus is noindexed with no
+  // cohort to join, so the site was advertising two brands it does not serve
+  // a page for.
+  keywords: ['EdLight Initiative', 'Haiti education', 'STEM education', 'online courses', 'leadership program', 'scholarships Haiti', 'EdLight Academy', 'EdLight Code', 'EdLight Scholars', 'ESLP'],
   authors: [{ name: 'EdLight Initiative' }],
   creator: 'EdLight Initiative',
   publisher: 'EdLight Initiative',
@@ -111,11 +121,24 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // '@type': 'NGO', not 'Organization'. The Ad Grants website policy requires
+  // the site to display its nonprofit status prominently, and the structured
+  // data is where an automated review looks first. 'Organization' is the
+  // generic supertype a for-profit company also uses, so the one
+  // machine-readable statement of what this entity is said nothing about it
+  // being a nonprofit. NGO is schema.org's nonprofit subtype.
+  //
+  // The description was also its own problem: "Empowering underserved
+  // communities through education, technology, and leadership development"
+  // names no country, no activity, and no beneficiary, and matched none of
+  // the three mission statements the pages carried. It reads as the mission
+  // statement of nothing in particular. It now renders the canonical one.
   const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': 'NGO',
     name: 'EdLight Initiative',
-    description: 'Empowering underserved communities through education, technology, and leadership development',
+    description: `${MISSION_STATEMENT} ${ACTIVITIES_STATEMENT}`,
+    slogan: MISSION_STATEMENT,
     url: SITE_URL,
     logo: `${SITE_URL}/EdLight_Website_Logo.png`,
     email: CONTACT_EMAIL,
@@ -137,6 +160,15 @@ export default async function RootLayout({
       '@type': 'Place',
       name: AREA_SERVED,
     },
+    // The registration a reviewer can check against Corporations Canada.
+    // Publishing it as a typed identifier rather than only as prose in the
+    // footer means the claim and the evidence for it travel together.
+    identifier: {
+      '@type': 'PropertyValue',
+      name: 'Corporations Canada corporation number',
+      value: CORPORATION_NUMBER,
+    },
+    nonprofitStatus: 'Not-for-profit corporation, Canada Not-for-profit Corporations Act',
   }
 
   const websiteSchema = {

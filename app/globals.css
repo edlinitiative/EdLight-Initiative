@@ -160,6 +160,29 @@
   font-weight: 500;
 }
 
+/* The same treatment at a colour that passes on paper.
+ *
+ * `.eyebrow` hardcodes color, and a Tailwind arbitrary text utility layered
+ * over it — `eyebrow text-[var(--ink-700)]` — does not win, because both are
+ * single-class selectors and the stylesheet order decides. Several places had
+ * written exactly that and were silently still rendering --ink-400 (#747683):
+ * 4.06:1 on --paper-100 and 4.28:1 on --paper-50 at 10-12px, both under the
+ * 4.5:1 floor. Those are the labels on the impact counters and the role line
+ * under each testimonial — small text doing real work.
+ *
+ * --ink-700 (#444652) measures 8.3:1 on paper. Use this class instead of
+ * layering a colour utility over `.eyebrow`; on a dark ground keep `.eyebrow`
+ * with an explicit on-dark token, which does not have this problem because
+ * those tokens carry their own finished values. */
+.eyebrow-ink {
+  font-family: var(--font-mono-stack);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-700);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
 .numeral {
   font-family: var(--font-mono-stack);
   font-feature-settings: "tnum";

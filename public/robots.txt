@@ -5,8 +5,15 @@
 User-agent: *
 Allow: /
 
-# Disallow admin areas
+# Disallow admin areas.
+#
+# Both the bare path and the subtree. "Disallow: /admin/" alone does not match
+# "/admin", which is the actual route — so the dashboard was crawlable, and it
+# was serving "index, follow" besides. It now carries a noindex of its own in
+# app/admin/layout.tsx; this is the belt to that braces.
+Disallow: /admin
 Disallow: /admin/
+Disallow: /api/admin
 Disallow: /api/admin/
 
 # Sitemap location

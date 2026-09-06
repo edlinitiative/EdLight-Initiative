@@ -3,18 +3,23 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import {
+  BadgeCheck,
   BarChart3,
   BrainCircuit,
   Briefcase,
+  Building2,
+  ClipboardList,
   Code2,
   GraduationCap,
   Lightbulb,
+  RefreshCw,
   Rocket,
   Users,
 } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import NotifyButton from '@/components/NotifyButton'
+import GalleryGrid from '@/components/GalleryGrid'
 
 // ── Framing, and the lines that must not drift ───────────────────────────────
 // EdLight Initiative is a Coursera Social Impact Partner. EdLight — not
@@ -23,6 +28,14 @@ import NotifyButton from '@/components/NotifyButton'
 // and no specific university, employer, degree or certificate is promised,
 // because what the licence actually unlocks is set by the catalogue in
 // EdLight's plan, not by us.
+//
+// The programme is "EdLight Scholars", not "Coursera Scholars": naming it
+// after one platform ties the offer to that platform. Coursera is named as the
+// partner supplying the catalogue, never as the identity.
+//
+// There are TWO routes in — partner institutions nominate their own students,
+// and individual learners apply directly — and every section has to hold both.
+// Route 2 has no form yet, so its CTA stays the notify list.
 //
 // The count of donated licences (300) and the first cohort size are
 // deliberately absent from the public page: the brief says not to advertise a
@@ -60,7 +73,9 @@ export async function generateMetadata(): Promise<Metadata> {
 // set APPLICATIONS_OPEN to the real window, restore an APPLICATION_URL that
 // resolves to an actual Scholars application, and swap the NotifyButton back
 // to a link.
-const SCHOLARS_NOTIFY_LABEL = 'Coursera Scholars'
+// Renamed from 'Coursera Scholars'. The notify API still accepts the old
+// value so signups recorded before the rename remain valid.
+const SCHOLARS_NOTIFY_LABEL = 'EdLight Scholars'
 
 // Structure stays here, wording lives in messages/<locale>/scholars.json and is
 // looked up by `key`. Same pattern as the footer's link columns.
@@ -78,6 +93,28 @@ const pathways = [
   { icon: Briefcase, key: 'business' },
   { icon: Lightbulb, key: 'entrepreneurship' },
   { icon: Users, key: 'professional' },
+] as const
+
+const institutionBenefits = [
+  { icon: Building2, key: 'licences' },
+  { icon: RefreshCw, key: 'renewal' },
+  { icon: ClipboardList, key: 'progress' },
+  { icon: BadgeCheck, key: 'recognised' },
+] as const
+
+// Cohort windows as published in the partner PDF. Cohorts 2-4 sit off a strict
+// three-month roll so none opens during the holiday or academic break.
+const cohorts = ['c1', 'c2', 'c3', 'c4'] as const
+
+// EdLight programme photography — these are learners from EdLight's own
+// programmes, NOT Scholars (no cohort has started), and the alt text says so.
+const gallery = [
+  { src: '/gallery/student-1.jpg', key: 'certificate' },
+  { src: '/gallery/eslp-2026-graduation-promotion.webp', key: 'graduation' },
+  { src: '/gallery/student-2.jpg', key: 'session' },
+  { src: '/gallery/eslp-2026-graduation-certificat.webp', key: 'award' },
+  { src: '/gallery/student-3.jpg', key: 'learner' },
+  { src: '/gallery/eslp-3.jpg', key: 'together' },
 ] as const
 
 const steps = [
@@ -98,11 +135,14 @@ const whoCanApply = [
 
 const faqs = [
   'cost',
+  'start',
   'eligibility',
+  'howToJoin',
   'enrolment',
   'experience',
   'subjects',
   'certificate',
+  'universityPartner',
   'selection',
   'notSelected',
   'inactive',
@@ -117,6 +157,10 @@ export default async function CourseraScholarsPage() {
       <Hero
         title={t('hero.title')}
         subtitle={t('hero.subtitle')}
+        backgroundImage="/Graduation_Pics.webp"
+        /* Wide group shot with ~20% of architecture above the group, anchored
+           to the top so the headline lands on the ceiling and not on faces. */
+        objectPosition="center top"
       >
         {/* Left-aligned, NOT centred. Hero renders its children inside a
             left-aligned max-w-3xl block, so `mx-auto` on this paragraph and
@@ -160,11 +204,48 @@ export default async function CourseraScholarsPage() {
             <p className="body-lg text-[var(--ink-700)]">
               {t('partnership.p2')}
             </p>
+            <p className="body-lg text-[var(--ink-700)]">
+              {t('partnership.p3')}
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      {/* Institutions first: they have the nearer deadline — a school must
+          nominate before a cohort opens, a student only has to apply. */}
+      <section id="institutions" className="bg-slate-50 py-20">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <SectionHeader title={t('institutions.title')} subtitle={t('institutions.subtitle')} centered />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {institutionBenefits.map(({ icon: Icon, key }) => (
+              <div key={key} className="border border-[var(--paper-200)] bg-white p-6">
+                <Icon size={24} className="text-[var(--accent)]" aria-hidden="true" />
+                <h3 className="mt-4 text-lg font-semibold text-[var(--ink-900)]">
+                  {t(`institutions.items.${key}.title`)}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">
+                  {t(`institutions.items.${key}.body`)}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="mx-auto mt-10 max-w-3xl border-l-2 border-[var(--accent)] bg-white p-6">
+            <h3 className="text-lg font-semibold text-[var(--ink-900)]">{t('institutions.join.title')}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{t('institutions.join.body')}</p>
+            {/* A real mailto, not a portal link that leads to no form. */}
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a href="mailto:info@edlight.org?subject=EdLight%20Scholars%20partnership" className="btn btn-primary">
+                {t('institutions.join.email')}
+              </a>
+              <Link href="/contact" className="btn btn-outline">
+                {t('institutions.join.contact')}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title={t('benefits.title')}
@@ -183,7 +264,7 @@ export default async function CourseraScholarsPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-slate-50 py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title={t('who.title')}
@@ -207,12 +288,21 @@ export default async function CourseraScholarsPage() {
               <p className="body-lg text-[var(--ink-700)]">
                 {t('who.body')}
               </p>
+              <p className="mt-4 body-lg text-[var(--ink-700)]">
+                {t.rich('who.body2', {
+                  partner: (chunks) => (
+                    <a href="#institutions" className="underline underline-offset-4">
+                      {chunks}
+                    </a>
+                  ),
+                })}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="how-it-works" className="bg-slate-50 py-20">
+      <section id="how-it-works" className="py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader title={t('steps.title')} subtitle={t('steps.subtitle')} centered />
           {/* Numbered because these genuinely are sequential — you cannot start
@@ -226,6 +316,29 @@ export default async function CourseraScholarsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-20">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <SectionHeader title={t('dates.title')} subtitle={t('dates.subtitle')} centered />
+          <div className="mx-auto max-w-3xl border-t border-[var(--paper-200)]">
+            {cohorts.map((key) => (
+              <div
+                key={key}
+                className="flex flex-col gap-1 border-b border-[var(--paper-200)] py-5 sm:flex-row sm:items-baseline sm:gap-6"
+              >
+                <span className="w-28 shrink-0 font-semibold text-[var(--ink-900)]">
+                  {t(`dates.cohorts.${key}.name`)}
+                </span>
+                <span className="flex-1 text-[var(--ink-900)]">{t(`dates.cohorts.${key}.window`)}</span>
+                <span className="text-sm text-[var(--ink-700)]">{t(`dates.cohorts.${key}.note`)}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-[var(--ink-700)]">
+            {t('dates.note')}
+          </p>
         </div>
       </section>
 
@@ -250,6 +363,16 @@ export default async function CourseraScholarsPage() {
 
       {/* Commitment. Encouraging, not threatening — the point is that places are
           scarce, not that scholars are on probation. */}
+      <section className="bg-slate-50 py-20">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <SectionHeader title={t('gallery.title')} subtitle={t('gallery.subtitle')} centered />
+          <GalleryGrid
+            images={gallery.map(({ src, key }) => ({ src, alt: t(`gallery.alt.${key}`) }))}
+            columns={3}
+          />
+        </div>
+      </section>
+
       <section className="bg-[var(--ink-900)] py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="mx-auto max-w-3xl text-center">

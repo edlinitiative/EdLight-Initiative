@@ -36,14 +36,14 @@
       },
       "beyond": {
         "title": "Reach further than Haiti",
-        "body": "Strong students should not be limited by where they were born. Coursera Scholars funds recognised professional certificates that carry weight outside Haiti, and ESLP develops the leadership and civic confidence that scholarships and universities ask for."
+        "body": "Strong students should not be limited by where they were born. EdLight Scholars funds recognised professional certificates that carry weight outside Haiti, and ESLP develops the leadership and civic confidence that scholarships and universities ask for."
       }
     }
   },
   "ecosystem": {
     "title": "Our Ecosystem",
     "subtitle": "Comprehensive programs supporting students at every stage",
-    "intro": "Four programmes, each aimed at a different point in a student's path. Academy and Code cover the learning itself, from secondary-school maths and physics through to programming in Python and SQL. Coursera Scholars and ESLP handle what comes next — the credentials and the leadership experience that turn a strong student into a candidate. All four are free, and a student can start anywhere and move between them.",
+    "intro": "Four programmes, each aimed at a different point in a student's path. Academy and Code cover the learning itself, from secondary-school maths and physics through to programming in Python and SQL. EdLight Scholars and ESLP handle what comes next — the credentials and the leadership experience that turn a strong student into a candidate. All four are free, and a student can start anywhere and move between them.",
     "programs": {
       "academy": {
         "title": "EdLight Academy",
@@ -54,7 +54,7 @@
         "description": "Six hands-on coding tracks — Python, SQL, HTML, CSS, JavaScript, Terminal & Git — taught in Haitian Creole, French, and English."
       },
       "scholars": {
-        "title": "Coursera Scholars",
+        "title": "EdLight Scholars",
         "description": "Funded Coursera certificates, run with Coursera, so Haitian students can earn recognised professional credentials at no cost."
       },
       "eslp": {

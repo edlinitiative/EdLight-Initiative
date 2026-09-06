@@ -36,14 +36,14 @@
       },
       "beyond": {
         "title": "Aller plus loin qu’Haïti",
-        "body": "Les élèves forts ne devraient pas être limités par leur lieu de naissance. Coursera Scholars finance des certificats professionnels reconnus qui ont du poids hors d’Haïti, et l’ESLP développe le leadership et l’assurance civique que recherchent les bourses et les universités."
+        "body": "Les élèves forts ne devraient pas être limités par leur lieu de naissance. EdLight Scholars finance des certificats professionnels reconnus qui ont du poids hors d’Haïti, et l’ESLP développe le leadership et l’assurance civique que recherchent les bourses et les universités."
       }
     }
   },
   "ecosystem": {
     "title": "Notre écosystème",
     "subtitle": "Des programmes complets qui accompagnent les élèves à chaque étape",
-    "intro": "Quatre programmes, chacun visant un moment différent du parcours d’un élève. Academy et Code couvrent l’apprentissage lui-même, des mathématiques et de la physique du secondaire jusqu’à la programmation en Python et en SQL. Coursera Scholars et l’ESLP prennent en charge la suite — les titres et l’expérience de leadership qui font d’un bon élève une candidature solide. Les quatre sont gratuits, et un élève peut commencer n’importe où et passer de l’un à l’autre.",
+    "intro": "Quatre programmes, chacun visant un moment différent du parcours d’un élève. Academy et Code couvrent l’apprentissage lui-même, des mathématiques et de la physique du secondaire jusqu’à la programmation en Python et en SQL. EdLight Scholars et l’ESLP prennent en charge la suite — les titres et l’expérience de leadership qui font d’un bon élève une candidature solide. Les quatre sont gratuits, et un élève peut commencer n’importe où et passer de l’un à l’autre.",
     "programs": {
       "academy": {
         "title": "EdLight Academy",
@@ -54,7 +54,7 @@
         "description": "Six parcours de programmation pratiques — Python, SQL, HTML, CSS, JavaScript, Terminal et Git — enseignés en créole haïtien, en français et en anglais."
       },
       "scholars": {
-        "title": "Coursera Scholars",
+        "title": "EdLight Scholars",
         "description": "Des certificats Coursera financés, offerts avec Coursera, pour que les élèves haïtiens obtiennent des titres professionnels reconnus sans frais."
       },
       "eslp": {

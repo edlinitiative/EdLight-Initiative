@@ -13,6 +13,14 @@ interface HeroProps {
   /** Small uppercase label rendered above the headline, e.g. "Initiative · Est. 2020" */
   eyebrow?: string
   backgroundImage?: string
+  /**
+   * Focal point for the hero photograph, as a CSS object-position.
+   * Defaults to 'center 30%', which suits a single subject but slices the back
+   * row off wide group shots: at desktop the hero box is ~2:1 while photos are
+   * ~3:2, so only ~70% of the image height survives. Pass 'center top' for
+   * group photographs.
+   */
+  objectPosition?: string
   /** Optional metadata strip rendered below the CTAs */
   meta?: HeroMetaItem[]
   children?: React.ReactNode
@@ -24,6 +32,7 @@ export default function Hero({
   subtitle,
   eyebrow,
   backgroundImage,
+  objectPosition = 'center 30%',
   meta,
   children,
   className,
@@ -50,7 +59,7 @@ export default function Hero({
             priority
             sizes="100vw"
             className="object-cover"
-            style={{ objectPosition: 'center 30%' }}
+            style={{ objectPosition }}
           />
           <div className="absolute inset-0 photo-duotone" />
           <div

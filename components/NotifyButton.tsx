@@ -5,7 +5,7 @@ import { Bell } from 'lucide-react'
 import NotifyModal from '@/components/NotifyModal'
 
 interface NotifyButtonProps {
-  /** Which list this joins, e.g. "Coursera Scholars". Shown in the modal. */
+  /** Which list this joins, e.g. "EdLight Scholars". Shown in the modal. */
   cycleLabel: string
   children: React.ReactNode
   className?: string

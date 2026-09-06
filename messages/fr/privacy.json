@@ -65,7 +65,7 @@
       },
       "coursera": {
         "label": "Coursera :",
-        "text": "pour les apprenants sélectionnés comme EdLight Coursera Scholars, nous communiquons les renseignements nécessaires à la création de votre compte Coursera dans le cadre de notre partenariat Social Impact. Cela ne s’applique que si vous posez votre candidature et êtes sélectionné ; Coursera gère ensuite votre compte selon sa propre politique de confidentialité"
+        "text": "pour les apprenants sélectionnés comme Programme EdLight Scholars, nous communiquons les renseignements nécessaires à la création de votre compte Coursera dans le cadre de notre partenariat Social Impact. Cela ne s’applique que si vous posez votre candidature et êtes sélectionné ; Coursera gère ensuite votre compte selon sa propre politique de confidentialité"
       },
       "legal": {
         "label": "Obligations légales :",
@@ -90,7 +90,18 @@
     "body": "Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos renseignements personnels. Toutefois, aucune méthode de transmission sur Internet ni de stockage électronique n’est sûre à 100 %, et nous ne pouvons garantir une sécurité absolue."
   },
   "s7": {
-    "heading": "7. Vos droits",
+    "heading": "7. Durée de conservation des renseignements",
+    "intro": "Nous conservons les renseignements aussi longtemps que l’exige la finalité pour laquelle ils ont été recueillis.",
+    "items": {
+      "participants": "Participants aux programmes. Si vous êtes sélectionné pour l’un de nos programmes — dont le Programme EdLight Scholars et l’ESLP — nous conservons votre dossier de participation après la fin de votre cohorte. Il nous sert à suivre votre parcours, à rendre compte de l’impact du programme auprès de nos bailleurs et partenaires, et à vous garder au sein du réseau des anciens d’EdLight. Participer à un programme emporte votre accord sur ce point.",
+      "enquiries": "Demandes et messages. Conservés le temps de traiter votre message, puis pendant une période raisonnable à titre de trace de l’échange.",
+      "notify": "Listes de notification. Conservées jusqu’à votre désabonnement ou jusqu’à la fin du cycle pour lequel vous vous êtes inscrit.",
+      "donations": "Reçus de dons. Conservés aussi longtemps que l’exigent les règles canadiennes en matière de bienfaisance et de fiscalité."
+    },
+    "note": "Vous pouvez à tout moment demander à ne plus recevoir de communications. Nous y donnons suite sans supprimer votre dossier de participation."
+  },
+  "s8": {
+    "heading": "8. Vos droits",
     "intro": "Selon l’endroit où vous vous trouvez, vous pouvez disposer des droits suivants :",
     "rights": {
       "access": "L’accès à vos renseignements personnels",
@@ -101,26 +112,27 @@
       "objection": "L’opposition au traitement",
       "withdrawal": "Le retrait de votre consentement"
     },
-    "exercise": "Pour exercer ces droits, veuillez communiquer avec nous à {email} ou nous écrire à l’adresse indiquée à la section 12."
-  },
-  "s8": {
-    "heading": "8. Vie privée des enfants",
-    "body": "Nos services ne s’adressent pas aux enfants de moins de 13 ans. Nous ne recueillons pas sciemment de renseignements personnels auprès d’enfants de moins de 13 ans. Si vous êtes parent ou tuteur et croyez que votre enfant nous a fourni des renseignements personnels, veuillez communiquer avec nous."
+    "exercise": "Pour exercer ces droits, veuillez communiquer avec nous à {email} ou nous écrire à l’adresse indiquée à la section 13.",
+    "limits": "Ces droits ne sont pas absolus. Lorsqu’un intérêt légitime persiste ou qu’une obligation légale s’applique — par exemple la trace de votre participation à un programme et de son achèvement, ou les registres que nous devons conserver à des fins de reddition de comptes — nous pouvons conserver certains renseignements après une demande de suppression. Le cas échéant, nous vous indiquons ce qui a été conservé et pourquoi."
   },
   "s9": {
-    "heading": "9. Liens vers des sites tiers",
-    "body": "Notre site Web peut contenir des liens vers des sites Web de tiers. Nous ne sommes pas responsables des pratiques de confidentialité de ces sites. Nous vous encourageons à lire la politique de confidentialité de tout site tiers que vous visitez."
+    "heading": "9. Vie privée des enfants",
+    "body": "Nos services ne s’adressent pas aux enfants de moins de 13 ans et nous ne recueillons pas sciemment de renseignements les concernant. Certains de nos programmes accueillent des participants âgés de 16 ans et plus. Lorsqu’un participant n’a pas atteint l’âge de la majorité, nous nous en remettons à son établissement ou à son parent ou tuteur pour confirmer qu’il peut participer et que ses renseignements peuvent nous être transmis. Si vous êtes parent ou tuteur et croyez que votre enfant nous a fourni des renseignements personnels, veuillez communiquer avec nous."
   },
   "s10": {
-    "heading": "10. Transferts internationaux de données",
-    "body": "Vos renseignements peuvent être transférés vers des serveurs situés à l’extérieur de votre État, de votre province, de votre pays ou de tout autre territoire, où les lois sur la protection des données peuvent différer, et y être conservés. En utilisant nos services, vous consentez à ce transfert."
+    "heading": "10. Liens vers des sites tiers",
+    "body": "Notre site Web peut contenir des liens vers des sites Web de tiers. Nous ne sommes pas responsables des pratiques de confidentialité de ces sites. Nous vous encourageons à lire la politique de confidentialité de tout site tiers que vous visitez."
   },
   "s11": {
-    "heading": "11. Modifications de la présente politique de confidentialité",
-    "body": "Nous pouvons mettre à jour la présente politique de confidentialité de temps à autre. Nous vous informerons de toute modification en publiant la nouvelle politique de confidentialité sur cette page et en actualisant la date de « Dernière mise à jour »."
+    "heading": "11. Transferts internationaux de données",
+    "body": "Vos renseignements peuvent être transférés vers des serveurs situés à l’extérieur de votre État, de votre province, de votre pays ou de tout autre territoire, où les lois sur la protection des données peuvent différer, et y être conservés. En utilisant nos services, vous consentez à ce transfert."
   },
   "s12": {
-    "heading": "12. Nous joindre",
+    "heading": "12. Modifications de la présente politique de confidentialité",
+    "body": "Nous pouvons mettre à jour la présente politique de confidentialité de temps à autre. Nous vous informerons de toute modification en publiant la nouvelle politique de confidentialité sur cette page et en actualisant la date de « Dernière mise à jour »."
+  },
+  "s13": {
+    "heading": "13. Nous joindre",
     "intro": "Si vous avez des questions au sujet de la présente politique de confidentialité, veuillez communiquer avec nous :",
     "orgName": "EdLight Initiative",
     "corporationLine": "Numéro de société : {number}",
