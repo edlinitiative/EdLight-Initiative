@@ -18,7 +18,6 @@ import {
 } from 'lucide-react'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
-import NotifyButton from '@/components/NotifyButton'
 import GalleryGrid from '@/components/GalleryGrid'
 
 // ── Framing, and the lines that must not drift ───────────────────────────────
@@ -35,7 +34,9 @@ import GalleryGrid from '@/components/GalleryGrid'
 //
 // There are TWO routes in — partner institutions nominate their own students,
 // and individual learners apply directly — and every section has to hold both.
-// Route 2 has no form yet, so its CTA stays the notify list.
+// Route 2 now HAS a form: /scholars/individuals on Apply, whose own CTA is
+// driven by the live programme phase (open / upcoming / closed). So this page
+// links straight to it instead of collecting notify signups.
 //
 // The count of donated licences (300) and the first cohort size are
 // deliberately absent from the public page: the brief says not to advertise a
@@ -69,13 +70,16 @@ export async function generateMetadata(): Promise<Metadata> {
 // landing page rather than a Scholars form, so the button did not do what it
 // said. Both are things the Ad Grants website policy rejects a site over.
 //
-// The CTA is the notify list until there is a form to point at. To reopen:
-// set APPLICATIONS_OPEN to the real window, restore an APPLICATION_URL that
-// resolves to an actual Scholars application, and swap the NotifyButton back
-// to a link.
-// Renamed from 'Coursera Scholars'. The notify API still accepts the old
-// value so signups recorded before the rename remain valid.
-const SCHOLARS_NOTIFY_LABEL = 'EdLight Scholars'
+// Reopened 2026-09-20. APPLICATION_URL resolves to the real direct-applicant
+// form, not the portal landing page that failed here before — that page was a
+// general portal, so the button did not do what it said, which is what the Ad
+// Grants website policy rejects a site over. If the window ever closes again,
+// point these back at NotifyButton rather than leaving a live button on a
+// form that refuses applications: /scholars/individuals renders its own
+// closed state, but a CTA promising an open form is the thing that burns.
+// The direct-applicant form. NOT apply.edlight.org/coursera-scholars, which is
+// the portal landing page — the mismatch that got this CTA pulled last time.
+const APPLICATION_URL = 'https://apply.edlight.org/scholars/individuals'
 
 // Structure stays here, wording lives in messages/<locale>/scholars.json and is
 // looked up by `key`. Same pattern as the footer's link columns.
@@ -178,9 +182,9 @@ export default async function CourseraScholarsPage({
           {t('hero.body')}
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
-          <NotifyButton cycleLabel={SCHOLARS_NOTIFY_LABEL} className="btn btn-primary">
-            {t('hero.notify')}
-          </NotifyButton>
+          <a href={APPLICATION_URL} className="btn btn-primary">
+            {t('hero.apply')}
+          </a>
           {/* btn-ghost, not btn-outline. btn-outline is the light-ground
               variant: near-black label on a transparent background. Inside
               this Hero that put --ink-900 text on a dark navy photograph, so
@@ -432,9 +436,9 @@ export default async function CourseraScholarsPage({
               {t('cta.body')}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <NotifyButton cycleLabel={SCHOLARS_NOTIFY_LABEL} className="btn btn-primary">
-                {t('cta.notify')}
-              </NotifyButton>
+              <a href={APPLICATION_URL} className="btn btn-primary">
+                {t('cta.apply')}
+              </a>
               <Link href="/contact" className="btn btn-outline">
                 {t('cta.ask')}
               </Link>

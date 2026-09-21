@@ -11,7 +11,8 @@
     "body": "Accédez gratuitement à une formation en ligne de haut niveau grâce au partenariat d’EdLight Initiative avec Coursera. Développez de nouvelles compétences, obtenez des certificats et franchissez l’étape suivante vers vos objectifs scolaires et professionnels.",
     "notify": "Être averti de l’ouverture des candidatures",
     "learnMore": "En savoir plus",
-    "note": "Première cohorte le 1er octobre 2026 · candidatures directes pas encore ouvertes"
+    "note": "Première cohorte le 1er octobre 2026 · les candidatures sont ouvertes",
+    "apply": "Postuler maintenant"
   },
   "partnership": {
     "title": "EdLight × Coursera",
@@ -171,10 +172,11 @@
     }
   },
   "cta": {
-    "title": "Vous voulez être averti en premier ?",
-    "body": "La première cohorte est encore en cours de constitution et les candidatures directes ne sont pas ouvertes. Inscrivez-vous à la liste : nous vous écrirons le jour même de leur ouverture, avant toute autre annonce.",
+    "title": "Prêt à postuler ?",
+    "body": "La première cohorte se déroule du 1er octobre au 31 décembre 2026. Les candidatures sont ouvertes aux étudiants universitaires, aux professionnels et aux entrepreneurs.",
     "notify": "Être averti",
-    "ask": "Poser une question"
+    "ask": "Poser une question",
+    "apply": "Postuler maintenant"
   },
   "institutions": {
     "title": "Pour les universités et les institutions",

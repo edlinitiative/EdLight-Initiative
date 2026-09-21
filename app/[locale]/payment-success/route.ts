@@ -30,6 +30,11 @@ export async function GET(request: NextRequest) {
   const dest = new URL(RETURN_URLS[target])
   // Preserve every original query param (transactionId, etc.).
   url.searchParams.forEach((value, key) => dest.searchParams.set(key, value))
+  // Hand over the orderId we just resolved. We paid for that lookup to route the
+  // buyer; without it the owning app has to re-derive it from the opaque
+  // transactionId, and Tikem's return handler falls through four correlation
+  // fallbacks before giving up with `missing_order`.
+  if (orderId) dest.searchParams.set('orderId', orderId)
 
   console.info('[moncash-dispatch] return', {
     hasTransactionId: Boolean(transactionId),

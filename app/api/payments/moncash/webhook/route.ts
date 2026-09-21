@@ -5,6 +5,37 @@ export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 /**
+ * Carry the orderId we resolved into the body we forward.
+ *
+ * Tikem's alert handler reads `orderId` out of the BODY, never the query
+ * string, and what MonCash posts carries only an opaque transactionId. Returns
+ * the original body untouched if it already names an order or can't be parsed.
+ */
+function forwardPayload(
+  raw: string,
+  contentType: string,
+  orderId: string | null
+): { body: string; contentType: string } {
+  const fallbackType = contentType || 'application/json'
+  if (!orderId) return { body: raw, contentType: fallbackType }
+
+  try {
+    if (contentType.includes('application/json')) {
+      const parsed = JSON.parse(raw || '{}') as Record<string, unknown>
+      if (parsed.orderId) return { body: raw, contentType }
+      return { body: JSON.stringify({ ...parsed, orderId }), contentType }
+    }
+
+    const params = new URLSearchParams(raw)
+    if (params.get('orderId')) return { body: raw, contentType: fallbackType }
+    params.set('orderId', orderId)
+    return { body: params.toString(), contentType: 'application/x-www-form-urlencoded' }
+  } catch {
+    return { body: raw, contentType: fallbackType }
+  }
+}
+
+/**
  * Shared MonCash Alert URL (Digicel's server-to-server notification).
  *
  * Best-effort only — each app's Return handler is authoritative for issuing the
@@ -47,12 +78,31 @@ export async function POST(request: NextRequest) {
     })
 
     if (forwardUrl) {
-      // Fire-and-forget; preserve the original body + content type.
+      const forwarded = forwardPayload(raw, contentType, orderId)
+      // Fire-and-forget so MonCash gets its 200 immediately — but never silently.
+      // A misconfigured target here means a paid order that is never fulfilled,
+      // and the log line is the only trace it left.
       fetch(forwardUrl, {
         method: 'POST',
-        headers: { 'content-type': contentType || 'application/json' },
-        body: raw,
-      }).catch(() => {})
+        headers: { 'content-type': forwarded.contentType },
+        body: forwarded.body,
+      })
+        .then((res) => {
+          if (!res.ok) {
+            console.error('[moncash-dispatch] alert forward rejected', {
+              target,
+              status: res.status,
+              resolved: Boolean(orderId),
+            })
+          }
+        })
+        .catch((err: unknown) => {
+          console.error('[moncash-dispatch] alert forward failed', {
+            target,
+            resolved: Boolean(orderId),
+            message: err instanceof Error ? err.message : String(err),
+          })
+        })
     }
 
     return NextResponse.json({ ok: true })

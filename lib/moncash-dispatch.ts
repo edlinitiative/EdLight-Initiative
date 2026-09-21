@@ -1,6 +1,7 @@
 // MonCash shared Return/Alert URL dispatcher.
 //
-// Tikèm and code.edlight.org share ONE MonCash merchant account, and Digicel
+// Tikèm (tikem.co) and code.edlight.org share ONE MonCash merchant account
+// (PANTHEON SERVICES), and Digicel
 // only allows a single Return/Alert URL for it (configured on edlight.org).
 // This module lets edlight.org route each payment back to the app that created
 // it.
@@ -18,7 +19,10 @@ const SANDBOX = 'https://sandbox.moncashbutton.digicelgroup.com'
 const PROD = 'https://moncashbutton.digicelgroup.com'
 
 function host(): string {
-  return (process.env.MONCASH_MODE || 'sandbox').toLowerCase() === 'production' ? PROD : SANDBOX
+  // Trim before comparing: a trailing space in the env var would otherwise fall
+  // through to SANDBOX, which 401s these production credentials, and every
+  // return would silently lose its orderId resolution.
+  return (process.env.MONCASH_MODE || 'sandbox').trim().toLowerCase() === 'production' ? PROD : SANDBOX
 }
 
 let cachedToken: { token: string; exp: number } | null = null
@@ -83,10 +87,16 @@ export function appForOrderId(orderId: string | null): TargetApp {
   return 'tikem'
 }
 
+/**
+ * Tikem sets its `moncash_button_order_id` correlation cookie on `.tikem.co`,
+ * so the buyer MUST land back on that domain — a different registrable domain
+ * (the retired eventhaiti.vercel.app preview) drops the cookie and kills the
+ * return handler's correlation fallback. www avoids the apex 308.
+ */
 export const RETURN_URLS: Record<TargetApp, string> = {
   tikem:
     process.env.TIKEM_MONCASH_RETURN_URL ||
-    'https://eventhaiti.vercel.app/api/moncash-button/return',
+    'https://www.tikem.co/api/moncash-button/return',
   code:
     process.env.CODE_MONCASH_RETURN_URL ||
     'https://code.edlight.org/api/checkout/moncash/return',
@@ -97,6 +107,6 @@ export const RETURN_URLS: Record<TargetApp, string> = {
 export const ALERT_URLS: Record<TargetApp, string> = {
   tikem:
     process.env.TIKEM_MONCASH_ALERT_URL ||
-    'https://eventhaiti.vercel.app/api/moncash-button/alert',
+    'https://www.tikem.co/api/moncash-button/alert',
   code: process.env.CODE_MONCASH_ALERT_URL || '',
 }
