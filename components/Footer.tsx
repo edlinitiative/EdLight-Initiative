@@ -68,10 +68,11 @@ function AndroidMark({ size = 14 }: { size?: number }) {
   )
 }
 
-// Only public listings get a real link. EdLight Code's App Store page 404s
-// until Apple approves the submission, and the Ad Grants website policy
-// requires every link to work — so its iOS entry stays a non-link until then.
-// To go live: give that entry an href of https://apps.apple.com/app/id6796587680
+// Only public listings appear. EdLight Code's App Store page 404s until Apple
+// approves the submission, and it used to sit here as "iOS — coming soon",
+// a placeholder on every page of the site. When the app is live, add
+// { platform: 'iOS', icon: AppleMark, href: 'https://apps.apple.com/app/id6796587680' }
+// to its platforms.
 const mobileApps = [
   {
     name: 'EdLight Academy',
@@ -93,7 +94,6 @@ const mobileApps = [
     name: 'EdLight Code',
     taglineKey: 'appCodeTagline',
     platforms: [
-      { platform: 'iOS', icon: AppleMark, href: null, noteKey: 'comingSoon' },
       {
         platform: 'Android',
         icon: AndroidMark,
@@ -317,39 +317,19 @@ export default function Footer() {
                   {t(taglineKey)}
                 </p>
                 <div className="mt-3 flex flex-wrap items-center gap-2">
-                  {platforms.map(({ platform, href, icon: Icon, noteKey }) =>
-                    href ? (
-                      <a
-                        key={platform}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={t('appGetAria', { app: name, platform })}
-                        className="inline-flex items-center gap-2 border border-[var(--line-on-dark-strong)] px-3 py-2 text-xs text-[var(--paper-on-dark)] transition-colors hover:border-white hover:bg-white/[0.08] hover:text-white"
-                      >
-                        <Icon size={14} />
-                        {platform}
-                      </a>
-                    ) : (
-                      // Not a chip. A dashed box that cannot be pressed still
-                      // looks like a control, and at 3.71:1 its label was the
-                      // least legible text in the footer. A plain line reads as
-                      // a status, which is what it is.
-                      // `border-transparent` rather than no border: it keeps the
-                      // identical box model to the real chip beside it, so the
-                      // two sit on one baseline. Dropping the border outright
-                      // made this line ride 1px high and knocked the Android
-                      // chip out of alignment.
-                      <span
-                        key={platform}
-                        className="inline-flex items-center gap-2 border border-transparent px-3 py-2 text-xs text-[var(--on-dark-faint)]"
-                      >
-                        <Icon size={14} />
-                        {platform}
-                        {noteKey && <span className="text-[var(--on-dark-faint)]">— {t(noteKey).toLowerCase()}</span>}
-                      </span>
-                    )
-                  )}
+                  {platforms.map(({ platform, href, icon: Icon }) => (
+                    <a
+                      key={platform}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={t('appGetAria', { app: name, platform })}
+                      className="inline-flex items-center gap-2 border border-[var(--line-on-dark-strong)] px-3 py-2 text-xs text-[var(--paper-on-dark)] transition-colors hover:border-white hover:bg-white/[0.08] hover:text-white"
+                    >
+                      <Icon size={14} />
+                      {platform}
+                    </a>
+                  ))}
                 </div>
               </div>
             ))}

@@ -43,9 +43,14 @@
       "today": {
         "year": "Today",
         "title": "A growing ecosystem",
-        "description": "Today, EdLight's public platform highlights a broader ecosystem that includes EdLight Academy, ESLP, EdLight Nexus, and EdLight Labs — all working together to expand opportunity for Haitian youth."
+        "description": "Today, EdLight runs four free programmes — EdLight Academy, EdLight Code, EdLight Scholars, and the EdLight Summer Leadership Program (ESLP) — working together to expand opportunity for Haitian youth."
       }
     }
   },
-  "closing": "EdLight continues to build practical, mission-driven pathways for students through education, leadership, technology, and community."
+  "closing": "EdLight continues to build practical, mission-driven pathways for students through education, leadership, technology, and community.",
+  "cta": {
+    "programmes": "Explore our programmes",
+    "getInvolved": "Get involved",
+    "donate": "Donate"
+  }
 }

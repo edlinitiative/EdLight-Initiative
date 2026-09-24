@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { Target, Eye, Users } from 'lucide-react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Hero from '@/components/Hero'
@@ -157,6 +158,18 @@ export default async function AboutPage({
             <p className="text-lg sm:text-xl font-medium text-gray-800 leading-relaxed">
               {t('closing')}
             </p>
+            {/* The page used to end on that sentence with nowhere to go. */}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+              <Link href="/#programmes" className="btn btn-primary">
+                {t('cta.programmes')}
+              </Link>
+              <Link href="/get-involved" className="btn btn-outline">
+                {t('cta.getInvolved')}
+              </Link>
+              <Link href="/donate" className="btn btn-outline">
+                {t('cta.donate')}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

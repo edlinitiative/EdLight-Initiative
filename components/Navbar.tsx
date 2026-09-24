@@ -127,7 +127,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-7">
-            <div className="relative" ref={programsRef}>
+            <div className="group relative" ref={programsRef}>
               <button
                 type="button"
                 onClick={() => setIsProgramsOpen((open) => !open)}
@@ -148,35 +148,41 @@ export default function Navbar() {
                 />
               </button>
 
-              {isProgramsOpen && (
-                <div className="absolute left-0 top-full pt-3 z-50">
-                  <ul className="w-[340px] border border-[var(--paper-200)] bg-[var(--paper-50)] py-2 shadow-lg">
-                    {programLinks.map(({ href, key }) => (
-                      <li key={href}>
-                        <Link
-                          href={href}
-                          className="block px-4 py-3 transition-colors hover:bg-[var(--paper-100)]"
-                          aria-current={isActivePath(href) ? 'page' : undefined}
+              {/* Always in the markup, only hidden. When this rendered only
+                  after a click, the four programme pages were missing from the
+                  navigation that crawlers and the Ad Grants review read. */}
+              <div
+                className={cn(
+                  'absolute left-0 top-full pt-3 z-50',
+                  isProgramsOpen ? 'block' : 'hidden group-hover:block'
+                )}
+              >
+                <ul className="w-[340px] border border-[var(--paper-200)] bg-[var(--paper-50)] py-2 shadow-lg">
+                  {programLinks.map(({ href, key }) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        className="block px-4 py-3 transition-colors hover:bg-[var(--paper-100)]"
+                        aria-current={isActivePath(href) ? 'page' : undefined}
+                      >
+                        <span
+                          className={cn(
+                            'block text-sm',
+                            isActivePath(href)
+                              ? 'font-medium text-[var(--accent)]'
+                              : 'font-medium text-[var(--ink-900)]'
+                          )}
                         >
-                          <span
-                            className={cn(
-                              'block text-sm',
-                              isActivePath(href)
-                                ? 'font-medium text-[var(--accent)]'
-                                : 'font-medium text-[var(--ink-900)]'
-                            )}
-                          >
-                            {t(`${key}.label`)}
-                          </span>
-                          <span className="mt-0.5 block text-xs leading-relaxed text-[var(--ink-700)]">
-                            {t(`${key}.description`)}
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+                          {t(`${key}.label`)}
+                        </span>
+                        <span className="mt-0.5 block text-xs leading-relaxed text-[var(--ink-700)]">
+                          {t(`${key}.description`)}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {directLinks.map((link) => (
@@ -212,6 +218,7 @@ export default function Navbar() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden -mr-2 inline-flex h-11 w-11 items-center justify-center text-[var(--ink-900)]"
             aria-label={t('toggleMenu')}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
