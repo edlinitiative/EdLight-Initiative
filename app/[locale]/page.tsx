@@ -111,7 +111,7 @@ export default async function HomePage({
         ]}
       >
         <Link
-          href="/academy"
+          href="/#programmes"
           className="group inline-flex items-center justify-center gap-2 bg-white text-[var(--ink-900)] font-medium px-6 py-3 hover:bg-[var(--paper-100)] transition-colors text-sm sm:text-base w-full sm:w-auto"
         >
           {t('hero.explorePrograms')}
@@ -170,7 +170,7 @@ export default async function HomePage({
       </section>
 
       {/* Ecosystem Programs */}
-      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
+      <section id="programmes" className="scroll-mt-20 py-14 sm:py-20 border-t border-[var(--paper-200)]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title={t('ecosystem.title')}

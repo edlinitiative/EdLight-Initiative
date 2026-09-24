@@ -201,8 +201,8 @@
     },
     "join": {
       "title": "How your institution joins",
-      "body": "Write to us with the name of your institution and a contact person. We agree the number of licences and your cohort dates, sign a one-page partnership agreement, and you send us the students you have selected. There is no cost to the institution or to the students.",
-      "email": "Email us about a partnership",
+      "body": "Send an application on behalf of your institution, naming a contact person. We agree the number of licences and your cohort dates, sign a one-page partnership agreement, and you send us the students you have selected. There is no cost to the institution or to the students.",
+      "apply": "Apply as an institution",
       "contact": "Contact form"
     }
   },

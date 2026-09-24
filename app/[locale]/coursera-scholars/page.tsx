@@ -80,6 +80,7 @@ export async function generateMetadata(): Promise<Metadata> {
 // The direct-applicant form. NOT apply.edlight.org/coursera-scholars, which is
 // the portal landing page — the mismatch that got this CTA pulled last time.
 const APPLICATION_URL = 'https://apply.edlight.org/scholars/individuals'
+const INSTITUTION_APPLICATION_URL = 'https://apply.edlight.org/scholars/institutions'
 
 // Structure stays here, wording lives in messages/<locale>/scholars.json and is
 // looked up by `key`. Same pattern as the footer's link columns.
@@ -244,10 +245,9 @@ export default async function CourseraScholarsPage({
           <div className="mx-auto mt-10 max-w-3xl border-l-2 border-[var(--accent)] bg-white p-6">
             <h3 className="text-lg font-semibold text-[var(--ink-900)]">{t('institutions.join.title')}</h3>
             <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{t('institutions.join.body')}</p>
-            {/* A real mailto, not a portal link that leads to no form. */}
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a href="mailto:info@edlight.org?subject=EdLight%20Scholars%20partnership" className="btn btn-primary">
-                {t('institutions.join.email')}
+              <a href={INSTITUTION_APPLICATION_URL} className="btn btn-primary">
+                {t('institutions.join.apply')}
               </a>
               <Link href="/contact" className="btn btn-outline">
                 {t('institutions.join.contact')}

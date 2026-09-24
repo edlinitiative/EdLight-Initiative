@@ -201,8 +201,8 @@
     },
     "join": {
       "title": "Comment votre institution participe",
-      "body": "Écrivez-nous en indiquant le nom de votre institution et une personne de contact. Nous convenons du nombre de licences et de votre calendrier, signons une convention de partenariat d’une page, puis vous nous transmettez les étudiants sélectionnés. Aucun frais pour l’institution ni pour les étudiants.",
-      "email": "Nous écrire au sujet d’un partenariat",
+      "body": "Envoyez une demande au nom de votre institution, en indiquant une personne de contact. Nous convenons du nombre de licences et de votre calendrier, signons une convention de partenariat d’une page, puis vous nous transmettez les étudiants sélectionnés. Aucun frais pour l’institution ni pour les étudiants.",
+      "apply": "Faire une demande de partenariat",
       "contact": "Formulaire de contact"
     }
   },
