@@ -113,7 +113,7 @@
         },
         "partner": {
           "question": "Can my organisation partner with EdLight?",
-          "answer": "Yes. We work with schools, universities, businesses, and NGOs to widen what our students can reach — our current partners are UWC, Coursera, and IICA. Start a conversation through the <link>Get Involved page</link> or write to {email}."
+          "answer": "Yes. We work with schools, universities, businesses, and NGOs to widen what our students can reach — our current partners are UWC, Coursera, IICA, and DataCamp Donates. Start a conversation through the <link>Get Involved page</link> or write to {email}."
         },
         "teach": {
           "question": "I want to teach a course. How do I start?",

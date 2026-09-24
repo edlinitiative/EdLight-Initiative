@@ -16,5 +16,11 @@
     "name": "IICA",
     "logo": "/partners/iica-logo.png",
     "website": "https://iica.int"
+  },
+  {
+    "id": 4,
+    "name": "DataCamp Donates",
+    "logo": "/partners/datacamp-logo.png",
+    "website": "https://www.datacamp.com/donates"
   }
 ]
