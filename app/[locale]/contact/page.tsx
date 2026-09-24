@@ -4,6 +4,7 @@ import { Mail, MapPin, Clock, Facebook, Twitter, Instagram, Youtube, Linkedin } 
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Hero from '@/components/Hero'
 import ContactForm from '@/components/ContactForm'
+import ClientMessages from '@/components/ClientMessages'
 import { SOCIAL_LINKS, type SocialPlatform } from '@/lib/socials'
 import {
   AREA_SERVED,
@@ -192,7 +193,9 @@ export default async function ContactPage({
               <p className="mb-7 text-sm leading-relaxed text-[var(--ink-700)]">
                 {t('form.requiredNote')}
               </p>
-              <ContactForm />
+              <ClientMessages namespaces={['contact']}>
+                <ContactForm />
+              </ClientMessages>
             </div>
           </div>
         </div>

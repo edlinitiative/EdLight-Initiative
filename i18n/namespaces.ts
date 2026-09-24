@@ -49,3 +49,20 @@ export async function loadMessages(locale: string): Promise<Record<string, unkno
 
   return Object.fromEntries(entries)
 }
+
+/**
+ * The namespaces client components read on every page: the navbar, footer,
+ * language switcher and error boundary. Only these are serialised into every
+ * page's HTML. The root layout used to hand NextIntlClientProvider the whole
+ * catalogue, which put every page's copy — about 139 kB of the homepage's
+ * 196 kB — into every response. A page whose own client components need more
+ * wraps them in <ClientMessages> with that page's namespace.
+ */
+export const CLIENT_CHROME_NAMESPACES = ['common', 'nav', 'footer', 'errors'] as const satisfies readonly Namespace[]
+
+export function pickMessages(
+  messages: Record<string, unknown>,
+  namespaces: readonly Namespace[]
+): Record<string, unknown> {
+  return Object.fromEntries(namespaces.filter((ns) => ns in messages).map((ns) => [ns, messages[ns]]))
+}

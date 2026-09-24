@@ -17,6 +17,7 @@ import { SOCIAL_URLS } from '@/lib/socials'
 import { NextIntlClientProvider } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import { LOCALES, isLocale, DEFAULT_LOCALE } from '@/i18n/config'
+import { CLIENT_CHROME_NAMESPACES, pickMessages } from '@/i18n/namespaces'
 import { getLocale, getMessages, getTranslations } from 'next-intl/server'
 
 const hankenGrotesk = Hanken_Grotesk({
@@ -211,11 +212,10 @@ export default async function RootLayout({
         />
       </head>
       <body>
-        {/* Only the client components below actually need the provider, but
-            wrapping here keeps every call site — server or client — reading
-            from the same catalogue. Server components still resolve their
-            messages on the server; nothing extra is shipped for those. */}
-        <NextIntlClientProvider messages={messages}>
+        {/* Only the shared chrome's namespaces are shipped here; pages whose
+            client components need their own copy add it with <ClientMessages>.
+            See CLIENT_CHROME_NAMESPACES in i18n/namespaces.ts. */}
+        <NextIntlClientProvider messages={pickMessages(messages as Record<string, unknown>, CLIENT_CHROME_NAMESPACES)}>
           <a href="#main-content" className="skip-link">
             {t('skipToContent')}
           </a>
