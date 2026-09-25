@@ -108,5 +108,131 @@
     "startCourse": "Commencer un cours gratuit",
     "donate": "Faire un don",
     "volunteer": "Devenir bénévole ou partenaire"
+  },
+  "story": {
+    "iAm": "Je suis…",
+    "audienceHint": "Choisissez votre profil pour voir ce qu’EdLight vous propose.",
+    "audiences": {
+      "student": {
+        "label": "Élève du secondaire",
+        "items": {
+          "academy": {
+            "title": "EdLight Academy",
+            "body": "Des cours gratuits pour les examens de 9e Année et du Baccalauréat, avec d’anciens examens nationaux pour s’entraîner.",
+            "cta": "Commencer à apprendre"
+          },
+          "code": {
+            "title": "EdLight Code",
+            "body": "Des parcours de programmation pratiques en créole haïtien, en français et en anglais, directement dans le navigateur.",
+            "cta": "Commencer à coder"
+          },
+          "eslp": {
+            "title": "ESLP",
+            "body": "Un programme de leadership de deux semaines l’été, avec séminaires, mentorat et visite d’entreprise.",
+            "cta": "Découvrir l’ESLP"
+          }
+        }
+      },
+      "university": {
+        "label": "Étudiant ou diplômé",
+        "items": {
+          "scholars": {
+            "title": "EdLight Scholars",
+            "body": "Des certificats professionnels Coursera et des licences DataCamp financés, pour obtenir des titres reconnus sans frais.",
+            "cta": "Voir EdLight Scholars"
+          },
+          "code": {
+            "title": "EdLight Code",
+            "body": "Développez des compétences concrètes en Python, SQL et développement web, à votre rythme.",
+            "cta": "Commencer à coder"
+          }
+        }
+      },
+      "partner": {
+        "label": "École ou partenaire",
+        "items": {
+          "scholars": {
+            "title": "Devenir partenaire d’EdLight Scholars",
+            "body": "Proposez vos étudiants pour des licences Coursera financées, à chaque cohorte, sans frais pour votre établissement.",
+            "cta": "Devenir établissement partenaire"
+          },
+          "partner": {
+            "title": "Travailler avec nous",
+            "body": "Contenus de cours, locaux, équipement, stages ou voies vers des bourses : dites-nous ce que vous pouvez offrir.",
+            "cta": "Devenir partenaire"
+          },
+          "speak": {
+            "title": "Intervenir ou accompagner",
+            "body": "Animez un séminaire de l’ESLP ou accompagnez un élève dans sa prochaine étape.",
+            "cta": "S’impliquer"
+          }
+        }
+      },
+      "supporter": {
+        "label": "Donateur ou sympathisant",
+        "items": {
+          "donate": {
+            "title": "Faire un don",
+            "body": "Chaque don garde les cours, le matériel et les places de l’ESLP gratuits pour les élèves.",
+            "cta": "Donner"
+          },
+          "volunteer": {
+            "title": "Donner de votre temps",
+            "body": "Mettez votre expertise au service des élèves comme mentor, intervenant ou organisateur.",
+            "cta": "S’impliquer"
+          },
+          "contact": {
+            "title": "Nous écrire",
+            "body": "Une question sur un don, un partenariat ou notre travail ? Nous lisons tout.",
+            "cta": "Nous contacter"
+          }
+        }
+      }
+    },
+    "chapters": {
+      "why": "Notre raison d’être",
+      "learn": "Apprendre",
+      "lead": "Diriger",
+      "further": "Aller plus loin",
+      "join": "Nous rejoindre"
+    },
+    "why": {
+      "title": "Chaque élève mérite une voie pour avancer.",
+      "body": "EdLight Initiative a été fondée sur la conviction que chaque jeune en Haïti mérite d’avoir accès à une éducation et à des occasions de calibre mondial. Concrètement, cela veut dire écarter ce qui arrête habituellement un élève : le coût, la distance et la langue. Nos programmes se donnent en ligne et enseignent en créole haïtien et en français autant qu’en anglais.",
+      "link": "À propos d’EdLight"
+    },
+    "learn": {
+      "title": "Apprendre au rythme de son parcours.",
+      "body": "Deux plateformes couvrent l’apprentissage lui-même, des matières du secondaire jusqu’à la programmation.",
+      "academy": "Des cours gratuits en mathématiques, physique, chimie, SVT, économie et langues, conçus autour des examens de 9e Année et du Baccalauréat.",
+      "code": "Des parcours de programmation pratiques enseignés en créole haïtien, en français et en anglais, avec des leçons et des exercices dans le navigateur.",
+      "academyCta": "Découvrir EdLight Academy",
+      "codeCta": "Découvrir EdLight Code"
+    },
+    "lead": {
+      "title": "Deux semaines qui changent un parcours.",
+      "body": "Chaque été, l’ESLP réunit des élèves du secondaire pour des séminaires de leadership avec des intervenants de Harvard, du MIT, de Microsoft, de la Deutsche Bank et de Cornell. En 2026, les participants ont passé une journée à Radio Télé Métropole à Port-au-Prince, et 35 ont reçu leur certificat à l’IICA, à Pétion-Ville.",
+      "note": "Les candidatures pour l’ESLP 2027 ouvriront au printemps 2027.",
+      "cta": "Découvrir l’ESLP",
+      "alt": "Les participants de l’ESLP 2026 tenant leur certificat à l’IICA, à Pétion-Ville"
+    },
+    "further": {
+      "title": "Des titres reconnus partout.",
+      "body": "EdLight Scholars offre aux élèves et diplômés haïtiens une formation professionnelle financée : des certificats Coursera, en partenariat avec Coursera, et des licences DataCamp grâce à DataCamp Donates, pour qu’un bon élève puisse le prouver sur son CV.",
+      "studentCta": "Postuler comme étudiant",
+      "partnerCta": "Devenir établissement partenaire"
+    },
+    "voices": {
+      "title": "Dans leurs mots"
+    },
+    "join": {
+      "title": "Faites partie du prochain chapitre.",
+      "body": "Donner, s’associer ou s’engager : chaque geste garde ouvert le parcours d’un élève.",
+      "donate": "Faire un don",
+      "partner": "Devenir partenaire",
+      "volunteer": "S’engager bénévolement"
+    },
+    "chaptersLabel": "Chapitres",
+    "heroPartners": "En partenariat avec"
   }
 }

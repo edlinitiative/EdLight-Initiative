@@ -108,5 +108,131 @@
     "startCourse": "Start a free course",
     "donate": "Donate",
     "volunteer": "Volunteer or partner"
+  },
+  "story": {
+    "iAm": "I am a…",
+    "audienceHint": "Choose who you are to see what EdLight offers you.",
+    "audiences": {
+      "student": {
+        "label": "Secondary student",
+        "items": {
+          "academy": {
+            "title": "EdLight Academy",
+            "body": "Free courses for the 9e Année and Baccalauréat exams, with past national exams to practise on.",
+            "cta": "Start learning"
+          },
+          "code": {
+            "title": "EdLight Code",
+            "body": "Hands-on coding tracks in Haitian Creole, French and English, right in your browser.",
+            "cta": "Start coding"
+          },
+          "eslp": {
+            "title": "ESLP",
+            "body": "A two-week summer leadership programme with seminars, mentorship and a company visit.",
+            "cta": "Discover ESLP"
+          }
+        }
+      },
+      "university": {
+        "label": "University student or graduate",
+        "items": {
+          "scholars": {
+            "title": "EdLight Scholars",
+            "body": "Funded Coursera professional certificates and DataCamp licences, so you can earn recognised credentials at no cost.",
+            "cta": "See EdLight Scholars"
+          },
+          "code": {
+            "title": "EdLight Code",
+            "body": "Build practical skills in Python, SQL and web development, at your own pace.",
+            "cta": "Start coding"
+          }
+        }
+      },
+      "partner": {
+        "label": "School or partner",
+        "items": {
+          "scholars": {
+            "title": "Partner on EdLight Scholars",
+            "body": "Nominate your students for funded Coursera licences, each cohort, at no cost to your institution.",
+            "cta": "Partner as an institution"
+          },
+          "partner": {
+            "title": "Work with us",
+            "body": "Course content, venues, equipment, internships or scholarship routes: tell us what you can offer.",
+            "cta": "Become a partner"
+          },
+          "speak": {
+            "title": "Speak or mentor",
+            "body": "Join an ESLP seminar or mentor a student through their next step.",
+            "cta": "Get involved"
+          }
+        }
+      },
+      "supporter": {
+        "label": "Supporter",
+        "items": {
+          "donate": {
+            "title": "Donate",
+            "body": "Every gift keeps courses, materials and ESLP places free for students.",
+            "cta": "Give now"
+          },
+          "volunteer": {
+            "title": "Give your time",
+            "body": "Volunteer your expertise as a mentor, speaker or organiser.",
+            "cta": "Get involved"
+          },
+          "contact": {
+            "title": "Talk to us",
+            "body": "Questions about a gift, a partnership or our work? We read everything.",
+            "cta": "Contact us"
+          }
+        }
+      }
+    },
+    "chapters": {
+      "why": "Why we exist",
+      "learn": "Learn",
+      "lead": "Lead",
+      "further": "Go further",
+      "join": "Join"
+    },
+    "why": {
+      "title": "Every student deserves a way forward.",
+      "body": "EdLight Initiative was founded on the belief that every young person in Haiti deserves access to world-class education and opportunities. In practice that means removing what usually stops a student: cost, distance and language. Our programmes run online, and they teach in Haitian Creole and French as well as English.",
+      "link": "About EdLight"
+    },
+    "learn": {
+      "title": "Learning that fits a student's path.",
+      "body": "Two platforms cover the learning itself, from secondary-school subjects to programming.",
+      "academy": "Free courses in maths, physics, chemistry, SVT, economics and languages, built around the 9e Année and Baccalauréat exams.",
+      "code": "Hands-on coding tracks taught in Haitian Creole, French and English, with lessons and exercises that run in the browser.",
+      "academyCta": "Explore EdLight Academy",
+      "codeCta": "Explore EdLight Code"
+    },
+    "lead": {
+      "title": "Two weeks that change a student's path.",
+      "body": "Every summer, ESLP brings secondary students together for leadership seminars with speakers from Harvard, MIT, Microsoft, Deutsche Bank and Cornell. In 2026, fellows spent a day at Radio Télé Métropole in Port-au-Prince, and 35 graduated at IICA in Pétion-Ville.",
+      "note": "Applications for ESLP 2027 open in spring 2027.",
+      "cta": "Discover ESLP",
+      "alt": "ESLP 2026 fellows holding their certificates at IICA in Pétion-Ville"
+    },
+    "further": {
+      "title": "Credentials the world recognises.",
+      "body": "EdLight Scholars gives Haitian students and graduates funded professional learning: Coursera certificates, run in partnership with Coursera, and DataCamp licences through DataCamp Donates, so a strong student can show it on a CV.",
+      "studentCta": "Apply as a student",
+      "partnerCta": "Partner as an institution"
+    },
+    "voices": {
+      "title": "In their words"
+    },
+    "join": {
+      "title": "Be part of the next chapter.",
+      "body": "Give, partner or volunteer: each one keeps a student's path open.",
+      "donate": "Donate",
+      "partner": "Partner with us",
+      "volunteer": "Volunteer"
+    },
+    "chaptersLabel": "Chapters",
+    "heroPartners": "In partnership with"
   }
 }

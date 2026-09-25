@@ -1,88 +1,71 @@
 import React from 'react'
 import Link from 'next/link'
-import {
-  ArrowRight,
-  BookOpen,
-  Code2,
-  Lightbulb,
-  Globe,
-  GraduationCap,
-  Laptop,
-  Users,
-  Compass,
-  HelpCircle,
-  Heart,
-} from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight, Heart, Handshake, Users } from 'lucide-react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import Hero from '@/components/Hero'
-import SectionHeader from '@/components/SectionHeader'
-import Card from '@/components/Card'
+import HomeHero from '@/components/home/HomeHero'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
-import ImpactCounters from '@/components/ImpactCounters'
-import PartnerLogoGrid from '@/components/PartnerLogoGrid'
-import impactData from '@/data/impact.json'
+import AudiencePaths, { type Audience } from '@/components/home/AudiencePaths'
 import testimonialsData from '@/data/testimonials.json'
 import partnersData from '@/data/partners.json'
 import { FOUNDED_YEAR } from '@/lib/site'
 
-// A single static hero image, rendered through next/image with priority.
-// This used to be a 4-image carousel rotating every 5 seconds via CSS
-// background-image — unoptimized, un-preloaded, and repainting the whole
-// viewport mid-load, which tanked LCP and Speed Index on mobile (the load
-// speed the Ad Grants website policy reviews against).
-const heroImage = '/edlight_academy_group.webp'
-
-// Four, not five. EdLight Nexus is gone from this list: it has no dates, no
-// cohort, and no way to apply, and a card promising a programme that a
-// visitor cannot join is the "under construction" page the Ad Grants website
-// policy names explicitly. It returns here when there is something to join.
-// EdLight Labs is gone for a different reason — it sells commercial web
-// services, which does not belong in a list of free student programmes.
+// The homepage reads as a story in short chapters: who is this for (the
+// "I am a…" selector), why EdLight exists, then Learn, Lead, Go further and
+// Join. Each chapter is one photo and a few sentences that end in a link to
+// that programme's own page, so the page shows everything on offer without
+// being the whole site. There are no stat cards: the facts sit in the copy.
 //
-// Structure here, wording in messages/<locale>/home.json. `key` indexes into
-// the `home` namespace — home.ecosystem.programs.academy.title and .description
-// — so a translator changes copy without touching this file and a developer
-// changes routes and icons without touching a translation.
-const ecosystemPrograms = [
-  { key: 'academy', icon: <BookOpen size={32} />, href: '/academy' },
-  { key: 'code', icon: <Code2 size={32} />, href: '/code' },
-  { key: 'scholars', icon: <GraduationCap size={32} />, href: '/coursera-scholars' },
-  { key: 'eslp', icon: <Users size={32} />, href: '/eslp' },
-] as const
+// Wording is in messages/<locale>/home.json under `story`.
 
-// Every number here can be checked against a page on this site. The three
-// that used to be here — 2,500 students served, 45 courses offered, 3 partner
-// organisations — could not: the first two are unsupported by anything we
-// publish, and 2,500 students a year sat oddly beside ESLP's own record of
-// 135 alumni in total.
-//
-// The numbers stay in data/impact.json and are passed straight through; only
-// the labels are translated, and the one date in them is interpolated.
-const impactCounters: { key: string; value: number; suffix?: string }[] = [
-  { key: 'alumni', value: impactData.eslpAlumni },
-  { key: 'subjects', value: impactData.academySubjects + impactData.codeTracks },
-  { key: 'partners', value: impactData.partnerOrganizations, suffix: '' },
-]
+const SCHOLARS_STUDENT_URL = 'https://apply.edlight.org/scholars/individuals'
+const SCHOLARS_INSTITUTION_URL = 'https://apply.edlight.org/scholars/institutions'
 
-const howItWorks = [
-  { key: 'online', icon: <Laptop size={28} /> },
-  { key: 'mentors', icon: <Users size={28} /> },
-  { key: 'beyond', icon: <Compass size={28} /> },
-] as const
+// Which programmes each audience sees, and where each one goes. The wording
+// for every item is home.story.audiences.<audience>.items.<item>.
+const audienceRoutes: Record<string, Record<string, string>> = {
+  student: { academy: '/academy', code: '/code', eslp: '/eslp' },
+  university: { scholars: '/coursera-scholars', code: '/code' },
+  partner: { scholars: SCHOLARS_INSTITUTION_URL, partner: '/get-involved', speak: '/get-involved' },
+  supporter: { donate: '/donate', volunteer: '/get-involved', contact: '/contact' },
+}
 
-// /courses, /global-exchange and /mission_projects were removed. These cards
-// now point at the pages that still cover the same ground — deleting them
-// outright would have left this section with a single FAQ card in it.
-//
-// "Scholarships and exchange" used to point at /nexus, which is now noindexed
-// for having no cohort or application. It points at Coursera Scholars
-// instead, which is the scholarship route students can actually take.
-const exploreMore = [
-  { key: 'academy', href: '/academy', icon: <BookOpen size={24} /> },
-  { key: 'scholars', href: '/coursera-scholars', icon: <Globe size={24} /> },
-  { key: 'about', href: '/about', icon: <Lightbulb size={24} /> },
-  { key: 'faq', href: '/faq', icon: <HelpCircle size={24} /> },
-] as const
+const chapters = ['why', 'learn', 'lead', 'further', 'join'] as const
+
+function Eyebrow({ index, label }: { index: number; label: string }) {
+  return (
+    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--accent)]">
+      {String(index).padStart(2, '0')} · {label}
+    </p>
+  )
+}
+
+function TextLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)] hover:text-[var(--accent-hover)]"
+    >
+      {children}
+      <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+    </Link>
+  )
+}
+
+function Photo({ src, alt, className = '', priority = false }: { src: string; alt: string; className?: string; priority?: boolean }) {
+  return (
+    <div className={`relative overflow-hidden rounded-[4px] bg-[var(--paper-200)] ${className}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        sizes="(min-width: 1024px) 560px, 100vw"
+        className="object-cover"
+      />
+    </div>
+  )
+}
 
 export default async function HomePage({
   params,
@@ -95,208 +78,197 @@ export default async function HomePage({
 
   const t = await getTranslations('home')
 
+  const audiences: Audience[] = Object.entries(audienceRoutes).map(([key, items]) => ({
+    key,
+    label: t(`story.audiences.${key}.label`),
+    items: Object.entries(items).map(([item, href]) => ({
+      href,
+      title: t(`story.audiences.${key}.items.${item}.title`),
+      body: t(`story.audiences.${key}.items.${item}.body`),
+      cta: t(`story.audiences.${key}.items.${item}.cta`),
+    })),
+  }))
+
   return (
     <>
-      {/* Hero Section */}
-      <Hero
+      {/* Opening: a full-bleed photo hero, with the partners as its credibility line */}
+      <HomeHero
         eyebrow={t('hero.eyebrow', { year: String(FOUNDED_YEAR) })}
         title={t('hero.title')}
         subtitle={t('hero.subtitle')}
-        backgroundImage={heroImage}
-        meta={[
-          { label: t('hero.meta.programmes'), value: String(ecosystemPrograms.length) },
-          { label: t('hero.meta.alumni'), value: `${impactData.eslpAlumni}` },
-          { label: t('hero.meta.partners'), value: String(impactData.partnerOrganizations) },
-          { label: t('hero.meta.cost'), value: t('hero.meta.costValue') },
-        ]}
+        image="/edlight_academy_group.webp"
+        partnersLabel={t('story.heroPartners')}
+        partners={partnersData}
       >
         <Link
           href="/#programmes"
-          className="group inline-flex items-center justify-center gap-2 bg-white text-[var(--ink-900)] font-medium px-6 py-3 hover:bg-[var(--paper-100)] transition-colors text-sm sm:text-base w-full sm:w-auto"
+          className="group inline-flex w-full items-center justify-center gap-2 rounded-[4px] bg-white px-7 py-3.5 text-sm font-medium text-[var(--ink-900)] transition-colors hover:bg-[var(--paper-100)] sm:w-auto sm:text-base"
         >
           {t('hero.explorePrograms')}
           <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
         </Link>
         <Link
           href="/get-involved"
-          className="inline-flex items-center justify-center gap-2 border border-white/40 bg-white/5 text-white font-medium px-6 py-3 hover:bg-white/10 hover:border-white/70 transition-colors text-sm sm:text-base w-full sm:w-auto backdrop-blur-sm"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-[4px] border border-white/40 bg-white/5 px-7 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:border-white/70 hover:bg-white/10 sm:w-auto sm:text-base"
         >
           {t('hero.supportUs')}
         </Link>
-      </Hero>
+      </HomeHero>
 
-      {/* Mission & Vision */}
-      <section className="py-14 sm:py-20">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <div className="max-w-3xl mx-auto">
-            <SectionHeader
-              title={t('mission.title')}
-              subtitle={t('mission.subtitle')}
-              centered
-            />
-            <div className="border border-[var(--paper-200)] bg-[var(--paper-100)] p-6 sm:p-8 space-y-4 text-[var(--ink-700)] leading-relaxed text-sm sm:text-base">
-              <p>{t('mission.p1')}</p>
-              <p>{t('mission.p2')}</p>
-              <p>{t('mission.p3')}</p>
-              <p>{t('mission.p4')}</p>
-              <p>{t('mission.p5')}</p>
+      {/* "I am a…": every visitor finds what is for them, straight after the hero.
+          #programmes is where the hero button and the About page's
+          "Explore our programmes" land. */}
+      <section id="programmes" className="scroll-mt-24 border-b border-[var(--paper-200)] bg-[var(--paper-50)] py-10 sm:py-12">
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
+          <AudiencePaths label={t('story.iAm')} hint={t('story.audienceHint')} audiences={audiences} />
+        </div>
+      </section>
+
+      {/* Chapter bar: sticks under the navbar while the story scrolls */}
+      <nav
+        aria-label={t('story.chaptersLabel')}
+        className="sticky top-16 z-30 border-b border-[var(--paper-200)] bg-[var(--nav-surface)] backdrop-blur-md"
+      >
+        <ol className="mx-auto flex max-w-[1200px] gap-5 overflow-x-auto px-6 py-3 text-sm lg:px-10">
+          {chapters.map((key, i) => (
+            <li key={key} className="shrink-0">
+              <a href={`#${key}`} className="text-[var(--ink-700)] transition-colors hover:text-[var(--accent)]">
+                <span className="mr-1.5 text-xs tabular-nums text-[var(--ink-400)]">{String(i + 1).padStart(2, '0')}</span>
+                {t(`story.chapters.${key}`)}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      {/* 01 Why we exist */}
+      <section id="why" className="scroll-mt-32 py-14 sm:py-20">
+        <div className="mx-auto grid max-w-[1200px] items-center gap-8 px-6 lg:grid-cols-2 lg:gap-14 lg:px-10">
+          <Photo src="/about_us.webp" alt="" className="aspect-[4/3]" />
+          <div>
+            <Eyebrow index={1} label={t('story.chapters.why')} />
+            <h2 className="text-2xl font-semibold leading-tight tracking-tight text-[var(--ink-900)] lg:text-[1.4rem] xl:text-[1.7rem]">
+              {t('story.why.title')}
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-[var(--ink-700)]">{t('story.why.body')}</p>
+            <div className="mt-6">
+              <TextLink href="/about">{t('story.why.link')}</TextLink>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader
-            title={t('howItWorks.title')}
-            subtitle={t('howItWorks.subtitle')}
-            centered
-          />
-          <div className="grid gap-px bg-[var(--paper-200)] sm:grid-cols-3">
-            {howItWorks.map(({ key, icon }) => (
-              <div key={key} className="bg-[var(--paper-50)] p-6 sm:p-8">
-                <div className="text-[var(--accent)] mb-4">{icon}</div>
-                <h3 className="text-lg font-semibold text-[var(--ink-900)] mb-3">
-                  {t(`howItWorks.items.${key}.title`)}
-                </h3>
-                <p className="text-sm leading-relaxed text-[var(--ink-700)]">
-                  {t(`howItWorks.items.${key}.body`)}
-                </p>
-              </div>
+      {/* 02 Learn: the two learning platforms, side by side */}
+      <section id="learn" className="scroll-mt-32 border-t border-[var(--paper-200)] bg-[var(--paper-100)] py-14 sm:py-20">
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
+          <div className="max-w-2xl">
+            <Eyebrow index={2} label={t('story.chapters.learn')} />
+            <h2 className="text-2xl font-semibold leading-tight tracking-tight text-[var(--ink-900)] lg:text-[1.4rem] xl:text-[1.7rem]">
+              {t('story.learn.title')}
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-[var(--ink-700)]">{t('story.learn.body')}</p>
+          </div>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {([
+              { key: 'academy', name: 'EdLight Academy', href: '/academy', img: '/EdLight_Academy.webp' },
+              { key: 'code', name: 'EdLight Code', href: '/code', img: '/labs_pics.webp' },
+            ] as const).map((p) => (
+              <article key={p.key} className="flex flex-col overflow-hidden rounded-[4px] border border-[var(--paper-200)] bg-white">
+                <Photo src={p.img} alt="" className="aspect-[16/9] rounded-none" />
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-lg font-semibold text-[var(--ink-900)]">{p.name}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--ink-700)]">{t(`story.learn.${p.key}`)}</p>
+                  <div className="mt-5">
+                    <TextLink href={p.href}>{t(`story.learn.${p.key}Cta`)}</TextLink>
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Ecosystem Programs */}
-      <section id="programmes" className="scroll-mt-20 py-14 sm:py-20 border-t border-[var(--paper-200)]">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader
-            title={t('ecosystem.title')}
-            subtitle={t('ecosystem.subtitle')}
-            centered
-          />
-          <p className="max-w-3xl mx-auto mb-10 text-center text-sm sm:text-base leading-relaxed text-[var(--ink-700)]">
-            {t('ecosystem.intro')}
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--paper-200)]">
-            {ecosystemPrograms.map((program) => (
-              <Card
-                key={program.key}
-                title={t(`ecosystem.programs.${program.key}.title`)}
-                description={t(`ecosystem.programs.${program.key}.description`)}
-                icon={program.icon}
-                href={program.href}
-              />
-            ))}
+      {/* 03 Lead: ESLP, told as the 2026 cohort's story */}
+      <section id="lead" className="scroll-mt-32 border-t border-[var(--paper-200)] py-14 sm:py-20">
+        <div className="mx-auto grid max-w-[1200px] items-center gap-8 px-6 lg:grid-cols-2 lg:gap-14 lg:px-10">
+          <div className="lg:order-2">
+            <Photo src="/gallery/eslp-2026-graduation-promotion.webp" alt={t('story.lead.alt')} className="aspect-[3/2]" />
+          </div>
+          <div>
+            <Eyebrow index={3} label={t('story.chapters.lead')} />
+            <h2 className="text-2xl font-semibold leading-tight tracking-tight text-[var(--ink-900)] lg:text-[1.4rem] xl:text-[1.7rem]">
+              {t('story.lead.title')}
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-[var(--ink-700)]">{t('story.lead.body')}</p>
+            <p className="mt-3 text-sm text-[var(--ink-700)]">{t('story.lead.note')}</p>
+            <div className="mt-6">
+              <TextLink href="/eslp">{t('story.lead.cta')}</TextLink>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Impact Counters */}
-      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader title={t('impact.title')} subtitle={t('impact.subtitle')} centered />
-          <ImpactCounters
-            counters={impactCounters.map(({ key, value, suffix }) => ({
-              value,
-              suffix,
-              label: t(`impact.counters.${key}`, { through: impactData.eslpAlumniThrough }),
-            }))}
-          />
+      {/* 04 Go further: EdLight Scholars */}
+      <section id="further" className="scroll-mt-32 border-t border-[var(--paper-200)] bg-[var(--paper-100)] py-14 sm:py-20">
+        <div className="mx-auto grid max-w-[1200px] items-center gap-8 px-6 lg:grid-cols-2 lg:gap-14 lg:px-10">
+          <Photo src="/Best_Participant_Award.webp" alt="" className="aspect-[4/3] [&_img]:object-[center_30%]" />
+          <div>
+            <Eyebrow index={4} label={t('story.chapters.further')} />
+            <h2 className="text-2xl font-semibold leading-tight tracking-tight text-[var(--ink-900)] lg:text-[1.4rem] xl:text-[1.7rem]">
+              {t('story.further.title')}
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-[var(--ink-700)]">{t('story.further.body')}</p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-6">
+              <TextLink href={SCHOLARS_STUDENT_URL}>{t('story.further.studentCta')}</TextLink>
+              <TextLink href={SCHOLARS_INSTITUTION_URL}>{t('story.further.partnerCta')}</TextLink>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader
-            title={t('testimonials.title')}
-            subtitle={t('testimonials.subtitle')}
-            centered
-          />
+      {/* Voices */}
+      <section className="border-t border-[var(--paper-200)] py-14 sm:py-16">
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
+          <h2 className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[var(--accent)]">
+            {t('story.voices.title')}
+          </h2>
           <TestimonialCarousel testimonials={testimonialsData} />
         </div>
       </section>
 
-      {/* Partners */}
-      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader
-            title={t('partners.title')}
-            subtitle={t('partners.subtitle')}
-            centered
-          />
-          <PartnerLogoGrid partners={partnersData} />
-        </div>
-      </section>
-
-      {/* Explore more — surfaces the deeper pages from the homepage */}
-      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader
-            title={t('explore.title')}
-            subtitle={t('explore.subtitle')}
-            centered
-          />
-          <div className="grid gap-px bg-[var(--paper-200)] sm:grid-cols-2">
-            {exploreMore.map(({ key, href, icon }) => (
-              <Link
-                key={href}
-                href={href}
-                className="group bg-[var(--paper-50)] p-6 sm:p-8 transition-colors hover:bg-[var(--paper-100)]"
-              >
-                <div className="text-[var(--accent)] mb-3">{icon}</div>
-                <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-[var(--ink-900)]">
-                  {t(`explore.items.${key}.title`)}
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-0.5"
-                  />
-                </h3>
-                <p className="text-sm leading-relaxed text-[var(--ink-700)]">
-                  {t(`explore.items.${key}.body`)}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Calls to action */}
-      <section className="py-14 sm:py-20 border-t border-[var(--paper-200)]">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <div className="border border-[var(--paper-200)] bg-[var(--paper-100)] p-8 sm:p-12 text-center">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--ink-900)] mb-3">
-              {t('cta.title')}
-            </h2>
-            <p className="max-w-2xl mx-auto mb-8 text-sm sm:text-base leading-relaxed text-[var(--ink-700)]">
-              {t('cta.body')}
+      {/* 05 Join */}
+      {/* -mb-16 cancels the footer's mt-16 so the navy band meets the navy footer. */}
+      <section id="join" className="-mb-16 scroll-mt-32 bg-[var(--accent)] py-14 text-white sm:py-16">
+        <div className="mx-auto flex max-w-[1200px] flex-col gap-8 px-6 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+          <div className="max-w-xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-white/70">
+              05 · {t('story.chapters.join')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                href="/academy"
-                className="inline-flex items-center justify-center gap-2 bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--accent-hover)]"
-              >
-                <BookOpen size={16} />
-                {t('cta.startCourse')}
-              </Link>
-              <Link
-                href="/donate"
-                className="inline-flex items-center justify-center gap-2 border border-[var(--ink-900)] px-6 py-3 text-sm font-medium text-[var(--ink-900)] transition-colors hover:bg-[var(--paper-200)]"
-              >
-                <Heart size={16} />
-                {t('cta.donate')}
-              </Link>
-              <Link
-                href="/get-involved"
-                className="inline-flex items-center justify-center gap-2 border border-[var(--ink-400)] px-6 py-3 text-sm font-medium text-[var(--ink-700)] transition-colors hover:border-[var(--ink-900)] hover:text-[var(--ink-900)]"
-              >
-                <Users size={16} />
-                {t('cta.volunteer')}
-              </Link>
-            </div>
+            <h2 className="text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">{t('story.join.title')}</h2>
+            <p className="mt-3 text-base leading-relaxed text-white/80">{t('story.join.body')}</p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/donate"
+              className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-white px-6 py-3 text-sm font-semibold text-[var(--accent)] transition-colors hover:bg-[var(--paper-100)]"
+            >
+              <Heart size={16} />
+              {t('story.join.donate')}
+            </Link>
+            <Link
+              href="/get-involved"
+              className="inline-flex items-center justify-center gap-2 rounded-[4px] border border-white/60 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              <Handshake size={16} />
+              {t('story.join.partner')}
+            </Link>
+            <Link
+              href="/get-involved"
+              className="inline-flex items-center justify-center gap-2 rounded-[4px] border border-white/60 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              <Users size={16} />
+              {t('story.join.volunteer')}
+            </Link>
           </div>
         </div>
       </section>
