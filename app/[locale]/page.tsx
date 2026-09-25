@@ -94,6 +94,7 @@ export default async function HomePage({
       {/* Opening: a full-bleed photo hero, with the partners as its credibility line */}
       <HomeHero
         eyebrow={t('hero.eyebrow', { year: String(FOUNDED_YEAR) })}
+        eyebrowShort={t('hero.eyebrowShort', { year: String(FOUNDED_YEAR) })}
         title={t('hero.title')}
         subtitle={t('hero.subtitle')}
         image="/edlight_academy_group.webp"

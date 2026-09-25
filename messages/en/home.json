@@ -1,6 +1,7 @@
 {
   "hero": {
-    "eyebrow": "EdLight Initiative · Est. {year}",
+    "eyebrow": "Registered Canadian not-for-profit · Since {year}",
+    "eyebrowShort": "Canadian not-for-profit · Since {year}",
     "title": "Empowering the next generation of Haitian innovators.",
     "subtitle": "Quality education, mentorship, and global opportunities, built with and for students across Haiti.",
     "meta": {

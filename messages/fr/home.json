@@ -1,6 +1,7 @@
 {
   "hero": {
-    "eyebrow": "EdLight Initiative · Fondée en {year}",
+    "eyebrow": "Organisme à but non lucratif enregistré au Canada · Depuis {year}",
+    "eyebrowShort": "Organisme sans but lucratif · Depuis {year}",
     "title": "Donner à la prochaine génération d’innovateurs haïtiens les moyens d’agir.",
     "subtitle": "Une éducation de qualité, du mentorat et des occasions à l’international, bâtis avec et pour les élèves de tout Haïti.",
     "meta": {
