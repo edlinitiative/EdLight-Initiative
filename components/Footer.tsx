@@ -167,10 +167,10 @@ export default function Footer() {
             <div>
               <Link href="/" aria-label={t('homeAria')} className="inline-block mb-4">
                 <Image
-                  src="/EdLight_Website_Logo.png"
+                  src="/edlight-wordmark.png"
                   alt={t('logoAlt')}
-                  width={200}
-                  height={50}
+                  width={823}
+                  height={248}
                   className="h-10 sm:h-12 w-auto object-contain object-left brightness-0 invert"
                 />
               </Link>

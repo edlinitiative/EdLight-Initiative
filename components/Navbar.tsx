@@ -113,12 +113,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 relative">
           {/* Logo */}
           <Link href="/" className="flex items-center z-10">
-            <div className="relative w-48 h-12 sm:w-56 sm:h-14">
+            {/* Cropped wordmark (823x248, ~3.3:1): sized by height so it sits
+                on the 64px bar with room above and below. */}
+            <div className="relative h-9 w-[120px] sm:h-10 sm:w-[133px]">
               <Image
-                src="/EdLight_Website_Logo.png"
+                src="/edlight-wordmark.png"
                 alt={t('logoAlt')}
                 fill
-                sizes="224px"
+                sizes="133px"
                 className="object-contain object-left"
                 priority
               />

@@ -84,9 +84,9 @@ export const metadata: Metadata = {
     description: 'Empowering the next generation of Haitian innovators through quality education, mentorship, and global opportunities.',
     images: [
       {
-        url: '/EdLight_Website_Logo.png',
-        width: 1200,
-        height: 630,
+        url: '/edlight-wordmark.png',
+        width: 823,
+        height: 248,
         alt: 'EdLight Initiative Logo',
       },
     ],
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'EdLight Initiative | Empowering Haitian Youth',
     description: 'Empowering the next generation of Haitian innovators through quality education, mentorship, and global opportunities.',
-    images: ['/EdLight_Website_Logo.png'],
+    images: ['/edlight-wordmark.png'],
     creator: '@edlinitiative',
     site: '@edlinitiative',
   },
@@ -154,7 +154,7 @@ export default async function RootLayout({
     description: `${MISSION_STATEMENT} ${ACTIVITIES_STATEMENT}`,
     slogan: MISSION_STATEMENT,
     url: SITE_URL,
-    logo: `${SITE_URL}/EdLight_Website_Logo.png`,
+    logo: `${SITE_URL}/edlight-wordmark.png`,
     email: CONTACT_EMAIL,
     // addressCountry was 'HT'. The organisation is registered in Canada and
     // based in Montreal; Haiti is where it works, which is what areaServed is
