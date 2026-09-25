@@ -103,7 +103,7 @@ export async function POST(request: Request) {
       // value that passes it cannot contain a CR or LF.
       replyTo: f.email,
       to: [quoteInbox],
-      subject: `Quote request — ${headerSafe(f.name, 60)}${subjectOrg ? ` (${subjectOrg})` : ''}`,
+      subject: `Quote request: ${headerSafe(f.name, 60)}${subjectOrg ? ` (${subjectOrg})` : ''}`,
       text: [
         `Name:            ${headerSafe(f.name)}`,
         `Email:           ${f.email}`,

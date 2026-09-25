@@ -22,7 +22,7 @@
     "title": "Qu’est-ce que l’EdLight Summer Leadership Program ?",
     "subtitle": "Lancé en août 2022, ESLP est un programme d’été de deux semaines destiné aux élèves du secondaire en Haïti, conçu pour renforcer le leadership, la conscience citoyenne et la préparation à l’avenir.",
     "p1": "ESLP complète les apprentissages scolaires par un parcours ciblé en leadership, entrepreneuriat, développement personnel, engagement citoyen et ouverture aux occasions internationales. Les participants réfléchissent aux enjeux locaux comme internationaux tout en gagnant la confiance nécessaire pour agir dans leur école et leur communauté.",
-    "p2": "L’édition 2026 s’est déroulée en mode hybride : la plupart des séances ont eu lieu en ligne, suivies d’une excursion en entreprise à Radio Télé Métropole à Port-au-Prince et d’une journée de graduation à l’IICA, à Pétion-Ville, où 35 participants ont reçu leur certificat. Nous avons accueilli des intervenants d’organisations et d’institutions de premier plan — dont <b>Harvard, MIT, Microsoft, Deutsche Bank et Cornell</b> — qui rejoignent les participants pour partager leur expertise, bousculer les idées reçues et inspirer l’action.",
+    "p2": "L’édition 2026 s’est déroulée en mode hybride : la plupart des séances ont eu lieu en ligne, suivies d’une excursion en entreprise à Radio Télé Métropole à Port-au-Prince et d’une journée de graduation à l’IICA, à Pétion-Ville, où 35 participants ont reçu leur certificat. Nous avons accueilli des intervenants d’organisations et d’institutions de premier plan, dont <b>Harvard, MIT, Microsoft, Deutsche Bank et Cornell</b>, qui rejoignent les participants pour partager leur expertise, bousculer les idées reçues et inspirer l’action.",
     "programDescription": "Description du programme"
   },
   "gallery": {
@@ -46,7 +46,7 @@
     },
     "cityImmersions": {
       "title": "Immersions en ville",
-      "description": "Une visite d’entreprise à Port-au-Prince — Radio Télé Métropole en 2026 — aide les participants à relier les apprentissages en leadership aux attentes réelles du monde du travail."
+      "description": "Une visite d’entreprise à Port-au-Prince (Radio Télé Métropole en 2026) aide les participants à relier les apprentissages en leadership aux attentes réelles du monde du travail."
     },
     "pitchNight": {
       "title": "Soirée de présentation d’impact",
@@ -96,15 +96,15 @@
     "subtitle": "Des séminaires virtuels avec des intervenants de haut niveau aux excursions sur le terrain, jusqu’à la célébration des réussites.",
     "seminars": {
       "label": "Séminaires",
-      "alt": "Séance de séminaire virtuel ESLP — participants et intervenants réunis en appel Zoom",
+      "alt": "Séance de séminaire virtuel ESLP : participants et intervenants réunis en appel Zoom",
       "heading": "Séminaires virtuels interactifs",
-      "description": "De 9 h à 12 h, les participants rencontrent en ligne des spécialistes issus d’institutions comme Harvard, le MIT, Cornell, la Deutsche Bank et Microsoft. Ces séances interactives portent sur le leadership, le développement personnel, les admissions universitaires, la finance et l’entrepreneuriat — offrant aux élèves une tribune pour échanger directement avec des leaders du secteur."
+      "description": "De 9 h à 12 h, les participants rencontrent en ligne des spécialistes issus d’institutions comme Harvard, le MIT, Cornell, la Deutsche Bank et Microsoft. Ces séances interactives portent sur le leadership, le développement personnel, les admissions universitaires, la finance et l’entrepreneuriat, et offrent aux élèves une tribune pour échanger directement avec des leaders du secteur."
     },
     "excursion": {
       "label": "Excursion",
       "alt": "Les participants d’ESLP 2026 sur le plateau du journal lors de leur visite à Radio Télé Métropole à Port-au-Prince",
       "heading": "Visites d’entreprise sur le terrain",
-      "description": "Le programme comprend une excursion enrichissante dans une entreprise réputée de Port-au-Prince — en 2026, les participants ont passé une journée à Radio Télé Métropole, échangeant avec les journalistes et visitant la salle de rédaction, les studios et la régie. Le transport et les entrées sont entièrement pris en charge pour chaque participant."
+      "description": "Le programme comprend une excursion enrichissante dans une entreprise réputée de Port-au-Prince. En 2026, les participants ont passé une journée à Radio Télé Métropole, échangeant avec les journalistes et visitant la salle de rédaction, les studios et la régie. Le transport et les entrées sont entièrement pris en charge pour chaque participant."
     },
     "graduation": {
       "label": "Graduation",
@@ -116,7 +116,7 @@
   "journey": {
     "eyebrow": "Parcours",
     "title": "De la candidature au leadership des anciens",
-    "intro": "ESLP est conçu comme un parcours accompagné. Les participants reçoivent un soutien complet à chaque étape — du recrutement au mentorat après le programme."
+    "intro": "ESLP est conçu comme un parcours accompagné. Les participants reçoivent un soutien complet à chaque étape, du recrutement au mentorat après le programme."
   },
   "phases": {
     "discover": {
@@ -195,7 +195,7 @@
   "cohort2026": {
     "badge": "Cohorte diplômée",
     "title": "ESLP 2026",
-    "body": "L’édition 2026 du EdLight Summer Leadership Program s’est déroulée <b>{dates}</b> — deux semaines de séminaires virtuels, une excursion en entreprise à <b>Radio Télé Métropole</b> à Port-au-Prince et une cérémonie de graduation à l’<b>IICA, à Pétion-Ville</b>, où 35 participants ont reçu leur certificat. Les candidatures pour ESLP 2027 ouvriront <b>{opens}</b>."
+    "body": "L’édition 2026 du EdLight Summer Leadership Program s’est déroulée <b>{dates}</b> : deux semaines de séminaires virtuels, une excursion en entreprise à <b>Radio Télé Métropole</b> à Port-au-Prince et une cérémonie de graduation à l’<b>IICA, à Pétion-Ville</b>, où 35 participants ont reçu leur certificat. Les candidatures pour ESLP 2027 ouvriront <b>{opens}</b>."
   },
   "funding": {
     "title": "Entièrement financé pour chaque participant",
@@ -233,7 +233,7 @@
   "faqs": {
     "dates": {
       "question": "Quand aura lieu la prochaine cohorte ?",
-      "answer": "L’édition 2026 s’est déroulée {dates} et s’est conclue par la graduation de 35 participants à l’IICA, à Pétion-Ville. Les candidatures pour ESLP 2027 ouvriront {opens} — inscrivez-vous à la liste d’avis pour l’apprendre en premier."
+      "answer": "L’édition 2026 s’est déroulée {dates} et s’est conclue par la graduation de 35 participants à l’IICA, à Pétion-Ville. Les candidatures pour ESLP 2027 ouvriront {opens}. Inscrivez-vous à la liste d’avis pour l’apprendre en premier."
     },
     "free": {
       "question": "Le programme est-il vraiment gratuit ?",
@@ -241,7 +241,7 @@
     },
     "documents": {
       "question": "Quels documents dois-je fournir pour poser ma candidature ?",
-      "answer": "En général, vous soumettez : (1) un formulaire de candidature, (2) deux essais — l’un sur vos activités parascolaires et l’autre sur votre intérêt pour le programme, (3) une photo d’identité récente et (4) vos relevés de notes en cours au format PDF."
+      "answer": "En général, vous soumettez : (1) un formulaire de candidature, (2) deux essais, l’un sur vos activités parascolaires et l’autre sur votre intérêt pour le programme, (3) une photo d’identité récente et (4) vos relevés de notes en cours au format PDF."
     },
     "english": {
       "question": "Les participants doivent-ils parler anglais ?",

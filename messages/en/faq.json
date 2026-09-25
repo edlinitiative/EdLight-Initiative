@@ -24,7 +24,7 @@
         },
         "cost": {
           "question": "What do EdLight programmes cost?",
-          "answer": "Nothing. All EdLight programmes are free for students, including course materials, certificates, and — for selected ESLP participants — the sessions, the excursion, and the closing celebration. There is no paid tier and no upgrade."
+          "answer": "Nothing. All EdLight programmes are free for students, including course materials, certificates, and, for selected ESLP participants, the sessions, the excursion, and the closing celebration. There is no paid tier and no upgrade."
         },
         "funding": {
           "question": "How is EdLight Initiative funded?",
@@ -41,7 +41,7 @@
         },
         "free": {
           "question": "Are the courses really free?",
-          "answer": "Yes — all of them, with no fee for materials or certificates. Academy is free and bilingual."
+          "answer": "Yes, all of them, with no fee for materials or certificates. Academy is free and bilingual."
         },
         "certificate": {
           "question": "Do I receive a certificate?",
@@ -58,7 +58,7 @@
       "questions": {
         "whatIs": {
           "question": "What is EdLight Code?",
-          "answer": "A hands-on coding platform with six learning tracks — Python, SQL, HTML, CSS, JavaScript, and Terminal & Git — taught through lessons and practical labs you complete in your browser."
+          "answer": "A hands-on coding platform with six learning tracks (Python, SQL, HTML, CSS, JavaScript, and Terminal & Git), taught through lessons and practical labs you complete in your browser."
         },
         "creole": {
           "question": "Can I learn in Haitian Creole?",
@@ -83,7 +83,7 @@
         },
         "cost": {
           "question": "What does ESLP cost participants?",
-          "answer": "Nothing. Selected participants attend on full scholarship. Programme costs — sessions, materials, the excursion, and the closing celebration — are covered."
+          "answer": "Nothing. Selected participants attend on full scholarship. Programme costs (sessions, materials, the excursion, and the closing celebration) are covered."
         },
         "application": {
           "question": "What does the application involve?",
@@ -113,7 +113,7 @@
         },
         "partner": {
           "question": "Can my organisation partner with EdLight?",
-          "answer": "Yes. We work with schools, universities, businesses, and NGOs to widen what our students can reach — our current partners are UWC, Coursera, IICA, and DataCamp Donates. Start a conversation through the <link>Get Involved page</link> or write to {email}."
+          "answer": "Yes. We work with schools, universities, businesses, and NGOs to widen what our students can reach. Our current partners are UWC, Coursera, IICA, and DataCamp Donates. Start a conversation through the <link>Get Involved page</link> or write to {email}."
         },
         "teach": {
           "question": "I want to teach a course. How do I start?",
@@ -154,7 +154,7 @@
   },
   "cta": {
     "title": "Still have a question?",
-    "subtitle": "If the answer is not here, ask us directly — we read everything that comes in.",
+    "subtitle": "If the answer is not here, ask us directly. We read everything that comes in.",
     "contact": "Contact us",
     "email": "Email {email}"
   }

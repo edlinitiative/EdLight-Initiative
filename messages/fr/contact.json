@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Contact",
     "title": "Écrivez-nous",
-    "subtitle": "Une question sur un programme, une offre d’aide, un partenariat ou un don — ce message parvient directement à l’équipe."
+    "subtitle": "Une question sur un programme, une offre d’aide, un partenariat ou un don : ce message parvient directement à l’équipe."
   },
   "channels": {
     "email": {
@@ -44,7 +44,7 @@
     "messageMinLength": "Un peu plus de détails nous aidera à vous répondre correctement.",
     "sending": "Envoi en cours…",
     "submit": "Envoyer le message",
-    "success": "Merci — votre message nous est bien parvenu. Nous répondons généralement sous deux à trois jours ouvrables.",
+    "success": "Merci, votre message nous est bien parvenu. Nous répondons généralement sous deux à trois jours ouvrables.",
     "error": "Une erreur s’est produite lors de l’envoi. Veuillez réessayer ou nous écrire directement à <link>{email}</link>.",
     "replyNote": "Nous répondons généralement sous deux à trois jours ouvrables."
   }

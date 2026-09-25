@@ -24,7 +24,7 @@
         },
         "cost": {
           "question": "Combien coûtent les programmes d’EdLight ?",
-          "answer": "Rien. Tous les programmes d’EdLight sont gratuits pour les élèves, y compris le matériel de cours, les certificats et — pour les participants sélectionnés de l’ESLP — les séances, l’excursion et la célébration de clôture. Il n’y a ni formule payante ni option supérieure."
+          "answer": "Rien. Tous les programmes d’EdLight sont gratuits pour les élèves, y compris le matériel de cours, les certificats et, pour les participants sélectionnés de l’ESLP, les séances, l’excursion et la célébration de clôture. Il n’y a ni formule payante ni option supérieure."
         },
         "funding": {
           "question": "Comment EdLight Initiative est-elle financée ?",
@@ -41,7 +41,7 @@
         },
         "free": {
           "question": "Les cours sont-ils vraiment gratuits ?",
-          "answer": "Oui — tous, sans frais pour le matériel ni pour les certificats. Academy est gratuite et bilingue."
+          "answer": "Oui, tous, sans frais pour le matériel ni pour les certificats. Academy est gratuite et bilingue."
         },
         "certificate": {
           "question": "Est-ce que je reçois un certificat ?",
@@ -58,7 +58,7 @@
       "questions": {
         "whatIs": {
           "question": "Qu’est-ce qu’EdLight Code ?",
-          "answer": "Une plateforme de programmation pratique avec six parcours d’apprentissage — Python, SQL, HTML, CSS, JavaScript et Terminal & Git — enseignés au moyen de leçons et de laboratoires pratiques que vous réalisez dans votre navigateur."
+          "answer": "Une plateforme de programmation pratique avec six parcours d’apprentissage (Python, SQL, HTML, CSS, JavaScript et Terminal & Git), enseignés au moyen de leçons et de laboratoires pratiques que vous réalisez dans votre navigateur."
         },
         "creole": {
           "question": "Puis-je apprendre en créole haïtien ?",
@@ -83,7 +83,7 @@
         },
         "cost": {
           "question": "Combien l’ESLP coûte-t-il aux participants ?",
-          "answer": "Rien. Les participants sélectionnés y assistent grâce à une bourse complète. Les coûts du programme — séances, matériel, excursion et célébration de clôture — sont couverts."
+          "answer": "Rien. Les participants sélectionnés y assistent grâce à une bourse complète. Les coûts du programme (séances, matériel, excursion et célébration de clôture) sont couverts."
         },
         "application": {
           "question": "En quoi consiste la candidature ?",
@@ -113,7 +113,7 @@
         },
         "partner": {
           "question": "Mon organisation peut-elle devenir partenaire d’EdLight ?",
-          "answer": "Oui. Nous travaillons avec des écoles, des universités, des entreprises et des ONG pour élargir ce que nos élèves peuvent atteindre — nos partenaires actuels sont UWC, Coursera, IICA et DataCamp Donates. Amorcez la conversation au moyen de la <link>page S’impliquer</link> ou écrivez à {email}."
+          "answer": "Oui. Nous travaillons avec des écoles, des universités, des entreprises et des ONG pour élargir ce que nos élèves peuvent atteindre. Nos partenaires actuels sont UWC, Coursera, IICA et DataCamp Donates. Amorcez la conversation au moyen de la <link>page S’impliquer</link> ou écrivez à {email}."
         },
         "teach": {
           "question": "Je veux enseigner un cours. Par où commencer ?",
@@ -154,7 +154,7 @@
   },
   "cta": {
     "title": "Vous avez encore une question ?",
-    "subtitle": "Si la réponse ne se trouve pas ici, posez-nous la question directement — nous lisons tout ce qui nous parvient.",
+    "subtitle": "Si la réponse ne se trouve pas ici, posez-nous la question directement. Nous lisons tout ce qui nous parvient.",
     "contact": "Nous contacter",
     "email": "Écrire à {email}"
   }

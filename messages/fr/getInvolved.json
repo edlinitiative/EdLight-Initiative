@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Écosystème EdLight · S’impliquer",
     "title": "S’impliquer",
-    "subtitle": "Aidez-nous à outiller la prochaine génération d’innovateurs haïtiens — comme bénévole, partenaire, donateur ou conférencier invité.",
+    "subtitle": "Aidez-nous à outiller la prochaine génération d’innovateurs haïtiens, comme bénévole, partenaire, donateur ou conférencier invité.",
     "metaWaysLabel": "Façons d’aider",
     "metaCostLabel": "Coût pour les élèves",
     "metaCostValue": "0 $",
@@ -11,14 +11,14 @@
   },
   "ways": {
     "heading": "Façons de s’impliquer",
-    "subheading": "Il y a plusieurs façons de soutenir notre mission — choisissez celle qui vous convient le mieux.",
+    "subheading": "Il y a plusieurs façons de soutenir notre mission. Choisissez celle qui vous convient le mieux.",
     "volunteer": {
       "title": "Bénévolat",
       "description": "Accompagnez un élève tout au long d’un cours, animez un atelier dans votre domaine, évaluez des travaux de projet ou aidez aux opérations qui font vivre les programmes. La plupart des bénévoles donnent quelques heures par mois, à distance. Dites-nous ce que vous savez faire et quand vous êtes disponible, et nous vous confierons une mission concrète."
     },
     "partner": {
       "title": "Partenariat",
-      "description": "Des écoles, des universités, des entreprises et des ONG travaillent avec nous pour élargir ce que nos élèves peuvent atteindre — contenus de cours, préparation aux examens, locaux, équipement, stages et voies vers des bourses. Nos partenaires actuels sont UWC, Coursera, IICA et DataCamp Donates."
+      "description": "Des écoles, des universités, des entreprises et des ONG travaillent avec nous pour élargir ce que nos élèves peuvent atteindre : contenus de cours, préparation aux examens, locaux, équipement, stages et voies vers des bourses. Nos partenaires actuels sont UWC, Coursera, IICA et DataCamp Donates."
     },
     "donate": {
       "title": "Faire un don",
@@ -35,7 +35,7 @@
     "body": "Votre don soutient directement les bourses, les coûts des programmes et les ressources destinées aux élèves. Chaque contribution compte.",
     "secureCheckout": "Paiement sécurisé PayPal",
     "poweredBy": "Propulsé par PayPal. Choisissez un don unique ou mettez en place un soutien mensuel.",
-    "taxNotice": "EdLight Initiative est une société à but non lucratif enregistrée au Canada (société n° {number}). Nous ne détenons pas encore le statut d’organisme de bienfaisance enregistré, nous ne pouvons donc pas délivrer de reçus fiscaux — nous préférons vous le dire avant votre don plutôt qu’après."
+    "taxNotice": "EdLight Initiative est une société à but non lucratif enregistrée au Canada (société n° {number}). Nous ne détenons pas encore le statut d’organisme de bienfaisance enregistré, nous ne pouvons donc pas délivrer de reçus fiscaux. Nous préférons vous le dire avant votre don plutôt qu’après."
   },
   "form": {
     "heading": "Nous contacter",

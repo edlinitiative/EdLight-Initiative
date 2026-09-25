@@ -35,7 +35,7 @@
     "delivery": "Les quatre formulaires nous parviennent par courriel dans notre boîte de réception, acheminés par <strong>Resend</strong>, notre fournisseur de services de courriel. L’inscription à l’infolettre ou à une liste d’avis vous envoie également un courriel de confirmation. Rien de ce que vous soumettez n’est inscrit dans une base de données ni conservé sur ce site Web ; le seul enregistrement est le message dans notre boîte de réception, et vous pouvez nous demander de supprimer le vôtre à tout moment.",
     "noPayment": "Nous ne demandons de renseignements de paiement nulle part sur ce site et nous ne voyons jamais les données de votre carte. Tous les programmes sont gratuits, il n’y a donc rien à payer ; les dons sont traités entièrement par PayPal, comme il est indiqué à la section 4.",
     "autoHeading": "Renseignements recueillis automatiquement",
-    "autoBody": "Ce site n’utilise ni outils d’analyse, ni publicité, ni témoins de suivi, et il ne dresse aucun profil de votre navigation. Comme tout site Web, notre hébergeur consigne automatiquement des renseignements techniques de base à chaque requête — votre adresse IP, le type de navigateur et la page demandée — qui servent à afficher le site, à en assurer la sécurité et à diagnostiquer les pannes. Si nous introduisons un jour des outils d’analyse ou de mesure publicitaire, nous mettrons à jour la présente politique et la date de « Dernière mise à jour » avant de le faire."
+    "autoBody": "Ce site n’utilise ni outils d’analyse, ni publicité, ni témoins de suivi, et il ne dresse aucun profil de votre navigation. Comme tout site Web, notre hébergeur consigne automatiquement des renseignements techniques de base à chaque requête (votre adresse IP, le type de navigateur et la page demandée), qui servent à afficher le site, à en assurer la sécurité et à diagnostiquer les pannes. Si nous introduisons un jour des outils d’analyse ou de mesure publicitaire, nous mettrons à jour la présente politique et la date de « Dernière mise à jour » avant de le faire."
   },
   "s3": {
     "heading": "3. Comment nous utilisons vos renseignements",
@@ -93,7 +93,7 @@
     "heading": "7. Durée de conservation des renseignements",
     "intro": "Nous conservons les renseignements aussi longtemps que l’exige la finalité pour laquelle ils ont été recueillis.",
     "items": {
-      "participants": "Participants aux programmes. Si vous êtes sélectionné pour l’un de nos programmes — dont le Programme EdLight Scholars et l’ESLP — nous conservons votre dossier de participation après la fin de votre cohorte. Il nous sert à suivre votre parcours, à rendre compte de l’impact du programme auprès de nos bailleurs et partenaires, et à vous garder au sein du réseau des anciens d’EdLight. Participer à un programme emporte votre accord sur ce point.",
+      "participants": "Participants aux programmes. Si vous êtes sélectionné pour l’un de nos programmes, dont le Programme EdLight Scholars et l’ESLP, nous conservons votre dossier de participation après la fin de votre cohorte. Il nous sert à suivre votre parcours, à rendre compte de l’impact du programme auprès de nos bailleurs et partenaires, et à vous garder au sein du réseau des anciens d’EdLight. Participer à un programme emporte votre accord sur ce point.",
       "enquiries": "Demandes et messages. Conservés le temps de traiter votre message, puis pendant une période raisonnable à titre de trace de l’échange.",
       "notify": "Listes de notification. Conservées jusqu’à votre désabonnement ou jusqu’à la fin du cycle pour lequel vous vous êtes inscrit.",
       "donations": "Reçus de dons. Conservés aussi longtemps que l’exigent les règles canadiennes en matière de bienfaisance et de fiscalité."
@@ -113,7 +113,7 @@
       "withdrawal": "Le retrait de votre consentement"
     },
     "exercise": "Pour exercer ces droits, veuillez communiquer avec nous à {email} ou nous écrire à l’adresse indiquée à la section 13.",
-    "limits": "Ces droits ne sont pas absolus. Lorsqu’un intérêt légitime persiste ou qu’une obligation légale s’applique — par exemple la trace de votre participation à un programme et de son achèvement, ou les registres que nous devons conserver à des fins de reddition de comptes — nous pouvons conserver certains renseignements après une demande de suppression. Le cas échéant, nous vous indiquons ce qui a été conservé et pourquoi."
+    "limits": "Ces droits ne sont pas absolus. Lorsqu’un intérêt légitime persiste ou qu’une obligation légale s’applique (par exemple la trace de votre participation à un programme et de son achèvement, ou les registres que nous devons conserver à des fins de reddition de comptes), nous pouvons conserver certains renseignements après une demande de suppression. Le cas échéant, nous vous indiquons ce qui a été conservé et pourquoi."
   },
   "s9": {
     "heading": "9. Vie privée des enfants",

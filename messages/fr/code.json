@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Écosystème EdLight · Apprendre à programmer",
     "title": "EdLight Code",
-    "subtitle": "Les compétences dont vous avez besoin. Le portfolio pour les prouver. Maîtrisez Python, SQL, le développement web et plus encore grâce à des cours guidés et pratiques — le tout dans votre navigateur.",
+    "subtitle": "Les compétences dont vous avez besoin. Le portfolio pour les prouver. Maîtrisez Python, SQL, le développement web et plus encore grâce à des cours guidés et pratiques, le tout dans votre navigateur.",
     "meta": {
       "tracks": "Parcours d’apprentissage",
       "cost": "Coût",
@@ -17,11 +17,11 @@
   },
   "stats": {
     "title": "Apprendre en faisant, pas en regardant",
-    "subtitle": "EdLight Code transforme les leçons en compétences concrètes. Chaque leçon est une lecture ciblée suivie d’un exercice de programmation pratique — pas de cours vidéo, simplement apprendre à votre rythme et écrire du vrai code.",
+    "subtitle": "EdLight Code transforme les leçons en compétences concrètes. Chaque leçon est une lecture ciblée suivie d’un exercice de programmation pratique. Pas de cours vidéo : vous apprenez à votre rythme et écrivez du vrai code.",
     "items": {
       "tracks": {
         "label": "Parcours d’apprentissage",
-        "description": "SQL, Python, HTML, CSS, JavaScript, Terminal et Git — et d’autres à venir."
+        "description": "SQL, Python, HTML, CSS, JavaScript, Terminal et Git, et d’autres à venir."
       },
       "free": {
         "label": "Gratuit et dans le navigateur",
@@ -43,7 +43,7 @@
       },
       "learn": {
         "title": "Apprenez avec des leçons et des ateliers",
-        "description": "Lisez des leçons courtes, puis pratiquez avec des exercices de programmation directement dans votre navigateur — aucune installation requise."
+        "description": "Lisez des leçons courtes, puis pratiquez avec des exercices de programmation directement dans votre navigateur. Aucune installation requise."
       },
       "certify": {
         "title": "Obtenez un certificat",
@@ -86,7 +86,7 @@
   },
   "projects": {
     "title": "Apprendre en construisant",
-    "subtitle": "Mettez vos compétences en pratique en construisant de vraies applications — du site portfolio aux chaînes d’analyse de données.",
+    "subtitle": "Mettez vos compétences en pratique en construisant de vraies applications, du site portfolio aux chaînes d’analyse de données.",
     "exploreAll": "Explorer tous les projets sur EdLight Code",
     "levels": {
       "beginner": "Débutant",
@@ -123,7 +123,7 @@
   "lessonFormat": {
     "eyebrow": "Format des leçons",
     "title": "Des lectures courtes. De la vraie pratique.",
-    "body": "Chaque leçon est une lecture ciblée suivie d’un exercice de programmation pratique. Pas de cours vidéo — simplement apprendre à votre rythme et écrire du vrai code.",
+    "body": "Chaque leçon est une lecture ciblée suivie d’un exercice de programmation pratique. Pas de cours vidéo : vous apprenez à votre rythme et écrivez du vrai code.",
     "features": {
       "biteSized": {
         "title": "Leçons courtes",
@@ -135,7 +135,7 @@
       },
       "anyDevice": {
         "title": "Fonctionne sur tous les appareils",
-        "description": "Adapté au mobile et accessible dans le navigateur. Apprenez sur un téléphone, une tablette ou un portable — où que vous soyez."
+        "description": "Adapté au mobile et accessible dans le navigateur. Apprenez sur un téléphone, une tablette ou un portable, où que vous soyez."
       },
       "multilingual": {
         "title": "Prise en charge multilingue",
@@ -144,7 +144,7 @@
     },
     "insideEyebrow": "Dans une leçon",
     "insideTitle": "Lire → Coder → Recommencer",
-    "insideBody": "Chaque leçon associe une explication claire et ciblée à un exercice de programmation interactif. Vous lisez la notion, puis vous l’appliquez immédiatement en écrivant du vrai code dans le navigateur. Une rétroaction instantanée vous dit si vous avez juste. Pas de visionnement passif — vous apprenez en faisant.",
+    "insideBody": "Chaque leçon associe une explication claire et ciblée à un exercice de programmation interactif. Vous lisez la notion, puis vous l’appliquez immédiatement en écrivant du vrai code dans le navigateur. Une rétroaction instantanée vous dit si vous avez juste. Pas de visionnement passif : vous apprenez en faisant.",
     "badges": {
       "noSetup": "Aucune installation",
       "instantFeedback": "Rétroaction instantanée",
@@ -153,7 +153,7 @@
   },
   "certificates": {
     "title": "Des certificats auxquels les employeurs se fient",
-    "subtitle": "Terminez un parcours et obtenez un certificat accompagné d’un lien de vérification unique. Fini le « croyez-moi sur parole » — les employeurs peuvent vérifier vos compétences en quelques secondes.",
+    "subtitle": "Terminez un parcours et obtenez un certificat accompagné d’un lien de vérification unique. Fini le « croyez-moi sur parole » : les employeurs peuvent vérifier vos compétences en quelques secondes.",
     "seeVerification": "Voir la vérification d’un certificat",
     "items": {
       "link": {
@@ -162,7 +162,7 @@
       },
       "employer": {
         "title": "Vérification instantanée par les employeurs",
-        "description": "Les employeurs peuvent vérifier votre certificat en quelques secondes — aucune connexion requise."
+        "description": "Les employeurs peuvent vérifier votre certificat en quelques secondes, sans connexion."
       },
       "shareable": {
         "title": "Attestations partageables",

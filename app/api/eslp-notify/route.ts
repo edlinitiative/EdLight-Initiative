@@ -118,7 +118,7 @@ export async function POST(request: Request) {
       text: [
         `Hi ${headerSafe(name)},`,
         '',
-        `You're on the list. We'll write to you as soon as ${cycle} dates and application details are announced — you'll hear from us before we announce it anywhere else.`,
+        `You're on the list. We'll write to you as soon as ${cycle} dates and application details are announced. You'll hear from us before we announce it anywhere else.`,
         '',
         'Questions in the meantime? Just reply to this email, or reach us at info@edlight.org.',
         '',

@@ -72,7 +72,7 @@ const valueProps: ValueProp[] = [
   {
     title: 'Mission-driven by default',
     description:
-      'Everything we build is shaped by a commitment to education, equity, and community impact — not just deliverables.',
+      'Everything we build is shaped by a commitment to education, equity, and community impact, not just deliverables.',
     icon: Target,
   },
   {
@@ -203,7 +203,7 @@ const caseStudies: CaseStudy[] = [
     name: 'Le Relief Haiti',
     url: 'https://lereliefhaiti.com',
     description:
-      'Independent news platform covering Haitian politics, current affairs, and analysis — bilingual editorial layouts, fast publishing workflow, and reader-first reading experience.',
+      'Independent news platform covering Haitian politics, current affairs, and analysis, with bilingual editorial layouts, fast publishing workflow, and reader-first reading experience.',
     tag: 'News & politics',
     category: 'client',
     stats: [
@@ -217,7 +217,7 @@ const caseStudies: CaseStudy[] = [
     name: 'Rotaract NYC',
     url: 'https://rotaractnyc.org',
     description:
-      'Service-club presence for Rotaract New York City — event calendar, member portal, and recruitment funnel.',
+      'Service-club presence for Rotaract New York City: event calendar, member portal, and recruitment funnel.',
     tag: 'Community organization',
     category: 'client',
   },
@@ -265,7 +265,7 @@ const differentiators: Differentiator[] = [
   {
     title: 'Mission-aligned approach',
     description:
-      'We build alongside organizations that prioritize education, entrepreneurship, and community impact — because that is our mission too.',
+      'We build alongside organizations that prioritize education, entrepreneurship, and community impact, because that is our mission too.',
   },
   {
     title: 'Clear process and thoughtful execution',
@@ -275,7 +275,7 @@ const differentiators: Differentiator[] = [
   {
     title: 'Modern tools with practical delivery',
     description:
-      'We use current web technologies — Next.js, TypeScript, headless CMS — without overengineering for the sake of it.',
+      'We use current web technologies (Next.js, TypeScript, headless CMS) without overengineering for the sake of it.',
   },
   {
     title: 'A long-term mindset for growth and maintenance',
@@ -470,7 +470,7 @@ export default function LabsPage() {
                 teams launch digital experiences that are clear, useful, and built to grow.
               </p>
               <p className="text-base leading-relaxed text-[var(--on-dark-muted)]">
-                We work across websites, platforms, product prototypes, and internal innovation initiatives —
+                We work across websites, platforms, product prototypes, and internal innovation initiatives,
                 always pairing modern tools with practical delivery.
               </p>
               <div className="grid sm:grid-cols-3 gap-px bg-white/10 border-y border-white/15 mt-10">
@@ -597,7 +597,7 @@ export default function LabsPage() {
               A collaborative build, strategy to growth.
             </h2>
             <p className="body-lg text-[var(--on-dark-muted)]">
-              Our team becomes an extension of yours — structure, clarity, and technical rigor so you can stay
+              Our team becomes an extension of yours, bringing structure, clarity, and technical rigor so you can stay
               focused on your mission.
             </p>
           </Reveal>
@@ -652,7 +652,7 @@ export default function LabsPage() {
             {/* terminal prompt footer */}
             <div className="border-t border-white/10 px-4 py-3 font-mono-edl text-[11px] text-white/50 flex items-center gap-2">
               <span className="text-emerald-400/80">✓</span>
-              <span>build complete — ready to ship</span>
+              <span>build complete, ready to ship</span>
               <span className="ml-auto animate-pulse text-white/40">_</span>
             </div>
           </div>
@@ -991,7 +991,7 @@ export default function LabsPage() {
             </div>
             <h2 className="display-lg text-white leading-tight mb-4">Ways to get involved.</h2>
             <p className="body-lg text-[var(--on-dark-muted)]">
-              Whether you need a platform, ongoing optimization, or an innovation partner — we&apos;re ready.
+              Whether you need a platform, ongoing optimization, or an innovation partner, we&apos;re ready.
             </p>
           </Reveal>
 
@@ -1068,7 +1068,7 @@ export default function LabsPage() {
                 Let&apos;s build with purpose.
               </h2>
               <p className="text-lg sm:text-xl text-white/95 max-w-xl leading-relaxed mb-10" style={{ textShadow: '0 1px 14px rgba(0,0,0,0.4)' }}>
-                Launching new, improving existing, or exploring a concept — Labs turns ideas into
+                Launching new, improving existing, or exploring a concept, Labs turns ideas into
                 thoughtful digital experiences.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">

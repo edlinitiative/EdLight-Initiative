@@ -64,7 +64,7 @@ export async function POST(request: Request) {
       from: fromAddress,
       to: [contactInbox],
       replyTo: email,
-      subject: `Contact form: ${headerSafe(subject || interest || 'New message', 80)} — ${headerSafe(name, 60)}`,
+      subject: `Contact form: ${headerSafe(subject || interest || 'New message', 80)} (from ${headerSafe(name, 60)})`,
       text: [
         `Name: ${headerSafe(name)}`,
         `Email: ${email}`,

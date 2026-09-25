@@ -22,7 +22,7 @@
     "title": "What is the EdLight Summer Leadership Program?",
     "subtitle": "Launched in August 2022, ESLP is a two-week summer programme for secondary students in Haiti designed to strengthen leadership, civic awareness, and future readiness.",
     "p1": "ESLP complements academic learning with a focused journey through leadership, entrepreneurship, personal development, civic engagement, and global opportunity awareness. Fellows reflect on both local and international issues while building the confidence to lead in their schools and communities.",
-    "p2": "The 2026 edition ran as a hybrid experience: most sessions took place online, followed by a company excursion to Radio Télé Métropole in Port-au-Prince and a closing graduation day at IICA in Pétion-Ville, where 35 fellows received their certificates. We have welcomed speakers from leading organizations and institutions — including <b>Harvard, MIT, Microsoft, Deutsche Bank, and Cornell</b> — who join fellows to share expertise, challenge assumptions, and inspire action.",
+    "p2": "The 2026 edition ran as a hybrid experience: most sessions took place online, followed by a company excursion to Radio Télé Métropole in Port-au-Prince and a closing graduation day at IICA in Pétion-Ville, where 35 fellows received their certificates. We have welcomed speakers from leading organizations and institutions, including <b>Harvard, MIT, Microsoft, Deutsche Bank, and Cornell</b>, who join fellows to share expertise, challenge assumptions, and inspire action.",
     "programDescription": "Program description"
   },
   "gallery": {
@@ -46,7 +46,7 @@
     },
     "cityImmersions": {
       "title": "City immersions",
-      "description": "A featured company visit in Port-au-Prince — Radio Télé Métropole in 2026 — helps fellows connect leadership learning to real workplace expectations."
+      "description": "A featured company visit in Port-au-Prince (Radio Télé Métropole in 2026) helps fellows connect leadership learning to real workplace expectations."
     },
     "pitchNight": {
       "title": "Impact pitch night",
@@ -96,15 +96,15 @@
     "subtitle": "From virtual seminars with world-class speakers to hands-on excursions and a celebration of achievement.",
     "seminars": {
       "label": "Seminars",
-      "alt": "ESLP virtual seminar session — fellows and speakers on a Zoom call",
+      "alt": "ESLP virtual seminar session: fellows and speakers on a Zoom call",
       "heading": "Interactive virtual seminars",
-      "description": "From 9 AM to 12 PM, fellows meet virtually with expert speakers from institutions like Harvard, MIT, Cornell, Deutsche Bank, and Microsoft. Interactive sessions cover leadership, personal development, college admissions, finance, and entrepreneurship — offering students a platform to engage directly with industry leaders."
+      "description": "From 9 AM to 12 PM, fellows meet virtually with expert speakers from institutions like Harvard, MIT, Cornell, Deutsche Bank, and Microsoft. Interactive sessions cover leadership, personal development, college admissions, finance, and entrepreneurship, giving students a platform to engage directly with industry leaders."
     },
     "excursion": {
       "label": "Excursion",
       "alt": "ESLP 2026 fellows on the news set during their visit to Radio Télé Métropole in Port-au-Prince",
       "heading": "Real-world company visits",
-      "description": "The program includes an enriching excursion to a prominent company in Port-au-Prince — in 2026, fellows spent a day at Radio Télé Métropole, exchanging with journalists and touring the newsroom, studios, and control room. Transportation and entries are fully covered for every fellow."
+      "description": "The program includes an enriching excursion to a prominent company in Port-au-Prince. In 2026, fellows spent a day at Radio Télé Métropole, exchanging with journalists and touring the newsroom, studios, and control room. Transportation and entries are fully covered for every fellow."
     },
     "graduation": {
       "label": "Graduation",
@@ -116,7 +116,7 @@
   "journey": {
     "eyebrow": "Journey",
     "title": "From application to alumni leadership",
-    "intro": "ESLP is designed as a guided journey. Fellows receive holistic support at every phase — from recruitment to post-program mentorship."
+    "intro": "ESLP is designed as a guided journey. Fellows receive holistic support at every phase, from recruitment to post-program mentorship."
   },
   "phases": {
     "discover": {
@@ -195,7 +195,7 @@
   "cohort2026": {
     "badge": "Cohort Graduated",
     "title": "ESLP 2026",
-    "body": "The 2026 edition of the EdLight Summer Leadership Program ran <b>{dates}</b> — two weeks of virtual seminars, a company excursion to <b>Radio Télé Métropole</b> in Port-au-Prince, and a graduation ceremony at <b>IICA in Pétion-Ville</b> where 35 fellows received their certificates. Applications for ESLP 2027 will open in <b>{opens}</b>."
+    "body": "The 2026 edition of the EdLight Summer Leadership Program ran <b>{dates}</b>: two weeks of virtual seminars, a company excursion to <b>Radio Télé Métropole</b> in Port-au-Prince, and a graduation ceremony at <b>IICA in Pétion-Ville</b> where 35 fellows received their certificates. Applications for ESLP 2027 will open in <b>{opens}</b>."
   },
   "funding": {
     "title": "Fully funded for every fellow",
@@ -233,7 +233,7 @@
   "faqs": {
     "dates": {
       "question": "When does the next cohort take place?",
-      "answer": "The 2026 edition ran {dates} and concluded with 35 fellows graduating at IICA in Pétion-Ville. Applications for ESLP 2027 will open in {opens} — join the notify list to hear first."
+      "answer": "The 2026 edition ran {dates} and concluded with 35 fellows graduating at IICA in Pétion-Ville. Applications for ESLP 2027 will open in {opens}. Join the notify list to hear first."
     },
     "free": {
       "question": "Is the program really free?",
@@ -241,7 +241,7 @@
     },
     "documents": {
       "question": "What documents will I need to apply?",
-      "answer": "Typically you submit: (1) an application form, (2) two essays — one about your extracurricular activities and another about your interest in the program, (3) a recent ID picture, and (4) your current academic transcripts as a PDF."
+      "answer": "Typically you submit: (1) an application form, (2) two essays, one about your extracurricular activities and another about your interest in the program, (3) a recent ID picture, and (4) your current academic transcripts as a PDF."
     },
     "english": {
       "question": "Do fellows need to speak English?",

@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "EdLight Initiative · Fondée en {year}",
     "title": "Donner à la prochaine génération d’innovateurs haïtiens les moyens d’agir.",
-    "subtitle": "Une éducation de qualité, du mentorat et des occasions à l’international — bâtis avec et pour les élèves de tout Haïti.",
+    "subtitle": "Une éducation de qualité, du mentorat et des occasions à l’international, bâtis avec et pour les élèves de tout Haïti.",
     "meta": {
       "programmes": "Programmes",
       "alumni": "Anciens de l’ESLP",
@@ -43,15 +43,15 @@
   "ecosystem": {
     "title": "Notre écosystème",
     "subtitle": "Des programmes complets qui accompagnent les élèves à chaque étape",
-    "intro": "Quatre programmes, chacun visant un moment différent du parcours d’un élève. Academy et Code couvrent l’apprentissage lui-même, des mathématiques et de la physique du secondaire jusqu’à la programmation en Python et en SQL. EdLight Scholars et l’ESLP prennent en charge la suite — les titres et l’expérience de leadership qui font d’un bon élève une candidature solide. Les quatre sont gratuits, et un élève peut commencer n’importe où et passer de l’un à l’autre.",
+    "intro": "Quatre programmes, chacun visant un moment différent du parcours d’un élève. Academy et Code couvrent l’apprentissage lui-même, des mathématiques et de la physique du secondaire jusqu’à la programmation en Python et en SQL. EdLight Scholars et l’ESLP prennent en charge la suite : les titres et l’expérience de leadership qui font d’un bon élève une candidature solide. Les quatre sont gratuits, et un élève peut commencer n’importe où et passer de l’un à l’autre.",
     "programs": {
       "academy": {
         "title": "EdLight Academy",
-        "description": "Des cours gratuits en mathématiques, physique, chimie, SVT, économie et langues — conçus autour des examens de 9e Année et du Baccalauréat."
+        "description": "Des cours gratuits en mathématiques, physique, chimie, SVT, économie et langues, conçus autour des examens de 9e Année et du Baccalauréat."
       },
       "code": {
         "title": "EdLight Code",
-        "description": "Six parcours de programmation pratiques — Python, SQL, HTML, CSS, JavaScript, Terminal et Git — enseignés en créole haïtien, en français et en anglais."
+        "description": "Six parcours de programmation pratiques (Python, SQL, HTML, CSS, JavaScript, Terminal et Git) enseignés en créole haïtien, en français et en anglais."
       },
       "scholars": {
         "title": "EdLight Scholars",
@@ -104,7 +104,7 @@
   },
   "cta": {
     "title": "Passez à l’étape suivante",
-    "body": "Que vous soyez un élève en Haïti à la recherche d’un cours, un professionnel prêt à faire du mentorat ou un donateur qui cherche où cent dollars iront le plus loin — voici par où commencer.",
+    "body": "Que vous soyez un élève en Haïti à la recherche d’un cours, un professionnel prêt à faire du mentorat ou un donateur qui cherche où cent dollars iront le plus loin, voici par où commencer.",
     "startCourse": "Commencer un cours gratuit",
     "donate": "Faire un don",
     "volunteer": "Devenir bénévole ou partenaire"

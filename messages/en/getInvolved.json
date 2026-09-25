@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "EdLight Ecosystem · Get Involved",
     "title": "Get Involved",
-    "subtitle": "Join us in empowering the next generation of Haitian innovators — as a volunteer, partner, donor, or guest speaker.",
+    "subtitle": "Join us in empowering the next generation of Haitian innovators, as a volunteer, partner, donor, or guest speaker.",
     "metaWaysLabel": "Ways to help",
     "metaCostLabel": "Cost to students",
     "metaCostValue": "$0",
@@ -11,14 +11,14 @@
   },
   "ways": {
     "heading": "Ways to get involved",
-    "subheading": "There are many ways you can support our mission — pick the one that fits you best.",
+    "subheading": "There are many ways you can support our mission. Pick the one that fits you best.",
     "volunteer": {
       "title": "Volunteer",
       "description": "Mentor a student through a course, teach a workshop in your subject, review project work, or help with the operations behind the programmes. Most volunteers give a few hours a month, remotely. Tell us what you know and when you are free, and we will match you to something real."
     },
     "partner": {
       "title": "Partner",
-      "description": "Schools, universities, businesses, and NGOs work with us to widen what our students can reach — course content, exam preparation, venues, equipment, internships, and scholarship routes. Our current partners are UWC, Coursera, IICA, and DataCamp Donates."
+      "description": "Schools, universities, businesses, and NGOs work with us to widen what our students can reach: course content, exam preparation, venues, equipment, internships, and scholarship routes. Our current partners are UWC, Coursera, IICA, and DataCamp Donates."
     },
     "donate": {
       "title": "Donate",
@@ -35,7 +35,7 @@
     "body": "Your donation directly supports scholarships, program costs, and resources for students. Every contribution makes a difference.",
     "secureCheckout": "Secure PayPal Checkout",
     "poweredBy": "Powered by PayPal. Choose a one-time gift or set up monthly support.",
-    "taxNotice": "EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation No. {number}). We do not yet hold registered-charity status, so we cannot issue tax receipts — we would rather say so before you give than after."
+    "taxNotice": "EdLight Initiative is a not-for-profit corporation registered in Canada (Corporation No. {number}). We do not yet hold registered-charity status, so we cannot issue tax receipts. We would rather say so before you give than after."
   },
   "form": {
     "heading": "Contact us",

@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Écosystème EdLight · Plateforme d’apprentissage",
     "title": "EdLight Academy",
-    "subtitle": "Une plateforme d’apprentissage complète pour les élèves haïtiens — des cours structurés, une véritable préparation aux examens nationaux et un jeu de questions quotidien, le tout avec un suivi des progrès qui entretient votre motivation. Gratuite et bilingue.",
+    "subtitle": "Une plateforme d’apprentissage complète pour les élèves haïtiens : des cours structurés, une véritable préparation aux examens nationaux et un jeu de questions quotidien, le tout avec un suivi des progrès qui entretient votre motivation. Gratuite et bilingue.",
     "meta": {
       "subjects": "Matières",
       "examLevels": "Niveaux d’examen",
@@ -23,7 +23,7 @@
       },
       "exams": {
         "title": "Examens blancs",
-        "description": "De véritables examens nationaux passés — de la 9e Année au Baccalauréat et aux concours d’entrée à l’université — chacun accompagné de corrigés détaillés et expliqués."
+        "description": "De véritables examens nationaux passés, de la 9e Année au Baccalauréat et aux concours d’entrée à l’université, chacun accompagné de corrigés détaillés et expliqués."
       },
       "trivia": {
         "title": "Jeu de questions",
@@ -46,7 +46,7 @@
       },
       "streaks": {
         "title": "Séries quotidiennes",
-        "description": "Gardez votre série en vie en apprenant un peu chaque jour — 3 jours, une semaine, un mois et bien plus."
+        "description": "Gardez votre série en vie en apprenant un peu chaque jour : 3 jours, une semaine, un mois et bien plus."
       },
       "leaderboard": {
         "title": "Classement hebdomadaire",
@@ -54,7 +54,7 @@
       },
       "achievements": {
         "title": "Réussites",
-        "description": "Débloquez des badges pour vos jalons — de votre premier quiz à une année entière de régularité."
+        "description": "Débloquez des badges pour vos jalons, de votre premier quiz à une année entière de régularité."
       }
     }
   },
@@ -99,7 +99,7 @@
       },
       "bac": {
         "title": "Baccalauréat",
-        "description": "Les examens de Terminale dans toutes les séries — SVT, SMP, SES, Lettres et Arts."
+        "description": "Les examens de Terminale dans toutes les séries : SVT, SMP, SES, Lettres et Arts."
       },
       "university": {
         "title": "Entrée à l’université",
@@ -133,7 +133,7 @@
   },
   "studyPlan": {
     "title": "Votre parcours personnalisé vers le bac",
-    "subtitle": "EdLight Academy transforme une étude dispersée en un plan — et vous montre exactement où vous en êtes avant le jour de l’examen.",
+    "subtitle": "EdLight Academy transforme une étude dispersée en un plan, et vous montre exactement où vous en êtes avant le jour de l’examen.",
     "items": {
       "plan": {
         "title": "Plan d’étude personnalisé",
@@ -141,7 +141,7 @@
       },
       "score": {
         "title": "Score pondéré du BAC",
-        "description": "Suivez votre préparation grâce à un score pondéré par les coefficients de votre série — SVT ×4, chimie ×3, et plus encore."
+        "description": "Suivez votre préparation grâce à un score pondéré par les coefficients de votre série : SVT ×4, chimie ×3, et plus encore."
       },
       "dashboard": {
         "title": "Tableau de bord des progrès",

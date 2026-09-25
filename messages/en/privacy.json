@@ -35,7 +35,7 @@
     "delivery": "All four forms are delivered to our inbox as email by <strong>Resend</strong>, our email provider. Subscribing to the newsletter or a notification list also sends you a confirmation email. Nothing you submit is written to a database or stored on this website; the record is the message in our inbox, and you can ask us to delete yours at any time.",
     "noPayment": "We do not ask for payment information anywhere on this site, and we never see your card details. All programmes are free, so there is nothing to pay for; donations are handled entirely by PayPal, as described in section 4.",
     "autoHeading": "Automatically Collected Information",
-    "autoBody": "This site does not use analytics, advertising, or tracking cookies, and it does not build a profile of your browsing. Like any website, our hosting provider automatically logs basic technical information with each request — your IP address, browser type, and the page requested — which is used to serve the site, keep it secure, and diagnose faults. If we introduce analytics or advertising measurement in future, we will update this policy and the \"Last Updated\" date before doing so."
+    "autoBody": "This site does not use analytics, advertising, or tracking cookies, and it does not build a profile of your browsing. Like any website, our hosting provider automatically logs basic technical information with each request (your IP address, browser type, and the page requested), which is used to serve the site, keep it secure, and diagnose faults. If we introduce analytics or advertising measurement in future, we will update this policy and the \"Last Updated\" date before doing so."
   },
   "s3": {
     "heading": "3. How We Use Your Information",
@@ -93,7 +93,7 @@
     "heading": "7. How Long We Keep Information",
     "intro": "We keep information for as long as it is needed for the purpose it was collected for.",
     "items": {
-      "participants": "Programme participants. If you are selected for one of our programmes — including the EdLight Scholars Program and ESLP — we keep your participation record after your cohort ends. We use it to follow your progress, to report the programme’s impact to our funders and partners, and to keep you part of the EdLight alumni network. Taking part in a programme includes agreeing to this.",
+      "participants": "Programme participants. If you are selected for one of our programmes, including the EdLight Scholars Program and ESLP, we keep your participation record after your cohort ends. We use it to follow your progress, to report the programme’s impact to our funders and partners, and to keep you part of the EdLight alumni network. Taking part in a programme includes agreeing to this.",
       "enquiries": "Enquiries and messages. Kept while we handle your message and for a reasonable period afterwards as a record of the exchange.",
       "notify": "Notify lists. Kept until you unsubscribe, or until the cycle you signed up for has passed.",
       "donations": "Donation records. Kept for as long as Canadian charitable and tax record-keeping rules require."
@@ -113,7 +113,7 @@
       "withdrawal": "Withdrawal of consent"
     },
     "exercise": "To exercise these rights, please contact us at {email}, or write to us at the address in section 13.",
-    "limits": "These rights are not absolute. Where we have a continuing legitimate interest or a legal obligation — for example the record that you took part in and completed a programme, or records we must keep for charitable reporting — we may retain some information after a deletion request. If that happens we will tell you what we kept and why."
+    "limits": "These rights are not absolute. Where we have a continuing legitimate interest or a legal obligation (for example the record that you took part in and completed a programme, or records we must keep for charitable reporting), we may retain some information after a deletion request. If that happens we will tell you what we kept and why."
   },
   "s9": {
     "heading": "9. Children's Privacy",

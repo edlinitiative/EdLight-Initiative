@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "EdLight Ecosystem · Learn to Code",
     "title": "EdLight Code",
-    "subtitle": "The skills you need. The portfolio to prove it. Master Python, SQL, Web Development, and more through guided, hands-on courses — all in your browser.",
+    "subtitle": "The skills you need. The portfolio to prove it. Master Python, SQL, Web Development, and more through guided, hands-on courses, all in your browser.",
     "meta": {
       "tracks": "Learning tracks",
       "cost": "Cost",
@@ -17,11 +17,11 @@
   },
   "stats": {
     "title": "Learn by doing, not watching",
-    "subtitle": "EdLight Code turns lessons into real-world skills. Every lesson is a focused reading followed by a hands-on coding exercise — no video lectures, just learn at your own pace and write real code.",
+    "subtitle": "EdLight Code turns lessons into real-world skills. Every lesson is a focused reading followed by a hands-on coding exercise. No video lectures: learn at your own pace and write real code.",
     "items": {
       "tracks": {
         "label": "Learning tracks",
-        "description": "SQL, Python, HTML, CSS, JavaScript, Terminal & Git — with more on the way."
+        "description": "SQL, Python, HTML, CSS, JavaScript, Terminal & Git, with more on the way."
       },
       "free": {
         "label": "Free & browser-based",
@@ -43,7 +43,7 @@
       },
       "learn": {
         "title": "Learn with lessons & labs",
-        "description": "Read bite-sized lessons, then practice with hands-on coding exercises directly in your browser — no setup required."
+        "description": "Read bite-sized lessons, then practice with hands-on coding exercises directly in your browser. No setup required."
       },
       "certify": {
         "title": "Earn a certificate",
@@ -86,7 +86,7 @@
   },
   "projects": {
     "title": "Learn by building",
-    "subtitle": "Apply your skills by building real-world applications — from portfolio sites to data analysis pipelines.",
+    "subtitle": "Apply your skills by building real-world applications, from portfolio sites to data analysis pipelines.",
     "exploreAll": "Explore all projects on EdLight Code",
     "levels": {
       "beginner": "Beginner",
@@ -123,7 +123,7 @@
   "lessonFormat": {
     "eyebrow": "Lesson format",
     "title": "Short reads. Real practice.",
-    "body": "Every lesson is a focused reading followed by a hands-on coding exercise. No video lectures — just learn at your own pace and write real code.",
+    "body": "Every lesson is a focused reading followed by a hands-on coding exercise. No video lectures: learn at your own pace and write real code.",
     "features": {
       "biteSized": {
         "title": "Bite-sized lessons",
@@ -135,7 +135,7 @@
       },
       "anyDevice": {
         "title": "Works on any device",
-        "description": "Mobile-friendly and browser-based. Learn on a phone, tablet, or laptop — wherever you are."
+        "description": "Mobile-friendly and browser-based. Learn on a phone, tablet, or laptop, wherever you are."
       },
       "multilingual": {
         "title": "Multilingual support",
@@ -144,7 +144,7 @@
     },
     "insideEyebrow": "Inside a lesson",
     "insideTitle": "Read → Code → Repeat",
-    "insideBody": "Each lesson pairs a clear, focused explanation with an interactive coding exercise. You read the concept, then immediately apply it by writing real code in the browser. Instant feedback tells you if you got it right. No passive watching — you learn by doing.",
+    "insideBody": "Each lesson pairs a clear, focused explanation with an interactive coding exercise. You read the concept, then immediately apply it by writing real code in the browser. Instant feedback tells you if you got it right. No passive watching: you learn by doing.",
     "badges": {
       "noSetup": "No setup",
       "instantFeedback": "Instant feedback",
@@ -153,7 +153,7 @@
   },
   "certificates": {
     "title": "Certificates that employers trust",
-    "subtitle": "Complete a track and earn a certificate with a unique verification link. No more 'trust me' — employers can verify your skills in seconds.",
+    "subtitle": "Complete a track and earn a certificate with a unique verification link. No more 'trust me': employers can verify your skills in seconds.",
     "seeVerification": "See certificate verification",
     "items": {
       "link": {
@@ -162,7 +162,7 @@
       },
       "employer": {
         "title": "Instant employer verification",
-        "description": "Employers can verify your certificate in seconds — no login required."
+        "description": "Employers can verify your certificate in seconds, with no login required."
       },
       "shareable": {
         "title": "Shareable credentials",

@@ -23,7 +23,7 @@
   },
   "benefits": {
     "title": "Pourquoi devenir Scholar ?",
-    "subtitle": "Une bourse, c’est plus qu’un compte — c’est un élan structuré vers ce que vous cherchez à atteindre.",
+    "subtitle": "Une bourse, c’est plus qu’un compte. C’est un élan structuré vers ce que vous cherchez à atteindre.",
     "items": {
       "learn": {
         "title": "Apprendre",
@@ -55,7 +55,7 @@
       "selfDirected": "Apprenants autonomes"
     },
     "body": "Ce qui compte le plus, c’est un objectif clair et l’engagement d’apprendre. Vous n’avez besoin ni d’un dossier scolaire parfait, ni d’une place à l’université, ni d’une expérience préalable des cours en ligne.",
-    "body2": "Une place à l’université n’est pas nécessaire pour postuler directement. Si vous étudiez dans un <partner>établissement partenaire</partner>, votre école nomme elle-même ses étudiants — il vaut donc la peine de commencer par là."
+    "body2": "Une place à l’université n’est pas nécessaire pour postuler directement. Si vous étudiez dans un <partner>établissement partenaire</partner>, votre école nomme elle-même ses étudiants : il vaut donc la peine de commencer par là."
   },
   "steps": {
     "title": "Comment ça fonctionne",
@@ -63,7 +63,7 @@
     "items": {
       "apply": {
         "title": "Postuler ou être nommé",
-        "body": "Si votre université est un établissement partenaire, elle nomme elle-même ses étudiants — renseignez-vous auprès d’elle. Sinon, vous postulerez directement auprès d’EdLight dès l’ouverture des candidatures."
+        "body": "Si votre université est un établissement partenaire, elle nomme elle-même ses étudiants : renseignez-vous auprès d’elle. Sinon, vous postulerez directement auprès d’EdLight dès l’ouverture des candidatures."
       },
       "selected": {
         "title": "Être sélectionné",
@@ -110,7 +110,7 @@
     }
   },
   "commitment": {
-    "title": "Une bourse est une occasion — et un engagement.",
+    "title": "Une bourse est une occasion, et un engagement.",
     "p1": "Les places sont limitées, et chacune d’elles pourrait revenir à quelqu’un d’autre. Les Scholars sélectionnés doivent activer leur accès, commencer un cours et terminer au moins un cours ou un certificat qui compte.",
     "p2": "Si un Scholar n’est pas en mesure de commencer, nous préférons l’apprendre tôt et offrir la place à quelqu’un sur la liste d’attente plutôt que de la laisser inutilisée."
   },
@@ -128,11 +128,11 @@
     },
     "eligibility": {
       "q": "Qui peut poser sa candidature ?",
-      "a": "Les apprenants motivés de 16 ans et plus — élèves et étudiants, diplômés, jeunes professionnels, entrepreneurs et apprenants autonomes. La première cohorte s’adresse principalement aux apprenants établis en Haïti."
+      "a": "Les apprenants motivés de 16 ans et plus : élèves et étudiants, diplômés, jeunes professionnels, entrepreneurs et apprenants autonomes. La première cohorte s’adresse principalement aux apprenants établis en Haïti."
     },
     "howToJoin": {
-      "q": "Comment participer — dois-je postuler ou mon université doit-elle me nommer ?",
-      "a": "Les deux voies existent. Si vous étudiez dans un établissement partenaire, votre université sélectionne elle-même ses étudiants : renseignez-vous auprès de votre faculté ou du service des affaires étudiantes. Si ce n’est pas le cas, ou si vous n’êtes pas étudiant, vous pourrez postuler directement auprès d’EdLight dès l’ouverture des candidatures — inscrivez-vous à la liste et nous vous préviendrons."
+      "q": "Comment participer ? Dois-je postuler ou mon université doit-elle me nommer ?",
+      "a": "Les deux voies existent. Si vous étudiez dans un établissement partenaire, votre université sélectionne elle-même ses étudiants : renseignez-vous auprès de votre faculté ou du service des affaires étudiantes. Si ce n’est pas le cas, ou si vous n’êtes pas étudiant, vous pourrez postuler directement auprès d’EdLight dès l’ouverture des candidatures. Inscrivez-vous à la liste et nous vous préviendrons."
     },
     "enrolment": {
       "q": "Dois-je être inscrit dans un établissement scolaire ?",
@@ -156,7 +156,7 @@
     },
     "selection": {
       "q": "Est-ce Coursera qui sélectionne les Scholars ?",
-      "a": "Non. EdLight Initiative est partenaire social de Coursera. C’est EdLight qui gère le programme — les candidatures directes d’une part, et le travail avec les établissements partenaires qui nomment eux-mêmes leurs étudiants d’autre part. Coursera ne choisit pas les Scholars et ne coadministre pas le programme."
+      "a": "Non. EdLight Initiative est partenaire social de Coursera. C’est EdLight qui gère le programme : les candidatures directes d’une part, et le travail avec les établissements partenaires qui nomment eux-mêmes leurs étudiants d’autre part. Coursera ne choisit pas les Scholars et ne coadministre pas le programme."
     },
     "notSelected": {
       "q": "Que se passe-t-il si je ne suis pas sélectionné ?",
@@ -231,11 +231,11 @@
         "note": "Session d’été"
       }
     },
-    "note": "Les institutions partenaires nomment leurs étudiants avant l’ouverture d’une cohorte — pour la Cohorte 1, la date limite est le 20 septembre 2026. Les candidatures directes ouvrent séparément ; inscrivez-vous à la liste et nous vous communiquerons la date."
+    "note": "Les institutions partenaires nomment leurs étudiants avant l’ouverture d’une cohorte. Pour la Cohorte 1, la date limite est le 20 septembre 2026. Les candidatures directes ouvrent séparément ; inscrivez-vous à la liste et nous vous communiquerons la date."
   },
   "gallery": {
     "title": "Les apprenants d’EdLight",
-    "subtitle": "Photographies des programmes d’EdLight en Haïti — la communauté que rejoignent les Scholars.",
+    "subtitle": "Photographies des programmes d’EdLight en Haïti : la communauté que rejoignent les Scholars.",
     "alt": {
       "certificate": "Un apprenant d’EdLight recevant un certificat",
       "graduation": "Une cohorte d’EdLight lors de la remise des certificats",

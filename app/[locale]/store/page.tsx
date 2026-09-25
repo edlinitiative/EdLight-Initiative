@@ -41,7 +41,7 @@ export default function StorePage({
       <Hero
         eyebrow="EdLight Store"
         title="Wear it. Carry it. Fund it."
-        subtitle="Apparel, accessories, and a sponsorship kit — every order supports educational programs for Haitian youth."
+        subtitle="Apparel, accessories, and a sponsorship kit. Every order supports educational programs for Haitian youth."
         backgroundImage="/about_us.webp"
       />
 

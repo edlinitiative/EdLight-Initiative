@@ -23,7 +23,7 @@
   },
   "benefits": {
     "title": "Why become a Scholar?",
-    "subtitle": "A scholarship is more than an account — it is a structured push toward the thing you are trying to reach.",
+    "subtitle": "A scholarship is more than an account. It is a structured push toward the thing you are trying to reach.",
     "items": {
       "learn": {
         "title": "Learn",
@@ -55,7 +55,7 @@
       "selfDirected": "Self-directed learners"
     },
     "body": "What matters most is a clear goal and the commitment to learn. You do not need a perfect academic record, a university place, or previous experience with online courses.",
-    "body2": "A university place is not required to apply directly. If you are studying at a <partner>partner institution</partner>, your school nominates its own students — so it is worth asking there first."
+    "body2": "A university place is not required to apply directly. If you are studying at a <partner>partner institution</partner>, your school nominates its own students, so it is worth asking there first."
   },
   "steps": {
     "title": "How it works",
@@ -63,7 +63,7 @@
     "items": {
       "apply": {
         "title": "Apply or get nominated",
-        "body": "If your university is a partner institution, it nominates its own students — ask your school. Otherwise you apply to EdLight directly when applications open."
+        "body": "If your university is a partner institution, it nominates its own students, so ask your school. Otherwise you apply to EdLight directly when applications open."
       },
       "selected": {
         "title": "Get selected",
@@ -110,7 +110,7 @@
     }
   },
   "commitment": {
-    "title": "A scholarship is an opportunity — and a commitment.",
+    "title": "A scholarship is an opportunity, and a commitment.",
     "p1": "Places are limited, and every one of them could go to someone else. Selected Scholars are expected to activate their access, start a course, and complete at least one meaningful course or certificate.",
     "p2": "If a Scholar is not able to begin, we would rather hear it early and offer the place to someone on the waitlist than let it go unused."
   },
@@ -128,15 +128,15 @@
     },
     "eligibility": {
       "q": "Who can apply?",
-      "a": "Motivated learners aged 16 and over — students, graduates, young professionals, entrepreneurs, and self-directed learners. The first cohort primarily serves learners based in Haiti."
+      "a": "Motivated learners aged 16 and over: students, graduates, young professionals, entrepreneurs, and self-directed learners. The first cohort primarily serves learners based in Haiti."
     },
     "howToJoin": {
-      "q": "How do I join — do I apply, or does my university nominate me?",
-      "a": "Both routes exist. If you study at a partner institution, your university selects its own students, so ask your faculty or student affairs office whether it takes part. If it does not, or if you are not currently a student, you can apply to EdLight directly once applications open — join the notify list and we will tell you when they do."
+      "q": "How do I join? Do I apply, or does my university nominate me?",
+      "a": "Both routes exist. If you study at a partner institution, your university selects its own students, so ask your faculty or student affairs office whether it takes part. If it does not, or if you are not currently a student, you can apply to EdLight directly once applications open. Join the notify list and we will tell you when they do."
     },
     "enrolment": {
       "q": "Do I need to be enrolled in school?",
-      "a": "Not for the direct route — current enrolment is not required and we do not expect a perfect academic record. The nomination route is different: those places belong to a partner institution, so they go to that institution’s own students."
+      "a": "Not for the direct route: current enrolment is not required and we do not expect a perfect academic record. The nomination route is different. Those places belong to a partner institution, so they go to that institution’s own students."
     },
     "experience": {
       "q": "Do I need previous Coursera experience?",
@@ -156,7 +156,7 @@
     },
     "selection": {
       "q": "Is Coursera selecting the Scholars?",
-      "a": "No. EdLight Initiative is a Coursera Social Impact Partner. EdLight runs the programme — managing direct applications itself, and working with partner institutions who select their own nominated students. Coursera does not choose Scholars or co-administer the programme."
+      "a": "No. EdLight Initiative is a Coursera Social Impact Partner. EdLight runs the programme, managing direct applications itself and working with partner institutions who select their own nominated students. Coursera does not choose Scholars or co-administer the programme."
     },
     "notSelected": {
       "q": "What happens if I am not selected?",
@@ -231,11 +231,11 @@
         "note": "Summer session"
       }
     },
-    "note": "Partner institutions nominate their students before a cohort opens — for Cohort 1 the deadline is 20 September 2026. Direct applications open separately; join the notify list and we will write to you with the date."
+    "note": "Partner institutions nominate their students before a cohort opens. For Cohort 1 the deadline is 20 September 2026. Direct applications open separately; join the notify list and we will write to you with the date."
   },
   "gallery": {
     "title": "EdLight learners",
-    "subtitle": "Photographs from EdLight programmes in Haiti — the community Scholars join.",
+    "subtitle": "Photographs from EdLight programmes in Haiti: the community Scholars join.",
     "alt": {
       "certificate": "An EdLight learner receiving a certificate",
       "graduation": "An EdLight cohort at their graduation",

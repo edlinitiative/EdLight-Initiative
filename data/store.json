@@ -4,14 +4,14 @@
     "name": "EdLight T-Shirt",
     "price": 25,
     "image": "/store/tshirt.png",
-    "description": "Premium cotton t-shirt with the EdLight wordmark — soft hand, classic fit."
+    "description": "Premium cotton t-shirt with the EdLight wordmark. Soft hand, classic fit."
   },
   {
     "id": 2,
     "name": "Leadership Notebook",
     "price": 15,
     "image": "/store/notebook.png",
-    "description": "Hardcover notebook for class notes, planning, and reflection — branded with the EdLight mark."
+    "description": "Hardcover notebook for class notes, planning, and reflection, branded with the EdLight mark."
   },
   {
     "id": 3,
@@ -26,6 +26,6 @@
     "price": 50,
     "priceSuffix": "/month",
     "image": "/store/sponsor.png",
-    "description": "Underwrite a month of learning for one student — notebook, supplies, and program access included."
+    "description": "Underwrite a month of learning for one student: notebook, supplies, and program access included."
   }
 ]

@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Contact",
     "title": "Get in touch",
-    "subtitle": "Questions about a programme, an offer to help, a partnership, or a gift — this reaches the team directly."
+    "subtitle": "Questions about a programme, an offer to help, a partnership, or a gift: this reaches the team directly."
   },
   "channels": {
     "email": {
@@ -44,7 +44,7 @@
     "messageMinLength": "A little more detail will help us answer properly.",
     "sending": "Sending…",
     "submit": "Send message",
-    "success": "Thank you — your message is with us. We usually reply within two to three business days.",
+    "success": "Thank you, your message is with us. We usually reply within two to three business days.",
     "error": "Something went wrong sending that. Please try again, or email us directly at <link>{email}</link>.",
     "replyNote": "We usually reply within two to three business days."
   }

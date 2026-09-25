@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "EdLight Ecosystem · Learning Platform",
     "title": "EdLight Academy",
-    "subtitle": "A full learning platform for Haitian students — structured courses, real national exam prep, and a daily trivia game, all with progress tracking that keeps you motivated. Free and bilingual.",
+    "subtitle": "A full learning platform for Haitian students: structured courses, real national exam prep, and a daily trivia game, all with progress tracking that keeps you motivated. Free and bilingual.",
     "meta": {
       "subjects": "Subjects",
       "examLevels": "Exam levels",
@@ -23,7 +23,7 @@
       },
       "exams": {
         "title": "Mock exams",
-        "description": "Real past national exams — from 9e Année to the Baccalauréat and university entrance — each with detailed, worked corrections."
+        "description": "Real past national exams, from 9e Année to the Baccalauréat and university entrance, each with detailed, worked corrections."
       },
       "trivia": {
         "title": "Trivia game",
@@ -46,7 +46,7 @@
       },
       "streaks": {
         "title": "Daily streaks",
-        "description": "Keep your streak alive with a little learning each day — 3 days, a week, a month, and beyond."
+        "description": "Keep your streak alive with a little learning each day: 3 days, a week, a month, and beyond."
       },
       "leaderboard": {
         "title": "Weekly leaderboard",
@@ -54,7 +54,7 @@
       },
       "achievements": {
         "title": "Achievements",
-        "description": "Unlock badges for milestones — from your first quiz to a full year of consistency."
+        "description": "Unlock badges for milestones, from your first quiz to a full year of consistency."
       }
     }
   },
@@ -99,7 +99,7 @@
       },
       "bac": {
         "title": "Baccalauréat",
-        "description": "Terminale exams across every track — SVT, SMP, SES, Lettres, and Arts."
+        "description": "Terminale exams across every track: SVT, SMP, SES, Lettres, and Arts."
       },
       "university": {
         "title": "University entrance",
@@ -133,7 +133,7 @@
   },
   "studyPlan": {
     "title": "Your personalized path to the bac",
-    "subtitle": "EdLight Academy turns scattered studying into a plan — and shows you exactly how ready you are for exam day.",
+    "subtitle": "EdLight Academy turns scattered studying into a plan, and shows you exactly how ready you are for exam day.",
     "items": {
       "plan": {
         "title": "Personalized study plan",
@@ -141,7 +141,7 @@
       },
       "score": {
         "title": "Weighted BAC score",
-        "description": "Track your readiness with a score weighted by your track’s coefficients — SVT ×4, Chemistry ×3, and more."
+        "description": "Track your readiness with a score weighted by your track’s coefficients: SVT ×4, Chemistry ×3, and more."
       },
       "dashboard": {
         "title": "Progress dashboard",
