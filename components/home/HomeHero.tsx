@@ -11,8 +11,6 @@ type Partner = { name: string; logo?: string }
  * is where a visitor looks for credibility.
  */
 export default function HomeHero({
-  eyebrow,
-  eyebrowShort,
   title,
   subtitle,
   partnersLabel,
@@ -20,9 +18,6 @@ export default function HomeHero({
   image,
   children,
 }: {
-  eyebrow: string
-  /** The same line for phones and tablets, short enough to stay on one row. */
-  eyebrowShort: string
   title: string
   subtitle: string
   partnersLabel: string
@@ -54,11 +49,6 @@ export default function HomeHero({
 
       <div className="mx-auto flex min-h-[560px] max-w-[1200px] flex-col justify-end px-6 pb-8 pt-24 sm:min-h-[640px] lg:min-h-[min(760px,calc(100vh-4rem))] lg:px-10">
         <div className="max-w-[64rem]">
-          <p className="mb-6 flex items-center gap-3 whitespace-nowrap text-[10.5px] font-semibold uppercase tracking-[0.14em] text-white/75 sm:text-xs sm:tracking-[0.22em]">
-            <span className="hidden h-px w-10 bg-white/50 sm:block" aria-hidden="true" />
-            <span className="lg:hidden">{eyebrowShort}</span>
-            <span className="hidden lg:inline">{eyebrow}</span>
-          </p>
           <h1 className="text-balance text-[2.25rem] font-semibold leading-[1.05] tracking-[-0.025em] text-white sm:text-[2.5rem] lg:text-[3.4rem]">
             {title}
           </h1>

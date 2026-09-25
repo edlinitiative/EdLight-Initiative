@@ -1,7 +1,5 @@
 {
   "hero": {
-    "eyebrow": "Founded in {year} · Registered Canadian not-for-profit since {registered}",
-    "eyebrowShort": "Founded in {year} · Canadian not-for-profit",
     "title": "Empowering the next generation of Haitian innovators.",
     "subtitle": "Quality education, mentorship, and global opportunities, built with and for students across Haiti.",
     "meta": {
