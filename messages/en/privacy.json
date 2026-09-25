@@ -5,7 +5,7 @@
     "description": "Learn how EdLight Initiative collects, uses, and protects your personal information."
   },
   "title": "Privacy Policy",
-  "lastUpdated": "Last Updated: September 2, 2026",
+  "lastUpdated": "Last Updated: September 25, 2026",
   "s1": {
     "heading": "1. Introduction",
     "body": "EdLight Initiative (\"we,\" \"our,\" or \"us\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services."
@@ -33,7 +33,7 @@
       }
     },
     "delivery": "All four forms are delivered to our inbox as email by <strong>Resend</strong>, our email provider. Subscribing to the newsletter or a notification list also sends you a confirmation email. Nothing you submit is written to a database or stored on this website; the record is the message in our inbox, and you can ask us to delete yours at any time.",
-    "noPayment": "We do not ask for payment information anywhere on this site, and we never see your card details. All programmes are free, so there is nothing to pay for; donations are handled entirely by PayPal, as described in section 4.",
+    "noPayment": "We do not ask for payment information anywhere on this site, and we never see your card details. Donations are handled entirely by PayPal, as described in section 4. Payments for paid features of EdLight Code are taken on code.edlight.org, not here, and are covered by that site's privacy policy.",
     "autoHeading": "Automatically Collected Information",
     "autoBody": "This site does not use analytics, advertising, or tracking cookies, and it does not build a profile of your browsing. Like any website, our hosting provider automatically logs basic technical information with each request (your IP address, browser type, and the page requested), which is used to serve the site, keep it secure, and diagnose faults. If we introduce analytics or advertising measurement in future, we will update this policy and the \"Last Updated\" date before doing so."
   },

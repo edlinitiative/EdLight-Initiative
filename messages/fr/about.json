@@ -7,7 +7,7 @@
     "title": "Notre histoire",
     "p1": "EdLight Initiative est un organisme guidé par sa mission, qui s’engage à élargir l’accès à une éducation de qualité, au développement du leadership et aux occasions à l’international pour la jeunesse haïtienne. Grâce à un écosystème de programmes en croissance, EdLight travaille à donner aux élèves les connaissances, les compétences et l’exposition nécessaires pour réussir sur le plan scolaire, sur le plan professionnel et comme futurs leaders.",
     "p2": "Son travail couvre l’apprentissage numérique, la formation en programmation et en technique, le développement du leadership, l’ouverture sur le monde et des solutions technologiques conçues pour avoir un impact. À travers ces initiatives, EdLight cherche à combler les écarts d’occasions et à créer des parcours concrets pour les jeunes haïtiens, en Haïti et ailleurs.",
-    "p3": "EdLight Initiative est une société à but non lucratif enregistrée au Canada (société n° {number}) et établie à {locality}, {region}. Tous les programmes sont offerts gratuitement aux élèves."
+    "p3": "EdLight Initiative est une société à but non lucratif enregistrée au Canada (société n° {number}) et établie à {locality}, {region}. EdLight Academy, EdLight Scholars et l’ESLP sont gratuits pour les élèves."
   },
   "missionVision": {
     "missionTitle": "Mission",
@@ -43,7 +43,7 @@
       "today": {
         "year": "Aujourd’hui",
         "title": "Un écosystème en croissance",
-        "description": "Aujourd’hui, EdLight mène quatre programmes gratuits : EdLight Academy, EdLight Code, EdLight Scholars et l’EdLight Summer Leadership Program (ESLP). Ensemble, ils élargissent les occasions offertes aux jeunes Haïtiens."
+        "description": "Aujourd’hui, EdLight mène quatre programmes : EdLight Academy, EdLight Code, EdLight Scholars et l’EdLight Summer Leadership Program (ESLP). Ensemble, ils élargissent les occasions offertes aux jeunes Haïtiens."
       }
     }
   },

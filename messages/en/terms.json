@@ -5,7 +5,7 @@
     "description": "Terms and conditions for using the EdLight Initiative website and services."
   },
   "title": "Terms of Use",
-  "lastUpdated": "Last Updated: September 2, 2026",
+  "lastUpdated": "Last Updated: September 25, 2026",
   "s1": {
     "heading": "1. Acceptance of Terms",
     "body": "By accessing and using the EdLight Initiative website and services (\"Services\"), you accept and agree to be bound by these Terms of Use (\"Terms\"). If you do not agree to these Terms, please do not use our Services."
@@ -57,8 +57,8 @@
     "heading": "5. Programs and Courses",
     "registrationHeading": "Registration",
     "registrationBody": "Registration for our programs and courses is subject to availability and acceptance. We reserve the right to refuse or cancel any registration at our discretion.",
-    "noFeesHeading": "No Fees",
-    "noFeesBody": "All EdLight Initiative programmes are provided free of charge. There is no application fee, no tuition, no paid tier, and no paid upgrade. We will never ask you to pay to apply for, enrol in, or complete any of our programmes."
+    "noFeesHeading": "Fees",
+    "noFeesBody": "EdLight Academy, EdLight Scholars and the EdLight Summer Leadership Program are provided free of charge: there is no application fee, no tuition and no paid upgrade, and we will never ask you to pay to apply for, enrol in or complete them. EdLight Code, operated by EdLight Labs, offers some paid features, such as certificates and guided pathways; those are priced and governed on code.edlight.org under its own terms."
   },
   "s6": {
     "heading": "6. Donations",

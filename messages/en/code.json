@@ -5,14 +5,14 @@
     "subtitle": "The skills you need. The portfolio to prove it. Master Python, SQL, Web Development, and more through guided, hands-on courses, all in your browser.",
     "meta": {
       "tracks": "Learning tracks",
-      "cost": "Cost",
-      "costValue": "Free",
+      "languages": "Languages",
+      "languagesValue": "Kreyòl · FR · EN",
       "certificates": "Certificates",
       "certificatesValue": "Verifiable",
       "setup": "Setup",
       "setupValue": "None"
     },
-    "ctaPrimary": "Start learning free",
+    "ctaPrimary": "Start learning",
     "ctaSecondary": "Explore tracks"
   },
   "stats": {
@@ -24,7 +24,7 @@
         "description": "SQL, Python, HTML, CSS, JavaScript, Terminal & Git, with more on the way."
       },
       "free": {
-        "label": "Free & browser-based",
+        "label": "Browser-based",
         "description": "No downloads, no setup. Write real code directly in your browser from any device."
       },
       "certificates": {
@@ -173,8 +173,8 @@
   "cta": {
     "eyebrow": "Start building your future",
     "title": "Learn to code, earn certificates, build a portfolio",
-    "body": "EdLight Code is free and open to everyone. Pick a track and start writing real code today.",
-    "primary": "Start learning free",
+    "body": "EdLight Code is open to everyone. Pick a track and start writing real code today.",
+    "primary": "Start learning",
     "secondary": "Partner with us"
   }
 }

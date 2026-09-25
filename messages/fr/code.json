@@ -5,14 +5,14 @@
     "subtitle": "Les compétences dont vous avez besoin. Le portfolio pour les prouver. Maîtrisez Python, SQL, le développement web et plus encore grâce à des cours guidés et pratiques, le tout dans votre navigateur.",
     "meta": {
       "tracks": "Parcours d’apprentissage",
-      "cost": "Coût",
-      "costValue": "Gratuit",
+      "languages": "Langues",
+      "languagesValue": "Kreyòl · FR · EN",
       "certificates": "Certificats",
       "certificatesValue": "Vérifiables",
       "setup": "Installation",
       "setupValue": "Aucune"
     },
-    "ctaPrimary": "Commencer gratuitement",
+    "ctaPrimary": "Commencer à apprendre",
     "ctaSecondary": "Explorer les parcours"
   },
   "stats": {
@@ -24,7 +24,7 @@
         "description": "SQL, Python, HTML, CSS, JavaScript, Terminal et Git, et d’autres à venir."
       },
       "free": {
-        "label": "Gratuit et dans le navigateur",
+        "label": "Dans le navigateur",
         "description": "Aucun téléchargement, aucune installation. Écrivez du vrai code directement dans votre navigateur, depuis n’importe quel appareil."
       },
       "certificates": {
@@ -173,8 +173,8 @@
   "cta": {
     "eyebrow": "Commencez à bâtir votre avenir",
     "title": "Apprenez à programmer, obtenez des certificats, bâtissez un portfolio",
-    "body": "EdLight Code est gratuit et ouvert à tous. Choisissez un parcours et commencez à écrire du vrai code dès aujourd’hui.",
-    "primary": "Commencer gratuitement",
+    "body": "EdLight Code est ouvert à tous. Choisissez un parcours et commencez à écrire du vrai code dès aujourd’hui.",
+    "primary": "Commencer à apprendre",
     "secondary": "Devenir partenaire"
   }
 }

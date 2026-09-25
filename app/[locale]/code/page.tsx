@@ -141,7 +141,7 @@ export default async function CodePage({
         backgroundImage="/edlight_academy_group.webp"
         meta={[
           { label: t('hero.meta.tracks'), value: '6+' },
-          { label: t('hero.meta.cost'), value: t('hero.meta.costValue') },
+          { label: t('hero.meta.languages'), value: t('hero.meta.languagesValue') },
           { label: t('hero.meta.certificates'), value: t('hero.meta.certificatesValue') },
           { label: t('hero.meta.setup'), value: t('hero.meta.setupValue') },
         ]}
