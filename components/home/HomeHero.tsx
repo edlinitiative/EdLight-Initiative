@@ -21,7 +21,7 @@ export default function HomeHero({
   children,
 }: {
   eyebrow: string
-  /** The same line for phones, short enough to stay on one row. */
+  /** The same line for phones and tablets, short enough to stay on one row. */
   eyebrowShort: string
   title: string
   subtitle: string
@@ -56,8 +56,8 @@ export default function HomeHero({
         <div className="max-w-[64rem]">
           <p className="mb-6 flex items-center gap-3 whitespace-nowrap text-[10.5px] font-semibold uppercase tracking-[0.14em] text-white/75 sm:text-xs sm:tracking-[0.22em]">
             <span className="hidden h-px w-10 bg-white/50 sm:block" aria-hidden="true" />
-            <span className="sm:hidden">{eyebrowShort}</span>
-            <span className="hidden sm:inline">{eyebrow}</span>
+            <span className="lg:hidden">{eyebrowShort}</span>
+            <span className="hidden lg:inline">{eyebrow}</span>
           </p>
           <h1 className="text-balance text-[2.25rem] font-semibold leading-[1.05] tracking-[-0.025em] text-white sm:text-[2.5rem] lg:text-[3.4rem]">
             {title}

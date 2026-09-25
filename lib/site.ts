@@ -22,6 +22,14 @@ export function absoluteUrl(path = '/'): string {
  */
 export const FOUNDED_YEAR = 2020
 
+/**
+ * The year EdLight Initiative was registered as a not-for-profit corporation
+ * in Canada. It existed and ran programmes from FOUNDED_YEAR; the
+ * registration came later, so the two must never be merged into one
+ * "registered since 2020".
+ */
+export const REGISTERED_YEAR = 2022
+
 /** Canadian not-for-profit corporation number. */
 export const CORPORATION_NUMBER = '1376443-5'
 

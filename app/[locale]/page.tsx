@@ -8,7 +8,7 @@ import TestimonialCarousel from '@/components/TestimonialCarousel'
 import AudiencePaths, { type Audience } from '@/components/home/AudiencePaths'
 import testimonialsData from '@/data/testimonials.json'
 import partnersData from '@/data/partners.json'
-import { FOUNDED_YEAR } from '@/lib/site'
+import { FOUNDED_YEAR, REGISTERED_YEAR } from '@/lib/site'
 
 // The homepage reads as a story in short chapters: who is this for (the
 // "I am a…" selector), why EdLight exists, then Learn, Lead, Go further and
@@ -93,7 +93,7 @@ export default async function HomePage({
     <>
       {/* Opening: a full-bleed photo hero, with the partners as its credibility line */}
       <HomeHero
-        eyebrow={t('hero.eyebrow', { year: String(FOUNDED_YEAR) })}
+        eyebrow={t('hero.eyebrow', { year: String(FOUNDED_YEAR), registered: String(REGISTERED_YEAR) })}
         eyebrowShort={t('hero.eyebrowShort', { year: String(FOUNDED_YEAR) })}
         title={t('hero.title')}
         subtitle={t('hero.subtitle')}
