@@ -80,33 +80,24 @@
     }
   },
   "pathways": {
-    "title": "Parcours d’apprentissage",
-    "subtitle": "Choisissez une orientation dans votre candidature. Vous restez libre de choisir vos propres cours parmi le catalogue disponible.",
+    "title": "10 parcours d’apprentissage",
+    "subtitle": "Le programme Coursera d’EdLight Scholars propose 10 parcours et 2 collections. Un parcours vous oriente sans vous limiter : les Scholars sélectionnés ont accès gratuitement à tout le catalogue pendant les trois mois de leur cohorte.",
     "items": {
-      "ai": {
-        "title": "IA et apprentissage automatique",
-        "body": "Les fondamentaux, l’IA générative et l’apprentissage automatique appliqué."
-      },
-      "tech": {
-        "title": "Technologie et logiciel",
-        "body": "Programmation, développement web, infonuagique et cybersécurité."
-      },
-      "data": {
-        "title": "Données et analytique",
-        "body": "Analyse de données, SQL, Python, Excel et intelligence d’affaires."
-      },
-      "business": {
-        "title": "Affaires et finance",
-        "body": "Finance, comptabilité, marketing, stratégie et gestion de projet."
-      },
-      "entrepreneurship": {
-        "title": "Entrepreneuriat",
-        "body": "Créer une entreprise, innover et croître dans le numérique."
-      },
-      "professional": {
-        "title": "Compétences professionnelles",
-        "body": "Communication, leadership, anglais et préparation aux entretiens."
-      }
+      "data": "Data Analytics et BI",
+      "software": "Développement logiciel et cloud",
+      "ai": "Intelligence artificielle et machine learning",
+      "project": "Gestion de projet et leadership",
+      "english": "Anglais professionnel et compétences de carrière",
+      "marketing": "Marketing digital et e-commerce",
+      "business": "Entrepreneuriat et bases du business",
+      "wellbeing": "Psychologie et bien-être",
+      "success": "Compétences pour réussir",
+      "excel": "Excel pour le travail"
+    },
+    "collectionsTitle": "Et 2 collections",
+    "collections": {
+      "french": "Cours en français",
+      "career": "Préparer sa carrière"
     }
   },
   "commitment": {
@@ -144,7 +135,7 @@
     },
     "subjects": {
       "q": "Que puis-je étudier ?",
-      "a": "Les matières disponibles dépendent du catalogue Coursera offert dans le cadre du partenariat Social Impact d’EdLight. Vous choisirez un parcours d’apprentissage dans votre candidature, puis suivrez une formation alignée sur vos objectifs, parmi de nombreux domaines."
+      "a": "Tout le catalogue Coursera offert dans le cadre du partenariat Social Impact d’EdLight. Le programme propose 10 parcours d’apprentissage et 2 collections, « Cours en français » et « Préparer sa carrière », pour vous orienter ; vous restez libre de suivre les cours de votre choix, en lien avec vos objectifs."
     },
     "certificate": {
       "q": "Vais-je recevoir un certificat ?",

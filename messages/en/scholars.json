@@ -80,33 +80,24 @@
     }
   },
   "pathways": {
-    "title": "Learning pathways",
-    "subtitle": "Choose a direction on your application. You stay free to pick your own courses within the available catalogue.",
+    "title": "10 learning pathways",
+    "subtitle": "The EdLight Scholars programme on Coursera offers 10 pathways and 2 collections. A pathway guides you without limiting you: selected Scholars get free access to the whole catalogue for the three months of their cohort.",
     "items": {
-      "ai": {
-        "title": "AI & Machine Learning",
-        "body": "Fundamentals, generative AI, and applied machine learning."
-      },
-      "tech": {
-        "title": "Technology & Software",
-        "body": "Programming, web development, cloud, and cybersecurity."
-      },
-      "data": {
-        "title": "Data & Analytics",
-        "body": "Data analysis, SQL, Python, Excel, and business intelligence."
-      },
-      "business": {
-        "title": "Business & Finance",
-        "body": "Finance, accounting, marketing, strategy, and project management."
-      },
-      "entrepreneurship": {
-        "title": "Entrepreneurship",
-        "body": "Building a business, innovation, and digital growth."
-      },
-      "professional": {
-        "title": "Professional Skills",
-        "body": "Communication, leadership, English, and interview preparation."
-      }
+      "data": "Data Analytics and BI",
+      "software": "Software Development and Cloud",
+      "ai": "Artificial Intelligence and Machine Learning",
+      "project": "Project Management and Leadership",
+      "english": "Professional English and Career Skills",
+      "marketing": "Digital Marketing and E-commerce",
+      "business": "Entrepreneurship and Business Basics",
+      "wellbeing": "Psychology and Well-being",
+      "success": "Skills for Success",
+      "excel": "Excel for Work"
+    },
+    "collectionsTitle": "And 2 collections",
+    "collections": {
+      "french": "Courses in French",
+      "career": "Preparing your career"
     }
   },
   "commitment": {
@@ -144,7 +135,7 @@
     },
     "subjects": {
       "q": "What can I study?",
-      "a": "Available subjects depend on the Coursera catalogue provided through EdLight’s Social Impact partnership. You will choose a learning pathway on your application, and pursue learning aligned with your goals across many fields."
+      "a": "The whole Coursera catalogue provided through EdLight’s Social Impact partnership. The programme offers 10 learning pathways and 2 collections, “Courses in French” and “Preparing your career”, to guide you; you stay free to take the courses you choose, aligned with your goals."
     },
     "certificate": {
       "q": "Will I receive a certificate?",

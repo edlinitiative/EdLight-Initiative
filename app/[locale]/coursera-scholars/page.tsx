@@ -6,14 +6,19 @@ import {
   BadgeCheck,
   BarChart3,
   BrainCircuit,
-  Briefcase,
   Building2,
   ClipboardList,
   Code2,
+  FolderKanban,
   GraduationCap,
+  HeartPulse,
+  Languages,
   Lightbulb,
+  Megaphone,
   RefreshCw,
   Rocket,
+  Table2,
+  Target,
   Users,
 } from 'lucide-react'
 import Hero from '@/components/Hero'
@@ -91,14 +96,24 @@ const benefits = [
   { icon: Users, key: 'grow' },
 ] as const
 
+// The 10 learning paths of the live Coursera programme, "EdLight Scholars:
+// Career & Skills Pathways", in its order, and its 2 collections. The keys are
+// the ones apply.edlight.org uses (COURSERA_PATHS there), so both sites name
+// the same paths. A path guides; every Scholar has the whole catalogue.
 const pathways = [
-  { icon: BrainCircuit, key: 'ai' },
-  { icon: Code2, key: 'tech' },
   { icon: BarChart3, key: 'data' },
-  { icon: Briefcase, key: 'business' },
-  { icon: Lightbulb, key: 'entrepreneurship' },
-  { icon: Users, key: 'professional' },
+  { icon: Code2, key: 'software' },
+  { icon: BrainCircuit, key: 'ai' },
+  { icon: FolderKanban, key: 'project' },
+  { icon: Languages, key: 'english' },
+  { icon: Megaphone, key: 'marketing' },
+  { icon: Lightbulb, key: 'business' },
+  { icon: HeartPulse, key: 'wellbeing' },
+  { icon: Target, key: 'success' },
+  { icon: Table2, key: 'excel' },
 ] as const
+
+const collections = ['french', 'career'] as const
 
 const institutionBenefits = [
   { icon: Building2, key: 'licences' },
@@ -361,14 +376,28 @@ export default async function CourseraScholarsPage({
             subtitle={t('pathways.subtitle')}
             centered
           />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {pathways.map(({ icon: Icon, key }) => (
-              <div key={key} className="border border-[var(--paper-200)] p-6">
-                <Icon size={24} className="text-[var(--accent)]" aria-hidden="true" />
-                <h3 className="mt-4 text-base font-semibold text-[var(--ink-900)]">{t(`pathways.items.${key}.title`)}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--ink-700)]">{t(`pathways.items.${key}.body`)}</p>
-              </div>
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {pathways.map(({ icon: Icon, key }, i) => (
+              <li key={key} className="border border-[var(--paper-200)] p-5">
+                <div className="flex items-center justify-between">
+                  <Icon size={22} className="text-[var(--accent)]" aria-hidden="true" />
+                  <span className="text-xs font-semibold tabular-nums text-[var(--ink-700)]" aria-hidden="true">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                </div>
+                <h3 className="mt-4 text-sm font-semibold leading-snug text-[var(--ink-900)]">{t(`pathways.items.${key}`)}</h3>
+              </li>
             ))}
+          </ol>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <p className="text-sm font-semibold text-[var(--ink-900)]">{t('pathways.collectionsTitle')}</p>
+            <ul className="contents">
+              {collections.map((key) => (
+                <li key={key} className="border border-[var(--paper-200)] px-4 py-2 text-sm text-[var(--ink-700)]">
+                  {t(`pathways.collections.${key}`)}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
