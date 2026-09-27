@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import { CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE } from '@/lib/site'
-import { scholarsApplicationsOpen, scholarsDateValues } from '@/lib/scholarsApplications'
+import { scholarsDateValues, scholarsStatus } from '@/lib/scholarsApplications'
 
 // Statically generated, but the Scholars "Can I apply now?" answer depends on
 // the date: regenerate at most hourly so it flips without a redeploy.
@@ -123,7 +123,7 @@ export default async function FAQPage({
     address: REGISTERED_ADDRESS_LINE,
     ...scholarsDateValues(params.locale),
   }
-  const scholarsOpen = scholarsApplicationsOpen()
+  const scholarsPhase = scholarsStatus().phase
 
   return (
     <>
@@ -145,7 +145,7 @@ export default async function FAQPage({
                 <dl className="space-y-7">
                   {questions.map(({ key, href, whileOpen }) => {
                     const path = `categories.${category}.questions.${key}`
-                    const answer = whileOpen && !scholarsOpen ? 'answerClosed' : 'answer'
+                    const answer = whileOpen && scholarsPhase !== 'open' ? (scholarsPhase === 'upcoming' ? 'answerUpcoming' : 'answerClosed') : 'answer'
                     return (
                       <div key={key}>
                         <dt className="text-base sm:text-lg font-semibold text-[var(--ink-900)] mb-2">

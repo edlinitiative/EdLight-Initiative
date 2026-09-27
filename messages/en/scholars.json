@@ -11,9 +11,10 @@
     "body": "Gain free access to world-class online learning through EdLight Initiative's partnership with Coursera. Build new skills, earn certificates, and take the next step toward your academic and professional goals.",
     "notify": "Get notified",
     "learnMore": "Learn more",
-    "noteOpen": "Inaugural cohort begins 1 October 2026 · Applications open until {closeDate}",
-    "noteClosed": "Applications closed for Cohort 1. The next cohort begins on {nextCohort}.",
-    "apply": "Apply now"
+    "noteOpen": "Cohort {cohort} begins {startDate} · Applications open until {closeDate}",
+    "noteClosed": "Applications closed for Cohort {cohort}. Cohort {nextCohortNumber} begins on {nextCohort}.",
+    "apply": "Apply now",
+    "noteUpcoming": "Applications for Cohort {cohort} open {opensDate} · Starts {startDate}"
   },
   "partnership": {
     "title": "EdLight × Coursera",
@@ -165,12 +166,14 @@
   },
   "cta": {
     "title": "Ready to apply?",
-    "body": "The inaugural cohort runs 1 October to 31 December 2026. Applications are open until {closeDate} to university students, working professionals and entrepreneurs.",
+    "body": "Cohort {cohort} runs {startDate} to {endDate}. Applications are open until {closeDate} to university students, working professionals and entrepreneurs.",
     "titleClosed": "Join the next cohort",
-    "bodyClosed": "Applications closed for Cohort 1. The next cohort begins on {nextCohort}.",
+    "bodyClosed": "Applications closed for Cohort {cohort}. Cohort {nextCohortNumber} begins on {nextCohort}.",
     "notify": "Get notified",
     "ask": "Ask a question",
-    "apply": "Apply now"
+    "apply": "Apply now",
+    "titleUpcoming": "Cohort {cohort} opens soon",
+    "bodyUpcoming": "Applications for Cohort {cohort} open on {opensDate} and close on {closeDate}. The cohort runs {startDate} to {endDate}. Sign up to hear the moment they open."
   },
   "institutions": {
     "title": "For universities and institutions",
@@ -225,7 +228,7 @@
         "note": "Summer session"
       }
     },
-    "note": "Partner institutions nominate their students before a cohort opens. For Cohort 1 the deadline is 30 September 2026 at 3:00 pm (Haiti time). Direct applications for Cohort 1 are accepted until {closeDate}."
+    "note": "Partner institutions nominate their students before a cohort begins. For Cohort {cohort} the deadline is {partnerDeadline} (Haiti time). Direct applications for Cohort {cohort} are accepted from {opensDate} to {closeDate}."
   },
   "gallery": {
     "title": "EdLight learners",

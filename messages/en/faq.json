@@ -100,8 +100,9 @@
         },
         "applyNow": {
           "question": "Can I apply now?",
-          "answer": "Yes. Applications for Cohort 1 are open until {closeDate} (Haiti time). Apply through the <link>EdLight Scholars page</link>.",
-          "answerClosed": "Not right now. Applications for Cohort 1 closed on {closeDate}, and the next cohort begins on {nextCohort}. Join the notify list on the <link>EdLight Scholars page</link> to hear when applications reopen."
+          "answer": "Yes. Applications for Cohort {cohort} are open until {closeDate} (Haiti time). Apply through the <link>EdLight Scholars page</link>.",
+          "answerClosed": "Not right now. Applications for Cohort {cohort} closed on {closeDate}, and Cohort {nextCohortNumber} begins on {nextCohort}. Join the notify list on the <link>EdLight Scholars page</link> to hear when applications reopen.",
+          "answerUpcoming": "Soon. Applications for Cohort {cohort} open on {opensDate} and close on {closeDate}. Join the notify list on the <link>EdLight Scholars page</link> to hear when they open."
         }
       }
     },

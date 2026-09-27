@@ -26,7 +26,7 @@ import SectionHeader from '@/components/SectionHeader'
 import GalleryGrid from '@/components/GalleryGrid'
 import NotifyButton from '@/components/NotifyButton'
 import ClientMessages from '@/components/ClientMessages'
-import { scholarsApplicationsOpen, scholarsDateValues } from '@/lib/scholarsApplications'
+import { scholarsDateValues, scholarsStatus } from '@/lib/scholarsApplications'
 
 // ── Framing, and the lines that must not drift ───────────────────────────────
 // EdLight Initiative is a Coursera Social Impact Partner. EdLight — not
@@ -192,7 +192,11 @@ export default async function CourseraScholarsPage({
   setRequestLocale(params.locale)
 
   const t = await getTranslations('scholars')
-  const applicationsOpen = scholarsApplicationsOpen()
+  const { phase } = scholarsStatus()
+  const applicationsOpen = phase === 'open'
+  // Between cohorts the copy names the next opening; after the last window it
+  // names the next cohort.
+  const closedKey = phase === 'upcoming' ? 'Upcoming' : 'Closed'
   const dates = scholarsDateValues(params.locale)
 
   return (
@@ -235,7 +239,7 @@ export default async function CourseraScholarsPage({
           </a>
         </div>
         <p className="mt-6 text-xs uppercase tracking-[0.18em] text-white/70">
-          {applicationsOpen ? t('hero.noteOpen', dates) : t('hero.noteClosed', dates)}
+          {applicationsOpen ? t('hero.noteOpen', dates) : t(`hero.note${closedKey}`, dates)}
         </p>
       </Hero>
 
@@ -482,10 +486,10 @@ export default async function CourseraScholarsPage({
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="display-lg mb-3 leading-tight text-[var(--ink-900)]">
-              {applicationsOpen ? t('cta.title') : t('cta.titleClosed')}
+              {applicationsOpen ? t('cta.title', dates) : t(`cta.title${closedKey}`, dates)}
             </h2>
             <p className="mb-8 body-lg text-[var(--ink-700)]">
-              {applicationsOpen ? t('cta.body', dates) : t('cta.bodyClosed', dates)}
+              {applicationsOpen ? t('cta.body', dates) : t(`cta.body${closedKey}`, dates)}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
               {applicationsOpen ? (
