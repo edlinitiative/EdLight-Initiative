@@ -4,6 +4,11 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import { CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE } from '@/lib/site'
+import { scholarsApplicationsOpen, scholarsDateValues } from '@/lib/scholarsApplications'
+
+// Statically generated, but the Scholars "Can I apply now?" answer depends on
+// the date: regenerate at most hourly so it flips without a redeploy.
+export const revalidate = 3600
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('faq')
@@ -37,7 +42,10 @@ export async function generateMetadata(): Promise<Metadata> {
  * mid-sentence, where splitting would hand a translator two half-sentences
  * and no way to reorder them.
  */
-type FaqQuestion = { key: string; href?: string }
+// `whileOpen`: the answer depends on the EdLight Scholars application window
+// (lib/scholarsApplications.ts). `answer` is used while it is open,
+// `answerClosed` once it has closed.
+type FaqQuestion = { key: string; href?: string; whileOpen?: 'scholars' }
 type FaqCategory = { key: string; questions: readonly FaqQuestion[] }
 
 const faqs: readonly FaqCategory[] = [
@@ -75,7 +83,7 @@ const faqs: readonly FaqCategory[] = [
   },
   {
     key: 'scholars',
-    questions: [{ key: 'whatIs' }, { key: 'applyNow', href: '/coursera-scholars' }],
+    questions: [{ key: 'whatIs' }, { key: 'applyNow', href: '/coursera-scholars', whileOpen: 'scholars' }],
   },
   {
     key: 'volunteering',
@@ -113,7 +121,9 @@ export default async function FAQPage({
     email: CONTACT_EMAIL,
     number: CORPORATION_NUMBER,
     address: REGISTERED_ADDRESS_LINE,
+    ...scholarsDateValues(params.locale),
   }
+  const scholarsOpen = scholarsApplicationsOpen()
 
   return (
     <>
@@ -133,8 +143,9 @@ export default async function FAQPage({
                   {t(`categories.${category}.title`)}
                 </h2>
                 <dl className="space-y-7">
-                  {questions.map(({ key, href }) => {
+                  {questions.map(({ key, href, whileOpen }) => {
                     const path = `categories.${category}.questions.${key}`
+                    const answer = whileOpen && !scholarsOpen ? 'answerClosed' : 'answer'
                     return (
                       <div key={key}>
                         <dt className="text-base sm:text-lg font-semibold text-[var(--ink-900)] mb-2">
@@ -142,7 +153,7 @@ export default async function FAQPage({
                         </dt>
                         <dd className="text-sm sm:text-base leading-relaxed text-[var(--ink-700)]">
                           {href ? (
-                            t.rich(`${path}.answer`, {
+                            t.rich(`${path}.${answer}`, {
                               ...facts,
                               link: (chunks) => (
                                 <Link href={href} className="underline underline-offset-4">
@@ -151,7 +162,7 @@ export default async function FAQPage({
                               ),
                             })
                           ) : (
-                            t(`${path}.answer`, facts)
+                            t(`${path}.${answer}`, facts)
                           )}
                         </dd>
                       </div>

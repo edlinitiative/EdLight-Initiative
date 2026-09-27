@@ -35,7 +35,7 @@
       },
       "beyond": {
         "title": "Aller plus loin qu’Haïti",
-        "body": "Les élèves forts ne devraient pas être limités par leur lieu de naissance. EdLight Scholars finance des certificats professionnels reconnus qui ont du poids hors d’Haïti, et l’ESLP développe le leadership et l’assurance civique que recherchent les bourses et les universités."
+        "body": "Les élèves forts ne devraient pas être limités par leur lieu de naissance. EdLight Scholars offre aux étudiants sélectionnés un accès gratuit à Coursera pendant trois mois, avec certificats, et l’ESLP développe le leadership et l’assurance civique que recherchent les bourses et les universités."
       }
     }
   },
@@ -89,7 +89,7 @@
       },
       "scholars": {
         "title": "Bourses et certificats",
-        "body": "Des titres Coursera financés pour les élèves haïtiens, en partenariat avec Coursera."
+        "body": "Les étudiants sélectionnés reçoivent un accès gratuit à Coursera pendant trois mois, avec certificats, grâce à EdLight Scholars."
       },
       "about": {
         "title": "Notre mission",
@@ -137,7 +137,7 @@
         "items": {
           "scholars": {
             "title": "EdLight Scholars",
-            "body": "Des certificats professionnels Coursera et des licences DataCamp financés, pour obtenir des titres reconnus sans frais.",
+            "body": "Les étudiants sélectionnés reçoivent un accès gratuit à Coursera pendant trois mois, avec certificats.",
             "cta": "Voir EdLight Scholars"
           },
           "code": {
@@ -152,7 +152,7 @@
         "items": {
           "scholars": {
             "title": "Devenir partenaire d’EdLight Scholars",
-            "body": "Proposez vos étudiants pour des licences Coursera financées, à chaque cohorte, sans frais pour votre établissement.",
+            "body": "Proposez vos étudiants pour un accès gratuit à Coursera, à chaque cohorte, sans frais pour votre établissement.",
             "cta": "Devenir établissement partenaire"
           },
           "partner": {
@@ -217,7 +217,7 @@
     },
     "further": {
       "title": "Des titres reconnus partout.",
-      "body": "EdLight Scholars offre aux élèves et diplômés haïtiens une formation professionnelle financée : des certificats Coursera, en partenariat avec Coursera, et des licences DataCamp grâce à DataCamp Donates, pour qu’un bon élève puisse le prouver sur son CV.",
+      "body": "Grâce à EdLight Scholars, mené en partenariat avec Coursera, les élèves et diplômés haïtiens sélectionnés reçoivent un accès gratuit à Coursera pendant trois mois, avec des certificats qu’un bon élève peut faire valoir sur son CV.",
       "studentCta": "Postuler comme étudiant",
       "partnerCta": "Devenir établissement partenaire"
     },

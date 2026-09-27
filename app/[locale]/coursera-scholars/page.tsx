@@ -24,6 +24,9 @@ import {
 import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import GalleryGrid from '@/components/GalleryGrid'
+import NotifyButton from '@/components/NotifyButton'
+import ClientMessages from '@/components/ClientMessages'
+import { scholarsApplicationsOpen, scholarsDateValues } from '@/lib/scholarsApplications'
 
 // ── Framing, and the lines that must not drift ───────────────────────────────
 // EdLight Initiative is a Coursera Social Impact Partner. EdLight — not
@@ -78,14 +81,24 @@ export async function generateMetadata(): Promise<Metadata> {
 // Reopened 2026-09-20. APPLICATION_URL resolves to the real direct-applicant
 // form, not the portal landing page that failed here before — that page was a
 // general portal, so the button did not do what it said, which is what the Ad
-// Grants website policy rejects a site over. If the window ever closes again,
-// point these back at NotifyButton rather than leaving a live button on a
-// form that refuses applications: /scholars/individuals renders its own
-// closed state, but a CTA promising an open form is the thing that burns.
+// Grants website policy rejects a site over.
+//
+// The open/closed status is no longer written into the copy. It is computed
+// from the window in lib/scholarsApplications.ts: while it is open the hero
+// and the closing CTA link to the form; once it closes they offer the notify
+// list instead, because a CTA promising an open form is the thing that burns.
 // The direct-applicant form. NOT apply.edlight.org/coursera-scholars, which is
 // the portal landing page — the mismatch that got this CTA pulled last time.
 const APPLICATION_URL = 'https://apply.edlight.org/scholars/individuals'
 const INSTITUTION_APPLICATION_URL = 'https://apply.edlight.org/scholars/institutions'
+
+// Must match an entry in NOTIFY_CYCLES in app/api/eslp-notify/route.ts. Not
+// translatable: it is posted as-is and checked against that allowlist.
+const NOTIFY_CYCLE_LABEL = 'EdLight Scholars'
+
+// Statically generated, but the application status depends on the date:
+// regenerate at most hourly so the switch to "closed" needs no redeploy.
+export const revalidate = 3600
 
 // Structure stays here, wording lives in messages/<locale>/scholars.json and is
 // looked up by `key`. Same pattern as the footer's link columns.
@@ -179,6 +192,8 @@ export default async function CourseraScholarsPage({
   setRequestLocale(params.locale)
 
   const t = await getTranslations('scholars')
+  const applicationsOpen = scholarsApplicationsOpen()
+  const dates = scholarsDateValues(params.locale)
 
   return (
     <>
@@ -198,9 +213,17 @@ export default async function CourseraScholarsPage({
           {t('hero.body')}
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
-          <a href={APPLICATION_URL} className="btn btn-primary">
-            {t('hero.apply')}
-          </a>
+          {applicationsOpen ? (
+            <a href={APPLICATION_URL} className="btn btn-primary">
+              {t('hero.apply')}
+            </a>
+          ) : (
+            <ClientMessages namespaces={['notify']}>
+              <NotifyButton cycleLabel={NOTIFY_CYCLE_LABEL} className="btn btn-primary">
+                {t('hero.notify')}
+              </NotifyButton>
+            </ClientMessages>
+          )}
           {/* btn-ghost, not btn-outline. btn-outline is the light-ground
               variant: near-black label on a transparent background. Inside
               this Hero that put --ink-900 text on a dark navy photograph, so
@@ -212,7 +235,7 @@ export default async function CourseraScholarsPage({
           </a>
         </div>
         <p className="mt-6 text-xs uppercase tracking-[0.18em] text-white/70">
-          {t('hero.note')}
+          {applicationsOpen ? t('hero.noteOpen', dates) : t('hero.noteClosed', dates)}
         </p>
       </Hero>
 
@@ -364,7 +387,7 @@ export default async function CourseraScholarsPage({
             ))}
           </div>
           <p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-[var(--ink-700)]">
-            {t('dates.note')}
+            {t('dates.note', dates)}
           </p>
         </div>
       </section>
@@ -459,15 +482,23 @@ export default async function CourseraScholarsPage({
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="display-lg mb-3 leading-tight text-[var(--ink-900)]">
-              {t('cta.title')}
+              {applicationsOpen ? t('cta.title') : t('cta.titleClosed')}
             </h2>
             <p className="mb-8 body-lg text-[var(--ink-700)]">
-              {t('cta.body')}
+              {applicationsOpen ? t('cta.body', dates) : t('cta.bodyClosed', dates)}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <a href={APPLICATION_URL} className="btn btn-primary">
-                {t('cta.apply')}
-              </a>
+              {applicationsOpen ? (
+                <a href={APPLICATION_URL} className="btn btn-primary">
+                  {t('cta.apply')}
+                </a>
+              ) : (
+                <ClientMessages namespaces={['notify']}>
+                  <NotifyButton cycleLabel={NOTIFY_CYCLE_LABEL} className="btn btn-primary">
+                    {t('cta.notify')}
+                  </NotifyButton>
+                </ClientMessages>
+              )}
               <Link href="/contact" className="btn btn-outline">
                 {t('cta.ask')}
               </Link>

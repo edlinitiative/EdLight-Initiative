@@ -100,7 +100,8 @@
         },
         "applyNow": {
           "question": "Can I apply now?",
-          "answer": "Not yet. The inaugural cohort is being finalised and applications are not open. Join the notify list on the <link>EdLight Scholars page</link> to hear when it opens."
+          "answer": "Yes. Applications for Cohort 1 are open until {closeDate} (Haiti time). Apply through the <link>EdLight Scholars page</link>.",
+          "answerClosed": "Not right now. Applications for Cohort 1 closed on {closeDate}, and the next cohort begins on {nextCohort}. Join the notify list on the <link>EdLight Scholars page</link> to hear when applications reopen."
         }
       }
     },

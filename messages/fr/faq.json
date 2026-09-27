@@ -100,7 +100,8 @@
         },
         "applyNow": {
           "question": "Puis-je poser ma candidature maintenant ?",
-          "answer": "Pas encore. La première cohorte est en cours de finalisation et les candidatures ne sont pas ouvertes. Inscrivez-vous à la liste d’avis sur la <link>page EdLight Scholars</link> pour savoir quand elles ouvriront."
+          "answer": "Oui. Les candidatures pour la cohorte 1 sont ouvertes jusqu’au {closeDate} (heure d’Haïti). Postulez depuis la <link>page EdLight Scholars</link>.",
+          "answerClosed": "Pas pour le moment. Les candidatures pour la cohorte 1 ont fermé le {closeDate}, et la prochaine cohorte commence le {nextCohort}. Inscrivez-vous à la liste d’avis sur la <link>page EdLight Scholars</link> pour savoir quand elles rouvriront."
         }
       }
     },

@@ -9,9 +9,10 @@
     "title": "Become an EdLight Scholar",
     "subtitle": "Talent is everywhere. Opportunity is not.",
     "body": "Gain free access to world-class online learning through EdLight Initiative's partnership with Coursera. Build new skills, earn certificates, and take the next step toward your academic and professional goals.",
-    "notify": "Get notified when applications open",
+    "notify": "Get notified",
     "learnMore": "Learn more",
-    "note": "Inaugural cohort begins 1 October 2026 · applications are open",
+    "noteOpen": "Inaugural cohort begins 1 October 2026 · Applications open until {closeDate}",
+    "noteClosed": "Applications closed for Cohort 1. The next cohort begins on {nextCohort}.",
     "apply": "Apply now"
   },
   "partnership": {
@@ -63,7 +64,7 @@
     "items": {
       "apply": {
         "title": "Apply or get nominated",
-        "body": "If your university is a partner institution, it nominates its own students, so ask your school. Otherwise you apply to EdLight directly when applications open."
+        "body": "If your university is a partner institution, it nominates its own students, so ask your school. Otherwise you apply to EdLight directly while applications are open."
       },
       "selected": {
         "title": "Get selected",
@@ -123,7 +124,7 @@
     },
     "howToJoin": {
       "q": "How do I join? Do I apply, or does my university nominate me?",
-      "a": "Both routes exist. If you study at a partner institution, your university selects its own students, so ask your faculty or student affairs office whether it takes part. If it does not, or if you are not currently a student, you can apply to EdLight directly once applications open. Join the notify list and we will tell you when they do."
+      "a": "Both routes exist. If you study at a partner institution, your university selects its own students, so ask your faculty or student affairs office whether it takes part. If it does not, or if you are not currently a student, you can apply to EdLight directly while applications are open; the top of this page shows whether they are. When they are closed, join the notify list and we will tell you when the next window opens."
     },
     "enrolment": {
       "q": "Do I need to be enrolled in school?",
@@ -164,7 +165,9 @@
   },
   "cta": {
     "title": "Ready to apply?",
-    "body": "The inaugural cohort runs 1 October to 31 December 2026. Applications are open to university students, working professionals and entrepreneurs.",
+    "body": "The inaugural cohort runs 1 October to 31 December 2026. Applications are open until {closeDate} to university students, working professionals and entrepreneurs.",
+    "titleClosed": "Join the next cohort",
+    "bodyClosed": "Applications closed for Cohort 1. The next cohort begins on {nextCohort}.",
     "notify": "Get notified",
     "ask": "Ask a question",
     "apply": "Apply now"
@@ -222,7 +225,7 @@
         "note": "Summer session"
       }
     },
-    "note": "Partner institutions nominate their students before a cohort opens. For Cohort 1 the deadline is 20 September 2026. Direct applications open separately; join the notify list and we will write to you with the date."
+    "note": "Partner institutions nominate their students before a cohort opens. For Cohort 1 the deadline is 30 September 2026 at 3:00 pm (Haiti time). Direct applications for Cohort 1 are accepted until {closeDate}."
   },
   "gallery": {
     "title": "EdLight learners",

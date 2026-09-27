@@ -84,7 +84,7 @@ export const MISSION_STATEMENT =
  * to offer — tells them less than nothing.
  */
 export const ACTIVITIES_STATEMENT =
-  'We run free online courses in the subjects Haitian students sit national exams in, a coding platform taught in Haitian Creole, French, and English, funded professional certificates, and a two-week residential summer leadership programme.'
+  'We run free online courses in the subjects Haitian students sit national exams in, a coding platform taught in Haitian Creole, French, and English, free Coursera access with certificates for selected students, and a two-week residential summer leadership programme.'
 
 /**
  * The nonprofit status line, rendered verbatim wherever status is stated.
