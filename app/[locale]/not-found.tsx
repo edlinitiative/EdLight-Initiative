@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
-import { ACADEMY_URL, CODE_URL } from '@/lib/site'
+import { ACADEMY_URL, CODE_URL, platformLinkProps } from '@/lib/site'
 
 // The programme shortcuts used to list EdLight Labs and EdLight Nexus. Both
 // are noindexed and delinked from the nav, footer and homepage — Labs because
@@ -42,7 +42,7 @@ export default async function NotFound() {
 
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
           {programmeLinks.map(({ href, label }) => (
-            <Link key={href} href={href} className="text-blue-600 hover:underline">
+            <Link key={href} href={href} {...platformLinkProps(href)} className="text-blue-600 hover:underline">
               {label}
             </Link>
           ))}

@@ -3,6 +3,7 @@
 import React, { useId, useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { platformLinkProps } from '@/lib/site'
 
 export type AudienceItem = {
   title: string
@@ -96,6 +97,7 @@ export default function AudiencePaths({
               <li key={item.title} className="bg-white">
                 <Link
                   href={item.href}
+                  {...platformLinkProps(item.href)}
                   className="group flex h-full flex-col p-5 transition-colors hover:bg-[var(--paper-50)]"
                 >
                   <span className="text-base font-semibold text-[var(--ink-900)]">{item.title}</span>

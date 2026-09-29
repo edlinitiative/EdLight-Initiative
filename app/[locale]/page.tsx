@@ -8,7 +8,7 @@ import TestimonialCarousel from '@/components/TestimonialCarousel'
 import AudiencePaths, { type Audience } from '@/components/home/AudiencePaths'
 import testimonialsData from '@/data/testimonials.json'
 import partnersData from '@/data/partners.json'
-import { ACADEMY_URL, CODE_URL } from '@/lib/site'
+import { ACADEMY_URL, CODE_URL, platformLinkProps } from '@/lib/site'
 
 // The homepage reads as a story in short chapters: who is this for (the
 // "I am a…" selector), why EdLight exists, then Learn, Lead, Go further and
@@ -44,6 +44,7 @@ function TextLink({ href, children }: { href: string; children: React.ReactNode 
   return (
     <Link
       href={href}
+      {...platformLinkProps(href)}
       className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)] hover:text-[var(--accent-hover)]"
     >
       {children}

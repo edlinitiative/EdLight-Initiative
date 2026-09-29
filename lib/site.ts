@@ -18,6 +18,17 @@ export const SITE_URL = 'https://www.edlight.org'
 export const ACADEMY_URL = 'https://academy.edlight.org'
 export const CODE_URL = 'https://code.edlight.org'
 
+/**
+ * Academy and Code open in a new tab, so a visitor who goes to the platform
+ * still has edlight.org open behind it. Spread onto any link whose href may
+ * be one of them; other links get nothing.
+ */
+export function platformLinkProps(href: string): { target?: '_blank'; rel?: string } {
+  return href.startsWith(ACADEMY_URL) || href.startsWith(CODE_URL)
+    ? { target: '_blank', rel: 'noopener noreferrer' }
+    : {}
+}
+
 /** Build an absolute URL for a site-relative path. */
 export function absoluteUrl(path = '/'): string {
   return new URL(path, SITE_URL).toString()

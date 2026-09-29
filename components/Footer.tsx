@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail } from 'lucide-react'
 import { SOCIAL_LINKS, type SocialPlatform } from '@/lib/socials'
 import { useTranslations } from 'next-intl'
-import { ACADEMY_URL, CODE_URL, CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE } from '@/lib/site'
+import { ACADEMY_URL, CODE_URL, platformLinkProps, CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE } from '@/lib/site'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 // Icons live here; the URLs live in lib/socials.ts, which is the single list
@@ -219,7 +219,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {programLinks.map(({ href, key }) => (
                   <li key={href}>
-                    <Link href={href} className="text-sm text-[var(--paper-on-dark)] hover:text-white transition-colors">
+                    <Link href={href} {...platformLinkProps(href)} className="text-sm text-[var(--paper-on-dark)] hover:text-white transition-colors">
                       {t(`programs.${key}`)}
                     </Link>
                   </li>

@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { cn } from '@/lib/utils'
-import { ACADEMY_URL, CODE_URL } from '@/lib/site'
+import { ACADEMY_URL, CODE_URL, platformLinkProps } from '@/lib/site'
 
 /**
  * The programmes, each with the one line that says what it actually is.
@@ -172,6 +172,7 @@ export default function Navbar() {
                     <li key={href}>
                       <Link
                         href={href}
+                        {...platformLinkProps(href)}
                         className="block px-4 py-3 transition-colors hover:bg-[var(--paper-100)]"
                         aria-current={isActivePath(href) ? 'page' : undefined}
                       >
@@ -255,6 +256,7 @@ export default function Navbar() {
                 <Link
                   key={href}
                   href={href}
+                  {...platformLinkProps(href)}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
                     'block py-3 px-4 transition-colors',
