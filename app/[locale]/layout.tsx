@@ -124,6 +124,11 @@ export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }))
 }
 
+// Only the prerendered locales exist. Middleware skips paths with a dot, so a
+// request like /foo.txt reached [locale] as locale "foo.txt" and rendered the
+// homepage with a 200: a soft 404 for crawlers, and /llms.txt read as HTML.
+export const dynamicParams = false
+
 export default async function RootLayout({
   children,
   params,

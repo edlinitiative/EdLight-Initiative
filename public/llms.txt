@@ -1,0 +1,30 @@
+# EdLight Initiative
+
+> EdLight Initiative makes quality education free and accessible to students in Haiti. It is a registered Canadian not-for-profit corporation (no. 1376443-5), based in Montreal, Quebec, and has run programmes for Haitian students since 2020.
+
+We run free online courses in the subjects Haitian students sit national exams in, a coding platform taught in Haitian Creole, French, and English, free Coursera access with certificates for selected students, and a two-week summer leadership programme. The site is available in English and French.
+
+## Programmes
+
+- [EdLight Academy](https://www.edlight.org/academy): free courses and practice for the 9e Année and Baccalauréat exams. The platform itself is at https://academy.edlight.org
+- [EdLight Code](https://www.edlight.org/code): hands-on coding tracks taught in Haitian Creole, French, and English. The platform itself is at https://code.edlight.org
+- [EdLight Scholars](https://www.edlight.org/coursera-scholars): free Coursera access with certificates for selected students and partner institutions
+- [EdLight Summer Leadership Program (ESLP)](https://www.edlight.org/eslp): a two-week summer leadership programme for secondary students
+
+## Applying
+
+- [EdLight Apply](https://apply.edlight.org): applications for ESLP, EdLight Scholars and other opportunities
+
+## Organisation
+
+- [About EdLight](https://www.edlight.org/about): mission, history and team
+- [Get involved](https://www.edlight.org/get-involved): volunteering, partnerships and speaking
+- [Donate](https://www.edlight.org/donate): support the programmes
+- [FAQ](https://www.edlight.org/faq): common questions
+- [Contact](https://www.edlight.org/contact): reach the team at info@edlight.org
+
+## Optional
+
+- [Privacy policy](https://www.edlight.org/privacy)
+- [Terms of use](https://www.edlight.org/terms-of-use)
+- [Sitemap](https://www.edlight.org/sitemap.xml)
