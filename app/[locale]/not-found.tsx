@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
+import { ACADEMY_URL, CODE_URL } from '@/lib/site'
 
 // The programme shortcuts used to list EdLight Labs and EdLight Nexus. Both
 // are noindexed and delinked from the nav, footer and homepage — Labs because
@@ -7,8 +8,8 @@ import { getTranslations } from 'next-intl/server'
 // apply — so a 404 page was the last place still sending people (and
 // crawlers) to them. These are the four live programmes.
 const programmeLinks = [
-  { href: '/academy', label: 'EdLight Academy' },
-  { href: '/code', label: 'EdLight Code' },
+  { href: ACADEMY_URL, label: 'EdLight Academy' },
+  { href: CODE_URL, label: 'EdLight Code' },
   { href: '/coursera-scholars', label: 'Coursera Scholars' },
   { href: '/eslp', label: 'ESLP' },
 ]

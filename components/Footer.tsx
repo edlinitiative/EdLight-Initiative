@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail } from 'lucide-react'
 import { SOCIAL_LINKS, type SocialPlatform } from '@/lib/socials'
 import { useTranslations } from 'next-intl'
-import { CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE } from '@/lib/site'
+import { ACADEMY_URL, CODE_URL, CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE } from '@/lib/site'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 // Icons live here; the URLs live in lib/socials.ts, which is the single list
@@ -23,10 +23,11 @@ const socialIcons: Record<SocialPlatform, typeof Facebook> = {
 // EdLight Labs and EdLight Nexus are no longer listed. Both are noindexed and
 // out of the sitemap — Labs because it sells commercial web services, Nexus
 // because it has no cohort, dates, or way to apply — and a footer link is
-// exactly how a crawler would keep finding them anyway.
+// exactly how a crawler would keep finding them anyway. Academy and Code go
+// straight to the platforms, as in the nav.
 const programLinks = [
-  { href: '/academy', key: 'academy' },
-  { href: '/code', key: 'code' },
+  { href: ACADEMY_URL, key: 'academy' },
+  { href: CODE_URL, key: 'code' },
   { href: '/coursera-scholars', key: 'scholars' },
   { href: '/eslp', key: 'eslp' },
 ] as const

@@ -4,9 +4,10 @@ import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { cn } from '@/lib/utils'
+import { ACADEMY_URL, CODE_URL } from '@/lib/site'
 
 /**
  * The programmes, each with the one line that says what it actually is.
@@ -28,9 +29,13 @@ import { cn } from '@/lib/utils'
 // `nav` namespace — nav.academy.label and nav.academy.description — so a
 // translator changes copy without touching this file and a developer changes
 // routes without touching a translation.
+//
+// Academy and Code point at the platforms, not their pages here, so the
+// click lands where the visitor meant to go. The arrow marks them as
+// separate sites.
 const programLinks = [
-  { href: '/academy', key: 'academy' },
-  { href: '/code', key: 'code' },
+  { href: ACADEMY_URL, key: 'academy' },
+  { href: CODE_URL, key: 'code' },
   { href: '/coursera-scholars', key: 'scholars' },
   { href: '/eslp', key: 'eslp' },
 ] as const
@@ -40,6 +45,8 @@ const directLinks = [
   { href: '/get-involved', key: 'getInvolved' },
   { href: '/contact', key: 'contact' },
 ] as const
+
+const isExternal = (href: string) => href.startsWith('https://')
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -88,6 +95,7 @@ export default function Navbar() {
   }, [pathname])
 
   const isActivePath = (href: string) => {
+    if (isExternal(href)) return false
     if (href === '/') {
       return pathname === '/'
     }
@@ -151,7 +159,7 @@ export default function Navbar() {
               </button>
 
               {/* Always in the markup, only hidden. When this rendered only
-                  after a click, the four programme pages were missing from the
+                  after a click, the four programme links were missing from the
                   navigation that crawlers and the Ad Grants review read. */}
               <div
                 className={cn(
@@ -176,6 +184,9 @@ export default function Navbar() {
                           )}
                         >
                           {t(`${key}.label`)}
+                          {isExternal(href) && (
+                            <ArrowUpRight size={13} className="ml-1 inline-block align-[-1px] text-[var(--ink-700)]" aria-hidden="true" />
+                          )}
                         </span>
                         <span className="mt-0.5 block text-xs leading-relaxed text-[var(--ink-700)]">
                           {t(`${key}.description`)}
@@ -262,6 +273,9 @@ export default function Navbar() {
                     )}
                   >
                     {t(`${key}.label`)}
+                    {isExternal(href) && (
+                      <ArrowUpRight size={13} className="ml-1 inline-block align-[-1px] text-[var(--ink-700)]" aria-hidden="true" />
+                    )}
                   </span>
                   <span className="mt-0.5 block text-xs leading-relaxed text-[var(--ink-700)]">
                     {t(`${key}.description`)}

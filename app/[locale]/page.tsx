@@ -8,11 +8,12 @@ import TestimonialCarousel from '@/components/TestimonialCarousel'
 import AudiencePaths, { type Audience } from '@/components/home/AudiencePaths'
 import testimonialsData from '@/data/testimonials.json'
 import partnersData from '@/data/partners.json'
+import { ACADEMY_URL, CODE_URL } from '@/lib/site'
 
 // The homepage reads as a story in short chapters: who is this for (the
 // "I am a…" selector), why EdLight exists, then Learn, Lead, Go further and
 // Join. Each chapter is one photo and a few sentences that end in a link to
-// that programme's own page, so the page shows everything on offer without
+// that programme (Academy and Code straight to the platform itself), so the page shows everything on offer without
 // being the whole site. There are no stat cards: the facts sit in the copy.
 //
 // Wording is in messages/<locale>/home.json under `story`.
@@ -23,8 +24,8 @@ const SCHOLARS_INSTITUTION_URL = 'https://apply.edlight.org/scholars/institution
 // Which programmes each audience sees, and where each one goes. The wording
 // for every item is home.story.audiences.<audience>.items.<item>.
 const audienceRoutes: Record<string, Record<string, string>> = {
-  student: { academy: '/academy', code: '/code', eslp: '/eslp' },
-  university: { scholars: '/coursera-scholars', code: '/code' },
+  student: { academy: ACADEMY_URL, code: CODE_URL, eslp: '/eslp' },
+  university: { scholars: '/coursera-scholars', code: CODE_URL },
   partner: { scholars: SCHOLARS_INSTITUTION_URL, partner: '/get-involved', speak: '/get-involved' },
   supporter: { donate: '/donate', volunteer: '/get-involved', contact: '/contact' },
 }
@@ -168,16 +169,25 @@ export default async function HomePage({
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {([
-              { key: 'academy', name: 'EdLight Academy', href: '/academy', img: '/EdLight_Academy.webp' },
-              { key: 'code', name: 'EdLight Code', href: '/code', img: '/labs_pics.webp' },
+              { key: 'academy', name: 'EdLight Academy', href: ACADEMY_URL, page: '/academy', img: '/EdLight_Academy.webp' },
+              { key: 'code', name: 'EdLight Code', href: CODE_URL, page: '/code', img: '/labs_pics.webp' },
             ] as const).map((p) => (
               <article key={p.key} className="flex flex-col overflow-hidden rounded-[4px] border border-[var(--paper-200)] bg-white">
                 <Photo src={p.img} alt="" className="aspect-[16/9] rounded-none" />
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-lg font-semibold text-[var(--ink-900)]">{p.name}</h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--ink-700)]">{t(`story.learn.${p.key}`)}</p>
-                  <div className="mt-5">
+                  {/* The main link goes to the platform. The quieter one keeps the
+                      programme's page on edlight.org reachable, for readers who
+                      want to know more first and for the Ad Grants review. */}
+                  <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
                     <TextLink href={p.href}>{t(`story.learn.${p.key}Cta`)}</TextLink>
+                    <Link
+                      href={p.page}
+                      className="text-sm text-[var(--ink-700)] underline underline-offset-4 decoration-[var(--paper-300)] hover:text-[var(--ink-900)]"
+                    >
+                      {t('story.learn.about')}
+                    </Link>
                   </div>
                 </div>
               </article>

@@ -85,8 +85,8 @@ export async function POST(request: Request) {
           <!-- Labs and Nexus were listed here and are no longer public
                programme pages. The four below are the live ones. -->
           <ul style="color: #044BAB; line-height: 1.8; margin-bottom: 20px;">
-            <li><a href="https://www.edlight.org/academy" style="color: #044BAB;">EdLight Academy</a> - Free courses for the national exams</li>
-            <li><a href="https://www.edlight.org/code" style="color: #044BAB;">EdLight Code</a> - Coding tracks in Kreyòl, French, and English</li>
+            <li><a href="https://academy.edlight.org" style="color: #044BAB;">EdLight Academy</a> - Free courses for the national exams</li>
+            <li><a href="https://code.edlight.org" style="color: #044BAB;">EdLight Code</a> - Coding tracks in Kreyòl, French, and English</li>
             <li><a href="https://www.edlight.org/coursera-scholars" style="color: #044BAB;">EdLight Scholars</a> - Free Coursera access with certificates</li>
             <li><a href="https://www.edlight.org/eslp" style="color: #044BAB;">ESLP</a> - Summer Leadership Program</li>
           </ul>

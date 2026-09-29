@@ -8,6 +8,16 @@
  */
 export const SITE_URL = 'https://www.edlight.org'
 
+/**
+ * The Academy and Code platforms themselves. Programme links in the nav,
+ * footer and homepage go straight here rather than through /academy and
+ * /code: someone clicking "EdLight Academy" wants to use Academy. Those two
+ * pages stay live and in the sitemap as the on-site description of each
+ * programme, for search and for the Ad Grants review.
+ */
+export const ACADEMY_URL = 'https://academy.edlight.org'
+export const CODE_URL = 'https://code.edlight.org'
+
 /** Build an absolute URL for a site-relative path. */
 export function absoluteUrl(path = '/'): string {
   return new URL(path, SITE_URL).toString()
