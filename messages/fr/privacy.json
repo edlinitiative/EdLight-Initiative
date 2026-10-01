@@ -5,7 +5,7 @@
     "description": "Découvrez comment EdLight Initiative recueille, utilise et protège vos renseignements personnels."
   },
   "title": "Politique de confidentialité",
-  "lastUpdated": "Dernière mise à jour : 25 septembre 2026",
+  "lastUpdated": "Dernière mise à jour : 1er octobre 2026",
   "s1": {
     "heading": "1. Introduction",
     "body": "EdLight Initiative (« nous », « notre » ou « nos ») s’engage à protéger votre vie privée. La présente politique de confidentialité explique comment nous recueillons, utilisons, communiquons et protégeons vos renseignements lorsque vous visitez notre site Web ou utilisez nos services."
@@ -35,7 +35,8 @@
     "delivery": "Les quatre formulaires nous parviennent par courriel dans notre boîte de réception, acheminés par <strong>Resend</strong>, notre fournisseur de services de courriel. L’inscription à l’infolettre ou à une liste d’avis vous envoie également un courriel de confirmation. Rien de ce que vous soumettez n’est inscrit dans une base de données ni conservé sur ce site Web ; le seul enregistrement est le message dans notre boîte de réception, et vous pouvez nous demander de supprimer le vôtre à tout moment.",
     "noPayment": "Nous ne demandons de renseignements de paiement nulle part sur ce site et nous ne voyons jamais les données de votre carte. Les dons sont traités entièrement par PayPal, comme il est indiqué à la section 4. Les paiements des fonctionnalités payantes d’EdLight Code se font sur code.edlight.org, et non ici, et relèvent de la politique de confidentialité de ce site.",
     "autoHeading": "Renseignements recueillis automatiquement",
-    "autoBody": "Ce site n’utilise ni outils d’analyse, ni publicité, ni témoins de suivi, et il ne dresse aucun profil de votre navigation. Comme tout site Web, notre hébergeur consigne automatiquement des renseignements techniques de base à chaque requête (votre adresse IP, le type de navigateur et la page demandée), qui servent à afficher le site, à en assurer la sécurité et à diagnostiquer les pannes. Si nous introduisons un jour des outils d’analyse ou de mesure publicitaire, nous mettrons à jour la présente politique et la date de « Dernière mise à jour » avant de le faire."
+    "autoBody": "Ce site n’utilise ni outils d’analyse, ni publicité, ni témoins de suivi, et il ne dresse aucun profil de votre navigation. Comme tout site Web, notre hébergeur consigne automatiquement des renseignements techniques de base à chaque requête (votre adresse IP, le type de navigateur et la page demandée), qui servent à afficher le site, à en assurer la sécurité et à diagnostiquer les pannes. Si nous introduisons un jour des outils d’analyse ou de mesure publicitaire, nous mettrons à jour la présente politique et la date de « Dernière mise à jour » avant de le faire.",
+    "autoBodyAnalytics": "Nous utilisons Google Analytics 4 et la mesure des conversions Google Ads pour comprendre comment ce site est utilisé et savoir si nos annonces Google Ad Grants atteignent les personnes à qui elles sont destinées. Lors de votre visite, ces outils de Google déposent des témoins sur votre appareil et enregistrent les pages que vous consultez, la façon dont vous êtes arrivé (par exemple depuis une recherche ou une annonce Google), le type d’appareil et de navigateur, votre emplacement approximatif (pays ou ville, que Google déduit de votre adresse IP), ainsi que des actions comme un clic sur un bouton de don, un lien suivi vers l’un de nos programmes ou l’envoi réussi d’un formulaire. Nous ne transmettons jamais à Google votre nom, votre adresse courriel ni ce que vous saisissez dans un formulaire. La personnalisation des annonces et le remarketing sont désactivés : nous n’utilisons pas ces données pour vous montrer des publicités, et les signaux Google sont désactivés. Google traite ces données en tant que tiers selon sa propre politique de confidentialité (voir la section 4). Par ailleurs, notre hébergeur consigne automatiquement des renseignements techniques de base à chaque requête (votre adresse IP, le type de navigateur et la page demandée), qui servent à afficher le site, à en assurer la sécurité et à diagnostiquer les pannes."
   },
   "s3": {
     "heading": "3. Comment nous utilisons vos renseignements",
@@ -67,6 +68,10 @@
         "label": "Coursera :",
         "text": "pour les apprenants sélectionnés comme Programme EdLight Scholars, nous communiquons les renseignements nécessaires à la création de votre compte Coursera dans le cadre de notre partenariat Social Impact. Cela ne s’applique que si vous posez votre candidature et êtes sélectionné ; Coursera gère ensuite votre compte selon sa propre politique de confidentialité"
       },
+      "google": {
+        "label": "Google :",
+        "text": "qui fournit Google Analytics et la mesure Google Ads sur ce site et reçoit les données d’utilisation décrites à la section 2. Google les traite en tant que tiers selon sa propre politique de confidentialité (policies.google.com/privacy). Nous en utilisons les résultats de façon agrégée pour mesurer la fréquentation du site et nos campagnes Ad Grants, et nous n’autorisons pas leur utilisation pour la personnalisation des annonces"
+      },
       "legal": {
         "label": "Obligations légales :",
         "text": "Lorsque la loi l’exige ou pour protéger nos droits"
@@ -83,7 +88,8 @@
   },
   "s5": {
     "heading": "5. Témoins et technologies de suivi",
-    "body": "Nous n’utilisons pas de témoins sur ce site Web. Nous ne déposons aucun témoin qui nous soit propre et ne chargeons aucun script d’analyse ou de publicité de tiers ; il n’y a donc rien à accepter ni à refuser ici, et le site fonctionne normalement lorsque les témoins sont désactivés dans votre navigateur. Notez que PayPal et Coursera utilisent des témoins sur leurs propres sites dès que vous suivez un lien vers ceux-ci."
+    "body": "Nous n’utilisons ni témoins d’analyse, ni témoins publicitaires, ni témoins de suivi sur ce site Web, et nous ne chargeons aucun script d’analyse ou de publicité de tiers. Le seul témoin que nous déposons est NEXT_LOCALE, et uniquement si vous utilisez le sélecteur de langue : il mémorise la langue choisie et ne contient rien d’autre. Il n’y a donc rien à accepter ni à refuser ici, et le site fonctionne normalement lorsque les témoins sont désactivés dans votre navigateur ; il suit alors simplement la langue de votre navigateur. Notez que PayPal et Coursera utilisent des témoins sur leurs propres sites dès que vous suivez un lien vers ceux-ci.",
+    "bodyAnalytics": "Ce site utilise des témoins déposés par Google Analytics (comme _ga et _ga_ suivi d’un identifiant) pour compter les visites, distinguer les nouveaux visiteurs de ceux qui reviennent et attribuer les visites provenant de nos annonces Google. Aucun témoin publicitaire n’est utilisé : le stockage publicitaire et la personnalisation des annonces sont refusés pour tous les visiteurs, et une visite issue de l’une de nos annonces est attribuée à partir du lien lui-même plutôt que d’un témoin. Nous déposons aussi un seul témoin qui nous est propre, NEXT_LOCALE, uniquement si vous utilisez le sélecteur de langue ; il mémorise la langue choisie et rien d’autre. Vous pouvez bloquer ou supprimer les témoins dans les paramètres de votre navigateur, et le site continuera de fonctionner normalement. Vous pouvez aussi refuser Google Analytics sur tous les sites Web en installant le module complémentaire de désactivation de Google (tools.google.com/dlpage/gaoptout). Notez que PayPal et Coursera utilisent des témoins sur leurs propres sites dès que vous suivez un lien vers ceux-ci."
   },
   "s6": {
     "heading": "6. Sécurité des données",

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
+import { ANALYTICS_ENABLED } from '@/lib/analytics'
 import { CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE, SITE_URL } from '@/lib/site'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -27,7 +28,16 @@ const USE_KEYS = [
   'fraud',
 ] as const
 
-const SHARING_KEYS = ['resend', 'paypal', 'coursera', 'legal', 'business', 'consent'] as const
+// Google is listed only while the GA tag is on (see the note in section 2).
+const SHARING_KEYS = [
+  'resend',
+  'paypal',
+  'coursera',
+  ...(ANALYTICS_ENABLED ? (['google'] as const) : []),
+  'legal',
+  'business',
+  'consent',
+] as const
 
 const RETENTION_KEYS = ['participants', 'enquiries', 'notify', 'donations'] as const
 
@@ -102,27 +112,36 @@ export default async function PrivacyPage({
           <p className="text-gray-700 leading-relaxed mt-4">{t('s2.noPayment')}</p>
 
           <h3 className="text-xl font-semibold text-gray-800 mb-3 mt-6">{t('s2.autoHeading')}</h3>
-          {/* Was "we may automatically collect... your web browser, IP address,
-              time zone, and cookies... browsing actions and patterns", which
-              describes an analytics stack this site does not have. Verified
-              against the source before rewriting: there is no Google tag, no
-              Google Tag Manager, no Vercel Analytics, no gtag call and no
-              analytics dependency in package.json — app/layout.tsx loads two
-              JSON-LD blocks and nothing else. The site sets no cookies at all.
-              The only automatic collection that genuinely happens is our host's
-              standard request logging, so that is what this now says.
+          {/* TWO VERSIONS, switched by the same value that switches the tag.
+              ANALYTICS_ENABLED (lib/analytics.ts) is true only when
+              NEXT_PUBLIC_GA_MEASUREMENT_ID is set at build time, and the root
+              layout renders the GA4 tag (components/Analytics.tsx) on exactly
+              that condition. So this paragraph, section 4's Google entry and
+              section 5 always describe what the build actually loads; never
+              hardcode either version.
 
-              IF YOU ADD GOOGLE ANALYTICS OR A GOOGLE ADS CONVERSION TAG — which
-              an Ad Grants account will likely want — this paragraph and section
-              5 both become untrue and must be updated in the same change as the
-              tag, in every locale. Say that Google Analytics and Google Ads
-              measurement set cookies on your device, that they record pages
-              viewed, approximate location derived from IP, and actions such as
-              form submissions, and that Google processes this as a third party
-              under its own privacy policy. Do not add that text before the tag
-              ships: a policy claiming cookies the site never sets is its own
-              problem. */}
-          <p className="text-gray-700 leading-relaxed">{t('s2.autoBody')}</p>
+              Off (autoBody): no analytics, no advertising, no tracking cookies;
+              the only automatic collection is the host's request logging. This
+              was verified against the source when it was written: no Google
+              tag, no Tag Manager, no Vercel Analytics, no analytics dependency.
+
+              On (autoBodyAnalytics): GA4 + Google Ads measurement set cookies,
+              record pages viewed, referral source, device, approximate location
+              from IP and the three conversion events (donate_click,
+              generate_lead, program_click), with no form contents sent; ad
+              storage and ad personalisation are denied by Consent Mode and
+              Google signals is off. If any of that changes in Analytics.tsx —
+              a new event that could carry personal data, ad_storage granted,
+              remarketing turned on, a consent banner added — this text, section
+              4 and section 5 change in the same commit, in every locale.
+
+              Do not add a second tracker (Meta pixel, Tag Manager container,
+              Vercel Analytics) without the same treatment. And when the env var
+              is first set in production, bump lastUpdated: the policy a visitor
+              sees changes that day. */}
+          <p className="text-gray-700 leading-relaxed">
+            {ANALYTICS_ENABLED ? t('s2.autoBodyAnalytics') : t('s2.autoBody')}
+          </p>
         </section>
 
         <section className="mb-8">
@@ -155,16 +174,17 @@ export default async function PrivacyPage({
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('s5.heading')}</h2>
-          {/* Opened with "We use cookies and similar tracking technologies to
-              track activity on our website" and warned that refusing cookies
-              would break parts of the site. Both were false: nothing in this
-              codebase sets a cookie, and every page works with cookies fully
-              disabled. Telling people you track them when you do not is not a
-              safe default — it invites a consent-banner question that does not
-              apply, and it is the kind of copied-in claim a reviewer checks
-              against the actual page. See the note in section 2 before adding
-              a Google tag; this section changes with it. */}
-          <p className="text-gray-700 leading-relaxed">{t('s5.body')}</p>
+          {/* Originally opened with "We use cookies and similar tracking
+              technologies to track activity on our website" when nothing set a
+              cookie: a copied-in claim a reviewer checks against the page. It
+              then swung to "we do not use cookies", which was also wrong —
+              components/LanguageSwitcher.tsx sets NEXT_LOCALE when someone picks
+              a language. Both versions now name that cookie. The analytics
+              version is selected by the same ANALYTICS_ENABLED switch as the
+              tag; see the note in section 2. */}
+          <p className="text-gray-700 leading-relaxed">
+            {ANALYTICS_ENABLED ? t('s5.bodyAnalytics') : t('s5.body')}
+          </p>
         </section>
 
         <section className="mb-8">

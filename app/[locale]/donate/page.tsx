@@ -193,6 +193,7 @@ export default async function DonatePage({
                     </p>
                     <a
                       href={PAYPAL_DONATE_URL}
+                      data-analytics-location="donate_page"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"

@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { Send } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { CONTACT_EMAIL } from '@/lib/site'
+import { track } from '@/lib/analytics'
 
 type FormData = {
   name: string
@@ -60,6 +61,8 @@ export default function ContactForm() {
       }
 
       setSubmitStatus('success')
+      // After the server accepted it, never on click. No field values.
+      track('generate_lead', { form: 'contact' })
       reset()
     } catch (error) {
       console.error('Error submitting form:', error)

@@ -3,6 +3,8 @@ import { Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
 import '../globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import Analytics from '@/components/Analytics'
+import { GA_MEASUREMENT_ID } from '@/lib/analytics'
 import {
   SITE_URL,
   FOUNDED_YEAR,
@@ -230,6 +232,11 @@ export default async function RootLayout({
           </main>
           <Footer />
         </NextIntlClientProvider>
+        {/* GA4 + Google Ads measurement, only when NEXT_PUBLIC_GA_MEASUREMENT_ID
+            is set. Unset, nothing renders: no script, no dataLayer, no cookie.
+            The privacy page switches its wording on the same value. See
+            components/Analytics.tsx for the consent defaults and why. */}
+        {GA_MEASUREMENT_ID && <Analytics measurementId={GA_MEASUREMENT_ID} />}
       </body>
     </html>
   )

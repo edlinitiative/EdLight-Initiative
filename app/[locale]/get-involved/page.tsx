@@ -8,6 +8,7 @@ import Hero from '@/components/Hero'
 import SectionHeader from '@/components/SectionHeader'
 import Reveal from '@/components/Reveal'
 import { CONTACT_EMAIL, CORPORATION_NUMBER } from '@/lib/site'
+import { track } from '@/lib/analytics'
 
 declare global {
   interface Window {
@@ -123,6 +124,13 @@ export default function GetInvolvedPage() {
         throw new Error(result?.message || 'Submission failed')
       }
       setSubmitStatus('success')
+      // After the server accepted it, never on click. `interest` is one of
+      // the fixed option values above (volunteer, partner, ...), not input
+      // the visitor typed; anything else is reported as 'other'.
+      track('generate_lead', {
+        form: 'get_involved',
+        interest: (interestOptions as readonly string[]).includes(data.interest) ? data.interest : 'other',
+      })
       reset()
     } catch (error) {
       console.error('Error submitting form:', error)
@@ -217,7 +225,12 @@ export default function GetInvolvedPage() {
                   <ShieldCheck size={16} />
                   {t('support.secureCheckout')}
                 </span>
-                <div id="donate-button-container" className="inline-flex justify-center">
+                <div
+                  id="donate-button-container"
+                  className="inline-flex justify-center"
+                  data-analytics-donate
+                  data-analytics-location="get_involved"
+                >
                   <div id="donate-button"></div>
                 </div>
                 <p className="text-xs text-white/70">

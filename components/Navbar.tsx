@@ -221,6 +221,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/donate"
+              data-analytics-location="navbar"
               className="inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-150 bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] px-4 py-1.5 text-sm whitespace-nowrap min-w-[100px]"
             >
               {t('donate')}
@@ -306,6 +307,7 @@ export default function Navbar() {
               <div className="px-4 pt-3">
                 <Link
                   href="/donate"
+                  data-analytics-location="navbar_mobile"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="inline-flex w-full items-center justify-center font-medium tracking-tight bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] px-4 py-2.5 text-sm"
                 >

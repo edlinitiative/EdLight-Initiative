@@ -3,6 +3,8 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
+import { track } from '@/lib/analytics'
+
 type FormData = {
   name: string
   email: string
@@ -80,6 +82,8 @@ export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
         throw new Error(body?.message || 'Unable to submit request right now.')
       }
 
+      // After the server accepted it, never on click. No field values.
+      track('generate_lead', { form: 'request_quote' })
       reset()
       alert('Thank you! Our team will review your website request and respond within 2-3 business days.')
       onSuccess?.()
