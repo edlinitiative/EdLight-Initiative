@@ -30,8 +30,27 @@ declare global {
 
 export type AnalyticsEvent =
   | { name: 'donate_click'; params: { location: string } }
-  | { name: 'generate_lead'; params: { form: string; interest?: string } }
+  | { name: 'generate_lead'; params: { form: string; interest?: string; cycle?: string } }
   | { name: 'program_click'; params: { destination: string } }
+
+// The notify lists /api/eslp-notify accepts (its NOTIFY_CYCLES), mapped to
+// the generate_lead `form` label. Fixed labels only, never visitor input.
+const NOTIFY_FORMS: Record<string, string> = {
+  'ESLP 2027': 'eslp_notify',
+  'EdLight Scholars': 'scholars_notify',
+  'Coursera Scholars': 'scholars_notify',
+}
+
+/**
+ * generate_lead params for a NotifyModal signup, e.g. 'ESLP 2027' →
+ * { form: 'eslp_notify', cycle: 'ESLP 2027' }. Any later ESLP year maps the
+ * same way; an unknown label is reported as { form: 'notify', cycle: 'other' }
+ * so nothing unexpected is ever sent to GA.
+ */
+export function notifyLeadParams(cycleLabel: string): { form: string; cycle: string } {
+  const form = NOTIFY_FORMS[cycleLabel] ?? (/^ESLP \d{4}$/.test(cycleLabel) ? 'eslp_notify' : null)
+  return form ? { form, cycle: cycleLabel } : { form: 'notify', cycle: 'other' }
+}
 
 /** Send a GA4 event. A safe no-op on the server, with GA off, or before gtag loads. */
 export function track<E extends AnalyticsEvent>(name: E['name'], params: E['params']): void {

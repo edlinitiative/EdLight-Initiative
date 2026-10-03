@@ -8,6 +8,7 @@ import { SOCIAL_LINKS, type SocialPlatform } from '@/lib/socials'
 import { useTranslations } from 'next-intl'
 import { ACADEMY_URL, CODE_URL, platformLinkProps, CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE } from '@/lib/site'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
+import { track } from '@/lib/analytics'
 
 // Icons live here; the URLs live in lib/socials.ts, which is the single list
 // the contact page reads too. There used to be two divergent sets of handles
@@ -141,6 +142,8 @@ export default function Footer() {
       }
 
       setStatus('success')
+      // After the server accepted it, never on click. No email.
+      track('generate_lead', { form: 'newsletter' })
       setFeedback(t('subscribeSuccess'))
       setEmail('')
     } catch (error) {

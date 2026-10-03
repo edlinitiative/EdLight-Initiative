@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { X, Bell, Loader2, CheckCircle2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { notifyLeadParams, track } from '@/lib/analytics'
 
 interface NotifyModalProps {
   open: boolean
@@ -101,13 +102,16 @@ export default function NotifyModal({ open, onClose, cycleLabel }: NotifyModalPr
 
       const data = await res.json()
 
-      if (!res.ok) {
-        setErrorMsg(data.message || t('errorGeneric'))
+      if (!res.ok || !data?.success) {
+        setErrorMsg(data?.message || t('errorGeneric'))
         setStatus('error')
         return
       }
 
       setStatus('success')
+      // Only after the server confirmed the signup. The list label only —
+      // no name, email or phone.
+      track('generate_lead', notifyLeadParams(cycleLabel))
     } catch {
       setErrorMsg(t('errorNetwork'))
       setStatus('error')
