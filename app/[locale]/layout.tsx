@@ -4,6 +4,7 @@ import '../globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Analytics from '@/components/Analytics'
+import AdParamForwarder from '@/components/AdParamForwarder'
 import { GA_MEASUREMENT_ID } from '@/lib/analytics'
 import {
   SITE_URL,
@@ -237,6 +238,10 @@ export default async function RootLayout({
             The privacy page switches its wording on the same value. See
             components/Analytics.tsx for the consent defaults and why. */}
         {GA_MEASUREMENT_ID && <Analytics measurementId={GA_MEASUREMENT_ID} />}
+        {/* Carries the landing page's gclid / utm_* to links to apply, academy
+            and code.edlight.org, so Google Ads can attribute conversions
+            measured there. Independent of the GA tag. See lib/ad-params.ts. */}
+        <AdParamForwarder />
       </body>
     </html>
   )

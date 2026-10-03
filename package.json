@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "node scripts/check-messages.mjs && next build",
     "check:messages": "node scripts/check-messages.mjs",
+    "test": "node --test scripts/*.test.mjs",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
