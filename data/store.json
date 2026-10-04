@@ -1,31 +1,120 @@
 [
   {
-    "id": 1,
-    "name": "EdLight T-Shirt",
-    "price": 25,
-    "image": "/store/tshirt.png",
-    "description": "Premium cotton t-shirt with the EdLight wordmark. Soft hand, classic fit."
+    "id": "polo",
+    "name": "EdLight Signature Polo",
+    "category": "apparel",
+    "price": 87,
+    "image": "/store/polo.webp",
+    "fit": "cover",
+    "featured": true,
+    "description": "Navy cotton pique polo with the EdLight lightbulb embroidered on the chest. Sharp enough for a graduation, easy enough for every day.",
+    "details": [
+      "Heavyweight cotton pique, three-button placket",
+      "Embroidered EdLight logo on the left chest",
+      "Unisex fit, sizes S to XXL"
+    ]
   },
   {
-    "id": 2,
+    "id": "tshirt",
+    "name": "EdLight T-Shirt",
+    "category": "apparel",
+    "price": 25,
+    "image": "/store/tshirt.png",
+    "fit": "contain",
+    "description": "Royal blue cotton tee with the EdLight wordmark and our motto, \"One country, one education.\""
+  },
+  {
+    "id": "hoodie",
+    "name": "Lightbulb Hoodie",
+    "category": "apparel",
+    "price": 55,
+    "image": "/store/hoodie.webp",
+    "fit": "cover",
+    "description": "Heather grey fleece hoodie with the EdLight lightbulb printed large across the chest."
+  },
+  {
+    "id": "cap",
+    "name": "EdLight Cap",
+    "category": "apparel",
+    "price": 28,
+    "image": "/store/cap.webp",
+    "fit": "cover",
+    "description": "Six-panel cotton cap in royal blue with the lightbulb logo embroidered on the front."
+  },
+  {
+    "id": "backpack",
+    "name": "Scholar Backpack",
+    "category": "gear",
+    "price": 65,
+    "image": "/store/backpack.webp",
+    "fit": "cover",
+    "description": "Navy everyday backpack with a padded laptop sleeve, a bottle pocket, and a woven EdLight patch."
+  },
+  {
+    "id": "bottle",
+    "name": "EdLight Water Bottle",
+    "category": "gear",
+    "price": 30,
+    "image": "/store/bottle.webp",
+    "fit": "cover",
+    "description": "Insulated stainless steel bottle. Keeps water cold through a full school day in Port-au-Prince."
+  },
+  {
+    "id": "notebook",
     "name": "Leadership Notebook",
+    "category": "gear",
     "price": 15,
     "image": "/store/notebook.png",
+    "fit": "contain",
     "description": "Hardcover notebook for class notes, planning, and reflection, branded with the EdLight mark."
   },
   {
-    "id": 3,
+    "id": "tote",
     "name": "EdLight Tote Bag",
+    "category": "gear",
     "price": 20,
     "image": "/store/tote.png",
+    "fit": "contain-flush",
     "description": "Heavy-canvas tote for books, gear, and everyday carry. Built to last."
   },
   {
-    "id": 4,
+    "id": "stickers",
+    "name": "Sticker Pack",
+    "category": "gear",
+    "price": 8,
+    "image": "/store/stickers.webp",
+    "fit": "cover",
+    "description": "Five die-cut vinyl stickers of the EdLight lightbulb for laptops, bottles, and notebooks."
+  },
+  {
+    "id": "lamp",
+    "name": "Lightbulb Desk Lamp",
+    "category": "gear",
+    "price": 120,
+    "image": "/store/lamp.webp",
+    "fit": "cover",
+    "badge": "Limited edition",
+    "description": "The EdLight logo as a real desk lamp: a glass bulb with a graduation cap inside and rays around it. Warm light for late study nights."
+  },
+  {
+    "id": "student-kit",
+    "name": "Student Starter Kit",
+    "category": "give",
+    "price": 35,
+    "image": "/store/student-kit.webp",
+    "fit": "cover",
+    "badge": "Give a kit",
+    "description": "Buy one for a student in Haiti: a notebook, pencils, a pen, a ruler, a calculator, and an EdLight pencil pouch."
+  },
+  {
+    "id": "sponsor",
     "name": "Sponsor a Student Kit",
+    "category": "give",
     "price": 50,
     "priceSuffix": "/month",
     "image": "/store/sponsor.png",
+    "fit": "cover",
+    "badge": "Sponsorship",
     "description": "Underwrite a month of learning for one student: notebook, supplies, and program access included."
   }
 ]

@@ -164,11 +164,12 @@ export const NEXUS_ENABLED = false
 /**
  * Whether /store is publicly reachable.
  *
- * Every item in the store is marked "Coming soon" and the page says the store
- * is launching soon — four products, none of which can be bought. That is a
- * placeholder page, and the same reasoning as NEXUS_ENABLED applies: noindex
- * is not the same as not being there.
+ * Every item in the store was marked "Coming soon" and the page said the store
+ * was launching soon, so it was a placeholder page and stayed hidden during
+ * the Ad Grants review.
  *
- * TO RESTORE: set this to true once the products can actually be purchased.
+ * Restored 2026-10-04 after the Ad Grants approval. Items still cannot be
+ * bought, but each one now has an "I want one" form (/api/store-interest),
+ * so the page has a real call to action and tells us what to stock.
  */
-export const STORE_ENABLED = false
+export const STORE_ENABLED = true

@@ -35,6 +35,7 @@ const programLinks = [
 const orgLinks = [
   { href: '/about', key: 'about' },
   { href: '/labs', key: 'labs' },
+  { href: '/store', key: 'store' },
   { href: '/get-involved', key: 'getInvolved' },
   { href: '/donate', key: 'donate' },
   { href: '/faq', key: 'faq' },
