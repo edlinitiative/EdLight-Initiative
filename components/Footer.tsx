@@ -21,10 +21,9 @@ const socialIcons: Record<SocialPlatform, typeof Facebook> = {
   linkedin: Linkedin,
 }
 
-// EdLight Labs and EdLight Nexus are no longer listed. Both are noindexed and
-// out of the sitemap — Labs because it sells commercial web services, Nexus
-// because it has no cohort, dates, or way to apply — and a footer link is
-// exactly how a crawler would keep finding them anyway. Academy and Code go
+// EdLight Nexus is not listed: it has no cohort, dates, or way to apply.
+// EdLight Labs is the technology division rather than a student programme,
+// so it sits under the organisation links below. Academy and Code go
 // straight to the platforms, as in the nav.
 const programLinks = [
   { href: ACADEMY_URL, key: 'academy' },
@@ -35,6 +34,7 @@ const programLinks = [
 
 const orgLinks = [
   { href: '/about', key: 'about' },
+  { href: '/labs', key: 'labs' },
   { href: '/get-involved', key: 'getInvolved' },
   { href: '/donate', key: 'donate' },
   { href: '/faq', key: 'faq' },

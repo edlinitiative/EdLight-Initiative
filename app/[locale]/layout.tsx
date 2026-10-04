@@ -56,11 +56,8 @@ export const metadata: Metadata = {
   // reviewer searching for the organisation first sees what it is.
   description:
     `${MISSION_STATEMENT} A registered Canadian not-for-profit running free online courses, coding tracks in Haitian Creole, French, and English, free Coursera access with certificates, and a summer leadership programme.`,
-  // 'EdLight Labs' and 'EdLight Nexus' are gone: Labs 404s while
-  // COMMERCIAL_SERVICES_ENABLED is false and Nexus is noindexed with no
-  // cohort to join, so the site was advertising two brands it does not serve
-  // a page for.
-  keywords: ['EdLight Initiative', 'Haiti education', 'STEM education', 'online courses', 'leadership program', 'scholarships Haiti', 'EdLight Academy', 'EdLight Code', 'EdLight Scholars', 'ESLP'],
+  // 'EdLight Nexus' stays out: it is noindexed with no cohort to join.
+  keywords: ['EdLight Initiative', 'Haiti education', 'STEM education', 'online courses', 'leadership program', 'scholarships Haiti', 'EdLight Academy', 'EdLight Code', 'EdLight Scholars', 'ESLP', 'EdLight Labs'],
   authors: [{ name: 'EdLight Initiative' }],
   creator: 'EdLight Initiative',
   publisher: 'EdLight Initiative',

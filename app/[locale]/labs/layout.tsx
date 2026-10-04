@@ -22,8 +22,13 @@ import { COMMERCIAL_SERVICES_ENABLED } from '@/lib/site'
  * It needs a layout rather than a `metadata` export because app/labs/page.tsx
  * is a client component, and client components cannot export metadata.
  */
+//
+// Restored and indexable again since the Ad Grants approval (2026-10-04).
 export const metadata: Metadata = {
-  robots: { index: false, follow: false },
+  title: 'EdLight Labs',
+  description:
+    'EdLight Labs, the technology division of EdLight Initiative, designs and builds websites, apps and digital tools for organisations.',
+  alternates: { canonical: '/labs' },
 }
 
 export default function LabsLayout({ children }: { children: React.ReactNode }) {

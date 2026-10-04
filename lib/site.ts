@@ -139,13 +139,11 @@ export const NONPROFIT_STATUS_SHORT = 'Registered Canadian not-for-profit'
  * While this is false, /labs and /request-quote return 404. The pages and the
  * API route behind them are untouched.
  *
- * TO RESTORE, once the Ad Grants activation is approved: set this to true.
- * That is the whole change — both routes come back. Then decide separately
- * whether either belongs in the sitemap (app/sitemap.ts) or the navigation;
- * they were removed from both on purpose and flipping this flag does not put
- * them back.
+ * Restored 2026-10-04 after the Ad Grants activation was approved: /labs is
+ * back in the sitemap and the footer; /request-quote stays out of both since
+ * it is a form one step down the /labs funnel.
  */
-export const COMMERCIAL_SERVICES_ENABLED = false
+export const COMMERCIAL_SERVICES_ENABLED = true
 
 /**
  * Whether /nexus is publicly reachable.
