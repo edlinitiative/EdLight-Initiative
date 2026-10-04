@@ -116,7 +116,10 @@ export async function POST(request: Request) {
       to: [email],
       subject: `You're on the ${cycle} notification list`,
       text: [
-        `Hi ${headerSafe(name)},`,
+        // No name here: the recipient address and the name both come from the
+        // form, so echoing the name would let anyone send text of their choosing
+        // to any inbox from our domain.
+        `Hi,`,
         '',
         `You're on the list. We'll write to you as soon as ${cycle} dates and application details are announced. You'll hear from us before we announce it anywhere else.`,
         '',

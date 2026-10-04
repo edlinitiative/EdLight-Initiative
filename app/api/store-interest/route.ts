@@ -91,7 +91,10 @@ export async function POST(request: Request) {
       to: [email],
       subject: `We saved your spot for the ${item.name}`,
       text: [
-        `Hi ${headerSafe(name)},`,
+        // No name here: the recipient address and the name both come from the
+        // form, so echoing the name would let anyone send text of their choosing
+        // to any inbox from our domain.
+        `Hi,`,
         '',
         `Thanks for wanting the ${item.name}${size ? ` in ${size}` : ''}. It is not available yet, and your request helps us decide what to make first. We'll email you as soon as you can order it.`,
         '',
