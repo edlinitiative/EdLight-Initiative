@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import Script from 'next/script'
 import { usePathname } from 'next/navigation'
 
-import { isAdminPath, isDonateUrl, programDestination, track } from '@/lib/analytics'
+import { GOOGLE_ADS_ID, isAdminPath, isDonateUrl, programDestination, track } from '@/lib/analytics'
 
 /**
  * GA4 + Google Ads measurement. Rendered by the root layout only when
@@ -23,6 +23,8 @@ import { isAdminPath, isDonateUrl, programDestination, track } from '@/lib/analy
  *     analytics_storage to denied for those regions.
  *   - url_passthrough: true, so Google Ads clicks still attribute to
  *     conversions (via the gclid on the URL) without any ad cookie.
+ *   - The Google Ads tag (GOOGLE_ADS_ID) is configured on the same loader,
+ *     under the same denied ad consent.
  *
  * Admin routes are never measured: the tag is not rendered there, and if gtag
  * is already loaded from a public page it is disabled while on /admin.
@@ -41,7 +43,9 @@ export default function Analytics({ measurementId }: { measurementId: string }) 
   const onAdmin = isAdminPath(pathname)
 
   useEffect(() => {
-    ;(window as unknown as Record<string, unknown>)[`ga-disable-${measurementId}`] = onAdmin
+    const w = window as unknown as Record<string, unknown>
+    w[`ga-disable-${measurementId}`] = onAdmin
+    if (GOOGLE_ADS_ID) w[`ga-disable-${GOOGLE_ADS_ID}`] = onAdmin
   }, [measurementId, onAdmin])
 
   useEffect(() => {
@@ -100,7 +104,9 @@ export default function Analytics({ measurementId }: { measurementId: string }) 
 gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});
 gtag('set','url_passthrough',true);
 gtag('js',new Date());
-gtag('config',${id},{allow_google_signals:false,allow_ad_personalization_signals:false});`}
+gtag('config',${id},{allow_google_signals:false,allow_ad_personalization_signals:false});${
+          GOOGLE_ADS_ID ? `\ngtag('config',${JSON.stringify(GOOGLE_ADS_ID)},{allow_ad_personalization_signals:false});` : ''
+        }`}
       </Script>
       <Script
         id="ga-gtag"

@@ -19,6 +19,17 @@ export const GA_MEASUREMENT_ID = /^G-[A-Z0-9]+$/.test(RAW_ID) ? RAW_ID : ''
 
 export const ANALYTICS_ENABLED = GA_MEASUREMENT_ID !== ''
 
+/** An AW- conversion id, or '' when malformed (it is interpolated into an inline script). */
+export function validAdsId(raw: string): string {
+  const id = raw.trim()
+  return /^AW-\d+$/.test(id) ? id : ''
+}
+
+// The Ad Grants account's Google tag (420-747-6799). Google Ads flags campaigns
+// landing here as "missing a Google tag" without it. It rides on the GA4 loader,
+// so it is only ever configured when ANALYTICS_ENABLED.
+export const GOOGLE_ADS_ID = validAdsId(process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? 'AW-18486508230')
+
 type Gtag = (...args: unknown[]) => void
 
 declare global {

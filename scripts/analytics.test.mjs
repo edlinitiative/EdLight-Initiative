@@ -2,7 +2,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 
-import { notifyLeadParams, track } from '../lib/analytics.ts'
+import { GOOGLE_ADS_ID, notifyLeadParams, track, validAdsId } from '../lib/analytics.ts'
 
 test('notifyLeadParams maps the notify lists to fixed labels', () => {
   assert.deepEqual(notifyLeadParams('ESLP 2027'), { form: 'eslp_notify', cycle: 'ESLP 2027' })
@@ -38,4 +38,13 @@ test('track is a no-op without a window or gtag, and never throws', () => {
   } finally {
     delete globalThis.window
   }
+})
+
+test('validAdsId accepts only AW- conversion ids', () => {
+  assert.equal(validAdsId('AW-18486508230'), 'AW-18486508230')
+  assert.equal(validAdsId('  AW-123 '), 'AW-123')
+  assert.equal(validAdsId('G-NZ309H8E84'), '')
+  assert.equal(validAdsId("AW-1');alert(1);//"), '')
+  assert.equal(validAdsId(''), '')
+  assert.equal(GOOGLE_ADS_ID, 'AW-18486508230')
 })
