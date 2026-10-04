@@ -6,6 +6,8 @@ import { Send } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { CONTACT_EMAIL } from '@/lib/site'
 import { track } from '@/lib/analytics'
+import HoneypotField from '@/components/HoneypotField'
+import { HONEYPOT_FIELD } from '@/lib/honeypot'
 
 type FormData = {
   name: string
@@ -41,6 +43,7 @@ export default function ContactForm() {
   } = useForm<FormData>()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [honeypot, setHoneypot] = useState('')
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true)
@@ -50,7 +53,7 @@ export default function ContactForm() {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, [HONEYPOT_FIELD]: honeypot }),
       })
       const result = await response.json().catch(() => ({}))
 
@@ -74,6 +77,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+      <HoneypotField value={honeypot} onChange={setHoneypot} />
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-[var(--ink-900)] mb-1.5">
           {t('form.nameLabel')} <span className="text-[var(--ink-700)]">*</span>

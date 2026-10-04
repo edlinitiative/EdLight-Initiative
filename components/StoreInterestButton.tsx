@@ -3,6 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { CheckCircle2, Heart, Loader2, X } from 'lucide-react'
 import { track } from '@/lib/analytics'
+import HoneypotField from '@/components/HoneypotField'
+import { HONEYPOT_FIELD } from '@/lib/honeypot'
 
 const SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'] as const
 
@@ -32,6 +34,7 @@ export default function StoreInterestButton({
   const [email, setEmail] = useState('')
   const [size, setSize] = useState('')
   const [quantity, setQuantity] = useState(1)
+  const [honeypot, setHoneypot] = useState('')
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
   const overlayRef = useRef<HTMLDivElement>(null)
@@ -72,7 +75,7 @@ export default function StoreInterestButton({
       const res = await fetch('/api/store-interest', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ item: itemId, name: name.trim(), email: email.trim(), size, quantity }),
+        body: JSON.stringify({ item: itemId, name: name.trim(), email: email.trim(), size, quantity, [HONEYPOT_FIELD]: honeypot }),
       })
       const data = await res.json().catch(() => null)
       if (!res.ok || !data?.success) {
@@ -146,6 +149,7 @@ export default function StoreInterestButton({
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  <HoneypotField value={honeypot} onChange={setHoneypot} />
                   <div className="mb-2">
                     <span className="eyebrow text-[11px] text-[var(--ink-400)]">Not available yet</span>
                     <h2

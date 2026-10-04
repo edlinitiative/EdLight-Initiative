@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { readField, headerSafe, oneOf } from '@/lib/formInput'
 import { rateLimit, clientIp } from '@/lib/rateLimit'
+import { checkBotId } from 'botid/server'
+import { honeypotTripped } from '@/lib/honeypot'
 
 /**
  * This route used to append each signup to data/eslp-notifications.json with
@@ -42,6 +44,20 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null
 
 export async function POST(request: Request) {
   try {
+    // Real visitors submit from the page, where <BotIdClient> tags the
+    // request; scripts posting straight to this route are refused here.
+    // See lib/botid.ts.
+    const verification = await checkBotId()
+    if (verification.isBot) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'We could not verify this request. Please refresh the page and try again, or email info@edlight.org.',
+        },
+        { status: 403 }
+      )
+    }
+
     // This endpoint mails a confirmation to whatever address it is given, so
     // an unthrottled version is a way to send EdLight-branded mail to someone
     // who never asked, or to bomb one address by POSTing in a loop.
@@ -57,6 +73,12 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json().catch(() => null)
+
+    // A filled honeypot means a bot: answer as if it worked, send nothing.
+    // See lib/honeypot.ts.
+    if (honeypotTripped(body)) {
+      return NextResponse.json({ success: true, message: 'You have been added to the notification list.' })
+    }
 
     const name = readField(body?.name)
     const email = readField(body?.email)

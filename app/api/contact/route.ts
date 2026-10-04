@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { readField, headerSafe, LONG_FIELD_MAX } from '@/lib/formInput'
 import { rateLimit, clientIp } from '@/lib/rateLimit'
+import { checkBotId } from 'botid/server'
+import { honeypotTripped } from '@/lib/honeypot'
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -14,6 +16,20 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null
 
 export async function POST(request: Request) {
   try {
+    // Real visitors submit from the page, where <BotIdClient> tags the
+    // request; scripts posting straight to this route are refused here.
+    // See lib/botid.ts.
+    const verification = await checkBotId()
+    if (verification.isBot) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'We could not verify this request. Please refresh the page and try again, or email info@edlight.org.',
+        },
+        { status: 403 }
+      )
+    }
+
     // Lower risk than the notify routes — this mails staff, not the
     // submitter, so it cannot be aimed at a third party. Still capped, so the
     // inbox and the Resend quota cannot be flooded from one source.
@@ -35,6 +51,12 @@ export async function POST(request: Request) {
     // Bcc, a different Reply-To. They were also unbounded, so one POST could
     // mail an arbitrary amount of text.
     const body = await request.json().catch(() => null)
+
+    // A filled honeypot means a bot: answer as if it worked, send nothing.
+    // See lib/honeypot.ts.
+    if (honeypotTripped(body)) {
+      return NextResponse.json({ success: true })
+    }
     const name = readField(body?.name)
     const email = readField(body?.email)
     const subject = readField(body?.subject)

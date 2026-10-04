@@ -1,4 +1,5 @@
 const createNextIntlPlugin = require('next-intl/plugin')
+const { withBotId } = require('botid/next/config')
 
 // Points next-intl at i18n/request.ts. Without i18n routing: the locale comes
 // from i18n/config.ts rather than a URL segment, so app/ keeps its shape and
@@ -57,4 +58,6 @@ const nextConfig = {
   },
 }
 
-module.exports = withNextIntl(nextConfig)
+// withBotId adds the rewrites that proxy BotID's challenge script through our
+// own domain, so ad blockers do not strip it. See lib/botid.ts.
+module.exports = withBotId(withNextIntl(nextConfig))

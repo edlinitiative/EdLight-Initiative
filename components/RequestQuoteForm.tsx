@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { track } from '@/lib/analytics'
+import HoneypotField from '@/components/HoneypotField'
+import { HONEYPOT_FIELD } from '@/lib/honeypot'
 
 type FormData = {
   name: string
@@ -54,6 +56,7 @@ const contentStatuses = [
 
 export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [honeypot, setHoneypot] = useState('')
 
   const {
     register,
@@ -68,6 +71,7 @@ export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
     const payload = {
       ...data,
       requestType: 'Website Development',
+      [HONEYPOT_FIELD]: honeypot,
     }
 
     try {
@@ -107,6 +111,7 @@ export default function RequestQuoteForm({ onSuccess }: RequestQuoteFormProps) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 sm:space-y-6">
+      <HoneypotField value={honeypot} onChange={setHoneypot} />
       {errorMessage && (
         <div className="rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-700">
           {errorMessage}

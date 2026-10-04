@@ -3,6 +3,8 @@ import { Resend } from 'resend'
 import storeData from '@/data/store.json'
 import { readField, headerSafe, oneOf } from '@/lib/formInput'
 import { rateLimit, clientIp } from '@/lib/rateLimit'
+import { checkBotId } from 'botid/server'
+import { honeypotTripped } from '@/lib/honeypot'
 
 /**
  * "I want one" on /store. Nothing in the store can be bought yet, so each item
@@ -26,6 +28,20 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null
 
 export async function POST(request: Request) {
   try {
+    // Real visitors submit from the page, where <BotIdClient> tags the
+    // request; scripts posting straight to this route are refused here.
+    // See lib/botid.ts.
+    const verification = await checkBotId()
+    if (verification.isBot) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'We could not verify this request. Please refresh the page and try again, or email info@edlight.org.',
+        },
+        { status: 403 }
+      )
+    }
+
     // Mails a confirmation to the address it is given, so it is throttled for
     // the same reason the notify list is.
     const limit = rateLimit(`store:${clientIp(request)}`, 8, 60 * 60 * 1000)
@@ -37,6 +53,12 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json().catch(() => null)
+
+    // A filled honeypot means a bot: answer as if it worked, send nothing.
+    // See lib/honeypot.ts.
+    if (honeypotTripped(body)) {
+      return NextResponse.json({ success: true })
+    }
 
     const name = readField(body?.name)
     const email = readField(body?.email)

@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { readField } from '@/lib/formInput'
 import { rateLimit, clientIp } from '@/lib/rateLimit'
+import { checkBotId } from 'botid/server'
+import { honeypotTripped } from '@/lib/honeypot'
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -14,6 +16,20 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null
 
 export async function POST(request: Request) {
   try {
+    // Real visitors submit from the page, where <BotIdClient> tags the
+    // request; scripts posting straight to this route are refused here.
+    // See lib/botid.ts.
+    const verification = await checkBotId()
+    if (verification.isBot) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'We could not verify this request. Please refresh the page and try again, or email info@edlight.org.',
+        },
+        { status: 403 }
+      )
+    }
+
     // Same exposure as the notify route: a welcome email goes to whatever
     // address is submitted, with nothing proving the address wanted it.
     const limit = rateLimit(`newsletter:${clientIp(request)}`, 5, 60 * 60 * 1000)
@@ -28,6 +44,12 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json().catch(() => null)
+
+    // A filled honeypot means a bot: answer as if it worked, send nothing.
+    // See lib/honeypot.ts.
+    if (honeypotTripped(body)) {
+      return NextResponse.json({ success: true }, { status: 201 })
+    }
     // Bounded, so an oversized value cannot be pushed through to Resend. The
     // anchored emailRegex below rejects whitespace, so a value that passes it
     // is safe to use as a header.

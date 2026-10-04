@@ -9,6 +9,8 @@ import { useTranslations } from 'next-intl'
 import { ACADEMY_URL, CODE_URL, platformLinkProps, CONTACT_EMAIL, CORPORATION_NUMBER, REGISTERED_ADDRESS_LINE } from '@/lib/site'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { track } from '@/lib/analytics'
+import HoneypotField from '@/components/HoneypotField'
+import { HONEYPOT_FIELD } from '@/lib/honeypot'
 
 // Icons live here; the URLs live in lib/socials.ts, which is the single list
 // the contact page reads too. There used to be two divergent sets of handles
@@ -112,6 +114,7 @@ export default function Footer() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [feedback, setFeedback] = useState<string | null>(null)
+  const [honeypot, setHoneypot] = useState('')
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -133,7 +136,7 @@ export default function Footer() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, [HONEYPOT_FIELD]: honeypot }),
       })
 
       const result = await response.json().catch(() => ({}))
@@ -250,6 +253,7 @@ export default function Footer() {
                 {t('newsletterBlurb')}
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-2">
+                <HoneypotField value={honeypot} onChange={setHoneypot} />
                 <label className="sr-only" htmlFor="newsletter-email">{t('emailLabel')}</label>
                 <input
                   id="newsletter-email"

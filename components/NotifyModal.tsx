@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import { X, Bell, Loader2, CheckCircle2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { notifyLeadParams, track } from '@/lib/analytics'
+import HoneypotField from '@/components/HoneypotField'
+import { HONEYPOT_FIELD } from '@/lib/honeypot'
 
 interface NotifyModalProps {
   open: boolean
@@ -25,6 +27,7 @@ export default function NotifyModal({ open, onClose, cycleLabel }: NotifyModalPr
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+  const [honeypot, setHoneypot] = useState('')
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
   const overlayRef = useRef<HTMLDivElement>(null)
@@ -97,6 +100,7 @@ export default function NotifyModal({ open, onClose, cycleLabel }: NotifyModalPr
           email: email.trim(),
           phone: phone.trim(),
           cycle: cycleLabel,
+          [HONEYPOT_FIELD]: honeypot,
         }),
       })
 
@@ -177,6 +181,7 @@ export default function NotifyModal({ open, onClose, cycleLabel }: NotifyModalPr
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
+                <HoneypotField value={honeypot} onChange={setHoneypot} />
                 <div>
                   <label htmlFor="notify-name" className="block text-sm font-medium text-gray-700 mb-1">
                     {t('nameLabel')} <span className="text-red-500">*</span>

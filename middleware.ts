@@ -65,7 +65,9 @@ export function middleware(request: NextRequest) {
 export const config = {
   /**
    * Everything except API routes, Next's own assets, and any path with a file
-   * extension (images, the sitemap, robots.txt, favicons).
+   * extension (images, the sitemap, robots.txt, favicons), plus BotID's proxy
+   * prefix: withBotId in next.config.js rewrites it to Vercel, and a locale
+   * rewrite here would run first and send it to a 404 instead.
    */
-  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)'],
+  matcher: ['/((?!api|_next|_vercel|149e9513-01fa-4fb0-aad4-566afd725d1b|.*\\..*).*)'],
 }

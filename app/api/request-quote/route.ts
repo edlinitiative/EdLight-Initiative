@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { readField, headerSafe, LONG_FIELD_MAX } from '@/lib/formInput'
 import { rateLimit, clientIp } from '@/lib/rateLimit'
+import { checkBotId } from 'botid/server'
+import { honeypotTripped } from '@/lib/honeypot'
 
 /**
  * Same fix as /api/eslp-notify: this appended each quote request to
@@ -28,6 +30,20 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null
 
 export async function POST(request: Request) {
   try {
+    // Real visitors submit from the page, where <BotIdClient> tags the
+    // request; scripts posting straight to this route are refused here.
+    // See lib/botid.ts.
+    const verification = await checkBotId()
+    if (verification.isBot) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'We could not verify this request. Please refresh the page and try again, or email info@edlight.org.',
+        },
+        { status: 403 }
+      )
+    }
+
     const limit = rateLimit(`quote:${clientIp(request)}`, 10, 60 * 60 * 1000)
     if (!limit.ok) {
       return NextResponse.json(
@@ -41,6 +57,12 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json().catch(() => null)
+
+    // A filled honeypot means a bot: answer as if it worked, send nothing.
+    // See lib/honeypot.ts.
+    if (honeypotTripped(body)) {
+      return NextResponse.json({ success: true }, { status: 201 })
+    }
 
     // Read every field through readField rather than trusting the payload
     // shape. Before, the raw values went straight into the email: unbounded,

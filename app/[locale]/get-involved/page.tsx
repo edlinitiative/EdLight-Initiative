@@ -9,6 +9,8 @@ import SectionHeader from '@/components/SectionHeader'
 import Reveal from '@/components/Reveal'
 import { CONTACT_EMAIL, CORPORATION_NUMBER } from '@/lib/site'
 import { track } from '@/lib/analytics'
+import HoneypotField from '@/components/HoneypotField'
+import { HONEYPOT_FIELD } from '@/lib/honeypot'
 
 declare global {
   interface Window {
@@ -78,6 +80,7 @@ export default function GetInvolvedPage() {
     reset,
   } = useForm<FormData>()
   const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [honeypot, setHoneypot] = React.useState('')
 
   useEffect(() => {
     // Load PayPal Donation SDK
@@ -116,7 +119,7 @@ export default function GetInvolvedPage() {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, [HONEYPOT_FIELD]: honeypot }),
       })
       const result = await response.json().catch(() => ({}))
       if (!response.ok || !result?.success) {
@@ -260,6 +263,7 @@ export default function GetInvolvedPage() {
             <Reveal>
               <div className="rounded-2xl border border-[var(--paper-200)] bg-white p-6 shadow-sm sm:p-8">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <HoneypotField value={honeypot} onChange={setHoneypot} />
                   <div>
                     <label htmlFor="name" className="mb-2 block text-sm font-medium text-[var(--ink-700)]">
                       {t('form.nameLabel')} *

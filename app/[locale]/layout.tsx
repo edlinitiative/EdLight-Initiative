@@ -5,6 +5,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Analytics from '@/components/Analytics'
 import AdParamForwarder from '@/components/AdParamForwarder'
+import { BotIdClient } from 'botid/client'
+import { BOTID_PROTECTED_ROUTES } from '@/lib/botid'
 import { GA_MEASUREMENT_ID } from '@/lib/analytics'
 import {
   SITE_URL,
@@ -215,6 +217,9 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
+        {/* Tags form submissions to the routes in lib/botid.ts so their
+            checkBotId() can tell people from scripts. */}
+        <BotIdClient protect={[...BOTID_PROTECTED_ROUTES]} />
       </head>
       <body>
         {/* Only the shared chrome's namespaces are shipped here; pages whose
