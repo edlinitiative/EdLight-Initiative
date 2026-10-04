@@ -23,8 +23,8 @@ const socialIcons: Record<SocialPlatform, typeof Facebook> = {
   linkedin: Linkedin,
 }
 
-// EdLight Nexus is not listed: it has no cohort, dates, or way to apply.
-// EdLight Labs is the technology division rather than a student programme,
+// EdLight Nexus is listed, though not open yet; its page says so and
+// collects a notify list. EdLight Labs is the technology division rather than a student programme,
 // so it sits under the organisation links below. Academy and Code go
 // straight to the platforms, as in the nav.
 const programLinks = [
@@ -32,6 +32,7 @@ const programLinks = [
   { href: CODE_URL, key: 'code' },
   { href: '/coursera-scholars', key: 'scholars' },
   { href: '/eslp', key: 'eslp' },
+  { href: '/nexus', key: 'nexus' },
 ] as const
 
 const orgLinks = [

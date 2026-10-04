@@ -1,6 +1,7 @@
 {
   "programs": "Programmes",
   "about": "À propos",
+  "labs": "Labs",
   "getInvolved": "S’impliquer",
   "contact": "Contact",
   "donate": "Faire un don",
@@ -22,5 +23,9 @@
   "eslp": {
     "label": "ESLP",
     "description": "Notre programme d’été de leadership de deux semaines"
+  },
+  "nexus": {
+    "label": "EdLight Nexus",
+    "description": "Bientôt : apprentissage et échanges à l’international"
   }
 }

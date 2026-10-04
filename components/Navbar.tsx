@@ -20,10 +20,9 @@ import { ACADEMY_URL, CODE_URL, platformLinkProps } from '@/lib/site'
  * "Programs" heading and giving each a descriptor solves that in the place
  * where the question is actually asked.
  *
- * Labs and Nexus are absent on purpose: Labs sells commercial web services
- * and Nexus has no dates, cohort, or application yet. Both are noindexed and
- * out of the sitemap, so linking to them from the primary nav would
- * contradict that.
+ * Nexus is listed with a "Coming soon" descriptor: its page says plainly it
+ * is in development and collects a notify list. Labs is the technology
+ * division, not a programme, so it is a direct link beside About.
  */
 // Structure here, wording in messages/<locale>.json. `key` indexes into the
 // `nav` namespace — nav.academy.label and nav.academy.description — so a
@@ -38,10 +37,12 @@ const programLinks = [
   { href: CODE_URL, key: 'code' },
   { href: '/coursera-scholars', key: 'scholars' },
   { href: '/eslp', key: 'eslp' },
+  { href: '/nexus', key: 'nexus' },
 ] as const
 
 const directLinks = [
   { href: '/about', key: 'about' },
+  { href: '/labs', key: 'labs' },
   { href: '/get-involved', key: 'getInvolved' },
   { href: '/contact', key: 'contact' },
 ] as const

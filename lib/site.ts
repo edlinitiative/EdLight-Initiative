@@ -148,18 +148,14 @@ export const COMMERCIAL_SERVICES_ENABLED = true
 /**
  * Whether /nexus is publicly reachable.
  *
- * EdLight Nexus has a page but not a programme. Every sentence on it is
- * conditional — "is designed to connect", "what Nexus is designed to offer",
- * "stay informed" — and there is no cohort, no dates, and no way to apply.
- * The Ad Grants website policy names pages under construction explicitly, and
- * noindexing it (an earlier pass) keeps it out of search results while
- * leaving it reachable by anyone who types the URL, reviewers included.
- *
- * TO RESTORE: set this to true once Nexus has dates and a way for a student
- * to apply. It is out of the navbar, footer, homepage programme list, and
- * sitemap on purpose; this flag does not put it back into any of them.
+ * Hidden during the Ad Grants review because the old page described a
+ * programme with no cohort, dates, or application in language that read as
+ * if it existed. Restored 2026-10-04 as a short page that says plainly Nexus
+ * is in development and offers a notify list (cycle 'EdLight Nexus'), so a
+ * visitor has a real action. It is in the navbar (Programs, "Coming soon"),
+ * the footer, and the sitemap.
  */
-export const NEXUS_ENABLED = false
+export const NEXUS_ENABLED = true
 
 /**
  * Whether /store is publicly reachable.

@@ -9,6 +9,7 @@ test('notifyLeadParams maps the notify lists to fixed labels', () => {
   assert.deepEqual(notifyLeadParams('ESLP 2028'), { form: 'eslp_notify', cycle: 'ESLP 2028' })
   assert.deepEqual(notifyLeadParams('EdLight Scholars'), { form: 'scholars_notify', cycle: 'EdLight Scholars' })
   assert.deepEqual(notifyLeadParams('Coursera Scholars'), { form: 'scholars_notify', cycle: 'Coursera Scholars' })
+  assert.deepEqual(notifyLeadParams('EdLight Nexus'), { form: 'nexus_notify', cycle: 'EdLight Nexus' })
 })
 
 test('notifyLeadParams never echoes an unknown label', () => {

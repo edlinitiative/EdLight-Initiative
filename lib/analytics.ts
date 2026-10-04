@@ -39,6 +39,7 @@ const NOTIFY_FORMS: Record<string, string> = {
   'ESLP 2027': 'eslp_notify',
   'EdLight Scholars': 'scholars_notify',
   'Coursera Scholars': 'scholars_notify',
+  'EdLight Nexus': 'nexus_notify',
 }
 
 /**
