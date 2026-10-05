@@ -573,8 +573,8 @@ export default function LabsPage() {
               Start a project brief
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
             </button>
-            <a href="mailto:labs@edlight.org" className={secondaryButton}>
-              labs@edlight.org
+            <a href="mailto:info@edlight.org" className={secondaryButton}>
+              info@edlight.org
             </a>
           </div>
         </div>

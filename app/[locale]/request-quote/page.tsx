@@ -38,17 +38,17 @@ export default function RequestQuotePage({
   return (
     <>
       <Hero
-        title="Request a Quote"
-        subtitle="Tell us about your needs and we'll prepare a customized quote for your organization."
-  backgroundImage="/about_us.webp"
+        title="Start a project"
+        subtitle="Tell EdLight Labs what you want to build. We'll get back to you to set up a call."
+        backgroundImage="/about_us.webp"
       />
 
       <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="max-w-3xl mx-auto">
             <SectionHeader
-              title="Request a Quote"
-              subtitle="Complete the form below and our partnerships team will follow up within 3 business days."
+              title="Your project brief"
+              subtitle="Three short steps. You'll get a confirmation email as soon as you send it."
               centered
             />
 

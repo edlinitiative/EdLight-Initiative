@@ -1,32 +1,42 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { checkBotId } from 'botid/server'
 import { readField, headerSafe, LONG_FIELD_MAX } from '@/lib/formInput'
 import { rateLimit, clientIp } from '@/lib/rateLimit'
-import { checkBotId } from 'botid/server'
 import { honeypotTripped } from '@/lib/honeypot'
+import { BRIEF_BUDGETS, BRIEF_DETAILS_MIN, BRIEF_SERVICES, BRIEF_TIMELINES } from '@/lib/labsBrief'
 
 /**
- * Same fix as /api/eslp-notify: this appended each quote request to
- * data/requests.json via fs.writeFile, which throws EROFS on Vercel's
- * read-only deployment filesystem. Every submission returned a 500, so the
- * form on /request-quote and the one embedded in /labs had been quietly
- * dropping enquiries. It emails them now.
+ * The Labs project brief (components/RequestQuoteForm.tsx, on /labs and
+ * /request-quote).
+ *
+ * Each brief goes to LABS_BRIEF_TO (info@edlight.org by default; nobody
+ * reads labs@) with the people in LABS_BRIEF_CC copied, comma-separated.
+ * The CC list lives in the environment rather than here because this repo
+ * is public. Reply-To is the visitor, so the team can answer directly.
+ *
+ * The visitor gets a confirmation. It repeats only the choices they picked
+ * from our own lists (services, budget, timeline), never their free text:
+ * the address is whatever they typed, so echoing their words would let
+ * anyone send text of their choosing to any inbox from our domain.
  */
-
-// The RequestPayload type that used to sit here described the shape we hoped
-// for and was applied with a bare `as` cast, which asserts rather than
-// checks. Each field is now read individually through readField, so the cast
-// — and the false assurance it gave — are gone.
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const resendApiKey = process.env.RESEND_API_KEY
-const quoteInbox =
-  process.env.QUOTE_INBOX || process.env.CONTACT_INBOX || process.env.NEWSLETTER_INBOX
+const briefTo = process.env.LABS_BRIEF_TO || 'info@edlight.org'
+const briefCc = (process.env.LABS_BRIEF_CC ?? '')
+  .split(',')
+  .map((a) => a.trim())
+  .filter((a) => emailRegex.test(a))
 const fromAddress =
   process.env.NEWSLETTER_FROM_EMAIL || 'EdLight Initiative <onboarding@resend.dev>'
 
 const resend = resendApiKey ? new Resend(resendApiKey) : null
+
+function pick<T extends string>(value: unknown, allowed: readonly T[]): T | '' {
+  return typeof value === 'string' && (allowed as readonly string[]).includes(value) ? (value as T) : ''
+}
 
 export async function POST(request: Request) {
   try {
@@ -49,8 +59,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
-          message:
-            'Too many requests from this connection. Please try again later, or email us at info@edlight.org.',
+          message: 'Too many requests from this connection. Please try again later, or email us at info@edlight.org.',
         },
         { status: 429, headers: { 'Retry-After': String(limit.retryAfter) } }
       )
@@ -64,97 +73,111 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true }, { status: 201 })
     }
 
-    // Read every field through readField rather than trusting the payload
-    // shape. Before, the raw values went straight into the email: unbounded,
-    // so a single POST could mail us as much text as it liked, and `name` and
-    // `organization` were interpolated into the Subject, where a CR or LF
-    // would have let the sender append mail headers of their own.
+    const services = Array.isArray(body?.services)
+      ? BRIEF_SERVICES.filter((s) => (body.services as unknown[]).includes(s))
+      : []
     const f = {
+      services,
+      budget: pick(body?.budget, BRIEF_BUDGETS),
+      timeline: pick(body?.timeline, BRIEF_TIMELINES),
+      details: readField(body?.details, LONG_FIELD_MAX),
       name: readField(body?.name),
       email: readField(body?.email),
+      phone: readField(body?.phone),
       organization: readField(body?.organization),
       currentWebsite: readField(body?.currentWebsite),
-      projectType: readField(body?.projectType),
-      budget: readField(body?.budget),
-      timeline: readField(body?.timeline),
-      contentStatus: readField(body?.contentStatus),
-      keyFeatures: readField(body?.keyFeatures, LONG_FIELD_MAX),
-      additionalNotes: readField(body?.additionalNotes, LONG_FIELD_MAX),
-      requestType: readField(body?.requestType),
     }
 
-    if (
-      !f.name ||
-      !f.email ||
-      !f.projectType ||
-      !f.budget ||
-      !f.timeline ||
-      !f.contentStatus ||
-      !f.keyFeatures
-    ) {
+    if (!f.name || f.services.length === 0 || !f.budget || !f.timeline || f.details.length < BRIEF_DETAILS_MIN) {
       return NextResponse.json(
-        { success: false, message: 'Missing required fields' },
+        { success: false, message: 'Please fill in every required part of the brief.' },
         { status: 400 }
       )
     }
-
     if (!emailRegex.test(f.email)) {
-      return NextResponse.json(
-        { success: false, message: 'Invalid email address' },
-        { status: 400 }
-      )
+      return NextResponse.json({ success: false, message: 'Please enter a valid email address.' }, { status: 400 })
     }
 
-    if (!resend || !quoteInbox) {
-      console.warn('Quote request attempted without Resend configuration.')
+    if (!resend) {
+      console.warn('Labs brief attempted without Resend configuration.')
       return NextResponse.json(
-        {
-          success: false,
-          message:
-            'We could not submit that just now. Please email info@edlight.org with your request.',
-        },
+        { success: false, message: 'We could not send that just now. Please email info@edlight.org with your project.' },
         { status: 500 }
       )
     }
 
-    const subjectOrg = headerSafe(f.organization, 60)
+    const org = headerSafe(f.organization, 60)
 
-    await resend.emails.send({
+    // Resend reports failures in the result rather than throwing.
+    const team = await resend.emails.send({
       from: fromAddress,
+      to: [briefTo],
+      cc: briefCc,
       // Safe as a header: emailRegex is anchored and rejects whitespace, so a
       // value that passes it cannot contain a CR or LF.
       replyTo: f.email,
-      to: [quoteInbox],
-      subject: `Quote request: ${headerSafe(f.name, 60)}${subjectOrg ? ` (${subjectOrg})` : ''}`,
+      subject: `Labs project brief: ${headerSafe(f.name, 60)}${org ? ` (${org})` : ''}`,
       text: [
-        `Name:            ${headerSafe(f.name)}`,
-        `Email:           ${f.email}`,
-        `Organisation:    ${headerSafe(f.organization) || '(not given)'}`,
-        `Current website: ${headerSafe(f.currentWebsite) || '(not given)'}`,
-        `Request type:    ${headerSafe(f.requestType) || '(not given)'}`,
+        'New project brief from edlight.org/labs. Reply to this email to answer the sender directly.',
         '',
-        `Project type:    ${headerSafe(f.projectType)}`,
-        `Budget:          ${headerSafe(f.budget)}`,
-        `Timeline:        ${headerSafe(f.timeline)}`,
-        `Content status:  ${headerSafe(f.contentStatus)}`,
+        `Name:          ${headerSafe(f.name)}`,
+        `Email:         ${f.email}`,
+        `Phone:         ${headerSafe(f.phone) || '(not given)'}`,
+        `Organization:  ${headerSafe(f.organization) || '(not given)'}`,
+        `Website:       ${headerSafe(f.currentWebsite) || '(not given)'}`,
         '',
-        'Key features:',
-        f.keyFeatures,
+        `Needs:         ${f.services.join(', ')}`,
+        `Budget:        ${f.budget}`,
+        `Timeline:      ${f.timeline}`,
         '',
-        'Additional notes:',
-        f.additionalNotes || '(none)',
+        'Project:',
+        f.details,
       ].join('\n'),
     })
+    if (team.error) {
+      console.error('Labs brief email failed:', team.error.message)
+      return NextResponse.json(
+        { success: false, message: 'We could not send that just now. Please try again, or email info@edlight.org.' },
+        { status: 502 }
+      )
+    }
+
+    // The team has the brief at this point, so a failed confirmation is
+    // logged rather than reported to the visitor as a failed submission.
+    try {
+      const confirmation = await resend.emails.send({
+        from: fromAddress,
+        to: [f.email],
+        replyTo: briefTo,
+        subject: 'We received your project brief | EdLight Labs',
+        text: [
+          'Hi,',
+          '',
+          'Thanks for sending EdLight Labs your project brief. Our team will read it and get back to you to set up a call.',
+          '',
+          'What you asked about:',
+          `  Needs:     ${f.services.join(', ')}`,
+          `  Budget:    ${f.budget}`,
+          `  Timeline:  ${f.timeline}`,
+          '',
+          'Anything to add? Just reply to this email.',
+          '',
+          'EdLight Labs',
+          'EdLight Initiative · www.edlight.org/labs',
+        ].join('\n'),
+      })
+      if (confirmation.error) {
+        console.error('Labs brief confirmation failed:', confirmation.error.message)
+      }
+    } catch (err) {
+      console.error('Labs brief confirmation failed:', err instanceof Error ? err.message : String(err))
+    }
 
     return NextResponse.json({ success: true }, { status: 201 })
   } catch (error) {
-    console.error('Request quote API error', error)
+    console.error('Labs brief API error', error instanceof Error ? error.message : String(error))
     return NextResponse.json(
-      {
-        success: false,
-        message:
-          'We could not submit that just now. Please try again, or email info@edlight.org.',
-      },
+      { success: false, message: 'We could not send that just now. Please try again, or email info@edlight.org.' },
       { status: 500 }
     )
   }

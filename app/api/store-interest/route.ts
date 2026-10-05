@@ -93,7 +93,8 @@ export async function POST(request: Request) {
       )
     }
 
-    await resend.emails.send({
+    // Resend reports failures in the result rather than throwing.
+    const team = await resend.emails.send({
       from: fromAddress,
       to: [storeInbox],
       subject: `Store interest: ${item.name}${size ? ` (${size})` : ''}`,
@@ -107,6 +108,13 @@ export async function POST(request: Request) {
         `Price:    $${item.price}${item.priceSuffix ?? ''}`,
       ].join('\n'),
     })
+    if (team.error) {
+      console.error('Store interest email failed:', team.error.message)
+      return NextResponse.json(
+        { success: false, message: 'We could not save that just now. Please try again, or email info@edlight.org.' },
+        { status: 502 }
+      )
+    }
 
     await resend.emails.send({
       from: fromAddress,
