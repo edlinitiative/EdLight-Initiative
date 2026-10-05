@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
@@ -317,10 +317,64 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
   )
 }
 
+/**
+ * The project brief in a dialog that fits the screen: full height on phones,
+ * a centred panel capped at 90% of the viewport from sm up. The header stays
+ * put and only the body scrolls; the form pins its own buttons to the bottom
+ * of that body. dvh rather than vh so mobile browser toolbars do not push
+ * the buttons off screen.
+ */
+function ProjectBriefModal({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [onClose])
+
+  return (
+    <div
+      className="fixed inset-0 z-[90] flex items-stretch justify-center sm:items-center sm:p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="labs-quote-title"
+    >
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" aria-hidden="true" onClick={onClose} />
+      <div className="relative z-[95] flex h-[100dvh] w-full flex-col bg-white shadow-2xl sm:h-auto sm:max-h-[min(90dvh,860px)] sm:max-w-2xl sm:border sm:border-[var(--paper-200)]">
+        <div className="flex shrink-0 items-start justify-between gap-4 border-b border-[var(--paper-200)] px-5 py-4 sm:px-7 sm:py-5">
+          <div>
+            <p className="eyebrow text-[11px] text-[var(--accent)]">Project brief</p>
+            <h2 id="labs-quote-title" className="mt-1 font-display text-xl font-semibold text-[var(--ink-900)] sm:text-2xl">
+              Tell us about your project
+            </h2>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="border border-[var(--paper-200)] p-2 text-[var(--ink-700)] transition hover:border-[var(--paper-300)] hover:text-[var(--ink-900)]"
+            aria-label="Close project brief form"
+          >
+            <X size={18} />
+          </button>
+        </div>
+        <div className="flex-1 overflow-y-auto overscroll-contain px-5 pt-5 sm:px-7 sm:pt-6">
+          <RequestQuoteForm onSuccess={onClose} />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function LabsPage() {
   const [showQuoteModal, setShowQuoteModal] = useState(false)
   const openQuoteModal = () => setShowQuoteModal(true)
-  const closeQuoteModal = () => setShowQuoteModal(false)
+  const closeQuoteModal = useCallback(() => setShowQuoteModal(false), [])
 
   return (
     <div className="bg-[var(--ink-deep)] text-[var(--paper-on-dark)] min-h-screen">
@@ -580,40 +634,7 @@ export default function LabsPage() {
         </div>
       </section>
 
-      {showQuoteModal && (
-        <div
-          className="fixed inset-0 z-[90] flex items-center justify-center px-3 py-8 sm:px-4 sm:py-10"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="labs-quote-title"
-        >
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" aria-hidden="true" onClick={closeQuoteModal} />
-          <div className="relative z-[95] w-full max-w-lg bg-white p-5 shadow-2xl sm:max-w-2xl sm:p-6 lg:max-w-3xl lg:p-8 border border-[var(--paper-200)]">
-            <div className="mb-6 flex items-start justify-between gap-4">
-              <div>
-                <p className="eyebrow text-[var(--accent)] text-[11px]">Project brief</p>
-                <h2 id="labs-quote-title" className="mt-2 font-display text-2xl font-semibold text-[var(--ink-900)]">
-                  Tell us about your project
-                </h2>
-                <p className="mt-1 text-sm text-[var(--ink-700)]">
-                  Share your goals and we&apos;ll get back to you to set up a discovery call.
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={closeQuoteModal}
-                className="border border-[var(--paper-200)] p-2 text-[var(--ink-700)] transition hover:border-[var(--paper-300)] hover:text-[var(--ink-900)]"
-                aria-label="Close project brief form"
-              >
-                <X size={18} />
-              </button>
-            </div>
-            <div className="max-h-[70vh] overflow-y-auto pr-1 sm:max-h-[75vh] lg:max-h-[80vh]">
-              <RequestQuoteForm onSuccess={closeQuoteModal} />
-            </div>
-          </div>
-        </div>
-      )}
+      {showQuoteModal && <ProjectBriefModal onClose={closeQuoteModal} />}
     </div>
   )
 }
