@@ -5,7 +5,7 @@
     "description": "Learn how EdLight Initiative collects, uses, and protects your personal information."
   },
   "title": "Privacy Policy",
-  "lastUpdated": "Last Updated: October 1, 2026",
+  "lastUpdated": "Last Updated: October 7, 2026",
   "s1": {
     "heading": "1. Introduction",
     "body": "EdLight Initiative (\"we,\" \"our,\" or \"us\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services."
@@ -68,6 +68,10 @@
         "label": "Coursera:",
         "text": "for learners selected as EdLight Scholars Program, we share the details needed to create your Coursera account under our Social Impact partnership. This applies only if you apply and are selected; Coursera then handles your account under its own privacy policy"
       },
+      "datacamp": {
+        "label": "DataCamp:",
+        "text": "for learners selected as EdLight Scholars on DataCamp, we share your EdLight Scholars email address so that DataCamp can give you access through our DataCamp Donates partnership, and we receive your course progress from DataCamp to follow your cohort. This applies only if you apply and are selected; DataCamp then handles your account under its own privacy policy"
+      },
       "google": {
         "label": "Google:",
         "text": "which provides Google Analytics and Google Ads measurement on this site and receives the usage data described in section 2. Google processes it as a third party under its own privacy policy (policies.google.com/privacy). We use the results in aggregate to measure the site and our Ad Grants campaigns, and we do not allow the data to be used for ad personalisation"
@@ -88,8 +92,8 @@
   },
   "s5": {
     "heading": "5. Cookies and Tracking Technologies",
-    "body": "We do not use analytics, advertising, or tracking cookies on this website, and we load no third-party analytics or advertising scripts. The only cookie we set is NEXT_LOCALE, and only if you use the language switcher: it remembers the language you picked and contains nothing else. There is nothing here for you to accept or refuse, and the site works normally with cookies disabled in your browser; it will simply follow your browser's language. Note that PayPal and Coursera use cookies on their own sites once you follow a link to them.",
-    "bodyAnalytics": "This site uses cookies set by Google Analytics (such as _ga and _ga_ followed by an identifier) to count visits, tell new visitors from returning ones, and attribute visits that come from our Google ads. Advertising cookies are not used: ad storage and ad personalisation are set to denied for every visitor, and a visit from one of our ads is attributed from the link itself rather than from a cookie. We also set one cookie of our own, NEXT_LOCALE, only if you use the language switcher; it remembers the language you picked and nothing else. You can block or delete cookies in your browser settings and the site will keep working normally. You can also opt out of Google Analytics on every website by installing Google's opt-out browser add-on (tools.google.com/dlpage/gaoptout). Note that PayPal and Coursera use cookies on their own sites once you follow a link to them."
+    "body": "We do not use analytics, advertising, or tracking cookies on this website, and we load no third-party analytics or advertising scripts. The only cookie we set is NEXT_LOCALE, and only if you use the language switcher: it remembers the language you picked and contains nothing else. There is nothing here for you to accept or refuse, and the site works normally with cookies disabled in your browser; it will simply follow your browser's language. Note that PayPal, Coursera and DataCamp use cookies on their own sites once you follow a link to them.",
+    "bodyAnalytics": "This site uses cookies set by Google Analytics (such as _ga and _ga_ followed by an identifier) to count visits, tell new visitors from returning ones, and attribute visits that come from our Google ads. Advertising cookies are not used: ad storage and ad personalisation are set to denied for every visitor, and a visit from one of our ads is attributed from the link itself rather than from a cookie. We also set one cookie of our own, NEXT_LOCALE, only if you use the language switcher; it remembers the language you picked and nothing else. You can block or delete cookies in your browser settings and the site will keep working normally. You can also opt out of Google Analytics on every website by installing Google's opt-out browser add-on (tools.google.com/dlpage/gaoptout). Note that PayPal, Coursera and DataCamp use cookies on their own sites once you follow a link to them."
   },
   "s6": {
     "heading": "6. Data Security",

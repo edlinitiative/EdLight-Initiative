@@ -33,6 +33,7 @@ const SHARING_KEYS = [
   'resend',
   'paypal',
   'coursera',
+  'datacamp',
   ...(ANALYTICS_ENABLED ? (['google'] as const) : []),
   'legal',
   'business',
@@ -161,8 +162,8 @@ export default async function PrivacyPage({
               email service providers)" named nobody, so a reader could not tell
               which companies actually receive their data or go read those
               companies' policies. There are only three, and two of them are the
-              ones people ask about — who takes the card, and who Coursera is to
-              us. Naming them costs a line each. */}
+              ones people ask about — who takes the card, and who Coursera and
+              DataCamp are to us. Naming them costs a line each. */}
           <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
             {SHARING_KEYS.map((key) => (
               <li key={key}>

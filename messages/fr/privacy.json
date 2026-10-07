@@ -5,7 +5,7 @@
     "description": "Découvrez comment EdLight Initiative recueille, utilise et protège vos renseignements personnels."
   },
   "title": "Politique de confidentialité",
-  "lastUpdated": "Dernière mise à jour : 1er octobre 2026",
+  "lastUpdated": "Dernière mise à jour : 7 octobre 2026",
   "s1": {
     "heading": "1. Introduction",
     "body": "EdLight Initiative (« nous », « notre » ou « nos ») s’engage à protéger votre vie privée. La présente politique de confidentialité explique comment nous recueillons, utilisons, communiquons et protégeons vos renseignements lorsque vous visitez notre site Web ou utilisez nos services."
@@ -68,6 +68,10 @@
         "label": "Coursera :",
         "text": "pour les apprenants sélectionnés comme Programme EdLight Scholars, nous communiquons les renseignements nécessaires à la création de votre compte Coursera dans le cadre de notre partenariat Social Impact. Cela ne s’applique que si vous posez votre candidature et êtes sélectionné ; Coursera gère ensuite votre compte selon sa propre politique de confidentialité"
       },
+      "datacamp": {
+        "label": "DataCamp :",
+        "text": "pour les apprenants sélectionnés comme EdLight Scholars sur DataCamp, nous communiquons votre adresse courriel EdLight Scholars afin que DataCamp vous donne accès dans le cadre de notre partenariat DataCamp Donates, et nous recevons de DataCamp votre progression dans les cours afin de suivre votre cohorte. Cela ne s’applique que si vous posez votre candidature et êtes sélectionné ; DataCamp gère ensuite votre compte selon sa propre politique de confidentialité"
+      },
       "google": {
         "label": "Google :",
         "text": "qui fournit Google Analytics et la mesure Google Ads sur ce site et reçoit les données d’utilisation décrites à la section 2. Google les traite en tant que tiers selon sa propre politique de confidentialité (policies.google.com/privacy). Nous en utilisons les résultats de façon agrégée pour mesurer la fréquentation du site et nos campagnes Ad Grants, et nous n’autorisons pas leur utilisation pour la personnalisation des annonces"
@@ -88,8 +92,8 @@
   },
   "s5": {
     "heading": "5. Témoins et technologies de suivi",
-    "body": "Nous n’utilisons ni témoins d’analyse, ni témoins publicitaires, ni témoins de suivi sur ce site Web, et nous ne chargeons aucun script d’analyse ou de publicité de tiers. Le seul témoin que nous déposons est NEXT_LOCALE, et uniquement si vous utilisez le sélecteur de langue : il mémorise la langue choisie et ne contient rien d’autre. Il n’y a donc rien à accepter ni à refuser ici, et le site fonctionne normalement lorsque les témoins sont désactivés dans votre navigateur ; il suit alors simplement la langue de votre navigateur. Notez que PayPal et Coursera utilisent des témoins sur leurs propres sites dès que vous suivez un lien vers ceux-ci.",
-    "bodyAnalytics": "Ce site utilise des témoins déposés par Google Analytics (comme _ga et _ga_ suivi d’un identifiant) pour compter les visites, distinguer les nouveaux visiteurs de ceux qui reviennent et attribuer les visites provenant de nos annonces Google. Aucun témoin publicitaire n’est utilisé : le stockage publicitaire et la personnalisation des annonces sont refusés pour tous les visiteurs, et une visite issue de l’une de nos annonces est attribuée à partir du lien lui-même plutôt que d’un témoin. Nous déposons aussi un seul témoin qui nous est propre, NEXT_LOCALE, uniquement si vous utilisez le sélecteur de langue ; il mémorise la langue choisie et rien d’autre. Vous pouvez bloquer ou supprimer les témoins dans les paramètres de votre navigateur, et le site continuera de fonctionner normalement. Vous pouvez aussi refuser Google Analytics sur tous les sites Web en installant le module complémentaire de désactivation de Google (tools.google.com/dlpage/gaoptout). Notez que PayPal et Coursera utilisent des témoins sur leurs propres sites dès que vous suivez un lien vers ceux-ci."
+    "body": "Nous n’utilisons ni témoins d’analyse, ni témoins publicitaires, ni témoins de suivi sur ce site Web, et nous ne chargeons aucun script d’analyse ou de publicité de tiers. Le seul témoin que nous déposons est NEXT_LOCALE, et uniquement si vous utilisez le sélecteur de langue : il mémorise la langue choisie et ne contient rien d’autre. Il n’y a donc rien à accepter ni à refuser ici, et le site fonctionne normalement lorsque les témoins sont désactivés dans votre navigateur ; il suit alors simplement la langue de votre navigateur. Notez que PayPal, Coursera et DataCamp utilisent des témoins sur leurs propres sites dès que vous suivez un lien vers ceux-ci.",
+    "bodyAnalytics": "Ce site utilise des témoins déposés par Google Analytics (comme _ga et _ga_ suivi d’un identifiant) pour compter les visites, distinguer les nouveaux visiteurs de ceux qui reviennent et attribuer les visites provenant de nos annonces Google. Aucun témoin publicitaire n’est utilisé : le stockage publicitaire et la personnalisation des annonces sont refusés pour tous les visiteurs, et une visite issue de l’une de nos annonces est attribuée à partir du lien lui-même plutôt que d’un témoin. Nous déposons aussi un seul témoin qui nous est propre, NEXT_LOCALE, uniquement si vous utilisez le sélecteur de langue ; il mémorise la langue choisie et rien d’autre. Vous pouvez bloquer ou supprimer les témoins dans les paramètres de votre navigateur, et le site continuera de fonctionner normalement. Vous pouvez aussi refuser Google Analytics sur tous les sites Web en installant le module complémentaire de désactivation de Google (tools.google.com/dlpage/gaoptout). Notez que PayPal, Coursera et DataCamp utilisent des témoins sur leurs propres sites dès que vous suivez un lien vers ceux-ci."
   },
   "s6": {
     "heading": "6. Sécurité des données",
