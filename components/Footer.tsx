@@ -30,7 +30,7 @@ const socialIcons: Record<SocialPlatform, typeof Facebook> = {
 const programLinks = [
   { href: ACADEMY_URL, key: 'academy' },
   { href: CODE_URL, key: 'code' },
-  { href: '/coursera-scholars', key: 'scholars' },
+  { href: '/scholars', key: 'scholars' },
   { href: '/eslp', key: 'eslp' },
   { href: '/nexus', key: 'nexus' },
 ] as const

@@ -1,14 +1,14 @@
 {
   "meta": {
     "title": "Programme EdLight Scholars",
-    "description": "Posez votre candidature pour devenir EdLight Scholar et accédez gratuitement à une formation en ligne de haut niveau grâce au partenariat Coursera Social Impact d’EdLight Initiative.",
+    "description": "Devenez EdLight Scholar : une licence Coursera ou DataCamp complète pendant trois mois, offerte par EdLight Initiative grâce à ses partenariats avec Coursera et DataCamp Donates.",
     "ogTitle": "Programme EdLight Scholars | EdLight Initiative",
-    "ogDescription": "Un accès gratuit à une formation en ligne de haut niveau pour les apprenants haïtiens motivés. Développez vos compétences, obtenez des certificats et franchissez l’étape suivante."
+    "ogDescription": "Une licence Coursera ou DataCamp offerte aux apprenants haïtiens motivés. Développez vos compétences, obtenez des certificats et franchissez l’étape suivante."
   },
   "hero": {
     "title": "Devenez EdLight Scholar",
     "subtitle": "Le talent est partout. Les occasions ne le sont pas.",
-    "body": "Accédez gratuitement à une formation en ligne de haut niveau grâce au partenariat d’EdLight Initiative avec Coursera. Développez de nouvelles compétences, obtenez des certificats et franchissez l’étape suivante vers vos objectifs scolaires et professionnels.",
+    "body": "Une licence complète, Coursera ou DataCamp, pendant trois mois, offerte grâce aux partenariats d’EdLight Initiative avec Coursera et DataCamp Donates. Développez de nouvelles compétences, obtenez des certificats et franchissez l’étape suivante vers vos objectifs scolaires et professionnels.",
     "notify": "Être informé(e)",
     "learnMore": "En savoir plus",
     "noteOpen": "Cohorte {cohort} dès le {startDate} · Candidatures ouvertes jusqu’au {closeDate}",
@@ -17,11 +17,11 @@
     "noteUpcoming": "Candidatures pour la cohorte {cohort} dès le {opensDate} · Début le {startDate}"
   },
   "partnership": {
-    "title": "EdLight × Coursera",
-    "subtitle": "Un partenariat qui transforme l’accès en occasions.",
-    "p1": "EdLight Initiative a été retenue comme partenaire du programme Coursera Social Impact, ce qui nous permet d’offrir aux apprenants admissibles un accès gratuit à des cours en ligne de qualité et à des formations professionnelles.",
-    "p2": "Avec Programme EdLight Scholars, nous transformons ce partenariat en un programme structuré conçu pour aider des apprenants talentueux à acquérir des compétences qui créent de véritables occasions pour leur avenir.",
-    "p3": "On rejoint le programme de deux façons : sur nomination d’une université partenaire, ou en postulant directement auprès d’EdLight. La première cohorte débute le 1er octobre 2026 et chaque cohorte dure trois mois."
+    "title": "EdLight × Coursera × DataCamp",
+    "subtitle": "Deux partenariats, deux licences, un même programme.",
+    "p1": "EdLight Initiative est partenaire du programme Coursera Social Impact et de DataCamp Donates. Ces deux partenariats nous permettent d’offrir aux apprenants admissibles des licences complètes, sur Coursera ou sur DataCamp.",
+    "p2": "Avec EdLight Scholars, nous transformons ces partenariats en un programme structuré, conçu pour aider des apprenants talentueux à acquérir des compétences qui créent de véritables occasions pour leur avenir. Chaque Scholar suit l’une des deux plateformes.",
+    "p3": "On rejoint le programme de deux façons : sur nomination d’une institution partenaire, ou en postulant directement auprès d’EdLight. Chaque cohorte dure trois mois ; la cohorte 1 est en cours depuis le 1er octobre 2026."
   },
   "benefits": {
     "title": "Pourquoi devenir Scholar ?",
@@ -29,7 +29,7 @@
     "items": {
       "learn": {
         "title": "Apprendre",
-        "body": "Étudiez la technologie, les affaires, les données, l’IA et bien d’autres domaines grâce au catalogue offert dans le cadre du partenariat Coursera d’EdLight."
+        "body": "Étudiez la technologie, les affaires, les données, l’IA et bien d’autres domaines, sur Coursera ou sur DataCamp, grâce aux partenariats d’EdLight."
       },
       "build": {
         "title": "Construire",
@@ -73,7 +73,7 @@
       },
       "start": {
         "title": "Commencer à apprendre",
-        "body": "Les Scholars sélectionnés reçoivent un accès gratuit à Coursera par l’intermédiaire d’EdLight et choisissent leur premier cours."
+        "body": "Les Scholars sélectionnés reçoivent leur licence Coursera ou DataCamp par l’intermédiaire d’EdLight, avec une adresse EdLight Scholars, et commencent leur premier cours."
       },
       "finish": {
         "title": "Terminer ce que vous commencez",
@@ -82,8 +82,8 @@
     }
   },
   "pathways": {
-    "title": "10 parcours d’apprentissage",
-    "subtitle": "Le programme Coursera d’EdLight Scholars propose 10 parcours et 2 collections. Un parcours vous oriente sans vous limiter : les Scholars sélectionnés ont accès gratuitement à tout le catalogue pendant les trois mois de leur cohorte.",
+    "title": "Des parcours pour s’orienter",
+    "subtitle": "Sur Coursera, le programme propose 10 parcours et 2 collections. Un parcours vous oriente sans vous limiter : les Scholars ont accès à tout le catalogue pendant les trois mois de leur cohorte.",
     "items": {
       "data": "Data Analytics et BI",
       "software": "Développement logiciel et cloud",
@@ -100,7 +100,8 @@
     "collections": {
       "french": "Cours en français",
       "career": "Préparer sa carrière"
-    }
+    },
+    "courseraTitle": "Sur Coursera : 10 parcours"
   },
   "commitment": {
     "title": "Une bourse est une occasion, et un engagement.",
@@ -113,11 +114,11 @@
   "faqs": {
     "cost": {
       "q": "Combien coûte le programme ?",
-      "a": "Rien. La participation est gratuite pour les Programme EdLight Scholars sélectionnés, et il n’y a jamais de frais de candidature."
+      "a": "Rien. La participation est gratuite pour les EdLight Scholars sélectionnés, et il n’y a jamais de frais de candidature."
     },
     "start": {
       "q": "Quand le programme commence-t-il ?",
-      "a": "La première cohorte débute le 1er octobre 2026. Chaque cohorte dure trois mois, après quoi les places sont transmises à un nouveau groupe d’apprenants."
+      "a": "La cohorte 1 a débuté le 1er octobre 2026 ; la cohorte 2 commence le 11 janvier 2027. Chaque cohorte dure trois mois, après quoi les places sont transmises à un nouveau groupe d’apprenants."
     },
     "eligibility": {
       "q": "Qui peut poser sa candidature ?",
@@ -132,31 +133,31 @@
       "a": "Pas pour la voie directe : l’inscription en cours n’est pas exigée et nous n’attendons pas un dossier scolaire parfait. La voie de nomination est différente : ces places appartiennent à un établissement partenaire et reviennent donc à ses propres étudiants."
     },
     "experience": {
-      "q": "Dois-je avoir déjà utilisé Coursera ?",
+      "q": "Dois-je avoir déjà utilisé Coursera ou DataCamp ?",
       "a": "Non. Une expérience préalable ne favorise ni ne défavorise votre candidature."
     },
     "subjects": {
       "q": "Que puis-je étudier ?",
-      "a": "Tout le catalogue Coursera offert dans le cadre du partenariat Social Impact d’EdLight. Le programme propose 10 parcours d’apprentissage et 2 collections, « Cours en français » et « Préparer sa carrière », pour vous orienter ; vous restez libre de suivre les cours de votre choix, en lien avec vos objectifs."
+      "a": "Sur Coursera : tout le catalogue offert par le partenariat Social Impact d’EdLight, avec 10 parcours et 2 collections, « Cours en français » et « Préparer sa carrière », pour vous orienter. Sur DataCamp : tout le catalogue Premium, avec 6 parcours EdLight en data et en IA. Vous choisissez la plateforme qui sert vos objectifs."
     },
     "certificate": {
       "q": "Vais-je recevoir un certificat ?",
-      "a": "De nombreux cours et programmes Coursera délivrent un certificat en cas de réussite, selon le cours et le catalogue disponible. Les Scholars qui remplissent les exigences propres au programme d’EdLight peuvent aussi recevoir une reconnaissance d’EdLight, distincte de tout certificat Coursera."
+      "a": "Sur Coursera, de nombreux cours et programmes délivrent un certificat vérifiable en cas de réussite, selon le cours et le catalogue disponible. Sur DataCamp, la licence Premium donne des certificats de cours et de parcours. Les Scholars qui remplissent les exigences propres au programme d’EdLight peuvent aussi recevoir une reconnaissance d’EdLight, distincte de ces certificats."
     },
     "universityPartner": {
       "q": "Mon université souhaite participer. Que faire ?",
       "a": "Écrivez à info@edlight.org en indiquant le nom de votre institution et une personne de contact. Nous convenons du nombre de licences et de votre calendrier, signons une convention de partenariat d’une page, puis vous nommez vos étudiants. Aucun frais pour l’institution ni pour ses étudiants."
     },
     "selection": {
-      "q": "Est-ce Coursera qui sélectionne les Scholars ?",
-      "a": "Non. EdLight Initiative est partenaire social de Coursera. C’est EdLight qui gère le programme : les candidatures directes d’une part, et le travail avec les établissements partenaires qui nomment eux-mêmes leurs étudiants d’autre part. Coursera ne choisit pas les Scholars et ne coadministre pas le programme."
+      "q": "Est-ce Coursera ou DataCamp qui sélectionne les Scholars ?",
+      "a": "Non. EdLight Initiative est partenaire de Coursera (Social Impact) et de DataCamp Donates. C’est EdLight qui gère le programme : les candidatures directes d’une part, et le travail avec les institutions partenaires qui nomment elles-mêmes leurs étudiants d’autre part. Ni Coursera ni DataCamp ne choisissent les Scholars ou ne coadministrent le programme."
     },
     "notSelected": {
       "q": "Que se passe-t-il si je ne suis pas sélectionné ?",
       "a": "Les candidatures solides peuvent être placées sur la liste d’attente et réexaminées lorsque des places supplémentaires se libèrent ou pour une cohorte future."
     },
     "inactive": {
-      "q": "Que se passe-t-il si j’arrête d’utiliser Coursera ?",
+      "q": "Que se passe-t-il si j’arrête d’utiliser ma licence ?",
       "a": "Les places sont limitées. Si un Scholar ne commence pas à apprendre après plusieurs rappels, EdLight peut offrir cette place à quelqu’un sur la liste d’attente afin que l’occasion ne soit pas perdue."
     },
     "outsideHaiti": {
@@ -177,11 +178,11 @@
   },
   "institutions": {
     "title": "Pour les universités et les institutions",
-    "subtitle": "Offrez Coursera à une cohorte de vos étudiants. EdLight fournit les licences et le suivi ; votre institution choisit qui en bénéficie.",
+    "subtitle": "Offrez à une cohorte de vos étudiants une licence Coursera ou DataCamp. EdLight fournit les licences et le suivi ; votre institution choisit qui en bénéficie.",
     "items": {
       "licences": {
         "title": "Des licences pour vos étudiants",
-        "body": "Votre institution reçoit un ensemble de licences Coursera à chaque cohorte et choisit lesquels de vos étudiants en bénéficient."
+        "body": "Votre institution reçoit, à chaque cohorte, des places Coursera et des places DataCamp, et choisit lesquels de ses étudiants en bénéficient : une liste par plateforme."
       },
       "renewal": {
         "title": "Une nouvelle cohorte tous les trois mois",
@@ -198,7 +199,7 @@
     },
     "join": {
       "title": "Comment votre institution participe",
-      "body": "Envoyez une demande au nom de votre institution, en indiquant une personne de contact. Nous convenons du nombre de licences et de votre calendrier, signons une convention de partenariat d’une page, puis vous nous transmettez les étudiants sélectionnés. Aucun frais pour l’institution ni pour les étudiants.",
+      "body": "Envoyez une demande au nom de votre institution, en indiquant une personne de contact. Nous convenons du nombre de places et de votre calendrier, signons une convention de partenariat d’une page, puis vous nous transmettez vos listes Coursera et DataCamp. Aucun frais pour l’institution ni pour les étudiants.",
       "apply": "Faire une demande de partenariat",
       "contact": "Formulaire de contact"
     }
@@ -210,12 +211,12 @@
       "c1": {
         "name": "Cohorte 1",
         "window": "1er octobre – 31 décembre 2026",
-        "note": "Lancement du programme"
+        "note": "En cours"
       },
       "c2": {
         "name": "Cohorte 2",
         "window": "11 janvier – 11 avril 2027",
-        "note": "Après les congés académiques"
+        "note": "La prochaine · candidatures ouvertes"
       },
       "c3": {
         "name": "Cohorte 3",
@@ -240,6 +241,32 @@
       "award": "Remise d’un certificat lors d’une graduation EdLight",
       "learner": "Une apprenante d’EdLight lors d’une séance du programme",
       "together": "Des apprenants d’EdLight travaillant ensemble"
+    }
+  },
+  "licences": {
+    "title": "Deux licences, au choix",
+    "subtitle": "Coursera et DataCamp sont en partie gratuits. La licence ouvre ce que le compte gratuit verrouille : exercices notés, projets évalués, certificats.",
+    "coursera": {
+      "title": "Coursera",
+      "body": "Les cours d’universités et d’entreprises partenaires de Coursera, dans presque tous les domaines : gestion, informatique, données, santé, langues, sciences sociales. Avec la licence : le catalogue complet, les devoirs notés, les projets corrigés et un certificat vérifiable en ligne.",
+      "value": "Environ 177 $US par étudiant pour trois mois, au tarif public de Coursera Plus (59 $US par mois)."
+    },
+    "datacamp": {
+      "title": "DataCamp",
+      "body": "La plateforme de référence pour apprendre la data et l’intelligence artificielle en pratiquant : Python, SQL, Excel, Power BI, IA. Avec la licence Premium : tous les cours (le compte gratuit s’arrête au premier chapitre), les parcours complets, les projets sur données réelles et les certificats.",
+      "value": "Environ 105 $US par étudiant pour trois mois, au tarif public mensuel de DataCamp Premium (35 $US par mois)."
+    },
+    "note": "Montants indicatifs, aux tarifs publics de chaque plateforme. Ni l’étudiant ni l’institution ne paient quoi que ce soit."
+  },
+  "dcPaths": {
+    "title": "Sur DataCamp : 6 parcours",
+    "items": {
+      "ai": "L’IA pour tous",
+      "sql": "Analyste de données (SQL)",
+      "python": "Python pour la data",
+      "excelPowerBi": "Excel et Power BI",
+      "entrepreneurs": "Data pour entrepreneurs",
+      "advanced": "Avancé (data analyst, data scientist)"
     }
   }
 }

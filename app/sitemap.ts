@@ -26,7 +26,7 @@ const entries: Entry[] = [
   { path: '', changeFrequency: 'monthly', priority: 1 },
   { path: '/academy', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/code', changeFrequency: 'monthly', priority: 0.9 },
-  { path: '/coursera-scholars', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/scholars', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/eslp', changeFrequency: 'monthly', priority: 0.9 },
   // Back since the Ad Grants approval (2026-10-04); see COMMERCIAL_SERVICES_ENABLED.
   { path: '/labs', changeFrequency: 'monthly', priority: 0.6, lastModified: '2026-10-04' },

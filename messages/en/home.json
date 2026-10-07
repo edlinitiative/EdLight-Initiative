@@ -35,7 +35,7 @@
       },
       "beyond": {
         "title": "Reach further than Haiti",
-        "body": "Strong students should not be limited by where they were born. EdLight Scholars gives selected students free access to Coursera for three months, with certificates, and ESLP develops the leadership and civic confidence that scholarships and universities ask for."
+        "body": "Strong students should not be limited by where they were born. EdLight Scholars gives selected students a Coursera or DataCamp licence for three months, with certificates, and ESLP develops the leadership and civic confidence that scholarships and universities ask for."
       }
     }
   },
@@ -54,7 +54,7 @@
       },
       "scholars": {
         "title": "EdLight Scholars",
-        "description": "Free Coursera access for selected students for a three-month cohort, with 10 learning pathways, run in partnership with Coursera."
+        "description": "A Coursera or DataCamp licence for selected students for a three-month cohort, run in partnership with Coursera and DataCamp Donates."
       },
       "eslp": {
         "title": "ESLP",
@@ -89,7 +89,7 @@
       },
       "scholars": {
         "title": "Scholarships and certificates",
-        "body": "Selected students get free access to Coursera for three months, with certificates, through EdLight Scholars."
+        "body": "Selected students get a Coursera or DataCamp licence for three months, with certificates, through EdLight Scholars."
       },
       "about": {
         "title": "Our mission",
@@ -137,7 +137,7 @@
         "items": {
           "scholars": {
             "title": "EdLight Scholars",
-            "body": "Selected students get free access to Coursera for three months, with certificates.",
+            "body": "Selected students get a Coursera or DataCamp licence for three months, with certificates.",
             "cta": "See EdLight Scholars"
           },
           "code": {
@@ -152,7 +152,7 @@
         "items": {
           "scholars": {
             "title": "Partner on EdLight Scholars",
-            "body": "Nominate your students for free Coursera access, each cohort, at no cost to your institution.",
+            "body": "Nominate your students for a Coursera or DataCamp licence, each cohort, at no cost to your institution.",
             "cta": "Partner as an institution"
           },
           "partner": {
@@ -218,7 +218,7 @@
     },
     "further": {
       "title": "Credentials the world recognises.",
-      "body": "Through EdLight Scholars, run in partnership with Coursera, selected Haitian students and graduates get free access to Coursera for three months, with certificates a strong student can show on a CV.",
+      "body": "Through EdLight Scholars, run in partnership with Coursera and DataCamp Donates, selected Haitian students and graduates get a Coursera or DataCamp licence for three months, with certificates a strong student can show on a CV.",
       "studentCta": "Apply as a student",
       "partnerCta": "Partner as an institution"
     },

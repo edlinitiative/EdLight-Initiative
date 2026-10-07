@@ -83,7 +83,7 @@ const faqs: readonly FaqCategory[] = [
   },
   {
     key: 'scholars',
-    questions: [{ key: 'whatIs' }, { key: 'applyNow', href: '/coursera-scholars', whileOpen: 'scholars' }],
+    questions: [{ key: 'whatIs' }, { key: 'applyNow', href: '/scholars', whileOpen: 'scholars' }],
   },
   {
     key: 'volunteering',

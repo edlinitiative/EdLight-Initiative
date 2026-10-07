@@ -35,7 +35,7 @@ import { ACADEMY_URL, CODE_URL, platformLinkProps } from '@/lib/site'
 const programLinks = [
   { href: ACADEMY_URL, key: 'academy' },
   { href: CODE_URL, key: 'code' },
-  { href: '/coursera-scholars', key: 'scholars' },
+  { href: '/scholars', key: 'scholars' },
   { href: '/eslp', key: 'eslp' },
   { href: '/nexus', key: 'nexus' },
 ] as const

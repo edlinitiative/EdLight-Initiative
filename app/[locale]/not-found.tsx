@@ -10,7 +10,7 @@ import { ACADEMY_URL, CODE_URL, platformLinkProps } from '@/lib/site'
 const programmeLinks = [
   { href: ACADEMY_URL, label: 'EdLight Academy' },
   { href: CODE_URL, label: 'EdLight Code' },
-  { href: '/coursera-scholars', label: 'Coursera Scholars' },
+  { href: '/scholars', label: 'EdLight Scholars' },
   { href: '/eslp', label: 'ESLP' },
 ]
 

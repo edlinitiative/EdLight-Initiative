@@ -26,7 +26,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
  *
  * Must stay in step with the `cycleLabel` values passed to NotifyModal —
  * 'ESLP 2027' from app/eslp/page.tsx, 'EdLight Scholars' from
- * app/coursera-scholars/page.tsx, 'EdLight Nexus' from app/nexus/page.tsx.
+ * app/[locale]/scholars/page.tsx, 'EdLight Nexus' from app/nexus/page.tsx.
  * Anything else falls back to a generic label rather than being echoed into
  * the email.
  *

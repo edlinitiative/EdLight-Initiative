@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
@@ -29,9 +30,14 @@ import ClientMessages from '@/components/ClientMessages'
 import { scholarsDateValues, scholarsStatus } from '@/lib/scholarsApplications'
 
 // ── Framing, and the lines that must not drift ───────────────────────────────
-// EdLight Initiative is a Coursera Social Impact Partner. EdLight — not
-// Coursera — runs this program and selects its Scholars. Nothing on this page
-// may imply Coursera picks scholars, co-operates the program, or endorses it,
+// Served at /scholars since 2026-10-07; /coursera-scholars (printed on the
+// partner flyers' QR code) redirects here permanently from next.config.js.
+//
+// EdLight Initiative is a Coursera Social Impact Partner and, since
+// 2026-09-30, a DataCamp Donates partner: each Scholar follows ONE of the two.
+// EdLight — not Coursera or DataCamp — runs this program and selects its
+// Scholars. Nothing on this page may imply either platform picks scholars,
+// co-operates the program, or endorses it,
 // and no specific university, employer, degree or certificate is promised,
 // because what the licence actually unlocks is set by the catalogue in
 // EdLight's plan, not by us.
@@ -46,7 +52,12 @@ import { scholarsDateValues, scholarsStatus } from '@/lib/scholarsApplications'
 // driven by the live programme phase (open / upcoming / closed). So this page
 // links straight to it instead of collecting notify signups.
 //
-// The count of donated licences (300) and the first cohort size are
+// The licence values are public list prices, never EdLight's cost, and are
+// stated per platform: Coursera Plus 59 $US/month (~177 $US for 3 months),
+// DataCamp Premium 35 $US/month on the monthly plan (~105 $US), both checked
+// 2026-10-07. 177 must never read as covering DataCamp.
+//
+// The count of donated licences (300 on each platform) and the first cohort size are
 // deliberately absent from the public page: the brief says not to advertise a
 // number of places unless EdLight decides to, and a public number is very hard
 // to walk back once the cohort is sized differently.
@@ -128,6 +139,16 @@ const pathways = [
 
 const collections = ['french', 'career'] as const
 
+// The 6 DataCamp paths, keyed as apply.edlight.org's DataCamp survey keys them
+// (scholarSurveys.questions.dcPathRanking). Path names only: never name a
+// course inside a path.
+const dcPaths = ['ai', 'sql', 'python', 'excelPowerBi', 'entrepreneurs', 'advanced'] as const
+
+const licences = [
+  { key: 'coursera', logo: '/partners/coursera-wordmark.png', width: 296, height: 72 },
+  { key: 'datacamp', logo: '/partners/datacamp-donates-logo.png', width: 800, height: 204 },
+] as const
+
 const institutionBenefits = [
   { icon: Building2, key: 'licences' },
   { icon: RefreshCw, key: 'renewal' },
@@ -182,7 +203,7 @@ const faqs = [
   'outsideHaiti',
 ] as const
 
-export default async function CourseraScholarsPage({
+export default async function ScholarsPage({
   params,
 }: {
   params: { locale: string }
@@ -266,9 +287,35 @@ export default async function CourseraScholarsPage({
         </div>
       </section>
 
+      {/* The two licences. Each value line names its own platform's public
+          price — see the note at the top of this file. */}
+      <section id="licences" className="bg-slate-50 py-20">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <SectionHeader title={t('licences.title')} subtitle={t('licences.subtitle')} centered />
+          <div className="grid gap-6 md:grid-cols-2">
+            {licences.map(({ key, logo, width, height }) => (
+              <div key={key} className="flex flex-col border-t-2 border-[var(--accent)] bg-white p-8">
+                <Image
+                  src={logo}
+                  alt={t(`licences.${key}.title`)}
+                  width={width}
+                  height={height}
+                  className="h-10 w-auto self-start"
+                />
+                <p className="mt-6 text-sm leading-relaxed text-[var(--ink-700)]">{t(`licences.${key}.body`)}</p>
+                <p className="mt-6 border-t border-[var(--paper-200)] pt-4 text-sm font-semibold text-[var(--ink-900)]">
+                  {t(`licences.${key}.value`)}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-sm text-[var(--ink-700)]">{t('licences.note')}</p>
+        </div>
+      </section>
+
       {/* Institutions first: they have the nearer deadline — a school must
           nominate before a cohort opens, a student only has to apply. */}
-      <section id="institutions" className="bg-slate-50 py-20">
+      <section id="institutions" className="py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader title={t('institutions.title')} subtitle={t('institutions.subtitle')} centered />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -299,7 +346,7 @@ export default async function CourseraScholarsPage({
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-slate-50 py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title={t('benefits.title')}
@@ -318,7 +365,7 @@ export default async function CourseraScholarsPage({
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title={t('who.title')}
@@ -356,7 +403,7 @@ export default async function CourseraScholarsPage({
         </div>
       </section>
 
-      <section id="how-it-works" className="py-20">
+      <section id="how-it-works" className="bg-slate-50 py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader title={t('steps.title')} subtitle={t('steps.subtitle')} centered />
           {/* Numbered because these genuinely are sequential — you cannot start
@@ -373,7 +420,7 @@ export default async function CourseraScholarsPage({
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader title={t('dates.title')} subtitle={t('dates.subtitle')} centered />
           <div className="mx-auto max-w-3xl border-t border-[var(--paper-200)]">
@@ -396,16 +443,17 @@ export default async function CourseraScholarsPage({
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-slate-50 py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
             title={t('pathways.title')}
             subtitle={t('pathways.subtitle')}
             centered
           />
+          <h3 className="mb-4 text-base font-semibold text-[var(--ink-900)]">{t('pathways.courseraTitle')}</h3>
           <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {pathways.map(({ icon: Icon, key }, i) => (
-              <li key={key} className="border border-[var(--paper-200)] p-5">
+              <li key={key} className="border border-[var(--paper-200)] bg-white p-5">
                 <div className="flex items-center justify-between">
                   <Icon size={22} className="text-[var(--accent)]" aria-hidden="true" />
                   <span className="text-xs font-semibold tabular-nums text-[var(--ink-700)]" aria-hidden="true">
@@ -426,12 +474,23 @@ export default async function CourseraScholarsPage({
               ))}
             </ul>
           </div>
+          <h3 className="mb-4 mt-14 text-base font-semibold text-[var(--ink-900)]">{t('dcPaths.title')}</h3>
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {dcPaths.map((key, i) => (
+              <li key={key} className="flex items-center justify-between gap-4 border border-[var(--paper-200)] bg-white p-5">
+                <span className="text-sm font-semibold leading-snug text-[var(--ink-900)]">{t(`dcPaths.items.${key}`)}</span>
+                <span className="text-xs font-semibold tabular-nums text-[var(--ink-700)]" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
       {/* Commitment. Encouraging, not threatening — the point is that places are
           scarce, not that scholars are on probation. */}
-      <section className="bg-slate-50 py-20">
+      <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader title={t('gallery.title')} subtitle={t('gallery.subtitle')} centered />
           <GalleryGrid

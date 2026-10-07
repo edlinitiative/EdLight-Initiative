@@ -31,6 +31,11 @@ const nextConfig = {
       { source: '/courses', destination: '/academy', permanent: true },
       { source: '/global-exchange', destination: '/nexus', permanent: true },
       { source: '/mission_projects', destination: '/about', permanent: true },
+      // The Scholars programme moved from /coursera-scholars on 2026-10-07 when
+      // DataCamp joined Coursera. The old url is printed on the partner flyers'
+      // QR codes and in sent emails, so it must keep resolving, forever.
+      { source: '/coursera-scholars', destination: '/scholars', permanent: true },
+      { source: '/:locale(en|fr)/coursera-scholars', destination: '/scholars', permanent: true },
     ]
   },
   async headers() {

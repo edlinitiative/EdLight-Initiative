@@ -25,7 +25,7 @@ const SCHOLARS_INSTITUTION_URL = 'https://apply.edlight.org/scholars/institution
 // for every item is home.story.audiences.<audience>.items.<item>.
 const audienceRoutes: Record<string, Record<string, string>> = {
   student: { academy: ACADEMY_URL, code: CODE_URL, eslp: '/eslp' },
-  university: { scholars: '/coursera-scholars', code: CODE_URL },
+  university: { scholars: '/scholars', code: CODE_URL },
   partner: { scholars: SCHOLARS_INSTITUTION_URL, partner: '/get-involved', speak: '/get-involved' },
   supporter: { donate: '/donate', volunteer: '/get-involved', contact: '/contact' },
 }
