@@ -115,9 +115,9 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   verification: {
-    // Add when available
-    // google: 'your-google-verification-code',
-    // bing: 'your-bing-verification-code',
+    other: {
+      'facebook-domain-verification': 'p3pf0t0k79sqg48o06fklgrtbt5xrk',
+    },
   },
 }
 
