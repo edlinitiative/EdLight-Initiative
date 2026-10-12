@@ -42,8 +42,8 @@ export const WINDOWS: ScholarsWindow[] = [
   },
   {
     cohort: 2,
-    opens: new Date('2026-10-03T00:00:00-04:00'),
-    closes: new Date('2026-12-13T23:59:59-05:00'),
+    opens: new Date('2026-11-10T00:00:00-05:00'),
+    closes: new Date('2026-12-10T23:59:59-05:00'),
     starts: new Date('2027-01-11T00:00:00-05:00'),
     ends: new Date('2027-04-11T00:00:00-04:00'),
     partnerDeadline: new Date('2026-12-28T23:59:00-05:00'),
