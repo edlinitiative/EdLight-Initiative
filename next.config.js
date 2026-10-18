@@ -36,6 +36,15 @@ const nextConfig = {
       // QR codes and in sent emails, so it must keep resolving, forever.
       { source: '/coursera-scholars', destination: '/scholars', permanent: true },
       { source: '/:locale(en|fr)/coursera-scholars', destination: '/scholars', permanent: true },
+      // "Bourse" is French for scholarship, and /bourse/scholars was found
+      // 404ing as a Google Ads destination. No page or link here has ever used
+      // /bourse, so it is a guessed or mistyped ad URL; resolving it beats a
+      // disapproved ad. Temporary (307) so a real /bourse page could take the
+      // path later without browsers having cached a permanent redirect. Next
+      // carries the query string over, so gclid / gbraid / wbraid survive.
+      { source: '/bourse', destination: '/scholars', permanent: false },
+      { source: '/bourse/scholars', destination: '/scholars', permanent: false },
+      { source: '/:locale(en|fr)/bourse/scholars', destination: '/scholars', permanent: false },
     ]
   },
   async headers() {

@@ -129,12 +129,16 @@ export default async function PrivacyPage({
               On (autoBodyAnalytics): GA4 + Google Ads measurement set cookies,
               record pages viewed, referral source, device, approximate location
               from IP and the three conversion events (donate_click,
-              generate_lead, program_click), with no form contents sent; ad
-              storage and ad personalisation are denied by Consent Mode and
-              Google signals is off. If any of that changes in Analytics.tsx —
-              a new event that could carry personal data, ad_storage granted,
-              remarketing turned on, a consent banner added — this text, section
-              4 and section 5 change in the same commit, in every locale.
+              generate_lead, program_click), with no form contents sent.
+              Consent Mode (gtagBootstrap in lib/analytics.ts) denies every
+              signal, so no Google cookie, in the EEA, UK and Switzerland, and
+              grants analytics and ad storage elsewhere, so the Google Ads click
+              cookie is set there; ad personalisation / remarketing stays off
+              via allow_ad_personalization_signals:false and Google signals is
+              off. If any of that changes — a new event that could carry
+              personal data, the region list, remarketing turned on, a consent
+              banner added — this text, section 4 and section 5 change in the
+              same commit, in every locale.
 
               Do not add a second tracker (Meta pixel, Tag Manager container,
               Vercel Analytics) without the same treatment. And when the env var

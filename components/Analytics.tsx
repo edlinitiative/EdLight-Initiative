@@ -4,27 +4,31 @@ import { useEffect } from 'react'
 import Script from 'next/script'
 import { usePathname } from 'next/navigation'
 
-import { GOOGLE_ADS_ID, isAdminPath, isDonateUrl, programDestination, track } from '@/lib/analytics'
+import { GOOGLE_ADS_ID, gtagBootstrap, isAdminPath, isDonateUrl, programDestination, track } from '@/lib/analytics'
 
 /**
  * GA4 + Google Ads measurement. Rendered by the root layout only when
  * NEXT_PUBLIC_GA_MEASUREMENT_ID is set (see lib/analytics.ts); with it unset
  * this component is never mounted and nothing Google-related reaches the page.
  *
- * Consent Mode v2 defaults, set before the config call:
- *   - ad_storage, ad_user_data, ad_personalization: DENIED, always. No
- *     remarketing, no ad personalisation, no ad cookies.
- *   - analytics_storage: GRANTED. This is a deliberate choice with no consent
- *     banner: EdLight is a Canadian not-for-profit and visitors are mostly in
- *     Haiti and the US, where first-party analytics cookies do not require
- *     prior opt-in. The privacy policy discloses it and links the opt-out.
- *     REVISIT THIS if EU/UK traffic becomes meaningful: there, analytics
- *     cookies need consent first, which means a banner and defaulting
- *     analytics_storage to denied for those regions.
- *   - url_passthrough: true, so Google Ads clicks still attribute to
- *     conversions (via the gclid on the URL) without any ad cookie.
- *   - The Google Ads tag (GOOGLE_ADS_ID) is configured on the same loader,
- *     under the same denied ad consent.
+ * Consent Mode v2 ("advanced": gtag always loads, consent decides what it
+ * may store), built by gtagBootstrap() in lib/analytics.ts:
+ *   - EEA, UK and Switzerland (CONSENT_DENIED_REGIONS): analytics_storage,
+ *     ad_storage, ad_user_data and ad_personalization all DENIED. No banner,
+ *     so they stay denied: Google gets cookieless pings only.
+ *   - Everywhere else: all four GRANTED, so GA4 and the Google Ads tag can set
+ *     their first-party cookies and attribute conversions to ad clicks.
+ *     EdLight is a Canadian not-for-profit whose visitors are mostly in Haiti,
+ *     the US and Canada. Remarketing stays off regardless: both configs pass
+ *     allow_ad_personalization_signals:false and Google signals is off.
+ *   - url_passthrough: true, so Google Ads clicks still attribute (via the
+ *     gclid on the URL) where ad cookies are denied.
+ *   - linker: LINKER_DOMAINS, so the session and click id carry to
+ *     apply / academy / code.edlight.org.
+ *   - The Google Ads tag (GOOGLE_ADS_ID) is configured on the same loader.
+ * If a consent banner is ever added, a decline must call
+ * gtag('consent','update',{...all four:'denied'}), and /privacy must change
+ * in the same commit.
  *
  * Admin routes are never measured: the tag is not rendered there, and if gtag
  * is already loaded from a public page it is disabled while on /admin.
@@ -95,18 +99,10 @@ export default function Analytics({ measurementId }: { measurementId: string }) 
 
   if (onAdmin) return null
 
-  const id = JSON.stringify(measurementId)
-
   return (
     <>
       <Script id="ga-init" strategy="afterInteractive">
-        {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});
-gtag('set','url_passthrough',true);
-gtag('js',new Date());
-gtag('config',${id},{allow_google_signals:false,allow_ad_personalization_signals:false});${
-          GOOGLE_ADS_ID ? `\ngtag('config',${JSON.stringify(GOOGLE_ADS_ID)},{allow_ad_personalization_signals:false});` : ''
-        }`}
+        {gtagBootstrap(measurementId, GOOGLE_ADS_ID)}
       </Script>
       <Script
         id="ga-gtag"

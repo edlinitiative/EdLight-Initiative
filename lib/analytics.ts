@@ -30,6 +30,73 @@ export function validAdsId(raw: string): string {
 // so it is only ever configured when ANALYTICS_ENABLED.
 export const GOOGLE_ADS_ID = validAdsId(process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? 'AW-18486508230')
 
+/**
+ * Regions where every Consent Mode signal defaults to denied: the EEA (EU 27
+ * plus Iceland, Liechtenstein and Norway), the UK and Switzerland, where
+ * analytics and advertising cookies need prior opt-in. There is no consent
+ * banner, so visitors there stay denied for their whole visit: gtag still
+ * loads and sends cookieless pings (Consent Mode "advanced"), which Google
+ * uses for modelled conversions, but no Google cookie is set.
+ */
+export const CONSENT_DENIED_REGIONS = [
+  // EU 27
+  'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE',
+  'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE',
+  // Rest of the EEA, then the UK and Switzerland
+  'IS', 'LI', 'NO', 'GB', 'CH',
+] as const
+
+/**
+ * Our own sites. gtag's linker appends a _gl parameter to links between them
+ * so the GA client id, session and Ads click id carry across a hop to another
+ * EdLight site even when its cookies cannot be read there. Each receiving
+ * site needs the same linker list (accept_incoming) in its own gtag config.
+ */
+export const LINKER_DOMAINS = [
+  'edlight.org',
+  'www.edlight.org',
+  'apply.edlight.org',
+  'academy.edlight.org',
+  'code.edlight.org',
+] as const
+
+/**
+ * The inline script that boots gtag. Order matters: consent defaults must be
+ * set before any config call, or the first hits go out with no consent state.
+ *
+ *   - Region default: all four signals denied in CONSENT_DENIED_REGIONS.
+ *   - Global default: all four granted everywhere else. ad_storage and
+ *     ad_user_data being granted is what lets Google Ads set its click cookie
+ *     (_gcl_aw) and attribute a conversion that happens later in the visit;
+ *     with them denied, as before, conversions were only ever modelled.
+ *     ad_personalization is granted at the consent layer but both configs
+ *     still pass allow_ad_personalization_signals:false, so no remarketing
+ *     audience is built from this site.
+ *   - url_passthrough keeps the gclid / gbraid / wbraid on internal links, so
+ *     a denied-region click still attributes without a cookie.
+ *   - linker carries the session across LINKER_DOMAINS.
+ *
+ * Both ids are validated before they reach this function (G- / AW- regexes),
+ * and are JSON-encoded anyway.
+ */
+export function gtagBootstrap(measurementId: string, adsId: string): string {
+  const signals = (state: 'granted' | 'denied') =>
+    `analytics_storage:'${state}',ad_storage:'${state}',ad_user_data:'${state}',ad_personalization:'${state}'`
+  const lines = [
+    'window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}',
+    `gtag('consent','default',{${signals('denied')},region:${JSON.stringify(CONSENT_DENIED_REGIONS)}});`,
+    `gtag('consent','default',{${signals('granted')}});`,
+    "gtag('set','url_passthrough',true);",
+    `gtag('set','linker',{domains:${JSON.stringify(LINKER_DOMAINS)},accept_incoming:true});`,
+    "gtag('js',new Date());",
+    `gtag('config',${JSON.stringify(measurementId)},{allow_google_signals:false,allow_ad_personalization_signals:false});`,
+  ]
+  if (adsId) {
+    lines.push(`gtag('config',${JSON.stringify(adsId)},{allow_ad_personalization_signals:false});`)
+  }
+  return lines.join('\n')
+}
+
 type Gtag = (...args: unknown[]) => void
 
 declare global {
@@ -64,11 +131,19 @@ export function notifyLeadParams(cycleLabel: string): { form: string; cycle: str
   return form ? { form, cycle: cycleLabel } : { form: 'notify', cycle: 'other' }
 }
 
-/** Send a GA4 event. A safe no-op on the server, with GA off, or before gtag loads. */
+/**
+ * Send a GA4 event. A safe no-op on the server, with GA off, or before gtag loads.
+ *
+ * transport_type 'beacon' hands the hit to navigator.sendBeacon, which the
+ * browser delivers even after the page unloads. Most of these events fire on
+ * a click that immediately navigates away (Apply on apply.edlight.org, the
+ * navbar Donate link, PayPal), and a normal request would often be cancelled
+ * with the page.
+ */
 export function track<E extends AnalyticsEvent>(name: E['name'], params: E['params']): void {
   if (typeof window === 'undefined' || typeof window.gtag !== 'function') return
   try {
-    window.gtag('event', name, params)
+    window.gtag('event', name, { ...params, transport_type: 'beacon' })
   } catch {
     // Measurement must never break the page.
   }
