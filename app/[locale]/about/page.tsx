@@ -13,7 +13,6 @@ const leadershipTeam = [
   { name: 'Stevenson Michel', key: 'stevensonMichel' },
   { name: 'Ted Jacquet', key: 'tedJacquet' },
   { name: 'Rony Francillon', key: 'ronyFrancillon' },
-  { name: 'Hérode Métellus', key: 'herodeMetellus' },
   { name: 'Williamson Michel', key: 'williamsonMichel' },
   { name: 'Christopher Michel', key: 'christopherMichel' },
   { name: 'Stéphane Lainé', key: 'stephaneLaine' },
