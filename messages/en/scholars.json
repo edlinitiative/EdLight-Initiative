@@ -45,6 +45,21 @@
       }
     }
   },
+  "more": {
+    "title": "More than a licence",
+    "subtitle": "Being an EdLight Scholar also means joining a community and working as a team on a real project.",
+    "community": {
+      "title": "A community of Scholars",
+      "body": "Scholars meet and get to know each other at community events, online and in person when possible. Along the way you build a network of peers across Haiti."
+    },
+    "project": {
+      "title": "A required team project",
+      "body": "Every Scholar completes a team project, a case study, with four or five other Scholars. Teams work on a real problem, hand in a first draft, then present their final work to a jury.",
+      "questionLabel": "The 2026 question",
+      "question": "“How can EdLight advance education in Haiti?”",
+      "outcome": "It builds teamwork, problem-solving, presentation and leadership skills, and you finish with a concrete project to show on your CV and your LinkedIn profile."
+    }
+  },
   "who": {
     "title": "Who can apply?",
     "subtitle": "EdLight Scholars Program is for motivated learners who are ready to invest in themselves.",
@@ -106,6 +121,7 @@
   "commitment": {
     "title": "A scholarship is an opportunity, and a commitment.",
     "p1": "Places are limited, and every one of them could go to someone else. Selected Scholars are expected to activate their access, start a course, and complete at least one meaningful course or certificate.",
+    "participation": "This is a selective programme. EdLight expects every Scholar to take an active part: in their courses, in the WhatsApp community and in the team project. Places go to motivated people who are ready to commit.",
     "p2": "If a Scholar is not able to begin, we would rather hear it early and offer the place to someone on the waitlist than let it go unused."
   },
   "faq": {

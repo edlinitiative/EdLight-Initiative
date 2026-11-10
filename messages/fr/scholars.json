@@ -45,6 +45,21 @@
       }
     }
   },
+  "more": {
+    "title": "Plus qu’une licence",
+    "subtitle": "Être EdLight Scholar, c’est aussi rejoindre une communauté et travailler en équipe sur un vrai projet.",
+    "community": {
+      "title": "Une communauté de Scholars",
+      "body": "Les Scholars se rencontrent et apprennent à se connaître lors d’événements de la communauté, en ligne et en présentiel lorsque c’est possible. Vous vous construisez ainsi un réseau de pairs à travers tout Haïti."
+    },
+    "project": {
+      "title": "Un projet d’équipe obligatoire",
+      "body": "Chaque Scholar réalise un projet d’équipe, une étude de cas, avec quatre ou cinq autres Scholars. Les équipes travaillent sur un vrai problème, remettent une première version, puis présentent leur travail final devant un jury.",
+      "questionLabel": "La question de 2026",
+      "question": "« Comment EdLight peut-elle faire progresser l’éducation en Haïti ? »",
+      "outcome": "Vous y développez le travail d’équipe, la résolution de problèmes, la prise de parole et le leadership, et vous repartez avec un projet concret à présenter sur votre CV et votre profil LinkedIn."
+    }
+  },
   "who": {
     "title": "Qui peut poser sa candidature ?",
     "subtitle": "Programme EdLight Scholars s’adresse aux apprenants motivés, prêts à investir en eux-mêmes.",
@@ -106,6 +121,7 @@
   "commitment": {
     "title": "Une bourse est une occasion, et un engagement.",
     "p1": "Les places sont limitées, et chacune d’elles pourrait revenir à quelqu’un d’autre. Les Scholars sélectionnés doivent activer leur accès, commencer un cours et terminer au moins un cours ou un certificat qui compte.",
+    "participation": "C’est un programme sélectif. EdLight attend de chaque Scholar une participation active : aux cours, à la communauté WhatsApp et au projet d’équipe. Les places reviennent aux personnes motivées, prêtes à s’engager.",
     "p2": "Si un Scholar n’est pas en mesure de commencer, nous préférons l’apprendre tôt et offrir la place à quelqu’un sur la liste d’attente plutôt que de la laisser inutilisée."
   },
   "faq": {
