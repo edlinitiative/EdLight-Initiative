@@ -365,6 +365,36 @@ export default async function ScholarsPage({
         </div>
       </section>
 
+      {/* More than a licence: the community and the required team project
+          (the case study). No event dates, cities or numbers here — none are
+          promised, so none are printed. */}
+      <section id="community" className="border-b border-[var(--paper-200)] py-20">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <SectionHeader title={t('more.title')} subtitle={t('more.subtitle')} centered />
+          <div className="grid gap-6 lg:grid-cols-12">
+            <div className="border border-[var(--paper-200)] bg-white p-8 lg:col-span-5">
+              <Users size={24} className="text-[var(--accent)]" aria-hidden="true" />
+              <h3 className="mt-4 text-xl font-semibold text-[var(--ink-900)]">{t('more.community.title')}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ink-700)]">{t('more.community.body')}</p>
+            </div>
+            <div className="border-t-2 border-[var(--ink-900)] bg-white p-8 lg:col-span-7">
+              <FolderKanban size={24} className="text-[var(--accent)]" aria-hidden="true" />
+              <h3 className="mt-4 text-xl font-semibold text-[var(--ink-900)]">{t('more.project.title')}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ink-700)]">{t('more.project.body')}</p>
+              <div className="mt-6 border-l-2 border-[var(--accent)] pl-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ink-700)]">
+                  {t('more.project.questionLabel')}
+                </p>
+                <p className="mt-2 text-lg font-semibold leading-snug text-[var(--ink-900)]">
+                  {t('more.project.question')}
+                </p>
+              </div>
+              <p className="mt-6 text-sm leading-relaxed text-[var(--ink-700)]">{t('more.project.outcome')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <SectionHeader
@@ -508,6 +538,9 @@ export default async function ScholarsPage({
             </h2>
             <p className="body-lg text-[var(--on-dark-muted)]">
               {t('commitment.p1')}
+            </p>
+            <p className="mt-4 body-lg text-[var(--on-dark-muted)]">
+              {t('commitment.participation')}
             </p>
             <p className="mt-4 body-lg text-[var(--on-dark-muted)]">
               {t('commitment.p2')}
